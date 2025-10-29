@@ -168,17 +168,17 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          git add data/ content/posts/ site/static/images/
+          # Only commit articles, images, and pattern files (not raw data)
+          git add content/posts/ site/static/images/ || true
+          git add data/*_patterns.json data/*_feedback.json || true
           
           if git diff --staged --quiet; then
             echo "No changes from pipeline run"
           else
-            ARTICLE_COUNT=$(git diff --staged --name-only | grep 'content/posts/.*\.md' | wc -l)
+            ARTICLE_COUNT=$(git diff --staged --name-only | grep 'content/posts/.*\.md' | wc -l || echo "0")
             git commit -m "🔄 Pipeline run - $(date -u +%Y-%m-%d_%H%M%S)
 
             Generated $ARTICLE_COUNT articles in parallel batches
-            - Collected and enriched content
-            - Parallel article generation (5 batches)
             - Updated adaptive learning patterns"
             git push
           fi
