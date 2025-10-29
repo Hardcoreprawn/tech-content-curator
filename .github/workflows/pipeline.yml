@@ -39,6 +39,14 @@ jobs:
         with:
           enable-cache: true
       
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: site/resources/_gen
+          key: ${{ runner.os }}-hugo-${{ hashFiles('content/**') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+      
       - name: Install dependencies
         run: uv sync
       
