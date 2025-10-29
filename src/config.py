@@ -42,6 +42,8 @@ def get_config() -> PipelineConfig:
             articles_per_run=int(os.getenv("ARTICLES_PER_RUN", "10")),
             min_content_length=int(os.getenv("MIN_CONTENT_LENGTH", "100")),
             max_content_length=int(os.getenv("MAX_CONTENT_LENGTH", "2000")),
+            # Hugo site configuration
+            hugo_base_url=os.getenv("HUGO_BASE_URL", "https://hardcoreprawn.github.io/tech-content-curator"),
             # Content relevance filtering
             allow_tech_content=os.getenv("ALLOW_TECH_CONTENT", "true").lower()
             == "true",

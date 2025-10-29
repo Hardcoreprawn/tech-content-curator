@@ -29,22 +29,26 @@ def get_images_dir() -> Path:
 
 
 def generate_featured_image(
-    title: str, summary: str, slug: str, api_key: str
+    title: str, summary: str, slug: str, openai_api_key: str, base_url: str = ""
 ) -> tuple[str, str] | None:
-    """Generate a featured image and icon for an article using DALL-E 3.
+    """Generate a featured image for an article using DALL-E 3.
+
+    Cost optimization: Generate 1024x1024 ($0.020) then resize locally to:
+    - Hero: 1792x1024 for article header
+    - Icon: 512x512 for social media
 
     Args:
-        title: Article title
-        summary: Brief article summary
-        slug: URL-friendly slug for filename
-        api_key: OpenAI API key
+        title: Article title for image generation
+        summary: Article summary for context
+        slug: URL slug for filename
+        openai_api_key: OpenAI API key
+        base_url: Base URL for the site (e.g., "https://example.com/blog/")
 
     Returns:
-        Tuple of (hero_path, icon_path) like ("/images/slug.png", "/images/slug-icon.png")
-        or None if generation fails
+        Tuple of (hero_url, icon_url) or None if generation fails
     """
     try:
-        client = OpenAI(api_key=api_key)
+        client = OpenAI(api_key=openai_api_key)
 
         # Create a concise prompt for DALL-E 3
         # Focus on abstract, professional tech imagery
@@ -113,9 +117,13 @@ The image should work well as a blog header - wide format, visually appealing, n
             icon.save(icon_filepath, "PNG")
             console.print(f"[green]✓[/green] Created icon at {icon_filename}")
 
-        # Return absolute paths from Hugo static root
-        # canonifyURLs in hugo.toml will convert these to full URLs with baseURL
-        return (f"/images/{hero_filename}", f"/images/{icon_filename}")
+        # Return absolute URLs if base_url provided, otherwise relative paths
+        if base_url:
+            # Remove trailing slash from base_url if present
+            base_url = base_url.rstrip("/")
+            return (f"{base_url}/images/{hero_filename}", f"{base_url}/images/{icon_filename}")
+        else:
+            return (f"/images/{hero_filename}", f"/images/{icon_filename}")
 
     except Exception as e:
         console.print(f"[yellow]⚠[/yellow] Image generation failed: {e}")

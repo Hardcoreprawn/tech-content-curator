@@ -65,8 +65,9 @@ site/.hugo_build.lock
 # General cache
 .cache/
 
-# Env files
+# Env files (but allow .env.example)
 .env.*
+!.env.example
 .envrc
 
 # Python versions

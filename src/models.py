@@ -88,6 +88,12 @@ class PipelineConfig(BaseModel):
     articles_per_run: int = Field(default=3, ge=1, le=10)
     min_content_length: int = Field(default=100, ge=50)
     max_content_length: int = Field(default=2000, le=5000)
+    
+    # Hugo site configuration
+    hugo_base_url: str = Field(
+        default="",
+        description="Base URL for Hugo site (e.g., 'https://site.com/blog'). Used for absolute image URLs."
+    )
 
     # Reddit rate limiting and retry behavior
     reddit_requests_per_minute: int = Field(

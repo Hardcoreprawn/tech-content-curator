@@ -125,6 +125,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          HUGO_BASE_URL: https://hardcoreprawn.github.io/tech-content-curator
           QUALITY_THRESHOLD: 0.5
           SOURCE_COOLDOWN_DAYS: 7
         run: |

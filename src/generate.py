@@ -718,7 +718,7 @@ def save_article_to_file(
     if generate_image:
         slug = filepath.stem  # Use filename stem as slug
         image_result = generate_featured_image(
-            article.title, article.summary, slug, config.openai_api_key
+            article.title, article.summary, slug, config.openai_api_key, config.hugo_base_url
         )
         if image_result:
             hero_path, icon_path = image_result
