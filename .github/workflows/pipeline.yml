@@ -16,18 +16,18 @@ permissions:
   id-token: write
 
 jobs:
-  pipeline:
+  # Phase 1: Collect and Enrich (sequential)
+  collect-enrich:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      has-content: ${{ steps.check-content.outputs.has-content }}
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          submodules: true  # Fetch Hugo theme
+          submodules: true
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,10 +39,9 @@ jobs:
         with:
           enable-cache: true
       
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: uv sync
       
-      # Step 1: Collect content from sources
       - name: 📥 Collect content
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -50,60 +49,140 @@ jobs:
           HACKERNEWS_ENABLED: true
           GITHUB_TRENDING_ENABLED: true
           MASTODON_ENABLED: true
-        run: |
-          echo "::group::Collecting content from sources"
-          uv run python -m src.collect
-          echo "::endgroup::"
+        run: uv run python -m src.collect
       
-      # Step 2: Enrich with quality scores
       - name: ✨ Enrich content
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          echo "::group::Enriching content with quality scores"
-          uv run python -m src.enrich
-          echo "::endgroup::"
+        run: uv run python -m src.enrich
       
-      # Step 3: Generate articles
-      - name: 📝 Generate articles
+      - name: Check if we have enriched content
+        id: check-content
+        run: |
+          if ls data/enriched_*.json 1> /dev/null 2>&1; then
+            echo "has-content=true" >> $GITHUB_OUTPUT
+          else
+            echo "has-content=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Upload enriched data
+        uses: actions/upload-artifact@v4
+        with:
+          name: enriched-data
+          path: |
+            data/collected_*.json
+            data/enriched_*.json
+            data/*_patterns.json
+            data/*_feedback.json
+          retention-days: 1
+  
+  # Phase 2: Generate articles in parallel (5 batches of 2 articles each)
+  generate-articles:
+    needs: collect-enrich
+    if: needs.collect-enrich.outputs.has-content == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5  # Run 5 jobs simultaneously
+      matrix:
+        batch: [1, 2, 3, 4, 5]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+      
+      - name: Install dependencies
+        run: uv sync
+      
+      - name: Download enriched data
+        uses: actions/download-artifact@v4
+        with:
+          name: enriched-data
+          path: data
+      
+      - name: 📝 Generate articles (batch ${{ matrix.batch }})
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ARTICLES_PER_RUN: 10
-          GENERATE_IMAGES: true
           QUALITY_THRESHOLD: 0.5
           SOURCE_COOLDOWN_DAYS: 7
         run: |
-          echo "::group::Generating articles with images"
-          uv run python -m src.generate --max-articles 10 --generate-images
-          echo "::endgroup::"
+          # Generate 2 articles per batch = 10 total
+          uv run python -m src.generate --max-articles 2 --generate-images
       
-      # Step 4: Commit all changes (data + articles + images)
+      - name: Upload generated content
+        uses: actions/upload-artifact@v4
+        with:
+          name: articles-batch-${{ matrix.batch }}
+          path: |
+            content/posts/*.md
+            site/static/images/*.png
+          retention-days: 1
+  
+  # Phase 3: Commit and Deploy (sequential)
+  deploy:
+    needs: generate-articles
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      
+      - name: Download enriched data
+        uses: actions/download-artifact@v4
+        with:
+          name: enriched-data
+          path: data
+      
+      - name: Download all article batches
+        uses: actions/download-artifact@v4
+        with:
+          pattern: articles-batch-*
+          merge-multiple: true
+      
       - name: 💾 Commit pipeline outputs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # Add all pipeline outputs
-          git add data/collected_*.json data/enriched_*.json
-          git add data/*_patterns.json data/*_feedback.json
-          git add content/posts/*.md site/static/images/*.png
+          git add data/ content/posts/ site/static/images/
           
-          # Commit if there are changes
           if git diff --staged --quiet; then
             echo "No changes from pipeline run"
           else
+            ARTICLE_COUNT=$(git diff --staged --name-only | grep 'content/posts/.*\.md' | wc -l)
             git commit -m "🔄 Pipeline run - $(date -u +%Y-%m-%d_%H%M%S)
 
-            - Collected new content
-            - Enriched with quality scores
-            - Generated articles with images
+            Generated $ARTICLE_COUNT articles in parallel batches
+            - Collected and enriched content
+            - Parallel article generation (5 batches)
             - Updated adaptive learning patterns"
             git push
           fi
       
-      # Step 5: Build Hugo site
       - name: Set up Hugo
         uses: peaceiris/actions-hugo@v3
         with:
@@ -112,13 +191,10 @@ jobs:
       
       - name: 🏗️ Build Hugo site
         run: |
-          echo "::group::Building Hugo static site"
           cd site
           hugo --minify
-          echo "::endgroup::"
       
-      # Step 6: Deploy to GitHub Pages
-      - name: Upload artifact for GitHub Pages
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/public
@@ -127,14 +203,13 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       
-      # Step 7: Summary
       - name: 📊 Pipeline summary
         run: |
+          ARTICLE_COUNT=$(ls content/posts/*.md 2>/dev/null | wc -l)
           echo "## Pipeline Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Collection completed" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Enrichment completed" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Article generation completed" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Collection & Enrichment completed" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Generated $ARTICLE_COUNT articles in 5 parallel batches" >> $GITHUB_STEP_SUMMARY
           echo "✅ Site built and deployed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
