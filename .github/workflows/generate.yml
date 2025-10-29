@@ -1,0 +1,85 @@
+name: Generate and Deploy
+
+on:
+  repository_dispatch:
+    types: [enrichment-complete]
+  workflow_dispatch: # Allow manual triggering
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+      
+      - name: Install Python dependencies
+        run: uv sync
+      
+      - name: Generate articles
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ARTICLES_PER_RUN: 10
+          GENERATE_IMAGES: true
+          QUALITY_THRESHOLD: 0.5
+          SOURCE_COOLDOWN_DAYS: 7
+        run: |
+          uv run python -m src.generate --max-articles 10 --generate-images
+      
+      - name: Commit generated articles
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add content/posts/*.md site/static/images/*.png
+          if git diff --staged --quiet; then
+            echo "No new articles generated"
+          else
+            git commit -m "📝 Generate articles - $(date -u +%Y-%m-%d_%H%M%S)"
+            git push
+          fi
+      
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      
+      - name: Build Hugo site
+        run: |
+          cd site
+          hugo --minify
+      
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+  
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

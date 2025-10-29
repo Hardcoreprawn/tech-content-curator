@@ -1,0 +1,65 @@
+# GitHub Pages URL
+baseURL = "https://hardcoreprawn.github.io/tech-content-curator/"
+languageCode = "en-us"
+title = "Tech Content Curator"
+theme = "PaperMod"
+
+# Use our existing content directory
+contentDir = "../content"
+
+# Pagination
+# Deprecated: paginate = 10
+
+[params]
+  description = "Curated tech content from social media, transformed into insightful articles"
+  author = "Tech Content Curator"
+  
+  # PaperMod specific settings
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  
+  # Home page settings
+  [params.homeInfoParams]
+    Title = "Tech Content Curator"
+    Content = "Quality tech articles curated from HackerNews, GitHub, Reddit, and Mastodon"
+
+  # Social links
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/yourusername/content-playground"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 20
+    
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 30
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+
+# Pagination (new format)
+[pagination]
+  pagerSize = 10
