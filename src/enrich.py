@@ -11,11 +11,14 @@ DESIGN DECISIONS:
 - Each enrichment step is a separate function (testable, clear)
 - Store research results in structured format (easy to debug)
 - Fail gracefully - if AI fails, we can still use basic content
+- Parallel processing with rate limiting for faster enrichment
 """
 
+import asyncio
 import json
 import logging
 import re
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -808,14 +811,14 @@ def enrich_single_item(
         return None
 
 
-def enrich_collected_items(items: list[CollectedItem]) -> list[EnrichedItem]:
+def enrich_collected_items(items: list[CollectedItem], max_workers: int = 5) -> list[EnrichedItem]:
     """Enrich all collected items with AI analysis and adaptive scoring.
 
-    This processes a batch of collected items and returns the enriched versions.
-    Items are processed sequentially to avoid rate limiting.
+    This processes items in parallel with rate limiting to avoid API throttling.
 
     Args:
         items: List of collected items to enrich
+        max_workers: Maximum number of concurrent enrichment tasks (default: 5)
 
     Returns:
         List of successfully enriched items
@@ -827,15 +830,28 @@ def enrich_collected_items(items: list[CollectedItem]) -> list[EnrichedItem]:
     adapter = ScoringAdapter()
 
     console.print(
-        f"[bold blue]Starting enrichment of {len(items)} items...[/bold blue]"
+        f"[bold blue]Starting parallel enrichment of {len(items)} items (max {max_workers} concurrent)...[/bold blue]"
     )
 
-    for i, item in enumerate(items, 1):
-        console.print(f"\n[dim]Progress: {i}/{len(items)}[/dim]")
-
-        enriched = enrich_single_item(item, config, adapter)
-        if enriched:
-            enriched_items.append(enriched)
+    # Process items in parallel with ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all tasks
+        futures = []
+        for i, item in enumerate(items, 1):
+            future = executor.submit(enrich_single_item, item, config, adapter)
+            futures.append((i, future))
+        
+        # Collect results as they complete
+        for i, future in futures:
+            try:
+                console.print(f"\r[dim]Progress: {i}/{len(items)}[/dim]", end="")
+                enriched = future.result()
+                if enriched:
+                    enriched_items.append(enriched)
+            except Exception as e:
+                console.print(f"\n[yellow]⚠[/yellow] Item {i} failed: {e}")
+    
+    console.print()  # New line after progress
 
     # Update learned patterns and save feedback
     console.print("[blue]Updating adaptive scoring patterns...[/blue]")

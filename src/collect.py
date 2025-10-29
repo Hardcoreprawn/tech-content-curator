@@ -11,8 +11,10 @@ DESIGN DECISIONS:
 - Functions return List[CollectedItem] - consistent interface
 - Error handling is explicit - we want to know when things fail
 - Rate limiting is handled per-source since each API is different
+- Async collection for parallel fetching from multiple sources
 """
 
+import asyncio
 import json
 import time
 from datetime import UTC, datetime
@@ -1281,23 +1283,45 @@ def collect_all_sources() -> list[CollectedItem]:
     # except Exception as e:
     #     console.print(f"[yellow]⚠[/yellow] Reddit collection failed: {e}")
 
-    # Collect from HackerNews
-    try:
+    # Collect from HackerNews, GitHub trending concurrently
+    console.print("[blue]Collecting from HackerNews and GitHub in parallel...[/blue]")
+    
+    async def collect_parallel_sources():
+        """Collect from multiple sources concurrently."""
+        tasks = []
+        
+        # HackerNews
         hn_limit = min(20, 100 - len(all_items))
         if hn_limit > 0:
-            hn_items = collect_from_hackernews(hn_limit)
-            all_items.extend(hn_items)
-    except Exception as e:
-        console.print(f"[yellow]⚠[/yellow] HackerNews collection failed: {e}")
-
-    # Collect from GitHub trending
-    try:
+            async def collect_hn():
+                try:
+                    return await asyncio.to_thread(collect_from_hackernews, hn_limit)
+                except Exception as e:
+                    console.print(f"[yellow]⚠[/yellow] HackerNews collection failed: {e}")
+                    return []
+            tasks.append(collect_hn())
+        
+        # GitHub trending
         gh_limit = min(15, 100 - len(all_items))
         if gh_limit > 0:
-            gh_items = collect_from_github_trending(language=None, limit=gh_limit)
-            all_items.extend(gh_items)
+            async def collect_gh():
+                try:
+                    return await asyncio.to_thread(collect_from_github_trending, None, gh_limit)
+                except Exception as e:
+                    console.print(f"[yellow]⚠[/yellow] GitHub trending collection failed: {e}")
+                    return []
+            tasks.append(collect_gh())
+        
+        # Run all tasks concurrently
+        results = await asyncio.gather(*tasks)
+        return [item for result in results for item in result]
+    
+    # Run async collection
+    try:
+        parallel_items = asyncio.run(collect_parallel_sources())
+        all_items.extend(parallel_items)
     except Exception as e:
-        console.print(f"[yellow]⚠[/yellow] GitHub trending collection failed: {e}")
+        console.print(f"[yellow]⚠[/yellow] Parallel collection failed: {e}")
 
     # TODO: Add dev.to, Lobsters, and potentially Twitter/X
 
