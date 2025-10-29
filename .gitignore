@@ -1,0 +1,89 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project specific
+# Data: ignore generated artifacts, keep curated feedback/patterns
+data/collected_*.json
+data/enriched_*.json
+data/*.tmp
+data/*.cache
+data/*.db
+data/*.sqlite
+data/*.lock
+!data/dedup_feedback.json
+!data/scoring_feedback.json
+!data/dedup_patterns.json
+!data/scoring_patterns.json
+*.log
+.DS_Store
+
+# Hugo (site)
+site/public/
+site/resources/_gen/
+site/.hugo_build.lock
+
+# Node
+**/node_modules/
+
+# General cache
+.cache/
+
+# Env files
+.env.*
+.envrc
+
+# Python versions
+.python-version
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ruff
+.ruff_cache/

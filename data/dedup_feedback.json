@@ -1,0 +1,438 @@
+[
+  {
+    "items_processed": 69,
+    "duplicates_found": 9,
+    "patterns_used": 6,
+    "timestamp": "2025-10-27T23:49:59.808350",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+        "removed_items": [
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+        "removed_items": [
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o",
+          "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+        "removed_items": [
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) "
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 69,
+    "duplicates_found": 9,
+    "patterns_used": 10,
+    "timestamp": "2025-10-27T23:52:21.269439",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+        "removed_items": [
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+        "removed_items": [
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o",
+          "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+        "removed_items": [
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) "
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 100,
+    "duplicates_found": 11,
+    "patterns_used": 12,
+    "timestamp": "2025-10-28T00:24:23.885591",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+        "removed_items": [
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+        "removed_items": [
+          "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+        "removed_items": [
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) "
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 100,
+    "duplicates_found": 11,
+    "patterns_used": 14,
+    "timestamp": "2025-10-28T00:25:39.804669",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+        "removed_items": [
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+        "removed_items": [
+          "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+        "removed_items": [
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) "
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 100,
+    "duplicates_found": 11,
+    "patterns_used": 16,
+    "timestamp": "2025-10-28T00:28:17.612131",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+        "removed_items": [
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+        "removed_items": [
+          "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+        "removed_items": [
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) ",
+          "Damn. That is brutal. Amazon is cutting 30,000 corporate jobs (about 9% of its corporate workforce) "
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 70,
+    "duplicates_found": 5,
+    "patterns_used": 22,
+    "timestamp": "2025-10-28T00:39:55.770505",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The Python Software Foundation shows more spine than every single tech giant in just one single deci",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "TLDR; The PSF has made the decision to put our community and our shared diversity, equity, and inclu",
+        "removed_items": [
+          "This was a tough but necessary decision - I posted my own notes on this here, from the perspective o"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "My heart is breaking for my students. They already have to battle housing insecurity, food insecurit",
+        "removed_items": [
+          "The left wing will feed 100 people because there is 1 who might go hungry.The right wing will let 10",
+          "Go beyond Goroutines: introducing the Reactive paradigm"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 4,
+    "patterns_used": 26,
+    "timestamp": "2025-10-28T09:57:42.019368",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "The #Python Software Foundation look after some of the most important software for our Digital Infra",
+        "removed_items": [
+          "The Python Software Foundation has withdrawn $1.5 million proposal to US government grant program",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Hm, I just finished watching a couple videos about OpenAI's Atlas browser, and I've personally teste",
+        "removed_items": [
+          "OpenAI says over a million people talk to ChatGPT about suicide weekly"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 30,
+    "timestamp": "2025-10-28T10:38:48.914814",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The #Python Software Foundation look after some of the most important software for our Digital Infra",
+        "removed_items": [
+          "The Python Software Foundation has withdrawn $1.5 million proposal to US government grant program",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Hm, I just finished watching a couple videos about OpenAI's Atlas browser, and I've personally teste",
+        "removed_items": [
+          "OpenAI says over a million people talk to ChatGPT about suicide weekly"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Hey, Anthropic owes me $9000! They illegally used at least 3 of my books on LibGen to create Claude.",
+        "removed_items": [
+          "Claude for Excel"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 75,
+    "duplicates_found": 6,
+    "patterns_used": 37,
+    "timestamp": "2025-10-28T14:39:56.143345",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Hey, Anthropic owes me $9000! They illegally used at least 3 of my books on LibGen to create Claude.",
+        "removed_items": [
+          "Claude for Excel"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I'm now running 60 automated fediverse accounts, packaged in an award-winning project that once got ",
+        "removed_items": [
+          "well. now I'm getting reports of student papers \u201cwriten\u201d using chatGPT that not only pilfered from m",
+          "CI/CD pipelines are starting to feel like products we need to maintain\n\nI remember when setting up C"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Loops is fully open source via the AGPL-3.0 license.Website: https://joinloops.orgGitHub: https://gi",
+        "removed_items": [
+          "Show HN: Bash Screensavers\n\nA github project to collect a bunch of bash-based screensavers&#x2F;visu"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 67,
+    "duplicates_found": 3,
+    "patterns_used": 42,
+    "timestamp": "2025-10-29T08:57:14.512090",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Hearts at the PSF are full today from the responses about the recent grant turn down news we shared.",
+        "removed_items": [
+          "In light of the PSF's recent loss of an NSF grant and attendant funding shortfall, I will be matchin"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "uBlock Origin Lite Apple App Store",
+        "removed_items": [
+          "Apple will phase out Rosetta 2 in macOS 28"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 48,
+    "duplicates_found": 3,
+    "patterns_used": 48,
+    "timestamp": "2025-10-29T09:13:55.525510",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "uBlock Origin Lite Apple App Store",
+        "removed_items": [
+          "Apple will phase out Rosetta 2 in macOS 28"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "UIs Are Not Pure Functions of the Model \u2013 React.js and Cocoa Side by Side (2018)",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 56,
+    "timestamp": "2025-10-29T11:25:51.212168",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Tech firms are spending more than ever on #lobbying the #EU amid mounting opposition to the bloc\u2019s d",
+        "removed_items": [
+          "Hey #Fediverse ich brauche abermals Hilfe. Mein uralt Artikel \ud83d\udc49 https://www.metacheles.de/11-warum-w"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "uBlock Origin Lite Apple App Store",
+        "removed_items": [
+          "Apple will phase out Rosetta 2 in macOS 28"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "UIs Are Not Pure Functions of the Model \u2013 React.js and Cocoa Side by Side (2018)",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 2,
+    "patterns_used": 60,
+    "timestamp": "2025-10-29T15:15:06.658391",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Amazon made $35b profit last year. They're celebrating by laying off 14,000 workers (a number they s",
+        "removed_items": [
+          "Amazon is laying off 30,000 employees to prioritize AI, which will bring innovative ideas such as:-A"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 5,
+    "patterns_used": 64,
+    "timestamp": "2025-10-29T20:40:36.479731",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Watching companies like Microsoft and AWS continue to fuck up at massive scale and orgs are just lik",
+        "removed_items": [
+          "You will not believe the trick-or-treat trick Microsoft just pulled! :blobcatpeek: #Microsoft #Azure",
+          "\"Copilot managed DNS launch going well so far,\" declare triumphant Microsoft.",
+          "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Uv is the best thing to happen to the Python ecosystem in a decade",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
+  }
+]
