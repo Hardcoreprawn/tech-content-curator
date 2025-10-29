@@ -1,36 +1,36 @@
 [
   {
     "entities": [
+      "psf",
       "python software foundation",
-      "python",
-      "psf"
+      "python"
     ],
     "keywords": [
-      "python",
-      "please",
-      "share",
-      "inclusion",
-      "read",
-      "giant",
-      "every",
       "shared",
-      "equity",
-      "diversity",
-      "tldr",
-      "community",
-      "ahead",
-      "seeking",
-      "spine",
-      "tech",
       "shows",
-      "revenue",
+      "community",
+      "inclusion",
+      "every",
+      "seeking",
       "software",
-      "than",
-      "core",
+      "share",
+      "values",
       "decision",
-      "single",
+      "giant",
       "foundation",
-      "values"
+      "ahead",
+      "please",
+      "tldr",
+      "tech",
+      "core",
+      "single",
+      "equity",
+      "python",
+      "revenue",
+      "than",
+      "diversity",
+      "read",
+      "spine"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "reduce",
-      "adoption",
-      "ultimate",
-      "line",
-      "devices",
-      "amazon",
-      "corporate",
-      "help",
-      "cutting",
-      "boost",
-      "bureaucracy",
-      "about",
-      "stated",
-      "layoffs",
       "tomorrow",
       "workforce",
+      "devices",
+      "cutting",
+      "layoffs",
+      "stated",
+      "company",
+      "bureaucracy",
+      "corporate",
+      "damn",
+      "help",
+      "line",
+      "groups",
+      "ultimate",
+      "beginning",
       "cost",
+      "adoption",
+      "amazon",
+      "boost",
+      "jobs",
+      "speed",
       "including",
       "brutal",
       "jassy",
-      "damn",
-      "move",
-      "speed",
+      "about",
       "goal",
-      "groups",
-      "company",
-      "jobs",
-      "bottom",
       "various",
-      "beginning"
+      "bottom",
+      "reduce",
+      "move"
     ],
     "confidence": 0.95,
     "examples": [
@@ -325,8 +325,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -377,8 +377,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -429,8 +429,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -464,8 +464,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "running",
+      "excerpts",
       "anyone",
-      "posts",
+      "running",
       "always",
-      "excerpts"
+      "posts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -616,8 +616,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -664,8 +664,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "donations",
       "recent",
-      "grant"
+      "grant",
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1115,6 +1115,74 @@
     ],
     "created_at": "2025-10-29T20:40:36.432464",
     "last_seen": "2025-10-29T20:40:36.432468",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [
+      "microsoft"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Watching companies like Microsoft and AWS continue to fuck up at massive scale and orgs are just lik",
+      "You will not believe the trick-or-treat trick Microsoft just pulled! :blobcatpeek: #Microsoft #Azure",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-29T21:46:06.917712",
+    "last_seen": "2025-10-29T21:46:06.917716",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-29T21:46:06.953391",
+    "last_seen": "2025-10-29T21:46:06.953393",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [
+      "microsoft"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Watching companies like Microsoft and AWS continue to fuck up at massive scale and orgs are just lik",
+      "You will not believe the trick-or-treat trick Microsoft just pulled! :blobcatpeek: #Microsoft #Azure",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-29T21:46:07.034602",
+    "last_seen": "2025-10-29T21:46:07.034604",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-29T21:46:07.070371",
+    "last_seen": "2025-10-29T21:46:07.070374",
     "frequency": 1
   }
 ]
