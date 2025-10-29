@@ -1,0 +1,140 @@
+name: Content Pipeline
+
+on:
+  schedule:
+    # 06:00 UTC - Morning EU, catches Asia overnight + EU morning
+    - cron: '0 6 * * *'
+    # 18:00 UTC - Afternoon US, catches US daytime discussions
+    - cron: '0 18 * * *'
+    # 02:00 UTC - Evening US, catches late US + early Asia
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true  # Fetch Hugo theme
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+      
+      - name: Install Python dependencies
+        run: uv sync
+      
+      # Step 1: Collect content from sources
+      - name: 📥 Collect content
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          HACKERNEWS_ENABLED: true
+          GITHUB_TRENDING_ENABLED: true
+          MASTODON_ENABLED: true
+        run: |
+          echo "::group::Collecting content from sources"
+          uv run python -m src.collect
+          echo "::endgroup::"
+      
+      # Step 2: Enrich with quality scores
+      - name: ✨ Enrich content
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "::group::Enriching content with quality scores"
+          uv run python -m src.enrich
+          echo "::endgroup::"
+      
+      # Step 3: Generate articles
+      - name: 📝 Generate articles
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ARTICLES_PER_RUN: 10
+          GENERATE_IMAGES: true
+          QUALITY_THRESHOLD: 0.5
+          SOURCE_COOLDOWN_DAYS: 7
+        run: |
+          echo "::group::Generating articles with images"
+          uv run python -m src.generate --max-articles 10 --generate-images
+          echo "::endgroup::"
+      
+      # Step 4: Commit all changes (data + articles + images)
+      - name: 💾 Commit pipeline outputs
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Add all pipeline outputs
+          git add data/collected_*.json data/enriched_*.json
+          git add data/*_patterns.json data/*_feedback.json
+          git add content/posts/*.md site/static/images/*.png
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes from pipeline run"
+          else
+            git commit -m "🔄 Pipeline run - $(date -u +%Y-%m-%d_%H%M%S)
+
+            - Collected new content
+            - Enriched with quality scores
+            - Generated articles with images
+            - Updated adaptive learning patterns"
+            git push
+          fi
+      
+      # Step 5: Build Hugo site
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      
+      - name: 🏗️ Build Hugo site
+        run: |
+          echo "::group::Building Hugo static site"
+          cd site
+          hugo --minify
+          echo "::endgroup::"
+      
+      # Step 6: Deploy to GitHub Pages
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+      
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      # Step 7: Summary
+      - name: 📊 Pipeline summary
+        run: |
+          echo "## Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Collection completed" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Enrichment completed" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Article generation completed" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Site built and deployed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
