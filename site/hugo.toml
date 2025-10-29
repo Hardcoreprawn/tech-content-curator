@@ -4,6 +4,9 @@ languageCode = "en-us"
 title = "Tech Content Curator"
 theme = "PaperMod"
 
+# Canonify URLs to use baseURL for all absolute paths
+canonifyURLs = true
+
 # Use our existing content directory
 contentDir = "../content"
 

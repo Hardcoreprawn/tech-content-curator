@@ -113,7 +113,8 @@ The image should work well as a blog header - wide format, visually appealing, n
             icon.save(icon_filepath, "PNG")
             console.print(f"[green]✓[/green] Created icon at {icon_filename}")
 
-        # Return relative paths for Hugo
+        # Return absolute paths from Hugo static root
+        # canonifyURLs in hugo.toml will convert these to full URLs with baseURL
         return (f"/images/{hero_filename}", f"/images/{icon_filename}")
 
     except Exception as e:
