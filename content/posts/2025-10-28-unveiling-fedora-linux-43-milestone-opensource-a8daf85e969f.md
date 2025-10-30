@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unveiling Fedora Linux 43: A Milestone in Open Source'
+  caption: ''
+  image: /images/2025-10-28-unveiling-fedora-linux-43-milestone-opensource-a8daf85e969f.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-unveiling-fedora-linux-43-milestone-opensource-a8daf85e969f-icon.png
 sources:
 - author: mattdm
   platform: mastodon

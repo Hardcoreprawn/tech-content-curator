@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Join LibreOffice: Remote Developer Role in Scripting Support'
+  caption: ''
+  image: /images/2025-10-30-unlocking-software-engineering-careers.png
 date: '2025-10-28'
+images:
+- /images/2025-10-30-unlocking-software-engineering-careers-icon.png
 sources:
 - author: libreoffice
   platform: mastodon

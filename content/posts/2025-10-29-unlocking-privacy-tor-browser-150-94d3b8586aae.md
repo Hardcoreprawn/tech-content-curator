@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unlocking Privacy: What Tor Browser 15.0 Means for You'
+  caption: ''
+  image: /images/2025-10-29-unlocking-privacy-tor-browser-150-94d3b8586aae.png
 date: '2025-10-29'
+images:
+- /images/2025-10-29-unlocking-privacy-tor-browser-150-94d3b8586aae-icon.png
 sources:
 - author: torproject
   platform: mastodon

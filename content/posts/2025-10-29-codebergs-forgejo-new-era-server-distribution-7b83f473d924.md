@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Codeberg''s Forgejo: A New Era in Server Distribution'
+  caption: ''
+  image: /images/2025-10-29-codebergs-forgejo-new-era-server-distribution-7b83f473d924.png
 date: '2025-10-29'
+images:
+- /images/2025-10-29-codebergs-forgejo-new-era-server-distribution-7b83f473d924-icon.png
 sources:
 - author: Codeberg
   platform: mastodon

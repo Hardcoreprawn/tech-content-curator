@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unlocking Innovation: FreeCAD Meets Arduino UNO Q'
+  caption: ''
+  image: /images/2025-10-28-unlocking-innovation-freecad-arduino-uno-q-c2de676d2f75.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-unlocking-innovation-freecad-arduino-uno-q-c2de676d2f75-icon.png
 sources:
 - author: FreeCAD
   platform: mastodon

@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Mastering Tech: Build Your Own Software from Scratch'
+  caption: ''
+  image: /images/2025-10-28-mastering-tech-build-software-e9dae96dd238.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-mastering-tech-build-software-e9dae96dd238-icon.png
 sources:
 - author: codecrafters-io
   platform: reddit

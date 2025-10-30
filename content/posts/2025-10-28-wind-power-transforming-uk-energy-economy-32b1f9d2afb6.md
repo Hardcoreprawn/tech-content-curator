@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Wind Power: Transforming the UK''s Energy Future and Economy'
+  caption: ''
+  image: /images/2025-10-28-wind-power-transforming-uk-energy-economy-32b1f9d2afb6.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-wind-power-transforming-uk-energy-economy-32b1f9d2afb6-icon.png
 sources:
 - author: ChrisMayLA6
   platform: mastodon

@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Amazon''s Job Cuts: AI''s Role in Corporate Restructuring'
+  caption: ''
+  image: /images/2025-10-28-amazon-job-cuts-ai-role-restructuring-b6189cb4c2dc.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-amazon-job-cuts-ai-role-restructuring-b6189cb4c2dc-icon.png
 sources:
 - author: nixCraft
   platform: mastodon

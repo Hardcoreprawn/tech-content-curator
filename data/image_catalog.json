@@ -1,0 +1,792 @@
+{
+  "self-hosted services": [
+    [
+      "/images/2025-10-29-master-self-hosting-guide.png",
+      "2025-10-29-master-self-hosting-guide"
+    ],
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastering-home-server.png",
+      "2025-10-29-mastering-home-server"
+    ]
+  ],
+  "free software": [
+    [
+      "/images/2025-10-29-master-self-hosting-guide.png",
+      "2025-10-29-master-self-hosting-guide"
+    ],
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastering-home-server.png",
+      "2025-10-29-mastering-home-server"
+    ]
+  ],
+  "network services": [
+    [
+      "/images/2025-10-29-master-self-hosting-guide.png",
+      "2025-10-29-master-self-hosting-guide"
+    ],
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastering-home-server.png",
+      "2025-10-29-mastering-home-server"
+    ]
+  ],
+  "web applications": [
+    [
+      "/images/2025-10-29-master-self-hosting-guide.png",
+      "2025-10-29-master-self-hosting-guide"
+    ],
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastering-home-server.png",
+      "2025-10-29-mastering-home-server"
+    ]
+  ],
+  "server hosting": [
+    [
+      "/images/2025-10-29-master-self-hosting-guide.png",
+      "2025-10-29-master-self-hosting-guide"
+    ],
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastering-home-server.png",
+      "2025-10-29-mastering-home-server"
+    ]
+  ],
+  "mastodon 4.5": [
+    [
+      "/images/2025-10-29-mastodon-4-5-developer-tools.png",
+      "2025-10-29-mastodon-4-5-developer-tools"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-new-features.png",
+      "2025-10-29-mastodon-4-5-new-features"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-quote-posts.png",
+      "2025-10-29-mastodon-4-5-quote-posts"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-4-5-features.png",
+      "2025-10-29-unlocking-mastodon-4-5-features"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-45-developer-tools.png",
+      "2025-10-29-unlocking-mastodon-45-developer-tools"
+    ]
+  ],
+  "quote post authoring": [
+    [
+      "/images/2025-10-29-mastodon-4-5-developer-tools.png",
+      "2025-10-29-mastodon-4-5-developer-tools"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-new-features.png",
+      "2025-10-29-mastodon-4-5-new-features"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-quote-posts.png",
+      "2025-10-29-mastodon-4-5-quote-posts"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-4-5-features.png",
+      "2025-10-29-unlocking-mastodon-4-5-features"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-45-developer-tools.png",
+      "2025-10-29-unlocking-mastodon-45-developer-tools"
+    ]
+  ],
+  "asyncrefresh api": [
+    [
+      "/images/2025-10-29-mastodon-4-5-developer-tools.png",
+      "2025-10-29-mastodon-4-5-developer-tools"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-new-features.png",
+      "2025-10-29-mastodon-4-5-new-features"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-quote-posts.png",
+      "2025-10-29-mastodon-4-5-quote-posts"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-4-5-features.png",
+      "2025-10-29-unlocking-mastodon-4-5-features"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-45-developer-tools.png",
+      "2025-10-29-unlocking-mastodon-45-developer-tools"
+    ]
+  ],
+  "developer tools": [
+    [
+      "/images/2025-10-29-mastodon-4-5-developer-tools.png",
+      "2025-10-29-mastodon-4-5-developer-tools"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-new-features.png",
+      "2025-10-29-mastodon-4-5-new-features"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-quote-posts.png",
+      "2025-10-29-mastodon-4-5-quote-posts"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-4-5-features.png",
+      "2025-10-29-unlocking-mastodon-4-5-features"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-45-developer-tools.png",
+      "2025-10-29-unlocking-mastodon-45-developer-tools"
+    ]
+  ],
+  "social media integration": [
+    [
+      "/images/2025-10-29-mastodon-4-5-developer-tools.png",
+      "2025-10-29-mastodon-4-5-developer-tools"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-new-features.png",
+      "2025-10-29-mastodon-4-5-new-features"
+    ],
+    [
+      "/images/2025-10-29-mastodon-4-5-quote-posts.png",
+      "2025-10-29-mastodon-4-5-quote-posts"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-4-5-features.png",
+      "2025-10-29-unlocking-mastodon-4-5-features"
+    ],
+    [
+      "/images/2025-10-29-unlocking-mastodon-45-developer-tools.png",
+      "2025-10-29-unlocking-mastodon-45-developer-tools"
+    ]
+  ],
+  "windows 11 installations": [
+    [
+      "/images/2025-10-29-overcoming-windows-11-installation-hurdles.png",
+      "2025-10-29-overcoming-windows-11-installation-hurdles"
+    ]
+  ],
+  "microsoft account": [
+    [
+      "/images/2025-10-29-overcoming-windows-11-installation-hurdles.png",
+      "2025-10-29-overcoming-windows-11-installation-hurdles"
+    ]
+  ],
+  "unsupported hardware": [
+    [
+      "/images/2025-10-29-overcoming-windows-11-installation-hurdles.png",
+      "2025-10-29-overcoming-windows-11-installation-hurdles"
+    ]
+  ],
+  "linux desktop adoption": [
+    [
+      "/images/2025-10-29-overcoming-windows-11-installation-hurdles.png",
+      "2025-10-29-overcoming-windows-11-installation-hurdles"
+    ]
+  ],
+  "youtube content removal": [
+    [
+      "/images/2025-10-29-overcoming-windows-11-installation-hurdles.png",
+      "2025-10-29-overcoming-windows-11-installation-hurdles"
+    ]
+  ],
+  "ai": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible.png",
+      "2025-10-30-autogpt-ai-accessible"
+    ]
+  ],
+  "accessibility": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible.png",
+      "2025-10-30-autogpt-ai-accessible"
+    ]
+  ],
+  "tools": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible.png",
+      "2025-10-30-autogpt-ai-accessible"
+    ]
+  ],
+  "focus": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible.png",
+      "2025-10-30-autogpt-ai-accessible"
+    ]
+  ],
+  "building on ai": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible.png",
+      "2025-10-30-autogpt-ai-accessible"
+    ]
+  ],
+  "aws": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide.png",
+      "2025-10-30-aws-to-bare-metal-guide"
+    ]
+  ],
+  "bare metal": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide.png",
+      "2025-10-30-aws-to-bare-metal-guide"
+    ]
+  ],
+  "cloud migration": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide.png",
+      "2025-10-30-aws-to-bare-metal-guide"
+    ]
+  ],
+  "infrastructure management": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide.png",
+      "2025-10-30-aws-to-bare-metal-guide"
+    ]
+  ],
+  "cost optimization": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide.png",
+      "2025-10-30-aws-to-bare-metal-guide"
+    ]
+  ],
+  "azure outage": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons.png",
+      "2025-10-30-azure-outage-lessons"
+    ]
+  ],
+  "cloud services": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons.png",
+      "2025-10-30-azure-outage-lessons"
+    ]
+  ],
+  "service disruption": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons.png",
+      "2025-10-30-azure-outage-lessons"
+    ]
+  ],
+  "server location": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons.png",
+      "2025-10-30-azure-outage-lessons"
+    ]
+  ],
+  "downtime monitoring": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons.png",
+      "2025-10-30-azure-outage-lessons"
+    ]
+  ],
+  "social media platforms": [
+    [
+      "/images/2025-10-30-bluesky-user-exodus-lessons.png",
+      "2025-10-30-bluesky-user-exodus-lessons"
+    ]
+  ],
+  "user migration": [
+    [
+      "/images/2025-10-30-bluesky-user-exodus-lessons.png",
+      "2025-10-30-bluesky-user-exodus-lessons"
+    ]
+  ],
+  "controversies": [
+    [
+      "/images/2025-10-30-bluesky-user-exodus-lessons.png",
+      "2025-10-30-bluesky-user-exodus-lessons"
+    ]
+  ],
+  "studies": [
+    [
+      "/images/2025-10-30-bluesky-user-exodus-lessons.png",
+      "2025-10-30-bluesky-user-exodus-lessons"
+    ]
+  ],
+  "exodus": [
+    [
+      "/images/2025-10-30-bluesky-user-exodus-lessons.png",
+      "2025-10-30-bluesky-user-exodus-lessons"
+    ]
+  ],
+  "game development": [
+    [
+      "/images/2025-10-30-board-console-physical-digital-gaming.png",
+      "2025-10-30-board-console-physical-digital-gaming"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console.png",
+      "2025-10-30-revolutionizing-gaming-console"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-future.png",
+      "2025-10-30-revolutionizing-gaming-future"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-physical-pieces.png",
+      "2025-10-30-revolutionizing-gaming-physical-pieces"
+    ]
+  ],
+  "sdk": [
+    [
+      "/images/2025-10-30-board-console-physical-digital-gaming.png",
+      "2025-10-30-board-console-physical-digital-gaming"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console.png",
+      "2025-10-30-revolutionizing-gaming-console"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-future.png",
+      "2025-10-30-revolutionizing-gaming-future"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-physical-pieces.png",
+      "2025-10-30-revolutionizing-gaming-physical-pieces"
+    ]
+  ],
+  "physical pieces recognition": [
+    [
+      "/images/2025-10-30-board-console-physical-digital-gaming.png",
+      "2025-10-30-board-console-physical-digital-gaming"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console.png",
+      "2025-10-30-revolutionizing-gaming-console"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-future.png",
+      "2025-10-30-revolutionizing-gaming-future"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-physical-pieces.png",
+      "2025-10-30-revolutionizing-gaming-physical-pieces"
+    ]
+  ],
+  "console technology": [
+    [
+      "/images/2025-10-30-board-console-physical-digital-gaming.png",
+      "2025-10-30-board-console-physical-digital-gaming"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console.png",
+      "2025-10-30-revolutionizing-gaming-console"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-future.png",
+      "2025-10-30-revolutionizing-gaming-future"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-physical-pieces.png",
+      "2025-10-30-revolutionizing-gaming-physical-pieces"
+    ]
+  ],
+  "open-source development": [
+    [
+      "/images/2025-10-30-board-console-physical-digital-gaming.png",
+      "2025-10-30-board-console-physical-digital-gaming"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console.png",
+      "2025-10-30-revolutionizing-gaming-console"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-future.png",
+      "2025-10-30-revolutionizing-gaming-future"
+    ],
+    [
+      "/images/2025-10-30-revolutionizing-gaming-physical-pieces.png",
+      "2025-10-30-revolutionizing-gaming-physical-pieces"
+    ]
+  ],
+  "ebs replacement": [
+    [
+      "/images/2025-10-30-boost-postgresql-performance.png",
+      "2025-10-30-boost-postgresql-performance"
+    ],
+    [
+      "/images/2025-10-30-rethinking-postgresql-storage.png",
+      "2025-10-30-rethinking-postgresql-storage"
+    ]
+  ],
+  "postgres storage": [
+    [
+      "/images/2025-10-30-boost-postgresql-performance.png",
+      "2025-10-30-boost-postgresql-performance"
+    ],
+    [
+      "/images/2025-10-30-rethinking-postgresql-storage.png",
+      "2025-10-30-rethinking-postgresql-storage"
+    ]
+  ],
+  "database management": [
+    [
+      "/images/2025-10-30-boost-postgresql-performance.png",
+      "2025-10-30-boost-postgresql-performance"
+    ],
+    [
+      "/images/2025-10-30-rethinking-postgresql-storage.png",
+      "2025-10-30-rethinking-postgresql-storage"
+    ]
+  ],
+  "storage optimization": [
+    [
+      "/images/2025-10-30-boost-postgresql-performance.png",
+      "2025-10-30-boost-postgresql-performance"
+    ],
+    [
+      "/images/2025-10-30-rethinking-postgresql-storage.png",
+      "2025-10-30-rethinking-postgresql-storage"
+    ]
+  ],
+  "technical infrastructure": [
+    [
+      "/images/2025-10-30-boost-postgresql-performance.png",
+      "2025-10-30-boost-postgresql-performance"
+    ],
+    [
+      "/images/2025-10-30-rethinking-postgresql-storage.png",
+      "2025-10-30-rethinking-postgresql-storage"
+    ]
+  ],
+  "linux kernel development": [
+    [
+      "/images/2025-10-30-decentralized-collaboration-lessons.png",
+      "2025-10-30-decentralized-collaboration-lessons"
+    ],
+    [
+      "/images/2025-10-30-linux-kernel-git-forge-resistance.png",
+      "2025-10-30-linux-kernel-git-forge-resistance"
+    ],
+    [
+      "/images/2025-10-30-navigating-linux-ruby-challenges.png",
+      "2025-10-30-navigating-linux-ruby-challenges"
+    ]
+  ],
+  "git forge": [
+    [
+      "/images/2025-10-30-decentralized-collaboration-lessons.png",
+      "2025-10-30-decentralized-collaboration-lessons"
+    ],
+    [
+      "/images/2025-10-30-linux-kernel-git-forge-resistance.png",
+      "2025-10-30-linux-kernel-git-forge-resistance"
+    ],
+    [
+      "/images/2025-10-30-navigating-linux-ruby-challenges.png",
+      "2025-10-30-navigating-linux-ruby-challenges"
+    ]
+  ],
+  "community consensus building": [
+    [
+      "/images/2025-10-30-decentralized-collaboration-lessons.png",
+      "2025-10-30-decentralized-collaboration-lessons"
+    ],
+    [
+      "/images/2025-10-30-linux-kernel-git-forge-resistance.png",
+      "2025-10-30-linux-kernel-git-forge-resistance"
+    ],
+    [
+      "/images/2025-10-30-navigating-linux-ruby-challenges.png",
+      "2025-10-30-navigating-linux-ruby-challenges"
+    ]
+  ],
+  "rubygems": [
+    [
+      "/images/2025-10-30-decentralized-collaboration-lessons.png",
+      "2025-10-30-decentralized-collaboration-lessons"
+    ],
+    [
+      "/images/2025-10-30-linux-kernel-git-forge-resistance.png",
+      "2025-10-30-linux-kernel-git-forge-resistance"
+    ],
+    [
+      "/images/2025-10-30-navigating-linux-ruby-challenges.png",
+      "2025-10-30-navigating-linux-ruby-challenges"
+    ]
+  ],
+  "ruby programming language": [
+    [
+      "/images/2025-10-30-decentralized-collaboration-lessons.png",
+      "2025-10-30-decentralized-collaboration-lessons"
+    ],
+    [
+      "/images/2025-10-30-linux-kernel-git-forge-resistance.png",
+      "2025-10-30-linux-kernel-git-forge-resistance"
+    ],
+    [
+      "/images/2025-10-30-navigating-linux-ruby-challenges.png",
+      "2025-10-30-navigating-linux-ruby-challenges"
+    ]
+  ],
+  "free and open source software": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability.png",
+      "2025-10-30-dns-foss-internet-stability"
+    ]
+  ],
+  "domain name system (dns)": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability.png",
+      "2025-10-30-dns-foss-internet-stability"
+    ]
+  ],
+  "security and stability": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability.png",
+      "2025-10-30-dns-foss-internet-stability"
+    ]
+  ],
+  "internet infrastructure": [
+    [
+      "https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability.png",
+      "2025-10-30-dns-foss-internet-stability"
+    ]
+  ],
+  "epa regulations": [
+    [
+      "/images/2025-10-30-epa-policy-changes-air-pollution.png",
+      "2025-10-30-epa-policy-changes-air-pollution"
+    ]
+  ],
+  "air pollution": [
+    [
+      "/images/2025-10-30-epa-policy-changes-air-pollution.png",
+      "2025-10-30-epa-policy-changes-air-pollution"
+    ]
+  ],
+  "health risks": [
+    [
+      "/images/2025-10-30-epa-policy-changes-air-pollution.png",
+      "2025-10-30-epa-policy-changes-air-pollution"
+    ]
+  ],
+  "environmental impact": [
+    [
+      "/images/2025-10-30-epa-policy-changes-air-pollution.png",
+      "2025-10-30-epa-policy-changes-air-pollution"
+    ]
+  ],
+  "government policy": [
+    [
+      "/images/2025-10-30-epa-policy-changes-air-pollution.png",
+      "2025-10-30-epa-policy-changes-air-pollution"
+    ]
+  ],
+  "marketing strategies": [
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ]
+  ],
+  "publicity": [
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ]
+  ],
+  "word of mouth": [
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ]
+  ],
+  "open development": [
+    [
+      "/images/2025-10-30-revolutionizing-gaming-console-merging.png",
+      "2025-10-30-revolutionizing-gaming-console-merging"
+    ]
+  ],
+  "solar energy": [
+    [
+      "/images/2025-10-30-revolutionizing-solar-3d-towers.png",
+      "2025-10-30-revolutionizing-solar-3d-towers"
+    ]
+  ],
+  "renewable energy": [
+    [
+      "/images/2025-10-30-revolutionizing-solar-3d-towers.png",
+      "2025-10-30-revolutionizing-solar-3d-towers"
+    ]
+  ],
+  "3d technology": [
+    [
+      "/images/2025-10-30-revolutionizing-solar-3d-towers.png",
+      "2025-10-30-revolutionizing-solar-3d-towers"
+    ]
+  ],
+  "energy efficiency": [
+    [
+      "/images/2025-10-30-revolutionizing-solar-3d-towers.png",
+      "2025-10-30-revolutionizing-solar-3d-towers"
+    ]
+  ],
+  "solar power generation": [
+    [
+      "/images/2025-10-30-revolutionizing-solar-3d-towers.png",
+      "2025-10-30-revolutionizing-solar-3d-towers"
+    ]
+  ],
+  "rust programming language": [
+    [
+      "/images/2025-10-30-rust-impact-iot.png",
+      "2025-10-30-rust-impact-iot"
+    ]
+  ],
+  "embedded systems development": [
+    [
+      "/images/2025-10-30-rust-impact-iot.png",
+      "2025-10-30-rust-impact-iot"
+    ]
+  ],
+  "espressif chips": [
+    [
+      "/images/2025-10-30-rust-impact-iot.png",
+      "2025-10-30-rust-impact-iot"
+    ]
+  ],
+  "hardware abstraction layer (hal)": [
+    [
+      "/images/2025-10-30-rust-impact-iot.png",
+      "2025-10-30-rust-impact-iot"
+    ]
+  ],
+  "support for rust programming": [
+    [
+      "/images/2025-10-30-rust-impact-iot.png",
+      "2025-10-30-rust-impact-iot"
+    ]
+  ],
+  "kde": [
+    [
+      "/images/2025-10-30-support-kde-fight-hobgoblins.png",
+      "2025-10-30-support-kde-fight-hobgoblins"
+    ]
+  ],
+  "fundraising": [
+    [
+      "/images/2025-10-30-support-kde-fight-hobgoblins.png",
+      "2025-10-30-support-kde-fight-hobgoblins"
+    ]
+  ],
+  "freesoftware": [
+    [
+      "/images/2025-10-30-support-kde-fight-hobgoblins.png",
+      "2025-10-30-support-kde-fight-hobgoblins"
+    ]
+  ],
+  "opensource": [
+    [
+      "/images/2025-10-30-support-kde-fight-hobgoblins.png",
+      "2025-10-30-support-kde-fight-hobgoblins"
+    ]
+  ],
+  "donations": [
+    [
+      "/images/2025-10-30-support-kde-fight-hobgoblins.png",
+      "2025-10-30-support-kde-fight-hobgoblins"
+    ]
+  ],
+  "open source graphics apps": [
+    [
+      "/images/2025-10-30-top-open-source-graphics-apps.png",
+      "2025-10-30-top-open-source-graphics-apps"
+    ]
+  ],
+  "raster manipulation": [
+    [
+      "/images/2025-10-30-top-open-source-graphics-apps.png",
+      "2025-10-30-top-open-source-graphics-apps"
+    ]
+  ],
+  "vector graphics": [
+    [
+      "/images/2025-10-30-top-open-source-graphics-apps.png",
+      "2025-10-30-top-open-source-graphics-apps"
+    ]
+  ],
+  "3d modeling": [
+    [
+      "/images/2025-10-30-top-open-source-graphics-apps.png",
+      "2025-10-30-top-open-source-graphics-apps"
+    ]
+  ],
+  "video editing": [
+    [
+      "/images/2025-10-30-top-open-source-graphics-apps.png",
+      "2025-10-30-top-open-source-graphics-apps"
+    ]
+  ],
+  "raspberry pi pico": [
+    [
+      "/images/2025-10-30-unlock-100-mbit-ethernet-pico.png",
+      "2025-10-30-unlock-100-mbit-ethernet-pico"
+    ]
+  ],
+  "bit-banging": [
+    [
+      "/images/2025-10-30-unlock-100-mbit-ethernet-pico.png",
+      "2025-10-30-unlock-100-mbit-ethernet-pico"
+    ]
+  ],
+  "ethernet communication": [
+    [
+      "/images/2025-10-30-unlock-100-mbit-ethernet-pico.png",
+      "2025-10-30-unlock-100-mbit-ethernet-pico"
+    ]
+  ],
+  "software engineering": [
+    [
+      "/images/2025-10-30-unlocking-software-engineering-careers.png",
+      "2025-10-30-unlocking-software-engineering-careers"
+    ]
+  ],
+  "job opportunity": [
+    [
+      "/images/2025-10-30-unlocking-software-engineering-careers.png",
+      "2025-10-30-unlocking-software-engineering-careers"
+    ]
+  ],
+  "recruitment": [
+    [
+      "/images/2025-10-30-unlocking-software-engineering-careers.png",
+      "2025-10-30-unlocking-software-engineering-careers"
+    ]
+  ],
+  "programming languages": [
+    [
+      "/images/2025-10-30-unlocking-software-engineering-careers.png",
+      "2025-10-30-unlocking-software-engineering-careers"
+    ]
+  ],
+  "technologies": [
+    [
+      "/images/2025-10-30-unlocking-software-engineering-careers.png",
+      "2025-10-30-unlocking-software-engineering-careers"
+    ]
+  ]
+}

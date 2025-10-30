@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unpacking KDE Plasma 6.5.1: Key Updates and Enhancements'
+  caption: ''
+  image: /images/2025-10-30-support-kde-fight-hobgoblins.png
 date: '2025-10-28'
+images:
+- /images/2025-10-30-support-kde-fight-hobgoblins-icon.png
 sources:
 - author: kde
   platform: mastodon

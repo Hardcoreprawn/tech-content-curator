@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Tata Motors'' AWS Key Leak: A Wake-Up Call for Cloud Security'
+  caption: ''
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide.png
 date: '2025-10-29'
+images:
+- https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide-icon.png
 sources:
 - author: GossiTheDog
   platform: mastodon

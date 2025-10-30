@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unlock Your Python Potential: Essential Tools and Frameworks'
+  caption: ''
+  image: /images/2025-10-29-unlock-python-potential-essential-frameworks-e385af056c9e.png
 date: '2025-10-29'
+images:
+- /images/2025-10-29-unlock-python-potential-essential-frameworks-e385af056c9e-icon.png
 sources:
 - author: vinta
   platform: reddit

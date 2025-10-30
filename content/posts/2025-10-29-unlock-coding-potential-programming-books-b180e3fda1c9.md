@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unlock Your Coding Potential: Free Programming Books Guide'
+  caption: ''
+  image: /images/2025-10-29-unlock-coding-potential-programming-books-b180e3fda1c9.png
 date: '2025-10-29'
+images:
+- /images/2025-10-29-unlock-coding-potential-programming-books-b180e3fda1c9-icon.png
 sources:
 - author: EbookFoundation
   platform: reddit

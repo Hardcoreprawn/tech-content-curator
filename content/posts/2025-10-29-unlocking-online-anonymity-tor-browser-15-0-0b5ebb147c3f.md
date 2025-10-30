@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Unlocking Online Anonymity: What''s New in Tor Browser 15.0'
+  caption: ''
+  image: /images/2025-10-29-unlocking-online-anonymity-tor-browser-15-0-0b5ebb147c3f.png
 date: '2025-10-29'
+images:
+- /images/2025-10-29-unlocking-online-anonymity-tor-browser-15-0-0b5ebb147c3f-icon.png
 sources:
 - author: torproject
   platform: mastodon

@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: 'Mastering Home Self-Hosting: A Practical Setup Guide'
+  caption: ''
+  image: /images/2025-10-28-mastering-home-self-hosting-setup-guide-086d0ed326f6.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-mastering-home-self-hosting-setup-guide-086d0ed326f6-icon.png
 sources:
 - author: gmays
   platform: reddit

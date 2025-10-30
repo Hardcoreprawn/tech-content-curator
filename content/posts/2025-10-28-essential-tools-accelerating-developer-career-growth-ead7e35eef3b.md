@@ -1,5 +1,11 @@
 ---
+cover:
+  alt: Essential Tools for Accelerating Developer Career Growth
+  caption: ''
+  image: /images/2025-10-28-essential-tools-accelerating-developer-career-growth-ead7e35eef3b.png
 date: '2025-10-28'
+images:
+- /images/2025-10-28-essential-tools-accelerating-developer-career-growth-ead7e35eef3b-icon.png
 sources:
 - author: kamranahmedse
   platform: reddit
