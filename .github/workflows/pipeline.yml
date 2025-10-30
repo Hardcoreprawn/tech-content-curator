@@ -8,6 +8,16 @@ on:
     - cron: '0 18 * * *'
     # 02:00 UTC - Evening US, catches late US + early Asia
     - cron: '0 2 * * *'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches:
+      - main
   workflow_dispatch: # Allow manual triggering
 
 permissions:

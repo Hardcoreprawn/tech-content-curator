@@ -23,6 +23,7 @@ from PIL import Image, ImageDraw
 from rich.console import Console
 
 from .config import get_project_root
+from .image_catalog import find_reusable_image
 
 console = Console()
 
@@ -134,11 +135,16 @@ def _make_derivatives(base_path: Path, slug: str) -> Tuple[str, str]:
 def select_or_create_cover_image(tags: Iterable[str], slug: str) -> Tuple[str, str]:
     """Pick a reusable base by tag and create local variants for this article.
 
-    Strategy:
-    - Ensure library exists (generate gradients if empty)
-    - Choose a base image index from first tag; fallback to title hash via slug
-    - Produce hero/icon variants deterministically from slug
+    Strategy (priority order):
+    1. Reuse an existing AI-generated image if tag matches (no cost)
+    2. Fall back to gradient library and create local variants
     """
+    # First, try to find an existing AI image by tag
+    existing = find_reusable_image(list(tags))
+    if existing:
+        return existing
+
+    # Fall back to gradient library
     bases = build_gradient_library_if_empty()
     key = "-".join(list(tags)[:1]) or slug
     idx = _hash_to_index(key.lower(), len(bases))
