@@ -39,34 +39,51 @@ contentDir = "../content"
   ShowWordCount = true
   ShowRssButtonInSectionTermList = true
   
-  # Home page settings
-  [params.homeInfoParams]
-    Title = "Tech Content Curator"
-    Content = "Quality tech articles curated from HackerNews, GitHub, Reddit, and Mastodon"
+  # Profile mode for home page (better than homeInfo)
+  [params.profileMode]
+    enabled = true
+    title = "Tech Content Curator"
+    subtitle = "Tech articles from some of the best conversations across The Web"
+    imageUrl = "/images/default-social.png"
+    imageTitle = "Tech Content Curator"
+    imageWidth = 400
+    imageHeight = 225
+    [[params.profileMode.buttons]]
+      name = "Browse Articles"
+      url = "/posts"
 
   # Social links
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/yourusername/content-playground"
+    url = "https://github.com/Hardcoreprawn/tech-content-curator"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
 
 [menu]
   [[menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/posts/"
+    url = "/posts"
     weight = 10
   
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
-    url = "/tags/"
+    url = "/tags"
     weight = 20
     
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "/about/"
+    url = "/about"
     weight = 30
+  
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search"
+    weight = 40
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

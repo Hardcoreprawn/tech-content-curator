@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.455e-05
   title_generation: 5.264999999999999e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible-icon.png
+icon: /images/2025-10-30-autogpt-ai-accessible-icon.png
 reading_time: 5 min read
 sources:
 - author: Significant-Gravitas

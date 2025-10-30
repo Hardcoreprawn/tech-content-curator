@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.47e-05
   title_generation: 5.475e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons-icon.png
+icon: /images/2025-10-30-azure-outage-lessons-icon.png
 reading_time: 4 min read
 sources:
 - author: tartieret

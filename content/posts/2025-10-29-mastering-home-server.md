@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.38e-05
   title_generation: 5.4449999999999995e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastering-home-server-icon.png
+icon: /images/2025-10-29-mastering-home-server-icon.png
 reading_time: 6 min read
 sources:
 - author: awesome-selfhosted
