@@ -525,5 +525,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 48,
+    "duplicates_found": 5,
+    "patterns_used": 84,
+    "timestamp": "2025-10-30T13:30:16.835293",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+        "removed_items": [
+          "No more Microsoft Exchange. \ud83c\udde9\ud83c\uddeaGerman consultancy IAGO GmbH celebrates its decision to switch to Tuta",
+          "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Here is a reminder of one reason why the #Linux #kernel developers are unwilling to \"simply switch f",
+        "removed_items": [
+          "Some Smalltalk about Ruby Loops"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Uv is the best thing to happen to the Python ecosystem in a decade",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
