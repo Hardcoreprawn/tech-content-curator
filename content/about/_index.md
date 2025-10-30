@@ -1,7 +1,5 @@
 ---
 title: "About Tech Content Curator"
-layout: "single"
-url: "/tech-content-curator/about/"
 summary: "How we curate and generate tech content"
 ShowToc: false
 ShowReadingTime: false
