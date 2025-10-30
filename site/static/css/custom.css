@@ -1,0 +1,11 @@
+/* Custom CSS overrides for Tech Content Curator */
+
+/* Make abstract gradient hero images shorter (25% of original height)
+   These are used as featured images and look less boring at reduced height.
+   AI-generated featured images keep their original dimensions. */
+img[src*="library/abstract-"] {
+  max-height: 256px;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}

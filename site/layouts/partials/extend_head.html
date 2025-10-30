@@ -1,5 +1,8 @@
 {{/* Extended head tags for SEO, verification, and social cards */}}
 
+{{/* Custom CSS overrides */}}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}" />
+
 {{/* Search engine verification (set tokens in params) */}}
 {{ with .Site.Params.google_site_verification }}
 <meta name="google-site-verification" content="{{ . }}" />
