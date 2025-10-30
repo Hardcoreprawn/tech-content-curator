@@ -200,32 +200,91 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 
 Three GitHub Actions workflows handle the complete pipeline:
 
-**1. Collect** (`.github/workflows/collect.yml`)
+**1. Content Pipeline (Scheduled)** (`.github/workflows/content-pipeline.yml`)
 - **Schedule**: 3x daily (06:00, 18:00, 02:00 UTC)
-- **Actions**: Collect from HackerNews, GitHub Trending, Mastodon
-- **Outputs**: `data/collected_*.json`
-- **Triggers**: Enrichment workflow on completion
-
-**2. Enrich** (`.github/workflows/enrich.yml`)
-- **Trigger**: After collection completes
-- **Actions**: Quality scoring, adaptive pattern learning
-- **Outputs**: `data/enriched_*.json`, pattern files
-- **Triggers**: Generation workflow on completion
-
-**3. Generate & Deploy** (`.github/workflows/generate.yml`)
-- **Trigger**: After enrichment completes
+- **Manual trigger**: Available for testing
 - **Actions**: 
+  - Collect from HackerNews, GitHub Trending, Mastodon
+  - Enrich with AI research and scoring
   - Generate 10 articles with images
-  - Apply source cooldown (7 days)
   - Build Hugo site
   - Deploy to GitHub Pages
-- **Outputs**: New articles in `content/posts/`, site published
+- **Outputs**: New articles in `content/posts/`, images, patterns
 - **Cost**: ~$0.22 per run (10 articles with images)
+- **Duration**: ~45-60 minutes
+- **Use case**: Scheduled batch content creation (3x daily)
+
+**2. Site Update (Fast)** (`.github/workflows/site-update.yml`)
+- **Triggers**: 
+  - Push to `main` when `site/` or `content/` files change
+  - Manual workflow dispatch (with optional test article)
+- **Actions**:
+  - Optionally generate 1 test article (if manually triggered with flag)
+  - Build Hugo site
+  - Deploy to GitHub Pages
+- **Outputs**: Site published, optional test article
+- **Cost**: ~$0.00 (site-only) or ~$0.002 (with test article)
+- **Duration**: ~3-5 minutes
+- **Use case**: Quick theme/design tweaks without running collection/enrichment
+  - Perfect for CSS changes, layout updates, testing site design
+  - Can optionally generate one article for validation
+
+**3. Full Pipeline (Manual Override)** (`.github/workflows/full-pipeline.yml`)
+- **Trigger**: Manual workflow dispatch only (with optional `max_articles` input)
+- **Actions**: Same as Content Pipeline but manually triggered
+- **Inputs**: 
+  - `max_articles`: Number of articles to generate (default: 10)
+- **Use case**: "I need fresh content NOW" without waiting for scheduled run
+  - Can specify how many articles to generate (1-50)
+  - Full collection, enrichment, and generation cycle
+
+### Workflow Strategy
+
+The split workflow design optimizes for two different use cases:
+
+**Scenario 1: Scheduled Content Batch** (Every 6 hours)
+```
+Content Pipeline (3x daily)
+  ├── Collect content from all sources
+  ├── Enrich with AI research
+  ├── Generate 10 articles + images
+  └── Deploy
+```
+- **Cost**: $0.22/run (3x daily = $0.66/day)
+- **Duration**: 45-60 min
+- **Benefit**: Captures trending topics on schedule, uses AI efficiently in batches
+
+**Scenario 2: Site Tweaks & Rapid Testing** (Any time)
+```
+Site Update (push or manual)
+  ├── Skip collection/enrichment
+  ├── Optionally generate 1 test article (manual only)
+  └── Deploy immediately
+```
+- **Cost**: $0.00 (site-only) or $0.002 (with test article)
+- **Duration**: 3-5 min
+- **Benefit**: Test CSS changes, theme updates, layout tweaks WITHOUT running expensive AI batch
+
+**Scenario 3: Emergency Full Refresh** (When needed)
+```
+Full Pipeline (manual override)
+  ├── Collect & Enrich
+  ├── Generate N articles (configurable)
+  └── Deploy
+```
+- **Cost**: $0.22 for 10 articles
+- **Duration**: 45-60 min
+- **Benefit**: Manual control—generate 1-50 articles whenever you need fresh content
 
 ### Manual Triggers
 
-Each workflow can be manually triggered via GitHub Actions UI:
+Workflows can be manually triggered via GitHub Actions UI:
 - Repository → Actions → Select workflow → Run workflow
+
+**Site Update** workflow supports an optional input:
+- `generate_article`: Set to `true` to generate 1 test article before deploying
+  - Useful for testing site changes with realistic content
+  - Adds ~5-10 minutes to deployment
 
 ### Monitoring
 
@@ -233,6 +292,28 @@ Each workflow can be manually triggered via GitHub Actions UI:
 - **Costs**: Review `generation_costs` in article frontmatter
 - **Quality**: Check enriched JSON files for quality score distribution
 - **Cooldown**: Watch for "⏸ In cooldown" messages in generation logs
+
+### Migration from Old Pipeline
+
+If you had a single `pipeline.yml`:
+
+1. **Delete the old pipeline**:
+   ```bash
+   rm .github/workflows/pipeline.yml
+   ```
+
+2. **The three new workflows are now in place**:
+   - `.github/workflows/content-pipeline.yml` - Runs on schedule
+   - `.github/workflows/site-update.yml` - Runs on push/manual
+   - `.github/workflows/full-pipeline.yml` - Manual override only
+
+3. **Test the workflows**:
+   - Push a small site change to trigger `site-update.yml` (should be fast)
+   - Manually trigger `content-pipeline.yml` via GitHub UI to test collection flow
+   - Manually trigger `full-pipeline.yml` with custom article count
+
+4. **Verify scheduling**:
+   - Wait for next scheduled time (06:00, 18:00, or 02:00 UTC) to confirm `content-pipeline.yml` runs automatically
 
 ### Cost Management
 

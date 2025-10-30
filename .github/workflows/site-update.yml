@@ -1,0 +1,160 @@
+name: Site Update (Fast)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'site/**'
+      - 'content/**'
+      - '.github/workflows/site-update.yml'
+      - '!README.md'
+      - '!docs/**'
+  workflow_dispatch:
+    inputs:
+      generate_article:
+        description: 'Generate one test article before building?'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  # Optional: Generate a single test article for quick validation
+  generate-test-article:
+    if: github.event.inputs.generate_article == 'true' || (github.event_name == 'workflow_dispatch' && github.event.inputs.generate_article == 'true')
+    runs-on: ubuntu-latest
+    outputs:
+      generated: ${{ steps.generate.outputs.generated }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+      
+      - name: Install dependencies
+        run: uv sync
+      
+      - name: 🧪 Generate single test article
+        id: generate
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          HUGO_BASE_URL: https://hardcoreprawn.github.io/tech-content-curator
+          QUALITY_THRESHOLD: 0.5
+          SOURCE_COOLDOWN_DAYS: 7
+        run: |
+          # Generate 1 article for testing
+          uv run python -m src.generate --max-articles 1 --generate-images || echo "generated=false" >> $GITHUB_OUTPUT
+          echo "generated=true" >> $GITHUB_OUTPUT
+      
+      - name: Upload test article
+        if: steps.generate.outputs.generated == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-article
+          path: |
+            content/posts/*.md
+            site/static/images/*.png
+          retention-days: 1
+  
+  # Main job: Build and deploy site
+  build-and-deploy:
+    needs: [generate-test-article]
+    if: always()  # Run even if generate-test-article is skipped
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      
+      - name: Download test article (if generated)
+        if: needs.generate-test-article.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: test-article
+          path: .
+      
+      - name: 💾 Commit test article (if generated)
+        if: needs.generate-test-article.result == 'success'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add content/posts/ site/static/images/ || true
+          
+          if ! git diff --staged --quiet; then
+            git commit -m "🎨 Site update + test article - $(date -u +%Y-%m-%d_%H%M%S)
+
+            Generated 1 test article for validation
+            Updated site design/configuration"
+            git push
+          fi
+      
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      
+      - name: 🏗️ Build Hugo site
+        run: |
+          cd site
+          hugo --minify
+      
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+      
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: 📊 Summary
+        run: |
+          ARTICLE_COUNT=$(ls content/posts/*.md 2>/dev/null | wc -l)
+          TEST_ARTICLE=${{ needs.generate-test-article.result }}
+          
+          echo "## Site Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "$TEST_ARTICLE" = "success" ]; then
+            echo "✅ Generated test article" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⏭️ Skipped article generation (site-only update)" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "✅ Site built and deployed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "📝 Total articles: $ARTICLE_COUNT" >> $GITHUB_STEP_SUMMARY
