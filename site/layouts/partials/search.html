@@ -10,21 +10,21 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 <script>
-// Generate search index data
+// Generate search index data from posts
 const pagesData = [
-  {{- $pages := site.RegularPages -}}
-  {{- range $index, $page := $pages -}}
-    {{- if eq $page.Type "posts" -}}
+  {{- range where site.RegularPages "Type" "posts" -}}
   {
-    id: {{ $page.Permalink | jsonify }},
-    title: {{ $page.Title | jsonify }},
-    url: {{ $page.Permalink | jsonify }},
-    content: {{ ($page.Plain | truncate 500) | jsonify }},
-    tags: {{ $page.Params.tags | default (slice) | jsonify }}
-  }{{ if ne $index (sub (len $pages) 1) }},{{ end }}
-    {{- end -}}
+    id: {{ .Permalink | jsonify }},
+    title: {{ .Title | jsonify }},
+    url: {{ .Permalink | jsonify }},
+    content: {{ (.Plain | truncate 500) | jsonify }},
+    tags: {{ .Params.tags | default (slice) | jsonify }}
+  },
   {{- end -}}
 ];
+
+console.log('Search: Loaded ' + pagesData.length + ' posts');
+console.log('First post:', pagesData[0]);
 
 // Create Lunr index
 let lunrIndex;
@@ -37,21 +37,29 @@ if (pagesData && pagesData.length > 0) {
   });
 
   // Initialize Lunr index
-  lunrIndex = lunr(function() {
-    this.ref('id');
-    this.field('title', { boost: 10 });
-    this.field('content');
-    this.field('tags', { boost: 5 });
-    
-    pagesData.forEach((page, idx) => {
-      this.add({
-        id: idx,
-        title: page.title,
-        content: page.content,
-        tags: (page.tags || []).join(' ')
+  try {
+    lunrIndex = lunr(function() {
+      this.ref('id');
+      this.field('title', { boost: 10 });
+      this.field('content');
+      this.field('tags', { boost: 5 });
+      
+      pagesData.forEach((page, idx) => {
+        this.add({
+          id: idx,
+          title: page.title,
+          content: page.content,
+          tags: (page.tags || []).join(' ')
+        });
       });
     });
-  });
+    console.log('Lunr index created successfully');
+  } catch (e) {
+    console.error('Lunr index creation failed:', e);
+    lunrIndex = null;
+  }
+} else {
+  console.warn('Search: No posts found in pagesData');
 }
 
 // Search functionality
@@ -60,6 +68,8 @@ const searchResults = document.getElementById('search-results');
 
 searchInput.addEventListener('input', function(e) {
   const query = e.target.value.trim();
+  
+  console.log('Search query:', query);
   
   if (query.length < 2) {
     searchResults.innerHTML = '';
@@ -70,9 +80,11 @@ searchInput.addEventListener('input', function(e) {
   
   if (lunrIndex) {
     try {
-      const matches = lunrIndex.search(query);
+      const matches = lunrIndex.search(query + '*');
+      console.log('Lunr matches:', matches);
       results = matches.slice(0, 10).map(match => lunrData[match.ref]);
     } catch (e) {
+      console.log('Lunr search failed, using fallback:', e);
       // Fallback to simple string matching if Lunr fails
       results = pagesData.filter(page => 
         page.title.toLowerCase().includes(query.toLowerCase()) || 
@@ -81,13 +93,16 @@ searchInput.addEventListener('input', function(e) {
       ).slice(0, 10);
     }
   } else {
-    // Fallback if pagesData is empty
+    console.log('Lunr not available, using fallback');
+    // Fallback if Lunr didn't initialize
     results = pagesData.filter(page => 
       page.title.toLowerCase().includes(query.toLowerCase()) || 
       page.content.toLowerCase().includes(query.toLowerCase()) ||
       (page.tags && page.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase())))
     ).slice(0, 10);
   }
+  
+  console.log('Results found:', results.length);
   
   if (results.length === 0) {
     searchResults.innerHTML = '<p>No results found for "<strong>' + query + '</strong>".</p>';
@@ -103,11 +118,6 @@ searchInput.addEventListener('input', function(e) {
       </div>
     `).join('');
 });
-
-// Debug: log if pagesData is empty
-if (!pagesData || pagesData.length === 0) {
-  console.warn('Search: No pages found in pagesData');
-}
 </script>
 
 <style>
