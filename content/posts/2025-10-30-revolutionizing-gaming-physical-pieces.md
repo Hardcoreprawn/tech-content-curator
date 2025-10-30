@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Revolutionizing Gaming: The Power of Physical Piece...'
-  image: /images/2025-10-30-revolutionizing-gaming-physical-pieces.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionizing-gaming-physical-pieces.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0007947
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.6499999999999998e-05
   title_generation: 5.325e-05
-icon: /images/2025-10-30-revolutionizing-gaming-physical-pieces-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionizing-gaming-physical-pieces-icon.png
 reading_time: 5 min read
 sources:
 - author: nicoles

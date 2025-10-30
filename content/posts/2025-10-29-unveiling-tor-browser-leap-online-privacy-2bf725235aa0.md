@@ -2,10 +2,10 @@
 cover:
   alt: 'Unveiling Tor Browser 15.0: A Leap in Online Privacy'
   caption: ''
-  image: /images/2025-10-29-unveiling-tor-browser-leap-online-privacy-2bf725235aa0.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-unveiling-tor-browser-leap-online-privacy-2bf725235aa0.png
 date: '2025-10-29'
 images:
-- /images/2025-10-29-unveiling-tor-browser-leap-online-privacy-2bf725235aa0-icon.png
+- https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-unveiling-tor-browser-leap-online-privacy-2bf725235aa0-icon.png
 sources:
 - author: torproject
   platform: mastodon

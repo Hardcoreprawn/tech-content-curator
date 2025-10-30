@@ -2,10 +2,10 @@
 cover:
   alt: 'Unlocking Remote Access: The Power of JetKVM Explained'
   caption: ''
-  image: /images/2025-10-28-unlocking-remote-access-power-jetkvm-a0970e1b7ab2.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-unlocking-remote-access-power-jetkvm-a0970e1b7ab2.png
 date: '2025-10-28'
 images:
-- /images/2025-10-28-unlocking-remote-access-power-jetkvm-a0970e1b7ab2-icon.png
+- https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-unlocking-remote-access-power-jetkvm-a0970e1b7ab2-icon.png
 sources:
 - author: elashri
   platform: reddit

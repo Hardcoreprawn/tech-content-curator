@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Support KDE: Fight Tech Hobgoblins This Fundraising Season'
-  image: /images/2025-10-30-support-kde-fight-hobgoblins.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-support-kde-fight-hobgoblins.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00087435
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.77e-05
   title_generation: 5.8949999999999996e-05
-icon: /images/2025-10-30-support-kde-fight-hobgoblins-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-support-kde-fight-hobgoblins-icon.png
 reading_time: 5 min read
 sources:
 - author: kde

@@ -2,10 +2,10 @@
 cover:
   alt: 'Transforming Data: Visualize Demographics with Rayshader'
   caption: ''
-  image: /images/2025-10-28-transform-data-visualize-demographics-rayshader-272c39f16fc3.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-transform-data-visualize-demographics-rayshader-272c39f16fc3.png
 date: '2025-10-28'
 images:
-- /images/2025-10-28-transform-data-visualize-demographics-rayshader-272c39f16fc3-icon.png
+- https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-transform-data-visualize-demographics-rayshader-272c39f16fc3-icon.png
 sources:
 - author: cmconseils
   platform: mastodon

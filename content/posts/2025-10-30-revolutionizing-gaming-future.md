@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Revolutionizing Gaming: The Future of Physical-Digital...'
-  image: /images/2025-10-30-revolutionizing-gaming-future.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionizing-gaming-future.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008852999999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.545e-05
   title_generation: 5.4e-05
-icon: /images/2025-10-30-revolutionizing-gaming-future-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionizing-gaming-future-icon.png
 reading_time: 6 min read
 sources:
 - author: nicoles

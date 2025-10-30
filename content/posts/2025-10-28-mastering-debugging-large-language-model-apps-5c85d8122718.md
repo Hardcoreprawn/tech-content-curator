@@ -2,10 +2,10 @@
 cover:
   alt: Mastering Debugging for Large Language Model Applications
   caption: ''
-  image: /images/2025-10-28-mastering-debugging-large-language-model-apps-5c85d8122718.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-mastering-debugging-large-language-model-apps-5c85d8122718.png
 date: '2025-10-28'
 images:
-- /images/2025-10-28-mastering-debugging-large-language-model-apps-5c85d8122718-icon.png
+- https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-mastering-debugging-large-language-model-apps-5c85d8122718-icon.png
 sources:
 - author: Silent_Employment966
   platform: reddit

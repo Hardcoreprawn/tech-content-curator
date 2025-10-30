@@ -2,10 +2,10 @@
 cover:
   alt: 'Revolutionizing Journaling: Meet Dlog''s AI Coach'
   caption: ''
-  image: /images/2025-10-28-revolutionizing-journaling-dlogs-ai-coach-67807b60b1b9.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-revolutionizing-journaling-dlogs-ai-coach-67807b60b1b9.png
 date: '2025-10-28'
 images:
-- /images/2025-10-28-revolutionizing-journaling-dlogs-ai-coach-67807b60b1b9-icon.png
+- https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-revolutionizing-journaling-dlogs-ai-coach-67807b60b1b9-icon.png
 sources:
 - author: dr-j
   platform: reddit

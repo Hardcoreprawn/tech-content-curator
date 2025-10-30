@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'EPA Policy Changes: 90,000 at Risk from Air Pollution'
-  image: /images/2025-10-30-epa-policy-changes-air-pollution.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-epa-policy-changes-air-pollution.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008873999999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.65e-05
   title_generation: 5.37e-05
-icon: /images/2025-10-30-epa-policy-changes-air-pollution-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-epa-policy-changes-air-pollution-icon.png
 reading_time: 5 min read
 sources:
 - author: ProPublica

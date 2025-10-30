@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Overcoming Windows 11 Installation Hurdles: Explore...'
-  image: /images/2025-10-29-overcoming-windows-11-installation-hurdles.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-overcoming-windows-11-installation-hurdles.png
 date: '2025-10-29'
 generation_costs:
   content_generation: 0.0011901
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 5.2999999999999994e-05
   title_generation: 5.685e-05
-icon: /images/2025-10-29-overcoming-windows-11-installation-hurdles-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-overcoming-windows-11-installation-hurdles-icon.png
 reading_time: 6 min read
 sources:
 - author: nixCraft

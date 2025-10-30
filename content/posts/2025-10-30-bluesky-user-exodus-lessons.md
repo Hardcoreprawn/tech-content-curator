@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Bluesky''s User Exodus: Lessons from the Mastodon Migration'
-  image: /images/2025-10-30-bluesky-user-exodus-lessons.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-bluesky-user-exodus-lessons.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008967
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.6349999999999998e-05
   title_generation: 5.64e-05
-icon: /images/2025-10-30-bluesky-user-exodus-lessons-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-bluesky-user-exodus-lessons-icon.png
 reading_time: 5 min read
 sources:
 - author: hildabast

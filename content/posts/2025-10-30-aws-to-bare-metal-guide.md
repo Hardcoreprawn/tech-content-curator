@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.53e-05
   title_generation: 5.37e-05
-icon: /images/2025-10-30-aws-to-bare-metal-guide-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-aws-to-bare-metal-guide-icon.png
 reading_time: 6 min read
 sources:
 - author: ndhandala

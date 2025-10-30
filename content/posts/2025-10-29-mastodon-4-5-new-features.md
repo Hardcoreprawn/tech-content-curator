@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Mastodon 4.5: Unlocking New Features for Developers'
-  image: /images/2025-10-29-mastodon-4-5-new-features.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastodon-4-5-new-features.png
 date: '2025-10-29'
 generation_costs:
   content_generation: 0.00082875
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.71e-05
   title_generation: 5.775e-05
-icon: /images/2025-10-29-mastodon-4-5-new-features-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastodon-4-5-new-features-icon.png
 reading_time: 4 min read
 sources:
 - author: MastodonEngineering

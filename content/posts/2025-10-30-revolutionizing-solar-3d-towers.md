@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Revolutionizing Solar: The Power of 3D Solar Towers'
-  image: /images/2025-10-30-revolutionizing-solar-3d-towers.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionizing-solar-3d-towers.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0009529499999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.755e-05
   title_generation: 5.73e-05
-icon: /images/2025-10-30-revolutionizing-solar-3d-towers-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionizing-solar-3d-towers-icon.png
 reading_time: 5 min read
 sources:
 - author: geox

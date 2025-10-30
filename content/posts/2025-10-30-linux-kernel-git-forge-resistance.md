@@ -1,7 +1,7 @@
 ---
 cover:
   alt: Why Linux Kernel Developers Resist Git Forge Adoption
-  image: /images/2025-10-30-linux-kernel-git-forge-resistance.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-linux-kernel-git-forge-resistance.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00088275
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.635e-05
   title_generation: 5.4e-05
-icon: /images/2025-10-30-linux-kernel-git-forge-resistance-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-linux-kernel-git-forge-resistance-icon.png
 reading_time: 5 min read
 sources:
 - author: kernellogger

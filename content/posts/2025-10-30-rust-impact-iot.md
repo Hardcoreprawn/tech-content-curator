@@ -1,7 +1,7 @@
 ---
 cover:
   alt: 'Revolutionizing Embedded Systems: Rust''s Impact on IoT...'
-  image: /images/2025-10-30-rust-impact-iot.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-rust-impact-iot.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008918999999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.38e-05
   title_generation: 5.79e-05
-icon: /images/2025-10-30-rust-impact-iot-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-rust-impact-iot-icon.png
 reading_time: 5 min read
 sources:
 - author: thejpster

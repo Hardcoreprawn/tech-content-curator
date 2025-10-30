@@ -1,7 +1,7 @@
 ---
 cover:
   alt: Top Open Source Graphics Apps for Every Creative Need
-  image: /images/2025-10-30-top-open-source-graphics-apps.png
+  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-top-open-source-graphics-apps.png
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0013815000000000001
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.53e-05
   title_generation: 5.2499999999999995e-05
-icon: /images/2025-10-30-top-open-source-graphics-apps-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-top-open-source-graphics-apps-icon.png
 reading_time: 7 min read
 sources:
 - author: eugenialoli

@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.59e-05
   title_generation: 5.61e-05
-icon: /images/2025-10-30-dns-foss-internet-stability-icon.png
+icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability-icon.png
 reading_time: 6 min read
 sources:
 - author: ChrisArchitect
