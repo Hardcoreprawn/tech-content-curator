@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "psf",
       "python",
+      "psf",
       "python software foundation"
     ],
     "keywords": [
       "tldr",
-      "values",
-      "community",
-      "python",
-      "giant",
-      "single",
       "decision",
-      "ahead",
-      "revenue",
-      "foundation",
       "than",
-      "diversity",
-      "please",
       "software",
-      "share",
+      "single",
+      "foundation",
       "read",
-      "shared",
-      "every",
       "tech",
+      "every",
       "seeking",
-      "equity",
-      "shows",
       "core",
+      "shows",
+      "equity",
+      "please",
+      "diversity",
+      "revenue",
       "inclusion",
-      "spine"
+      "python",
+      "shared",
+      "values",
+      "ahead",
+      "giant",
+      "spine",
+      "share",
+      "community"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "cost",
       "adoption",
-      "stated",
-      "bottom",
-      "including",
-      "groups",
-      "amazon",
-      "speed",
-      "jassy",
-      "cutting",
-      "goal",
-      "corporate",
-      "brutal",
-      "line",
-      "boost",
-      "beginning",
       "company",
-      "workforce",
-      "various",
-      "layoffs",
-      "bureaucracy",
-      "tomorrow",
-      "damn",
-      "jobs",
-      "move",
-      "reduce",
-      "ultimate",
+      "boost",
       "about",
+      "jassy",
       "devices",
-      "help"
+      "amazon",
+      "cost",
+      "goal",
+      "bureaucracy",
+      "beginning",
+      "jobs",
+      "layoffs",
+      "tomorrow",
+      "groups",
+      "brutal",
+      "ultimate",
+      "corporate",
+      "reduce",
+      "bottom",
+      "workforce",
+      "speed",
+      "cutting",
+      "help",
+      "various",
+      "damn",
+      "stated",
+      "including",
+      "line",
+      "move"
     ],
     "confidence": 0.95,
     "examples": [
@@ -447,8 +447,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -482,8 +482,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -499,8 +499,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -532,8 +532,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,9 +582,9 @@
     ],
     "keywords": [
       "excerpts",
+      "anyone",
       "posts",
       "always",
-      "anyone",
       "running"
     ],
     "confidence": 0.8500000000000001,
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
+      "recent",
       "donations",
-      "grant",
-      "recent"
+      "grant"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1251,6 +1251,106 @@
     ],
     "created_at": "2025-10-30T06:04:19.292841",
     "last_seen": "2025-10-30T06:04:19.292842",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [
+      "microsoft"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+      "No more Microsoft Exchange. \ud83c\udde9\ud83c\uddeaGerman consultancy IAGO GmbH celebrates its decision to switch to Tuta",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-30T13:24:50.716853",
+    "last_seen": "2025-10-30T13:24:50.716857",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "ruby"
+    ],
+    "keywords": [
+      "about"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Here is a reminder of one reason why the #Linux #kernel developers are unwilling to \"simply switch f",
+      "Some Smalltalk about Ruby Loops"
+    ],
+    "created_at": "2025-10-30T13:24:50.743976",
+    "last_seen": "2025-10-30T13:24:50.743979",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-30T13:24:50.766068",
+    "last_seen": "2025-10-30T13:24:50.766072",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [
+      "microsoft"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+      "No more Microsoft Exchange. \ud83c\udde9\ud83c\uddeaGerman consultancy IAGO GmbH celebrates its decision to switch to Tuta",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-30T13:24:50.825591",
+    "last_seen": "2025-10-30T13:24:50.825595",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "ruby"
+    ],
+    "keywords": [
+      "about"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Here is a reminder of one reason why the #Linux #kernel developers are unwilling to \"simply switch f",
+      "Some Smalltalk about Ruby Loops"
+    ],
+    "created_at": "2025-10-30T13:24:50.852897",
+    "last_seen": "2025-10-30T13:24:50.852901",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-30T13:24:50.875386",
+    "last_seen": "2025-10-30T13:24:50.875389",
     "frequency": 1
   }
 ]
