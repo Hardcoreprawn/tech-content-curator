@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "python software foundation",
       "python",
-      "psf"
+      "psf",
+      "python software foundation"
     ],
     "keywords": [
-      "ahead",
-      "values",
-      "software",
-      "inclusion",
-      "foundation",
-      "python",
-      "giant",
-      "read",
-      "spine",
-      "community",
-      "every",
-      "core",
-      "seeking",
       "single",
-      "than",
-      "please",
-      "revenue",
       "share",
-      "shows",
-      "shared",
-      "equity",
-      "tech",
-      "diversity",
+      "foundation",
+      "revenue",
       "tldr",
-      "decision"
+      "equity",
+      "read",
+      "shared",
+      "community",
+      "shows",
+      "than",
+      "spine",
+      "diversity",
+      "seeking",
+      "ahead",
+      "core",
+      "inclusion",
+      "tech",
+      "software",
+      "values",
+      "please",
+      "decision",
+      "giant",
+      "python",
+      "every"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
+      "cost",
       "stated",
-      "groups",
-      "amazon",
-      "devices",
-      "jobs",
-      "adoption",
-      "move",
-      "boost",
-      "bottom",
-      "jassy",
-      "company",
-      "various",
-      "cutting",
-      "workforce",
-      "ultimate",
-      "goal",
       "layoffs",
       "including",
-      "cost",
-      "line",
+      "adoption",
+      "various",
+      "about",
+      "ultimate",
+      "bottom",
+      "bureaucracy",
       "damn",
       "reduce",
-      "brutal",
-      "beginning",
-      "bureaucracy",
-      "help",
-      "about",
+      "line",
+      "corporate",
+      "workforce",
+      "devices",
       "speed",
+      "cutting",
+      "move",
+      "company",
+      "jobs",
+      "goal",
+      "amazon",
+      "help",
+      "jassy",
+      "boost",
       "tomorrow",
-      "corporate"
+      "groups",
+      "beginning",
+      "brutal"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
+      "running",
+      "posts",
       "excerpts",
       "always",
-      "anyone",
-      "posts",
-      "running"
+      "anyone"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1737,6 +1737,68 @@
     ],
     "created_at": "2025-10-30T15:52:34.236386",
     "last_seen": "2025-10-30T15:52:34.236388",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-30T16:20:35.965585",
+    "last_seen": "2025-10-30T16:20:35.965588",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-30T16:20:35.986969",
+    "last_seen": "2025-10-30T16:20:35.986971",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-30T16:20:36.060263",
+    "last_seen": "2025-10-30T16:20:36.060264",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-30T16:20:36.076266",
+    "last_seen": "2025-10-30T16:20:36.076267",
     "frequency": 1
   }
 ]
