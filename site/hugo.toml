@@ -7,6 +7,10 @@ theme = "PaperMod"
 # Canonify URLs to use baseURL for all absolute paths
 canonifyURLs = true
 
+# Environment & robots
+environment = "production"
+enableRobotsTXT = true
+
 # Use our existing content directory
 contentDir = "../content"
 
@@ -16,6 +20,11 @@ contentDir = "../content"
 [params]
   description = "Curated tech content from social media, transformed into insightful articles"
   author = "Tech Content Curator"
+  # Default social/share image (place an image at site/static/images/default-social.png)
+  images = ["/images/default-social.png"]
+  # Optional: search engine verification tokens (fill these in to verify your site)
+  google_site_verification = ""
+  bing_site_verification = ""
   
   # PaperMod specific settings
   ShowReadingTime = true
@@ -66,3 +75,14 @@ contentDir = "../content"
 # Pagination (new format)
 [pagination]
   pagerSize = 10
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "daily"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# Google Analytics (optional): set this to your GA4 Measurement ID (e.g., G-XXXXXXX)
+[services]
+  [services.googleAnalytics]
+    ID = ""

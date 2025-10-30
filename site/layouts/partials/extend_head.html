@@ -1,0 +1,35 @@
+{{/* Extended head tags for SEO, verification, and social cards */}}
+
+{{/* Search engine verification (set tokens in params) */}}
+{{ with .Site.Params.google_site_verification }}
+<meta name="google-site-verification" content="{{ . }}" />
+{{ end }}
+{{ with .Site.Params.bing_site_verification }}
+<meta name="msvalidate.01" content="{{ . }}" />
+{{ end }}
+
+{{/* Twitter Card defaults */}}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@{{ .Site.Params.twitter | default "" }}" />
+<meta name="twitter:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}" />
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+{{ $img := (cond (isset .Params "images") (index .Params.images 0) (index .Site.Params.images 0)) }}
+{{ with $img }}<meta name="twitter:image" content="{{ . | absURL }}" />{{ end }}
+
+{{/* OpenGraph defaults */}}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}" />
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ with $img }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
+
+{{/* JSON-LD: WebSite + optional SearchAction */}}
+{{ $base := .Site.BaseURL }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ .Site.Title | jsonify }},
+  "url": {{ $base | jsonify }}
+}
+</script>

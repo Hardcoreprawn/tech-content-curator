@@ -212,7 +212,14 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       
-      - name: 📊 Pipeline summary
+      - name: � Notify search engines (sitemap)
+        run: |
+          SITEMAP_URL="${{ steps.deployment.outputs.page_url }}sitemap.xml"
+          echo "Sitemap: $SITEMAP_URL"
+          # Bing supports anonymous sitemap ping
+          curl -sS "https://www.bing.com/webmaster/ping.aspx?siteMap=$SITEMAP_URL" || true
+      
+      - name: �📊 Pipeline summary
         run: |
           ARTICLE_COUNT=$(ls content/posts/*.md 2>/dev/null | wc -l)
           echo "## Pipeline Summary" >> $GITHUB_STEP_SUMMARY
