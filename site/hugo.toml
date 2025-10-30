@@ -25,6 +25,10 @@ contentDir = "../content"
   # Optional: search engine verification tokens (fill these in to verify your site)
   google_site_verification = ""
   bing_site_verification = ""
+  # Show related posts (PaperMod)
+  ShowRelatedPosts = true
+  # Optional: Plausible analytics domain (e.g., hardcoreprawn.github.io)
+  plausibleDomain = ""
   
   # PaperMod specific settings
   ShowReadingTime = true
@@ -81,6 +85,21 @@ contentDir = "../content"
   changefreq = "daily"
   priority = 0.5
   filename = "sitemap.xml"
+
+# Related content config used by Hugo
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 60
+  [[related.indices]]
+    name = "title"
+    weight = 30
 
 # Google Analytics (optional): set this to your GA4 Measurement ID (e.g., G-XXXXXXX)
 [services]

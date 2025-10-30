@@ -8,6 +8,11 @@
 <meta name="msvalidate.01" content="{{ . }}" />
 {{ end }}
 
+{{/* Optional: Plausible Analytics */}}
+{{ with .Site.Params.plausibleDomain }}
+<script defer data-domain="{{ . }}" src="https://plausible.io/js/script.js"></script>
+{{ end }}
+
 {{/* Twitter Card defaults */}}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@{{ .Site.Params.twitter | default "" }}" />
@@ -33,3 +38,25 @@
   "url": {{ $base | jsonify }}
 }
 </script>
+
+{{/* JSON-LD: BlogPosting for article pages */}}
+{{ if .IsPage }}
+{{ $desc := (cond (isset .Params "description") .Params.description (.Summary | plainify | truncate 180)) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ $desc | jsonify }},
+  "image": {{ with $img }}{{ (. | absURL) | jsonify }}{{ else }}null{{ end }},
+  "url": {{ .Permalink | jsonify }},
+  "mainEntityOfPage": {{ .Permalink | jsonify }},
+  "datePublished": {{ (or .PublishDate .Date) | time.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod | time.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ (or .Params.author .Site.Params.author) | default "Tech Content Curator" | jsonify }}
+  }
+}
+</script>
+{{ end }}

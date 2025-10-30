@@ -163,6 +163,11 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 - 18:00 UTC (afternoon US) - catches US daytime discussions  
 - 02:00 UTC (evening US) - catches late US + early Asia
 
+## Live Site & Feeds
+
+- Site: https://hardcoreprawn.github.io/tech-content-curator/
+- RSS: https://hardcoreprawn.github.io/tech-content-curator/index.xml
+
 ## GitHub Deployment
 
 ### Initial Setup
