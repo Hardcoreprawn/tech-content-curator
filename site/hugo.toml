@@ -39,18 +39,13 @@ contentDir = "../content"
   ShowWordCount = true
   ShowRssButtonInSectionTermList = true
   
-  # Profile mode for home page (better than homeInfo)
-  [params.profileMode]
-    enabled = true
-    title = "Tech Content Curator"
-    subtitle = "Tech articles from some of the best conversations across The Web"
+  # Home page info (shows articles directly below)
+  [params.homeInfoParams]
+    Title = "Tech Content Curator"
+    Content = "Deep-dive tech articles synthesized from the best conversations across HackerNews, GitHub, Mastodon, and Reddit. Updated 3× daily."
     imageUrl = "/images/default-social.png"
     imageTitle = "Tech Content Curator"
-    imageWidth = 400
-    imageHeight = 225
-    [[params.profileMode.buttons]]
-      name = "Browse Articles"
-      url = "/posts"
+    imageHeight = 200
 
   # Social links
   [[params.socialIcons]]
@@ -64,25 +59,25 @@ contentDir = "../content"
   [[menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/posts"
+    url = "/tech-content-curator/posts/"
     weight = 10
   
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
-    url = "/tags"
+    url = "/tech-content-curator/tags/"
     weight = 20
     
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "/about"
+    url = "/tech-content-curator/about/"
     weight = 30
   
   [[menu.main]]
     identifier = "search"
     name = "Search"
-    url = "/search"
+    url = "/tech-content-curator/search/"
     weight = 40
 
 [outputs]

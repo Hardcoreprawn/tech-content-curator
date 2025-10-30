@@ -1,6 +1,6 @@
 ---
 title: "Search"
 layout: "search"
-url: "/search"
+url: "/tech-content-curator/search/"
 summary: "Search articles"
 ---
