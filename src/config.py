@@ -55,6 +55,8 @@ def get_config() -> PipelineConfig:
                 "RELEVANCE_NEGATIVE_KEYWORDS",
                 "recipe,baking,cooking,gardening,jigsaw,puzzle,sports,fashion,music,movie",
             ),
+            image_strategy=os.getenv("IMAGE_STRATEGY", "reuse"),
+            image_generate_fallback=os.getenv("IMAGE_GENERATE_FALLBACK", "false").lower() == "true",
         )
 
         # Validate required keys

@@ -39,6 +39,7 @@ from .generators.general import GeneralArticleGenerator
 from .generators.integrative import IntegrativeListGenerator
 from .generators.specialized.self_hosted import SelfHostedGenerator
 from .images import generate_featured_image
+from .image_library import select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
 from .utils.url_tools import normalize_url
 
@@ -714,21 +715,35 @@ def save_article_to_file(
         "generation_costs": article.generation_costs,
     }
 
-    # Optional: Generate featured image with DALL-E 3
+    # Optional: Attach a cover image
     if generate_image:
-        slug = filepath.stem  # Use filename stem as slug
-        image_result = generate_featured_image(
-            article.title, article.summary, slug, config.openai_api_key, config.hugo_base_url
-        )
-        if image_result:
-            hero_path, icon_path = image_result
+        slug = filepath.stem
+        hero_path = icon_path = None
+        try:
+            # Reuse-first strategy: create local variants from library
+            if config.image_strategy in ("reuse", "reuse_then_generate"):
+                hero_path, icon_path = select_or_create_cover_image(article.tags, slug)
+                # No API cost for reuse/local variants
+                article.generation_costs["image_generation"] = 0.0
+                article.generation_costs["icon_generation"] = 0.0
+            # If set to always generate or fallback requested
+            if (config.image_strategy == "generate") or (
+                config.image_strategy == "reuse_then_generate" and not hero_path and config.image_generate_fallback
+            ):
+                result = generate_featured_image(
+                    article.title, article.summary, slug, config.openai_api_key, config.hugo_base_url
+                )
+                if result:
+                    hero_path, icon_path = result
+                    article.generation_costs["image_generation"] = calculate_image_cost()
+                    article.generation_costs["icon_generation"] = 0.0
+        except Exception as ie:
+            console.print(f"[yellow]⚠[/yellow] Image attach failed: {ie}")
+
+        if hero_path:
             metadata["cover"]["image"] = hero_path
             metadata["cover"]["alt"] = article.title
-            # Store icon separately for potential use in custom layouts
-            metadata["icon"] = icon_path if icon_path else ""
-            # Track image generation cost
-            article.generation_costs["image_generation"] = calculate_image_cost()
-            article.generation_costs["icon_generation"] = 0.0  # Free (local Pillow processing)
+            metadata["icon"] = icon_path or ""
             metadata["generation_costs"] = article.generation_costs
 
     # Build content with clear attribution at the top and references at the end

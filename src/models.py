@@ -132,6 +132,16 @@ class PipelineConfig(BaseModel):
         description="Comma-separated list of keywords to filter out",
     )
 
+    # Image strategy
+    image_strategy: str = Field(
+        default="reuse",
+        description="Image strategy: 'reuse' (library variants), 'generate' (AI), or 'reuse_then_generate'",
+    )
+    image_generate_fallback: bool = Field(
+        default=False,
+        description="If true and strategy is reuse, fallback to AI generation when no library base exists",
+    )
+
     class Config:
         """Pydantic config."""
 
