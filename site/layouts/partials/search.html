@@ -1,0 +1,110 @@
+<div id="search-container">
+  <input 
+    type="text" 
+    id="search-input" 
+    placeholder="Search articles..." 
+    class="search-input"
+  />
+  <div id="search-results" class="search-results"></div>
+</div>
+
+<script>
+// Build search index from all pages
+const searchIndex = [
+  {{- $pages := site.RegularPages -}}
+  {{- range $index, $page := $pages -}}
+    {{- if or (eq $page.Type "posts") (in $page.File.Dir "posts") -}}
+  {
+    title: {{ $page.Title | jsonify }},
+    url: {{ $page.Permalink | jsonify }},
+    content: {{ $page.Summary | jsonify }},
+    tags: {{ $page.Params.tags | jsonify }}
+  }{{ if lt $index (sub (len $pages) 1) }},{{ end }}
+    {{- end -}}
+  {{- end -}}
+];
+
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+
+searchInput.addEventListener('input', function(e) {
+  const query = e.target.value.toLowerCase();
+  
+  if (query.length < 2) {
+    searchResults.innerHTML = '';
+    return;
+  }
+  
+  const results = searchIndex.filter(page => 
+    page.title.toLowerCase().includes(query) || 
+    page.content.toLowerCase().includes(query) ||
+    (page.tags && page.tags.some(tag => tag.toLowerCase().includes(query)))
+  );
+  
+  if (results.length === 0) {
+    searchResults.innerHTML = '<p>No results found.</p>';
+    return;
+  }
+  
+  searchResults.innerHTML = results.map(result => `
+    <div class="search-result">
+      <h3><a href="${result.url}">${result.title}</a></h3>
+      <p>${result.content}...</p>
+    </div>
+  `).join('');
+});
+</script>
+
+<style>
+#search-container {
+  margin: 2rem 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--entry);
+  color: var(--content);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary)20;
+}
+
+.search-results {
+  margin-top: 1.5rem;
+}
+
+.search-result {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-left: 3px solid var(--primary);
+  background: var(--entry);
+  border-radius: 0.25rem;
+}
+
+.search-result h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.search-result h3 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.search-result h3 a:hover {
+  text-decoration: underline;
+}
+
+.search-result p {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 0.95rem;
+}
+</style>
