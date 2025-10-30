@@ -95,15 +95,11 @@ jobs:
             data/*_feedback.json
           retention-days: 1
   
-  # Phase 2: Generate articles in parallel (5 batches of 2 articles each)
+  # Phase 2: Generate articles (sequential to prevent duplicates)
   generate-articles:
     needs: collect-enrich
     if: needs.collect-enrich.outputs.has-content == 'true'
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5  # Run 5 jobs simultaneously
-      matrix:
-        batch: [1, 2, 3, 4, 5]
     
     steps:
       - name: Checkout repository
@@ -131,7 +127,7 @@ jobs:
           name: enriched-data
           path: data
       
-      - name: 📝 Generate articles (batch ${{ matrix.batch }})
+      - name: 📝 Generate articles
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -139,13 +135,13 @@ jobs:
           QUALITY_THRESHOLD: 0.5
           SOURCE_COOLDOWN_DAYS: 7
         run: |
-          # Generate 2 articles per batch = 10 total
-          uv run python -m src.generate --max-articles 2 --generate-images
+          # Generate 10 articles sequentially to prevent race conditions
+          uv run python -m src.generate --max-articles 10 --generate-images
       
       - name: Upload generated content
         uses: actions/upload-artifact@v4
         with:
-          name: articles-batch-${{ matrix.batch }}
+          name: generated-articles
           path: |
             content/posts/*.md
             site/static/images/*.png
@@ -176,11 +172,11 @@ jobs:
           name: enriched-data
           path: data
       
-      - name: Download all article batches
+      - name: Download generated articles
         uses: actions/download-artifact@v4
         with:
-          pattern: articles-batch-*
-          merge-multiple: true
+          name: generated-articles
+          path: .
       
       - name: 💾 Commit pipeline outputs
         run: |
@@ -229,13 +225,13 @@ jobs:
           # Bing supports anonymous sitemap ping
           curl -sS "https://www.bing.com/webmaster/ping.aspx?siteMap=$SITEMAP_URL" || true
       
-      - name: �📊 Pipeline summary
+      - name: 📊 Pipeline summary
         run: |
           ARTICLE_COUNT=$(ls content/posts/*.md 2>/dev/null | wc -l)
           echo "## Pipeline Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ Collection & Enrichment completed" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Generated $ARTICLE_COUNT articles in 5 parallel batches" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Generated articles (sequential, no duplicates)" >> $GITHUB_STEP_SUMMARY
           echo "✅ Site built and deployed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
