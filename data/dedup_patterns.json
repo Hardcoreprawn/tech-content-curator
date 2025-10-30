@@ -1,36 +1,36 @@
 [
   {
     "entities": [
+      "python software foundation",
       "psf",
-      "python",
-      "python software foundation"
+      "python"
     ],
     "keywords": [
-      "foundation",
-      "software",
       "share",
-      "giant",
-      "revenue",
-      "tech",
-      "shared",
+      "foundation",
       "community",
-      "values",
-      "please",
+      "read",
+      "tldr",
+      "software",
+      "python",
+      "decision",
+      "tech",
       "diversity",
-      "equity",
+      "giant",
       "every",
       "ahead",
+      "revenue",
       "shows",
-      "decision",
-      "than",
+      "values",
+      "seeking",
+      "equity",
+      "core",
       "inclusion",
+      "than",
       "spine",
       "single",
-      "read",
-      "core",
-      "seeking",
-      "tldr",
-      "python"
+      "shared",
+      "please"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "brutal",
-      "cutting",
-      "cost",
-      "damn",
-      "bureaucracy",
-      "company",
-      "various",
       "speed",
-      "including",
-      "boost",
-      "ultimate",
-      "beginning",
-      "corporate",
       "reduce",
-      "jassy",
-      "tomorrow",
-      "adoption",
-      "move",
       "bottom",
-      "stated",
-      "goal",
-      "about",
-      "line",
+      "boost",
+      "company",
       "amazon",
-      "help",
-      "workforce",
-      "devices",
-      "jobs",
+      "various",
+      "groups",
+      "cost",
+      "adoption",
+      "ultimate",
+      "brutal",
+      "stated",
       "layoffs",
-      "groups"
+      "move",
+      "goal",
+      "line",
+      "corporate",
+      "workforce",
+      "beginning",
+      "bureaucracy",
+      "about",
+      "tomorrow",
+      "help",
+      "including",
+      "damn",
+      "devices",
+      "jassy",
+      "jobs",
+      "cutting"
     ],
     "confidence": 0.95,
     "examples": [
@@ -325,8 +325,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -377,8 +377,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -429,8 +429,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -464,8 +464,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "running",
-      "excerpts",
       "anyone",
-      "posts",
-      "always"
+      "always",
+      "excerpts",
+      "posts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -616,8 +616,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -664,8 +664,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1551,6 +1551,68 @@
     ],
     "created_at": "2025-10-30T13:37:48.544270",
     "last_seen": "2025-10-30T13:37:48.544274",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-30T14:00:57.391863",
+    "last_seen": "2025-10-30T14:00:57.391865",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-30T14:00:57.431829",
+    "last_seen": "2025-10-30T14:00:57.431831",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "microsoft"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "International Criminal Court to ditch Microsoft Office for European open source alternative https://",
+      "Tell HN: Azure outage\n\nAzure is down for us, we can&#x27;t even access the azure portal. Are other e"
+    ],
+    "created_at": "2025-10-30T14:00:57.486104",
+    "last_seen": "2025-10-30T14:00:57.486105",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Uv is the best thing to happen to the Python ecosystem in a decade",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-30T14:00:57.525977",
+    "last_seen": "2025-10-30T14:00:57.525979",
     "frequency": 1
   }
 ]
