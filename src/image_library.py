@@ -106,10 +106,16 @@ def _apply_variant(base: Image.Image, variant_seed: str) -> Image.Image:
     return Image.merge("RGB", (r, g, b))
 
 
-def _make_derivatives(base_path: Path, slug: str) -> Tuple[str, str]:
+def _make_derivatives(base_path: Path, slug: str, base_url: str = "") -> Tuple[str, str]:
     """Create hero (1792x1024) and icon (512x512) from a base image with a variant.
 
-    Returns tuple of web paths (hero_url, icon_url).
+    Args:
+        base_path: Path to the source image
+        slug: Article slug for filename
+        base_url: Base URL for the site (e.g., "https://example.com/blog/")
+
+    Returns:
+        Tuple of web paths (hero_url, icon_url).
     """
     images_dir = _ensure_posts_dir()
     with Image.open(base_path) as base:
@@ -129,24 +135,44 @@ def _make_derivatives(base_path: Path, slug: str) -> Tuple[str, str]:
         )
         icon_path = images_dir / f"{slug}-icon.png"
         icon.save(icon_path, "PNG")
-    return (f"/images/{slug}.png", f"/images/{slug}-icon.png")
+    
+    # Return absolute URLs if base_url provided, otherwise relative paths
+    if base_url:
+        base_url = base_url.rstrip("/")
+        return (f"{base_url}/images/{slug}.png", f"{base_url}/images/{slug}-icon.png")
+    else:
+        return (f"/images/{slug}.png", f"/images/{slug}-icon.png")
 
 
-def select_or_create_cover_image(tags: Iterable[str], slug: str) -> Tuple[str, str]:
+def select_or_create_cover_image(tags: Iterable[str], slug: str, base_url: str = "") -> Tuple[str, str]:
     """Pick a reusable base by tag and create local variants for this article.
 
     Strategy (priority order):
     1. Reuse an existing AI-generated image if tag matches (no cost)
     2. Fall back to gradient library and create local variants
+
+    Args:
+        tags: Article tags for image selection
+        slug: Article slug for filename
+        base_url: Base URL for the site (e.g., "https://example.com/blog/")
+
+    Returns:
+        Tuple of (hero_url, icon_url)
     """
     # First, try to find an existing AI image by tag
     existing = find_reusable_image(list(tags))
     if existing:
-        return existing
+        # If we found an existing image, make sure it has the proper base URL
+        hero_url, icon_url = existing
+        if base_url and not hero_url.startswith("http"):
+            base_url = base_url.rstrip("/")
+            hero_url = f"{base_url}{hero_url}" if hero_url.startswith("/") else f"{base_url}/{hero_url}"
+            icon_url = f"{base_url}{icon_url}" if icon_url.startswith("/") else f"{base_url}/{icon_url}"
+        return (hero_url, icon_url)
 
     # Fall back to gradient library
     bases = build_gradient_library_if_empty()
     key = "-".join(list(tags)[:1]) or slug
     idx = _hash_to_index(key.lower(), len(bases))
     base_path = bases[idx]
-    return _make_derivatives(base_path, slug)
+    return _make_derivatives(base_path, slug, base_url)

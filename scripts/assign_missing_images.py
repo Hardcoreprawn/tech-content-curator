@@ -9,10 +9,15 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.image_library import select_or_create_cover_image
+from src.config import get_config
 
 def main():
     content_dir = Path("content/posts")
     articles = list(content_dir.glob("*.md"))
+    
+    # Get Hugo base URL from config
+    config = get_config()
+    base_url = config.hugo_base_url
     
     fixed = 0
     for article_path in articles:
@@ -27,8 +32,8 @@ def main():
         tags = post.metadata.get("tags", [])
         slug = article_path.stem
         
-        # Generate gradient image
-        hero_path, icon_path = select_or_create_cover_image(tags, slug)
+        # Generate gradient image with base URL
+        hero_path, icon_path = select_or_create_cover_image(tags, slug, base_url)
         
         # Update frontmatter
         post.metadata["cover"] = {

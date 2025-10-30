@@ -722,7 +722,7 @@ def save_article_to_file(
         try:
             # Reuse-first strategy: create local variants from library
             if config.image_strategy in ("reuse", "reuse_then_generate"):
-                hero_path, icon_path = select_or_create_cover_image(article.tags, slug)
+                hero_path, icon_path = select_or_create_cover_image(article.tags, slug, config.hugo_base_url)
                 # No API cost for reuse/local variants
                 article.generation_costs["image_generation"] = 0.0
                 article.generation_costs["icon_generation"] = 0.0
