@@ -39,6 +39,19 @@ contentDir = "../content"
   ShowWordCount = true
   ShowRssButtonInSectionTermList = true
   
+  # Enable PaperMod search
+  ShowSearch = true
+  
+  # Search configuration for PaperMod (Fuse.js options)
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+  
   # Home page info (shows articles directly below)
   [params.homeInfoParams]
     Title = "Tech Content Curator"
