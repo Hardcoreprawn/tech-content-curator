@@ -211,3 +211,20 @@ It has everything you need to get started: code templates, API setup, tests, and
 
 **Ready?** Open `FEATURE-1-IMAGES.md` →
 
+---
+
+## Known Issues & Future Improvements
+
+### Threading & Logging
+**Issue**: During parallel enrichment, log output from multiple threads interleaves and becomes hard to follow.
+
+**Root Cause**: `enrich_single_item()` uses `console.print()` from 5 concurrent threads without synchronization. Rich's Console isn't thread-safe, so output scrambles.
+
+**Recommended Fix** (Priority: Low):
+- Add threading lock around console.print calls in `src/enrich.py`
+- Or: Refactor to use `rich.progress.Progress` with thread-safe tracking
+- Or: Add item ID prefixes to each log line for easier tracking
+
+**Impact**: Cosmetic only - enrichment works correctly, just hard to debug.
+
+

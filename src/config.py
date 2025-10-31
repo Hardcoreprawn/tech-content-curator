@@ -62,7 +62,7 @@ def get_config() -> PipelineConfig:
             # Image selection - multi-source fallback
             unsplash_api_key=os.getenv("UNSPLASH_API_KEY", ""),
             pexels_api_key=os.getenv("PEXELS_API_KEY", ""),
-            image_source_timeout=int(os.getenv("IMAGE_SOURCE_TIMEOUT", "10")),
+            image_source_timeout=int(os.getenv("IMAGE_SOURCE_TIMEOUT", "30")),
         )
 
         # Validate required keys

@@ -1,1416 +1,5 @@
 [
   {
-    "timestamp": "2025-10-28T10:21:26.581869+00:00",
-    "content_preview": "JetKVM \u2013 Control any computer remotely\n\nAvailable for retail purchase: <a href=\"https:&#x2F;&#x2F;jetkvm.com&#x2F;products\" rel=\"nofollow\">https:&#x2F;&#x2F;jetkvm.com&#x2F;products</a>",
-    "content_length": 185,
-    "heuristic_score": 0.5499999999999999,
-    "ai_score": 0.7,
-    "score_gap": 0.15000000000000002,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, structured text, link-only, shallow",
-    "metadata": {
-      "score": 333,
-      "comments": 174,
-      "time": 1761583457,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:21:37.401961+00:00",
-    "content_preview": "Dust samples from moon's far side show debris from rare, water-rich meteorites\n\nStudy paper: <a href=\"https:&#x2F;&#x2F;www.pnas.org&#x2F;doi&#x2F;10.1073&#x2F;pnas.2501614122\" rel=\"nofollow\">https:&#",
-    "content_length": 269,
-    "heuristic_score": 0.35,
-    "ai_score": 0.6,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: good length, includes links, structured text, link-only, shallow",
-    "metadata": {
-      "score": 11,
-      "comments": 0,
-      "time": 1761155838,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:21:45.841633+00:00",
-    "content_preview": "The new calculus of AI-based coding",
-    "content_length": 35,
-    "heuristic_score": 0.2,
-    "ai_score": 0.6,
-    "score_gap": 0.39999999999999997,
-    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s)",
-    "metadata": {
-      "score": 121,
-      "comments": 130,
-      "time": 1761585458,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:21:55.230511+00:00",
-    "content_preview": "freeCodeCamp\n\nfreeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
-    "content_length": 125,
-    "heuristic_score": 0.6799999999999999,
-    "ai_score": 0.7,
-    "score_gap": 0.020000000000000018,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, somewhat educational",
-    "metadata": {
-      "stars": 430885,
-      "forks": 42145,
-      "watchers": 430885,
-      "language": "TypeScript",
-      "topics": [
-        "careers",
-        "certification",
-        "community",
-        "curriculum",
-        "d3",
-        "education",
-        "freecodecamp",
-        "javascript",
-        "learn-to-code",
-        "math",
-        "nodejs",
-        "nonprofits",
-        "programming",
-        "react",
-        "teachers"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 328
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:22:07.717079+00:00",
-    "content_preview": "build-your-own-x\n\nMaster programming by recreating your favorite technologies from scratch.",
-    "content_length": 91,
-    "heuristic_score": 0.25,
-    "ai_score": 0.7,
-    "score_gap": 0.44999999999999996,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, curated list repository",
-    "metadata": {
-      "stars": 430806,
-      "forks": 40448,
-      "watchers": 430806,
-      "language": "Markdown",
-      "topics": [
-        "awesome-list",
-        "free",
-        "programming",
-        "tutorial-code",
-        "tutorial-exercises",
-        "tutorials"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 428
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:22:18.988233+00:00",
-    "content_preview": "free-programming-books\n\n:books: Freely available programming books",
-    "content_length": 66,
-    "heuristic_score": 0.25,
-    "ai_score": 0.7,
-    "score_gap": 0.44999999999999996,
-    "heuristic_reasoning": "Heuristic: short but viable, 2 tech keyword(s), structured text, organization account, no code examples, curated list repository",
-    "metadata": {
-      "stars": 375288,
-      "forks": 65192,
-      "watchers": 375288,
-      "language": "Python",
-      "topics": [
-        "books",
-        "education",
-        "hacktoberfest",
-        "list",
-        "resource"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 183
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:22:27.512151+00:00",
-    "content_preview": "developer-roadmap\n\nInteractive roadmaps, guides and other educational content to help developers grow in their careers.",
-    "content_length": 119,
-    "heuristic_score": 0.5800000000000001,
-    "ai_score": 0.7,
-    "score_gap": 0.11999999999999988,
-    "heuristic_reasoning": "Heuristic: good length, structured text, somewhat educational, contains undervalued keyword: other (+0.10 adaptive)",
-    "metadata": {
-      "stars": 342127,
-      "forks": 43230,
-      "watchers": 342127,
-      "language": "TypeScript",
-      "topics": [
-        "angular-roadmap",
-        "backend-roadmap",
-        "blockchain-roadmap",
-        "computer-science",
-        "dba-roadmap",
-        "developer-roadmap",
-        "devops-roadmap",
-        "frontend-roadmap",
-        "go-roadmap",
-        "java-roadmap",
-        "javascript-roadmap",
-        "nodejs-roadmap",
-        "python-roadmap",
-        "qa-roadmap",
-        "react-roadmap",
-        "roadmap",
-        "software-architect-roadmap",
-        "vue-roadmap"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 109
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:22:39.088807+00:00",
-    "content_preview": "awesome-selfhosted\n\nA list of Free Software network services and web applications which can be hosted on your own servers",
-    "content_length": 121,
-    "heuristic_score": 0.35,
-    "ai_score": 0.7,
-    "score_gap": 0.35,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), structured text, no code examples, curated list repository",
-    "metadata": {
-      "stars": 255127,
-      "forks": 11803,
-      "watchers": 255127,
-      "language": null,
-      "topics": [
-        "awesome",
-        "awesome-list",
-        "cloud",
-        "free-software",
-        "hosting",
-        "privacy",
-        "self-hosted",
-        "selfhosted"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 0
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:22:47.051885+00:00",
-    "content_preview": "react\n\nThe library for web and native user interfaces.",
-    "content_length": 54,
-    "heuristic_score": 0.4,
-    "ai_score": 0.5,
-    "score_gap": 0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text",
-    "metadata": {
-      "stars": 240097,
-      "forks": 49680,
-      "watchers": 240097,
-      "language": "JavaScript",
-      "topics": [
-        "declarative",
-        "frontend",
-        "javascript",
-        "library",
-        "react",
-        "ui"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 1044
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:40:16.143197+00:00",
-    "content_preview": "The Python Software Foundation has withdrawn $1.5 million proposal to US government grant program",
-    "content_length": 97,
-    "heuristic_score": 0.9,
-    "ai_score": 0.6,
-    "score_gap": -0.30000000000000004,
-    "heuristic_reasoning": "Heuristic: short but viable, 3 tech keywords, no code examples, contains undervalued keyword: software, contains undervalued keyword: python, contains undervalued keyword: foundation, contains undervalued keyword: withdrawn, contains undervalued keyword: million, contains undervalued keyword: proposal (+0.60 adaptive)",
-    "metadata": {
-      "score": 800,
-      "upvote_ratio": 0.94,
-      "num_comments": 227,
-      "subreddit": "programming",
-      "created_utc": 1761577803.0,
-      "is_self": false,
-      "over_18": false,
-      "source_name": "reddit_programming"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:40:30.439137+00:00",
-    "content_preview": "OpenAI says over a million people talk to ChatGPT about suicide weekly",
-    "content_length": 70,
-    "heuristic_score": 0.4,
-    "ai_score": 0.3,
-    "score_gap": -0.10000000000000003,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), contains undervalued keyword: million (+0.10 adaptive)",
-    "metadata": {
-      "score": 238,
-      "comments": 294,
-      "time": 1761603990,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:40:32.179319+00:00",
-    "content_preview": "Tawny Platis on 65 years of female robotic voices in movies and TV#voices #assistants #ai",
-    "content_length": 89,
-    "heuristic_score": 0.55,
-    "ai_score": 0.3,
-    "score_gap": -0.25000000000000006,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), high engagement (463)",
-    "metadata": {
-      "favourites_count": 116,
-      "reblogs_count": 166,
-      "replies_count": 5,
-      "created_at": "2025-10-28T08:27:23.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:40:33.775378+00:00",
-    "content_preview": "\u2696\ufe0f\ud83d\udea8 Today, noyb has filed a criminal complaint against Clearview AI. Despite several bans and fines, Clearview hasn't changed its illegal practices. If successful, Clearview AI and its executives coul",
-    "content_length": 332,
-    "heuristic_score": 0.5199999999999999,
-    "ai_score": 0.6,
-    "score_gap": 0.08000000000000007,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (371), personal content, announcement content, link-only, shallow, single source",
-    "metadata": {
-      "favourites_count": 78,
-      "reblogs_count": 142,
-      "replies_count": 3,
-      "created_at": "2025-10-28T07:58:04.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:40:43.466709+00:00",
-    "content_preview": "#ChatControl is OFF the table for now. \ud83d\udcaaBut the Danish Minister of Justice and chief architect of the current Chat Control proposal, Peter Hummelgaard, wants to bring it back in December.\ud83d\ude21 He now even",
-    "content_length": 497,
-    "heuristic_score": 0.6900000000000001,
-    "ai_score": 0.3,
-    "score_gap": -0.39000000000000007,
-    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, high engagement (202), announcement content, no code examples, single source, not actionable, contains undervalued keyword: proposal (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 44,
-      "reblogs_count": 73,
-      "replies_count": 4,
-      "created_at": "2025-10-28T09:16:24.000Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:40:58.194684+00:00",
-    "content_preview": "Most Europeans want controls on how data centres are powered, and the impact they have on society. https://beyondfossilfuels.org/2025/10/27/europeans-agree-time-to-put-limits-on-big-tech-data-centres/",
-    "content_length": 200,
-    "heuristic_score": 0.42,
-    "ai_score": 0.5,
-    "score_gap": 0.08000000000000002,
-    "heuristic_reasoning": "Heuristic: good length, includes links, high engagement (261), link-only, shallow, single source",
-    "metadata": {
-      "favourites_count": 56,
-      "reblogs_count": 98,
-      "replies_count": 3,
-      "created_at": "2025-10-28T07:32:49.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:08.066024+00:00",
-    "content_preview": "Calm down, I just wanted to make sure it worked! Sheesh...",
-    "content_length": 58,
-    "heuristic_score": 0.35,
-    "ai_score": 0.1,
-    "score_gap": -0.24999999999999997,
-    "heuristic_reasoning": "Heuristic: short but viable, high engagement (346)",
-    "metadata": {
-      "favourites_count": 153,
-      "reblogs_count": 77,
-      "replies_count": 13,
-      "created_at": "2025-10-28T07:50:26.542Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:08.848301+00:00",
-    "content_preview": "As a kid, I learned English from English language cartoons on FilmNet. I learned from German TV shows. My passion for Swedish crime series taught me Swedish.But now, the largest tv medium of our time,",
-    "content_length": 493,
-    "heuristic_score": 0.63,
-    "ai_score": 0.3,
-    "score_gap": -0.33,
-    "heuristic_reasoning": "Heuristic: substantial length, high engagement (117), somewhat educational, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 2,
-      "reblogs_count": 44,
-      "replies_count": 9,
-      "created_at": "2025-10-28T09:39:30.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:10.238928+00:00",
-    "content_preview": "Two fish hiding inside the bell of a jellyfishWhat an incredible photohttps://www.discoverwildlife.com/animal-facts/marine-animals/fish-inside-jellyfish-mexico#Fish #Marine #Jellyfish #ocean",
-    "content_length": 190,
-    "heuristic_score": 0.42,
-    "ai_score": 0.2,
-    "score_gap": -0.21999999999999997,
-    "heuristic_reasoning": "Heuristic: good length, includes links, high engagement (312), link-only, shallow, single source",
-    "metadata": {
-      "favourites_count": 126,
-      "reblogs_count": 84,
-      "replies_count": 6,
-      "created_at": "2025-10-28T04:17:06.116Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:11.719709+00:00",
-    "content_preview": "The Venn diagram of people who shout \u201cTHIS IS JUST LIKE 1984\u201d and people who have actually read 1984 is two circles so distinct and so far apart they might as well exist in different and incompatible ",
-    "content_length": 211,
-    "heuristic_score": 0.44999999999999996,
-    "ai_score": 0.2,
-    "score_gap": -0.24999999999999994,
-    "heuristic_reasoning": "Heuristic: good length, good engagement (86)",
-    "metadata": {
-      "favourites_count": 3,
-      "reblogs_count": 31,
-      "replies_count": 7,
-      "created_at": "2025-10-28T09:26:50.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:12.989958+00:00",
-    "content_preview": "Your ability to eat should not depend on your productivityYour ability to get healthcare should not depend on your productivityYour ability to get housing should not depend on your productivitySaying ",
-    "content_length": 313,
-    "heuristic_score": 0.8,
-    "ai_score": 0.3,
-    "score_gap": -0.5,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), very high engagement (533)",
-    "metadata": {
-      "favourites_count": 144,
-      "reblogs_count": 187,
-      "replies_count": 5,
-      "created_at": "2025-10-28T04:48:21.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:25.845348+00:00",
-    "content_preview": "Nextcloud is joining the call for an EU Sovereign Tech Fund, alongside dozens of organizations: \u20ac350M to secure Europe's digital infrastructure.Why? Open source is severely underfunded, while it power",
-    "content_length": 482,
-    "heuristic_score": 0.49000000000000005,
-    "ai_score": 0.7,
-    "score_gap": 0.2099999999999999,
-    "heuristic_reasoning": "Heuristic: substantial length, 3 tech keywords, includes links, good engagement (61), no code examples, single source, not actionable",
-    "metadata": {
-      "favourites_count": 1,
-      "reblogs_count": 30,
-      "replies_count": 0,
-      "created_at": "2025-10-28T09:57:08.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:34.834017+00:00",
-    "content_preview": "Join the #LibreOffice Team as a Paid Developer focusing on scripting support, preferably full-time, remote: https://blog.documentfoundation.org/blog/2025/10/27/join-the-libreoffice-team-as-a-paid-deve",
-    "content_length": 270,
-    "heuristic_score": 0.72,
-    "ai_score": 0.7,
-    "score_gap": -0.020000000000000018,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (114), link-only, shallow, single source, contains undervalued keyword: foundation (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 31,
-      "reblogs_count": 40,
-      "replies_count": 1,
-      "created_at": "2025-10-28T08:52:30.210Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:39.872272+00:00",
-    "content_preview": "Herd immunity by infection wasn\u2019t protection. It drove immune dysfunction and chronic illness. It\u2019s a tragedy that this was allowed to happen \u2014 and still is.Source: https://x.com/mysteriousrona/status",
-    "content_length": 220,
-    "heuristic_score": 0.42,
-    "ai_score": 0.3,
-    "score_gap": -0.12,
-    "heuristic_reasoning": "Heuristic: good length, includes links, high engagement (107), link-only, shallow, single source",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 49,
-      "replies_count": 3,
-      "created_at": "2025-10-28T07:31:23.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:42.437151+00:00",
-    "content_preview": "Using open source software called Rayshader, creator Terence Fosstodon transforms demographic data into spectacular 3D maps. Each relief corresponds to population density, revealing at a glance the co",
-    "content_length": 368,
-    "heuristic_score": 0.5700000000000001,
-    "ai_score": 0.7,
-    "score_gap": 0.1299999999999999,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), good engagement (71), no code examples, not actionable, contains undervalued keyword: software (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 4,
-      "reblogs_count": 32,
-      "replies_count": 1,
-      "created_at": "2025-10-28T09:02:48.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:41:52.045846+00:00",
-    "content_preview": "Death by Scrolling, my game with @grumpygamer is out! It\u2019s a vertically scrolling arcade roguelite with a sense of humour, and you can get it now for Linux, Mac, Steamdeck and also that other OS! (Con",
-    "content_length": 343,
-    "heuristic_score": 0.67,
-    "ai_score": 0.5,
-    "score_gap": -0.17000000000000004,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, good engagement (96), single source",
-    "metadata": {
-      "favourites_count": 16,
-      "reblogs_count": 28,
-      "replies_count": 8,
-      "created_at": "2025-10-28T08:56:42.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:00.403926+00:00",
-    "content_preview": "Websites still finding new ways misinterpret GDPR, I see.You don't have to ask for consent for a login cookie! You're just an asshole!!",
-    "content_length": 135,
-    "heuristic_score": 0.55,
-    "ai_score": 0.2,
-    "score_gap": -0.35000000000000003,
-    "heuristic_reasoning": "Heuristic: good length, high engagement (227)",
-    "metadata": {
-      "favourites_count": 71,
-      "reblogs_count": 75,
-      "replies_count": 2,
-      "created_at": "2025-10-28T06:07:53.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:02.041372+00:00",
-    "content_preview": "Centrism is the unwavering commitment to perfect being the enemy of the good, where good is whatever the Overton Window says it is.",
-    "content_length": 131,
-    "heuristic_score": 0.75,
-    "ai_score": 0.3,
-    "score_gap": -0.45,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), good engagement (53), contains undervalued keyword: wind (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 25,
-      "replies_count": 1,
-      "created_at": "2025-10-28T08:26:41.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:16.064822+00:00",
-    "content_preview": "#Melissa has completed a small loop, a trochoidal wobble, as the eye catches up with its new northward motion toward #Jamaica.Winds are still 175 mph, a strong category 5. Pressure is down further to ",
-    "content_length": 207,
-    "heuristic_score": 0.75,
-    "ai_score": 0.2,
-    "score_gap": -0.55,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), high engagement (109), no code examples, contains undervalued keyword: wind (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 21,
-      "reblogs_count": 44,
-      "replies_count": 0,
-      "created_at": "2025-10-28T07:22:40.000Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:17.917492+00:00",
-    "content_preview": "Loops.video is now running the latest version, with full federation enabled \u2728Registration is open, and now instant \ud83e\udd73https://loops.video#loops",
-    "content_length": 141,
-    "heuristic_score": 0.42,
-    "ai_score": 0.5,
-    "score_gap": 0.08000000000000002,
-    "heuristic_reasoning": "Heuristic: good length, includes links, high engagement (241), link-only, shallow, single source",
-    "metadata": {
-      "favourites_count": 63,
-      "reblogs_count": 83,
-      "replies_count": 4,
-      "created_at": "2025-10-28T06:07:14.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:28.702888+00:00",
-    "content_preview": "FreeCAD Running on New Arduino UNO Q at #SFK25https://makertube.net/w/dpuuB512sSwDvV32fV1YBoThe author of this post has been out representing FreeCAD and other open source projects at the fantastic SF",
-    "content_length": 505,
-    "heuristic_score": 0.52,
-    "ai_score": 0.6,
-    "score_gap": 0.07999999999999996,
-    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, some engagement (22), no code examples, not actionable, contains undervalued keyword: software (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 10,
-      "reblogs_count": 6,
-      "replies_count": 0,
-      "created_at": "2025-10-28T09:19:20.318Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:34.159635+00:00",
-    "content_preview": "\"Society could replace like 50-90% of men in leadership positions with answering machines that record what women say and play it back at a lower pitch to simulate a male voice claiming women\u2019s ideas a",
-    "content_length": 272,
-    "heuristic_score": 0.6,
-    "ai_score": 0.0,
-    "score_gap": -0.6,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some engagement (46)",
-    "metadata": {
-      "favourites_count": 12,
-      "reblogs_count": 17,
-      "replies_count": 0,
-      "created_at": "2025-10-28T08:47:32.000Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:35.050453+00:00",
-    "content_preview": "Fentanyl and coke are the new \u201cweapons of mass destruction\u201d lie. It\u2019s Iraq all over again, folks. It\u2019s always about controlling the oil.",
-    "content_length": 136,
-    "heuristic_score": 0.8,
-    "ai_score": 0.0,
-    "score_gap": -0.8,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), very high engagement (699)",
-    "metadata": {
-      "favourites_count": 1,
-      "reblogs_count": 328,
-      "replies_count": 14,
-      "created_at": "2025-10-27T22:30:19.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:36.637592+00:00",
-    "content_preview": "The FreeBSD platform was merged into the OCI runtime spec!FreeBSD is now an official target for OCI containers (it\u2019s been working in Podman as an unofficial target for a while).#FreeBSD #OCI",
-    "content_length": 190,
-    "heuristic_score": 0.65,
-    "ai_score": 0.7,
-    "score_gap": 0.04999999999999993,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), good engagement (56)",
-    "metadata": {
-      "favourites_count": 19,
-      "reblogs_count": 17,
-      "replies_count": 1,
-      "created_at": "2025-10-28T07:08:59.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:44.655162+00:00",
-    "content_preview": "28 October 1893 | A Pole, Karol Kumuniecki, was born in \u017bywiec. A Polish Army officer.In #Auschwitz from 7 January 1941.No. 8961He was shot in the camp on 25 January 1943.---Watch a short video about ",
-    "content_length": 282,
-    "heuristic_score": 0.37,
-    "ai_score": 0.2,
-    "score_gap": -0.16999999999999998,
-    "heuristic_reasoning": "Heuristic: good length, includes links, some engagement (14), link-only, shallow, single source, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 7,
-      "replies_count": 0,
-      "created_at": "2025-10-28T09:00:13.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:46.429411+00:00",
-    "content_preview": "Grokipedia (AI written Wiki), an Elon Musk project, includes content that has been copied from Wikipedia, often noting that the pages are 'adapted' from the source. How is this \u201cmassive improvement\u201d o",
-    "content_length": 453,
-    "heuristic_score": 0.92,
-    "ai_score": 0.4,
-    "score_gap": -0.52,
-    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), includes links, high engagement (141), authority account, single source, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 51,
-      "replies_count": 13,
-      "created_at": "2025-10-28T02:48:49.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:54.953104+00:00",
-    "content_preview": "Does anybody have suggestions for a good instance specifically for queer sex workers? The person I\u2019m asking for is specifically promoting sapphic pole events and posts non-nude photos and video relate",
-    "content_length": 270,
-    "heuristic_score": 0.6,
-    "ai_score": 0.2,
-    "score_gap": -0.39999999999999997,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some engagement (44)",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 19,
-      "replies_count": 2,
-      "created_at": "2025-10-28T05:05:04.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:42:56.568633+00:00",
-    "content_preview": "It\u2019s time to get some meow meows :nkoSleep: :stux: :sleep: Goodnight my dear friends :mastodon: :fediverse: :blobcatsnuggle: :blobcathearts:",
-    "content_length": 140,
-    "heuristic_score": 0.65,
-    "ai_score": 0.0,
-    "score_gap": -0.65,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), good engagement (65)",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 28,
-      "replies_count": 3,
-      "created_at": "2025-10-28T01:03:31.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:00.125803+00:00",
-    "content_preview": "Look around your neighborhood \ud83d\udd26 That streetlight? Could have a camera. That squadcar? Could be hijacking your cell signal. EFF is working to kick surveillance out of our communities. We just need your",
-    "content_length": 249,
-    "heuristic_score": 0.32,
-    "ai_score": 0.3,
-    "score_gap": -0.020000000000000018,
-    "heuristic_reasoning": "Heuristic: good length, includes links, good engagement (74), link-only, shallow, single source",
-    "metadata": {
-      "favourites_count": 2,
-      "reblogs_count": 33,
-      "replies_count": 2,
-      "created_at": "2025-10-27T23:56:03.000Z",
-      "language": "en",
-      "instance": "https://fosstodon.org",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:01.673263+00:00",
-    "content_preview": "With Halloween approaching, I thought I\u2019d share a few spine-chilling poems. Today\u2019s is called \u2018The Heebie Bee Gees\u2019.",
-    "content_length": 116,
-    "heuristic_score": 0.5,
-    "ai_score": 0.2,
-    "score_gap": -0.3,
-    "heuristic_reasoning": "Heuristic: good length, some engagement (48), announcement content",
-    "metadata": {
-      "favourites_count": 0,
-      "reblogs_count": 21,
-      "replies_count": 2,
-      "created_at": "2025-10-28T09:38:15.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:02.901939+00:00",
-    "content_preview": "If you are in a privacy supporting country, LinkedIn won a court case so they still gonna scrape your data to train copilot unless you opt out right meow. Settings/Data Privacy#privacy #linkedin",
-    "content_length": 194,
-    "heuristic_score": 0.65,
-    "ai_score": 0.4,
-    "score_gap": -0.25,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), high engagement (239), no code examples",
-    "metadata": {
-      "favourites_count": 46,
-      "reblogs_count": 92,
-      "replies_count": 3,
-      "created_at": "2025-10-28T03:55:18.419Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:08.772503+00:00",
-    "content_preview": "CI/CD pipelines are starting to feel like products we need to maintain\n\nI remember when setting up CI/CD was supposed to simplify releases. Build, test, deploy, done.  \nNow it feels like maintaining t",
-    "content_length": 780,
-    "heuristic_score": 0.38,
-    "ai_score": 0.6,
-    "score_gap": 0.21999999999999997,
-    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), structured text, announcement content, no code examples, no sources cited",
-    "metadata": {
-      "score": 63,
-      "upvote_ratio": 0.94,
-      "num_comments": 39,
-      "subreddit": "devops",
-      "created_utc": 1761637784.0,
-      "is_self": true,
-      "over_18": false,
-      "source_name": "reddit_programming"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:14.429359+00:00",
-    "content_preview": "what's a \"best practice\" you actually disagree with?\n\nWe hear a lot of dogma about the \"right\" way to do things in DevOps. But sometimes, strict adherence to a best practice can create more complexity",
-    "content_length": 392,
-    "heuristic_score": 0.6,
-    "ai_score": 0.5,
-    "score_gap": -0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text",
-    "metadata": {
-      "score": 44,
-      "upvote_ratio": 0.96,
-      "num_comments": 82,
-      "subreddit": "devops",
-      "created_utc": 1761629742.0,
-      "is_self": true,
-      "over_18": false,
-      "source_name": "reddit_programming"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:29.207080+00:00",
-    "content_preview": "Is this cheating?\n\nPlease feel free to direct me to another subreddit if this isn't a good place for this question...\n\nI'm a virtual teacher, and I saw a student doing something weird with the website",
-    "content_length": 417,
-    "heuristic_score": 0.5,
-    "ai_score": 0.4,
-    "score_gap": -0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), structured text",
-    "metadata": {
-      "score": 389,
-      "upvote_ratio": 0.91,
-      "num_comments": 85,
-      "subreddit": "webdev",
-      "created_utc": 1761622938.0,
-      "is_self": false,
-      "over_18": false,
-      "source_name": "reddit_programming"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:40.404836+00:00",
-    "content_preview": "Picture gallery: Amiga prototype \"Lorraine\" at the Amiga 40 event",
-    "content_length": 65,
-    "heuristic_score": 0.30000000000000004,
-    "ai_score": 0.6,
-    "score_gap": 0.29999999999999993,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s)",
-    "metadata": {
-      "score": 89,
-      "comments": 20,
-      "time": 1761629335,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:51.287080+00:00",
-    "content_preview": "How the brain's activity, energy use and blood flow change as people fall asleep",
-    "content_length": 80,
-    "heuristic_score": 0.4,
-    "ai_score": 0.4,
-    "score_gap": 0.0,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), contains undervalued keyword: energy (+0.10 adaptive)",
-    "metadata": {
-      "score": 31,
-      "comments": 16,
-      "time": 1761370257,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:52.951346+00:00",
-    "content_preview": "10M people watched a YouTuber shim a lock; the lock company sued him \u2013 bad idea\n\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;shorts&#x2F;YjzlmKz_MM8\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.c",
-    "content_length": 235,
-    "heuristic_score": 0.35,
-    "ai_score": 0.3,
-    "score_gap": -0.04999999999999999,
-    "heuristic_reasoning": "Heuristic: good length, includes links, structured text, link-only, shallow",
-    "metadata": {
-      "score": 1213,
-      "comments": 440,
-      "time": 1761568962,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:54.535402+00:00",
-    "content_preview": "Complete Digitization of Leonardo da Vinci's Codex Atlanticus",
-    "content_length": 61,
-    "heuristic_score": 0.30000000000000004,
-    "ai_score": 0.4,
-    "score_gap": 0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s)",
-    "metadata": {
-      "score": 68,
-      "comments": 11,
-      "time": 1761622329,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:43:56.307737+00:00",
-    "content_preview": "JetKVM \u2013 Control any computer remotely\n\nAvailable for retail purchase: <a href=\"https:&#x2F;&#x2F;jetkvm.com&#x2F;products\" rel=\"nofollow\">https:&#x2F;&#x2F;jetkvm.com&#x2F;products</a>",
-    "content_length": 185,
-    "heuristic_score": 0.5499999999999999,
-    "ai_score": 0.7,
-    "score_gap": 0.15000000000000002,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, structured text, link-only, shallow",
-    "metadata": {
-      "score": 340,
-      "comments": 177,
-      "time": 1761583457,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:44:09.624485+00:00",
-    "content_preview": "The Programming Languages Zoo",
-    "content_length": 29,
-    "heuristic_score": 0.2,
-    "ai_score": 0.6,
-    "score_gap": 0.39999999999999997,
-    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s)",
-    "metadata": {
-      "score": 6,
-      "comments": 0,
-      "time": 1761199267,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:44:19.507988+00:00",
-    "content_preview": "Pyrex catalog from from 1938 with hand-drawn lab glassware [pdf]",
-    "content_length": 64,
-    "heuristic_score": 0.2,
-    "ai_score": 0.5,
-    "score_gap": 0.3,
-    "heuristic_reasoning": "Heuristic: short but viable, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "score": 327,
-      "comments": 69,
-      "time": 1761577445,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:44:28.156586+00:00",
-    "content_preview": "Dust samples from moon's far side show debris from rare, water-rich meteorites\n\nStudy paper: <a href=\"https:&#x2F;&#x2F;www.pnas.org&#x2F;doi&#x2F;10.1073&#x2F;pnas.2501614122\" rel=\"nofollow\">https:&#",
-    "content_length": 269,
-    "heuristic_score": 0.44999999999999996,
-    "ai_score": 0.7,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: good length, includes links, structured text, link-only, shallow, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "score": 15,
-      "comments": 0,
-      "time": 1761155838,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:44:39.206494+00:00",
-    "content_preview": "freeCodeCamp\n\nfreeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
-    "content_length": 125,
-    "heuristic_score": 0.6799999999999999,
-    "ai_score": 0.7,
-    "score_gap": 0.020000000000000018,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, somewhat educational",
-    "metadata": {
-      "stars": 430885,
-      "forks": 42145,
-      "watchers": 430885,
-      "language": "TypeScript",
-      "topics": [
-        "careers",
-        "certification",
-        "community",
-        "curriculum",
-        "d3",
-        "education",
-        "freecodecamp",
-        "javascript",
-        "learn-to-code",
-        "math",
-        "nodejs",
-        "nonprofits",
-        "programming",
-        "react",
-        "teachers"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 313
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:44:48.976022+00:00",
-    "content_preview": "build-your-own-x\n\nMaster programming by recreating your favorite technologies from scratch.",
-    "content_length": 91,
-    "heuristic_score": 0.35,
-    "ai_score": 0.6,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, curated list repository, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "stars": 430821,
-      "forks": 40449,
-      "watchers": 430821,
-      "language": "Markdown",
-      "topics": [
-        "awesome-list",
-        "free",
-        "programming",
-        "tutorial-code",
-        "tutorial-exercises",
-        "tutorials"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 428
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:44:58.763727+00:00",
-    "content_preview": "free-programming-books\n\n:books: Freely available programming books",
-    "content_length": 66,
-    "heuristic_score": 0.25,
-    "ai_score": 0.6,
-    "score_gap": 0.35,
-    "heuristic_reasoning": "Heuristic: short but viable, 2 tech keyword(s), structured text, organization account, no code examples, curated list repository",
-    "metadata": {
-      "stars": 375290,
-      "forks": 65193,
-      "watchers": 375290,
-      "language": "Python",
-      "topics": [
-        "books",
-        "education",
-        "hacktoberfest",
-        "list",
-        "resource"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 183
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:45:11.483115+00:00",
-    "content_preview": "developer-roadmap\n\nInteractive roadmaps, guides and other educational content to help developers grow in their careers.",
-    "content_length": 119,
-    "heuristic_score": 0.48000000000000004,
-    "ai_score": 0.7,
-    "score_gap": 0.21999999999999992,
-    "heuristic_reasoning": "Heuristic: good length, structured text, somewhat educational",
-    "metadata": {
-      "stars": 342131,
-      "forks": 43232,
-      "watchers": 342131,
-      "language": "TypeScript",
-      "topics": [
-        "angular-roadmap",
-        "backend-roadmap",
-        "blockchain-roadmap",
-        "computer-science",
-        "dba-roadmap",
-        "developer-roadmap",
-        "devops-roadmap",
-        "frontend-roadmap",
-        "go-roadmap",
-        "java-roadmap",
-        "javascript-roadmap",
-        "nodejs-roadmap",
-        "python-roadmap",
-        "qa-roadmap",
-        "react-roadmap",
-        "roadmap",
-        "software-architect-roadmap",
-        "vue-roadmap"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 109
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T10:45:23.069854+00:00",
-    "content_preview": "awesome-selfhosted\n\nA list of Free Software network services and web applications which can be hosted on your own servers",
-    "content_length": 121,
-    "heuristic_score": 0.44999999999999996,
-    "ai_score": 0.7,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), structured text, no code examples, curated list repository, contains undervalued keyword: software (+0.10 adaptive)",
-    "metadata": {
-      "stars": 255131,
-      "forks": 11802,
-      "watchers": 255131,
-      "language": null,
-      "topics": [
-        "awesome",
-        "awesome-list",
-        "cloud",
-        "free-software",
-        "hosting",
-        "privacy",
-        "self-hosted",
-        "selfhosted"
-      ],
-      "source_name": "github_trending",
-      "open_issues": 0
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T14:44:31.147237+00:00",
-    "content_preview": "I'm now running 60 automated fediverse accounts, packaged in an award-winning project that once got mentioned in the Rolling Stone magazine.\"...offering up everything from a constantly-updated view of",
-    "content_length": 393,
-    "heuristic_score": 0.89,
-    "ai_score": 0.3,
-    "score_gap": -0.5900000000000001,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (171), announcement content, single source, not actionable, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 10,
-      "reblogs_count": 79,
-      "replies_count": 1,
-      "created_at": "2025-10-28T13:08:03.000Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:44:45.385796+00:00",
-    "content_preview": "Show HN: Bash Screensavers\n\nA github project to collect a bunch of bash-based screensavers&#x2F;visualizations.",
-    "content_length": 111,
-    "heuristic_score": 0.6,
-    "ai_score": 0.5,
-    "score_gap": -0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text",
-    "metadata": {
-      "score": 82,
-      "comments": 31,
-      "time": 1761649952,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T14:44:56.215159+00:00",
-    "content_preview": "The Python Software Foundation has withdrawn $1.5 million proposal to US government grant program",
-    "content_length": 97,
-    "heuristic_score": 0.4,
-    "ai_score": 0.6,
-    "score_gap": 0.19999999999999996,
-    "heuristic_reasoning": "Heuristic: short but viable, 3 tech keywords, no code examples, contains undervalued keyword: software (+0.10 adaptive)",
-    "metadata": {
-      "score": 892,
-      "upvote_ratio": 0.93,
-      "num_comments": 234,
-      "subreddit": "programming",
-      "created_utc": 1761577803.0,
-      "is_self": false,
-      "over_18": false,
-      "source_name": "reddit_programming"
-    },
-    "source": "reddit"
-  },
-  {
-    "timestamp": "2025-10-28T14:45:19.518077+00:00",
-    "content_preview": "It's the Fesshole/Vagina Museum crossover event you've all been waiting for. Tons of you tagged us into this across all of our socials, asking for a fact-check. The consensus of the reply guys is that",
-    "content_length": 272,
-    "heuristic_score": 0.85,
-    "ai_score": 0.2,
-    "score_gap": -0.6499999999999999,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), viral engagement (1239)",
-    "metadata": {
-      "favourites_count": 430,
-      "reblogs_count": 379,
-      "replies_count": 17,
-      "created_at": "2025-10-28T10:48:13.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:45:22.363976+00:00",
-    "content_preview": "Tawny Platis on 65 years of female robotic voices in movies and TV#voices #assistants #ai",
-    "content_length": 89,
-    "heuristic_score": 0.65,
-    "ai_score": 0.4,
-    "score_gap": -0.25,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), viral engagement (1384)",
-    "metadata": {
-      "favourites_count": 372,
-      "reblogs_count": 479,
-      "replies_count": 18,
-      "created_at": "2025-10-28T08:27:23.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:45:34.161630+00:00",
-    "content_preview": "People will say things like \"it's selfish to not want to have kids!\" and then immediately follow it up with \"Who is going to take care of you when you get old?\" as if they don\u2019t know what the word sel",
-    "content_length": 211,
-    "heuristic_score": 0.85,
-    "ai_score": 0.2,
-    "score_gap": -0.6499999999999999,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (285), contains undervalued keyword: like (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 114,
-      "reblogs_count": 66,
-      "replies_count": 13,
-      "created_at": "2025-10-28T13:13:22.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:45:35.660130+00:00",
-    "content_preview": "As a kid, I learned English from English language cartoons on FilmNet. I learned from German TV shows. My passion for Swedish crime series taught me Swedish.But now, the largest tv medium of our time,",
-    "content_length": 493,
-    "heuristic_score": 0.7799999999999999,
-    "ai_score": 0.3,
-    "score_gap": -0.4799999999999999,
-    "heuristic_reasoning": "Heuristic: substantial length, very high engagement (634), active discussion, somewhat educational, contains undervalued keyword: from (+0.10 adaptive)",
-    "metadata": {
-      "favourites_count": 184,
-      "reblogs_count": 180,
-      "replies_count": 30,
-      "created_at": "2025-10-28T09:39:30.000Z",
-      "language": "en",
-      "instance": "https://infosec.exchange",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:45:49.954082+00:00",
-    "content_preview": "Nobody has more contempt for liberal democracy than people who've never lived without it.",
-    "content_length": 89,
-    "heuristic_score": 0.35,
-    "ai_score": 0.3,
-    "score_gap": -0.04999999999999999,
-    "heuristic_reasoning": "Heuristic: short but viable, high engagement (248)",
-    "metadata": {
-      "favourites_count": 89,
-      "reblogs_count": 72,
-      "replies_count": 5,
-      "created_at": "2025-10-28T11:36:37.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:45:52.266179+00:00",
-    "content_preview": "Dear Fediverse people,It's time to say thank you again. \ud83d\ude4f We started this account 2 years ago & we've recently hit 7k followers. \ud83c\udf89 What's more important than this standard metric: We've received a lot",
-    "content_length": 486,
-    "heuristic_score": 0.8500000000000001,
-    "ai_score": 0.4,
-    "score_gap": -0.45000000000000007,
-    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), high engagement (353), announcement content, no code examples, contains undervalued keyword: other, contains undervalued keyword: like (+0.20 adaptive)",
-    "metadata": {
-      "favourites_count": 142,
-      "reblogs_count": 98,
-      "replies_count": 5,
-      "created_at": "2025-10-28T10:51:46.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:46:01.749867+00:00",
-    "content_preview": "Nextcloud is joining the call for an EU Sovereign Tech Fund, alongside dozens of organizations: \u20ac350M to secure Europe's digital infrastructure.Why? Open source is severely underfunded, while it power",
-    "content_length": 482,
-    "heuristic_score": 0.5900000000000001,
-    "ai_score": 0.6,
-    "score_gap": 0.009999999999999898,
-    "heuristic_reasoning": "Heuristic: substantial length, 3 tech keywords, includes links, high engagement (350), no code examples, single source, not actionable",
-    "metadata": {
-      "favourites_count": 93,
-      "reblogs_count": 127,
-      "replies_count": 1,
-      "created_at": "2025-10-28T09:57:08.000Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-10-28T14:46:17.076783+00:00",
-    "content_preview": "43 years ago today, readers the world over opened their newspapers and gazed upon cow tools for the first time. happy birthday cow tools. you look great.",
-    "content_length": 153,
-    "heuristic_score": 0.75,
-    "ai_score": 0.0,
-    "score_gap": -0.75,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), good engagement (91), announcement content",
-    "metadata": {
-      "favourites_count": 3,
-      "reblogs_count": 44,
-      "replies_count": 0,
-      "created_at": "2025-10-28T12:23:11.931Z",
-      "language": "en",
-      "instance": "https://mas.to",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
     "timestamp": "2025-10-28T14:46:18.466508+00:00",
     "content_preview": "Super happy to see another amazing, on-time, high-quality Fedora Linux release \u2014 this time, from the back of the room.Congratulations everyone!https://fedoramagazine.org/announcing-fedora-linux-43/",
     "content_length": 197,
@@ -21128,6 +19717,1405 @@
       ],
       "source_name": "github_trending",
       "open_issues": 271
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:53.529084+00:00",
+    "content_preview": "Happy Owloween! It's the 31st of Owltober and we've saved one of the best for last: A wet Ruru Owl at Wildbase Recovery after a bath for scurf (flaky skin). Pictures pre- and post- blowdry are night a",
+    "content_length": 347,
+    "heuristic_score": 0.7,
+    "ai_score": 0.2,
+    "score_gap": -0.49999999999999994,
+    "heuristic_reasoning": "Heuristic: good length, includes links, very high engagement (816), link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 286,
+      "reblogs_count": 250,
+      "replies_count": 10,
+      "created_at": "2025-10-31T07:12:30.721Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:53.564564+00:00",
+    "content_preview": "\ud83e\uddf5I've posted them before, but here's my thread of horror/kids' TV double-bill cinema posters. Happy Halloween...#halloween #cinema #graphicdesign #poster",
+    "content_length": 153,
+    "heuristic_score": 0.73,
+    "ai_score": 0.2,
+    "score_gap": -0.53,
+    "heuristic_reasoning": "Heuristic: good length, high engagement (314), some depth, thread post (may lack context), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 88,
+      "reblogs_count": 110,
+      "replies_count": 2,
+      "created_at": "2025-10-31T09:47:45.000Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:53.863661+00:00",
+    "content_preview": "\"An LLM helped me with some task\" is not a good argument for these things increasing productivity. Did you also factor in all the cases where it made you slower? Where the output created extra work? A",
+    "content_length": 593,
+    "heuristic_score": 0.8,
+    "ai_score": 0.4,
+    "score_gap": -0.4,
+    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), high engagement (204), no code examples, contains undervalued keyword: show, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 76,
+      "reblogs_count": 58,
+      "replies_count": 4,
+      "created_at": "2025-10-31T09:50:42.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:54.306821+00:00",
+    "content_preview": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+    "content_length": 100,
+    "heuristic_score": 0.6,
+    "ai_score": 0.7,
+    "score_gap": 0.09999999999999998,
+    "heuristic_reasoning": "Heuristic: good length, 3 tech keywords, structured text, no code examples, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 267133,
+      "forks": 26619,
+      "watchers": 267133,
+      "language": "Python",
+      "topics": [
+        "awesome",
+        "collections",
+        "python",
+        "python-framework",
+        "python-library",
+        "python-resources"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 505
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:54.523348+00:00",
+    "content_preview": "The International Criminal Court (ICC) in The Hague is choosing OpenDesk, a German open source alternative to Microsoft's Office suite. \ud83d\udd25In Feb 2025 Microsoft blocked the ICC head prosecutor's email a",
+    "content_length": 547,
+    "heuristic_score": 0.8400000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.3400000000000001,
+    "heuristic_reasoning": "Heuristic: substantial length, 3 tech keywords, includes links, high engagement (276), no code examples, single source, not actionable, contains undervalued keyword: open, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 69,
+      "reblogs_count": 93,
+      "replies_count": 7,
+      "created_at": "2025-10-31T07:36:06.751Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:55.865807+00:00",
+    "content_preview": "Reject modernity, embrace tradition#Art #Cartoon #Ireland #Halloween #Samhain #Pumpkin #MastoArt #MastoDaoine",
+    "content_length": 109,
+    "heuristic_score": 0.9,
+    "ai_score": 0.2,
+    "score_gap": -0.7,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (206), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 35,
+      "reblogs_count": 78,
+      "replies_count": 5,
+      "created_at": "2025-10-31T09:57:29.000Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:10:55.958252+00:00",
+    "content_preview": "Marques Brownlee has put up a video about a US$20,000 robot. The company behind it claims it can do a whole range of household tasks 'through the power of AI', and will be delivered next year.They eve",
+    "content_length": 1007,
+    "heuristic_score": 0.8200000000000001,
+    "ai_score": 0.3,
+    "score_gap": -0.52,
+    "heuristic_reasoning": "Heuristic: very long, 2 tech keyword(s), includes links, high engagement (107), no code examples, single source, contains undervalued keyword: open, contains undervalued keyword: about, engagement above learned threshold: 0 (+0.35 adaptive)",
+    "metadata": {
+      "favourites_count": 1,
+      "reblogs_count": 44,
+      "replies_count": 6,
+      "created_at": "2025-10-31T11:08:05.000Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:02.634585+00:00",
+    "content_preview": "NEWS! Keir Starmer demands to see trick or treater\u2019s digital IDs https://newsthump.com/2025/10/31/keir-starmer-demands-to-see-trick-or-treaters-digital-ids/",
+    "content_length": 156,
+    "heuristic_score": 0.72,
+    "ai_score": 0.2,
+    "score_gap": -0.52,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (169), link-only, shallow, single source, thread post (may lack context), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 34,
+      "reblogs_count": 66,
+      "replies_count": 1,
+      "created_at": "2025-10-31T10:25:09.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:04.562391+00:00",
+    "content_preview": "It's done! #chatcontrol is officially off the table after the danish EU council presidency drops it for good. It's a small but important victory! Thanks again to @chatcontrol for coordinating grassroo",
+    "content_length": 545,
+    "heuristic_score": 0.8400000000000001,
+    "ai_score": 0.4,
+    "score_gap": -0.44000000000000006,
+    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, high engagement (404), announcement content, no code examples, single source, not actionable, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 153,
+      "reblogs_count": 121,
+      "replies_count": 3,
+      "created_at": "2025-10-31T08:50:21.000Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:05.191785+00:00",
+    "content_preview": "Happy Halloween to all those who celebrate, but especially to my fellow statisticians#Halloween #Statistics",
+    "content_length": 107,
+    "heuristic_score": 0.7000000000000001,
+    "ai_score": 0.2,
+    "score_gap": -0.5,
+    "heuristic_reasoning": "Heuristic: good length, high engagement (473), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 163,
+      "reblogs_count": 149,
+      "replies_count": 4,
+      "created_at": "2025-10-31T07:14:50.232Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:05.846414+00:00",
+    "content_preview": "The European Commission on Wednesday gave the go-ahead for a group of four countries to establish a common organisation for building #opensource alternatives to much-used software.France, Germany, Ita",
+    "content_length": 473,
+    "heuristic_score": 1.02,
+    "ai_score": 0.7,
+    "score_gap": -0.32000000000000006,
+    "heuristic_reasoning": "Heuristic: substantial length, 7 tech keywords, includes links, high engagement (409), announcement content, no code examples, single source, contains undervalued keyword: open, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 109,
+      "reblogs_count": 141,
+      "replies_count": 6,
+      "created_at": "2025-10-31T07:21:49.000Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:06.188857+00:00",
+    "content_preview": "Given that it\u2019s Halloween, here are some haiku horrorscopes.",
+    "content_length": 60,
+    "heuristic_score": 0.6000000000000001,
+    "ai_score": 0.2,
+    "score_gap": -0.4000000000000001,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), good engagement (74), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 0,
+      "reblogs_count": 34,
+      "replies_count": 2,
+      "created_at": "2025-10-31T10:33:01.000Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:06.329029+00:00",
+    "content_preview": "Edinburgh e-bike component manufacturer, Intradrive, are hiring. They are looking for a junior to mid-level engineer with a hands-on approach and a passion for bikes and electronics. Find out more abo",
+    "content_length": 251,
+    "heuristic_score": 0.7,
+    "ai_score": 0.5,
+    "score_gap": -0.19999999999999996,
+    "heuristic_reasoning": "Heuristic: good length, good engagement (61), contains undervalued keyword: about, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 0,
+      "reblogs_count": 29,
+      "replies_count": 1,
+      "created_at": "2025-10-31T10:33:06.264Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:07.512589+00:00",
+    "content_preview": "Blimey! Green Party [of England and Wales] now polling in FIRST for all voters under 50 https://www.thelondoneconomic.com/politics/green-party-polling-yougov-who-is-zack-polanski-399670/ YouGov\u2019s late",
+    "content_length": 351,
+    "heuristic_score": 0.77,
+    "ai_score": 0.2,
+    "score_gap": -0.5700000000000001,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, good engagement (97), link-only, shallow, single source, contains undervalued keyword: show, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 25,
+      "reblogs_count": 30,
+      "replies_count": 4,
+      "created_at": "2025-10-31T10:37:01.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:08.725209+00:00",
+    "content_preview": "Many things happening in #LibreOffice right now! Markdown support is coming, we've had events in Italy, Cuba and the Czech Republic, and the software is being updated: https://blog.documentfoundation.",
+    "content_length": 305,
+    "heuristic_score": 0.9199999999999999,
+    "ai_score": 0.6,
+    "score_gap": -0.31999999999999995,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (104), announcement content, link-only, shallow, single source, thread post (may lack context), contains undervalued keyword: open, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 51,
+      "reblogs_count": 25,
+      "replies_count": 1,
+      "created_at": "2025-10-31T09:00:30.663Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:09.737804+00:00",
+    "content_preview": ":nkoWave: Hello and a good meowing everyone! :blobcathearts: :blobcatsnuggle: Have a most wonderful day and stay safe \u2665\ufe0f\ud83d\ude38",
+    "content_length": 121,
+    "heuristic_score": 0.75,
+    "ai_score": 0.0,
+    "score_gap": -0.75,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some engagement (32), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 0,
+      "reblogs_count": 13,
+      "replies_count": 2,
+      "created_at": "2025-10-31T11:07:01.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:12.375428+00:00",
+    "content_preview": "Here is a small tip for IT pros to determine if a Debian/Ubuntu/Mint based Linux system requires a reboot due to lib or kernel upgrades, check these two files to keep your system safe and patched from",
+    "content_length": 498,
+    "heuristic_score": 1.17,
+    "ai_score": 0.7,
+    "score_gap": -0.47,
+    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), includes links, includes code, good engagement (72), authority account, single source, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 34,
+      "reblogs_count": 16,
+      "replies_count": 2,
+      "created_at": "2025-10-31T10:32:02.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:15.460569+00:00",
+    "content_preview": "We need more than 2 popular and accessible types of mobile OS \ud83d\udcf1We need more than 2 popular and accessible types of desktop OS \ud83d\udda5\ufe0fWe need more than 2 popular and accessible types of browsers :firefox: W",
+    "content_length": 888,
+    "heuristic_score": 0.88,
+    "ai_score": 0.4,
+    "score_gap": -0.48,
+    "heuristic_reasoning": "Heuristic: very long, 3 tech keywords, viral engagement (1372), active discussion, announcement content, no code examples, no sources cited, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 436,
+      "reblogs_count": 408,
+      "replies_count": 40,
+      "created_at": "2025-10-31T01:12:33.929Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:16.454051+00:00",
+    "content_preview": "amazing thread: the story of Jordan Peterson's fucking awful suits https://bsky.app/profile/dieworkwear.bsky.social/post/3m4hhc5x4uk2m",
+    "content_length": 134,
+    "heuristic_score": 0.37,
+    "ai_score": 0.2,
+    "score_gap": -0.16999999999999998,
+    "heuristic_reasoning": "Heuristic: good length, includes links, some engagement (26), link-only, shallow, single source, thread post (may lack context), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 0,
+      "reblogs_count": 10,
+      "replies_count": 2,
+      "created_at": "2025-10-31T10:45:34.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:17.254080+00:00",
+    "content_preview": "Want to support Organic Maps development and scaling in a privacy-friendly way? Donate with crypto! And please let us know if you prefer alternative donation methods, check here:https://organicmaps.ap",
+    "content_length": 216,
+    "heuristic_score": 0.41999999999999993,
+    "ai_score": 0.5,
+    "score_gap": 0.08000000000000007,
+    "heuristic_reasoning": "Heuristic: good length, includes links, some engagement (10), link-only, shallow, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 4,
+      "reblogs_count": 3,
+      "replies_count": 0,
+      "created_at": "2025-10-31T11:40:41.660Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:19.117348+00:00",
+    "content_preview": "We\u2019re proud that our founder, @fkarlitschek, joins the new EuroStack Initiative Foundation, a non-profit driving real action for European digital sovereignty. \ud83c\uddea\ud83c\uddfaIts three pillars are: 1. Buy European2",
+    "content_length": 329,
+    "heuristic_score": 0.57,
+    "ai_score": 0.4,
+    "score_gap": -0.16999999999999993,
+    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), includes links, good engagement (50), no code examples, link-only, shallow, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 1,
+      "reblogs_count": 23,
+      "replies_count": 1,
+      "created_at": "2025-10-31T07:37:37.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:20.000697+00:00",
+    "content_preview": "Cookies feed the beast of targeted advertising \ud83c\udf6aThe Information Commissioner's Office (UK) wants the adtech industry to use less less-invasive forms of tracking by exempting them from cookie consent r",
+    "content_length": 489,
+    "heuristic_score": 0.6699999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.16999999999999993,
+    "heuristic_reasoning": "Heuristic: substantial length, includes links, some engagement (22), single source, contains undervalued keyword: from, contains undervalued keyword: open, engagement above learned threshold: 0 (+0.35 adaptive)",
+    "metadata": {
+      "favourites_count": 1,
+      "reblogs_count": 9,
+      "replies_count": 1,
+      "created_at": "2025-10-31T09:15:06.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:24.010168+00:00",
+    "content_preview": "GrapheneOS is great and I recommend it all the time for Android users who are concerned about spying by governments and law enforcement.https://arstechnica.com/gadgets/2025/10/leaker-reveals-which-pix",
+    "content_length": 247,
+    "heuristic_score": 0.87,
+    "ai_score": 0.7,
+    "score_gap": -0.17000000000000004,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (324), link-only, shallow, single source, contains undervalued keyword: about, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 4,
+      "reblogs_count": 136,
+      "replies_count": 16,
+      "created_at": "2025-10-31T00:34:37.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:24.272186+00:00",
+    "content_preview": "\u201cI\u2019m seeing 500 link clicks on my newsletter analytics but only 320 visits in Plausible.\u201dHere\u2019s why that happens \ud83d\udc47\ud83d\udce7 Email tools count every click on a tracked link. That includes:\u2013 Real readers clicki",
+    "content_length": 354,
+    "heuristic_score": 0.7999999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.29999999999999993,
+    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), some engagement (17), announcement content, some emoji, no code examples, contains undervalued keyword: open, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 6,
+      "reblogs_count": 4,
+      "replies_count": 1,
+      "created_at": "2025-10-31T08:13:07.048Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:26.286112+00:00",
+    "content_preview": "Journalism tip: If someone says drop the story, that\u2019s a sign to keep reporting.Read our full investigation \u279c https://www.propublica.org/article/paul-newby-north-carolina-supreme-court?utm_source=mast",
+    "content_length": 475,
+    "heuristic_score": 0.8,
+    "ai_score": 0.2,
+    "score_gap": -0.6000000000000001,
+    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), includes links, very high engagement (947), link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 248,
+      "reblogs_count": 321,
+      "replies_count": 19,
+      "created_at": "2025-10-30T21:18:34.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:28.761084+00:00",
+    "content_preview": "i feel like i will never top this mastodon momenthttps://masto.ai/@vagina_museum/114115210989466221",
+    "content_length": 99,
+    "heuristic_score": 0.37,
+    "ai_score": 0.2,
+    "score_gap": -0.16999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), includes links, high engagement (155), personal content, link-only, shallow, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 3,
+      "reblogs_count": 58,
+      "replies_count": 12,
+      "created_at": "2025-10-30T23:51:16.000Z",
+      "language": "en",
+      "instance": "https://fosstodon.org",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:30.854086+00:00",
+    "content_preview": "Long-billed curlew. Can\u2019t wait until my beach camping trip next weekend!",
+    "content_length": 72,
+    "heuristic_score": 0.7000000000000001,
+    "ai_score": 0.0,
+    "score_gap": -0.7000000000000001,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), high engagement (210), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 104,
+      "reblogs_count": 50,
+      "replies_count": 2,
+      "created_at": "2025-10-31T07:54:04.831Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:31.092852+00:00",
+    "content_preview": "Edinburgh e-bike component manufacturer, Intradrive, are hiring. They are looking for a junior to mid-level engineer with a hands-on approach and a passion for bikes and electronics. Find out more abo",
+    "content_length": 251,
+    "heuristic_score": 0.7,
+    "ai_score": 0.5,
+    "score_gap": -0.19999999999999996,
+    "heuristic_reasoning": "Heuristic: good length, good engagement (65), contains undervalued keyword: about, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 0,
+      "reblogs_count": 31,
+      "replies_count": 1,
+      "created_at": "2025-10-31T10:33:06.264Z",
+      "language": "en",
+      "instance": "https://mas.to",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:31.319128+00:00",
+    "content_preview": "I taught a live translated class remotely to business people in Japan on OT malware reversing while wearing a kuromi onesie for Halloween, from a friends spare bedroom in a third country if you were w",
+    "content_length": 226,
+    "heuristic_score": 0.85,
+    "ai_score": 0.2,
+    "score_gap": -0.6499999999999999,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some engagement (30), contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 21,
+      "reblogs_count": 0,
+      "replies_count": 3,
+      "created_at": "2025-10-31T11:55:38.342Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:33.330047+00:00",
+    "content_preview": "Hello! Hello. It's #nakeddiefriday today, and I wanted to show you one of the older works. This is an automotive ASIC fabbed for Toyota, part number DF028. I do not know the function of this particula",
+    "content_length": 345,
+    "heuristic_score": 0.6699999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.16999999999999993,
+    "heuristic_reasoning": "Heuristic: good length, includes links, good engagement (50), announcement content, link-only, shallow, single source, contains undervalued keyword: show, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 10,
+      "reblogs_count": 17,
+      "replies_count": 2,
+      "created_at": "2025-10-31T09:56:24.019Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:34.311882+00:00",
+    "content_preview": "American Gestapo. That is not hyperbole. That is our reality: people arrested and jailed for their speech. A retired policeman posted a Charlie Kirk meme. He spent a month in jail. https://www.washing",
+    "content_length": 262,
+    "heuristic_score": 0.57,
+    "ai_score": 0.2,
+    "score_gap": -0.36999999999999994,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, some engagement (36), link-only, shallow, single source, thread post (may lack context), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 3,
+      "reblogs_count": 15,
+      "replies_count": 1,
+      "created_at": "2025-10-31T11:31:22.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:36.300597+00:00",
+    "content_preview": "A permanent basic income for artists? Could this be a scheme to counter the massive AI attack on art?https://www.businessinsider.com/ireland-basic-income-artists-permanent-2025-10",
+    "content_length": 179,
+    "heuristic_score": 0.77,
+    "ai_score": 0.3,
+    "score_gap": -0.47000000000000003,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (361), link-only, shallow, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 125,
+      "reblogs_count": 100,
+      "replies_count": 12,
+      "created_at": "2025-10-31T06:03:01.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:36.709128+00:00",
+    "content_preview": "GLOBAL WARMING 2025 New York City flooded due to torrential rainfall, cars floating in floodwaters\"Climate change is a hoax\"- Donald Trump#AureFreePress #News #press #headline #GOP #Politics #uspoliti",
+    "content_length": 239,
+    "heuristic_score": 0.65,
+    "ai_score": 0.2,
+    "score_gap": -0.45,
+    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), some engagement (42), no code examples, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 4,
+      "reblogs_count": 16,
+      "replies_count": 2,
+      "created_at": "2025-10-31T10:27:11.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:37.174897+00:00",
+    "content_preview": "Halloween StoriesWhy are Victorians the default haunted house, what do ghosts have to do with the imagination, and why do we like to be scared?By The Editorshttps://daily.jstor.org/editors-picks-hallo",
+    "content_length": 370,
+    "heuristic_score": 0.75,
+    "ai_score": 0.2,
+    "score_gap": -0.55,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, good engagement (67), link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 15,
+      "reblogs_count": 26,
+      "replies_count": 0,
+      "created_at": "2025-10-31T09:45:02.000Z",
+      "language": "en",
+      "instance": "https://infosec.exchange",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:39.441019+00:00",
+    "content_preview": "Reasoning Models Reason Well, Until They Don't",
+    "content_length": 46,
+    "heuristic_score": 0.15,
+    "ai_score": 0.4,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 114,
+      "comments": 80,
+      "time": 1761902621,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:39.635063+00:00",
+    "content_preview": "AMD Could Enter ARM Market with Sound Wave APU Built on TSMC 3nm Process",
+    "content_length": 72,
+    "heuristic_score": 0.25,
+    "ai_score": 0.7,
+    "score_gap": 0.44999999999999996,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 165,
+      "comments": 109,
+      "time": 1761880068,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:40.187330+00:00",
+    "content_preview": "Affinity Studio now free\n\n<a href=\"https:&#x2F;&#x2F;www.affinity.studio&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.affinity.studio&#x2F;</a>",
+    "content_length": 142,
+    "heuristic_score": 0.5,
+    "ai_score": 0.5,
+    "score_gap": 0.0,
+    "heuristic_reasoning": "Heuristic: good length, includes links, structured text, link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 1046,
+      "comments": 690,
+      "time": 1761839678,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:41.541782+00:00",
+    "content_preview": "Result is all I need",
+    "content_length": 20,
+    "heuristic_score": 0.15,
+    "ai_score": 0.2,
+    "score_gap": 0.05000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 45,
+      "comments": 29,
+      "time": 1761392458,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:43.466824+00:00",
+    "content_preview": "Bertie the Brain",
+    "content_length": 16,
+    "heuristic_score": 0.35,
+    "ai_score": 0.4,
+    "score_gap": 0.050000000000000044,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 26,
+      "comments": 1,
+      "time": 1761289257,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:45.282180+00:00",
+    "content_preview": "Rouille \u2013 Rust Programming, in French",
+    "content_length": 37,
+    "heuristic_score": 0.35,
+    "ai_score": 0.5,
+    "score_gap": 0.15000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, 2 tech keyword(s), no code examples, contains undervalued keyword: programming, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 146,
+      "comments": 74,
+      "time": 1761212632,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:46.013726+00:00",
+    "content_preview": "Kimi Linear: An Expressive, Efficient Attention Architecture",
+    "content_length": 60,
+    "heuristic_score": 0.53,
+    "ai_score": 0.7,
+    "score_gap": 0.16999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), some depth, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 159,
+      "comments": 14,
+      "time": 1761869256,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:47.007535+00:00",
+    "content_preview": "Phone numbers for use in TV shows, films and creative works",
+    "content_length": 59,
+    "heuristic_score": 0.35,
+    "ai_score": 0.4,
+    "score_gap": 0.050000000000000044,
+    "heuristic_reasoning": "Heuristic: short but viable, contains undervalued keyword: show, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 209,
+      "comments": 96,
+      "time": 1761860951,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:49.386553+00:00",
+    "content_preview": "How the cochlea computes (2024)",
+    "content_length": 31,
+    "heuristic_score": 0.15,
+    "ai_score": 0.6,
+    "score_gap": 0.44999999999999996,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 438,
+      "comments": 136,
+      "time": 1761843680,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:53.188640+00:00",
+    "content_preview": "In Orbit You Have to Slow Down to Speed Up",
+    "content_length": 42,
+    "heuristic_score": 0.15,
+    "ai_score": 0.3,
+    "score_gap": 0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 3,
+      "comments": 1,
+      "time": 1761306959,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:53.846606+00:00",
+    "content_preview": "987654321 / 123456789",
+    "content_length": 21,
+    "heuristic_score": 0.15,
+    "ai_score": 0.2,
+    "score_gap": 0.05000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 579,
+      "comments": 98,
+      "time": 1761492136,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:55.341455+00:00",
+    "content_preview": "John Carmack on mutable variables",
+    "content_length": 33,
+    "heuristic_score": 0.15,
+    "ai_score": 0.6,
+    "score_gap": 0.44999999999999996,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 164,
+      "comments": 192,
+      "time": 1761878076,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:55.423652+00:00",
+    "content_preview": "A Closer Look at Piezoelectric Crystal",
+    "content_length": 38,
+    "heuristic_score": 0.15,
+    "ai_score": 0.7,
+    "score_gap": 0.5499999999999999,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 24,
+      "comments": 7,
+      "time": 1761149536,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:56.585555+00:00",
+    "content_preview": "A Classic Graphic Reveals Nature's Most Efficient Traveler",
+    "content_length": 58,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 23,
+      "comments": 16,
+      "time": 1761216333,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:58.350128+00:00",
+    "content_preview": "Free software scares normal people",
+    "content_length": 34,
+    "heuristic_score": 0.35,
+    "ai_score": 0.5,
+    "score_gap": 0.15000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 730,
+      "comments": 467,
+      "time": 1761836835,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:11:58.375896+00:00",
+    "content_preview": "Show HN: Quibbler \u2013 A critic for your coding agent that learns what you want",
+    "content_length": 76,
+    "heuristic_score": 0.43,
+    "ai_score": 0.6,
+    "score_gap": 0.16999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, somewhat educational, contains undervalued keyword: show, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 68,
+      "comments": 18,
+      "time": 1761871437,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:05.202584+00:00",
+    "content_preview": "Springs and bounces in native CSS",
+    "content_length": 33,
+    "heuristic_score": 0.15,
+    "ai_score": 0.6,
+    "score_gap": 0.44999999999999996,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 209,
+      "comments": 31,
+      "time": 1761674506,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:06.444747+00:00",
+    "content_preview": "NPM flooded with malicious packages downloaded more than 86k times",
+    "content_length": 66,
+    "heuristic_score": 0.25,
+    "ai_score": 0.7,
+    "score_gap": 0.44999999999999996,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 282,
+      "comments": 205,
+      "time": 1761784653,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:07.793173+00:00",
+    "content_preview": "Roadmap for Improving the Type Checker",
+    "content_length": 38,
+    "heuristic_score": 0.15,
+    "ai_score": 0.7,
+    "score_gap": 0.5499999999999999,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 68,
+      "comments": 20,
+      "time": 1761872445,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:07.807224+00:00",
+    "content_preview": "Minecraft HDL, an HDL for Redstone",
+    "content_length": 34,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: too short, contains undervalued keyword: minecraft, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 183,
+      "comments": 30,
+      "time": 1761850742,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:08.076356+00:00",
+    "content_preview": "build-your-own-x\n\nMaster programming by recreating your favorite technologies from scratch.",
+    "content_length": 91,
+    "heuristic_score": 0.6,
+    "ai_score": 0.7,
+    "score_gap": 0.09999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, curated list repository, contains undervalued keyword: from, contains undervalued keyword: programming, engagement above learned threshold: 0 (+0.35 adaptive)",
+    "metadata": {
+      "stars": 432052,
+      "forks": 40550,
+      "watchers": 432052,
+      "language": "Markdown",
+      "topics": [
+        "awesome-list",
+        "free",
+        "programming",
+        "tutorial-code",
+        "tutorial-exercises",
+        "tutorials"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 431
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:13.333508+00:00",
+    "content_preview": "freeCodeCamp\n\nfreeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
+    "content_length": 125,
+    "heuristic_score": 1.0299999999999998,
+    "ai_score": 0.7,
+    "score_gap": -0.32999999999999985,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, somewhat educational, contains undervalued keyword: open, contains undervalued keyword: programming, engagement above learned threshold: 0 (+0.35 adaptive)",
+    "metadata": {
+      "stars": 431010,
+      "forks": 42172,
+      "watchers": 431010,
+      "language": "TypeScript",
+      "topics": [
+        "careers",
+        "certification",
+        "community",
+        "curriculum",
+        "d3",
+        "education",
+        "freecodecamp",
+        "javascript",
+        "learn-to-code",
+        "math",
+        "nodejs",
+        "nonprofits",
+        "programming",
+        "react",
+        "teachers"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 302
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:17.622787+00:00",
+    "content_preview": "awesome\n\n\ud83d\ude0e Awesome lists about all kinds of interesting topics",
+    "content_length": 62,
+    "heuristic_score": 0.30000000000000004,
+    "ai_score": 0.4,
+    "score_gap": 0.09999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, structured text, curated list repository, contains undervalued keyword: about, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "stars": 410790,
+      "forks": 32048,
+      "watchers": 410790,
+      "language": null,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "lists",
+        "resources",
+        "unicorns"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 47
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:18.502791+00:00",
+    "content_preview": "free-programming-books\n\n:books: Freely available programming books",
+    "content_length": 66,
+    "heuristic_score": 0.5,
+    "ai_score": 0.7,
+    "score_gap": 0.19999999999999996,
+    "heuristic_reasoning": "Heuristic: short but viable, 2 tech keyword(s), structured text, organization account, no code examples, curated list repository, contains undervalued keyword: programming, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "stars": 375668,
+      "forks": 65267,
+      "watchers": 375668,
+      "language": "Python",
+      "topics": [
+        "books",
+        "education",
+        "hacktoberfest",
+        "list",
+        "resource"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 207
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:20.234758+00:00",
+    "content_preview": "developer-roadmap\n\nInteractive roadmaps, guides and other educational content to help developers grow in their careers.",
+    "content_length": 119,
+    "heuristic_score": 0.63,
+    "ai_score": 0.7,
+    "score_gap": 0.06999999999999995,
+    "heuristic_reasoning": "Heuristic: good length, structured text, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 342420,
+      "forks": 43260,
+      "watchers": 342420,
+      "language": "TypeScript",
+      "topics": [
+        "angular-roadmap",
+        "backend-roadmap",
+        "blockchain-roadmap",
+        "computer-science",
+        "dba-roadmap",
+        "developer-roadmap",
+        "devops-roadmap",
+        "frontend-roadmap",
+        "go-roadmap",
+        "java-roadmap",
+        "javascript-roadmap",
+        "nodejs-roadmap",
+        "python-roadmap",
+        "qa-roadmap",
+        "react-roadmap",
+        "roadmap",
+        "software-architect-roadmap",
+        "vue-roadmap"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 106
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:20.263785+00:00",
+    "content_preview": "system-design-primer\n\nLearn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
+    "content_length": 127,
+    "heuristic_score": 0.78,
+    "ai_score": 0.7,
+    "score_gap": -0.08000000000000007,
+    "heuristic_reasoning": "Heuristic: good length, structured text, educational content, some depth, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 324787,
+      "forks": 52955,
+      "watchers": 324787,
+      "language": "Python",
+      "topics": [
+        "design",
+        "design-patterns",
+        "design-system",
+        "development",
+        "interview",
+        "interview-practice",
+        "interview-questions",
+        "programming",
+        "python",
+        "system",
+        "web",
+        "web-application",
+        "webapp"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 513
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:20.486148+00:00",
+    "content_preview": "awesome-selfhosted\n\nA list of Free Software network services and web applications which can be hosted on your own servers",
+    "content_length": 121,
+    "heuristic_score": 0.5,
+    "ai_score": 0.7,
+    "score_gap": 0.19999999999999996,
+    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), structured text, no code examples, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 255648,
+      "forks": 11815,
+      "watchers": 255648,
+      "language": null,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "cloud",
+        "free-software",
+        "hosting",
+        "privacy",
+        "self-hosted",
+        "selfhosted"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 0
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:23.432359+00:00",
+    "content_preview": "react\n\nThe library for web and native user interfaces.",
+    "content_length": 54,
+    "heuristic_score": 0.55,
+    "ai_score": 0.5,
+    "score_gap": -0.050000000000000044,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 240199,
+      "forks": 49696,
+      "watchers": 240199,
+      "language": "JavaScript",
+      "topics": [
+        "declarative",
+        "frontend",
+        "javascript",
+        "library",
+        "react",
+        "ui"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 1050
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:30.814457+00:00",
+    "content_preview": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations and links to further readings",
+    "content_length": 129,
+    "heuristic_score": 0.83,
+    "ai_score": 0.7,
+    "score_gap": -0.13,
+    "heuristic_reasoning": "Heuristic: good length, 3 tech keywords, structured text, some depth, no code examples, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 193834,
+      "forks": 30934,
+      "watchers": 193834,
+      "language": "JavaScript",
+      "topics": [
+        "algorithm",
+        "algorithms",
+        "computer-science",
+        "data-structures",
+        "interview",
+        "interview-preparation",
+        "javascript",
+        "javascript-algorithms"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 375
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:30.926336+00:00",
+    "content_preview": "tensorflow\n\nAn Open Source Machine Learning Framework for Everyone",
+    "content_length": 66,
+    "heuristic_score": 0.73,
+    "ai_score": 0.7,
+    "score_gap": -0.030000000000000027,
+    "heuristic_reasoning": "Heuristic: short but viable, 3 tech keywords, structured text, somewhat educational, no code examples, contains undervalued keyword: open, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "stars": 192274,
+      "forks": 74941,
+      "watchers": 192274,
+      "language": "C++",
+      "topics": [
+        "deep-learning",
+        "deep-neural-networks",
+        "distributed",
+        "machine-learning",
+        "ml",
+        "neural-network",
+        "python",
+        "tensorflow"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 1884
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:30.985739+00:00",
+    "content_preview": "linux\n\nLinux kernel source tree",
+    "content_length": 31,
+    "heuristic_score": 0.6000000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.10000000000000009,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), structured text, authority account, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 206033,
+      "forks": 58125,
+      "watchers": 206033,
+      "language": "C",
+      "topics": [],
+      "source_name": "github_trending",
+      "open_issues": 3
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:31.613156+00:00",
+    "content_preview": "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php",
+    "content_length": 351,
+    "heuristic_score": 0.87,
+    "ai_score": 0.7,
+    "score_gap": -0.17000000000000004,
+    "heuristic_reasoning": "Heuristic: good length, 5 tech keywords, structured text, announcement content, no code examples, not actionable, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "stars": 182386,
+      "forks": 26267,
+      "watchers": 182386,
+      "language": "Shell",
+      "topics": [
+        "cli",
+        "cli-app",
+        "oh-my-zsh",
+        "oh-my-zsh-plugin",
+        "oh-my-zsh-theme",
+        "ohmyzsh",
+        "plugin-framework",
+        "plugins",
+        "productivity",
+        "shell",
+        "terminal",
+        "theme",
+        "themes",
+        "zsh",
+        "zsh-configuration"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 516
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-10-31T12:12:33.193498+00:00",
+    "content_preview": "AutoGPT\n\nAutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+    "content_length": 161,
+    "heuristic_score": 0.75,
+    "ai_score": 0.7,
+    "score_gap": -0.050000000000000044,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "stars": 179391,
+      "forks": 46094,
+      "watchers": 179391,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "artificial-intelligence",
+        "autonomous-agents",
+        "gpt-4",
+        "llama-api",
+        "openai",
+        "python"
+      ],
+      "source_name": "github_trending",
+      "open_issues": 272
     },
     "source": "github"
   }

@@ -757,5 +757,67 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 71,
+    "duplicates_found": 4,
+    "patterns_used": 121,
+    "timestamp": "2025-10-31T12:09:55.249824",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Citing concerns over the US administration, the ICC - International Criminal Court- are moving from ",
+        "removed_items": [
+          "International Criminal Court to ditch Microsoft Office for European #opensource alternative - https:",
+          "The International Criminal Court (ICC) in The Hague is choosing OpenDesk, a German open source alter"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "\"An LLM helped me with some task\" is not a good argument for these things increasing productivity. D",
+        "removed_items": [
+          "\u201cUnexpectedly, a deer briefly entered the family room\u201d: Living with Gemini HomeGemini for Home unlea"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 71,
+    "duplicates_found": 4,
+    "patterns_used": 125,
+    "timestamp": "2025-10-31T12:10:25.152040",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Citing concerns over the US administration, the ICC - International Criminal Court- are moving from ",
+        "removed_items": [
+          "International Criminal Court to ditch Microsoft Office for European #opensource alternative - https:",
+          "The International Criminal Court (ICC) in The Hague is choosing OpenDesk, a German open source alter"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "\"An LLM helped me with some task\" is not a good argument for these things increasing productivity. D",
+        "removed_items": [
+          "\u201cUnexpectedly, a deer briefly entered the family room\u201d: Living with Gemini HomeGemini for Home unlea"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]

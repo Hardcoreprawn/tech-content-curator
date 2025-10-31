@@ -42,7 +42,7 @@ from .generators.base import BaseGenerator
 from .generators.general import GeneralArticleGenerator
 from .generators.integrative import IntegrativeListGenerator
 from .generators.specialized.self_hosted import SelfHostedGenerator
-from .images import CoverImageSelector, generate_featured_image
+from .images import CoverImageSelector
 from .image_library import select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
 from .post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
@@ -474,7 +474,11 @@ def generate_article_slug(title: str, openai_api_key: str) -> tuple[str, float]:
     Returns:
         Tuple of (URL-safe slug string, cost in USD)
     """
-    client = OpenAI(api_key=openai_api_key)
+    client = OpenAI(
+        api_key=openai_api_key,
+        timeout=120.0,  # 120 second timeout for API calls
+        max_retries=2,  # Retry up to 2 times on transient errors
+    )
     
     prompt = f"""Convert this title to a short, SEO-friendly URL slug:
 
@@ -543,7 +547,11 @@ def generate_article_title(
     Returns:
         Tuple of (title, cost)
     """
-    client = OpenAI(api_key=openai_api_key)
+    client = OpenAI(
+        api_key=openai_api_key,
+        timeout=120.0,  # 120 second timeout for API calls
+        max_retries=2,  # Retry up to 2 times on transient errors
+    )
 
     # Get first 800 chars of article for context
     article_preview = content[:800]
@@ -674,7 +682,11 @@ def generate_single_article(
     console.print(f"[blue]Generating article:[/blue] {item.original.title[:50]}...")
 
     try:
-        client = OpenAI(api_key=config.openai_api_key)
+        client = OpenAI(
+            api_key=config.openai_api_key,
+            timeout=120.0,  # 120 second timeout for API calls
+            max_retries=2,  # Retry up to 2 times on transient errors
+        )
 
         # Step 1: Check if article for this source already exists
         existing_file = check_article_exists_for_source(
@@ -837,18 +849,6 @@ def save_article_to_file(
                 # No API cost for reuse/local variants
                 article.generation_costs["image_generation"] = 0.0
                 article.generation_costs["icon_generation"] = 0.0
-            
-            # If still no image: generate or fallback to AI
-            if (not hero_path and config.image_strategy == "generate") or (
-                not hero_path and config.image_strategy == "reuse_then_generate" and config.image_generate_fallback
-            ):
-                result = generate_featured_image(
-                    article.title, article.summary, slug, config.openai_api_key, config.hugo_base_url
-                )
-                if result:
-                    hero_path, icon_path = result
-                    article.generation_costs["image_generation"] = calculate_image_cost()
-                    article.generation_costs["icon_generation"] = 0.0
         except Exception as ie:
             console.print(f"[yellow]⚠[/yellow] Image attach failed: {ie}")
 
@@ -1039,7 +1039,11 @@ def generate_articles_from_enriched(
         List of successfully generated articles
     """
     config = get_config()
-    client = OpenAI(api_key=config.openai_api_key)
+    client = OpenAI(
+        api_key=config.openai_api_key,
+        timeout=120.0,  # 120 second timeout for API calls
+        max_retries=2,  # Retry up to 2 times on transient errors
+    )
 
     # Get available generators
     generators = get_available_generators(client)
@@ -1280,7 +1284,11 @@ Examples:
     if args.dry_run:
         console.print("\n[yellow]DRY RUN MODE - No articles will be generated[/yellow]")
         candidates = select_article_candidates(items)
-        client = OpenAI(api_key=config.openai_api_key)
+        client = OpenAI(
+            api_key=config.openai_api_key,
+            timeout=120.0,  # 120 second timeout for API calls
+            max_retries=2,  # Retry up to 2 times on transient errors
+        )
         generators = get_available_generators(client)
         selected = _select_diverse_candidates(candidates, args.max_articles, generators)
 
