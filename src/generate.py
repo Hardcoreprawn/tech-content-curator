@@ -42,7 +42,7 @@ from .generators.base import BaseGenerator
 from .generators.general import GeneralArticleGenerator
 from .generators.integrative import IntegrativeListGenerator
 from .generators.specialized.self_hosted import SelfHostedGenerator
-from .images import generate_featured_image
+from .images import CoverImageSelector, generate_featured_image
 from .image_library import select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
 from .post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
@@ -808,15 +808,39 @@ def save_article_to_file(
         slug = filepath.stem
         hero_path = icon_path = None
         try:
-            # Reuse-first strategy: create local variants from library
-            if config.image_strategy in ("reuse", "reuse_then_generate"):
+            # NEW: Multi-source image selection (Feature 1)
+            # Try free sources first (Wikimedia, Unsplash, Pexels) before AI
+            if config.unsplash_api_key or config.pexels_api_key:
+                try:
+                    selector = CoverImageSelector(client, config)
+                    cover_image = selector.select(article.title, article.tags)
+                    
+                    # Use the selected image URL directly
+                    hero_path = cover_image.url
+                    icon_path = cover_image.url  # Same URL for both for now
+                    
+                    article.generation_costs["image_generation"] = cover_image.cost
+                    article.generation_costs["icon_generation"] = 0.0
+                    
+                    console.print(
+                        f"[green]✓[/green] Selected {cover_image.source} image "
+                        f"(cost: ${cover_image.cost:.4f}, quality: {cover_image.quality_score:.2f})"
+                    )
+                except Exception as e:
+                    console.print(f"[yellow]⚠ Multi-source image selection failed: {e}[/yellow]")
+                    # Fall through to existing strategies
+                    hero_path = icon_path = None
+            
+            # Fallback: Reuse-first strategy (create local variants from library)
+            if not hero_path and config.image_strategy in ("reuse", "reuse_then_generate"):
                 hero_path, icon_path = select_or_create_cover_image(article.tags, slug, config.hugo_base_url)
                 # No API cost for reuse/local variants
                 article.generation_costs["image_generation"] = 0.0
                 article.generation_costs["icon_generation"] = 0.0
-            # If set to always generate or fallback requested
-            if (config.image_strategy == "generate") or (
-                config.image_strategy == "reuse_then_generate" and not hero_path and config.image_generate_fallback
+            
+            # If still no image: generate or fallback to AI
+            if (not hero_path and config.image_strategy == "generate") or (
+                not hero_path and config.image_strategy == "reuse_then_generate" and config.image_generate_fallback
             ):
                 result = generate_featured_image(
                     article.title, article.summary, slug, config.openai_api_key, config.hugo_base_url

@@ -154,6 +154,22 @@ class PipelineConfig(BaseModel):
         description="Time-to-live for citation cache entries in days",
     )
 
+    # Image selection - multi-source fallback
+    unsplash_api_key: str = Field(
+        default="",
+        description="Unsplash API key for free stock photos",
+    )
+    pexels_api_key: str = Field(
+        default="",
+        description="Pexels API key for free stock photos",
+    )
+    image_source_timeout: int = Field(
+        default=10,
+        ge=5,
+        le=60,
+        description="Timeout in seconds for image source API requests",
+    )
+
     class Config:
         """Pydantic config."""
 

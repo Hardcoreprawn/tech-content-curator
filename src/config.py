@@ -59,6 +59,10 @@ def get_config() -> PipelineConfig:
             image_generate_fallback=os.getenv("IMAGE_GENERATE_FALLBACK", "false").lower() == "true",
             enable_citations=os.getenv("ENABLE_CITATIONS", "true").lower() == "true",
             citations_cache_ttl_days=int(os.getenv("CITATIONS_CACHE_TTL_DAYS", "30")),
+            # Image selection - multi-source fallback
+            unsplash_api_key=os.getenv("UNSPLASH_API_KEY", ""),
+            pexels_api_key=os.getenv("PEXELS_API_KEY", ""),
+            image_source_timeout=int(os.getenv("IMAGE_SOURCE_TIMEOUT", "10")),
         )
 
         # Validate required keys
