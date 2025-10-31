@@ -742,7 +742,7 @@ def generate_single_article(
 
 
 def save_article_to_file(
-    article: GeneratedArticle, config: PipelineConfig, generate_image: bool = False
+    article: GeneratedArticle, config: PipelineConfig, generate_image: bool = False, client: OpenAI | None = None
 ) -> Path:
     """Save a generated article to markdown file with frontmatter.
 
@@ -750,6 +750,7 @@ def save_article_to_file(
         article: The generated article to save
         config: Pipeline configuration for API keys
         generate_image: If True, generate a featured image using DALL-E 3
+        client: OpenAI client for image selection (required if generate_image is True)
 
     Returns:
         Path to the saved file
@@ -806,7 +807,7 @@ def save_article_to_file(
         try:
             # NEW: Multi-source image selection (Feature 1)
             # Try free sources first (Wikimedia, Unsplash, Pexels) before AI
-            if config.unsplash_api_key or config.pexels_api_key:
+            if client and (config.unsplash_api_key or config.pexels_api_key):
                 try:
                     selector = CoverImageSelector(client, config)
                     cover_image = selector.select(article.title, article.tags)
@@ -1126,7 +1127,7 @@ def generate_articles_from_enriched(
             
             if not duplicate_found:
                 # Save to file only if not a duplicate
-                save_article_to_file(article, config, generate_images)
+                save_article_to_file(article, config, generate_images, client)
                 articles.append(article)
                 
                 # Track successful generation cost
