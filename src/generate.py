@@ -33,6 +33,8 @@ from openai import OpenAI
 from rich.console import Console
 
 from .adaptive_dedup import AdaptiveDedupFeedback
+from .citations import CitationExtractor, CitationFormatter, CitationResolver
+from .citations.cache import CitationCache
 from .config import PipelineConfig, get_config, get_content_dir, get_data_dir
 from .costs import CostTracker
 from .fact_check import validate_article
@@ -868,7 +870,69 @@ def save_article_to_file(
             )
         references_block = "\n".join(lines) + "\n"
 
-    full_content = f"{attribution_block}{article.content}{references_block}"
+    # Apply citation resolution if enabled (link academic citations to DOIs/arXiv)
+    article_content = article.content
+    if config.enable_citations:
+        try:
+            extractor = CitationExtractor()
+            resolver = CitationResolver()
+            formatter = CitationFormatter()
+            cache = CitationCache()
+
+            # Extract citations from the article content
+            citations = extractor.extract(article_content)
+
+            if citations:
+                formatted_citations = []
+                for citation in citations:
+                    # Check cache first
+                    cached = cache.get(citation.authors, citation.year)
+                    if cached and cached.get("url"):
+                        # Use cached resolution
+                        from .citations.resolver import ResolvedCitation
+
+                        resolved = ResolvedCitation(
+                            doi=cached.get("doi"),
+                            arxiv_id=None,
+                            pmid=None,
+                            url=cached.get("url"),
+                            confidence=0.95,  # Cached entries are high confidence
+                        )
+                    else:
+                        # Resolve via APIs
+                        resolved = resolver.resolve(citation.authors, citation.year)
+                        # Store in cache for future use
+                        cache.put(
+                            citation.authors,
+                            citation.year,
+                            resolved.doi,
+                            resolved.url,
+                        )
+
+                    # Format the citation as markdown link
+                    formatted = formatter.format(citation, resolved)
+                    formatted_citations.append(formatted)
+
+                # Apply formatted citations to content
+                if formatted_citations:
+                    article_content = formatter.apply_to_text(
+                        article_content, formatted_citations
+                    )
+                    # Count how many citations were resolved
+                    resolved_count = sum(
+                        1 for c in formatted_citations if c.was_resolved
+                    )
+                    if resolved_count > 0:
+                        console.print(
+                            f"[blue]ℹ[/blue] Resolved {resolved_count} citation(s) "
+                            f"out of {len(citations)}"
+                        )
+
+        except Exception as e:
+            console.print(f"[yellow]⚠[/yellow] Citation processing failed: {e}")
+            # Continue without citations on error
+
+    full_content = f"{attribution_block}{article_content}{references_block}"
 
     # Create frontmatter post
     post = frontmatter.Post(full_content, **metadata)

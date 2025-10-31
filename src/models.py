@@ -142,6 +142,18 @@ class PipelineConfig(BaseModel):
         description="If true and strategy is reuse, fallback to AI generation when no library base exists",
     )
 
+    # Citation resolution
+    enable_citations: bool = Field(
+        default=True,
+        description="Enable automatic academic citation resolution to DOIs/arXiv links",
+    )
+    citations_cache_ttl_days: int = Field(
+        default=30,
+        ge=1,
+        le=365,
+        description="Time-to-live for citation cache entries in days",
+    )
+
     class Config:
         """Pydantic config."""
 

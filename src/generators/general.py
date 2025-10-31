@@ -67,11 +67,23 @@ class GeneralArticleGenerator(BaseGenerator):
     - Credit the original source appropriately
     - Focus on value for tech professionals/developers
 
+    ACADEMIC CITATION REQUIREMENT:
+    - When you reference research, studies, or papers, include author names with publication years
+    - Proper citation format: "Author (Year)" or "Author et al. (Year)"
+    - Examples of good citations:
+      * "Recent research by Lentink (2014) established foundational principles..."
+      * "Jones et al. (2023) discovered that..."
+      * "Studies like Brown et al. (2022) demonstrate..."
+    - Include 3-5 academic citations naturally throughout the article
+    - Only cite research you are confident about (don't invent citations)
+    - Citations will be automatically linked to DOI/arXiv by the publication engine
+    - If unsure of exact year, make reasonable estimate based on recency
+
     ARTICLE STRUCTURE:
-    1. **Introduction**: Hook + context + what readers will learn
-    2. **Main sections**: Deep dive into the key concepts (use ## headings)
+    1. **Introduction**: Hook + context + what readers will learn (include 1 citation if relevant)
+    2. **Main sections**: Deep dive into the key concepts (use ## headings, include 2-3 citations naturally)
     3. **Practical implications**: What this means for readers
-    4. **Conclusion**: Key takeaways + call to action
+    4. **Conclusion**: Key takeaways + call to action (1-2 citations if relevant)
     5. **Source attribution**: Credit original post and author
 
     Write engaging, substantive content that goes beyond the original post.

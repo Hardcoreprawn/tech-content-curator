@@ -57,6 +57,8 @@ def get_config() -> PipelineConfig:
             ),
             image_strategy=os.getenv("IMAGE_STRATEGY", "reuse"),
             image_generate_fallback=os.getenv("IMAGE_GENERATE_FALLBACK", "false").lower() == "true",
+            enable_citations=os.getenv("ENABLE_CITATIONS", "true").lower() == "true",
+            citations_cache_ttl_days=int(os.getenv("CITATIONS_CACHE_TTL_DAYS", "30")),
         )
 
         # Validate required keys
