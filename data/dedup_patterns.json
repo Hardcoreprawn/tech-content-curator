@@ -1,36 +1,36 @@
 [
   {
     "entities": [
+      "python",
       "psf",
-      "python software foundation",
-      "python"
+      "python software foundation"
     ],
     "keywords": [
-      "single",
-      "please",
-      "seeking",
-      "tldr",
-      "decision",
-      "than",
-      "shows",
-      "giant",
-      "inclusion",
-      "every",
-      "software",
-      "ahead",
-      "read",
-      "revenue",
-      "equity",
-      "core",
       "shared",
-      "spine",
-      "values",
-      "community",
-      "foundation",
-      "tech",
-      "share",
+      "inclusion",
+      "single",
+      "core",
+      "read",
+      "seeking",
       "python",
-      "diversity"
+      "foundation",
+      "values",
+      "than",
+      "diversity",
+      "revenue",
+      "software",
+      "please",
+      "tech",
+      "spine",
+      "tldr",
+      "giant",
+      "community",
+      "equity",
+      "decision",
+      "share",
+      "shows",
+      "every",
+      "ahead"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "various",
-      "workforce",
-      "ultimate",
-      "about",
-      "company",
-      "cutting",
-      "help",
+      "boost",
       "cost",
-      "including",
-      "damn",
-      "layoffs",
-      "devices",
-      "groups",
-      "goal",
-      "reduce",
-      "bottom",
-      "jassy",
-      "move",
-      "stated",
-      "bureaucracy",
       "amazon",
       "beginning",
-      "adoption",
-      "tomorrow",
-      "boost",
-      "line",
+      "layoffs",
+      "stated",
+      "damn",
+      "cutting",
+      "jassy",
+      "help",
       "brutal",
-      "jobs",
+      "bottom",
+      "groups",
+      "company",
+      "workforce",
+      "corporate",
+      "move",
+      "tomorrow",
+      "adoption",
+      "bureaucracy",
       "speed",
-      "corporate"
+      "goal",
+      "various",
+      "ultimate",
+      "jobs",
+      "devices",
+      "line",
+      "including",
+      "about",
+      "reduce"
     ],
     "confidence": 0.95,
     "examples": [
@@ -217,8 +217,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -235,8 +235,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -253,8 +253,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -271,8 +271,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -289,8 +289,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -307,8 +307,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -359,8 +359,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -411,8 +411,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "anyone",
-      "excerpts",
       "running",
+      "always",
       "posts",
-      "always"
+      "anyone",
+      "excerpts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "donations",
       "grant",
-      "recent"
+      "recent",
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "court",
-      "source",
-      "european",
-      "international",
       "microsoft",
-      "alternative",
-      "office",
-      "criminal",
+      "court",
+      "european",
       "open",
-      "ditch"
+      "international",
+      "alternative",
+      "criminal",
+      "office",
+      "ditch",
+      "source"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2231,6 +2231,74 @@
     ],
     "created_at": "2025-10-31T13:55:27.599726",
     "last_seen": "2025-10-31T13:55:27.599729",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "github"
+    ],
+    "keywords": [
+      "github",
+      "available"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "The second release candidate for Mastodon 4.5 is ready!It fixes an issue introduced in the first rel",
+      "Immutable releases are now generally available on GitHub"
+    ],
+    "created_at": "2025-10-31T18:10:25.805744",
+    "last_seen": "2025-10-31T18:10:25.805749",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Wheels for free-threaded Python now available for psutil",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-31T18:10:25.835911",
+    "last_seen": "2025-10-31T18:10:25.835916",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "github"
+    ],
+    "keywords": [
+      "github",
+      "available"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "The second release candidate for Mastodon 4.5 is ready!It fixes an issue introduced in the first rel",
+      "Immutable releases are now generally available on GitHub"
+    ],
+    "created_at": "2025-10-31T18:10:25.909000",
+    "last_seen": "2025-10-31T18:10:25.909003",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Wheels for free-threaded Python now available for psutil",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-31T18:10:25.938898",
+    "last_seen": "2025-10-31T18:10:25.938902",
     "frequency": 1
   }
 ]
