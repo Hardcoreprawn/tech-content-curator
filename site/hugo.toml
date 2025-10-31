@@ -4,8 +4,10 @@ languageCode = "en-us"
 title = "Tech Content Curator"
 theme = "PaperMod"
 
-# Canonify URLs to use baseURL for all absolute paths
-canonifyURLs = true
+# URL Strategy: Use relative paths with canonifyURLs = false
+# See: docs/ADR-001-URL-PATH-STRATEGY.md
+# This prevents double-path issues when deployed to GitHub Pages subdirectory
+canonifyURLs = false
 
 # Environment & robots
 environment = "production"
@@ -21,7 +23,7 @@ contentDir = "../content"
   description = "Curated tech content from social media, transformed into insightful articles"
   author = "Tech Content Curator"
   # Default social/share image (place an image at site/static/images/default-social.png)
-  images = ["/images/default-social.png"]
+  images = ["/tech-content-curator/images/default-social.png"]
   # Optional: search engine verification tokens (fill these in to verify your site)
   google_site_verification = ""
   bing_site_verification = ""
@@ -56,7 +58,7 @@ contentDir = "../content"
   [params.homeInfoParams]
     Title = "Tech Content Curator"
     Content = "Deep-dive tech articles synthesized from the best conversations across HackerNews, GitHub, Mastodon, and Reddit. Updated 3× daily."
-    imageUrl = "/images/default-social.png"
+    imageUrl = "/tech-content-curator/images/default-social.png"
     imageTitle = "Tech Content Curator"
     imageHeight = 200
 
@@ -69,28 +71,31 @@ contentDir = "../content"
     url = "/index.xml"
 
 [menu]
+  # Menu URLs use relative paths (/posts/ not /tech-content-curator/posts/)
+  # Hugo will resolve these relative to baseURL automatically
+  # See: docs/ADR-001-URL-PATH-STRATEGY.md
   [[menu.main]]
     identifier = "posts"
     name = "Posts"
-    url = "/tech-content-curator/posts/"
+    url = "/posts/"
     weight = 10
   
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
-    url = "/tech-content-curator/tags/"
+    url = "/tags/"
     weight = 20
     
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "/tech-content-curator/about/"
+    url = "/about/"
     weight = 30
   
   [[menu.main]]
     identifier = "search"
     name = "Search"
-    url = "/tech-content-curator/search/"
+    url = "/search/"
     weight = 40
 
 [outputs]
