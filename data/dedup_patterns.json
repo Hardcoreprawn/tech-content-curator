@@ -2,35 +2,35 @@
   {
     "entities": [
       "python software foundation",
-      "psf",
-      "python"
+      "python",
+      "psf"
     ],
     "keywords": [
-      "core",
-      "shared",
-      "values",
-      "than",
-      "read",
-      "software",
-      "diversity",
-      "community",
-      "ahead",
-      "revenue",
       "please",
-      "single",
-      "every",
-      "python",
-      "tldr",
-      "equity",
-      "inclusion",
-      "foundation",
+      "giant",
+      "shows",
       "share",
+      "foundation",
+      "diversity",
+      "every",
+      "ahead",
+      "than",
+      "values",
+      "tldr",
+      "decision",
+      "community",
+      "revenue",
+      "shared",
+      "software",
+      "spine",
+      "python",
+      "core",
+      "inclusion",
+      "single",
       "tech",
       "seeking",
-      "shows",
-      "giant",
-      "decision",
-      "spine"
+      "read",
+      "equity"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "reduce",
-      "cutting",
-      "company",
-      "boost",
-      "cost",
-      "amazon",
-      "groups",
-      "tomorrow",
-      "goal",
-      "jobs",
-      "speed",
-      "move",
-      "devices",
-      "adoption",
-      "beginning",
-      "bureaucracy",
-      "jassy",
+      "layoffs",
       "line",
-      "corporate",
-      "ultimate",
-      "damn",
-      "various",
-      "about",
-      "stated",
-      "workforce",
+      "goal",
       "help",
-      "brutal",
-      "bottom",
+      "bureaucracy",
+      "various",
+      "cutting",
+      "adoption",
+      "speed",
       "including",
-      "layoffs"
+      "stated",
+      "corporate",
+      "jassy",
+      "workforce",
+      "tomorrow",
+      "about",
+      "amazon",
+      "bottom",
+      "cost",
+      "reduce",
+      "beginning",
+      "ultimate",
+      "company",
+      "devices",
+      "groups",
+      "jobs",
+      "damn",
+      "boost",
+      "move",
+      "brutal"
     ],
     "confidence": 0.95,
     "examples": [
@@ -325,8 +325,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -377,8 +377,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -429,8 +429,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -464,8 +464,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "always",
-      "anyone",
-      "posts",
       "excerpts",
-      "running"
+      "running",
+      "posts",
+      "anyone"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -616,8 +616,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -664,8 +664,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -683,8 +683,8 @@
     ],
     "keywords": [
       "grant",
-      "donations",
-      "recent"
+      "recent",
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1925,6 +1925,38 @@
     ],
     "created_at": "2025-10-31T02:30:54.041205",
     "last_seen": "2025-10-31T02:30:54.041209",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-31T06:06:58.928386",
+    "last_seen": "2025-10-31T06:06:58.928389",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-31T06:06:59.063559",
+    "last_seen": "2025-10-31T06:06:59.063560",
     "frequency": 1
   }
 ]
