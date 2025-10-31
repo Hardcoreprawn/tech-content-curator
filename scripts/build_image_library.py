@@ -1,7 +1,7 @@
 """Build or refresh the abstract image library."""
 
 from rich.console import Console
-from src.image_library import build_gradient_library_if_empty
+from src.images.library import build_gradient_library_if_empty
 
 console = Console()
 

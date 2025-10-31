@@ -36,5 +36,15 @@ Design Principles:
 """
 
 from .selector import CoverImage, CoverImageSelector
+from .catalog import build_image_catalog, find_reusable_image
+from .library import select_or_create_cover_image
+from .cover_image import generate_featured_image
 
-__all__ = ["CoverImage", "CoverImageSelector"]
+__all__ = [
+    "CoverImage",
+    "CoverImageSelector",
+    "build_image_catalog",
+    "find_reusable_image",
+    "select_or_create_cover_image",
+    "generate_featured_image",
+]

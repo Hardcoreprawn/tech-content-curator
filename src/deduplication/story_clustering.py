@@ -21,7 +21,7 @@ from typing import List, Set
 
 from rich.console import Console
 
-from .models import EnrichedItem
+from ..models import EnrichedItem
 from .post_gen_dedup import extract_entities, calculate_entity_similarity
 
 console = Console()

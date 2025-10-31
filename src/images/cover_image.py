@@ -16,7 +16,7 @@ from openai import OpenAI
 from PIL import Image
 from rich.console import Console
 
-from .config import get_project_root
+from ..config import get_project_root
 
 console = Console()
 

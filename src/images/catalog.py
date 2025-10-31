@@ -16,7 +16,7 @@ from typing import Dict, List, Tuple
 import frontmatter
 from rich.console import Console
 
-from .config import get_content_dir, get_project_root
+from ..config import get_content_dir, get_project_root
 
 console = Console()
 

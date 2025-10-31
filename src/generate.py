@@ -32,22 +32,21 @@ import frontmatter
 from openai import OpenAI
 from rich.console import Console
 
-from .adaptive_dedup import AdaptiveDedupFeedback
+from .deduplication import AdaptiveDedupFeedback
 from .citations import CitationExtractor, CitationFormatter, CitationResolver
 from .citations.cache import CitationCache
 from .config import PipelineConfig, get_config, get_content_dir, get_data_dir
 from .costs import CostTracker
-from .fact_check import validate_article
+from .enrichment import validate_article
 from .generators.base import BaseGenerator
 from .generators.general import GeneralArticleGenerator
 from .generators.integrative import IntegrativeListGenerator
 from .generators.specialized.self_hosted import SelfHostedGenerator
-from .images import CoverImageSelector
-from .image_library import select_or_create_cover_image
+from .images import CoverImageSelector, select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
-from .post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
-from .recent_content_cache import RecentContentCache
-from .story_clustering import filter_duplicate_stories, find_story_clusters, report_story_clusters
+from .deduplication import find_duplicate_articles, report_duplicate_candidates
+from .deduplication import RecentContentCache
+from .deduplication import filter_duplicate_stories, find_story_clusters, report_story_clusters
 from .utils.url_tools import normalize_url
 
 console = Console()

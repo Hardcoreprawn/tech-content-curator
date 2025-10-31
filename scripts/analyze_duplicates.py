@@ -2,7 +2,7 @@
 
 import frontmatter
 from pathlib import Path
-from src.post_gen_dedup import calculate_text_similarity, calculate_tag_overlap, calculate_entity_similarity, extract_entities, calculate_content_similarity, check_articles_for_duplicates
+from src.deduplication.post_gen_dedup import calculate_text_similarity, calculate_tag_overlap, calculate_entity_similarity, extract_entities, calculate_content_similarity, check_articles_for_duplicates
 
 # Load full articles from files to test with content
 affinity1_path = Path("content/posts/2025-10-31-affinity-studio-goes-free.md")

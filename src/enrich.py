@@ -31,7 +31,7 @@ from tenacity import (
     wait_exponential,
 )
 
-from .adaptive_scoring import ScoringAdapter
+from .enrichment import ScoringAdapter
 from .config import get_config, get_data_dir
 from .models import CollectedItem, EnrichedItem, PipelineConfig
 

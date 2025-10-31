@@ -1,4 +1,4 @@
-from src.rate_limit import RateLimiter, exponential_backoff
+from src.utils.rate_limit import RateLimiter, exponential_backoff
 
 
 def test_rate_limiter_next_available_without_sleep():

@@ -53,11 +53,43 @@ Deduplication Strategies:
 5. Adaptive: Learned patterns from feedback
 """
 
-# Deduplication functions will be imported here once refactored
-# from .semantic_dedup import deduplicate_semantic, calculate_embeddings
-# from .story_clustering import find_story_clusters, filter_duplicate_stories
-# from .adaptive_dedup import AdaptiveDedupFeedback
-# from .post_gen_dedup import find_duplicate_articles
-# from .recent_content_cache import RecentContentCache
+# Import all deduplication modules
+from .semantic_dedup import SemanticDeduplicator, DuplicationPattern
+from .story_clustering import (
+    find_story_clusters,
+    filter_duplicate_stories,
+    report_story_clusters,
+    StoryCluster,
+)
+from .adaptive_dedup import AdaptiveDedupFeedback
+from .post_gen_dedup import (
+    find_duplicate_articles,
+    report_duplicate_candidates,
+    calculate_entity_similarity,
+    extract_entities,
+)
+from .recent_content_cache import RecentContentCache
+from .dedup_feedback import DeduplicationFeedback, DeduplicationFeedbackSystem
 
-__all__ = []
+__all__ = [
+    # Semantic deduplication
+    "SemanticDeduplicator",
+    "DuplicationPattern",
+    # Story clustering
+    "find_story_clusters",
+    "filter_duplicate_stories",
+    "report_story_clusters",
+    "StoryCluster",
+    # Adaptive deduplication
+    "AdaptiveDedupFeedback",
+    # Post-generation deduplication
+    "find_duplicate_articles",
+    "report_duplicate_candidates",
+    "calculate_entity_similarity",
+    "extract_entities",
+    # Recent content cache
+    "RecentContentCache",
+    # Feedback
+    "DeduplicationFeedback",
+    "DeduplicationFeedbackSystem",
+]

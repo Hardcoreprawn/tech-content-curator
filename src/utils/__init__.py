@@ -23,7 +23,7 @@ Design Principles:
 - Reusable across modules
 """
 
-from .url_tools import normalize_url, extract_domain
+from .url_tools import normalize_url
 from .rate_limit import RateLimiter
 
-__all__ = ["normalize_url", "extract_domain", "RateLimiter"]
+__all__ = ["normalize_url", "RateLimiter"]

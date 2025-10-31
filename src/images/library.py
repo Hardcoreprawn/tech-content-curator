@@ -22,8 +22,8 @@ from typing import Iterable, Tuple
 from PIL import Image, ImageDraw
 from rich.console import Console
 
-from .config import get_project_root
-from .image_catalog import find_reusable_image
+from ..config import get_project_root
+from .catalog import find_reusable_image
 
 console = Console()
 

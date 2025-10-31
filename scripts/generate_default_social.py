@@ -10,7 +10,7 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.images import generate_featured_image
+from src.images.cover_image import generate_featured_image
 from pathlib import Path
 from typing import Optional
 

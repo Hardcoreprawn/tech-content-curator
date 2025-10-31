@@ -11,7 +11,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any
 
-from pydantic import BaseModel, Field, HttpUrl
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl
 
 
 class SourceType(str, Enum):
@@ -38,10 +38,7 @@ class CollectedItem(BaseModel):
         default_factory=dict, description="Source-specific data"
     )
 
-    class Config:
-        """Pydantic config."""
-
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class EnrichedItem(BaseModel):
@@ -173,7 +170,4 @@ class PipelineConfig(BaseModel):
         description="Timeout in seconds for image source API requests",
     )
 
-    class Config:
-        """Pydantic config."""
-
-        env_prefix = ""  # Load from environment variables directly
+    model_config = ConfigDict(env_prefix="")  # Load from environment variables directly

@@ -14,7 +14,7 @@ from dataclasses import dataclass
 import httpx
 from rich.console import Console
 
-from .models import EnrichedItem, GeneratedArticle
+from ..models import EnrichedItem, GeneratedArticle
 
 console = Console()
 

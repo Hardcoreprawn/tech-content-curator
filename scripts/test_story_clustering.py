@@ -18,7 +18,7 @@ from pydantic import HttpUrl
 from rich.console import Console
 
 from src.models import CollectedItem, EnrichedItem, SourceType
-from src.story_clustering import (
+from src.deduplication import (
     find_story_clusters,
     filter_duplicate_stories,
     report_story_clusters,

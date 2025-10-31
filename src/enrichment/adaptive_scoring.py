@@ -11,8 +11,8 @@ from datetime import UTC, datetime
 
 from rich.console import Console
 
-from .config import get_data_dir
-from .models import CollectedItem
+from ..config import get_data_dir
+from ..models import CollectedItem
 
 console = Console()
 

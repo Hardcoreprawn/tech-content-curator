@@ -24,7 +24,7 @@ from rich.console import Console
 from rich.table import Table
 
 from src.config import get_content_dir
-from src.post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
+from src.deduplication import find_duplicate_articles, report_duplicate_candidates
 
 # Ensure UTF-8 encoding on Windows
 if sys.platform == 'win32':

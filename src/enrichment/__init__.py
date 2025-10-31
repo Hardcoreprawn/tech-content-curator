@@ -37,11 +37,11 @@ Enrichment Pipeline:
 5. Adaptive learning (improve over time)
 """
 
-# Enrichment functions will be imported here once refactored
-# from .scorer import score_item, calculate_quality_score
-# from .researcher import research_item, gather_context
-# from .analyzer import extract_topics, extract_entities
-# from .adaptive_scoring import ScoringAdapter
-# from .fact_check import validate_article
+# Import enrichment modules
+from .adaptive_scoring import ScoringAdapter
+from .fact_check import validate_article
 
-__all__ = []
+__all__ = [
+    "ScoringAdapter",
+    "validate_article",
+]

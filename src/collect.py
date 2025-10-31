@@ -1173,8 +1173,8 @@ def _deduplicate_items(items: list[CollectedItem]) -> list[CollectedItem]:
     )
 
     # Use the semantic deduplicator with feedback
-    from .dedup_feedback import DeduplicationFeedbackSystem
-    from .semantic_dedup import SemanticDeduplicator
+    from .deduplication.dedup_feedback import DeduplicationFeedbackSystem
+    from .deduplication.semantic_dedup import SemanticDeduplicator
 
     deduplicator = SemanticDeduplicator()
     feedback_system = DeduplicationFeedbackSystem()
@@ -1337,7 +1337,7 @@ def collect_all_sources() -> list[CollectedItem]:
         )
 
         # Apply tier-based filtering
-        from .source_tiers import SOURCE_CONFIGS, SourceTier
+        from .sources.tiers import SOURCE_CONFIGS, SourceTier
 
         console.print("\n[blue]Applying tier-based filtering...[/blue]")
 

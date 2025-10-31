@@ -6,8 +6,8 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-from src.dedup_feedback import DeduplicationFeedbackSystem
-from src.semantic_dedup import SemanticDeduplicator
+from src.deduplication.dedup_feedback import DeduplicationFeedbackSystem
+from src.deduplication.semantic_dedup import SemanticDeduplicator
 
 
 def main():

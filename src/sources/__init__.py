@@ -39,8 +39,17 @@ Selection Strategy:
 4. Fallback only when desperate
 """
 
-# Source management will be imported here once refactored
-# from .tiers import SourceTier, SourceConfig, get_selection_strategy
-# from .filtering import filter_by_source_quality
+# Import source management modules
+from .tiers import (
+    SourceTier,
+    SourceConfig,
+    get_selection_strategy,
+    calculate_selection_percentage,
+)
 
-__all__ = []
+__all__ = [
+    "SourceTier",
+    "SourceConfig",
+    "get_selection_strategy",
+    "calculate_selection_percentage",
+]
