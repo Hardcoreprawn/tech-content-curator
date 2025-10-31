@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "psf",
       "python software foundation",
+      "psf",
       "python"
     ],
     "keywords": [
-      "shows",
-      "tech",
-      "inclusion",
-      "seeking",
-      "tldr",
-      "than",
-      "giant",
-      "diversity",
-      "values",
-      "ahead",
       "core",
-      "single",
-      "revenue",
       "shared",
-      "spine",
-      "software",
-      "please",
-      "every",
-      "foundation",
-      "equity",
-      "community",
+      "values",
+      "than",
       "read",
+      "software",
+      "diversity",
+      "community",
+      "ahead",
+      "revenue",
+      "please",
+      "single",
+      "every",
       "python",
+      "tldr",
+      "equity",
+      "inclusion",
+      "foundation",
       "share",
-      "decision"
+      "tech",
+      "seeking",
+      "shows",
+      "giant",
+      "decision",
+      "spine"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "jobs",
-      "goal",
-      "line",
-      "jassy",
-      "corporate",
-      "company",
-      "brutal",
-      "bureaucracy",
-      "beginning",
-      "workforce",
-      "about",
-      "including",
-      "damn",
-      "adoption",
-      "speed",
-      "devices",
-      "cutting",
-      "ultimate",
-      "boost",
-      "groups",
-      "amazon",
-      "bottom",
-      "move",
-      "tomorrow",
-      "stated",
-      "various",
-      "layoffs",
-      "cost",
       "reduce",
-      "help"
+      "cutting",
+      "company",
+      "boost",
+      "cost",
+      "amazon",
+      "groups",
+      "tomorrow",
+      "goal",
+      "jobs",
+      "speed",
+      "move",
+      "devices",
+      "adoption",
+      "beginning",
+      "bureaucracy",
+      "jassy",
+      "line",
+      "corporate",
+      "ultimate",
+      "damn",
+      "various",
+      "about",
+      "stated",
+      "workforce",
+      "help",
+      "brutal",
+      "bottom",
+      "including",
+      "layoffs"
     ],
     "confidence": 0.95,
     "examples": [
@@ -447,8 +447,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -482,8 +482,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -499,8 +499,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -532,8 +532,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -581,9 +581,9 @@
       "go"
     ],
     "keywords": [
-      "posts",
       "always",
       "anyone",
+      "posts",
       "excerpts",
       "running"
     ],
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "recent",
+      "grant",
       "donations",
-      "grant"
+      "recent"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1893,6 +1893,38 @@
     ],
     "created_at": "2025-10-30T18:10:05.455477",
     "last_seen": "2025-10-30T18:10:05.455480",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-31T02:30:53.869999",
+    "last_seen": "2025-10-31T02:30:53.870002",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-10-31T02:30:54.041205",
+    "last_seen": "2025-10-31T02:30:54.041209",
     "frequency": 1
   }
 ]
