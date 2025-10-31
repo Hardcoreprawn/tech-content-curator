@@ -41,6 +41,7 @@ from .generators.specialized.self_hosted import SelfHostedGenerator
 from .images import generate_featured_image
 from .image_library import select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
+from .post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
 from .utils.url_tools import normalize_url
 
 console = Console()
@@ -370,6 +371,33 @@ def is_source_in_cooldown(source_url: str, content_dir: Path, cooldown_days: int
             continue
             
     return False  # Source not used recently
+
+
+def _load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
+    """Load existing article metadata for deduplication checks.
+    
+    Args:
+        content_dir: Directory containing markdown files
+        
+    Returns:
+        List of article metadata dicts with title, summary, tags, path
+    """
+    articles = []
+    for filepath in content_dir.glob("*.md"):
+        try:
+            post = frontmatter.load(str(filepath))
+            meta = post.metadata or {}
+            
+            articles.append({
+                "title": meta.get("title", ""),
+                "summary": meta.get("summary", ""),
+                "tags": meta.get("tags", []),
+                "path": str(filepath),
+            })
+        except Exception:
+            continue
+    
+    return articles
 
 
 
@@ -907,14 +935,37 @@ def generate_articles_from_enriched(
 
         article = generate_single_article(item, config, generators, force_regenerate)
         if article:
-            # Save to file immediately
-            save_article_to_file(article, config, generate_images)
-            articles.append(article)
+            # IMPORTANT: Check for duplicates before saving
+            # This prevents publishing duplicate articles (see ADR-002)
+            existing_articles = _load_article_metadata_for_dedup(get_content_dir())
+            duplicate_found = False
             
-            # Optional fact-checking
-            if fact_check:
-                result = validate_article(article, [item])
-                fact_check_results.append((article, result))
+            if existing_articles:
+                new_article_data = {
+                    "title": article.title,
+                    "summary": article.summary,
+                    "tags": article.tags,
+                    "path": "",  # Not saved yet
+                }
+                
+                duplicates = find_duplicate_articles([new_article_data] + existing_articles)
+                # If new article is flagged in a duplicate pair, it means it matches existing content
+                flagged = [d for d in duplicates if d.article1_path == "" or d.article2_path == ""]
+                
+                if flagged:
+                    console.print(f"[yellow]⚠ Duplicate detected - skipping article[/yellow]")
+                    report_duplicate_candidates(flagged, verbose=True)
+                    duplicate_found = True
+            
+            if not duplicate_found:
+                # Save to file only if not a duplicate
+                save_article_to_file(article, config, generate_images)
+                articles.append(article)
+                
+                # Optional fact-checking
+                if fact_check:
+                    result = validate_article(article, [item])
+                    fact_check_results.append((article, result))
 
     console.print(
         f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
