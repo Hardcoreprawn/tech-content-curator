@@ -32,7 +32,9 @@ import frontmatter
 from openai import OpenAI
 from rich.console import Console
 
+from .adaptive_dedup import AdaptiveDedupFeedback
 from .config import PipelineConfig, get_config, get_content_dir, get_data_dir
+from .costs import CostTracker
 from .fact_check import validate_article
 from .generators.base import BaseGenerator
 from .generators.general import GeneralArticleGenerator
@@ -42,6 +44,7 @@ from .images import generate_featured_image
 from .image_library import select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
 from .post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
+from .recent_content_cache import RecentContentCache
 from .utils.url_tools import normalize_url
 
 console = Console()
@@ -130,16 +133,22 @@ def select_generator(
 
 
 def select_article_candidates(
-    items: list[EnrichedItem], min_quality: float = 0.5
+    items: list[EnrichedItem],
+    min_quality: float = 0.5,
+    use_adaptive_filtering: bool = True,
 ) -> list[EnrichedItem]:
     """Select items suitable for article generation.
 
     This filters items based on quality score and other criteria.
     We only want to spend API credits on content that will make good articles.
+    
+    NEW: Now includes adaptive dedup filtering to reject likely duplicates
+    BEFORE generation, saving API costs.
 
     Args:
         items: List of enriched items
         min_quality: Minimum quality score (0.0-1.0)
+        use_adaptive_filtering: If True, use recent content cache and learned patterns
 
     Returns:
         List of items suitable for article generation
@@ -147,6 +156,11 @@ def select_article_candidates(
     candidates = []
     # Preload content directory once for existing-source checks
     content_dir = get_content_dir()
+    
+    # Initialize adaptive dedup systems
+    cost_tracker = CostTracker()
+    adaptive_feedback = AdaptiveDedupFeedback()
+    recent_cache = RecentContentCache(content_dir) if use_adaptive_filtering else None
 
     for item in items:
         # Primary filter: quality score
@@ -194,6 +208,41 @@ def select_article_candidates(
                 f"[dim]⏸ In cooldown ({cooldown_days}d):[/dim] {item.original.title[:60]}..."
             )
             continue
+        
+        # NEW: Adaptive pre-generation filtering
+        # Check if this would likely be a duplicate BEFORE spending API credits
+        if use_adaptive_filtering and recent_cache:
+            # Use enrichment summary as proxy for article content
+            candidate_summary = item.research_summary[:200]  # First 200 chars
+            
+            # Check against recent articles
+            is_dup, match = recent_cache.is_duplicate_candidate(
+                item.original.title, candidate_summary, item.topics
+            )
+            
+            if is_dup and match:
+                recent_cache.report_match(match, item.original.title)
+                cost_tracker.record_pre_gen_rejection(item.original.title)
+                console.print(
+                    f"[yellow]⏭ Rejected pre-generation (likely duplicate)[/yellow]"
+                )
+                continue
+            
+            # Check against learned duplicate patterns
+            matches_pattern, pattern = adaptive_feedback.check_against_patterns(
+                item.original.title, item.topics
+            )
+            
+            if matches_pattern and pattern:
+                console.print(
+                    f"[yellow]⚠ Matches learned duplicate pattern:[/yellow] "
+                    f"{list(pattern.common_tags)[:3]}..."
+                )
+                cost_tracker.record_pre_gen_rejection(item.original.title)
+                console.print(
+                    f"[yellow]⏭ Rejected pre-generation (pattern match)[/yellow]"
+                )
+                continue
 
         candidates.append(item)
 
@@ -203,6 +252,15 @@ def select_article_candidates(
     console.print(
         f"[green]✓[/green] Selected {len(candidates)} candidates from {len(items)} enriched items"
     )
+    
+    # Print cache stats if using adaptive filtering
+    if use_adaptive_filtering and recent_cache:
+        stats = recent_cache.get_cache_stats()
+        console.print(
+            f"[dim]Recent cache: {stats['cached_articles']} articles, "
+            f"{stats['unique_tags']} unique tags[/dim]"
+        )
+    
     return candidates
 
 
@@ -928,6 +986,10 @@ def generate_articles_from_enriched(
             "[yellow]⚠ Force regenerate mode: existing articles will be replaced[/yellow]"
         )
 
+    # Initialize adaptive systems
+    cost_tracker = CostTracker()
+    adaptive_feedback = AdaptiveDedupFeedback()
+
     articles = []
     fact_check_results = []
     for i, item in enumerate(candidates, 1):
@@ -939,6 +1001,7 @@ def generate_articles_from_enriched(
             # This prevents publishing duplicate articles (see ADR-002)
             existing_articles = _load_article_metadata_for_dedup(get_content_dir())
             duplicate_found = False
+            duplicate_of_filename = None
             
             if existing_articles:
                 new_article_data = {
@@ -956,11 +1019,44 @@ def generate_articles_from_enriched(
                     console.print(f"[yellow]⚠ Duplicate detected - skipping article[/yellow]")
                     report_duplicate_candidates(flagged, verbose=True)
                     duplicate_found = True
+                    
+                    # Track the cost waste and learn from this duplicate
+                    dup = flagged[0]
+                    duplicate_of_filename = str(dup.article2_path) if dup.article2_path else None
+                    
+                    # Record wasted cost
+                    cost_tracker.record_rejected_duplicate(
+                        article.title,
+                        article.generation_costs,
+                        duplicate_of_filename,
+                    )
+                    
+                    # Learn from this duplicate to prevent future similar articles
+                    existing_article = next(
+                        (a for a in existing_articles if a["path"] == str(dup.article2_path)),
+                        None,
+                    )
+                    if existing_article:
+                        adaptive_feedback.learn_from_duplicate(
+                            article.title,
+                            article.tags,
+                            existing_article["title"],
+                            existing_article["tags"],
+                            dup.overall_score,
+                        )
+                        console.print(
+                            f"[dim]🧠 Learned pattern from duplicate (will help reject similar in future)[/dim]"
+                        )
             
             if not duplicate_found:
                 # Save to file only if not a duplicate
                 save_article_to_file(article, config, generate_images)
                 articles.append(article)
+                
+                # Track successful generation cost
+                cost_tracker.record_successful_generation(
+                    article.title, article.filename, article.generation_costs
+                )
                 
                 # Optional fact-checking
                 if fact_check:
@@ -995,6 +1091,10 @@ def generate_articles_from_enriched(
             console.print(f"  • {article.filename}")
             console.print(f"    Title: {article.title}")
             console.print(f"    Words: {article.word_count}, Score: {article.sources[0].quality_score:.2f}")
+    
+    # Print cost summary and adaptive dedup stats
+    cost_tracker.print_summary(days=7)  # Last 7 days
+    adaptive_feedback.print_stats()
     
     return articles
 
