@@ -1,6 +1,14 @@
 name: Full Pipeline (Manual Override)
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - '.github/workflows/full-pipeline.yml'
+      - '!README.md'
+      - '!docs/**'
   workflow_dispatch:
     inputs:
       max_articles:
