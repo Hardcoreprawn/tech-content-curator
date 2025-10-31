@@ -247,6 +247,8 @@ class AdaptiveDedupFeedback:
                 "total_patterns": 0,
                 "total_detections": 0,
                 "avg_similarity": 0.0,
+                "most_common_tags": [],
+                "most_common_keywords": [],
             }
         
         return {
