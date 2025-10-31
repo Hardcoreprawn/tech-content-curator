@@ -462,24 +462,18 @@ def _load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
 
 
 
-def generate_article_slug(title: str, openai_api_key: str) -> tuple[str, float]:
+def generate_article_slug(title: str, client: OpenAI) -> tuple[str, float]:
     """Generate SEO-friendly slug from article title using gpt-4o-mini.
 
     Uses a cheap AI model to create readable, unique slugs.
 
     Args:
         title: The article title
-        openai_api_key: OpenAI API key
+        client: Configured OpenAI client
 
     Returns:
         Tuple of (URL-safe slug string, cost in USD)
     """
-    client = OpenAI(
-        api_key=openai_api_key,
-        timeout=120.0,  # 120 second timeout for API calls
-        max_retries=2,  # Retry up to 2 times on transient errors
-    )
-    
     prompt = f"""Convert this title to a short, SEO-friendly URL slug:
 
 Rules:
@@ -533,7 +527,7 @@ Respond with ONLY the slug, nothing else."""
 
 
 def generate_article_title(
-    item: EnrichedItem, content: str, openai_api_key: str
+    item: EnrichedItem, content: str, client: OpenAI
 ) -> tuple[str, float]:
     """Generate a compelling article title using gpt-4o-mini.
 
@@ -542,16 +536,11 @@ def generate_article_title(
     Args:
         item: The enriched item
         content: Generated article content
-        openai_api_key: OpenAI API key
+        client: Configured OpenAI client
 
     Returns:
         Tuple of (title, cost)
     """
-    client = OpenAI(
-        api_key=openai_api_key,
-        timeout=120.0,  # 120 second timeout for API calls
-        max_retries=2,  # Retry up to 2 times on transient errors
-    )
 
     # Get first 800 chars of article for context
     article_preview = content[:800]
@@ -664,6 +653,7 @@ def generate_single_article(
     item: EnrichedItem,
     config: PipelineConfig,
     generators: list[BaseGenerator],
+    client: OpenAI,
     force_regenerate: bool = False,
 ) -> GeneratedArticle | None:
     """Generate a complete article from an enriched item.
@@ -682,12 +672,6 @@ def generate_single_article(
     console.print(f"[blue]Generating article:[/blue] {item.original.title[:50]}...")
 
     try:
-        client = OpenAI(
-            api_key=config.openai_api_key,
-            timeout=120.0,  # 120 second timeout for API calls
-            max_retries=2,  # Retry up to 2 times on transient errors
-        )
-
         # Step 1: Check if article for this source already exists
         existing_file = check_article_exists_for_source(
             str(item.original.url), get_content_dir()
@@ -721,7 +705,7 @@ def generate_single_article(
         )
 
         # Step 3: Generate title FROM the article content
-        title, title_cost = generate_article_title(item, content, config.openai_api_key)
+        title, title_cost = generate_article_title(item, content, client)
         costs["title_generation"] = title_cost
         console.print(f"  Title: {title}")
 
@@ -729,7 +713,7 @@ def generate_single_article(
         metadata = create_article_metadata(item, title, content)
 
         # Step 5: Generate SEO-friendly slug from the title
-        slug, slug_cost = generate_article_slug(title, config.openai_api_key)
+        slug, slug_cost = generate_article_slug(title, client)
         costs["slug_generation"] = slug_cost
         console.print(f"  Slug: {slug}")
 
@@ -1087,7 +1071,7 @@ def generate_articles_from_enriched(
     for i, item in enumerate(candidates, 1):
         console.print(f"\n[dim]Progress: {i}/{len(candidates)}[/dim]")
 
-        article = generate_single_article(item, config, generators, force_regenerate)
+        article = generate_single_article(item, config, generators, client, force_regenerate)
         if article:
             # IMPORTANT: Check for duplicates before saving
             # This prevents publishing duplicate articles (see ADR-002)
