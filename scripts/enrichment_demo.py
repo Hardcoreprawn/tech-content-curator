@@ -9,7 +9,7 @@ from unittest.mock import Mock, patch
 from rich.console import Console
 
 from src.config import get_config, get_data_dir
-from src.enrich import enrich_single_item, load_collected_items
+from src.enrichment import enrich_single_item, load_collected_items
 
 console = Console()
 

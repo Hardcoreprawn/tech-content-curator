@@ -10,17 +10,27 @@ It transforms raw CollectedItem objects into EnrichedItem objects with:
 - Source quality assessment
 
 Components:
-- scorer: Quality assessment and ranking
-- researcher: AI-powered research and context gathering
-- analyzer: Topic and entity extraction
+- scorer: Fast heuristic quality assessment
+- ai_analyzer: OpenAI-powered content analysis
+- orchestrator: Pipeline coordination and parallel processing
+- file_io: Load/save operations for enriched content
 - adaptive_scoring: Learning-based scoring improvements
 - fact_check: Validation and fact-checking
 
 Usage:
-    from src.enrichment import enrich_item, enrich_items_parallel
+    from src.enrichment import (
+        enrich_single_item,
+        enrich_collected_items,
+        calculate_heuristic_score,
+        load_collected_items,
+        save_enriched_items,
+    )
     
-    enriched = await enrich_item(collected_item, config)
-    all_enriched = await enrich_items_parallel(items, config)
+    # Enrich a single item
+    enriched = enrich_single_item(item, config)
+    
+    # Enrich all items in parallel
+    all_enriched = enrich_collected_items(items, max_workers=5)
 
 Design Principles:
 - Fail gracefully: Return basic enrichment if AI fails
@@ -39,9 +49,31 @@ Enrichment Pipeline:
 
 # Import enrichment modules
 from .adaptive_scoring import ScoringAdapter
+from .ai_analyzer import (
+    analyze_content_quality,
+    extract_topics_and_themes,
+    research_additional_context,
+)
 from .fact_check import validate_article
+from .file_io import load_collected_items, load_enriched_items, save_enriched_items
+from .orchestrator import enrich_collected_items, enrich_single_item
+from .scorer import calculate_heuristic_score
 
 __all__ = [
+    # Core orchestration
+    "enrich_single_item",
+    "enrich_collected_items",
+    # Scoring
+    "calculate_heuristic_score",
     "ScoringAdapter",
+    # AI analysis
+    "analyze_content_quality",
+    "extract_topics_and_themes",
+    "research_additional_context",
+    # File I/O
+    "load_collected_items",
+    "load_enriched_items",
+    "save_enriched_items",
+    # Validation
     "validate_article",
 ]
