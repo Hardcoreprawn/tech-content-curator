@@ -47,6 +47,7 @@ from .image_library import select_or_create_cover_image
 from .models import EnrichedItem, GeneratedArticle
 from .post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
 from .recent_content_cache import RecentContentCache
+from .story_clustering import filter_duplicate_stories, find_story_clusters, report_story_clusters
 from .utils.url_tools import normalize_url
 
 console = Console()
@@ -138,6 +139,7 @@ def select_article_candidates(
     items: list[EnrichedItem],
     min_quality: float = 0.5,
     use_adaptive_filtering: bool = True,
+    deduplicate_stories: bool = True,
 ) -> list[EnrichedItem]:
     """Select items suitable for article generation.
 
@@ -146,11 +148,14 @@ def select_article_candidates(
     
     NEW: Now includes adaptive dedup filtering to reject likely duplicates
     BEFORE generation, saving API costs.
+    
+    NEW: Story clustering to detect when multiple sources cover the same story.
 
     Args:
         items: List of enriched items
         min_quality: Minimum quality score (0.0-1.0)
         use_adaptive_filtering: If True, use recent content cache and learned patterns
+        deduplicate_stories: If True, filter out duplicate stories from different sources
 
     Returns:
         List of items suitable for article generation
@@ -254,6 +259,18 @@ def select_article_candidates(
     console.print(
         f"[green]✓[/green] Selected {len(candidates)} candidates from {len(items)} enriched items"
     )
+    
+    # NEW: Story clustering to detect cross-source duplicates
+    # This catches "Affinity Studio" from HackerNews + "Affinity Software" from Mastodon
+    if deduplicate_stories and len(candidates) > 1:
+        console.print("\n[blue]🔍 Checking for duplicate stories across sources...[/blue]")
+        
+        # Find and report story clusters
+        clusters = find_story_clusters(candidates, min_similarity=0.50)
+        report_story_clusters(clusters, verbose=True)
+        
+        # Filter out duplicate stories (keep best source for each story)
+        candidates = filter_duplicate_stories(candidates, keep_best=True)
     
     # Print cache stats if using adaptive filtering
     if use_adaptive_filtering and recent_cache:
@@ -440,7 +457,7 @@ def _load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
         content_dir: Directory containing markdown files
         
     Returns:
-        List of article metadata dicts with title, summary, tags, path
+        List of article metadata dicts with title, summary, tags, content, path
     """
     articles = []
     for filepath in content_dir.glob("*.md"):
@@ -452,6 +469,7 @@ def _load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
                 "title": meta.get("title", ""),
                 "summary": meta.get("summary", ""),
                 "tags": meta.get("tags", []),
+                "content": post.content,  # Include article body for content similarity
                 "path": str(filepath),
             })
         except Exception:
@@ -655,6 +673,7 @@ def generate_single_article(
     generators: list[BaseGenerator],
     client: OpenAI,
     force_regenerate: bool = False,
+    action_run_id: str | None = None,
 ) -> GeneratedArticle | None:
     """Generate a complete article from an enriched item.
 
@@ -665,6 +684,7 @@ def generate_single_article(
         config: Pipeline configuration
         generators: List of available generators
         force_regenerate: If True, delete and regenerate existing articles
+        action_run_id: GitHub Actions run ID that triggered this generation
 
     Returns:
         GeneratedArticle if successful, None if generation fails
@@ -731,6 +751,7 @@ def generate_single_article(
             generated_at=datetime.now(UTC),
             filename=filename,
             generation_costs=costs,
+            action_run_id=action_run_id,
         )
 
         console.print(f"[green]✓[/green] Generated: {title}")
@@ -798,6 +819,8 @@ def save_article_to_file(
         },
         # Cost tracking for transparency
         "generation_costs": article.generation_costs,
+        # GitHub Actions tracking
+        "action_run_id": article.action_run_id,
     }
 
     # Optional: Attach a cover image
@@ -1010,6 +1033,7 @@ def generate_articles_from_enriched(
     force_regenerate: bool = False,
     generate_images: bool = False,
     fact_check: bool = False,
+    action_run_id: str | None = None,
 ) -> list[GeneratedArticle]:
     """Generate blog articles from enriched items.
 
@@ -1019,6 +1043,9 @@ def generate_articles_from_enriched(
         items: List of enriched items
         max_articles: Maximum number of articles to generate
         force_regenerate: If True, regenerate existing articles
+        generate_images: If True, generate cover images
+        fact_check: If True, validate articles
+        action_run_id: GitHub Actions run ID for tracking
 
     Returns:
         List of successfully generated articles
@@ -1029,6 +1056,10 @@ def generate_articles_from_enriched(
         timeout=120.0,  # 120 second timeout for API calls
         max_retries=2,  # Retry up to 2 times on transient errors
     )
+    
+    # Get action_run_id from environment if not provided
+    if not action_run_id:
+        action_run_id = os.getenv("GITHUB_RUN_ID")
 
     # Get available generators
     generators = get_available_generators(client)
@@ -1072,7 +1103,7 @@ def generate_articles_from_enriched(
     for i, item in enumerate(candidates, 1):
         console.print(f"\n[dim]Progress: {i}/{len(candidates)}[/dim]")
 
-        article = generate_single_article(item, config, generators, client, force_regenerate)
+        article = generate_single_article(item, config, generators, client, force_regenerate, action_run_id)
         if article:
             # IMPORTANT: Check for duplicates before saving
             # This prevents publishing duplicate articles (see ADR-002)
@@ -1085,6 +1116,7 @@ def generate_articles_from_enriched(
                     "title": article.title,
                     "summary": article.summary,
                     "tags": article.tags,
+                    "content": article.content,  # Include content for better similarity detection
                     "path": "",  # Not saved yet
                 }
                 
@@ -1294,7 +1326,7 @@ Examples:
         exit(0)
 
     articles = generate_articles_from_enriched(
-        items, args.max_articles, args.force_regenerate, args.generate_images, args.fact_check
+        items, args.max_articles, args.force_regenerate, args.generate_images, args.fact_check, os.getenv("GITHUB_RUN_ID")
     )
 
     if articles:

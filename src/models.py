@@ -69,6 +69,9 @@ class GeneratedArticle(BaseModel):
     generation_costs: dict[str, float] = Field(
         default_factory=dict, description="Cost breakdown for generating this article"
     )
+    action_run_id: str | None = Field(
+        default=None, description="GitHub Actions run ID that generated this article"
+    )
 
 
 class PipelineConfig(BaseModel):
