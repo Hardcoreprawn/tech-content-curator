@@ -19,7 +19,7 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-from src.generate import (
+from src.pipeline import (
     calculate_image_cost,
     calculate_text_cost,
     check_article_exists_for_source,
@@ -180,10 +180,11 @@ class TestArticleCandidateSelection:
         """Select only items with quality score >= threshold."""
         items = [high_quality_enriched_item, low_quality_enriched_item]
         
-        with patch("src.generate.get_content_dir") as mock_get_dir:
+        with patch("src.config.get_content_dir") as mock_get_dir:
             mock_get_dir.return_value = Path("/tmp/content")
-            with patch("src.generate.collect_existing_source_urls") as mock_urls:
-                mock_urls.return_value = set()
+            # Mock check_article_exists_for_source to avoid file system calls
+            with patch("src.pipeline.candidate_selector.check_article_exists_for_source") as mock_check:
+                mock_check.return_value = None
                 
                 # Disable adaptive filtering to simplify test
                 candidates = select_article_candidates(
@@ -198,9 +199,10 @@ class TestArticleCandidateSelection:
         """Filter out items that already have articles."""
         items = [high_quality_enriched_item]
         
-        with patch("src.generate.get_content_dir") as mock_get_dir:
+        # Need to patch both get_content_dir and check_article_exists_for_source
+        with patch("src.config.get_content_dir") as mock_get_dir:
             mock_get_dir.return_value = Path("/tmp/content")
-            with patch("src.generate.check_article_exists_for_source") as mock_check:
+            with patch("src.pipeline.candidate_selector.check_article_exists_for_source") as mock_check:
                 # Return a path indicating article exists
                 mock_check.return_value = Path("/tmp/content/existing-article.md")
                 
@@ -394,7 +396,6 @@ class TestSourceCooldown:
         )
         assert result is False
 
-    @pytest.mark.skip(reason="Frontmatter parsing in temp dir needs investigation")
     def test_source_in_cooldown_recent_article(self, temp_content_dir):
         """Source with recent article is in cooldown."""
         # Create article from 3 days ago
@@ -467,9 +468,9 @@ class TestArticleGeneration:
             ),
         ]
         
-        with patch("src.generate.check_article_exists_for_source") as mock_check:
+        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
             mock_check.return_value = None
-            with patch("src.generate.select_generator") as mock_select:
+            with patch("src.pipeline.orchestrator.select_generator") as mock_select:
                 mock_select.return_value = mock_generator
                 
                 article = generate_single_article(
@@ -493,7 +494,7 @@ class TestArticleGeneration:
         """Skip generation if article already exists."""
         config = MagicMock()
         
-        with patch("src.generate.check_article_exists_for_source") as mock_check:
+        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
             mock_check.return_value = Path("/existing/article.md")
             
             article = generate_single_article(
@@ -527,9 +528,9 @@ class TestArticleGeneration:
             ),
         ]
         
-        with patch("src.generate.check_article_exists_for_source") as mock_check:
+        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
             mock_check.return_value = existing_file
-            with patch("src.generate.select_generator") as mock_select:
+            with patch("src.pipeline.orchestrator.select_generator") as mock_select:
                 mock_select.return_value = mock_generator
                 
                 article = generate_single_article(
@@ -560,9 +561,9 @@ class TestErrorHandling:
         config = MagicMock()
         mock_generator.generate_content.side_effect = Exception("API Error")
         
-        with patch("src.generate.check_article_exists_for_source") as mock_check:
+        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
             mock_check.return_value = None
-            with patch("src.generate.select_generator") as mock_select:
+            with patch("src.pipeline.orchestrator.select_generator") as mock_select:
                 mock_select.return_value = mock_generator
                 
                 article = generate_single_article(

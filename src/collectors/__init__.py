@@ -71,7 +71,7 @@ from .hackernews import collect_from_hackernews
 from .github import collect_from_github_trending
 
 # Import utilities
-from .utils import (
+from .orchestrator import (
     collect_all_sources,
     save_collected_items,
     deduplicate_items,

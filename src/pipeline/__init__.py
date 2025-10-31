@@ -11,15 +11,11 @@ Each stage is designed to be run independently or as part of the full pipeline,
 enabling flexible workflows and easier testing.
 
 Example:
-    from src.pipeline import collect, enrich, generate
+    from src.pipeline import generate_articles_from_enriched, load_enriched_items
     
-    # Run full pipeline
-    items = collect.run()
-    enriched = enrich.run(items)
-    articles = generate.run(enriched)
-    
-    # Or run individual stages
-    items = collect.run()
+    # Load and generate articles
+    items = load_enriched_items(Path("data/enriched_latest.json"))
+    articles = generate_articles_from_enriched(items, max_articles=5)
 
 Design Principles:
 - Each stage is independent and testable
@@ -28,9 +24,46 @@ Design Principles:
 - Progress tracking and cost reporting
 """
 
-# Pipeline stages will be imported here once refactored
-# from .collect import run as run_collection
-# from .enrich import run as run_enrichment
-# from .generate import run as run_generation
+# Article generation pipeline
+from .orchestrator import generate_articles_from_enriched, generate_single_article
+from .file_io import load_enriched_items, save_article_to_file
+from .candidate_selector import (
+    get_available_generators,
+    select_article_candidates,
+    select_generator,
+)
+from .deduplication import (
+    check_article_exists_for_source,
+    collect_existing_source_urls,
+    is_source_in_cooldown,
+)
+from .article_builder import (
+    calculate_image_cost,
+    calculate_text_cost,
+    create_article_metadata,
+    generate_article_slug,
+    generate_article_title,
+)
 
-__all__ = []
+__all__ = [
+    # Main orchestration
+    "generate_articles_from_enriched",
+    "generate_single_article",
+    # File I/O
+    "load_enriched_items",
+    "save_article_to_file",
+    # Candidate selection
+    "get_available_generators",
+    "select_article_candidates",
+    "select_generator",
+    # Deduplication
+    "check_article_exists_for_source",
+    "collect_existing_source_urls",
+    "is_source_in_cooldown",
+    # Article building
+    "calculate_image_cost",
+    "calculate_text_cost",
+    "create_article_metadata",
+    "generate_article_slug",
+    "generate_article_title",
+]
