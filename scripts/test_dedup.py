@@ -16,6 +16,7 @@ Usage:
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import frontmatter
@@ -25,7 +26,12 @@ from rich.table import Table
 from src.config import get_content_dir
 from src.post_gen_dedup import find_duplicate_articles, report_duplicate_candidates
 
-console = Console()
+# Ensure UTF-8 encoding on Windows
+if sys.platform == 'win32':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+console = Console(force_terminal=False, legacy_windows=False)
 
 
 def load_article_metadata(article_path: Path) -> dict:
@@ -159,20 +165,35 @@ def main():
             score1 = article1.get("quality_score", 0)
             score2 = article2.get("quality_score", 0)
 
-            # Remove lower quality version
-            if score1 < score2:
-                to_remove.append(
-                    {
-                        "path": Path(article1["path"]),
-                        "reason": f"Lower quality ({score1:.2f} vs {score2:.2f})",
-                        "duplicate_of": article2["filename"],
-                    }
-                )
-            elif score2 < score1:
+            # Strategy: Remove article2 (keep article1 for consistency)
+            # Primary: Remove lower quality version
+            # Secondary: Remove second article (keep first) if equal quality
+            reason = ""
+            
+            if abs(score1 - score2) > 0.01:  # Meaningful quality difference
+                if score1 < score2:
+                    to_remove.append(
+                        {
+                            "path": Path(article1["path"]),
+                            "reason": f"Lower quality ({score1:.2f} vs {score2:.2f})",
+                            "duplicate_of": article2["filename"],
+                        }
+                    )
+                elif score2 < score1:
+                    to_remove.append(
+                        {
+                            "path": Path(article2["path"]),
+                            "reason": f"Lower quality ({score2:.2f} vs {score1:.2f})",
+                            "duplicate_of": article1["filename"],
+                        }
+                    )
+            else:
+                # Equal quality: Keep article1 (first), remove article2 (second)
+                # This is deterministic and prevents unnecessary churn
                 to_remove.append(
                     {
                         "path": Path(article2["path"]),
-                        "reason": f"Lower quality ({score2:.2f} vs {score1:.2f})",
+                        "reason": f"Duplicate (keep first article, equal quality {score1:.2f}≈{score2:.2f})",
                         "duplicate_of": article1["filename"],
                     }
                 )
