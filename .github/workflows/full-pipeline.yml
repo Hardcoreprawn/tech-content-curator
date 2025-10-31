@@ -64,13 +64,13 @@ jobs:
           HACKERNEWS_ENABLED: true
           GITHUB_TRENDING_ENABLED: true
           MASTODON_ENABLED: true
-        run: uv run python -m src.collect
+        run: uv run python -m src.collectors
       
       - name: ✨ Enrich content
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: uv run python -m src.enrich
+        run: uv run python -m src.enrichment
       
       - name: Check if we have enriched content
         id: check-content
