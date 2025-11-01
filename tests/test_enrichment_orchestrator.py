@@ -199,8 +199,8 @@ class TestEnrichCollectedItems:
     @patch("src.enrichment.orchestrator.enrich_single_item")
     @patch("src.enrichment.orchestrator.get_config")
     @patch("src.enrichment.orchestrator.ScoringAdapter")
-    def test_parallel_enrichment(self, mock_adapter_class, mock_config, mock_enrich):
-        """Multiple items are enriched in parallel."""
+    def test_sequential_enrichment(self, mock_adapter_class, mock_config, mock_enrich):
+        """Items are enriched sequentially."""
         items = [make_item(title=f"Item {i}") for i in range(3)]
         mock_config.return_value = make_config()
 
@@ -221,7 +221,7 @@ class TestEnrichCollectedItems:
         mock_adapter = Mock()
         mock_adapter_class.return_value = mock_adapter
 
-        results = enrich_collected_items(items, max_workers=2)
+        results = enrich_collected_items(items)
 
         # Verify all items were enriched
         assert len(results) == 3
@@ -279,7 +279,7 @@ class TestEnrichCollectedItems:
     @patch("src.enrichment.orchestrator.get_config")
     @patch("src.enrichment.orchestrator.ScoringAdapter")
     def test_max_workers_parameter(self, mock_adapter_class, mock_config, mock_enrich):
-        """max_workers parameter is respected."""
+        """max_workers parameter is accepted for compatibility."""
         items = [make_item(title=f"Item {i}") for i in range(10)]
         mock_config.return_value = make_config()
         mock_adapter_class.return_value = Mock()
@@ -294,9 +294,9 @@ class TestEnrichCollectedItems:
             enriched_at=datetime.now(UTC),
         )
 
-        # Test with different max_workers
+        # Test with max_workers parameter (kept for compatibility)
         results = enrich_collected_items(items, max_workers=3)
 
-        # Verify all items processed
+        # Verify all items processed sequentially
         assert len(results) == 10
         assert mock_enrich.call_count == 10

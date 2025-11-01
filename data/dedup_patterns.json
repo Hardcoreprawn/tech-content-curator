@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "python software foundation",
       "psf",
-      "python"
+      "python",
+      "python software foundation"
     ],
     "keywords": [
-      "equity",
-      "shared",
-      "single",
-      "values",
-      "spine",
-      "read",
-      "share",
       "every",
+      "shows",
+      "equity",
+      "tech",
       "core",
+      "values",
+      "foundation",
+      "shared",
       "decision",
       "seeking",
+      "python",
+      "spine",
+      "inclusion",
+      "please",
       "giant",
-      "diversity",
-      "tldr",
-      "than",
+      "single",
+      "revenue",
       "software",
       "community",
       "ahead",
-      "please",
-      "shows",
-      "tech",
-      "revenue",
-      "python",
-      "foundation",
-      "inclusion"
+      "share",
+      "than",
+      "diversity",
+      "read",
+      "tldr"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "help",
-      "corporate",
-      "ultimate",
-      "jassy",
-      "bottom",
-      "beginning",
-      "amazon",
-      "line",
-      "workforce",
-      "tomorrow",
-      "layoffs",
-      "company",
-      "groups",
-      "move",
-      "devices",
-      "stated",
-      "jobs",
-      "cutting",
-      "adoption",
-      "various",
-      "about",
+      "speed",
       "brutal",
-      "cost",
-      "bureaucracy",
-      "damn",
+      "groups",
       "reduce",
+      "bureaucracy",
+      "move",
+      "beginning",
+      "workforce",
+      "adoption",
+      "cost",
+      "amazon",
+      "jobs",
+      "bottom",
+      "devices",
+      "line",
+      "goal",
+      "help",
+      "various",
       "boost",
       "including",
-      "speed",
-      "goal"
+      "about",
+      "tomorrow",
+      "cutting",
+      "jassy",
+      "damn",
+      "corporate",
+      "ultimate",
+      "layoffs",
+      "company",
+      "stated"
     ],
     "confidence": 0.95,
     "examples": [
@@ -447,8 +447,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -482,8 +482,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -499,8 +499,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -532,8 +532,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "anyone",
-      "posts",
-      "excerpts",
       "running",
-      "always"
+      "posts",
+      "always",
+      "anyone",
+      "excerpts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -683,8 +683,8 @@
     ],
     "keywords": [
       "recent",
-      "donations",
-      "grant"
+      "grant",
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "alternative",
-      "microsoft",
+      "european",
       "court",
+      "international",
+      "microsoft",
       "office",
       "source",
-      "international",
-      "ditch",
       "open",
-      "criminal",
-      "european"
+      "alternative",
+      "ditch",
+      "criminal"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2238,8 +2238,8 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "available"
+      "available",
+      "github"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2272,8 +2272,8 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "available"
+      "available",
+      "github"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2303,34 +2303,16 @@
   },
   {
     "entities": [
-      "python"
+      "go"
     ],
-    "keywords": [
-      "python"
-    ],
+    "keywords": [],
     "confidence": 0.8,
     "examples": [
-      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
-      "Python\n\nAll Algorithms implemented in Python"
+      "No NAT November. Can you go the complete month without using NAT (Network Address Translation)?",
+      "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
     ],
-    "created_at": "2025-10-31T22:39:08.639513",
-    "last_seen": "2025-10-31T22:39:08.639516",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "javascript"
-    ],
-    "keywords": [
-      "javascript"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
-      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
-    ],
-    "created_at": "2025-10-31T22:39:08.644965",
-    "last_seen": "2025-10-31T22:39:08.644967",
+    "created_at": "2025-11-01T07:31:19.519085",
+    "last_seen": "2025-11-01T07:31:19.519085",
     "frequency": 1
   },
   {
@@ -2345,8 +2327,8 @@
       "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
       "Python\n\nAll Algorithms implemented in Python"
     ],
-    "created_at": "2025-10-31T22:39:08.859073",
-    "last_seen": "2025-10-31T22:39:08.859076",
+    "created_at": "2025-11-01T07:31:20.264305",
+    "last_seen": "2025-11-01T07:31:20.264305",
     "frequency": 1
   },
   {
@@ -2361,8 +2343,22 @@
       "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
       "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
     ],
-    "created_at": "2025-10-31T22:39:08.864438",
-    "last_seen": "2025-10-31T22:39:08.864439",
+    "created_at": "2025-11-01T07:31:20.278141",
+    "last_seen": "2025-11-01T07:31:20.278141",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "go"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "No NAT November. Can you go the complete month without using NAT (Network Address Translation)?",
+      "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
+    ],
+    "created_at": "2025-11-01T07:31:20.464554",
+    "last_seen": "2025-11-01T07:31:20.464554",
     "frequency": 1
   },
   {
@@ -2377,8 +2373,8 @@
       "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
       "Python\n\nAll Algorithms implemented in Python"
     ],
-    "created_at": "2025-11-01T02:31:21.232348",
-    "last_seen": "2025-11-01T02:31:21.232351",
+    "created_at": "2025-11-01T07:31:21.217159",
+    "last_seen": "2025-11-01T07:31:21.217159",
     "frequency": 1
   },
   {
@@ -2393,104 +2389,8 @@
       "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
       "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
     ],
-    "created_at": "2025-11-01T02:31:21.238001",
-    "last_seen": "2025-11-01T02:31:21.238003",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "python"
-    ],
-    "keywords": [
-      "python"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
-      "Python\n\nAll Algorithms implemented in Python"
-    ],
-    "created_at": "2025-11-01T02:31:21.468045",
-    "last_seen": "2025-11-01T02:31:21.468049",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "javascript"
-    ],
-    "keywords": [
-      "javascript"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
-      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
-    ],
-    "created_at": "2025-11-01T02:31:21.473590",
-    "last_seen": "2025-11-01T02:31:21.473591",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "python"
-    ],
-    "keywords": [
-      "python"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
-      "Python\n\nAll Algorithms implemented in Python"
-    ],
-    "created_at": "2025-11-01T06:05:53.666218",
-    "last_seen": "2025-11-01T06:05:53.666222",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "javascript"
-    ],
-    "keywords": [
-      "javascript"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
-      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
-    ],
-    "created_at": "2025-11-01T06:05:53.671983",
-    "last_seen": "2025-11-01T06:05:53.671985",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "python"
-    ],
-    "keywords": [
-      "python"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
-      "Python\n\nAll Algorithms implemented in Python"
-    ],
-    "created_at": "2025-11-01T06:05:53.945011",
-    "last_seen": "2025-11-01T06:05:53.945015",
-    "frequency": 1
-  },
-  {
-    "entities": [
-      "javascript"
-    ],
-    "keywords": [
-      "javascript"
-    ],
-    "confidence": 0.8,
-    "examples": [
-      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
-      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
-    ],
-    "created_at": "2025-11-01T06:05:53.950706",
-    "last_seen": "2025-11-01T06:05:53.950708",
+    "created_at": "2025-11-01T07:31:21.230720",
+    "last_seen": "2025-11-01T07:31:21.230720",
     "frequency": 1
   }
 ]

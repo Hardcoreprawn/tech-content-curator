@@ -7,12 +7,11 @@ This module coordinates the enrichment process, combining:
 
 The orchestrator manages:
 - Single item enrichment with combined scoring
-- Parallel batch processing with thread pool
+- Sequential batch processing for reliability
 - Adaptive learning updates and feedback tracking
 - Early exit optimization to save API costs
 """
 
-from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 
 from openai import OpenAI
@@ -149,11 +148,12 @@ def enrich_collected_items(
 ) -> list[EnrichedItem]:
     """Enrich all collected items with AI analysis and adaptive scoring.
 
-    This processes items in parallel with rate limiting to avoid API throttling.
+    Processes items sequentially for reliability and easier debugging.
+    The max_workers parameter is kept for API compatibility but not used.
 
     Args:
         items: List of collected items to enrich
-        max_workers: Maximum number of concurrent enrichment tasks (default: 5)
+        max_workers: Kept for compatibility, not used in sequential mode
 
     Returns:
         List of successfully enriched items
@@ -165,26 +165,19 @@ def enrich_collected_items(
     adapter = ScoringAdapter()
 
     console.print(
-        f"[bold blue]Starting parallel enrichment of {len(items)} items (max {max_workers} concurrent)...[/bold blue]"
+        f"[bold blue]Starting enrichment of {len(items)} items (sequential processing)...[/bold blue]"
     )
 
-    # Process items in parallel with ThreadPoolExecutor
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # Submit all tasks
-        futures = []
-        for i, item in enumerate(items, 1):
-            future = executor.submit(enrich_single_item, item, config, adapter)
-            futures.append((i, future))
-
-        # Collect results as they complete
-        for i, future in futures:
-            try:
-                console.print(f"\r[dim]Progress: {i}/{len(items)}[/dim]", end="")
-                enriched = future.result()
-                if enriched:
-                    enriched_items.append(enriched)
-            except Exception as e:
-                console.print(f"\n[yellow]⚠[/yellow] Item {i} failed: {e}")
+    # Process items sequentially
+    for i, item in enumerate(items, 1):
+        try:
+            console.print(f"\r[dim]Progress: {i}/{len(items)}[/dim]", end="")
+            enriched = enrich_single_item(item, config, adapter)
+            if enriched:
+                enriched_items.append(enriched)
+        except Exception as e:
+            console.print(f"\n[red]✗[/red] Item {i} failed: {e}")
+            continue
 
     console.print()  # New line after progress
 
