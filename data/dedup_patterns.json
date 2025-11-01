@@ -2,35 +2,35 @@
   {
     "entities": [
       "psf",
-      "python",
-      "python software foundation"
+      "python software foundation",
+      "python"
     ],
     "keywords": [
-      "equity",
-      "diversity",
-      "giant",
-      "revenue",
-      "share",
-      "python",
+      "spine",
       "single",
+      "equity",
+      "every",
+      "revenue",
+      "foundation",
       "core",
-      "than",
+      "giant",
+      "diversity",
+      "decision",
+      "seeking",
+      "please",
+      "tech",
+      "ahead",
       "software",
       "inclusion",
-      "seeking",
-      "shared",
-      "every",
-      "shows",
-      "spine",
-      "read",
-      "values",
-      "foundation",
-      "ahead",
+      "share",
       "community",
-      "decision",
-      "please",
+      "values",
       "tldr",
-      "tech"
+      "read",
+      "python",
+      "shared",
+      "than",
+      "shows"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "brutal",
-      "bottom",
-      "speed",
-      "move",
-      "cost",
-      "about",
-      "workforce",
-      "amazon",
-      "corporate",
-      "company",
-      "adoption",
-      "tomorrow",
-      "devices",
-      "damn",
-      "stated",
-      "ultimate",
-      "goal",
       "help",
-      "bureaucracy",
-      "boost",
       "including",
-      "cutting",
-      "jassy",
+      "move",
+      "goal",
+      "speed",
+      "beginning",
+      "bureaucracy",
       "reduce",
-      "jobs",
-      "various",
-      "layoffs",
-      "groups",
+      "jassy",
+      "tomorrow",
+      "about",
+      "damn",
       "line",
-      "beginning"
+      "jobs",
+      "layoffs",
+      "boost",
+      "various",
+      "bottom",
+      "workforce",
+      "stated",
+      "corporate",
+      "cost",
+      "groups",
+      "devices",
+      "adoption",
+      "cutting",
+      "amazon",
+      "ultimate",
+      "company",
+      "brutal"
     ],
     "confidence": 0.95,
     "examples": [
@@ -217,8 +217,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -235,8 +235,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -253,8 +253,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -271,8 +271,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -289,8 +289,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -307,8 +307,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -359,8 +359,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -411,8 +411,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "excerpts",
-      "anyone",
       "running",
       "always",
-      "posts"
+      "posts",
+      "anyone"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -683,8 +683,8 @@
     ],
     "keywords": [
       "grant",
-      "recent",
-      "donations"
+      "donations",
+      "recent"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "ditch",
       "microsoft",
-      "court",
+      "european",
+      "alternative",
+      "source",
       "office",
       "criminal",
-      "open",
-      "source",
+      "court",
       "international",
-      "european",
-      "alternative"
+      "ditch",
+      "open"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2483,6 +2483,102 @@
     ],
     "created_at": "2025-11-01T07:51:19.302769",
     "last_seen": "2025-11-01T07:51:19.302770",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Futurelock: A subtle risk in async Rust\n\nThis RFD describes our distillation of a really gnarly issu",
+      "Hard Rust requirements from May onward for all Debian ports"
+    ],
+    "created_at": "2025-11-01T08:07:51.686938",
+    "last_seen": "2025-11-01T08:07:51.686942",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-01T08:07:51.809398",
+    "last_seen": "2025-11-01T08:07:51.809399",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-01T08:07:51.814850",
+    "last_seen": "2025-11-01T08:07:51.814851",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Futurelock: A subtle risk in async Rust\n\nThis RFD describes our distillation of a really gnarly issu",
+      "Hard Rust requirements from May onward for all Debian ports"
+    ],
+    "created_at": "2025-11-01T08:07:52.002460",
+    "last_seen": "2025-11-01T08:07:52.002462",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-01T08:07:52.122806",
+    "last_seen": "2025-11-01T08:07:52.122808",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-01T08:07:52.128286",
+    "last_seen": "2025-11-01T08:07:52.128287",
     "frequency": 1
   }
 ]
