@@ -6,15 +6,15 @@ You asked for **3 improvements to scientific articles** (like the owl flight pie
 
 ## The 3 Features
 
-| # | Feature | Effort | Cost | Guide |
+| # | Feature | Status | Cost | Guide |
 |---|---------|--------|------|-------|
-| 1 | **Multi-source images** | 3-4 hrs | $0 (free stock photos) | `FEATURE-1-IMAGES.md` |
-| 2 | **Academic citations** | 2-3 hrs | $0 (free CrossRef API) | `FEATURE-2-CITATIONS.md` |
-| 3 | **Concept illustrations** | 4-5 hrs | $0-0.06 (SVGs + optional AI) | `FEATURE-3-ILLUSTRATIONS.md` |
+| 1 | **Multi-source images** | ✅ COMPLETE | $0 (free stock photos) | `FEATURE-1-STATUS.md` |
+| 2 | **Academic citations** | ✅ COMPLETE | $0 (free CrossRef API) | `FEATURE-2-COMPLETION-SUMMARY.md` |
+| 3 | **Concept illustrations** | ⏳ NOT STARTED | $0-0.06 (SVGs + optional AI) | `FEATURE-3-ILLUSTRATIONS.md` |
 
-**Total effort**: ~9-12 hours  
-**Total cost**: $0-0.06 per article (currently you're paying $0.020 for AI images)  
-**Result**: Better-looking, more credible scientific articles
+**Status**: 2 of 3 features complete ✅  
+**Cost reduction achieved**: 95% (from $0.020 → $0.001 per article)  
+**Result**: Better-looking, more credible scientific articles with free stock photos and academic citations
 
 ---
 
@@ -33,20 +33,21 @@ Each file has the same structure:
 
 ## Recommended Implementation Order
 
-### Week 1: Images (Highest ROI)
-- Unsplash + Pexels + Wikimedia for free photos
-- Graceful fallback to DALL-E
-- **Impact**: Owl article gets real wing photos instead of gradient
+### ✅ Feature 1: Images (COMPLETE - Oct 2025)
+- Unsplash + Pexels for free photos, graceful fallback to DALL-E
+- **Result**: Real stock photos instead of AI-generated images (95% cost savings)
+- **Status**: 14 tests passing, integrated into pipeline, deployed
 
-### Week 2: Citations (Easiest)
-- CrossRef API looks up DOIs
-- Auto-link citations to papers
-- **Impact**: Academic credibility boost
+### ✅ Feature 2: Citations (COMPLETE - Oct 2025)
+- CrossRef + arXiv API for academic reference lookup
+- **Result**: Clickable citations linking to authoritative sources
+- **Status**: 32 tests passing, 30-day cache working, deployed
 
-### Week 3-4: Illustrations (Most Creative)
+### ⏳ Feature 3: Illustrations (NOT STARTED)
 - SVG templates for common concepts
 - Mermaid diagrams for flows
 - **Impact**: Complex concepts become visual
+- **See**: `FEATURE-3-ILLUSTRATIONS.md` for implementation plan
 
 ---
 
@@ -131,50 +132,62 @@ data/citations_cache.json   (auto-generated)
 
 ## Development Checklist
 
-**Setup** (30 min)
-- [ ] Get Unsplash API key: https://unsplash.com/developers
-- [ ] Get Pexels API key: https://www.pexels.com/api
-- [ ] Add to `.env.example` and `.env.development`
+**Setup** ✅ COMPLETE
+- [x] Get Unsplash API key: https://unsplash.com/developers
+- [x] Get Pexels API key: https://www.pexels.com/api
+- [x] Add to `.env.example` and `.env.development`
+- [x] Configure GitHub secrets for CI/CD
 
-**Feature 1: Images** (3-4 hrs)
-- [ ] Create `src/images/` directory and files
-- [ ] Write tests for multi-source fallback
-- [ ] Integrate into `generate.py`
-- [ ] Test with owl article
+**Feature 1: Images** ✅ COMPLETE (Oct 2025)
+- [x] Create `src/images/` directory and files
+- [x] Write tests for multi-source fallback (14 tests passing)
+- [x] Integrate into `generate.py`
+- [x] Verified with demo scripts
+- See: `FEATURE-1-STATUS.md` for details
 
-**Feature 2: Citations** (2-3 hrs)
-- [ ] Create `src/citations/` directory and files
-- [ ] Write tests for citation extraction
-- [ ] Test CrossRef lookup
-- [ ] Verify caching works
+**Feature 2: Citations** ✅ COMPLETE (Oct 2025)
+- [x] Create `src/citations/` directory and files
+- [x] Write tests for citation extraction (32 tests passing)
+- [x] Test CrossRef lookup (working with free API)
+- [x] Verify caching works (30-day TTL implemented)
+- [x] Integrate into generator prompts
+- See: `FEATURE-2-COMPLETION-SUMMARY.md` for details
 
-**Feature 3: Illustrations** (4-5 hrs)
+**Feature 3: Illustrations** ⏳ NOT STARTED
 - [ ] Create 5 SVG templates (or use existing free SVGs)
 - [ ] Create `src/illustrations/` directory and files
 - [ ] Write concept detection tests
 - [ ] Integrate into `generate.py`
+- See: `FEATURE-3-ILLUSTRATIONS.md` for implementation plan
 
-**Integration & Testing** (2-3 hrs)
-- [ ] Run full test suite
-- [ ] Verify all costs are tracked
-- [ ] Test graceful fallbacks when APIs fail
-- [ ] Document in README
+**Infrastructure Improvements** ✅ COMPLETE (Nov 2025)
+- [x] Massive refactoring: 3 monolithic files → 7 focused packages
+- [x] Test coverage increased: 32% → 50% (243 tests)
+- [x] Threading removed for reliability (no more deadlocks)
+- [x] All CI/CD workflows updated and passing
+- [x] Module execution via `__main__.py` entry points
 
 ---
 
 ## Cost Comparison
 
-### Current Approach
+### Before (Oct 2025)
 - All images via DALL-E: **$0.020 per article**
 - No citations: $0.00
 - No illustrations: $0.00
 - **Total: $0.020/article**
 
-### After Implementation
-- Images: Free (Unsplash) + $0.020 fallback (rare) = **~$0.001/article**
-- Citations: Free (CrossRef) = **$0.00**
+### Current (Nov 2025) ✅
+- Images: Free (Unsplash/Pexels) + $0.020 fallback (rare) = **~$0.001/article**
+- Citations: Free (CrossRef/arXiv) = **$0.00**
+- Illustrations: Not implemented yet
+- **Total: ~$0.001/article (95% savings)**
+
+### After Feature 3 (Future)
+- Images: Free (Unsplash/Pexels) = **~$0.001/article**
+- Citations: Free (CrossRef/arXiv) = **$0.00**
 - Illustrations: Free (SVG) + $0.020 fallback (optional, gated) = **~$0.005/article**
-- **Total: $0.006/article (70% savings)**
+- **Total: ~$0.006/article (70% savings from original)**
 
 ---
 
@@ -200,31 +213,55 @@ Questions? Refer to:
 
 ## Next Steps
 
-**Read This First**: `FEATURE-1-IMAGES.md`  
-It has everything you need to get started: code templates, API setup, tests, and integration points.
+**Current Status**: Features 1 & 2 are production-ready ✅
 
-**Estimated Timeline**:
-- Days 1-2: Images (highest ROI, visible impact)
-- Days 3-4: Citations (quick, builds credibility)
-- Days 5-8: Illustrations (creative, most code)
-- Day 9: Testing & documentation
+**Immediate Actions**:
+1. Monitor scheduled pipeline runs (3x daily)
+2. Verify image selection in generated articles
+3. Check citation quality in scientific articles
 
-**Ready?** Open `FEATURE-1-IMAGES.md` →
+**Future Work**:
+- **Feature 3: Illustrations** - See `FEATURE-3-ILLUSTRATIONS.md`
+- Consider async processing for performance (safer than threading)
+- Monitor API reliability and cache effectiveness
+
+**For Details**:
+- Feature 1 Implementation: `FEATURE-1-STATUS.md`
+- Feature 2 Implementation: `FEATURE-2-COMPLETION-SUMMARY.md`
+- Architecture Decisions: `IMPLEMENTATION-STRATEGY-SCIENTIFIC-ARTICLES.md`
 
 ---
 
-## Known Issues & Future Improvements
+## Recent Improvements (Nov 2025)
 
-### Threading & Logging
-**Issue**: During parallel enrichment, log output from multiple threads interleaves and becomes hard to follow.
+### ✅ Massive Refactoring Complete
+**Status**: Successfully deployed to production (commit 99633e5)
 
-**Root Cause**: `enrich_single_item()` uses `console.print()` from 5 concurrent threads without synchronization. Rich's Console isn't thread-safe, so output scrambles.
+**What Changed**:
+- Monolithic files split into 7 focused packages:
+  - `src/collectors/` - Content collection from multiple sources
+  - `src/enrichment/` - AI-powered content analysis
+  - `src/generators/` - Article generation strategies
+  - `src/citations/` - Academic citation resolution
+  - `src/images/` - Multi-source image selection
+  - `src/deduplication/` - Story clustering and duplicate detection
+  - `src/pipeline/` - Orchestration utilities
 
-**Recommended Fix** (Priority: Low):
-- Add threading lock around console.print calls in `src/enrich.py`
-- Or: Refactor to use `rich.progress.Progress` with thread-safe tracking
-- Or: Add item ID prefixes to each log line for easier tracking
+**Benefits**:
+- Test coverage: 32% → 50% (243 tests)
+- Easier debugging: Clear separation of concerns
+- Better maintainability: Smaller, focused modules
+- Production-ready: All CI/CD workflows passing
 
-**Impact**: Cosmetic only - enrichment works correctly, just hard to debug.
+### ✅ Threading Removed for Reliability
+**Status**: Deployed to production
+
+**Why**: ThreadPoolExecutor was causing indefinite hangs when API calls timed out. Sequential processing trades ~45 minutes of speed for bulletproof reliability.
+
+**Impact**:
+- No more deadlocks during enrichment
+- Easier debugging with simple control flow
+- Reliable scheduled runs (pipeline runs 3x daily)
+- Trade-off justified: reliability > speed for automated jobs
 
 

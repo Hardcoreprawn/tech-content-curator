@@ -165,7 +165,19 @@ def save_article_to_file(
 
             citations = extractor.extract(article_content)
             if citations:
-                resolved = resolver.resolve_batch(citations, cache)
+                # Resolve each citation individually with cache checking
+                resolved = []
+                for citation in citations:
+                    # Check cache first
+                    cached = cache.get(citation.authors, citation.year)
+                    if cached:
+                        resolved.append(cached)
+                    else:
+                        # Resolve and cache
+                        result = resolver.resolve(citation.authors, citation.year)
+                        cache.put(citation.authors, citation.year, result)
+                        resolved.append(result)
+                
                 article_content = formatter.format_inline(article_content, resolved)
                 refs_section = formatter.format_references(resolved)
                 if refs_section:

@@ -11,7 +11,7 @@ from pathlib import Path
 from openai import OpenAI
 from rich.console import Console
 
-from ..config import PipelineConfig, get_config
+from ..config import PipelineConfig, get_config, get_content_dir
 from ..costs import CostTracker
 from ..enrichment.fact_check import validate_article
 from ..models import EnrichedItem, GeneratedArticle
@@ -57,8 +57,9 @@ def generate_single_article(
 
     try:
         # Step 1: Check if article for this source already exists
+        content_dir = get_content_dir()
         existing_file = check_article_exists_for_source(
-            str(item.original.url), config.content_dir
+            str(item.original.url), content_dir
         )
         if existing_file:
             if force_regenerate:
