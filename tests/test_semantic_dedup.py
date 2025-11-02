@@ -179,7 +179,9 @@ class TestContentSimilarity:
     def test_similar_keywords_increase_similarity(self):
         """Content with similar keywords has higher similarity."""
         dedup = SemanticDeduplicator(Path("test.json"))
-        content1 = "Machine learning algorithms using neural networks for classification."
+        content1 = (
+            "Machine learning algorithms using neural networks for classification."
+        )
         content2 = "Deep learning classification with neural network architectures."
 
         similarity = dedup.calculate_content_similarity(content1, content2)
@@ -306,23 +308,23 @@ class TestPatternLearning:
     def test_pattern_frequency_increases(self):
         """Seeing same pattern multiple times increases frequency."""
         dedup = SemanticDeduplicator(Path("test.json"))
-        
+
         # First duplicate group
         items1 = [
             MockContent("Rust memory safety features."),
             MockContent("Rust memory management benefits."),
         ]
         dedup.find_duplicates(items1, threshold=0.5)
-        
+
         initial_freq = dedup.patterns[-1].frequency if dedup.patterns else 0
-        
+
         # Second similar group
         items2 = [
             MockContent("Rust memory safety and ownership."),
             MockContent("Rust memory guarantees and safety."),
         ]
         dedup.find_duplicates(items2, threshold=0.5)
-        
+
         # Frequency should increase for similar pattern
         if dedup.patterns:
             max_freq = max(p.frequency for p in dedup.patterns)
@@ -336,7 +338,7 @@ class TestPatternPersistence:
         """Patterns are saved to JSON file."""
         patterns_file = tmp_path / "patterns.json"
         dedup = SemanticDeduplicator(patterns_file)
-        
+
         # Create a pattern
         pattern = DuplicationPattern(
             entities={"python", "django"},
@@ -361,7 +363,7 @@ class TestPatternPersistence:
     def test_loads_patterns_from_file(self, tmp_path):
         """Patterns are loaded from JSON file."""
         patterns_file = tmp_path / "patterns.json"
-        
+
         # Create patterns file
         pattern_data = [
             {
@@ -396,7 +398,7 @@ class TestPatternPersistence:
     def test_handles_corrupted_patterns_file(self, tmp_path):
         """Corrupted patterns file is handled gracefully."""
         patterns_file = tmp_path / "corrupted.json"
-        
+
         # Write invalid JSON
         with open(patterns_file, "w") as f:
             f.write("not valid json {]")
@@ -422,7 +424,7 @@ class TestPatternStats:
     def test_pattern_stats_calculation(self):
         """Pattern statistics are calculated correctly."""
         dedup = SemanticDeduplicator(Path("test.json"))
-        
+
         dedup.patterns = [
             DuplicationPattern(
                 entities={"python", "django"},

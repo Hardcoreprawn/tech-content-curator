@@ -14,7 +14,9 @@ def test_rate_limiter_next_available_without_sleep():
 
 def test_exponential_backoff_bounded():
     # Backoff should increase and cap at max_delay
-    delays = [exponential_backoff(i, base=2.0, max_delay=8.0, jitter=0.0) for i in range(1, 6)]
+    delays = [
+        exponential_backoff(i, base=2.0, max_delay=8.0, jitter=0.0) for i in range(1, 6)
+    ]
     assert delays[0] == 2.0
     assert delays[1] == 4.0
     assert delays[2] == 8.0

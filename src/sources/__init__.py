@@ -15,7 +15,7 @@ Components:
 
 Usage:
     from src.sources import SourceTier, get_selection_strategy
-    
+
     strategy = get_selection_strategy("mastodon", item_count=100)
     # Returns: {"tier": "TIER_1", "percentage": 80, "keep": 80}
 
@@ -41,10 +41,10 @@ Selection Strategy:
 
 # Import source management modules
 from .tiers import (
-    SourceTier,
     SourceConfig,
-    get_selection_strategy,
+    SourceTier,
     calculate_selection_percentage,
+    get_selection_strategy,
 )
 
 __all__ = [

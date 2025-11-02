@@ -4,9 +4,10 @@ We rely on a lightweight maintained library for core normalization
 (url-normalize), and add a tiny helper to drop common tracking params
 and fragments.
 """
+
 from __future__ import annotations
 
-from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from url_normalize import url_normalize
 
@@ -46,9 +47,7 @@ def normalize_url(url: str) -> str:
     # Filter tracking query params conservatively
     query_pairs = parse_qsl(str(parts.query), keep_blank_values=False)
     filtered_pairs = [
-        (k, v)
-        for (k, v) in query_pairs
-        if k.lower() not in _TRACKING_PARAMS
+        (k, v) for (k, v) in query_pairs if k.lower() not in _TRACKING_PARAMS
     ]
     # Sort for deterministic ordering
     filtered_pairs.sort()
@@ -56,4 +55,6 @@ def normalize_url(url: str) -> str:
 
     # Rebuild without fragment and with filtered query
     # Cast to str to satisfy type checker (url_normalize returns str, so parts are str)
-    return urlunsplit((str(parts.scheme), str(parts.netloc), str(parts.path), query, ""))
+    return urlunsplit(
+        (str(parts.scheme), str(parts.netloc), str(parts.path), query, "")
+    )

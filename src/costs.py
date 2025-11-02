@@ -55,7 +55,7 @@ class CostSummary:
 class CostTracker:
     """
     Track costs of article generation including waste from duplicates.
-    
+
     This helps:
     1. Understand true cost per article
     2. Quantify waste from duplicate generation
@@ -66,7 +66,7 @@ class CostTracker:
     def __init__(self, data_file: Path = Path("data/generation_costs.json")):
         """
         Initialize cost tracker.
-        
+
         Args:
             data_file: Path to cost tracking JSON file
         """
@@ -109,7 +109,7 @@ class CostTracker:
     ):
         """
         Record costs for a successfully saved article.
-        
+
         Args:
             article_title: Title of generated article
             article_filename: Filename of saved article
@@ -138,9 +138,9 @@ class CostTracker:
     ):
         """
         Record costs for an article rejected as duplicate AFTER generation.
-        
+
         This is wasted cost that could have been avoided with better pre-filtering.
-        
+
         Args:
             article_title: Title of rejected article
             generation_costs: Costs already spent
@@ -161,15 +161,17 @@ class CostTracker:
         )
         self.entries.append(entry)
         self.save()
-        
+
         console.print(
             f"[red]💸 Wasted ${entry.total_cost:.4f} on duplicate article[/red]"
         )
 
-    def record_pre_gen_rejection(self, article_title: str, estimated_cost: float = 0.002):
+    def record_pre_gen_rejection(
+        self, article_title: str, estimated_cost: float = 0.002
+    ):
         """
         Record that we rejected a candidate BEFORE generation (saved cost).
-        
+
         Args:
             article_title: Title that would have been generated
             estimated_cost: Estimated cost we saved (default: $0.002 avg)
@@ -191,10 +193,10 @@ class CostTracker:
     def get_summary(self, days: int = 30) -> CostSummary:
         """
         Get cost summary for the last N days.
-        
+
         Args:
             days: Number of days to include (default: 30)
-            
+
         Returns:
             CostSummary with statistics
         """
@@ -216,9 +218,7 @@ class CostTracker:
         estimated_savings = sum(e.total_cost for e in rejected_pre)
         total_spent = successful_cost + wasted_cost
 
-        efficiency = (
-            (successful_cost / total_spent * 100) if total_spent > 0 else 100.0
-        )
+        efficiency = (successful_cost / total_spent * 100) if total_spent > 0 else 100.0
 
         return CostSummary(
             total_spent=total_spent,
@@ -235,7 +235,9 @@ class CostTracker:
         """Print a formatted cost summary."""
         summary = self.get_summary(days)
 
-        console.print(f"\n[bold cyan]💰 Generation Cost Summary (Last {days} Days)[/bold cyan]\n")
+        console.print(
+            f"\n[bold cyan]💰 Generation Cost Summary (Last {days} Days)[/bold cyan]\n"
+        )
 
         table = Table(show_header=True, header_style="bold")
         table.add_column("Metric")
@@ -267,13 +269,13 @@ class CostTracker:
 
         # Efficiency metrics
         console.print(f"\n[bold]Efficiency Rate:[/bold] {summary.efficiency_rate:.1f}%")
-        
+
         if summary.wasted_cost > 0:
-            waste_pct = (summary.wasted_cost / summary.total_spent * 100)
+            waste_pct = summary.wasted_cost / summary.total_spent * 100
             console.print(
                 f"[red]⚠ Waste:[/red] ${summary.wasted_cost:.4f} ({waste_pct:.1f}% of total)"
             )
-        
+
         if summary.estimated_savings > 0:
             console.print(
                 f"[green]✓ Savings from pre-gen filtering:[/green] ${summary.estimated_savings:.4f}"
@@ -282,7 +284,7 @@ class CostTracker:
     def get_waste_patterns(self) -> list[tuple[str, int, float]]:
         """
         Analyze what types of articles are being wasted.
-        
+
         Returns:
             List of (duplicate_of, count, total_waste) tuples
         """

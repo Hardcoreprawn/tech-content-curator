@@ -19,6 +19,9 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
+from src.generators.base import BaseGenerator
+from src.generators.general import GeneralArticleGenerator
+from src.models import CollectedItem, EnrichedItem
 from src.pipeline import (
     calculate_image_cost,
     calculate_text_cost,
@@ -32,10 +35,6 @@ from src.pipeline import (
     select_article_candidates,
     select_generator,
 )
-from src.generators.base import BaseGenerator
-from src.generators.general import GeneralArticleGenerator
-from src.models import CollectedItem, EnrichedItem
-
 
 # ============================================================================
 # Fixtures
@@ -100,16 +99,16 @@ def low_quality_enriched_item(sample_collected_item):
 def mock_openai_client():
     """Create a mock OpenAI client."""
     client = MagicMock()
-    
+
     # Mock chat completion response
     mock_response = MagicMock()
     mock_response.choices = [MagicMock()]
     mock_response.choices[0].message.content = "Test response"
     mock_response.usage.prompt_tokens = 100
     mock_response.usage.completion_tokens = 50
-    
+
     client.chat.completions.create.return_value = mock_response
-    
+
     return client
 
 
@@ -146,7 +145,7 @@ class TestCostCalculations:
     def test_calculate_text_cost_gpt4o_mini(self):
         """Calculate cost for GPT-4o-mini usage."""
         cost = calculate_text_cost("gpt-4o-mini", 1000, 500)
-        
+
         # Expected: (1000 * 0.150/1M) + (500 * 0.600/1M)
         expected = (1000 * 0.150 / 1_000_000) + (500 * 0.600 / 1_000_000)
         assert cost == pytest.approx(expected, rel=1e-6)
@@ -176,21 +175,28 @@ class TestCostCalculations:
 class TestArticleCandidateSelection:
     """Test selection of items for article generation."""
 
-    def test_select_high_quality_items(self, high_quality_enriched_item, low_quality_enriched_item):
+    def test_select_high_quality_items(
+        self, high_quality_enriched_item, low_quality_enriched_item
+    ):
         """Select only items with quality score >= threshold."""
         items = [high_quality_enriched_item, low_quality_enriched_item]
-        
+
         with patch("src.config.get_content_dir") as mock_get_dir:
             mock_get_dir.return_value = Path("/tmp/content")
             # Mock check_article_exists_for_source to avoid file system calls
-            with patch("src.pipeline.candidate_selector.check_article_exists_for_source") as mock_check:
+            with patch(
+                "src.pipeline.candidate_selector.check_article_exists_for_source"
+            ) as mock_check:
                 mock_check.return_value = None
-                
+
                 # Disable adaptive filtering to simplify test
                 candidates = select_article_candidates(
-                    items, min_quality=0.5, use_adaptive_filtering=False, deduplicate_stories=False
+                    items,
+                    min_quality=0.5,
+                    use_adaptive_filtering=False,
+                    deduplicate_stories=False,
                 )
-        
+
         # Only high quality item should be selected
         assert len(candidates) == 1
         assert candidates[0].quality_score >= 0.5
@@ -198,18 +204,23 @@ class TestArticleCandidateSelection:
     def test_filter_existing_sources(self, high_quality_enriched_item):
         """Filter out items that already have articles."""
         items = [high_quality_enriched_item]
-        
+
         # Need to patch both get_content_dir and check_article_exists_for_source
         with patch("src.config.get_content_dir") as mock_get_dir:
             mock_get_dir.return_value = Path("/tmp/content")
-            with patch("src.pipeline.candidate_selector.check_article_exists_for_source") as mock_check:
+            with patch(
+                "src.pipeline.candidate_selector.check_article_exists_for_source"
+            ) as mock_check:
                 # Return a path indicating article exists
                 mock_check.return_value = Path("/tmp/content/existing-article.md")
-                
+
                 candidates = select_article_candidates(
-                    items, min_quality=0.5, use_adaptive_filtering=False, deduplicate_stories=False
+                    items,
+                    min_quality=0.5,
+                    use_adaptive_filtering=False,
+                    deduplicate_stories=False,
                 )
-        
+
         # Should be filtered out
         assert len(candidates) == 0
 
@@ -227,14 +238,14 @@ class TestGeneratorSelection:
         gen1 = MagicMock(spec=BaseGenerator)
         gen1.priority = 1
         gen1.can_handle.return_value = True
-        
+
         gen2 = MagicMock(spec=BaseGenerator)
         gen2.priority = 2
         gen2.can_handle.return_value = True
-        
+
         generators = [gen1, gen2]
         selected = select_generator(high_quality_enriched_item, generators)
-        
+
         # Should select gen1 (higher priority)
         assert selected == gen1
         gen1.can_handle.assert_called_once_with(high_quality_enriched_item)
@@ -244,14 +255,14 @@ class TestGeneratorSelection:
         gen1 = MagicMock(spec=BaseGenerator)
         gen1.priority = 1
         gen1.can_handle.return_value = False
-        
+
         gen2 = MagicMock(spec=BaseGenerator)
         gen2.priority = 2
         gen2.can_handle.return_value = True
-        
+
         generators = [gen1, gen2]
         selected = select_generator(high_quality_enriched_item, generators)
-        
+
         # Should select gen2 (gen1 declined)
         assert selected == gen2
 
@@ -264,17 +275,21 @@ class TestGeneratorSelection:
 class TestTitleGeneration:
     """Test AI-powered title generation."""
 
-    def test_generate_article_title(self, high_quality_enriched_item, mock_openai_client):
+    def test_generate_article_title(
+        self, high_quality_enriched_item, mock_openai_client
+    ):
         """Generate title from article content."""
         content = "# Test\n\nArticle about Kubernetes architecture."
-        
+
         # Mock the API response
-        mock_openai_client.chat.completions.create.return_value.choices[0].message.content = (
-            "Understanding Kubernetes Architecture"
+        mock_openai_client.chat.completions.create.return_value.choices[
+            0
+        ].message.content = "Understanding Kubernetes Architecture"
+
+        title, cost = generate_article_title(
+            high_quality_enriched_item, content, mock_openai_client
         )
-        
-        title, cost = generate_article_title(high_quality_enriched_item, content, mock_openai_client)
-        
+
         assert isinstance(title, str)
         assert len(title) > 0
         assert cost >= 0
@@ -283,14 +298,14 @@ class TestTitleGeneration:
     def test_generate_article_slug(self, mock_openai_client):
         """Generate URL-friendly slug from title."""
         title = "Understanding Kubernetes Architecture in 2024"
-        
+
         # Mock the API response with a slug
-        mock_openai_client.chat.completions.create.return_value.choices[0].message.content = (
-            "understanding-kubernetes-architecture-2024"
-        )
-        
+        mock_openai_client.chat.completions.create.return_value.choices[
+            0
+        ].message.content = "understanding-kubernetes-architecture-2024"
+
         slug, cost = generate_article_slug(title, mock_openai_client)
-        
+
         assert isinstance(slug, str)
         assert " " not in slug  # No spaces in slug
         assert cost >= 0
@@ -308,9 +323,9 @@ class TestMetadataCreation:
         """Create frontmatter metadata for article."""
         title = "Test Article"
         content = "This is a test article with some content here."
-        
+
         metadata = create_article_metadata(high_quality_enriched_item, title, content)
-        
+
         assert metadata["title"] == title
         assert "date" in metadata
         assert "tags" in metadata
@@ -334,15 +349,15 @@ class TestSourceDeduplication:
     def test_check_article_exists_no_match(self, temp_content_dir):
         """No existing article for this source."""
         source_url = "https://example.com/new-article"
-        
+
         result = check_article_exists_for_source(source_url, temp_content_dir)
-        
+
         assert result is None
 
     def test_check_article_exists_with_match(self, temp_content_dir):
         """Find existing article for this source."""
         source_url = "https://example.com/existing-article"
-        
+
         # Create an article file with this source URL in frontmatter
         article_content = f"""---
 title: Test Article
@@ -354,9 +369,9 @@ Content here.
 """
         article_file = temp_content_dir / "2024-10-31-test-article.md"
         article_file.write_text(article_content, encoding="utf-8")
-        
+
         result = check_article_exists_for_source(source_url, temp_content_dir)
-        
+
         assert result is not None
         assert result == article_file
 
@@ -372,9 +387,9 @@ source:
 Content.
 """
             (temp_content_dir / f"article-{i}.md").write_text(content, encoding="utf-8")
-        
+
         urls = collect_existing_source_urls(temp_content_dir)
-        
+
         assert len(urls) == 3
         assert "https://example.com/article-0" in urls
         assert "https://example.com/article-1" in urls
@@ -411,7 +426,7 @@ Content.
         (temp_content_dir / f"{three_days_ago}-article.md").write_text(
             content, encoding="utf-8"
         )
-        
+
         result = is_source_in_cooldown(
             "https://github.com/user/repo", temp_content_dir, cooldown_days=7
         )
@@ -432,7 +447,7 @@ Content.
         (temp_content_dir / f"{thirty_days_ago}-article.md").write_text(
             content, encoding="utf-8"
         )
-        
+
         result = is_source_in_cooldown(
             "https://github.com/user/repo", temp_content_dir, cooldown_days=7
         )
@@ -451,9 +466,14 @@ class TestArticleGeneration:
         self, high_quality_enriched_item, mock_generator, mock_openai_client
     ):
         """Successfully generate a complete article."""
-        config = MagicMock()
-        config.openai_api_key = "test-key"
-        
+        # Ensure mock_generator returns a proper string, not a MagicMock
+        mock_generator.name = "TestGenerator"
+        mock_generator.generate_content.return_value = (
+            "# Test Article\n\nThis is test content with some details.",
+            100,  # input tokens
+            200,  # output tokens
+        )
+
         # Mock title and slug generation
         mock_openai_client.chat.completions.create.side_effect = [
             # Title generation
@@ -467,19 +487,20 @@ class TestArticleGeneration:
                 usage=MagicMock(prompt_tokens=30, completion_tokens=10),
             ),
         ]
-        
-        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
+
+        with patch(
+            "src.pipeline.orchestrator.check_article_exists_for_source"
+        ) as mock_check:
             mock_check.return_value = None
             with patch("src.pipeline.orchestrator.select_generator") as mock_select:
                 mock_select.return_value = mock_generator
-                
+
                 article = generate_single_article(
                     high_quality_enriched_item,
-                    config,
                     [mock_generator],
                     mock_openai_client,
                 )
-        
+
         assert article is not None
         assert article.title == "Test Article Title"
         assert len(article.content) > 0
@@ -493,10 +514,12 @@ class TestArticleGeneration:
     ):
         """Skip generation if article already exists."""
         config = MagicMock()
-        
-        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
+
+        with patch(
+            "src.pipeline.orchestrator.check_article_exists_for_source"
+        ) as mock_check:
             mock_check.return_value = Path("/existing/article.md")
-            
+
             article = generate_single_article(
                 high_quality_enriched_item,
                 config,
@@ -504,18 +527,29 @@ class TestArticleGeneration:
                 mock_openai_client,
                 force_regenerate=False,
             )
-        
+
         # Should return None (skipped)
         assert article is None
 
     def test_generate_single_article_force_regenerate(
-        self, high_quality_enriched_item, mock_generator, mock_openai_client, temp_content_dir
+        self,
+        high_quality_enriched_item,
+        mock_generator,
+        mock_openai_client,
+        temp_content_dir,
     ):
         """Force regeneration of existing article."""
-        config = MagicMock()
         existing_file = temp_content_dir / "existing-article.md"
         existing_file.write_text("Old content", encoding="utf-8")
-        
+
+        # Ensure mock_generator returns a proper string, not a MagicMock
+        mock_generator.name = "TestGenerator"
+        mock_generator.generate_content.return_value = (
+            "# New Article\n\nThis is regenerated content.",
+            100,  # input tokens
+            200,  # output tokens
+        )
+
         # Mock title and slug generation
         mock_openai_client.chat.completions.create.side_effect = [
             MagicMock(
@@ -527,20 +561,21 @@ class TestArticleGeneration:
                 usage=MagicMock(prompt_tokens=30, completion_tokens=10),
             ),
         ]
-        
-        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
+
+        with patch(
+            "src.pipeline.orchestrator.check_article_exists_for_source"
+        ) as mock_check:
             mock_check.return_value = existing_file
             with patch("src.pipeline.orchestrator.select_generator") as mock_select:
                 mock_select.return_value = mock_generator
-                
+
                 article = generate_single_article(
                     high_quality_enriched_item,
-                    config,
                     [mock_generator],
                     mock_openai_client,
                     force_regenerate=True,
                 )
-        
+
         # Should generate new article and delete old file
         assert article is not None
         assert not existing_file.exists()
@@ -560,18 +595,20 @@ class TestErrorHandling:
         """Handle OpenAI API failure gracefully."""
         config = MagicMock()
         mock_generator.generate_content.side_effect = Exception("API Error")
-        
-        with patch("src.pipeline.orchestrator.check_article_exists_for_source") as mock_check:
+
+        with patch(
+            "src.pipeline.orchestrator.check_article_exists_for_source"
+        ) as mock_check:
             mock_check.return_value = None
             with patch("src.pipeline.orchestrator.select_generator") as mock_select:
                 mock_select.return_value = mock_generator
-                
+
                 article = generate_single_article(
                     high_quality_enriched_item,
                     config,
                     [mock_generator],
                     mock_openai_client,
                 )
-        
+
         # Should return None on failure
         assert article is None

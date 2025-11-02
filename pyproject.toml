@@ -5,7 +5,7 @@ description = "Automatically generate readable, well-sourced blog articles from 
 authors = [{name = "Your Name", email = "your.email@example.com"}]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.13"  # Officially supported: Python 3.13+
+requires-python = ">=3.14"  # Python 3.14+ for free-threading support
 
 dependencies = [
     # Core dependencies
@@ -28,6 +28,8 @@ dependencies = [
     "url-normalize>=1.4.3",
     # Image processing for icon generation
     "pillow>=10.0.0",
+    # Markdown formatting and linting
+    "mdformat>=0.7.17",
 ]
 
 [project.optional-dependencies]
@@ -46,7 +48,7 @@ build-backend = "hatchling.build"
 packages = ["src"]
 
 [tool.ruff]
-target-version = "py313"
+target-version = "py314"
 line-length = 88
 
 [tool.ruff.lint]
@@ -62,13 +64,15 @@ select = [
 ignore = [
     "E501",  # line too long, handled by formatter
     "B008",  # do not perform function calls in argument defaults
+    "E402",  # module level import not at top of file (used for conditional imports)
+    "E741",  # ambiguous variable name (single letter vars in existing code)
 ]
 
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.14"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

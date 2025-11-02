@@ -43,7 +43,9 @@ def get_config() -> PipelineConfig:
             min_content_length=int(os.getenv("MIN_CONTENT_LENGTH", "100")),
             max_content_length=int(os.getenv("MAX_CONTENT_LENGTH", "2000")),
             # Hugo site configuration
-            hugo_base_url=os.getenv("HUGO_BASE_URL", "https://hardcoreprawn.github.io/tech-content-curator"),
+            hugo_base_url=os.getenv(
+                "HUGO_BASE_URL", "https://hardcoreprawn.github.io/tech-content-curator"
+            ),
             # Content relevance filtering
             allow_tech_content=os.getenv("ALLOW_TECH_CONTENT", "true").lower()
             == "true",
@@ -56,7 +58,10 @@ def get_config() -> PipelineConfig:
                 "recipe,baking,cooking,gardening,jigsaw,puzzle,sports,fashion,music,movie",
             ),
             image_strategy=os.getenv("IMAGE_STRATEGY", "reuse"),
-            image_generate_fallback=os.getenv("IMAGE_GENERATE_FALLBACK", "false").lower() == "true",
+            image_generate_fallback=os.getenv(
+                "IMAGE_GENERATE_FALLBACK", "false"
+            ).lower()
+            == "true",
             enable_citations=os.getenv("ENABLE_CITATIONS", "true").lower() == "true",
             citations_cache_ttl_days=int(os.getenv("CITATIONS_CACHE_TTL_DAYS", "30")),
             # Image selection - multi-source fallback
@@ -64,11 +69,20 @@ def get_config() -> PipelineConfig:
             pexels_api_key=os.getenv("PEXELS_API_KEY", ""),
             image_source_timeout=int(os.getenv("IMAGE_SOURCE_TIMEOUT", "30")),
             # Illustration system configuration
-            enable_illustrations=os.getenv("ENABLE_ILLUSTRATIONS", "true").lower() == "true",
-            illustration_budget_per_article=float(os.getenv("ILLUSTRATION_BUDGET_PER_ARTICLE", "0.06")),
-            illustration_confidence_threshold=float(os.getenv("ILLUSTRATION_CONFIDENCE_THRESHOLD", "0.7")),
-            illustration_ai_confidence_threshold=float(os.getenv("ILLUSTRATION_AI_CONFIDENCE_THRESHOLD", "0.8")),
-            max_illustrations_per_article=int(os.getenv("MAX_ILLUSTRATIONS_PER_ARTICLE", "3")),
+            enable_illustrations=os.getenv("ENABLE_ILLUSTRATIONS", "true").lower()
+            == "true",
+            illustration_budget_per_article=float(
+                os.getenv("ILLUSTRATION_BUDGET_PER_ARTICLE", "0.06")
+            ),
+            illustration_confidence_threshold=float(
+                os.getenv("ILLUSTRATION_CONFIDENCE_THRESHOLD", "0.7")
+            ),
+            illustration_ai_confidence_threshold=float(
+                os.getenv("ILLUSTRATION_AI_CONFIDENCE_THRESHOLD", "0.8")
+            ),
+            max_illustrations_per_article=int(
+                os.getenv("MAX_ILLUSTRATIONS_PER_ARTICLE", "3")
+            ),
         )
 
         # Validate required keys

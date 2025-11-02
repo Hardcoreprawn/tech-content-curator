@@ -16,9 +16,9 @@ console = Console()
 def main():
     """Run collection from all sources."""
     console.print("[bold blue]📥 Starting content collection...[/bold blue]")
-    
+
     items = collect_all_sources()
-    
+
     if items:
         save_collected_items(items)
         console.print(

@@ -7,7 +7,6 @@ concept matching, and density controls to maintain article quality.
 
 import re
 from dataclasses import dataclass
-from typing import Optional
 
 
 def format_diagram_for_markdown(diagram: str, section_title: str = "") -> str:
@@ -226,7 +225,7 @@ class PlacementAnalyzer:
 
     def _find_best_placement_for_concept(
         self, sections: list[Section], concept: str
-    ) -> Optional[PlacementPoint]:
+    ) -> PlacementPoint | None:
         """Find best placement point for a specific concept.
 
         Args:

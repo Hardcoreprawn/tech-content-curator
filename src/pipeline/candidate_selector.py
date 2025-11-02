@@ -48,10 +48,8 @@ def get_available_generators(client: OpenAI) -> list:
     """
     from ..generators.general import GeneralArticleGenerator
     from ..generators.integrative import IntegrativeListGenerator
-    from ..generators.specialized.self_hosted import SelfHostedGenerator
 
     generators = [
-        SelfHostedGenerator(client),
         IntegrativeListGenerator(client),
         GeneralArticleGenerator(client),  # Fallback - always last
     ]
@@ -60,7 +58,8 @@ def get_available_generators(client: OpenAI) -> list:
     generators.sort(key=lambda g: g.priority, reverse=True)
     return generators
 
-def select_generator(item: EnrichedItem, generators: list) -> "BaseGenerator":
+
+def select_generator(item: EnrichedItem, generators: list) -> BaseGenerator:
     """Select the appropriate generator for an item.
 
     Checks generators in priority order and returns the first one that can handle the item.
@@ -208,7 +207,9 @@ def select_article_candidates(
     # NEW: Story clustering to detect cross-source duplicates
     # This catches "Affinity Studio" from HackerNews + "Affinity Software" from Mastodon
     if deduplicate_stories and len(candidates) > 1:
-        console.print("\n[blue]🔍 Checking for duplicate stories across sources...[/blue]")
+        console.print(
+            "\n[blue]🔍 Checking for duplicate stories across sources...[/blue]"
+        )
 
         # Find and report story clusters
         clusters = find_story_clusters(candidates, min_similarity=0.50)

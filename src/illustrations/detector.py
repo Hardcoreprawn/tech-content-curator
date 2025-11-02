@@ -193,9 +193,7 @@ class ConceptDetector:
         if visual_type is None:
             return concepts
 
-        return [
-            c for c in concepts if visual_type in c.visual_types
-        ]
+        return [c for c in concepts if visual_type in c.visual_types]
 
 
 def detect_concepts(content: str, min_confidence: float = 0.7) -> list[Concept]:

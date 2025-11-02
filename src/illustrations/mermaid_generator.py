@@ -5,7 +5,6 @@ flowcharts, graphs, and other visual representations.
 """
 
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
@@ -96,7 +95,7 @@ class MermaidDiagramGenerator:
     }
 
     def generate(
-        self, pattern_name: str, custom_title: Optional[str] = None
+        self, pattern_name: str, custom_title: str | None = None
     ) -> MermaidDiagram:
         """Generate a Mermaid diagram from a pattern.
 
@@ -123,7 +122,7 @@ class MermaidDiagramGenerator:
             title=custom_title or pattern_name.replace("_", " ").title(),
         )
 
-    def generate_for_concept(self, concept_name: str) -> Optional[MermaidDiagram]:
+    def generate_for_concept(self, concept_name: str) -> MermaidDiagram | None:
         """Generate an appropriate Mermaid diagram for a detected concept.
 
         Args:
@@ -230,7 +229,7 @@ class MermaidDiagramGenerator:
         """
         return list(self.DIAGRAM_PATTERNS.keys())
 
-    def get_pattern_info(self, pattern_name: str) -> Optional[dict]:
+    def get_pattern_info(self, pattern_name: str) -> dict | None:
         """Get information about a specific pattern.
 
         Args:

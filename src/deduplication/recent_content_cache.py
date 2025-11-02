@@ -8,8 +8,7 @@ API costs by rejecting candidates that are too similar to recent articles.
 See: docs/ADR-004-ADAPTIVE-DEDUPLICATION.md
 """
 
-import json
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import NamedTuple
@@ -47,7 +46,7 @@ class SimilarityMatch(NamedTuple):
 class RecentContentCache:
     """
     Cache of recently generated articles for pre-generation dedup.
-    
+
     This prevents wasting API credits on articles that will be rejected
     as duplicates after generation.
     """
@@ -60,7 +59,7 @@ class RecentContentCache:
     ):
         """
         Initialize recent content cache.
-        
+
         Args:
             content_dir: Directory containing generated articles
             cache_days: How many days back to consider (default: 14)
@@ -75,17 +74,17 @@ class RecentContentCache:
     def _load_recent_articles(self):
         """Load articles generated in the last N days."""
         cutoff_date = datetime.now(UTC) - timedelta(days=self.cache_days)
-        
+
         for filepath in self.content_dir.glob("*.md"):
             try:
                 post = frontmatter.load(str(filepath))
                 meta = post.metadata or {}
-                
+
                 # Parse generation date
                 generated_at_str = meta.get("generated_at") or meta.get("date")
                 if not generated_at_str:
                     continue
-                
+
                 # Handle both ISO format and simple date strings
                 try:
                     if isinstance(generated_at_str, str):
@@ -94,18 +93,18 @@ class RecentContentCache:
                                 generated_at_str.replace("Z", "+00:00")
                             )
                         else:
-                            generated_at = datetime.fromisoformat(generated_at_str).replace(
-                                tzinfo=UTC
-                            )
+                            generated_at = datetime.fromisoformat(
+                                generated_at_str
+                            ).replace(tzinfo=UTC)
                     else:
                         continue
                 except (ValueError, AttributeError):
                     continue
-                
+
                 # Only cache recent articles
                 if generated_at < cutoff_date:
                     continue
-                
+
                 article = CachedArticle(
                     title=meta.get("title", ""),
                     summary=meta.get("summary", ""),
@@ -115,12 +114,12 @@ class RecentContentCache:
                     generated_at=generated_at,
                 )
                 self.cache.append(article)
-                
+
             except Exception as e:
                 console.print(
                     f"[dim yellow]Warning: Failed to load {filepath.name}: {e}[/dim yellow]"
                 )
-        
+
         console.print(
             f"[dim]Loaded {len(self.cache)} articles from last {self.cache_days} days into cache[/dim]"
         )
@@ -130,29 +129,27 @@ class RecentContentCache:
     ) -> SimilarityMatch | None:
         """
         Check if candidate is similar to any recent article.
-        
+
         Args:
             title: Candidate article title
             summary: Candidate article summary
             tags: Candidate article tags
-            
+
         Returns:
             SimilarityMatch if similar article found, None otherwise
         """
         best_match = None
         best_score = 0.0
-        
+
         for cached in self.cache:
             # Calculate similarities
             title_sim = calculate_text_similarity(title, cached.title)
             summary_sim = calculate_text_similarity(summary, cached.summary)
             tag_overlap = calculate_tag_overlap(tags, cached.tags)
-            
+
             # Overall score (weighted average)
-            overall_score = (
-                title_sim * 0.4 + summary_sim * 0.4 + tag_overlap * 0.2
-            )
-            
+            overall_score = title_sim * 0.4 + summary_sim * 0.4 + tag_overlap * 0.2
+
             # Check if this is a potential duplicate
             if overall_score >= self.similarity_threshold:
                 if overall_score > best_score:
@@ -164,7 +161,7 @@ class RecentContentCache:
                         tag_overlap=tag_overlap,
                         overall_score=overall_score,
                     )
-        
+
         return best_match
 
     def is_duplicate_candidate(
@@ -172,12 +169,12 @@ class RecentContentCache:
     ) -> tuple[bool, SimilarityMatch | None]:
         """
         Check if a candidate would likely be a duplicate.
-        
+
         Args:
             title: Candidate title
-            summary: Candidate summary  
+            summary: Candidate summary
             tags: Candidate tags
-            
+
         Returns:
             Tuple of (is_duplicate, match_details)
         """
@@ -187,7 +184,7 @@ class RecentContentCache:
     def report_match(self, match: SimilarityMatch, candidate_title: str):
         """Pretty-print a similarity match for user visibility."""
         console.print(
-            f"\n[yellow]⚠ Potential duplicate detected (pre-generation)[/yellow]"
+            "\n[yellow]⚠ Potential duplicate detected (pre-generation)[/yellow]"
         )
         console.print(f"  Candidate: {candidate_title[:60]}...")
         console.print(
@@ -209,13 +206,13 @@ class RecentContentCache:
                 "newest_date": None,
                 "unique_tags": 0,
             }
-        
+
         all_tags = set()
         for article in self.cache:
             all_tags.update(article.tags)
-        
+
         dates = [a.generated_at for a in self.cache]
-        
+
         return {
             "cached_articles": len(self.cache),
             "oldest_date": min(dates).date().isoformat() if dates else None,

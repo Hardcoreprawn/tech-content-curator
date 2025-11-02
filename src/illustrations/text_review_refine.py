@@ -71,9 +71,7 @@ class TextIllustrationReviewRefine:
 
         # Stage 3: Refinement if needed
         if review_score < 0.7:
-            refined = self._refine_based_on_review(
-                initial, concept_type, review_data
-            )
+            refined = self._refine_based_on_review(initial, concept_type, review_data)
             if refined:
                 return refined
 
@@ -169,9 +167,7 @@ Requirements:
 
             # Calculate additional costs for review + refinement
             response_usage = response.usage if response.usage else None
-            prompt_tokens = (
-                response_usage.prompt_tokens if response_usage else 100
-            )
+            prompt_tokens = response_usage.prompt_tokens if response_usage else 100
             completion_tokens = (
                 response_usage.completion_tokens if response_usage else 150
             )

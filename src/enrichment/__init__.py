@@ -25,10 +25,10 @@ Usage:
         load_collected_items,
         save_enriched_items,
     )
-    
+
     # Enrich a single item
     enriched = enrich_single_item(item, config)
-    
+
     # Enrich all items in parallel
     all_enriched = enrich_collected_items(items, max_workers=5)
 

@@ -103,6 +103,27 @@ class GeneralArticleGenerator(BaseGenerator):
             if not content:
                 raise ValueError("Empty response from OpenAI")
 
+            # Remove any top-level heading (#) from the beginning of generated content
+            # Despite instructions not to include one, GPT sometimes does
+            lines = content.split("\n")
+            start_idx = 0
+
+            # Skip leading blank lines and attribution-like blocks
+            while start_idx < len(lines):
+                line = lines[start_idx].strip()
+                # Skip blank lines, blockquotes (>), and top-level headings (#)
+                if (
+                    not line
+                    or line.startswith(">")
+                    or (line.startswith("#") and not line.startswith("##"))
+                ):
+                    start_idx += 1
+                else:
+                    break
+
+            if start_idx > 0 and start_idx < len(lines):
+                content = "\n".join(lines[start_idx:])
+
             # Extract actual token usage
             usage = response.usage
             input_tokens = usage.prompt_tokens if usage else 0

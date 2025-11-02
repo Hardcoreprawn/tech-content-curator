@@ -17,7 +17,7 @@ Components:
 
 Usage:
     from src.content import ArticleManager, save_article, load_article
-    
+
     manager = ArticleManager(content_dir)
     manager.save(article)
     existing = manager.load(slug)

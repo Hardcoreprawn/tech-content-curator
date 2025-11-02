@@ -10,7 +10,7 @@ Components:
 
 Usage:
     from src.utils import normalize_url, RateLimiter
-    
+
     clean_url = normalize_url("https://example.com/path?utm=123")
     limiter = RateLimiter(requests_per_second=2)
     await limiter.acquire()
@@ -23,7 +23,7 @@ Design Principles:
 - Reusable across modules
 """
 
-from .url_tools import normalize_url
 from .rate_limit import RateLimiter
+from .url_tools import normalize_url
 
 __all__ = ["normalize_url", "RateLimiter"]

@@ -103,6 +103,6 @@ class TestPathHelpers:
         # If they fail, they'll raise an exception
         data_dir = get_data_dir()
         content_dir = get_content_dir()
-        
+
         assert data_dir.exists()
         assert content_dir.exists()

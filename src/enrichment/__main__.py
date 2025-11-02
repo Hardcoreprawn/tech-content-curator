@@ -6,8 +6,6 @@ Usage:
 This will find the most recent collected data file and enrich all items.
 """
 
-from pathlib import Path
-
 from rich.console import Console
 
 from ..config import get_data_dir

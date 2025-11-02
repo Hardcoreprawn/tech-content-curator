@@ -30,6 +30,7 @@ class AccessibilityReport:
     long_description: str | None = None
     """Optional long description for complex diagrams"""
 
+
 class AccessibilityChecker:
     """Validates and enhances illustrations for accessibility compliance."""
 
@@ -72,7 +73,9 @@ class AccessibilityChecker:
         elif illustration_name == "packet_flow":
             return "Packet flow diagram: shows data route through network devices"
         elif illustration_name == "network_topology":
-            return "Network topology diagram: displays interconnected devices and routing"
+            return (
+                "Network topology diagram: displays interconnected devices and routing"
+            )
         elif illustration_name == "system_architecture":
             return "System architecture: clients, API layer, services, and data layer"
         elif illustration_name == "data_pipeline":
@@ -82,7 +85,9 @@ class AccessibilityChecker:
         elif illustration_name == "decision_tree":
             return "Decision tree diagram with branching logic paths"
         elif illustration_name == "system_components":
-            return "System components diagram showing client, API, services, and database"
+            return (
+                "System components diagram showing client, API, services, and database"
+            )
         elif illustration_name == "network_flow":
             return "Network flow showing packet routing through routers"
         elif illustration_name == "algorithm_flow":
@@ -141,7 +146,9 @@ class AccessibilityChecker:
             f"Detailed diagram related to {concept_name.replace('_', ' ')} concepts",
         )
 
-    def wrap_svg_accessibility(self, svg_content: str, alt_text: str, title: str = "") -> str:
+    def wrap_svg_accessibility(
+        self, svg_content: str, alt_text: str, title: str = ""
+    ) -> str:
         """Add accessibility elements to SVG markup.
 
         Adds <title>, <desc>, role attributes, and aria-labels to make SVG
@@ -171,7 +178,9 @@ class AccessibilityChecker:
             svg_opening = svg_opening.replace("<svg", '<svg role="img"', 1)
 
         # Build accessibility section
-        accessibility_section = f'  <title>{title or "Diagram"}</title>\n  <desc>{alt_text}</desc>'
+        accessibility_section = (
+            f"  <title>{title or 'Diagram'}</title>\n  <desc>{alt_text}</desc>"
+        )
 
         # Insert after opening <svg tag
         enhanced_svg = svg_content.replace(
@@ -206,9 +215,15 @@ class AccessibilityChecker:
                 warnings.append("SVG missing role='img' attribute")
 
             # Check for text contrast (basic check)
-            if re.search(r"fill=['\"]#fff['\"]|fill=['\"]white['\"]", illustration_content):
-                if not re.search(r"fill=['\"]#000['\"]|fill=['\"]black['\"]", illustration_content):
-                    warnings.append("Potential low contrast: white fill without dark background")
+            if re.search(
+                r"fill=['\"]#fff['\"]|fill=['\"]white['\"]", illustration_content
+            ):
+                if not re.search(
+                    r"fill=['\"]#000['\"]|fill=['\"]black['\"]", illustration_content
+                ):
+                    warnings.append(
+                        "Potential low contrast: white fill without dark background"
+                    )
 
             alt_text = self._extract_svg_alt_text(illustration_content)
 
@@ -226,9 +241,13 @@ class AccessibilityChecker:
         elif illustration_type == "ascii":
             # ASCII art accessibility
             if len(illustration_content.split("\n")) < 3:
-                warnings.append("ASCII diagram very simple, verify it conveys intended meaning")
+                warnings.append(
+                    "ASCII diagram very simple, verify it conveys intended meaning"
+                )
 
-            alt_text = f"ASCII diagram with {len(illustration_content.split(chr(10)))} lines"
+            alt_text = (
+                f"ASCII diagram with {len(illustration_content.split(chr(10)))} lines"
+            )
 
         # Determine compliance level
         is_compliant = len(issues) == 0

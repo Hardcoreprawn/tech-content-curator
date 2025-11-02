@@ -37,16 +37,14 @@ class DuplicatePattern:
 class AdaptiveDedupFeedback:
     """
     Learn from post-generation duplicates to improve pre-generation filtering.
-    
+
     This is the "learning" component that reduces wasted API costs over time.
     """
 
-    def __init__(
-        self, patterns_file: Path = Path("data/adaptive_dedup_patterns.json")
-    ):
+    def __init__(self, patterns_file: Path = Path("data/adaptive_dedup_patterns.json")):
         """
         Initialize adaptive feedback system.
-        
+
         Args:
             patterns_file: Path to patterns JSON file
         """
@@ -79,9 +77,7 @@ class AdaptiveDedupFeedback:
                     f"[dim]Loaded {len(self.patterns)} learned dedup patterns[/dim]"
                 )
             except Exception as e:
-                console.print(
-                    f"[yellow]Warning: Could not load patterns: {e}[/yellow]"
-                )
+                console.print(f"[yellow]Warning: Could not load patterns: {e}[/yellow]")
                 self.patterns = []
 
     def save(self):
@@ -110,9 +106,9 @@ class AdaptiveDedupFeedback:
     ):
         """
         Learn from a detected duplicate pair.
-        
+
         Extracts patterns and updates the knowledge base.
-        
+
         Args:
             article1_title: Title of first article
             article1_tags: Tags of first article
@@ -122,12 +118,12 @@ class AdaptiveDedupFeedback:
         """
         # Extract common patterns
         common_tags = set(article1_tags) & set(article2_tags)
-        
+
         # Extract common keywords from titles (simple word overlap)
         words1 = set(article1_title.lower().split())
         words2 = set(article2_title.lower().split())
         common_keywords = words1 & words2
-        
+
         # Remove common stopwords
         stopwords = {
             "the",
@@ -151,19 +147,21 @@ class AdaptiveDedupFeedback:
             "are",
             "be",
         }
-        common_keywords = {w for w in common_keywords if w not in stopwords and len(w) > 3}
-        
+        common_keywords = {
+            w for w in common_keywords if w not in stopwords and len(w) > 3
+        }
+
         # Check if we already have a similar pattern
         existing_pattern = None
         for pattern in self.patterns:
             # Match if significant overlap in tags or keywords
             tag_overlap = len(common_tags & pattern.common_tags)
             keyword_overlap = len(common_keywords & pattern.topic_keywords)
-            
+
             if tag_overlap >= 2 or keyword_overlap >= 2:
                 existing_pattern = pattern
                 break
-        
+
         if existing_pattern:
             # Update existing pattern
             existing_pattern.detected_count += 1
@@ -192,7 +190,7 @@ class AdaptiveDedupFeedback:
                 avg_similarity=similarity_score,
             )
             self.patterns.append(new_pattern)
-        
+
         self.save()
 
     def check_against_patterns(
@@ -200,25 +198,23 @@ class AdaptiveDedupFeedback:
     ) -> tuple[bool, DuplicatePattern | None]:
         """
         Check if a candidate matches learned duplicate patterns.
-        
+
         This is used PRE-GENERATION to reject likely duplicates early.
-        
+
         Args:
             title: Candidate article title
             tags: Candidate article tags
             threshold: Minimum match score to flag (default: 0.6)
-            
+
         Returns:
             Tuple of (is_likely_duplicate, matching_pattern)
         """
         title_words = set(title.lower().split())
-        title_words = {
-            w for w in title_words if len(w) > 3
-        }  # Filter short words
-        
+        title_words = {w for w in title_words if len(w) > 3}  # Filter short words
+
         best_match = None
         best_score = 0.0
-        
+
         for pattern in self.patterns:
             # Calculate match score
             keyword_match = len(title_words & pattern.topic_keywords) / max(
@@ -227,17 +223,17 @@ class AdaptiveDedupFeedback:
             tag_match = len(set(tags) & pattern.common_tags) / max(
                 len(pattern.common_tags), 1
             )
-            
+
             # Weight by how many times we've seen this pattern
             confidence = min(pattern.detected_count / 3.0, 1.0)  # Cap at 3
-            
+
             # Overall match score
             match_score = (keyword_match * 0.5 + tag_match * 0.5) * confidence
-            
+
             if match_score >= threshold and match_score > best_score:
                 best_score = match_score
                 best_match = pattern
-        
+
         return (best_match is not None, best_match)
 
     def get_pattern_stats(self) -> dict:
@@ -250,7 +246,7 @@ class AdaptiveDedupFeedback:
                 "most_common_tags": [],
                 "most_common_keywords": [],
             }
-        
+
         return {
             "total_patterns": len(self.patterns),
             "total_detections": sum(p.detected_count for p in self.patterns),
@@ -267,7 +263,7 @@ class AdaptiveDedupFeedback:
         all_tags = []
         for pattern in self.patterns:
             all_tags.extend(list(pattern.common_tags) * pattern.detected_count)
-        
+
         return Counter(all_tags).most_common(top_n)
 
     def _get_most_common_keywords(self, top_n: int = 5) -> list[tuple[str, int]]:
@@ -276,26 +272,24 @@ class AdaptiveDedupFeedback:
 
         all_keywords = []
         for pattern in self.patterns:
-            all_keywords.extend(
-                list(pattern.topic_keywords) * pattern.detected_count
-            )
-        
+            all_keywords.extend(list(pattern.topic_keywords) * pattern.detected_count)
+
         return Counter(all_keywords).most_common(top_n)
 
     def print_stats(self):
         """Print formatted statistics about learned patterns."""
         stats = self.get_pattern_stats()
-        
+
         console.print("\n[bold cyan]🧠 Adaptive Dedup Learning Stats[/bold cyan]\n")
         console.print(f"Total patterns learned: {stats['total_patterns']}")
         console.print(f"Total duplicates detected: {stats['total_detections']}")
         console.print(f"Average similarity: {stats['avg_similarity']:.1%}")
-        
+
         if stats["most_common_tags"]:
             console.print("\n[bold]Most common duplicate tags:[/bold]")
             for tag, count in stats["most_common_tags"]:
                 console.print(f"  • {tag}: {count} occurrences")
-        
+
         if stats["most_common_keywords"]:
             console.print("\n[bold]Most common keywords in duplicates:[/bold]")
             for keyword, count in stats["most_common_keywords"]:

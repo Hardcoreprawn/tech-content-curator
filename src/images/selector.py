@@ -86,8 +86,12 @@ class CoverImageSelector:
                 return result
 
         # Tier 3: Generate AI image (fallback)
-        console.print("[yellow]⚠  Free sources unavailable, generating AI image...[/yellow]")
-        return self._generate_ai_image(queries.get("dalle", f"Professional article illustration for: {title}"))
+        console.print(
+            "[yellow]⚠  Free sources unavailable, generating AI image...[/yellow]"
+        )
+        return self._generate_ai_image(
+            queries.get("dalle", f"Professional article illustration for: {title}")
+        )
 
     def _generate_search_queries(self, title: str, topics: list[str]) -> dict[str, str]:
         """Use gpt-3.5-turbo to generate effective search queries.
@@ -129,7 +133,9 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
             content = response.choices[0].message.content
             return json.loads(content)
         except (json.JSONDecodeError, AttributeError, Exception) as e:
-            console.print(f"[yellow]⚠  Query generation failed: {e}, using title as fallback[/yellow]")
+            console.print(
+                f"[yellow]⚠  Query generation failed: {e}, using title as fallback[/yellow]"
+            )
             # Fallback if parsing fails
             return {
                 "unsplash": title,

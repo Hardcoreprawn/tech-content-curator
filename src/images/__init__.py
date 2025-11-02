@@ -20,7 +20,7 @@ Image Source Priority:
 
 Usage:
     from src.images import CoverImageSelector
-    
+
     selector = CoverImageSelector()
     image = selector.select_cover_image(
         title="AI Breakthrough",
@@ -35,10 +35,10 @@ Design Principles:
 - Validate image URLs before saving
 """
 
-from .selector import CoverImage, CoverImageSelector
 from .catalog import build_image_catalog, find_reusable_image
-from .library import select_or_create_cover_image
 from .cover_image import generate_featured_image
+from .library import select_or_create_cover_image
+from .selector import CoverImage, CoverImageSelector
 
 __all__ = [
     "CoverImage",

@@ -134,12 +134,12 @@ REQUIREMENTS:
             content = response.choices[0].message.content
             if not content:
                 raise ValueError("Empty response from OpenAI")
-            
+
             # Extract actual token usage
             usage = response.usage
             input_tokens = usage.prompt_tokens if usage else 0
             output_tokens = usage.completion_tokens if usage else 0
-            
+
             return content.strip(), input_tokens, output_tokens
         except Exception as e:
             console.print(

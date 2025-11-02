@@ -16,7 +16,7 @@ Components:
 
 Usage:
     from src.api import get_openai_client, call_with_retry
-    
+
     client = get_openai_client()
     response = await call_with_retry(
         client.chat.completions.create,

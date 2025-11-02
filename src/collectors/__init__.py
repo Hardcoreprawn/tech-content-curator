@@ -12,7 +12,7 @@ Available Collectors:
 
 Usage:
     from src.collectors import collect_from_mastodon, collect_from_bluesky
-    
+
     config = get_config()
     mastodon_items = collect_from_mastodon(config)
     bluesky_items = collect_from_bluesky(config)
@@ -46,10 +46,10 @@ Available Collectors:
 
 Usage:
     from src.collectors import collect_all_sources, save_collected_items
-    
+
     # Collect from all sources
     items = collect_all_sources()
-    
+
     # Save to file
     save_collected_items(items)
 
@@ -61,30 +61,29 @@ Design Principles:
 """
 
 # Import all collectors
+# Import base filtering functions (for use by other modules)
+from .base import (
+    clean_html_content,
+    extract_title_from_content,
+    is_entitled_whining,
+    is_political_content,
+    is_relevant_content,
+)
+from .github import collect_from_github_trending
+from .hackernews import collect_from_hackernews
 from .mastodon import (
     collect_from_mastodon,
-    collect_from_mastodon_trending,
     collect_from_mastodon_public,
+    collect_from_mastodon_trending,
 )
-from .reddit import collect_from_reddit
-from .hackernews import collect_from_hackernews
-from .github import collect_from_github_trending
 
 # Import utilities
 from .orchestrator import (
     collect_all_sources,
-    save_collected_items,
     deduplicate_items,
+    save_collected_items,
 )
-
-# Import base filtering functions (for use by other modules)
-from .base import (
-    is_entitled_whining,
-    is_political_content,
-    is_relevant_content,
-    clean_html_content,
-    extract_title_from_content,
-)
+from .reddit import collect_from_reddit
 
 __all__ = [
     # Collectors

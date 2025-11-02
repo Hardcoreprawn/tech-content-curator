@@ -132,8 +132,16 @@ class TestDeduplicateItems:
         mock_dedup.return_value = mock_dedup_instance
 
         items = [
-            make_item(item_id="1", url="https://example.com/1", metadata={"favourites_count": 10}),
-            make_item(item_id="2", url="https://example.com/2", metadata={"favourites_count": 100}),  # Different URL
+            make_item(
+                item_id="1",
+                url="https://example.com/1",
+                metadata={"favourites_count": 10},
+            ),
+            make_item(
+                item_id="2",
+                url="https://example.com/2",
+                metadata={"favourites_count": 100},
+            ),  # Different URL
         ]
 
         result = deduplicate_items(items)
@@ -165,7 +173,9 @@ class TestDeduplicateItems:
 
     @patch("src.collectors.orchestrator.SemanticDeduplicator")
     @patch("src.collectors.orchestrator.DeduplicationFeedbackSystem")
-    def test_records_feedback_when_duplicates_found(self, mock_feedback_class, mock_dedup):
+    def test_records_feedback_when_duplicates_found(
+        self, mock_feedback_class, mock_dedup
+    ):
         """Feedback is recorded when duplicates are removed."""
         item1 = make_item(item_id="1", url="https://example.com/1")
         item2 = make_item(item_id="2", url="https://example.com/2")
@@ -173,7 +183,10 @@ class TestDeduplicateItems:
         # Mock semantic dedup to find duplicates
         mock_dedup_instance = Mock()
         mock_dedup_instance.find_duplicates.return_value = [[item1, item2]]
-        mock_dedup_instance.get_pattern_stats.return_value = {"total_patterns": 5, "avg_confidence": 0.85}
+        mock_dedup_instance.get_pattern_stats.return_value = {
+            "total_patterns": 5,
+            "avg_confidence": 0.85,
+        }
         mock_dedup.return_value = mock_dedup_instance
 
         mock_feedback = Mock()
@@ -187,7 +200,9 @@ class TestDeduplicateItems:
 
     @patch("src.collectors.orchestrator.SemanticDeduplicator")
     @patch("src.collectors.orchestrator.DeduplicationFeedbackSystem")
-    def test_engagement_calculation_includes_all_fields(self, mock_feedback, mock_dedup):
+    def test_engagement_calculation_includes_all_fields(
+        self, mock_feedback, mock_dedup
+    ):
         """Engagement score includes all metadata fields."""
         # Mock semantic dedup
         mock_dedup_instance = Mock()

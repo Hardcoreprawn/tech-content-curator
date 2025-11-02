@@ -188,9 +188,7 @@ class TestPhase2SmartSelection:
         ]
 
         for concept in concepts:
-            should_use, reason, confidence = advisor.should_use_text(
-                concept, 0.5, 4
-            )
+            should_use, reason, confidence = advisor.should_use_text(concept, 0.5, 4)
             assert isinstance(should_use, bool)
             assert isinstance(confidence, float)
             assert 0.0 <= confidence <= 1.0
@@ -314,9 +312,7 @@ class TestIntegration:
         advisor = TextIllustrationCapabilityAdvisor()
 
         # For a comparison concept
-        should_use, reason, confidence = advisor.should_use_text(
-            "comparison", 0.3, 6
-        )
+        should_use, reason, confidence = advisor.should_use_text("comparison", 0.3, 6)
 
         if should_use and confidence > 0.75:
             # Text diagram recommended

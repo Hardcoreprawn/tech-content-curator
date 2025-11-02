@@ -4,7 +4,7 @@ This package contains the core pipeline for curating and generating tech content
 from social media sources.
 
 Package Structure (Post-Reorganization):
-    
+
     src/
     ├── config.py              # Pipeline configuration
     ├── models.py              # Shared data models
@@ -55,7 +55,7 @@ Migration Status:
     ✅ Phase 1: Directory structure created (COMPLETE)
     ⏳ Phase 2: Move complete modules
     ⏳ Phase 3: Refactor collect.py
-    ⏳ Phase 4: Refactor enrich.py  
+    ⏳ Phase 4: Refactor enrich.py
     ⏳ Phase 5: Refactor generate.py
     ⏳ Phase 6: Move utility files
     ⏳ Phase 7: Testing and validation
@@ -64,12 +64,12 @@ Migration Status:
 __version__ = "0.2.0"  # Bumped for reorganization
 
 # Core models and config are always available
+from .config import PipelineConfig, get_config, get_content_dir, get_data_dir
 from .models import CollectedItem, EnrichedItem, GeneratedArticle
-from .config import PipelineConfig, get_config, get_data_dir, get_content_dir
 
 __all__ = [
     "CollectedItem",
-    "EnrichedItem", 
+    "EnrichedItem",
     "GeneratedArticle",
     "PipelineConfig",
     "get_config",

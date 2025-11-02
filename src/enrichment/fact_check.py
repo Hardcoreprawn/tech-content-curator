@@ -114,7 +114,10 @@ def validate_article(
         warnings.append(f"Article is very long ({article.word_count} words)")
 
     # 4. Check if article has proper attribution
-    if "> **Attribution:**" not in article.content and "> Attribution:" not in article.content:
+    if (
+        "> **Attribution:**" not in article.content
+        and "> Attribution:" not in article.content
+    ):
         warnings.append("Missing attribution block")
 
     # 5. Check if article has references section
@@ -128,11 +131,11 @@ def validate_article(
     # Deduct for unreachable sources (major issue)
     if unreachable_sources:
         confidence -= len(unreachable_sources) * 0.15
-    
+
     # Deduct for broken links (moderate issue)
     if broken_links:
         confidence -= len(broken_links) * 0.10
-    
+
     # Deduct for structural issues (minor)
     if "Missing attribution block" in warnings:
         confidence -= 0.10
@@ -162,7 +165,7 @@ def validate_article(
         console.print(f"  [green]✓[/green] Passed (confidence: {confidence:.2f})")
     else:
         console.print(f"  [yellow]⚠[/yellow] Failed (confidence: {confidence:.2f})")
-    
+
     if warnings:
         console.print(f"  [yellow]{len(warnings)} warning(s)[/yellow]")
         for warning in warnings[:3]:  # Show first 3

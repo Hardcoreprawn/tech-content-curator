@@ -5,8 +5,6 @@ or as a basis for generating custom diagrams.
 """
 
 from dataclasses import dataclass
-from pathlib import Path
-from typing import Optional
 
 
 @dataclass
@@ -123,19 +121,19 @@ class SVGTemplateLibrary:
       <polygon points="0 0, 10 3, 0 6" fill="#666" />
     </marker>
   </defs>
-  
+
   <text x="400" y="25" text-anchor="middle" class="title">Network Address Translation (NAT)</text>
-  
+
   <!-- Private network -->
   <rect x="20" y="60" width="150" height="220" class="net-box" rx="5"/>
   <text x="95" y="85" text-anchor="middle" class="label" font-weight="bold">Private Network</text>
-  
+
   <rect x="35" y="110" width="120" height="40" class="device" rx="3"/>
   <text x="95" y="135" text-anchor="middle" class="label">192.168.1.10</text>
-  
+
   <rect x="35" y="165" width="120" height="40" class="device" rx="3"/>
   <text x="95" y="190" text-anchor="middle" class="label">192.168.1.20</text>
-  
+
   <!-- NAT Router -->
   <rect x="330" y="100" width="140" height="140" class="device" rx="5"/>
   <text x="400" y="130" text-anchor="middle" class="label" font-weight="bold">NAT Router</text>
@@ -143,14 +141,14 @@ class SVGTemplateLibrary:
   <text x="400" y="175" text-anchor="middle" class="label" font-size="12">Table</text>
   <text x="400" y="195" text-anchor="middle" class="label" font-size="11">192.168.1.10</text>
   <text x="400" y="210" text-anchor="middle" class="label" font-size="11">→ 203.0.113.1</text>
-  
+
   <!-- Public network -->
   <rect x="630" y="60" width="150" height="220" class="net-box" rx="5"/>
   <text x="705" y="85" text-anchor="middle" class="label" font-weight="bold">Public Internet</text>
-  
+
   <rect x="645" y="110" width="120" height="40" class="device" rx="3"/>
   <text x="705" y="135" text-anchor="middle" class="label">203.0.113.1</text>
-  
+
   <!-- Arrows -->
   <path d="M 170 130 Q 290 130 330 140" class="arrow"/>
   <path d="M 170 190 Q 290 170 330 180" class="arrow"/>
@@ -171,30 +169,30 @@ class SVGTemplateLibrary:
       <polygon points="0 0, 10 3, 0 6" fill="#ff6b6b" />
     </marker>
   </defs>
-  
+
   <text x="400" y="25" text-anchor="middle" class="title">Packet Flow Through Network</text>
-  
+
   <circle cx="60" cy="100" r="30" class="device"/>
   <text x="60" y="105" text-anchor="middle" class="label">Source</text>
-  
+
   <rect x="140" y="70" width="60" height="60" class="device" rx="5"/>
   <text x="170" y="105" text-anchor="middle" class="label">Router 1</text>
-  
+
   <rect x="280" y="70" width="60" height="60" class="device" rx="5"/>
   <text x="310" y="105" text-anchor="middle" class="label">Router 2</text>
-  
+
   <rect x="420" y="70" width="60" height="60" class="device" rx="5"/>
   <text x="450" y="105" text-anchor="middle" class="label">Gateway</text>
-  
+
   <circle cx="580" cy="100" r="30" class="device"/>
   <text x="580" y="105" text-anchor="middle" class="label">Dest</text>
-  
+
   <!-- Arrows -->
   <path d="M 90 100 L 140 100" class="arrow"/>
   <path d="M 200 100 L 280 100" class="arrow"/>
   <path d="M 340 100 L 420 100" class="arrow"/>
   <path d="M 480 100 L 550 100" class="arrow"/>
-  
+
   <!-- Time labels -->
   <text x="115" y="135" text-anchor="middle" class="label" font-size="10">t=1</text>
   <text x="255" y="135" text-anchor="middle" class="label" font-size="10">t=2</text>
@@ -211,32 +209,32 @@ class SVGTemplateLibrary:
     .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #000; }
     .line { stroke: #0066cc; stroke-width: 1.5; }
   </style>
-  
+
   <text x="350" y="20" text-anchor="middle" class="title">Network Topology</text>
-  
+
   <!-- Internet -->
   <rect x="300" y="30" width="100" height="40" class="device" rx="3"/>
   <text x="350" y="57" class="label">Internet</text>
-  
+
   <!-- Router -->
   <rect x="300" y="110" width="100" height="40" class="device" rx="3"/>
   <text x="350" y="137" class="label">Router</text>
-  
+
   <!-- Workstations -->
   <rect x="50" y="210" width="80" height="40" class="device" rx="3"/>
   <text x="90" y="237" class="label">Workstation 1</text>
-  
+
   <rect x="180" y="210" width="80" height="40" class="device" rx="3"/>
   <text x="220" y="237" class="label">Workstation 2</text>
-  
+
   <!-- Server -->
   <rect x="310" y="210" width="80" height="40" class="device" rx="3"/>
   <text x="350" y="237" class="label">Server</text>
-  
+
   <!-- Printer -->
   <rect x="440" y="210" width="80" height="40" class="device" rx="3"/>
   <text x="480" y="237" class="label">Printer</text>
-  
+
   <!-- Connections -->
   <line x1="350" y1="70" x2="350" y2="110" class="line"/>
   <line x1="350" y1="150" x2="90" y2="210" class="line"/>
@@ -253,31 +251,31 @@ class SVGTemplateLibrary:
     .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
     .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #000; }
   </style>
-  
+
   <text x="300" y="20" text-anchor="middle" class="title">System Architecture</text>
-  
+
   <!-- Client Layer -->
   <rect x="50" y="50" width="500" height="50" class="layer" rx="3"/>
   <text x="300" y="82" text-anchor="middle" class="label">Client Applications</text>
-  
+
   <!-- API Layer -->
   <rect x="50" y="120" width="500" height="50" class="layer" rx="3"/>
   <text x="300" y="152" text-anchor="middle" class="label">API Gateway</text>
-  
+
   <!-- Service Layer -->
   <rect x="50" y="190" width="200" height="50" class="layer" rx="3"/>
   <text x="150" y="222" text-anchor="middle" class="label">Service A</text>
-  
+
   <rect x="300" y="190" width="200" height="50" class="layer" rx="3"/>
   <text x="400" y="222" text-anchor="middle" class="label">Service B</text>
-  
+
   <!-- Data Layer -->
   <rect x="50" y="260" width="200" height="50" class="layer" rx="3"/>
   <text x="150" y="292" text-anchor="middle" class="label">Database</text>
-  
+
   <rect x="300" y="260" width="200" height="50" class="layer" rx="3"/>
   <text x="400" y="292" text-anchor="middle" class="label">Cache</text>
-  
+
   <!-- Arrows -->
   <line x1="300" y1="100" x2="300" y2="120" stroke="#666" stroke-width="2"/>
   <line x1="200" y1="170" x2="150" y2="190" stroke="#666" stroke-width="2"/>
@@ -300,24 +298,24 @@ class SVGTemplateLibrary:
       <polygon points="0 0, 10 3, 0 6" fill="#666" />
     </marker>
   </defs>
-  
+
   <text x="400" y="20" text-anchor="middle" class="title">Data Processing Pipeline</text>
-  
+
   <rect x="20" y="40" width="90" height="50" class="stage" rx="3"/>
   <text x="65" y="70" text-anchor="middle" class="label">Input</text>
-  
+
   <rect x="150" y="40" width="90" height="50" class="stage" rx="3"/>
   <text x="195" y="70" text-anchor="middle" class="label">Extract</text>
-  
+
   <rect x="280" y="40" width="90" height="50" class="stage" rx="3"/>
   <text x="325" y="70" text-anchor="middle" class="label">Transform</text>
-  
+
   <rect x="410" y="40" width="90" height="50" class="stage" rx="3"/>
   <text x="455" y="70" text-anchor="middle" class="label">Load</text>
-  
+
   <rect x="540" y="40" width="90" height="50" class="stage" rx="3"/>
   <text x="585" y="70" text-anchor="middle" class="label">Output</text>
-  
+
   <!-- Arrows -->
   <path d="M 110 65 L 150 65" class="arrow"/>
   <path d="M 240 65 L 280 65" class="arrow"/>
@@ -325,7 +323,7 @@ class SVGTemplateLibrary:
   <path d="M 500 65 L 540 65" class="arrow"/>
 </svg>"""
 
-    def get(self, template_name: str) -> Optional[SVGTemplate]:
+    def get(self, template_name: str) -> SVGTemplate | None:
         """Get a template by name.
 
         Args:

@@ -17,10 +17,10 @@ from ..deduplication.dedup_feedback import DeduplicationFeedbackSystem
 from ..deduplication.semantic_dedup import SemanticDeduplicator
 from ..models import CollectedItem, PipelineConfig
 from ..utils.url_tools import normalize_url
+from .github import collect_from_github_trending
+from .hackernews import collect_from_hackernews
 from .mastodon import collect_from_mastodon_trending
 from .reddit import collect_from_reddit
-from .hackernews import collect_from_hackernews
-from .github import collect_from_github_trending
 
 console = Console()
 
@@ -169,7 +169,7 @@ def collect_all_sources() -> list[CollectedItem]:
 
     This is the main entry point for content collection.
     It tries each source and combines results, with deduplication.
-    
+
     Returns:
         List of deduplicated collected items
     """

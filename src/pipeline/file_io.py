@@ -37,7 +37,7 @@ def format_cost_value(cost: float, precision: int = 8) -> float:
         precision: Number of decimal places to round to
 
     Returns:
-        Formatted cost value
+        Formatted cost value (rounded to avoid scientific notation)
     """
     if cost == 0.0:
         return 0.0
@@ -46,16 +46,28 @@ def format_cost_value(cost: float, precision: int = 8) -> float:
     return round(cost, precision)
 
 
-def format_generation_costs(costs: dict[str, float]) -> dict[str, float]:
+def format_generation_costs(costs: dict[str, float]) -> dict[str, str]:
     """Format all generation costs with consistent decimal notation.
+
+    Converts costs to strings to prevent YAML from using scientific notation
+    when serializing very small float values.
 
     Args:
         costs: Dictionary of cost values
 
     Returns:
-        Dictionary with all values formatted consistently
+        Dictionary with all values as formatted strings
     """
-    return {key: format_cost_value(value) for key, value in costs.items()}
+    result = {}
+    for key, value in costs.items():
+        formatted = format_cost_value(value)
+        # Convert to string to prevent scientific notation in YAML
+        if formatted == 0.0:
+            result[key] = 0.0  # Keep zero as float for cleaner YAML
+        else:
+            # Format with enough decimals, then strip trailing zeros
+            result[key] = float(f"{formatted:.8f}".rstrip("0").rstrip("."))
+    return result
 
 
 def save_article_to_file(
@@ -96,7 +108,7 @@ def save_article_to_file(
     # Create frontmatter metadata
     metadata = {
         "title": article.title,
-        "date": article.generated_at.strftime("%Y-%m-%d"),
+        "date": article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "tags": article.tags,
         "summary": article.summary,
         "word_count": article.word_count,

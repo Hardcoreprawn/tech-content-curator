@@ -115,12 +115,14 @@ class AIMermaidGenerator:
             completion_tokens = response.usage.completion_tokens
 
             prompt_cost = (prompt_tokens / 1000) * self.PRICING[self.model]["prompt"]
-            completion_cost = (
-                completion_tokens / 1000
-            ) * self.PRICING[self.model]["completion"]
+            completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
+                "completion"
+            ]
 
             # Generate alt-text using the section content
-            alt_text = self._generate_alt_text(section_title, concept_type, mermaid_content)
+            alt_text = self._generate_alt_text(
+                section_title, concept_type, mermaid_content
+            )
 
             return GeneratedMermaidDiagram(
                 diagram_type="flowchart",  # Will be detected from content
@@ -219,9 +221,7 @@ class AIMermaidGenerator:
             "algorithm": f"Algorithm flowchart for {section_title}",
         }
 
-        return descriptions.get(
-            concept_type, f"Diagram illustrating {section_title}"
-        )
+        return descriptions.get(concept_type, f"Diagram illustrating {section_title}")
 
     def calculate_cost_for_concept(
         self, section_content: str, concept_type: str

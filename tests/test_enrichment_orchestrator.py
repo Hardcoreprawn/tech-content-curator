@@ -63,7 +63,9 @@ class TestEnrichSingleItem:
         # Verify enrichment completed
         assert result is not None
         assert isinstance(result, EnrichedItem)
-        assert result.quality_score == pytest.approx(0.71, abs=0.01)  # 0.5*0.3 + 0.8*0.7
+        assert result.quality_score == pytest.approx(
+            0.71, abs=0.01
+        )  # 0.5*0.3 + 0.8*0.7
         assert result.topics == ["Python", "Programming", "Tech"]
         assert result.research_summary == "Detailed research summary"
 
@@ -111,7 +113,9 @@ class TestEnrichSingleItem:
 
         # Verify partial enrichment (topics but no research)
         assert result is not None
-        assert result.quality_score == pytest.approx(0.23, abs=0.01)  # 0.3*0.3 + 0.2*0.7
+        assert result.quality_score == pytest.approx(
+            0.23, abs=0.01
+        )  # 0.3*0.3 + 0.2*0.7
         assert result.topics == ["Topic1"]
         assert "below threshold" in result.research_summary.lower()
 

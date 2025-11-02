@@ -55,7 +55,9 @@ class TestCoverImageSelector:
             ]
         )
 
-        queries = selector._generate_search_queries("Article about bird flight", ["birds", "aviation"])
+        queries = selector._generate_search_queries(
+            "Article about bird flight", ["birds", "aviation"]
+        )
 
         assert queries["unsplash"] == "flying bird"
         assert queries["pexels"] == "bird"
@@ -158,7 +160,9 @@ class TestCoverImageSelector:
         assert result.quality_score == 0.85
 
     @patch("src.images.selector.httpx.get")
-    def test_select_uses_free_sources_before_dalle(self, mock_get, selector, mock_client):
+    def test_select_uses_free_sources_before_dalle(
+        self, mock_get, selector, mock_client
+    ):
         """Test selection strategy tries free sources before DALL-E."""
         # Mock LLM query generation
         mock_client.chat.completions.create.return_value = MagicMock(

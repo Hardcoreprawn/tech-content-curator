@@ -16,7 +16,7 @@ from pathlib import Path
 
 class CitationCache:
     """JSON-based cache for citation resolutions with 30-day TTL.
-    
+
     Prevents duplicate API calls for the same author/year combination.
     Automatically manages cache file on disk.
     """
@@ -25,9 +25,9 @@ class CitationCache:
 
     def __init__(self, cache_file: str = "data/citations_cache.json") -> None:
         """Initialize the cache.
-        
+
         Creates data directory if needed and loads existing cache.
-        
+
         Args:
             cache_file: Path to cache file (relative to project root)
         """
@@ -38,13 +38,13 @@ class CitationCache:
 
     def get(self, authors: str, year: int) -> dict | None:
         """Get cached resolution for author/year pair.
-        
+
         Checks cache freshness (30-day TTL) and returns None if expired.
-        
+
         Args:
             authors: Author string (e.g., "Smith et al.")
             year: Publication year
-            
+
         Returns:
             Dict with doi/url/timestamp if cached and fresh, None otherwise
         """
@@ -62,14 +62,12 @@ class CitationCache:
 
         return None
 
-    def put(
-        self, authors: str, year: int, doi: str | None, url: str | None
-    ) -> None:
+    def put(self, authors: str, year: int, doi: str | None, url: str | None) -> None:
         """Cache a citation resolution.
-        
+
         Stores the resolution with current timestamp for TTL tracking.
         Automatically persists to disk.
-        
+
         Args:
             authors: Author string
             year: Publication year
@@ -94,14 +92,14 @@ class CitationCache:
 
     def _load(self) -> None:
         """Load cache from disk.
-        
+
         If cache file doesn't exist, initializes empty cache.
         """
         if self.cache_file.exists():
             try:
                 with open(self.cache_file, encoding="utf-8") as f:
                     self.data = json.load(f)
-            except (json.JSONDecodeError, IOError):
+            except (OSError, json.JSONDecodeError):
                 # Corrupted or unreadable cache, start fresh
                 self.data = {}
 
@@ -112,10 +110,10 @@ class CitationCache:
 
     def _is_fresh(self, timestamp_str: str) -> bool:
         """Check if timestamp is within TTL window.
-        
+
         Args:
             timestamp_str: ISO format timestamp string
-            
+
         Returns:
             True if less than 30 days old
         """
@@ -130,11 +128,11 @@ class CitationCache:
     @staticmethod
     def _make_key(authors: str, year: int) -> str:
         """Generate cache key from author and year.
-        
+
         Args:
             authors: Author string
             year: Publication year
-            
+
         Returns:
             Cache key string
         """

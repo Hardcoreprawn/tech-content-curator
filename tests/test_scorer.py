@@ -4,7 +4,9 @@ from src.enrichment.scorer import calculate_heuristic_score
 from src.models import CollectedItem
 
 
-def make_item(content: str, title: str = "Test", author: str = "testuser", metadata: dict = None):
+def make_item(
+    content: str, title: str = "Test", author: str = "testuser", metadata: dict = None
+):
     """Helper to create CollectedItem."""
     return CollectedItem(
         id="test-1",
@@ -54,7 +56,7 @@ def test_multiple_tech_keywords_high_score():
     """Content with multiple tech keywords scores higher."""
     item = make_item(
         "This article discusses Python programming with Docker containers and Kubernetes orchestration for cloud deployment.",
-        title="Technical Article"
+        title="Technical Article",
     )
     score, explanation = calculate_heuristic_score(item)
     assert "tech keyword" in explanation.lower()
@@ -75,14 +77,18 @@ def test_no_tech_keywords_lower_score():
 
 def test_content_with_links():
     """Content with links scores higher."""
-    item = make_item("Check out this article: https://example.com with more information.")
+    item = make_item(
+        "Check out this article: https://example.com with more information."
+    )
     score, explanation = calculate_heuristic_score(item)
     assert "link" in explanation.lower()
 
 
 def test_content_with_code_blocks():
     """Content with code blocks scores higher."""
-    item = make_item("Here's an example:\n```python\nprint('hello')\n```\nThat demonstrates the concept.")
+    item = make_item(
+        "Here's an example:\n```python\nprint('hello')\n```\nThat demonstrates the concept."
+    )
     score, explanation = calculate_heuristic_score(item)
     assert "code" in explanation.lower()
 
@@ -103,7 +109,7 @@ def test_high_engagement_boosts_score():
     """High engagement significantly boosts score."""
     item = make_item(
         "This is interesting technical content that got lots of engagement.",
-        metadata={"favourites_count": 500, "reblogs_count": 100, "replies_count": 50}
+        metadata={"favourites_count": 500, "reblogs_count": 100, "replies_count": 50},
     )
     score, explanation = calculate_heuristic_score(item)
     assert "engagement" in explanation.lower()
@@ -114,7 +120,7 @@ def test_viral_engagement_maximum_boost():
     """Viral engagement (1000+) gives maximum boost."""
     item = make_item(
         "Viral content with massive engagement.",
-        metadata={"favourites_count": 1500, "reblogs_count": 300, "replies_count": 100}
+        metadata={"favourites_count": 1500, "reblogs_count": 300, "replies_count": 100},
     )
     score, explanation = calculate_heuristic_score(item)
     assert "viral" in explanation.lower() or "engagement" in explanation.lower()
@@ -136,8 +142,7 @@ def test_no_engagement_no_bonus():
 def test_authority_account_boost():
     """Known authority accounts get score boost."""
     item = make_item(
-        "Important announcement about Python development and features.",
-        author="thepsf"
+        "Important announcement about Python development and features.", author="thepsf"
     )
     score, explanation = calculate_heuristic_score(item)
     assert "authority" in explanation.lower()
@@ -147,7 +152,7 @@ def test_organization_account_boost():
     """Organization accounts get score boost."""
     item = make_item(
         "Official announcement from the project team about new features.",
-        author="rust_foundation"
+        author="rust_foundation",
     )
     score, explanation = calculate_heuristic_score(item)
     assert "organization" in explanation.lower() or "authority" in explanation.lower()
@@ -155,7 +160,9 @@ def test_organization_account_boost():
 
 def test_regular_account_no_bonus():
     """Regular accounts don't get authority bonus."""
-    item = make_item("Regular user posting about programming topics.", author="regularuser123")
+    item = make_item(
+        "Regular user posting about programming topics.", author="regularuser123"
+    )
     score, explanation = calculate_heuristic_score(item)
     assert score >= 0
 
@@ -167,7 +174,9 @@ def test_regular_account_no_bonus():
 
 def test_personal_content_penalty():
     """Personal/opinion content gets penalized."""
-    item = make_item("I feel that this is just my day and my life, personally speaking, IMO.")
+    item = make_item(
+        "I feel that this is just my day and my life, personally speaking, IMO."
+    )
     score, explanation = calculate_heuristic_score(item)
     assert "personal" in explanation.lower()
     assert score < 0.5
@@ -208,7 +217,7 @@ kind: Pod
 This demonstrates container orchestration.""",
         title="Deep Dive into Kubernetes Architecture",
         author="kubernetes_official",
-        metadata={"favourites_count": 200, "reblogs_count": 50, "replies_count": 30}
+        metadata={"favourites_count": 200, "reblogs_count": 50, "replies_count": 30},
     )
     score, explanation = calculate_heuristic_score(item)
     assert score >= 0.6

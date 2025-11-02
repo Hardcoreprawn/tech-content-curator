@@ -89,7 +89,9 @@ def collect_existing_source_urls(content_dir: Path) -> set[str]:
     return urls
 
 
-def is_source_in_cooldown(source_url: str, content_dir: Path, cooldown_days: int = 7) -> bool:
+def is_source_in_cooldown(
+    source_url: str, content_dir: Path, cooldown_days: int = 7
+) -> bool:
     """Check if a source URL was used recently (within cooldown period).
 
     This prevents generating multiple articles from the same source (e.g., GitHub repo)
@@ -118,10 +120,16 @@ def is_source_in_cooldown(source_url: str, content_dir: Path, cooldown_days: int
 
             # Handle datetime.date, datetime.datetime, or string
             if isinstance(article_date_str, datetime):
-                article_date = article_date_str.replace(tzinfo=UTC) if article_date_str.tzinfo is None else article_date_str
+                article_date = (
+                    article_date_str.replace(tzinfo=UTC)
+                    if article_date_str.tzinfo is None
+                    else article_date_str
+                )
             elif isinstance(article_date_str, date):
                 # Convert date to datetime at start of day
-                article_date = datetime.combine(article_date_str, datetime.min.time()).replace(tzinfo=UTC)
+                article_date = datetime.combine(
+                    article_date_str, datetime.min.time()
+                ).replace(tzinfo=UTC)
             elif isinstance(article_date_str, str):
                 # Parse date (format: YYYY-MM-DD or full ISO format)
                 article_date = datetime.fromisoformat(article_date_str)
@@ -167,13 +175,15 @@ def load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
             post = frontmatter.load(str(filepath))
             meta = post.metadata or {}
 
-            articles.append({
-                "title": meta.get("title", ""),
-                "summary": meta.get("summary", ""),
-                "tags": meta.get("tags", []),
-                "content": post.content[:500],  # First 500 chars
-                "filepath": filepath,
-            })
+            articles.append(
+                {
+                    "title": meta.get("title", ""),
+                    "summary": meta.get("summary", ""),
+                    "tags": meta.get("tags", []),
+                    "content": post.content[:500],  # First 500 chars
+                    "filepath": filepath,
+                }
+            )
         except Exception:
             continue
 

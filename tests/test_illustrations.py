@@ -85,7 +85,10 @@ class TestConceptDetector:
 
         assert len(concepts) >= 2
         concept_names = {c.name for c in concepts}
-        assert "network_topology" in concept_names or "system_architecture" in concept_names
+        assert (
+            "network_topology" in concept_names
+            or "system_architecture" in concept_names
+        )
         assert "data_flow" in concept_names
 
     def test_concepts_sorted_by_confidence(self):

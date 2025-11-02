@@ -4,7 +4,7 @@ Generates context-aware ASCII diagrams, tables, and structured text
 for processes, comparisons, and network topologies.
 """
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from openai import OpenAI
 
@@ -130,12 +130,14 @@ COMMON PATTERNS:
 
             # Calculate costs
             prompt_tokens = response.usage.prompt_tokens if response.usage else 0
-            completion_tokens = response.usage.completion_tokens if response.usage else 0
+            completion_tokens = (
+                response.usage.completion_tokens if response.usage else 0
+            )
 
             prompt_cost = (prompt_tokens / 1000) * self.PRICING[self.model]["prompt"]
-            completion_cost = (
-                completion_tokens / 1000
-            ) * self.PRICING[self.model]["completion"]
+            completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
+                "completion"
+            ]
 
             # Generate alt-text
             alt_text = self._generate_alt_text(section_title, concept_type)
@@ -305,7 +307,7 @@ class TextIllustrationQualitySelector:
         """
         candidates = []
 
-        for i in range(self.n_candidates):
+        for _i in range(self.n_candidates):
             art = self.generator.generate_for_section(
                 section_title, section_content, concept_type
             )
@@ -403,4 +405,3 @@ class TextIllustrationQualitySelector:
         score += width_score * 0.15
 
         return min(1.0, score)
-

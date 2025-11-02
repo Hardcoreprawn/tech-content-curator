@@ -12,7 +12,7 @@ enabling flexible workflows and easier testing.
 
 Example:
     from src.pipeline import generate_articles_from_enriched, load_enriched_items
-    
+
     # Load and generate articles
     items = load_enriched_items(Path("data/enriched_latest.json"))
     articles = generate_articles_from_enriched(items, max_articles=5)
@@ -24,9 +24,14 @@ Design Principles:
 - Progress tracking and cost reporting
 """
 
-# Article generation pipeline
-from .orchestrator import generate_articles_from_enriched, generate_single_article
-from .file_io import load_enriched_items, save_article_to_file
+# Article generation pipeline (now using modular structure)
+from .article_builder import (
+    calculate_image_cost,
+    calculate_text_cost,
+    create_article_metadata,
+    generate_article_slug,
+    generate_article_title,
+)
 from .candidate_selector import (
     get_available_generators,
     select_article_candidates,
@@ -37,17 +42,17 @@ from .deduplication import (
     collect_existing_source_urls,
     is_source_in_cooldown,
 )
-from .article_builder import (
-    calculate_image_cost,
-    calculate_text_cost,
-    create_article_metadata,
-    generate_article_slug,
-    generate_article_title,
+from .file_io import load_enriched_items, save_article_to_file
+from .orchestrator import (
+    generate_articles_async,
+    generate_articles_from_enriched,
+    generate_single_article,
 )
 
 __all__ = [
     # Main orchestration
     "generate_articles_from_enriched",
+    "generate_articles_async",
     "generate_single_article",
     # File I/O
     "load_enriched_items",

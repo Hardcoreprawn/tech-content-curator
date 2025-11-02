@@ -38,7 +38,9 @@ from .pipeline import (
     select_article_candidates,
     select_generator,
 )
-from .pipeline.orchestrator import _select_diverse_candidates
+from .pipeline.diversity_selector import (
+    select_diverse_candidates as _select_diverse_candidates,
+)
 
 console = Console()
 
@@ -134,19 +136,22 @@ Examples:
         exit(0)
 
     articles = generate_articles_from_enriched(
-        items, args.max_articles, args.force_regenerate, args.generate_images, args.fact_check, os.getenv("GITHUB_RUN_ID")
+        items,
+        args.max_articles,
+        args.force_regenerate,
+        args.generate_images,
+        args.fact_check,
+        os.getenv("GITHUB_RUN_ID"),
     )
 
     if articles:
         # Calculate total costs
-        total_cost = sum(
-            sum(article.generation_costs.values()) for article in articles
-        )
-        
+        total_cost = sum(sum(article.generation_costs.values()) for article in articles)
+
         console.print(
             f"\n[bold green]🎉 Success! Generated {len(articles)} blog articles.[/bold green]"
         )
-        console.print(f"[dim]Total generation cost:  USD[/dim]")
+        console.print("[dim]Total generation cost:  USD[/dim]")
         console.print("[dim]Articles saved to content/ directory[/dim]")
     else:
         console.print("[red]No articles were generated.[/red]")

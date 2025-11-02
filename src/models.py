@@ -69,7 +69,9 @@ class GeneratedArticle(BaseModel):
     action_run_id: str | None = Field(
         default=None, description="GitHub Actions run ID that generated this article"
     )
-    generator_name: str = Field(..., description="Name of generator that created this article")
+    generator_name: str = Field(
+        ..., description="Name of generator that created this article"
+    )
     illustrations_count: int = Field(
         default=0, description="Number of illustrations added to article"
     )
@@ -92,11 +94,11 @@ class PipelineConfig(BaseModel):
     articles_per_run: int = Field(default=3, ge=1, le=10)
     min_content_length: int = Field(default=100, ge=50)
     max_content_length: int = Field(default=2000, le=5000)
-    
+
     # Hugo site configuration
     hugo_base_url: str = Field(
         default="",
-        description="Base URL for Hugo site (e.g., 'https://site.com/blog'). Used for absolute image URLs."
+        description="Base URL for Hugo site (e.g., 'https://site.com/blog'). Used for absolute image URLs.",
     )
 
     # Reddit rate limiting and retry behavior

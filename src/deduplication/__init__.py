@@ -29,12 +29,12 @@ Usage:
         find_story_clusters,
         filter_duplicate_stories
     )
-    
+
     # Pre-generation dedup
     unique_items = deduplicate_semantic(items, threshold=0.85)
     clusters = find_story_clusters(items)
     filtered = filter_duplicate_stories(items, clusters)
-    
+
     # Post-generation dedup
     duplicates = find_duplicate_articles(articles)
 
@@ -54,22 +54,22 @@ Deduplication Strategies:
 """
 
 # Import all deduplication modules
-from .semantic_dedup import SemanticDeduplicator, DuplicationPattern
-from .story_clustering import (
-    find_story_clusters,
-    filter_duplicate_stories,
-    report_story_clusters,
-    StoryCluster,
-)
 from .adaptive_dedup import AdaptiveDedupFeedback
+from .dedup_feedback import DeduplicationFeedback, DeduplicationFeedbackSystem
 from .post_gen_dedup import (
-    find_duplicate_articles,
-    report_duplicate_candidates,
     calculate_entity_similarity,
     extract_entities,
+    find_duplicate_articles,
+    report_duplicate_candidates,
 )
 from .recent_content_cache import RecentContentCache
-from .dedup_feedback import DeduplicationFeedback, DeduplicationFeedbackSystem
+from .semantic_dedup import DuplicationPattern, SemanticDeduplicator
+from .story_clustering import (
+    StoryCluster,
+    filter_duplicate_stories,
+    find_story_clusters,
+    report_story_clusters,
+)
 
 __all__ = [
     # Semantic deduplication

@@ -301,7 +301,9 @@ class TestAccessibilityChecker:
     def test_generate_alt_text_system_architecture(self):
         """Generates alt-text for system architecture diagram."""
         checker = AccessibilityChecker()
-        alt_text = checker.generate_alt_text("system_architecture", "system_architecture")
+        alt_text = checker.generate_alt_text(
+            "system_architecture", "system_architecture"
+        )
 
         assert "architecture" in alt_text.lower()
         assert "layer" in alt_text.lower()
@@ -312,7 +314,9 @@ class TestAccessibilityChecker:
         alt_text = checker.generate_alt_text("data_pipeline", "data_flow")
 
         assert "pipeline" in alt_text.lower()
-        assert any(stage in alt_text for stage in ["input", "output", "extract", "load"])
+        assert any(
+            stage in alt_text for stage in ["input", "output", "extract", "load"]
+        )
 
     def test_generate_long_description_nat(self):
         """Generates detailed description for NAT diagram."""
@@ -426,7 +430,7 @@ class TestAccessibilityChecker:
     def test_extract_svg_alt_text_from_desc(self):
         """Extracts alt-text from SVG desc element."""
         checker = AccessibilityChecker()
-        svg = '<svg><desc>My diagram description</desc></svg>'
+        svg = "<svg><desc>My diagram description</desc></svg>"
 
         alt_text = checker._extract_svg_alt_text(svg)
 
@@ -435,7 +439,7 @@ class TestAccessibilityChecker:
     def test_extract_svg_alt_text_from_title(self):
         """Extracts alt-text from SVG title element."""
         checker = AccessibilityChecker()
-        svg = '<svg><title>My Diagram</title></svg>'
+        svg = "<svg><title>My Diagram</title></svg>"
 
         alt_text = checker._extract_svg_alt_text(svg)
 

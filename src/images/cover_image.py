@@ -54,7 +54,7 @@ def generate_featured_image(
         # Focus on abstract, professional tech imagery
         prompt = f"""Create a modern, abstract hero image for a tech blog article titled "{title}".
 
-Style: Clean, professional, minimalist with a tech aesthetic. Use gradients, geometric shapes, 
+Style: Clean, professional, minimalist with a tech aesthetic. Use gradients, geometric shapes,
 or abstract representations. Avoid literal interpretations, text, or specific brands.
 
 Theme: {summary[:200]}
@@ -74,44 +74,44 @@ The image should work well as a blog header - wide format, visually appealing, n
         if not response.data:
             console.print("[yellow]⚠[/yellow] No image data returned")
             return None
-        
+
         image_url = response.data[0].url
         if not image_url:
             console.print("[yellow]⚠[/yellow] No image URL returned")
             return None
 
         # Download the image
-        console.print(f"[blue]Downloading image from OpenAI...[/blue]")
+        console.print("[blue]Downloading image from OpenAI...[/blue]")
         with httpx.Client(timeout=30.0) as http_client:
             img_response = http_client.get(image_url)
             img_response.raise_for_status()
 
         # Process the square image into hero (wide) and icon formats
         images_dir = get_images_dir()
-        
+
         # Open the downloaded square image
         with Image.open(BytesIO(img_response.content)) as img:
             # Create wide hero image (1792x1024) by resizing from square
             width, height = img.size  # Should be 1024x1024
-            
+
             # Hero: Resize to wide format (1792x1024)
             hero = img.resize((1792, 1024), Image.Resampling.LANCZOS)
-            
+
             hero_filename = f"{slug}.png"
             hero_filepath = images_dir / hero_filename
             hero.save(hero_filepath, "PNG")
             console.print(f"[green]✓[/green] Created hero image at {hero_filename}")
-            
+
             # Icon: 512x512 center crop from original square
             crop_size = min(width, height)
             left = (width - crop_size) // 2
             top = (height - crop_size) // 2
             right = left + crop_size
             bottom = top + crop_size
-            
+
             icon = img.crop((left, top, right, bottom))
             icon = icon.resize((512, 512), Image.Resampling.LANCZOS)
-            
+
             icon_filename = f"{slug}-icon.png"
             icon_filepath = images_dir / icon_filename
             icon.save(icon_filepath, "PNG")
@@ -121,7 +121,10 @@ The image should work well as a blog header - wide format, visually appealing, n
         if base_url:
             # Remove trailing slash from base_url if present
             base_url = base_url.rstrip("/")
-            return (f"{base_url}/images/{hero_filename}", f"{base_url}/images/{icon_filename}")
+            return (
+                f"{base_url}/images/{hero_filename}",
+                f"{base_url}/images/{icon_filename}",
+            )
         else:
             return (f"/images/{hero_filename}", f"/images/{icon_filename}")
 

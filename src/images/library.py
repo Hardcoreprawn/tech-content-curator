@@ -16,8 +16,8 @@ Article-specific variants are saved in site/static/images/ as <slug>.png and <sl
 from __future__ import annotations
 
 import hashlib
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable, Tuple
 
 from PIL import Image, ImageDraw
 from rich.console import Console
@@ -94,6 +94,7 @@ def _apply_variant(base: Image.Image, variant_seed: str) -> Image.Image:
     # Simple HSV-like channel rotation using per-pixel transform
     # Keep it fast: apply per-channel multipliers derived from hash
     h = hashlib.md5(variant_seed.encode("utf-8")).digest()
+
     # Derive subtle +/- 20% multipliers per channel
     def scale(byte: int) -> float:
         return 0.8 + (byte / 255.0) * 0.4  # [0.8, 1.2]
@@ -106,7 +107,9 @@ def _apply_variant(base: Image.Image, variant_seed: str) -> Image.Image:
     return Image.merge("RGB", (r, g, b))
 
 
-def _make_derivatives(base_path: Path, slug: str, base_url: str = "") -> Tuple[str, str]:
+def _make_derivatives(
+    base_path: Path, slug: str, base_url: str = ""
+) -> tuple[str, str]:
     """Create hero (1792x1024) and icon (512x512) from a base image with a variant.
 
     Args:
@@ -135,7 +138,7 @@ def _make_derivatives(base_path: Path, slug: str, base_url: str = "") -> Tuple[s
         )
         icon_path = images_dir / f"{slug}-icon.png"
         icon.save(icon_path, "PNG")
-    
+
     # Return absolute URLs if base_url provided, otherwise relative paths
     if base_url:
         base_url = base_url.rstrip("/")
@@ -144,7 +147,9 @@ def _make_derivatives(base_path: Path, slug: str, base_url: str = "") -> Tuple[s
         return (f"/images/{slug}.png", f"/images/{slug}-icon.png")
 
 
-def select_or_create_cover_image(tags: Iterable[str], slug: str, base_url: str = "") -> Tuple[str, str]:
+def select_or_create_cover_image(
+    tags: Iterable[str], slug: str, base_url: str = ""
+) -> tuple[str, str]:
     """Pick a reusable base by tag and create local variants for this article.
 
     Strategy (priority order):
@@ -166,8 +171,16 @@ def select_or_create_cover_image(tags: Iterable[str], slug: str, base_url: str =
         hero_url, icon_url = existing
         if base_url and not hero_url.startswith("http"):
             base_url = base_url.rstrip("/")
-            hero_url = f"{base_url}{hero_url}" if hero_url.startswith("/") else f"{base_url}/{hero_url}"
-            icon_url = f"{base_url}{icon_url}" if icon_url.startswith("/") else f"{base_url}/{icon_url}"
+            hero_url = (
+                f"{base_url}{hero_url}"
+                if hero_url.startswith("/")
+                else f"{base_url}/{hero_url}"
+            )
+            icon_url = (
+                f"{base_url}{icon_url}"
+                if icon_url.startswith("/")
+                else f"{base_url}/{icon_url}"
+            )
         return (hero_url, icon_url)
 
     # Fall back to gradient library

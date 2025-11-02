@@ -125,7 +125,7 @@ class TestGenerateArticleSlug:
     def test_cleans_special_characters(self, mock_openai_class):
         """Special characters are removed from slug."""
         client = Mock()
-        
+
         # Mock response with special characters
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content="python@#$best-practices"))]
@@ -143,7 +143,7 @@ class TestGenerateArticleSlug:
     def test_removes_quotes(self, mock_openai_class):
         """Quotes are stripped from slug."""
         client = Mock()
-        
+
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content='"python-practices"'))]
         mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
@@ -158,7 +158,7 @@ class TestGenerateArticleSlug:
     def test_truncates_long_slugs(self, mock_openai_class):
         """Slugs longer than 60 chars are truncated."""
         client = Mock()
-        
+
         long_slug = "this-is-a-very-long-slug-that-exceeds-sixty-characters-and-should-be-truncated"
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content=long_slug))]
@@ -184,7 +184,7 @@ class TestGenerateArticleSlug:
     def test_fallback_on_empty_response(self, mock_openai_class):
         """Falls back to simple slug on empty response."""
         client = Mock()
-        
+
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content=""))]
         mock_response.usage = Mock(prompt_tokens=50, completion_tokens=0)
@@ -199,7 +199,7 @@ class TestGenerateArticleSlug:
     def test_removes_multiple_consecutive_hyphens(self, mock_openai_class):
         """Multiple consecutive hyphens are collapsed to one."""
         client = Mock()
-        
+
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content="python---best--practices"))]
         mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
@@ -223,7 +223,9 @@ class TestGenerateArticleTitle:
         content = "Article content about Python programming best practices..."
 
         mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content="Python Best Practices You Need"))]
+        mock_response.choices = [
+            Mock(message=Mock(content="Python Best Practices You Need"))
+        ]
         mock_response.usage = Mock(prompt_tokens=200, completion_tokens=20)
         client.chat.completions.create.return_value = mock_response
 
@@ -349,7 +351,7 @@ class TestCreateArticleMetadata:
     def test_limits_tags_to_five(self):
         """Tags are limited to 5 maximum."""
         item = make_enriched_item(topics=["A", "B", "C", "D", "E", "F", "G"])
-        
+
         metadata = create_article_metadata(item, "Title", "Content")
 
         assert len(metadata["tags"]) == 5
@@ -359,7 +361,7 @@ class TestCreateArticleMetadata:
         """Word count is accurate."""
         item = make_enriched_item()
         content = "Word " * 250  # 250 words
-        
+
         metadata = create_article_metadata(item, "Title", content)
 
         assert metadata["word_count"] == 250
@@ -368,7 +370,7 @@ class TestCreateArticleMetadata:
         """Reading time is based on 200 words per minute."""
         item = make_enriched_item()
         content = "Word " * 600  # 600 words = 3 min read
-        
+
         metadata = create_article_metadata(item, "Title", content)
 
         assert metadata["reading_time"] == "3 min read"
@@ -377,7 +379,7 @@ class TestCreateArticleMetadata:
         """Very short articles show 1 min read minimum."""
         item = make_enriched_item()
         content = "Short content"  # 2 words
-        
+
         metadata = create_article_metadata(item, "Title", content)
 
         assert metadata["reading_time"] == "1 min read"
@@ -385,7 +387,7 @@ class TestCreateArticleMetadata:
     def test_source_metadata_complete(self):
         """Source metadata includes all fields."""
         item = make_enriched_item()
-        
+
         metadata = create_article_metadata(item, "Title", "Content")
 
         source = metadata["source"]
@@ -397,7 +399,7 @@ class TestCreateArticleMetadata:
     def test_quality_score_included(self):
         """Quality score from enrichment is included."""
         item = make_enriched_item(quality_score=0.87)
-        
+
         metadata = create_article_metadata(item, "Title", "Content")
 
         assert metadata["quality_score"] == 0.87
@@ -405,7 +407,7 @@ class TestCreateArticleMetadata:
     def test_cover_image_placeholder(self):
         """Cover image fields are initialized empty."""
         item = make_enriched_item()
-        
+
         metadata = create_article_metadata(item, "Title", "Content")
 
         assert metadata["cover"]["image"] == ""
@@ -414,7 +416,7 @@ class TestCreateArticleMetadata:
     def test_date_format(self):
         """Date is in YYYY-MM-DD format."""
         item = make_enriched_item()
-        
+
         metadata = create_article_metadata(item, "Title", "Content")
 
         # Verify date format
@@ -424,7 +426,7 @@ class TestCreateArticleMetadata:
     def test_summary_includes_topics(self):
         """Summary mentions first two topics."""
         item = make_enriched_item(topics=["Python", "Rust", "Go"])
-        
+
         metadata = create_article_metadata(item, "Title", "Content")
 
         assert "Python" in metadata["summary"]

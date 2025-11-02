@@ -33,7 +33,9 @@ class TestEntitledWhiningFilter:
 
     def test_detects_money_grab_complaints(self):
         """Detect 'money grab' type complaints."""
-        content = "This is just a cash grab. Greedy developers charging for open source."
+        content = (
+            "This is just a cash grab. Greedy developers charging for open source."
+        )
         assert is_entitled_whining(content) is True
 
     def test_allows_valid_pricing_discussions(self):
@@ -51,7 +53,7 @@ class TestEntitledWhiningFilter:
         # Just entitled language without monetization context
         content1 = "How dare they do this! Outrageous!"
         assert is_entitled_whining(content1) is False
-        
+
         # Just monetization without entitled language
         content2 = "The subscription price is reasonable for the features."
         assert is_entitled_whining(content2) is False
@@ -119,7 +121,9 @@ class TestRelevanceFilter:
     def test_accepts_science_content(self, default_config):
         """Accept science-related content."""
         title = "Breakthrough in Quantum Physics"
-        content = "Scientists published research on particle behavior in the laboratory."
+        content = (
+            "Scientists published research on particle behavior in the laboratory."
+        )
         assert is_relevant_content(content, title, default_config) is True
 
     def test_accepts_policy_content(self, default_config):

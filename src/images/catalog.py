@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import frontmatter
 from rich.console import Console
@@ -25,7 +24,9 @@ def _catalog_path() -> Path:
     return get_project_root() / "data" / "image_catalog.json"
 
 
-def build_image_catalog(force_rebuild: bool = False) -> Dict[str, List[Tuple[str, str]]]:
+def build_image_catalog(
+    force_rebuild: bool = False,
+) -> dict[str, list[tuple[str, str]]]:
     """Build or load a catalog of tag->images from existing articles.
 
     Returns:
@@ -33,11 +34,11 @@ def build_image_catalog(force_rebuild: bool = False) -> Dict[str, List[Tuple[str
     """
     catalog_file = _catalog_path()
     if catalog_file.exists() and not force_rebuild:
-        with open(catalog_file, "r", encoding="utf-8") as f:
+        with open(catalog_file, encoding="utf-8") as f:
             return json.load(f)
 
     console.print("[dim]Building image catalog from existing articles...[/dim]")
-    catalog: Dict[str, List[Tuple[str, str]]] = {}
+    catalog: dict[str, list[tuple[str, str]]] = {}
     content_dir = get_content_dir()
 
     for md_file in content_dir.glob("*.md"):
@@ -49,7 +50,11 @@ def build_image_catalog(force_rebuild: bool = False) -> Dict[str, List[Tuple[str
             image_url = cover.get("image") if isinstance(cover, dict) else None
 
             # Skip if no image or if it's a gradient/default
-            if not image_url or "library/" in image_url or "default-social" in image_url:
+            if (
+                not image_url
+                or "library/" in image_url
+                or "default-social" in image_url
+            ):
                 continue
 
             # Extract slug from image URL (e.g., /images/2025-10-30-something.png -> 2025-10-30-something)
@@ -73,7 +78,7 @@ def build_image_catalog(force_rebuild: bool = False) -> Dict[str, List[Tuple[str
     return catalog
 
 
-def find_reusable_image(tags: List[str]) -> Tuple[str, str] | None:
+def find_reusable_image(tags: list[str]) -> tuple[str, str] | None:
     """Find an existing AI image matching one of the given tags.
 
     Returns:
