@@ -1204,5 +1204,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 6,
+    "patterns_used": 218,
+    "timestamp": "2025-11-02T11:40:57.172714",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "\"for the rest of us who don\u2019t have the technical knowledge and time to follow his accomplishments, h",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "To everyone who says \u2018install Linux\u2019 as a solution to Windows problems (or \u2018install LibreOffice\u2019 as ",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "How I use every Claude Code feature",
+        "removed_items": [
+          "Claude Code can debug low-level cryptography"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
