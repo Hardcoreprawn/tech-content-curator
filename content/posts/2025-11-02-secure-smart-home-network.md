@@ -34,13 +34,6 @@ word_count: 957
 
 ## Introduction
 
-<!-- ASCII: ASCII network diagram for Introduction -->
-```
-┌─────────────────────────────────────────────────────────┐
-│                       Introduction                       │
-└─────────────────────────────────────────────────────────┘
-```
-
 In an era where smart devices have become integral to our daily lives, the Internet of Things (IoT) offers unprecedented convenience and functionality. However, with this technological advancement comes a host of security challenges that many users may not fully comprehend. A recent social media post by Ruth Mottram highlights critical advice from a tech engineer: **"Never use your primary WiFi network for IoT devices"** and **"Treat them as strangers in your home."** This advice underscores the importance of understanding the security implications of connecting multiple devices to a single network and emphasizes the necessity of adopting a cautious approach to IoT security.
 
 In this article, we will explore the vulnerabilities associated with IoT devices, the significance of network segregation, and practical steps that users can take to enhance their security posture against potential threats. By the end of this discussion, tech professionals and developers will have a clearer understanding of how to secure their networks and devices more effectively.
@@ -83,7 +76,6 @@ Moreover, the incident referenced in the original post, where a manufacturer iss
 
 <!-- MERMAID: Algorithm flowchart for Network Segregation: A Crucial Step -->
 ```mermaid
-```mermaid
 graph TD
     Start((Start))
     Implement[Implement Network Segregation]
@@ -98,7 +90,6 @@ graph TD
     Isolate --> ReduceRisk
     ReduceRisk --> Control
     Control --> End((End))
-```
 ```
 
 One of the most effective strategies for mitigating IoT security risks is to implement network segregation. By creating a separate guest network for IoT devices, users can isolate these devices from their primary network, thereby reducing the risk of unauthorized access to sensitive information. This approach allows for greater control over the security dynamics within a home or office network.
