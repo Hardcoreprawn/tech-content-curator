@@ -69,6 +69,10 @@ class GeneratedArticle(BaseModel):
     action_run_id: str | None = Field(
         default=None, description="GitHub Actions run ID that generated this article"
     )
+    generator_name: str = Field(..., description="Name of generator that created this article")
+    illustrations_count: int = Field(
+        default=0, description="Number of illustrations added to article"
+    )
 
 
 class PipelineConfig(BaseModel):
@@ -170,4 +174,30 @@ class PipelineConfig(BaseModel):
         description="Timeout in seconds for image source API requests",
     )
 
-    model_config = ConfigDict(env_prefix="")  # Load from environment variables directly
+    # Illustration system configuration
+    enable_illustrations: bool = Field(
+        default=True,
+        description="Enable automatic illustration generation for articles",
+    )
+    illustration_budget_per_article: float = Field(
+        default=0.06,
+        ge=0.0,
+        description="Maximum budget for AI-generated illustrations per article in USD",
+    )
+    illustration_confidence_threshold: float = Field(
+        default=0.7,
+        ge=0.0,
+        le=1.0,
+        description="Minimum confidence score for adding free tier illustrations",
+    )
+    illustration_ai_confidence_threshold: float = Field(
+        default=0.8,
+        ge=0.0,
+        le=1.0,
+        description="Minimum confidence score for adding paid AI-generated illustrations",
+    )
+    max_illustrations_per_article: int = Field(
+        default=3,
+        ge=1,
+        description="Maximum number of illustrations to add per article",
+    )

@@ -5,7 +5,7 @@ description = "Automatically generate readable, well-sourced blog articles from 
 authors = [{name = "Your Name", email = "your.email@example.com"}]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"  # Officially supported: Python 3.13+
 
 dependencies = [
     # Core dependencies
@@ -46,7 +46,7 @@ build-backend = "hatchling.build"
 packages = ["src"]
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py313"
 line-length = 88
 
 [tool.ruff.lint]

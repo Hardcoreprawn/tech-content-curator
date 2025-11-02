@@ -79,6 +79,8 @@ def save_article_to_file(
         "cover": {"image": "", "alt": ""},
         "generation_costs": article.generation_costs,
         "action_run_id": article.action_run_id,
+        "generator": article.generator_name,
+        "illustrations_count": article.illustrations_count,
     }
 
     # Optional: Attach cover image

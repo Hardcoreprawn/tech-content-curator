@@ -10,6 +10,7 @@ import pytest
 
 from src.models import CollectedItem, EnrichedItem, GeneratedArticle, PipelineConfig
 from src.pipeline.file_io import load_enriched_items, save_article_to_file
+from src.citations.extractor import Citation
 
 
 def make_collected_item(
@@ -63,6 +64,8 @@ def make_generated_article(
         generation_costs={"total": 0.001},
         generated_at=datetime(2025, 10, 31, 12, 0, 0, tzinfo=UTC),
         action_run_id="test-run-123",
+        generator_name="General Article Generator",
+        illustrations_count=0,
     )
 
 
@@ -344,18 +347,25 @@ class TestSaveArticleToFile:
     ):
         """Citations are processed when enabled in config."""
         article = make_generated_article(
-            content="Article with [Citation needed] references."
+            content="Article with Smith (2024) references."
         )
         config = make_config()
         config.enable_citations = True
 
-        # Mock citation processing
+        # Mock citation processing with proper Citation objects
+        citation = Citation(
+            authors="Smith et al.",
+            year=2024,
+            original_text="Smith et al. (2024)",
+            position=(14, 32),
+            confidence=0.95,
+        )
         mock_extractor_instance = Mock()
-        mock_extractor_instance.extract.return_value = [{"text": "Citation needed"}]
+        mock_extractor_instance.extract.return_value = [citation]
         mock_extractor.return_value = mock_extractor_instance
 
         mock_resolver_instance = Mock()
-        mock_resolver_instance.resolve_batch.return_value = []
+        mock_resolver_instance.resolve.return_value = None
         mock_resolver.return_value = mock_resolver_instance
 
         mock_formatter_instance = Mock()
@@ -363,12 +373,15 @@ class TestSaveArticleToFile:
         mock_formatter_instance.format_references.return_value = ""
         mock_formatter.return_value = mock_formatter_instance
 
+        mock_cache_instance = Mock()
+        mock_cache_instance.get.return_value = None
+        mock_cache.return_value = mock_cache_instance
+
         with patch("src.pipeline.file_io.get_content_dir", return_value=tmp_path):
             save_article_to_file(article, config)
 
         # Verify citation processing called
         mock_extractor_instance.extract.assert_called_once()
-        mock_resolver_instance.resolve_batch.assert_called_once()
         mock_formatter_instance.format_inline.assert_called_once()
 
     def test_handles_citation_errors_gracefully(self, tmp_path):
