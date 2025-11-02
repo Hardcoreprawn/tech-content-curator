@@ -4,7 +4,7 @@ Generates context-aware ASCII diagrams, tables, and structured text
 for processes, comparisons, and network topologies.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from openai import OpenAI
 
@@ -27,6 +27,15 @@ class GeneratedAsciiArt:
 
     completion_cost: float
     """Cost in dollars for completion tokens"""
+
+    quality_score: float = 0.0
+    """Quality score from 0.0 to 1.0 (set by quality selector)"""
+
+    candidates_tested: int = 0
+    """Number of candidates tested (set by quality selector)"""
+
+    review_cycles: int = 0
+    """Number of review/refinement cycles (set by review refiner)"""
 
     @property
     def total_cost(self) -> float:
@@ -84,10 +93,32 @@ class AIAsciiGenerator:
                 messages=[
                     {
                         "role": "system",
-                        "content": "You are an expert at creating clear ASCII diagrams and tables. "
-                        "Generate well-formatted ASCII art that visualizes the concept. "
-                        "Use box drawing characters (─, │, ┌, ┐, └, ┘, ├, ┤, ┬, ┴, ┼) for clarity. "
-                        "Return ONLY the ASCII art, no explanations or markdown formatting.",
+                        "content": """You are a specialist in creating professional Unicode-based diagrams for technical articles.
+
+CONSTRAINTS:
+- Width: 50-60 characters maximum (for mobile readability when centered)
+- Alignment: All lines perfectly aligned in monospace font
+- Return ONLY the diagram, no markdown or explanation
+
+CHARACTER SETS:
+- Box drawing: ┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼
+- Junctions: ├ ┤ ┬ ┴ ┼
+- Arrows: → ↓ ← ↑ (for flow)
+- Accents: ◆ ★ ✓ ✗ ● (for markers)
+- Use appropriate Unicode—not ASCII dashes/pipes
+
+QUALITY CHECKLIST:
+✓ Consistent line lengths (within 2 chars)
+✓ Proper character pairing (no broken corners/lines)
+✓ Clear labels and hierarchy
+✓ Minimal clutter—clean and professional
+✓ Readable at 50-60 character width
+
+COMMON PATTERNS:
+- Trees: Use ├─ for branches, proper indentation
+- Flows: Use → and ▼ for direction, box structure
+- Tables: Use ┌─┬─┐ for headers, │ for columns
+- Networks: Use ┌─┐ boxes with ─ connections""",
                     },
                     {"role": "user", "content": prompt},
                 ],
@@ -230,3 +261,146 @@ class AIAsciiGenerator:
             "total_cost": prompt_cost + completion_cost,
             "model": self.model,
         }
+
+
+class TextIllustrationQualitySelector:
+    """Generate multiple candidates and select best based on quality scoring.
+
+    Generates N candidate diagrams for a section and scores each on alignment,
+    character variety, structure clarity, content density, and width constraints.
+    Returns the highest-scoring candidate with metadata about testing.
+    """
+
+    def __init__(
+        self,
+        client: OpenAI,
+        model: str = "gpt-3.5-turbo",
+        n_candidates: int = 3,
+        quality_threshold: float = 0.6,
+    ):
+        """Initialize quality selector.
+
+        Args:
+            client: OpenAI client for API calls
+            model: Model to use (default: gpt-3.5-turbo)
+            n_candidates: Number of candidates to generate (default: 3, configurable)
+            quality_threshold: Minimum quality score to use diagram (0.0-1.0)
+        """
+        self.generator = AIAsciiGenerator(client, model)
+        self.n_candidates = n_candidates
+        self.quality_threshold = quality_threshold
+
+    def generate_best(
+        self, section_title: str, section_content: str, concept_type: str
+    ) -> GeneratedAsciiArt | None:
+        """Generate N candidates and return the best-scoring one.
+
+        Args:
+            section_title: Title of the article section
+            section_content: The actual content of the section
+            concept_type: Type of concept
+
+        Returns:
+            GeneratedAsciiArt with highest quality score, or None if all below threshold
+        """
+        candidates = []
+
+        for i in range(self.n_candidates):
+            art = self.generator.generate_for_section(
+                section_title, section_content, concept_type
+            )
+            if art:
+                score = self._score(art.content, concept_type)
+                candidates.append((score, art))
+
+        if not candidates:
+            return None
+
+        # Sort by score descending
+        candidates.sort(key=lambda x: x[0], reverse=True)
+        best_score, best_art = candidates[0]
+
+        # Add metadata
+        best_art.quality_score = best_score
+        best_art.candidates_tested = len(candidates)
+
+        return best_art if best_score >= self.quality_threshold else None
+
+    def _score(self, content: str, concept_type: str) -> float:
+        """Score diagram on multiple quality dimensions.
+
+        Scoring breakdown:
+        - Alignment (30%): Consistent line lengths
+        - Character variety (20%): Appropriate Unicode chars for concept
+        - Structure clarity (20%): Has proper box/flow structure
+        - Content density (15%): Not too sparse or crowded
+        - Width constraint (15%): Stays under 60 chars
+
+        Args:
+            content: The ASCII diagram content
+            concept_type: Type of concept for context-aware scoring
+
+        Returns:
+            Combined quality score (0.0-1.0)
+        """
+        score = 0.0
+        lines = content.split("\n")
+
+        # 1. Alignment (30%) - do lines have consistent length?
+        if lines:
+            lengths = [len(l) for l in lines if l.strip()]
+            if lengths:
+                avg_len = sum(lengths) / len(lengths)
+                # Calculate variance
+                variance = (
+                    sum((l - avg_len) ** 2 for l in lengths) / len(lengths)
+                    if lengths
+                    else 0
+                )
+                # Lower variance = better alignment (1.0 is perfect)
+                alignment = max(0.0, 1.0 - min(1.0, variance / 100))
+                score += alignment * 0.30
+            else:
+                score += 0.0  # No non-empty lines
+
+        # 2. Character variety (20%) - appropriate chars for concept?
+        char_sets = {
+            "network_topology": ["─", "│", "┌", "┐", "└", "┘"],
+            "data_flow": ["─", "→", "│", "▼"],
+            "comparison": ["│", "─", "┼", "┤", "├"],
+            "hierarchy": ["├", "─", "│", "└"],
+            "scientific_process": ["─", "→", "│", "●"],
+            "algorithm": ["─", "→", "│", "◆"],
+            "system_architecture": ["┌", "┐", "└", "┘", "─", "│"],
+        }
+        chars = char_sets.get(concept_type, ["─", "│", "┌", "┐", "└", "┘"])
+        if chars:
+            matches = sum(1 for c in chars if c in content)
+            char_score = min(1.0, matches / max(len(chars), 1))
+            score += char_score * 0.20
+
+        # 3. Clarity (20%) - proper structure?
+        has_structure = any(c in content for c in ["┌", "├", "┬", "→", "▼"])
+        structure_score = 1.0 if has_structure else 0.3
+        score += structure_score * 0.20
+
+        # 4. Content density (15%) - not too sparse/crowded?
+        non_ws = sum(1 for c in content if c.strip())
+        total = len(content)
+        density = min(1.0, non_ws / max(total, 1))
+        # Ideal density is around 0.3-0.5
+        if 0.3 <= density <= 0.5:
+            density_score = 1.0
+        elif 0.2 <= density < 0.3 or 0.5 < density <= 0.6:
+            density_score = 0.8
+        else:
+            density_score = 0.5
+        score += density_score * 0.15
+
+        # 5. Width constraint (15%) - under 60 chars?
+        max_width = max(len(l) for l in lines) if lines else 0
+        width_score = 1.0 if max_width <= 60 else (1.0 if max_width <= 70 else 0.3)
+        score += width_score * 0.15
+
+        return min(1.0, score)
+

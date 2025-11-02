@@ -10,6 +10,22 @@ from dataclasses import dataclass
 from typing import Optional
 
 
+def format_diagram_for_markdown(diagram: str, section_title: str = "") -> str:
+    """Wrap ASCII diagram with centering and proper spacing for markdown.
+
+    Args:
+        diagram: The ASCII diagram content
+        section_title: Optional section title for figure caption
+
+    Returns:
+        Formatted diagram block with centering and spacing
+    """
+    formatted = f'\n<div align="center">\n\n```\n{diagram}\n```\n\n</div>\n'
+    if section_title:
+        formatted += f"\n*Figure: {section_title}*\n"
+    return formatted
+
+
 @dataclass
 class Section:
     """A logical section of an article (usually defined by headings)."""

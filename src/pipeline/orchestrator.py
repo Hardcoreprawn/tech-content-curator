@@ -106,13 +106,19 @@ def generate_single_article(
         # Step 6: Create filename (date + slug)
         filename = f"{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
 
-        # Step 6.5: Generate and inject illustrations (Phase 4 - Multi-Format AI Generation)
-        from ..illustrations.ai_ascii_generator import AIAsciiGenerator
+        # Step 6.5: Generate and inject illustrations (Phase 4 - Multi-Format AI Generation + Phase 2 Smart Routing)
+        from ..illustrations.ai_ascii_generator import (
+            TextIllustrationQualitySelector,
+        )
         from ..illustrations.ai_mermaid_generator import AIMermaidGenerator
         from ..illustrations.ai_svg_generator import AISvgGenerator
+        from ..illustrations.capability_advisor import TextIllustrationCapabilityAdvisor
         from ..illustrations.detector import detect_concepts
         from ..illustrations.generator_analyzer import should_add_illustrations
-        from ..illustrations.placement import PlacementAnalyzer
+        from ..illustrations.placement import (
+            PlacementAnalyzer,
+            format_diagram_for_markdown,
+        )
 
         # Format selection mapping: routes concepts to best format(s)
         CONCEPT_TO_FORMAT = {
@@ -199,43 +205,105 @@ def generate_single_article(
                                 f"  [dim]Selected top {len(top_matches)} concept-section pairs[/dim]"
                             )
 
-                            # Step 6.5d: Generate diagrams
+                            # Step 6.5d: Generate diagrams with smart routing
                             injected_content = content
                             illustrations_added = 0
                             illustration_costs = {}
                             format_distribution = {}
+
+                            # Initialize advisor and selector
+                            text_advisor = TextIllustrationCapabilityAdvisor()
+                            text_selector = TextIllustrationQualitySelector(
+                                client,
+                                n_candidates=getattr(config, "text_illustration_candidates", 3),
+                                quality_threshold=getattr(config, "text_illustration_quality_threshold", 0.6),
+                            )
 
                             for match in top_matches:
                                 try:
                                     concept = match["concept"]
                                     section = match["section"]
 
-                                    # Select format
-                                    available_formats = CONCEPT_TO_FORMAT.get(
-                                        concept, ["mermaid"]
-                                    )
-                                    selected_format = available_formats[0]
+                                    # Step 6.5d-i: Smart routing - estimate complexity and content length
+                                    section_words = len(section.content.split())
+                                    complexity = min(1.0, section_words / 300.0)  # Rough estimate
+                                    content_length = len(section.content.split())
 
-                                    # Instantiate generator
-                                    if selected_format == "ascii":
-                                        ai_generator = AIAsciiGenerator(client)
-                                    elif selected_format == "svg":
-                                        ai_generator = AISvgGenerator(client)
+                                    # Get text advisor recommendation
+                                    text_recommended, text_reason, text_confidence = (
+                                        text_advisor.should_use_text(
+                                            concept, complexity, content_length
+                                        )
+                                    )
+
+                                    # Select format based on recommendation
+                                    selected_format = None
+                                    fallback_formats = CONCEPT_TO_FORMAT.get(concept, ["mermaid"])
+
+                                    if text_recommended and text_confidence > 0.75:
+                                        selected_format = "ascii"
+                                        console.print(
+                                            f"  [dim]  → {concept}: text recommended "
+                                            f"({text_reason}, confidence: {text_confidence:.2f})[/dim]"
+                                        )
                                     else:
-                                        ai_generator = AIMermaidGenerator(client)
+                                        selected_format = fallback_formats[0]
+                                        console.print(
+                                            f"  [dim]  → {concept}: routing to {selected_format} "
+                                            f"({text_reason}, confidence: {text_confidence:.2f})[/dim]"
+                                        )
 
-                                    # Generate diagram
-                                    diagram = ai_generator.generate_for_section(
-                                        section_title=section.title,
-                                        section_content=section.content,
-                                        concept_type=concept,
-                                    )
+                                    # Instantiate appropriate generator
+                                    if selected_format == "ascii":
+                                        # Use quality selector for ASCII
+                                        diagram = text_selector.generate_best(
+                                            section_title=section.title,
+                                            section_content=section.content,
+                                            concept_type=concept,
+                                        )
+
+                                        if diagram and diagram.quality_score >= text_selector.quality_threshold:
+                                            console.print(
+                                                f"  [dim]    ✓ ASCII generated "
+                                                f"(score: {diagram.quality_score:.2f}, "
+                                                f"tested {diagram.candidates_tested} candidates)[/dim]"
+                                            )
+                                        elif diagram:
+                                            # Low quality, fallback to other formats
+                                            console.print(
+                                                f"  [yellow]    ⚠ ASCII score too low "
+                                                f"({diagram.quality_score:.2f}), "
+                                                f"falling back to {fallback_formats[1] if len(fallback_formats) > 1 else 'mermaid'}[/yellow]"
+                                            )
+                                            selected_format = fallback_formats[1] if len(fallback_formats) > 1 else "mermaid"
+                                            diagram = None
+                                        else:
+                                            # Generation failed, fallback
+                                            console.print(
+                                                f"  [yellow]    ⚠ ASCII generation failed, "
+                                                f"falling back to {fallback_formats[1] if len(fallback_formats) > 1 else 'mermaid'}[/yellow]"
+                                            )
+                                            selected_format = fallback_formats[1] if len(fallback_formats) > 1 else "mermaid"
+                                            diagram = None
+
+                                    # If ASCII failed or not selected, use other generators
+                                    if diagram is None:
+                                        if selected_format == "svg":
+                                            ai_generator = AISvgGenerator(client)
+                                        else:
+                                            ai_generator = AIMermaidGenerator(client)
+
+                                        diagram = ai_generator.generate_for_section(
+                                            section_title=section.title,
+                                            section_content=section.content,
+                                            concept_type=concept,
+                                        )
 
                                     if diagram and injected_content:
-                                        # Format
+                                        # Format diagram based on type
                                         if selected_format == "ascii":
-                                            diagram_markdown = (
-                                                f"```\n{diagram.content}\n```"
+                                            diagram_markdown = format_diagram_for_markdown(
+                                                diagram.content, section.title
                                             )
                                         elif selected_format == "svg":
                                             diagram_markdown = f"<figure>\n{diagram.content}\n<figcaption>{diagram.alt_text}</figcaption>\n</figure>"
