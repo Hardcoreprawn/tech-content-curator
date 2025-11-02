@@ -82,6 +82,7 @@ class TestCoverImageSelector:
         mock_get.return_value.json.return_value = {
             "results": [
                 {
+                    "id": "test-photo-123",
                     "urls": {"regular": "https://unsplash.com/image.jpg"},
                     "description": "Flying bird",
                 }
@@ -124,6 +125,7 @@ class TestCoverImageSelector:
         mock_get.return_value.json.return_value = {
             "photos": [
                 {
+                    "id": 456789,
                     "src": {"large": "https://pexels.com/image.jpg"},
                     "alt": "Flying bird",
                 }
@@ -179,6 +181,7 @@ class TestCoverImageSelector:
         mock_get.return_value.json.return_value = {
             "results": [
                 {
+                    "id": "bird-photo-789",
                     "urls": {"regular": "https://unsplash.com/bird.jpg"},
                     "description": "Bird",
                 }

@@ -22,14 +22,16 @@ class IntegrativeListGenerator(BaseGenerator):
         return 50  # Higher priority than general, check before fallback
 
     def can_handle(self, item: EnrichedItem) -> bool:
-        """Detect if the source content is a curated list/listicle.
+        """Detect if the source content is a curated list/listicle of tools or technologies.
 
         Signals: 'awesome' repos, 'list of', 'top N', heavy bulleting/numbering.
+        EXCLUDES: How-to guides, tutorials, installation instructions, educational content.
         """
         title = item.original.title.lower()
         content = item.original.content
         content_lower = content.lower()
 
+        # Explicit awesome list indicators (very high confidence)
         awesome_indicators = [
             "awesome ",
             "awesome-",
@@ -39,17 +41,55 @@ class IntegrativeListGenerator(BaseGenerator):
             "build-your-own-x",
             "build your own",
             "developer-roadmap",
-            "list of",
-            "top ",
-            "curated list",
         ]
         if any(ind in title or ind in content_lower for ind in awesome_indicators):
             return True
 
-        # Bullet/numbered list density
+        # Tool/library collection indicators
+        tool_list_indicators = [
+            "list of",
+            "top ",
+            "best ",
+            "curated list",
+            "collection of",
+        ]
+        has_list_indicator = any(
+            ind in title or ind in content_lower for ind in tool_list_indicators
+        )
+
+        # Exclude how-to guides and tutorials
+        tutorial_indicators = [
+            "how to",
+            "guide to",
+            "tutorial",
+            "getting started",
+            "step by step",
+            "installation",
+            "setting up",
+            "switching to",
+            "migrating to",
+        ]
+        is_tutorial = any(
+            ind in title or ind in content_lower for ind in tutorial_indicators
+        )
+
+        # If it's clearly a tutorial/guide, don't handle it
+        if is_tutorial:
+            return False
+
+        # If it has list indicators, check bullet density
+        if has_list_indicator:
+            lines = content.splitlines()
+            bullet_lines = sum(
+                1 for ln in lines if re.match(r"^\s*([-*]|\d+\.)\s+", ln)
+            )
+            return bullet_lines >= 5
+
+        # Pure bullet density check (only for very list-heavy content)
         lines = content.splitlines()
         bullet_lines = sum(1 for ln in lines if re.match(r"^\s*([-*]|\d+\.)\s+", ln))
-        return bullet_lines >= 5
+        # Higher threshold to avoid false positives on regular articles
+        return bullet_lines >= 10
 
     def generate_content(self, item: EnrichedItem) -> tuple[str, int, int]:
         """Transform a curated list into an integrative, comparative guide.
@@ -83,11 +123,12 @@ class IntegrativeListGenerator(BaseGenerator):
       * Key features and trade-offs
       * When to choose one over another
       * Include direct links to official project sites/repos (e.g., https://github.com/project/name)
-    - Proposes 2-3 concrete example stacks for common use-cases with detailed rationale
-    - Describes integration points and data flow between components
+    - If the content covers technical stacks or infrastructure tools, include:
+      * "Example Stacks" section with 2-3 concrete use-cases showing how tools combine
+      * "Integration Architecture" section with ASCII diagram showing component relationships
+      * Integration points and data flow between components
     - Lists practical evaluation criteria to help readers choose
-    - Includes an ASCII diagram showing architecture and component relationships
-    - Offers a realistic 'getting started' section with configuration examples (Docker Compose snippets, etc.)
+    - Offers a realistic 'getting started' section with configuration examples (Docker Compose snippets, etc.) if applicable
     - IMPORTANT: Close with proper attribution - "Inspired by [awesome-selfhosted](source_url)" or similar
 
         DEPTH REQUIREMENTS:
@@ -106,9 +147,8 @@ class IntegrativeListGenerator(BaseGenerator):
 
     FORMAT:
     - Full markdown with proper ## headings
-    - Include an "Integration Architecture" section with ASCII diagram
-        - Include "Example Stacks" section with 2-3 detailed use-cases
-    - Include "Getting Started" with practical configuration snippets
+    - Only include "Integration Architecture" and "Example Stacks" sections if the content is about technical infrastructure, development tools, or system components that naturally integrate
+    - Include "Getting Started" with practical configuration snippets if applicable
     """
 
         try:

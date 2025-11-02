@@ -12,11 +12,14 @@ Cost: ~$0.0005 per article for LLM query generation.
 
 import json
 from dataclasses import dataclass
+from pathlib import Path
 
+import frontmatter
 import httpx
 from openai import OpenAI
 from rich.console import Console
 
+from ..config import get_content_dir
 from ..models import PipelineConfig
 
 console = Console()
@@ -45,6 +48,72 @@ class CoverImageSelector:
         """
         self.client = openai_client
         self.config = config
+        self._recently_used_images = self._load_recent_images()
+
+    def _load_recent_images(self, days_back: int = 3) -> set[str]:
+        """Load image URLs from recent articles to avoid duplicates.
+
+        Args:
+            days_back: Number of days to look back
+
+        Returns:
+            Set of image URLs used in recent articles
+        """
+        from datetime import datetime, timedelta
+
+        recent_images = set()
+        try:
+            content_dir = get_content_dir()
+            cutoff_date = datetime.now() - timedelta(days=days_back)
+
+            for article_file in content_dir.glob("*.md"):
+                # Quick date check from filename (YYYY-MM-DD format)
+                try:
+                    date_str = article_file.name[:10]
+                    article_date = datetime.strptime(date_str, "%Y-%m-%d")
+                    if article_date < cutoff_date:
+                        continue
+
+                    # Load frontmatter and extract image
+                    with open(article_file, encoding="utf-8") as f:
+                        post = frontmatter.load(f)
+                        if (
+                            "cover" in post.metadata
+                            and "image" in post.metadata["cover"]
+                        ):
+                            image_url = post.metadata["cover"]["image"]
+                            if image_url:
+                                # Extract the photo ID to handle different query parameters
+                                if (
+                                    "unsplash.com" in image_url
+                                    and "photo-" in image_url
+                                ):
+                                    photo_id = image_url.split("photo-")[1].split("?")[
+                                        0
+                                    ]
+                                    recent_images.add(f"unsplash:{photo_id}")
+                                elif "pexels.com" in image_url:
+                                    photo_id = (
+                                        image_url.split("/photos/")[1].split("-")[0]
+                                        if "/photos/" in image_url
+                                        else None
+                                    )
+                                    if photo_id:
+                                        recent_images.add(f"pexels:{photo_id}")
+                                else:
+                                    recent_images.add(image_url)
+                except (ValueError, IndexError):
+                    continue
+
+        except Exception as e:
+            console.print(f"[dim]Note: Could not load recent images: {e}[/dim]")
+
+        if recent_images:
+            console.print(
+                f"[dim]Excluding {len(recent_images)} recently used images[/dim]"
+            )
+
+        return recent_images
 
     def select(self, title: str, topics: list[str]) -> CoverImage:
         """Select best image from free sources, fallback to AI.
@@ -144,7 +213,7 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
             }
 
     def _search_unsplash(self, query: str) -> CoverImage | None:
-        """Search Unsplash for free stock photos.
+        """Search Unsplash for free stock photos, skipping recently used.
 
         Args:
             query: Search query
@@ -157,7 +226,7 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
                 "https://api.unsplash.com/search/photos",
                 params={
                     "query": query,
-                    "per_page": 1,
+                    "per_page": 5,  # Get multiple results to handle recent exclusions
                     "orientation": "landscape",
                 },
                 headers={"Authorization": f"Client-ID {self.config.unsplash_api_key}"},
@@ -167,21 +236,25 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
             data = response.json()
 
             if data.get("results"):
-                result = data["results"][0]
-                return CoverImage(
-                    url=result["urls"]["regular"],
-                    alt_text=result.get("description", query) or query,
-                    source="unsplash",
-                    cost=0.0,
-                    quality_score=0.80,  # Unsplash is high quality
-                )
+                # Try each result until we find one that's not recently used
+                for result in data["results"]:
+                    photo_id = result["id"]
+                    if f"unsplash:{photo_id}" not in self._recently_used_images:
+                        return CoverImage(
+                            url=result["urls"]["regular"],
+                            alt_text=result.get("description", query) or query,
+                            source="unsplash",
+                            cost=0.0,
+                            quality_score=0.80,  # Unsplash is high quality
+                        )
+                console.print("[dim]All Unsplash results were recently used[/dim]")
         except Exception as e:
             console.print(f"[dim]Unsplash search failed: {e}[/dim]")
 
         return None
 
     def _search_pexels(self, query: str) -> CoverImage | None:
-        """Search Pexels for free stock photos.
+        """Search Pexels for free stock photos, skipping recently used.
 
         Args:
             query: Search query
@@ -194,7 +267,7 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
                 "https://api.pexels.com/v1/search",
                 params={
                     "query": query,
-                    "per_page": 1,
+                    "per_page": 5,  # Get multiple results to handle recent exclusions
                     "orientation": "landscape",
                 },
                 headers={"Authorization": self.config.pexels_api_key},
@@ -204,14 +277,18 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
             data = response.json()
 
             if data.get("photos"):
-                result = data["photos"][0]
-                return CoverImage(
-                    url=result["src"]["large"],
-                    alt_text=result.get("alt", query) or query,
-                    source="pexels",
-                    cost=0.0,
-                    quality_score=0.75,
-                )
+                # Try each result until we find one that's not recently used
+                for result in data["photos"]:
+                    photo_id = str(result["id"])
+                    if f"pexels:{photo_id}" not in self._recently_used_images:
+                        return CoverImage(
+                            url=result["src"]["large"],
+                            alt_text=result.get("alt", query) or query,
+                            source="pexels",
+                            cost=0.0,
+                            quality_score=0.75,
+                        )
+                console.print("[dim]All Pexels results were recently used[/dim]")
         except Exception as e:
             console.print(f"[dim]Pexels search failed: {e}[/dim]")
 
