@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "python",
       "psf",
+      "python",
       "python software foundation"
     ],
     "keywords": [
-      "read",
       "share",
-      "software",
-      "ahead",
-      "seeking",
-      "decision",
-      "diversity",
-      "every",
-      "tech",
-      "spine",
-      "inclusion",
-      "revenue",
-      "foundation",
-      "giant",
-      "than",
-      "equity",
-      "values",
-      "python",
       "tldr",
-      "core",
+      "spine",
       "single",
+      "equity",
+      "foundation",
+      "every",
+      "than",
+      "seeking",
+      "inclusion",
+      "diversity",
+      "giant",
+      "python",
+      "ahead",
       "community",
-      "shared",
+      "tech",
+      "core",
+      "software",
+      "read",
       "please",
-      "shows"
+      "revenue",
+      "shared",
+      "shows",
+      "decision",
+      "values"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
+      "jobs",
+      "bottom",
+      "brutal",
       "beginning",
-      "corporate",
-      "layoffs",
-      "company",
-      "amazon",
-      "cost",
-      "tomorrow",
-      "including",
-      "boost",
-      "groups",
+      "reduce",
+      "jassy",
       "damn",
-      "speed",
+      "goal",
+      "bureaucracy",
+      "stated",
+      "cost",
+      "corporate",
+      "move",
+      "including",
+      "adoption",
+      "boost",
+      "devices",
+      "cutting",
+      "layoffs",
+      "ultimate",
       "various",
       "help",
-      "move",
-      "cutting",
-      "jassy",
-      "about",
-      "bottom",
-      "adoption",
-      "stated",
-      "reduce",
-      "bureaucracy",
-      "goal",
-      "devices",
-      "ultimate",
-      "brutal",
-      "line",
+      "groups",
+      "company",
       "workforce",
-      "jobs"
+      "speed",
+      "about",
+      "amazon",
+      "line",
+      "tomorrow"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "running",
-      "anyone",
-      "excerpts",
       "posts",
-      "always"
+      "anyone",
+      "always",
+      "running",
+      "excerpts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,8 +682,8 @@
       "psf"
     ],
     "keywords": [
-      "recent",
       "donations",
+      "recent",
       "grant"
     ],
     "confidence": 0.8500000000000001,
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "court",
-      "ditch",
-      "office",
-      "alternative",
       "european",
-      "open",
-      "microsoft",
       "source",
+      "microsoft",
+      "alternative",
       "criminal",
-      "international"
+      "open",
+      "office",
+      "court",
+      "international",
+      "ditch"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2238,8 +2238,8 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "available"
+      "available",
+      "github"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2272,8 +2272,8 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "available"
+      "available",
+      "github"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2586,8 +2586,8 @@
       "go"
     ],
     "keywords": [
-      "world",
       "free",
+      "world",
       "college"
     ],
     "confidence": 0.8500000000000001,
@@ -3118,6 +3118,170 @@
     ],
     "created_at": "2025-11-02T08:27:07.123341",
     "last_seen": "2025-11-02T08:27:07.123345",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "\"for the rest of us who don\u2019t have the technical knowledge and time to follow his accomplishments, h",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T10:46:33.125006",
+    "last_seen": "2025-11-02T10:46:33.125009",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "react"
+    ],
+    "keywords": [
+      "react"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "To everyone who says \u2018install Linux\u2019 as a solution to Windows problems (or \u2018install LibreOffice\u2019 as ",
+      "react\n\nThe library for web and native user interfaces."
+    ],
+    "created_at": "2025-11-02T10:46:33.150703",
+    "last_seen": "2025-11-02T10:46:33.150705",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "claude"
+    ],
+    "keywords": [
+      "claude",
+      "code"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "How I use every Claude Code feature",
+      "Claude Code can debug low-level cryptography"
+    ],
+    "created_at": "2025-11-02T10:46:33.170606",
+    "last_seen": "2025-11-02T10:46:33.170607",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Crossfire: High-performance lockless spsc/mpsc/mpmc channels for Rust",
+      "Automatically Translating C to Rust"
+    ],
+    "created_at": "2025-11-02T10:46:33.186927",
+    "last_seen": "2025-11-02T10:46:33.186929",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T10:46:33.225425",
+    "last_seen": "2025-11-02T10:46:33.225426",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "\"for the rest of us who don\u2019t have the technical knowledge and time to follow his accomplishments, h",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T10:46:33.298886",
+    "last_seen": "2025-11-02T10:46:33.298888",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "react"
+    ],
+    "keywords": [
+      "react"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "To everyone who says \u2018install Linux\u2019 as a solution to Windows problems (or \u2018install LibreOffice\u2019 as ",
+      "react\n\nThe library for web and native user interfaces."
+    ],
+    "created_at": "2025-11-02T10:46:33.324343",
+    "last_seen": "2025-11-02T10:46:33.324344",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "claude"
+    ],
+    "keywords": [
+      "claude",
+      "code"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "How I use every Claude Code feature",
+      "Claude Code can debug low-level cryptography"
+    ],
+    "created_at": "2025-11-02T10:46:33.344141",
+    "last_seen": "2025-11-02T10:46:33.344142",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Crossfire: High-performance lockless spsc/mpsc/mpmc channels for Rust",
+      "Automatically Translating C to Rust"
+    ],
+    "created_at": "2025-11-02T10:46:33.352375",
+    "last_seen": "2025-11-02T10:46:33.352377",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T10:46:33.390751",
+    "last_seen": "2025-11-02T10:46:33.390752",
     "frequency": 1
   }
 ]
