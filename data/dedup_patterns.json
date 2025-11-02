@@ -2,35 +2,35 @@
   {
     "entities": [
       "python software foundation",
-      "psf",
-      "python"
+      "python",
+      "psf"
     ],
     "keywords": [
-      "giant",
-      "community",
-      "diversity",
-      "shared",
-      "software",
-      "values",
-      "revenue",
-      "please",
-      "spine",
       "seeking",
-      "tldr",
-      "equity",
-      "decision",
-      "shows",
-      "every",
-      "python",
-      "ahead",
-      "read",
-      "tech",
-      "than",
-      "core",
-      "inclusion",
+      "please",
       "share",
+      "than",
+      "community",
+      "equity",
+      "inclusion",
+      "decision",
+      "spine",
+      "read",
+      "software",
       "single",
-      "foundation"
+      "tech",
+      "values",
+      "shared",
+      "python",
+      "shows",
+      "giant",
+      "every",
+      "ahead",
+      "diversity",
+      "foundation",
+      "revenue",
+      "core",
+      "tldr"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "bottom",
-      "company",
-      "stated",
-      "corporate",
-      "cost",
       "cutting",
-      "jobs",
-      "move",
-      "devices",
-      "workforce",
-      "speed",
-      "about",
-      "groups",
-      "brutal",
-      "including",
-      "damn",
-      "amazon",
-      "reduce",
-      "boost",
-      "bureaucracy",
-      "beginning",
-      "line",
+      "stated",
       "adoption",
+      "amazon",
+      "line",
+      "about",
       "help",
-      "various",
-      "jassy",
-      "goal",
       "ultimate",
+      "tomorrow",
+      "devices",
+      "cost",
+      "including",
+      "boost",
+      "jassy",
+      "bureaucracy",
+      "goal",
+      "company",
+      "jobs",
+      "reduce",
+      "groups",
+      "bottom",
+      "beginning",
+      "workforce",
+      "damn",
+      "various",
+      "move",
       "layoffs",
-      "tomorrow"
+      "speed",
+      "brutal",
+      "corporate"
     ],
     "confidence": 0.95,
     "examples": [
@@ -325,8 +325,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -377,8 +377,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -429,8 +429,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -464,8 +464,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "excerpts",
-      "always",
-      "running",
+      "anyone",
       "posts",
-      "anyone"
+      "always",
+      "running"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -616,8 +616,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -664,8 +664,8 @@
       "python"
     ],
     "keywords": [
-      "software",
-      "python"
+      "python",
+      "software"
     ],
     "confidence": 0.8,
     "examples": [
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "donations",
+      "recent",
       "grant",
-      "recent"
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "international",
-      "ditch",
       "open",
-      "microsoft",
-      "source",
-      "criminal",
       "court",
-      "european",
+      "office",
+      "international",
       "alternative",
-      "office"
+      "ditch",
+      "criminal",
+      "source",
+      "european",
+      "microsoft"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2586,8 +2586,8 @@
       "go"
     ],
     "keywords": [
-      "free",
       "college",
+      "free",
       "world"
     ],
     "confidence": 0.8500000000000001,
@@ -2694,6 +2694,166 @@
     ],
     "created_at": "2025-11-01T18:08:17.355791",
     "last_seen": "2025-11-01T18:08:17.355792",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "go"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "Go California Batteries! \"California\u2019s Wraps Another Summer Without a Single Flex Alert In 2025, ren",
+      "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
+    ],
+    "created_at": "2025-11-02T02:32:07.492741",
+    "last_seen": "2025-11-02T02:32:07.492743",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "claude"
+    ],
+    "keywords": [
+      "code",
+      "claude"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "How I Use Every Claude Code Feature",
+      "Claude Code Can Debug Low-Level Cryptography",
+      "Show HN: KeyLeak Detector \u2013 Scan websites for exposed API keys and secrets\n\nI built this after seein"
+    ],
+    "created_at": "2025-11-02T02:32:07.529280",
+    "last_seen": "2025-11-02T02:32:07.529281",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "vscode"
+    ],
+    "keywords": [
+      "vscode"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Show HN: Duper \u2013 The Format That's Super\n\nAn MIT-licensed human-friendly extension of JSON with qual",
+      "vscode\n\nVisual Studio Code"
+    ],
+    "created_at": "2025-11-02T02:32:07.588762",
+    "last_seen": "2025-11-02T02:32:07.588764",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T02:32:07.606302",
+    "last_seen": "2025-11-02T02:32:07.606303",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T02:32:07.612238",
+    "last_seen": "2025-11-02T02:32:07.612239",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "go"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "Go California Batteries! \"California\u2019s Wraps Another Summer Without a Single Flex Alert In 2025, ren",
+      "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
+    ],
+    "created_at": "2025-11-02T02:32:07.661048",
+    "last_seen": "2025-11-02T02:32:07.661050",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "claude"
+    ],
+    "keywords": [
+      "code",
+      "claude"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "How I Use Every Claude Code Feature",
+      "Claude Code Can Debug Low-Level Cryptography",
+      "Show HN: KeyLeak Detector \u2013 Scan websites for exposed API keys and secrets\n\nI built this after seein"
+    ],
+    "created_at": "2025-11-02T02:32:07.697376",
+    "last_seen": "2025-11-02T02:32:07.697377",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "vscode"
+    ],
+    "keywords": [
+      "vscode"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Show HN: Duper \u2013 The Format That's Super\n\nAn MIT-licensed human-friendly extension of JSON with qual",
+      "vscode\n\nVisual Studio Code"
+    ],
+    "created_at": "2025-11-02T02:32:07.758069",
+    "last_seen": "2025-11-02T02:32:07.758072",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T02:32:07.775858",
+    "last_seen": "2025-11-02T02:32:07.775860",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T02:32:07.781161",
+    "last_seen": "2025-11-02T02:32:07.781162",
     "frequency": 1
   }
 ]

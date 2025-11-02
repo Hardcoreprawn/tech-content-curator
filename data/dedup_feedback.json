@@ -1049,5 +1049,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 6,
+    "patterns_used": 172,
+    "timestamp": "2025-11-02T02:32:07.784776",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Go California Batteries! \"California\u2019s Wraps Another Summer Without a Single Flex Alert In 2025, ren",
+        "removed_items": [
+          "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "How I Use Every Claude Code Feature",
+        "removed_items": [
+          "Claude Code Can Debug Low-Level Cryptography",
+          "Show HN: KeyLeak Detector \u2013 Scan websites for exposed API keys and secrets\n\nI built this after seein"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Duper \u2013 The Format That's Super\n\nAn MIT-licensed human-friendly extension of JSON with qual",
+        "removed_items": [
+          "vscode\n\nVisual Studio Code"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
