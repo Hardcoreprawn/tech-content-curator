@@ -173,25 +173,9 @@ def save_article_to_file(
             f"> Original: {normalize_url(str(primary.url))}\n\n"
         )
 
-    # Append references
-    references_block = ""
-    if article.sources:
-        lines = ["\n\n## References\n"]
-        for src in article.sources:
-            o = src.original
-            url_str = str(o.url).lower()
-            actual_source = o.source
-            if "github.com" in url_str:
-                actual_source = "GitHub"
-            elif "arxiv.org" in url_str:
-                actual_source = "arXiv"
-            lines.append(
-                f"- [{o.title}]({normalize_url(str(o.url))}) — @{o.author} on {actual_source}"
-            )
-        references_block = "\n".join(lines) + "\n"
-
-    # Apply citation resolution if enabled
+    # Apply citation resolution if enabled (must happen BEFORE building references)
     article_content = article.content
+    citation_bibliography: list[str] = []
     if config.enable_citations:
         try:
             extractor = CitationExtractor()
@@ -214,6 +198,7 @@ def save_article_to_file(
                             pmid=cached_entry.get("pmid"),
                             url=cached_entry.get("url"),
                             confidence=cached_entry.get("confidence", 0.0),
+                            source_uri=cached_entry.get("url"),  # Use URL as source_uri
                         )
                         formatted = formatter.format(citation, cached)
                     else:
@@ -232,8 +217,40 @@ def save_article_to_file(
                 article_content = formatter.apply_to_text(
                     article_content, formatted_citations
                 )
+
+                # Build bibliography from resolved citations
+                citation_bibliography = formatter.build_bibliography(
+                    formatted_citations
+                )
         except Exception as e:
             console.print(f"[yellow]⚠ Citation processing failed: {e}[/yellow]")
+
+    # Append references (now citation_bibliography is defined)
+    references_block = ""
+    if article.sources or citation_bibliography:
+        lines = ["\n\n## References\n"]
+
+        # Add source references first
+        for src in article.sources:
+            o = src.original
+            url_str = str(o.url).lower()
+            actual_source = o.source
+            if "github.com" in url_str:
+                actual_source = "GitHub"
+            elif "arxiv.org" in url_str:
+                actual_source = "arXiv"
+            lines.append(
+                f"- [{o.title}]({normalize_url(str(o.url))}) — @{o.author} on {actual_source}"
+            )
+
+        # Add resolved citations bibliography
+        if citation_bibliography:
+            if article.sources:
+                # Add spacing before citations section if we already have sources
+                lines.append("")
+            lines.extend(citation_bibliography)
+
+        references_block = "\n".join(lines) + "\n"
 
     # Combine everything
     full_content = attribution_block + article_content + references_block

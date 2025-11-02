@@ -8,9 +8,11 @@ from unittest.mock import Mock, patch
 import frontmatter
 import pytest
 
+from src.citations.extractor import Citation
+from src.citations.formatter import FormattedCitation
+from src.citations.resolver import ResolvedCitation
 from src.models import CollectedItem, EnrichedItem, GeneratedArticle, PipelineConfig
 from src.pipeline.file_io import load_enriched_items, save_article_to_file
-from src.citations.extractor import Citation
 
 
 def make_collected_item(
@@ -365,12 +367,32 @@ class TestSaveArticleToFile:
         mock_extractor.return_value = mock_extractor_instance
 
         mock_resolver_instance = Mock()
-        mock_resolver_instance.resolve.return_value = None
+        resolved_citation = ResolvedCitation(
+            doi="10.1234/test",
+            arxiv_id=None,
+            pmid=None,
+            url="https://doi.org/10.1234/test",
+            confidence=0.9,
+            source_uri="https://doi.org/10.1234/test",
+        )
+        mock_resolver_instance.resolve.return_value = resolved_citation
         mock_resolver.return_value = mock_resolver_instance
 
+        # Create a proper FormattedCitation with metadata
+        formatted_citation = FormattedCitation(
+            markdown="[Smith et al. (2024)](https://doi.org/10.1234/test)",
+            original="Smith et al. (2024)",
+            was_resolved=True,
+            citation=citation,
+            resolved=resolved_citation,
+        )
+
         mock_formatter_instance = Mock()
-        mock_formatter_instance.format_inline.return_value = "Article with citations"
-        mock_formatter_instance.format_references.return_value = ""
+        mock_formatter_instance.format.return_value = formatted_citation
+        mock_formatter_instance.apply_to_text.return_value = "Article content"
+        mock_formatter_instance.build_bibliography.return_value = [
+            "- [Smith et al. (2024)](https://doi.org/10.1234/test)"
+        ]
         mock_formatter.return_value = mock_formatter_instance
 
         mock_cache_instance = Mock()
@@ -382,7 +404,9 @@ class TestSaveArticleToFile:
 
         # Verify citation processing called
         mock_extractor_instance.extract.assert_called_once()
-        mock_formatter_instance.format_inline.assert_called_once()
+        mock_formatter_instance.format.assert_called()
+        mock_formatter_instance.apply_to_text.assert_called_once()
+        mock_formatter_instance.build_bibliography.assert_called_once()
 
     def test_handles_citation_errors_gracefully(self, tmp_path):
         """Citation processing errors don't break article save."""

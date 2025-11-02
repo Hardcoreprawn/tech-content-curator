@@ -25,6 +25,7 @@ from src.citations import (
     ResolvedCitation,
 )
 from src.citations.cache import CitationCache
+from src.citations.formatter import FormattedCitation
 
 
 class TestCitationExtractor:
@@ -139,7 +140,7 @@ class TestCitationExtractor:
     def test_normalize_et_al_variations(self) -> None:
         """Citation extractor normalizes et al. variations."""
         extractor = CitationExtractor()
-        
+
         # Test internal normalization
         assert extractor._normalize_authors("Smith et al") == "Smith et al."
         assert extractor._normalize_authors("Smith et al.") == "Smith et al."
@@ -174,7 +175,7 @@ class TestCitationResolver:
     def test_extract_first_author_fallback(self) -> None:
         """Resolver can extract first author for fallback searches."""
         resolver = CitationResolver()
-        
+
         assert resolver._extract_first_author("Smith et al.") == "Smith"
         assert resolver._extract_first_author("Smith") == "Smith"
         assert resolver._extract_first_author("Smith and Jones") == "Smith"
@@ -241,9 +242,7 @@ class TestCitationResolver:
 
         # Mock arXiv with results
         mock_response_ax = MagicMock()
-        mock_response_ax.text = (
-            'entry><id>http://arxiv.org/abs/2401.12345</id>'
-        )
+        mock_response_ax.text = "entry><id>http://arxiv.org/abs/2401.12345</id>"
 
         mock_client = MagicMock()
         # Need 4 responses: CrossRef (full), CrossRef (first author), arXiv (full), arXiv (first author)
@@ -262,7 +261,9 @@ class TestCitationResolver:
         assert "arxiv.org" in result.url or result.arxiv_id
 
     @patch("src.citations.resolver.httpx.Client")
-    def test_resolve_api_error_returns_empty(self, mock_client_class: MagicMock) -> None:
+    def test_resolve_api_error_returns_empty(
+        self, mock_client_class: MagicMock
+    ) -> None:
         """API errors should return unresolved citation."""
         # Make both CrossRef and arXiv calls fail
         mock_client = MagicMock()
@@ -293,13 +294,19 @@ class TestCitationFormatter:
             pmid=None,
             url="https://doi.org/10.1234/example",
             confidence=0.9,
+            source_uri="https://doi.org/10.1234/example",
         )
 
         formatter = CitationFormatter()
         formatted = formatter.format(citation, resolved)
 
         assert formatted.was_resolved is True
-        assert formatted.markdown == "[Smith et al. (2024)](https://doi.org/10.1234/example)"
+        assert (
+            formatted.markdown
+            == "[Smith et al. (2024)](https://doi.org/10.1234/example)"
+        )
+        assert formatted.citation == citation
+        assert formatted.resolved == resolved
 
     def test_format_low_confidence_citation(self) -> None:
         """Low-confidence citations should remain unchanged."""
@@ -422,6 +429,109 @@ class TestCitationFormatter:
         formatted_lenient = formatter_lenient.format(citation, resolved)
         assert formatted_lenient.was_resolved is True
 
+    def test_build_bibliography_from_resolved_citations(self) -> None:
+        """Build bibliography entries from resolved citations."""
+        formatter = CitationFormatter()
+
+        # Create some resolved citations
+        formatted_list = [
+            FormattedCitation(
+                markdown="[Smith (2024)](https://doi.org/10.1234/a)",
+                original="Smith (2024)",
+                was_resolved=True,
+                citation=Citation(
+                    authors="Smith",
+                    year=2024,
+                    original_text="Smith (2024)",
+                    position=(0, 12),
+                ),
+                resolved=ResolvedCitation(
+                    doi="10.1234/a",
+                    arxiv_id=None,
+                    pmid=None,
+                    url="https://doi.org/10.1234/a",
+                    confidence=0.9,
+                    source_uri="https://doi.org/10.1234/a",
+                ),
+            ),
+            FormattedCitation(
+                markdown="[Jones et al. (2023)](https://doi.org/10.1234/b)",
+                original="Jones et al. (2023)",
+                was_resolved=True,
+                citation=Citation(
+                    authors="Jones et al.",
+                    year=2023,
+                    original_text="Jones et al. (2023)",
+                    position=(20, 39),
+                ),
+                resolved=ResolvedCitation(
+                    doi="10.1234/b",
+                    arxiv_id=None,
+                    pmid=None,
+                    url="https://doi.org/10.1234/b",
+                    confidence=0.85,
+                    source_uri="https://doi.org/10.1234/b",
+                ),
+            ),
+        ]
+
+        bibliography = formatter.build_bibliography(formatted_list)
+
+        assert len(bibliography) == 2
+        assert "[Smith (2024)](https://doi.org/10.1234/a)" in bibliography[0]
+        assert "[Jones et al. (2023)](https://doi.org/10.1234/b)" in bibliography[1]
+
+    def test_build_bibliography_deduplicates(self) -> None:
+        """Build bibliography should deduplicate citations by source_uri."""
+        formatter = CitationFormatter()
+
+        # Create duplicate citations (same source_uri)
+        formatted_list = [
+            FormattedCitation(
+                markdown="[Smith (2024)](https://doi.org/10.1234/a)",
+                original="Smith (2024)",
+                was_resolved=True,
+                citation=Citation(
+                    authors="Smith",
+                    year=2024,
+                    original_text="Smith (2024)",
+                    position=(0, 12),
+                ),
+                resolved=ResolvedCitation(
+                    doi="10.1234/a",
+                    arxiv_id=None,
+                    pmid=None,
+                    url="https://doi.org/10.1234/a",
+                    confidence=0.9,
+                    source_uri="https://doi.org/10.1234/a",
+                ),
+            ),
+            FormattedCitation(
+                markdown="[Smith et al. (2024)](https://doi.org/10.1234/a)",
+                original="Smith et al. (2024)",
+                was_resolved=True,
+                citation=Citation(
+                    authors="Smith et al.",
+                    year=2024,
+                    original_text="Smith et al. (2024)",
+                    position=(50, 69),
+                ),
+                resolved=ResolvedCitation(
+                    doi="10.1234/a",
+                    arxiv_id=None,
+                    pmid=None,
+                    url="https://doi.org/10.1234/a",
+                    confidence=0.9,
+                    source_uri="https://doi.org/10.1234/a",  # Same source_uri!
+                ),
+            ),
+        ]
+
+        bibliography = formatter.build_bibliography(formatted_list)
+
+        # Should only have 1 entry due to deduplication
+        assert len(bibliography) == 1
+
 
 class TestCitationCache:
     """Test citation cache with TTL."""
@@ -507,7 +617,9 @@ class TestIntegration:
     """Integration tests for full citation pipeline."""
 
     @patch("src.citations.resolver.httpx.Client")
-    def test_extract_resolve_format_pipeline(self, mock_client_class: MagicMock) -> None:
+    def test_extract_resolve_format_pipeline(
+        self, mock_client_class: MagicMock
+    ) -> None:
         """Full pipeline: extract -> resolve -> format."""
         # Mock CrossRef response
         mock_response = MagicMock()
@@ -544,7 +656,9 @@ class TestIntegration:
         assert "[Smith et al. (2024)](https://doi.org/10.1234/example)" in result
 
     @patch("src.citations.resolver.httpx.Client")
-    def test_cache_prevents_duplicate_lookups(self, mock_client_class: MagicMock) -> None:
+    def test_cache_prevents_duplicate_lookups(
+        self, mock_client_class: MagicMock
+    ) -> None:
         """Cache should prevent duplicate API calls."""
         with tempfile.TemporaryDirectory() as tmpdir:
             cache_file = str(Path(tmpdir) / "cache.json")

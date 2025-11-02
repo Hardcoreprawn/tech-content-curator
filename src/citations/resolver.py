@@ -19,13 +19,14 @@ console = Console()
 @dataclass
 class ResolvedCitation:
     """Resolution result for a citation.
-    
+
     Attributes:
         doi: Digital Object Identifier if found
         arxiv_id: arXiv preprint ID if found
         pmid: PubMed ID if found
         url: Full URL to the resolved paper
         confidence: Confidence score (0-1) for the resolution
+        source_uri: The actual URI/URL where the citation was found (for bibliography)
     """
 
     doi: str | None
@@ -33,16 +34,17 @@ class ResolvedCitation:
     pmid: str | None
     url: str | None
     confidence: float
+    source_uri: str | None = None
 
 
 class CitationResolver:
     """Look up academic citations via free public APIs.
-    
+
     Strategy:
     1. Try CrossRef first (covers most published journals)
     2. Fall back to arXiv (covers preprints and CS papers)
     3. Return unresolved if both fail
-    
+
     All APIs are free and don't require authentication.
     """
 
@@ -51,7 +53,7 @@ class CitationResolver:
 
     def __init__(self, timeout: int = 10) -> None:
         """Initialize the resolver.
-        
+
         Args:
             timeout: HTTP request timeout in seconds
         """
@@ -61,16 +63,16 @@ class CitationResolver:
 
     def resolve(self, authors: str, year: int) -> ResolvedCitation:
         """Resolve a citation to DOI or arXiv link.
-        
+
         Tries multiple strategies:
         1. Direct CrossRef lookup with original authors
         2. CrossRef with first author only (handles et al. variations)
         3. arXiv lookup
-        
+
         Args:
             authors: Author string (e.g., "Smith et al.")
             year: Publication year
-            
+
         Returns:
             ResolvedCitation with URL and metadata if found
         """
@@ -104,38 +106,39 @@ class CitationResolver:
             pmid=None,
             url=None,
             confidence=0.0,
+            source_uri=None,
         )
 
     def _extract_first_author(self, authors: str) -> str | None:
         """Extract first author name for fallback queries.
-        
+
         Handles "Smith et al.", "Smith and Jones", etc.
         Returns just the first author: "Smith"
-        
+
         Args:
             authors: Full author string
-            
+
         Returns:
             First author name or None
         """
         import re
-        
+
         # Match first author name before et al, and, or, &
-        match = re.match(r'([A-Z][a-z]+)', authors)
+        match = re.match(r"([A-Z][a-z]+)", authors)
         if match:
             return match.group(1)
         return None
 
     def _search_crossref(self, authors: str, year: int) -> ResolvedCitation | None:
         """Query CrossRef API for a citation.
-        
+
         FREE API, no authentication required.
         Rate limit: Unlimited for good-faith use.
-        
+
         Args:
             authors: Author string
             year: Publication year
-            
+
         Returns:
             ResolvedCitation if found, None otherwise
         """
@@ -177,6 +180,7 @@ class CitationResolver:
                 pmid=None,
                 url=f"https://doi.org/{doi}",
                 confidence=confidence,
+                source_uri=f"https://doi.org/{doi}",
             )
 
         except Exception as e:
@@ -185,14 +189,14 @@ class CitationResolver:
 
     def _search_arxiv(self, authors: str, year: int) -> ResolvedCitation | None:
         """Query arXiv API for a preprint.
-        
+
         FREE API, no authentication required.
         Rate limit: Generous, designed for research
-        
+
         Args:
             authors: Author string (primary author)
             year: Publication year
-            
+
         Returns:
             ResolvedCitation if found, None otherwise
         """
@@ -228,6 +232,7 @@ class CitationResolver:
                     pmid=None,
                     url=f"https://arxiv.org/abs/{arxiv_id}",
                     confidence=0.85,
+                    source_uri=f"https://arxiv.org/abs/{arxiv_id}",
                 )
 
         except httpx.HTTPError as e:
@@ -241,7 +246,7 @@ class CitationResolver:
 
     def close(self) -> None:
         """Close the HTTP client and clean up resources."""
-        if hasattr(self, 'client'):
+        if hasattr(self, "client"):
             self.client.close()
 
     def __del__(self) -> None:

@@ -24,20 +24,20 @@
 - [x] Phase 1: Basic Pipeline
 - [x] Phase 2: Multi-Source
 - [ ] Phase 3: Quality Improvement
-    - [x] AI enrichment with topics/research
-    - [x] Specialized generators (general, integrative, self-hosted)
-    - [x] Clear attribution at top of articles
-    - [x] References section with original links
-    - [x] Reading time in frontmatter
-    - [x] Fact-checking integration
-    - [x] Featured images with DALL-E 3
-    - [x] **Cost tracking with actual token usage**
-    - [x] **Optimized image generation (50% cost reduction)**
-    - [ ] Highlights/key takeaways in frontmatter
-    - [ ] Theme customization/polish
+  - [x] AI enrichment with topics/research
+  - [x] Specialized generators (general, integrative, self-hosted)
+  - [x] Clear attribution at top of articles
+  - [x] References section with original links
+  - [x] Reading time in frontmatter
+  - [x] Fact-checking integration
+  - [x] Featured images with DALL-E 3
+  - [x] **Cost tracking with actual token usage**
+  - [x] **Optimized image generation (50% cost reduction)**
+  - [ ] Highlights/key takeaways in frontmatter
+  - [ ] Theme customization/polish
 - [ ] Phase 4: Automation
-    - [ ] Scheduled runs (GitHub Actions)
-    - [ ] Error notifications/monitoring
+  - [ ] Scheduled runs (GitHub Actions)
+  - [ ] Error notifications/monitoring
 
 ## Core Decisions (Locked In)
 
@@ -52,6 +52,7 @@ These are **fixed** - don't second-guess these:
 ## What We're Building
 
 A **simple content pipeline** that:
+
 1. Collects interesting tech topics from social media
 2. Researches and enriches them with AI
 3. Generates well-sourced blog articles
@@ -62,6 +63,7 @@ A **simple content pipeline** that:
 ## Technology Stack (Modern & Simple)
 
 ### Core (Required)
+
 - **Python 3.12+** - Latest stable release, modern syntax
 - **uv** - Fast Python package manager (replaces pip/poetry)
 - **Pydantic 2.x** - Type validation and settings
@@ -69,23 +71,27 @@ A **simple content pipeline** that:
 - **Rich** - Beautiful console output for debugging
 
 ### AI & Content
+
 - **OpenAI Python SDK** - For GPT-4 content generation
 - **atproto** - Bluesky API client
 - **mastodon.py** - Mastodon API client  
 - **praw** - Reddit API client (if we use it)
-    - Now uses a token-bucket rate limiter and exponential backoff to avoid 429s
+  - Now uses a token-bucket rate limiter and exponential backoff to avoid 429s
 
 ### Static Site
+
 - **Markdown** - Article format
 - **Hugo** - Static site generator
 - **GitHub Pages** - Free hosting
 
 ### Development
+
 - **pytest** - Testing framework
 - **ruff** - Fast Python linter (replaces flake8, black, isort)
 - **mypy** - Type checking
   
 ### Rate limiting & retries
+
 - Lightweight token bucket limiter (configurable via env)
 - Exponential backoff with jitter on 429/5xx for Reddit
 - Defaults tuned to be conservative and respectful
@@ -129,6 +135,7 @@ generation_costs:
 ```
 
 **Current pricing** (October 2024):
+
 - **Text generation**: gpt-4o-mini @ $0.150/$0.600 per 1M tokens (input/output)
   - Used for: article content, titles, slugs
   - Typical article cost: ~$0.0015-0.0020
@@ -146,12 +153,14 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 **SEO opportunity**: Capture trending topics from social platforms and create authoritative long-form content before others.
 
 **The cycle**:
+
 1. **Social platforms trend** (Reddit, Mastodon, HackerNews) across timezones
 2. **We collect** during peak engagement (3-4x daily)
 3. **We generate** comprehensive 1200-1500 word articles with research
 4. **People search** for those topics later → find our deep-dive articles
 
 **Volume and costs**:
+
 - **10 articles per run** (configurable via `ARTICLES_PER_RUN`)
 - **2-3 runs per day** aligned with timezone peaks = 20-30 articles/day
 - **Cost**: ~$0.22/run with images = **$0.44-0.66/day** for 20-30 articles
@@ -159,14 +168,15 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 - **Source cooldown**: 7 days (prevents same GitHub repo appearing too frequently)
 
 **Timezone alignment** (recommended GitHub Actions schedule):
+
 - 06:00 UTC (morning EU) - catches Asia overnight + EU morning
 - 18:00 UTC (afternoon US) - catches US daytime discussions  
 - 02:00 UTC (evening US) - catches late US + early Asia
 
 ## Live Site & Feeds
 
-- Site: https://hardcoreprawn.github.io/tech-content-curator/
-- RSS: https://hardcoreprawn.github.io/tech-content-curator/index.xml
+- Site: <https://hardcoreprawn.github.io/tech-content-curator/>
+- RSS: <https://hardcoreprawn.github.io/tech-content-curator/index.xml>
 
 ## GitHub Deployment
 
@@ -175,6 +185,7 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 1. **Create a new GitHub repository** for your project
 
 2. **Configure repository secrets** (Settings → Secrets and variables → Actions):
+
    ```
    OPENAI_API_KEY=sk-...
    ANTHROPIC_API_KEY=sk-ant-...
@@ -190,6 +201,7 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
    - Example: `https://yourusername.github.io/tech-blog/`
 
 5. **Push to GitHub**:
+
    ```bash
    git remote add origin https://github.com/<username>/<repo-name>.git
    git branch -M main
@@ -201,9 +213,10 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 Three GitHub Actions workflows handle the complete pipeline:
 
 **1. Content Pipeline (Scheduled)** (`.github/workflows/content-pipeline.yml`)
+
 - **Schedule**: 3x daily (06:00, 18:00, 02:00 UTC)
 - **Manual trigger**: Available for testing
-- **Actions**: 
+- **Actions**:
   - Collect from HackerNews, GitHub Trending, Mastodon
   - Enrich with AI research and scoring
   - Generate 10 articles with images
@@ -215,7 +228,8 @@ Three GitHub Actions workflows handle the complete pipeline:
 - **Use case**: Scheduled batch content creation (3x daily)
 
 **2. Site Update (Fast)** (`.github/workflows/site-update.yml`)
-- **Triggers**: 
+
+- **Triggers**:
   - Push to `main` when `site/` or `content/` files change
   - Manual workflow dispatch (with optional test article)
 - **Actions**:
@@ -230,9 +244,10 @@ Three GitHub Actions workflows handle the complete pipeline:
   - Can optionally generate one article for validation
 
 **3. Full Pipeline (Manual Override)** (`.github/workflows/full-pipeline.yml`)
+
 - **Trigger**: Manual workflow dispatch only (with optional `max_articles` input)
 - **Actions**: Same as Content Pipeline but manually triggered
-- **Inputs**: 
+- **Inputs**:
   - `max_articles`: Number of articles to generate (default: 10)
 - **Use case**: "I need fresh content NOW" without waiting for scheduled run
   - Can specify how many articles to generate (1-50)
@@ -243,6 +258,7 @@ Three GitHub Actions workflows handle the complete pipeline:
 The split workflow design optimizes for two different use cases:
 
 **Scenario 1: Scheduled Content Batch** (Every 6 hours)
+
 ```
 Content Pipeline (3x daily)
   ├── Collect content from all sources
@@ -250,28 +266,33 @@ Content Pipeline (3x daily)
   ├── Generate 10 articles + images
   └── Deploy
 ```
+
 - **Cost**: $0.22/run (3x daily = $0.66/day)
 - **Duration**: 45-60 min
 - **Benefit**: Captures trending topics on schedule, uses AI efficiently in batches
 
 **Scenario 2: Site Tweaks & Rapid Testing** (Any time)
+
 ```
 Site Update (push or manual)
   ├── Skip collection/enrichment
   ├── Optionally generate 1 test article (manual only)
   └── Deploy immediately
 ```
+
 - **Cost**: $0.00 (site-only) or $0.002 (with test article)
 - **Duration**: 3-5 min
 - **Benefit**: Test CSS changes, theme updates, layout tweaks WITHOUT running expensive AI batch
 
 **Scenario 3: Emergency Full Refresh** (When needed)
+
 ```
 Full Pipeline (manual override)
   ├── Collect & Enrich
   ├── Generate N articles (configurable)
   └── Deploy
 ```
+
 - **Cost**: $0.22 for 10 articles
 - **Duration**: 45-60 min
 - **Benefit**: Manual control—generate 1-50 articles whenever you need fresh content
@@ -279,9 +300,11 @@ Full Pipeline (manual override)
 ### Manual Triggers
 
 Workflows can be manually triggered via GitHub Actions UI:
+
 - Repository → Actions → Select workflow → Run workflow
 
 **Site Update** workflow supports an optional input:
+
 - `generate_article`: Set to `true` to generate 1 test article before deploying
   - Useful for testing site changes with realistic content
   - Adds ~5-10 minutes to deployment
@@ -298,6 +321,7 @@ Workflows can be manually triggered via GitHub Actions UI:
 If you had a single `pipeline.yml`:
 
 1. **Delete the old pipeline**:
+
    ```bash
    rm .github/workflows/pipeline.yml
    ```
@@ -357,12 +381,14 @@ content-curator/
 ## Architecture Principles
 
 ### 1. Keep It Simple
+
 - **One Python script per pipeline stage** (collect, enrich, generate, publish)
 - **Synchronous by default** - use async only when actually beneficial
 - **Files for storage** - JSON files work fine, no databases needed yet
 - **Manual triggers** - run scripts when you want, add automation later
 
 ### 2. Type Everything
+
 ```python
 from pydantic import BaseModel
 from datetime import datetime
@@ -379,6 +405,7 @@ class CollectedItem(BaseModel):
 ```
 
 ### 3. Make It Observable
+
 ```python
 from rich.console import Console
 console = Console()
@@ -393,6 +420,7 @@ def collect_content():
 ```
 
 ### 4. Fail Fast, Fail Clear
+
 ```python
 # Good: Clear error messages
 if not OPENAI_API_KEY:
@@ -412,7 +440,8 @@ except Exception:
 
 **For GitHub Copilot / other AI coding assistants:**
 
-### DO:
+### DO
+
 - ✅ Use type hints everywhere (`def func(x: int) -> str:`)
 - ✅ Keep functions under 50 lines
 - ✅ Write docstrings with examples
@@ -421,7 +450,8 @@ except Exception:
 - ✅ Validate inputs early
 - ✅ Return typed results, not dicts
 
-### DON'T:
+### DON'T
+
 - ❌ Add async/await unless actually needed (95% of the time you don't need it)
 - ❌ Create classes when functions work fine
 - ❌ Add database/queue/cache until proven necessary
@@ -430,8 +460,10 @@ except Exception:
 - ❌ Add containers/Docker until deployment time
 - ❌ Suggest microservices - this is a simple pipeline
 
-### EXCEPTION - When Abstractions Are OK:
+### EXCEPTION - When Abstractions Are OK
+
 Sometimes a simple class hierarchy makes sense. Use it when:
+
 - ✅ You have **3+ similar implementations** that share a pattern
 - ✅ User explicitly requests **extensibility** for future growth
 - ✅ The abstraction is **straightforward** (not factory/DI/builder patterns)
@@ -439,8 +471,10 @@ Sometimes a simple class hierarchy makes sense. Use it when:
 
 **Example:** This project uses generator classes for different article types (general, integrative guides, specialized topics). Each generator is ~120 lines, simple to understand, and easy to add new ones. The abstract base is minimal (just `can_handle()` and `generate_content()`). This is acceptable pragmatic abstraction, not enterprise over-engineering.
 
-### When AI Suggests Complexity:
+### When AI Suggests Complexity
+
 If an AI agent suggests:
+
 - "Let's add a message queue" → **NO** - use files or simple Python functions
 - "Let's use async/await" → **MAYBE** - only if doing concurrent I/O (rare)
 - "Let's create an abstract base class" → **NO** - start with simple functions
@@ -453,6 +487,7 @@ If an AI agent suggests:
 ## Getting Started
 
 ### 1. First-Time Setup (10 minutes)
+
 ```bash
 # Install uv (modern Python package manager)
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -474,6 +509,7 @@ cp .env.example .env
 ```
 
 ### uv as default, Python versions, and the .venv
+
 - This repo uses uv for everything (install, run, test). Prefer `uv run ...` over calling `python` directly.
 - The dev container may have system Python 3.11, but this project’s `.venv` targets Python 3.13 by default when available.
 - `uv run` automatically uses `.venv` so you don’t have to activate it. Verify with:
@@ -491,6 +527,7 @@ uv pip install -e .[dev]
 ```
 
 ### 2. Development Workflow (uv-first)
+
 ```bash
 # Collect content from social media
 uv run python -m src.collect
@@ -512,6 +549,7 @@ uv run python -m src.pipeline  # Runs all steps
 ```
 
 #### Reddit rate limit settings (optional)
+
 You can tweak Reddit throttling via environment variables:
 
 ```
@@ -531,6 +569,7 @@ REDDIT_BACKOFF_MAX=60.0
 These keep our usage within Reddit's limits and reduce the chance of temporary blocks.
 
 #### Content relevance filtering (optional)
+
 Control what types of content pass through collection:
 
 ```
@@ -546,6 +585,7 @@ RELEVANCE_NEGATIVE_KEYWORDS=recipe,baking,cooking,gardening,jigsaw,puzzle,sports
 These filters are applied during collection to save API costs on enrichment. Add your own keywords to fine-tune what gets filtered out.
 
 ### 3. Quality Checks (uv)
+
 ```bash
 # Type checking
 uv run mypy src/
@@ -560,5 +600,3 @@ uv run pytest tests/ -v
 # All checks
 make check  # or create a simple script
 ```
-
-
