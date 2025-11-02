@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "python software foundation",
       "python",
-      "psf"
+      "psf",
+      "python software foundation"
     ],
     "keywords": [
-      "seeking",
-      "please",
-      "share",
-      "than",
-      "community",
-      "equity",
-      "inclusion",
-      "decision",
-      "spine",
-      "read",
-      "software",
-      "single",
-      "tech",
-      "values",
+      "foundation",
       "shared",
       "python",
-      "shows",
-      "giant",
+      "community",
+      "share",
+      "inclusion",
       "every",
-      "ahead",
       "diversity",
-      "foundation",
-      "revenue",
+      "seeking",
+      "than",
+      "single",
+      "shows",
+      "equity",
       "core",
-      "tldr"
+      "giant",
+      "please",
+      "tech",
+      "decision",
+      "values",
+      "revenue",
+      "ahead",
+      "software",
+      "spine",
+      "tldr",
+      "read"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "cutting",
-      "stated",
-      "adoption",
       "amazon",
       "line",
-      "about",
+      "cutting",
+      "adoption",
+      "jassy",
+      "including",
+      "beginning",
+      "devices",
+      "brutal",
+      "speed",
+      "goal",
+      "reduce",
+      "bureaucracy",
+      "stated",
+      "layoffs",
       "help",
       "ultimate",
-      "tomorrow",
-      "devices",
+      "move",
       "cost",
-      "including",
       "boost",
-      "jassy",
-      "bureaucracy",
-      "goal",
-      "company",
       "jobs",
-      "reduce",
-      "groups",
-      "bottom",
-      "beginning",
       "workforce",
       "damn",
+      "corporate",
+      "tomorrow",
+      "company",
+      "about",
       "various",
-      "move",
-      "layoffs",
-      "speed",
-      "brutal",
-      "corporate"
+      "groups",
+      "bottom"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "excerpts",
+      "running",
       "anyone",
-      "posts",
+      "excerpts",
       "always",
-      "running"
+      "posts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "recent",
+      "donations",
       "grant",
-      "donations"
+      "recent"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "open",
-      "court",
-      "office",
+      "microsoft",
       "international",
-      "alternative",
-      "ditch",
-      "criminal",
-      "source",
       "european",
-      "microsoft"
+      "office",
+      "criminal",
+      "open",
+      "alternative",
+      "court",
+      "ditch",
+      "source"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2238,8 +2238,8 @@
       "github"
     ],
     "keywords": [
-      "available",
-      "github"
+      "github",
+      "available"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2272,8 +2272,8 @@
       "github"
     ],
     "keywords": [
-      "available",
-      "github"
+      "github",
+      "available"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2586,9 +2586,9 @@
       "go"
     ],
     "keywords": [
-      "college",
       "free",
-      "world"
+      "world",
+      "college"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -2715,8 +2715,8 @@
       "claude"
     ],
     "keywords": [
-      "code",
-      "claude"
+      "claude",
+      "code"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2795,8 +2795,8 @@
       "claude"
     ],
     "keywords": [
-      "code",
-      "claude"
+      "claude",
+      "code"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2854,6 +2854,138 @@
     ],
     "created_at": "2025-11-02T02:32:07.781161",
     "last_seen": "2025-11-02T02:32:07.781162",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Crossfire: High-performance lockless spsc/mpsc/mpmc channels for Rust",
+      "Automatically Translating C to Rust",
+      "Hard Rust requirements from May onward"
+    ],
+    "created_at": "2025-11-02T06:06:00.827329",
+    "last_seen": "2025-11-02T06:06:00.827332",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "claude"
+    ],
+    "keywords": [
+      "claude",
+      "code"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "How I use every Claude Code feature",
+      "Claude Code can debug low-level cryptography"
+    ],
+    "created_at": "2025-11-02T06:06:00.832431",
+    "last_seen": "2025-11-02T06:06:00.832432",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T06:06:00.891505",
+    "last_seen": "2025-11-02T06:06:00.891506",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T06:06:00.897202",
+    "last_seen": "2025-11-02T06:06:00.897203",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Crossfire: High-performance lockless spsc/mpsc/mpmc channels for Rust",
+      "Automatically Translating C to Rust",
+      "Hard Rust requirements from May onward"
+    ],
+    "created_at": "2025-11-02T06:06:00.937361",
+    "last_seen": "2025-11-02T06:06:00.937362",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "claude"
+    ],
+    "keywords": [
+      "claude",
+      "code"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "How I use every Claude Code feature",
+      "Claude Code can debug low-level cryptography"
+    ],
+    "created_at": "2025-11-02T06:06:00.942336",
+    "last_seen": "2025-11-02T06:06:00.942338",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T06:06:01.000804",
+    "last_seen": "2025-11-02T06:06:01.000805",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T06:06:01.006634",
+    "last_seen": "2025-11-02T06:06:01.006635",
     "frequency": 1
   }
 ]
