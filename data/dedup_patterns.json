@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "psf",
       "python software foundation",
+      "psf",
       "python"
     ],
     "keywords": [
-      "share",
-      "core",
-      "tech",
-      "giant",
-      "foundation",
-      "tldr",
-      "python",
-      "every",
+      "revenue",
+      "spine",
       "read",
+      "python",
       "community",
+      "please",
+      "equity",
+      "than",
+      "every",
+      "tech",
+      "share",
+      "seeking",
+      "shared",
+      "shows",
+      "software",
+      "core",
+      "foundation",
+      "diversity",
+      "inclusion",
+      "tldr",
       "decision",
       "ahead",
-      "software",
-      "shows",
+      "giant",
       "values",
-      "spine",
-      "inclusion",
-      "equity",
-      "single",
-      "seeking",
-      "revenue",
-      "than",
-      "please",
-      "shared",
-      "diversity"
+      "single"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "cost",
-      "move",
-      "amazon",
-      "stated",
-      "goal",
-      "boost",
-      "layoffs",
-      "corporate",
-      "including",
-      "cutting",
-      "adoption",
-      "company",
       "groups",
-      "line",
+      "cutting",
+      "boost",
+      "speed",
+      "adoption",
+      "including",
+      "jobs",
+      "jassy",
+      "various",
+      "workforce",
+      "goal",
       "brutal",
+      "tomorrow",
+      "devices",
       "about",
       "bureaucracy",
-      "tomorrow",
-      "jassy",
-      "ultimate",
-      "help",
-      "workforce",
+      "corporate",
       "beginning",
-      "speed",
-      "various",
       "reduce",
-      "jobs",
-      "devices",
+      "move",
+      "layoffs",
+      "company",
       "bottom",
-      "damn"
+      "ultimate",
+      "amazon",
+      "cost",
+      "stated",
+      "help",
+      "damn",
+      "line"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "always",
-      "running",
       "anyone",
+      "running",
       "excerpts",
-      "posts"
+      "posts",
+      "always"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,8 +682,8 @@
       "psf"
     ],
     "keywords": [
-      "grant",
       "recent",
+      "grant",
       "donations"
     ],
     "confidence": 0.8500000000000001,
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "court",
+      "office",
       "source",
       "european",
-      "alternative",
-      "criminal",
-      "international",
-      "office",
       "ditch",
+      "court",
+      "microsoft",
+      "criminal",
       "open",
-      "microsoft"
+      "alternative",
+      "international"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2238,8 +2238,8 @@
       "github"
     ],
     "keywords": [
-      "available",
-      "github"
+      "github",
+      "available"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2272,8 +2272,8 @@
       "github"
     ],
     "keywords": [
-      "available",
-      "github"
+      "github",
+      "available"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2586,8 +2586,8 @@
       "go"
     ],
     "keywords": [
-      "college",
       "free",
+      "college",
       "world"
     ],
     "confidence": 0.8500000000000001,
@@ -3838,6 +3838,136 @@
     ],
     "created_at": "2025-11-02T18:08:14.676861",
     "last_seen": "2025-11-02T18:08:14.676862",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "react"
+    ],
+    "keywords": [
+      "native",
+      "react"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "React-Native-Godot",
+      "react\n\nThe library for web and native user interfaces."
+    ],
+    "created_at": "2025-11-02T22:38:02.145772",
+    "last_seen": "2025-11-02T22:38:02.145774",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "amazon"
+    ],
+    "keywords": [
+      "amazon"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Amazon Rivian Electric Delivery Vans Arrive in Canada",
+      "MTurk is 20 years old today \u2013 what did you create with it?\n\nMTurk was built by two two-pizza teams a"
+    ],
+    "created_at": "2025-11-02T22:38:02.155157",
+    "last_seen": "2025-11-02T22:38:02.155158",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T22:38:02.170676",
+    "last_seen": "2025-11-02T22:38:02.170677",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T22:38:02.175874",
+    "last_seen": "2025-11-02T22:38:02.175876",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "react"
+    ],
+    "keywords": [
+      "native",
+      "react"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "React-Native-Godot",
+      "react\n\nThe library for web and native user interfaces."
+    ],
+    "created_at": "2025-11-02T22:38:02.256719",
+    "last_seen": "2025-11-02T22:38:02.256722",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "amazon"
+    ],
+    "keywords": [
+      "amazon"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Amazon Rivian Electric Delivery Vans Arrive in Canada",
+      "MTurk is 20 years old today \u2013 what did you create with it?\n\nMTurk was built by two two-pizza teams a"
+    ],
+    "created_at": "2025-11-02T22:38:02.264777",
+    "last_seen": "2025-11-02T22:38:02.264778",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-02T22:38:02.280232",
+    "last_seen": "2025-11-02T22:38:02.280234",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-02T22:38:02.285448",
+    "last_seen": "2025-11-02T22:38:02.285450",
     "frequency": 1
   }
 ]
