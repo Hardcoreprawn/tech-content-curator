@@ -106,6 +106,8 @@ contentDir = "../content"
   [markup.highlight]
     style = "monokai"
     lineNos = true
+  [markup.goldmark.renderer]
+    unsafe = true
 
 # Pagination (new format)
 [pagination]

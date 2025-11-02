@@ -8,7 +8,6 @@ This module handles the AI-powered generation of article components:
 Uses GPT-4o-mini for cost-effective, high-quality generation.
 """
 
-import json
 from datetime import UTC, datetime
 
 from openai import OpenAI
@@ -22,12 +21,12 @@ console = Console()
 
 def calculate_text_cost(model: str, input_tokens: int, output_tokens: int) -> float:
     """Calculate cost for a text generation API call.
-    
+
     Args:
         model: Model name (e.g., "gpt-4o-mini")
         input_tokens: Number of input tokens
         output_tokens: Number of output tokens
-        
+
     Returns:
         Cost in USD
     """
@@ -36,20 +35,20 @@ def calculate_text_cost(model: str, input_tokens: int, output_tokens: int) -> fl
         "gpt-4o-mini": {"input": 0.150 / 1_000_000, "output": 0.600 / 1_000_000},
         "gpt-3.5-turbo": {"input": 0.500 / 1_000_000, "output": 1.500 / 1_000_000},
     }
-    
+
     if model not in PRICING:
         return 0.0
-    
+
     pricing = PRICING[model]
     return (input_tokens * pricing["input"]) + (output_tokens * pricing["output"])
 
 
 def calculate_image_cost(model: str = "dall-e-3-hd-1792x1024") -> float:
     """Calculate cost for an image generation API call.
-    
+
     Args:
         model: Image model specification
-        
+
     Returns:
         Cost in USD
     """
@@ -104,7 +103,7 @@ Respond with ONLY the slug, nothing else."""
         # Remove multiple hyphens
         while "--" in slug:
             slug = slug.replace("--", "-")
-        
+
         # Calculate cost
         usage = response.usage
         cost = calculate_text_cost(

@@ -16,12 +16,46 @@ from rich.console import Console
 
 from ..citations import CitationExtractor, CitationFormatter, CitationResolver
 from ..citations.cache import CitationCache
+from ..citations.resolver import ResolvedCitation
 from ..config import PipelineConfig, get_content_dir
 from ..images import CoverImageSelector, select_or_create_cover_image
 from ..models import EnrichedItem, GeneratedArticle
 from ..utils.url_tools import normalize_url
 
 console = Console()
+
+
+def format_cost_value(cost: float, precision: int = 8) -> float:
+    """Format cost value with consistent decimal precision.
+
+    Ensures all cost values use standard decimal notation rather than
+    scientific notation or excessive precision. This keeps YAML frontmatter
+    readable and consistent across all generated articles.
+
+    Args:
+        cost: The cost value in USD
+        precision: Number of decimal places to round to
+
+    Returns:
+        Formatted cost value
+    """
+    if cost == 0.0:
+        return 0.0
+    # Round to specified precision to avoid scientific notation
+    # and keep values like 0.000054 readable
+    return round(cost, precision)
+
+
+def format_generation_costs(costs: dict[str, float]) -> dict[str, float]:
+    """Format all generation costs with consistent decimal notation.
+
+    Args:
+        costs: Dictionary of cost values
+
+    Returns:
+        Dictionary with all values formatted consistently
+    """
+    return {key: format_cost_value(value) for key, value in costs.items()}
 
 
 def save_article_to_file(
@@ -77,7 +111,7 @@ def save_article_to_file(
             for source in article.sources
         ],
         "cover": {"image": "", "alt": ""},
-        "generation_costs": article.generation_costs,
+        "generation_costs": format_generation_costs(article.generation_costs),
         "action_run_id": article.action_run_id,
         "generator": article.generator_name,
         "illustrations_count": article.illustrations_count,
@@ -168,22 +202,36 @@ def save_article_to_file(
             citations = extractor.extract(article_content)
             if citations:
                 # Resolve each citation individually with cache checking
-                resolved = []
+                formatted_citations = []
                 for citation in citations:
                     # Check cache first
-                    cached = cache.get(citation.authors, citation.year)
-                    if cached:
-                        resolved.append(cached)
+                    cached_entry = cache.get(citation.authors, citation.year)
+                    if cached_entry:
+                        # Convert cached dict to ResolvedCitation
+                        cached = ResolvedCitation(
+                            doi=cached_entry.get("doi"),
+                            arxiv_id=cached_entry.get("arxiv_id"),
+                            pmid=cached_entry.get("pmid"),
+                            url=cached_entry.get("url"),
+                            confidence=cached_entry.get("confidence", 0.0),
+                        )
+                        formatted = formatter.format(citation, cached)
                     else:
                         # Resolve and cache
                         result = resolver.resolve(citation.authors, citation.year)
-                        cache.put(citation.authors, citation.year, result)
-                        resolved.append(result)
-                
-                article_content = formatter.format_inline(article_content, resolved)
-                refs_section = formatter.format_references(resolved)
-                if refs_section:
-                    references_block = refs_section + "\n" + references_block
+                        cache.put(
+                            citation.authors,
+                            citation.year,
+                            doi=result.doi,
+                            url=result.url,
+                        )
+                        formatted = formatter.format(citation, result)
+                    formatted_citations.append(formatted)
+
+                # Apply all formatted citations to the article content
+                article_content = formatter.apply_to_text(
+                    article_content, formatted_citations
+                )
         except Exception as e:
             console.print(f"[yellow]⚠ Citation processing failed: {e}[/yellow]")
 

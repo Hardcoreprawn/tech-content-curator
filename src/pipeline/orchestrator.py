@@ -6,7 +6,6 @@ selection through content generation, title creation, and file saving.
 
 import os
 from datetime import UTC, datetime
-from pathlib import Path
 
 from openai import OpenAI
 from rich.console import Console
@@ -76,7 +75,7 @@ def generate_single_article(
         # Step 2: Select appropriate generator and generate content
         generator = select_generator(item, generators)
         console.print(f"  Using: {generator.name}")
-        console.print(f"  [dim]Calling OpenAI API for content generation...[/dim]")
+        console.print("  [dim]Calling OpenAI API for content generation...[/dim]")
         content, content_input_tokens, content_output_tokens = (
             generator.generate_content(item)
         )
@@ -108,7 +107,6 @@ def generate_single_article(
         filename = f"{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
 
         # Step 6.5: Generate and inject illustrations (Phase 4 - Multi-Format AI Generation)
-        from ..illustrations.accessibility import AccessibilityChecker
         from ..illustrations.ai_ascii_generator import AIAsciiGenerator
         from ..illustrations.ai_mermaid_generator import AIMermaidGenerator
         from ..illustrations.ai_svg_generator import AISvgGenerator
@@ -166,9 +164,7 @@ def generate_single_article(
                             # Step 6.5c: AI-score concept-section pairs
                             scores = []
                             for concept in concept_names:
-                                for sec_idx, (_, section) in enumerate(
-                                    suitable_sections
-                                ):
+                                for _, (_, section) in enumerate(suitable_sections):
                                     try:
                                         # Rate relevance: 0-1
                                         prompt = f'Rate "{concept}" in "{section.title}" ({section.content[:150]}...). Reply: single number 0-1'
@@ -180,9 +176,10 @@ def generate_single_article(
                                             temperature=0.1,
                                             max_tokens=5,
                                         )
-                                        score = float(
-                                            resp.choices[0].message.content.strip()
-                                        )
+                                        score_text = resp.choices[0].message.content
+                                        if score_text is None:
+                                            continue
+                                        score = float(score_text.strip())
                                         if score > 0.3:
                                             scores.append(
                                                 {
@@ -191,7 +188,7 @@ def generate_single_article(
                                                     "score": score,
                                                 }
                                             )
-                                    except:
+                                    except Exception:
                                         pass
 
                             # Top 3 by score
@@ -234,7 +231,7 @@ def generate_single_article(
                                         concept_type=concept,
                                     )
 
-                                    if diagram:
+                                    if diagram and injected_content:
                                         # Format
                                         if selected_format == "ascii":
                                             diagram_markdown = (
@@ -292,13 +289,13 @@ def generate_single_article(
                     console.print(f"  [yellow]⚠ Illustration error: {e}[/yellow]")
             else:
                 console.print(
-                    f"  [dim]Skipping illustrations - no benefit for this content[/dim]"
+                    "  [dim]Skipping illustrations - no benefit for this content[/dim]"
                 )
 
         # Step 7: Create GeneratedArticle with cost tracking and generator info
         article = GeneratedArticle(
             title=title,
-            content=injected_content,
+            content=injected_content if injected_content is not None else content,
             summary=metadata["summary"],
             sources=[item],
             tags=item.topics[:5],

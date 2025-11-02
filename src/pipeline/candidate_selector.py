@@ -29,6 +29,7 @@ from ..deduplication import (
     find_story_clusters,
     report_story_clusters,
 )
+from ..generators.base import BaseGenerator
 from ..generators.integrative import IntegrativeListGenerator
 from ..models import EnrichedItem
 from .deduplication import check_article_exists_for_source, is_source_in_cooldown
@@ -45,7 +46,6 @@ def get_available_generators(client: OpenAI) -> list:
     Returns:
         List of generators sorted by priority (highest first)
     """
-    from ..generators.base import BaseGenerator
     from ..generators.general import GeneralArticleGenerator
     from ..generators.integrative import IntegrativeListGenerator
     from ..generators.specialized.self_hosted import SelfHostedGenerator
@@ -60,8 +60,7 @@ def get_available_generators(client: OpenAI) -> list:
     generators.sort(key=lambda g: g.priority, reverse=True)
     return generators
 
-
-def select_generator(item: EnrichedItem, generators: list) -> any:
+def select_generator(item: EnrichedItem, generators: list) -> "BaseGenerator":
     """Select the appropriate generator for an item.
 
     Checks generators in priority order and returns the first one that can handle the item.
@@ -91,10 +90,10 @@ def select_article_candidates(
 
     This filters items based on quality score and other criteria.
     We only want to spend API credits on content that will make good articles.
-    
+
     NEW: Now includes adaptive dedup filtering to reject likely duplicates
     BEFORE generation, saving API costs.
-    
+
     NEW: Story clustering to detect when multiple sources cover the same story.
 
     Args:
@@ -109,7 +108,7 @@ def select_article_candidates(
     candidates = []
     # Preload content directory once for existing-source checks
     content_dir = get_content_dir()
-    
+
     # Initialize adaptive dedup systems
     cost_tracker = CostTracker()
     adaptive_feedback = AdaptiveDedupFeedback()
@@ -153,7 +152,7 @@ def select_article_candidates(
         except Exception:
             # If the existence check fails for any reason, fall back to allowing the item
             pass
-        
+
         # Skip if source is in cooldown period (avoid republishing same sources too frequently)
         cooldown_days = int(os.getenv("SOURCE_COOLDOWN_DAYS", "7"))
         if is_source_in_cooldown(str(item.original.url), content_dir, cooldown_days):
@@ -161,31 +160,31 @@ def select_article_candidates(
                 f"[dim]⏸ In cooldown ({cooldown_days}d):[/dim] {item.original.title[:60]}..."
             )
             continue
-        
+
         # NEW: Adaptive pre-generation filtering
         # Check if this would likely be a duplicate BEFORE spending API credits
         if use_adaptive_filtering and recent_cache:
             # Use enrichment summary as proxy for article content
             candidate_summary = item.research_summary[:200]  # First 200 chars
-            
+
             # Check against recent articles
             is_dup, match = recent_cache.is_duplicate_candidate(
                 item.original.title, candidate_summary, item.topics
             )
-            
+
             if is_dup and match:
                 recent_cache.report_match(match, item.original.title)
                 cost_tracker.record_pre_gen_rejection(item.original.title)
                 console.print(
-                    f"[yellow]⏭ Rejected pre-generation (likely duplicate)[/yellow]"
+                    "[yellow]⏭ Rejected pre-generation (likely duplicate)[/yellow]"
                 )
                 continue
-            
+
             # Check against learned duplicate patterns
             matches_pattern, pattern = adaptive_feedback.check_against_patterns(
                 item.original.title, item.topics
             )
-            
+
             if matches_pattern and pattern:
                 console.print(
                     f"[yellow]⚠ Matches learned duplicate pattern:[/yellow] "
@@ -193,7 +192,7 @@ def select_article_candidates(
                 )
                 cost_tracker.record_pre_gen_rejection(item.original.title)
                 console.print(
-                    f"[yellow]⏭ Rejected pre-generation (pattern match)[/yellow]"
+                    "[yellow]⏭ Rejected pre-generation (pattern match)[/yellow]"
                 )
                 continue
 
@@ -205,19 +204,19 @@ def select_article_candidates(
     console.print(
         f"[green]✓[/green] Selected {len(candidates)} candidates from {len(items)} enriched items"
     )
-    
+
     # NEW: Story clustering to detect cross-source duplicates
     # This catches "Affinity Studio" from HackerNews + "Affinity Software" from Mastodon
     if deduplicate_stories and len(candidates) > 1:
         console.print("\n[blue]🔍 Checking for duplicate stories across sources...[/blue]")
-        
+
         # Find and report story clusters
         clusters = find_story_clusters(candidates, min_similarity=0.50)
         report_story_clusters(clusters, verbose=True)
-        
+
         # Filter out duplicate stories (keep best source for each story)
         candidates = filter_duplicate_stories(candidates, keep_best=True)
-    
+
     # Print cache stats if using adaptive filtering
     if use_adaptive_filtering and recent_cache:
         stats = recent_cache.get_cache_stats()
@@ -225,7 +224,7 @@ def select_article_candidates(
             f"[dim]Recent cache: {stats['cached_articles']} articles, "
             f"{stats['unique_tags']} unique tags[/dim]"
         )
-    
+
     return candidates
 
 
@@ -233,37 +232,37 @@ def select_diverse_candidates(
     candidates: list[EnrichedItem], max_articles: int = 5
 ) -> list[EnrichedItem]:
     """Select diverse set of candidates to avoid topic clustering.
-    
+
     This ensures we don't generate 5 articles all about the same topic.
     Spreads articles across different topics for better content diversity.
-    
+
     Args:
         candidates: List of candidate items (already sorted by quality)
         max_articles: Maximum number of articles to select
-        
+
     Returns:
         Diverse subset of candidates
     """
     if len(candidates) <= max_articles:
         return candidates
-    
+
     selected = []
     seen_topics = set()
-    
+
     # First pass: select items with unique topics
     for item in candidates:
         if len(selected) >= max_articles:
             break
-            
+
         # Check if this item introduces new topics
         item_topics = set(item.topics[:3])  # Consider top 3 topics
         if not item_topics & seen_topics:  # No overlap with seen topics
             selected.append(item)
             seen_topics.update(item_topics)
-    
+
     # Second pass: fill remaining slots with best remaining items
     remaining = [c for c in candidates if c not in selected]
     while len(selected) < max_articles and remaining:
         selected.append(remaining.pop(0))
-    
+
     return selected

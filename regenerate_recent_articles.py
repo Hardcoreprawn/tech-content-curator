@@ -31,7 +31,9 @@ def find_latest_enriched_file() -> Path:
     if not enriched_files:
         raise FileNotFoundError("No enriched files found in data/")
     
-    return enriched_files[0]
+    latest = enriched_files[0]
+    print(f"📁 Using enriched file: {latest.name}")
+    return latest
 
 
 def main():
@@ -66,16 +68,16 @@ def main():
     print("=" * 80)
     print("REGENERATING ARTICLES")
     print("=" * 80 + "\n")
-    
+
     articles = generate_articles_from_enriched(
         items,
         max_articles=10,  # Regenerate up to 10 articles
-        force_regenerate=True,  # Overwrite existing
+        force_regenerate=True,  # ⚠️ OVERWRITES existing articles
         generate_images=False,  # Skip cover images for now
         fact_check=False,
     )
-    
-    # Summary
+
+    print("\n✅ Generation complete - articles saved to content/posts/\n")    # Summary
     print("\n" + "=" * 80)
     print("REGENERATION SUMMARY")
     print("=" * 80 + "\n")
