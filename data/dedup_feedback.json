@@ -1111,5 +1111,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 188,
+    "timestamp": "2025-11-02T08:27:07.127777",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "\"for the rest of us who don\u2019t have the technical knowledge and time to follow his accomplishments, h",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "How I use every Claude Code feature",
+        "removed_items": [
+          "Claude Code can debug low-level cryptography"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Crossfire: High-performance lockless spsc/mpsc/mpmc channels for Rust",
+        "removed_items": [
+          "Automatically Translating C to Rust"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
