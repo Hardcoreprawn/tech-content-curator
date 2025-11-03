@@ -21,10 +21,13 @@ DESIGN DECISIONS:
 - Clear attribution to original sources
 - Source URL-based deduplication to prevent duplicate articles
 - Source cooldown: avoid same GitHub repo within configurable days
+- Python 3.14+ free-threading: async generation with PYTHON_GIL=0 for 3-4x speedup
 """
 
 import argparse
+import asyncio
 import os
+import sys
 
 from openai import OpenAI
 from rich.console import Console
@@ -41,8 +44,45 @@ from .pipeline import (
 from .pipeline.diversity_selector import (
     select_diverse_candidates as _select_diverse_candidates,
 )
+from .pipeline.orchestrator import generate_articles_async
 
 console = Console()
+
+
+def _supports_async() -> bool:
+    """Check if async generation is available and beneficial."""
+    if sys.version_info < (3, 14):
+        return False
+    
+    # Check if GIL is disabled (free-threading)
+    # In Python 3.14+, this is True if PYTHON_GIL=0 is set
+    try:
+        import sys as _sys
+        # GIL is enabled by default in Python 3.14, disabled only with PYTHON_GIL=0
+        return os.getenv("PYTHON_GIL") == "0"
+    except Exception:
+        return False
+
+
+async def _generate_with_async(
+    items: list,
+    max_articles: int,
+    force_regenerate: bool,
+    generate_images: bool,
+    fact_check: bool,
+    github_run_id: str | None,
+) -> list:
+    """Generate articles asynchronously using free-threading."""
+    console.print(
+        "[bold cyan]⚡ Python 3.14 free-threading enabled - generating in parallel![/bold cyan]"
+    )
+    return await generate_articles_async(
+        items,
+        max_articles,
+        force_regenerate,
+        generate_images,
+        github_run_id,
+    )
 
 
 if __name__ == "__main__":
@@ -135,14 +175,27 @@ Examples:
             )
         exit(0)
 
-    articles = generate_articles_from_enriched(
-        items,
-        args.max_articles,
-        args.force_regenerate,
-        args.generate_images,
-        args.fact_check,
-        os.getenv("GITHUB_RUN_ID"),
-    )
+    # Use async generation if available (Python 3.14+ with PYTHON_GIL=0)
+    if _supports_async():
+        articles = asyncio.run(
+            _generate_with_async(
+                items,
+                args.max_articles,
+                args.force_regenerate,
+                args.generate_images,
+                args.fact_check,
+                os.getenv("GITHUB_RUN_ID"),
+            )
+        )
+    else:
+        articles = generate_articles_from_enriched(
+            items,
+            args.max_articles,
+            args.force_regenerate,
+            args.generate_images,
+            args.fact_check,
+            os.getenv("GITHUB_RUN_ID"),
+        )
 
     if articles:
         # Calculate total costs

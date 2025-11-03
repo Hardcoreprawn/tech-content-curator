@@ -133,6 +133,7 @@ jobs:
           HUGO_BASE_URL: https://hardcoreprawn.github.io/tech-content-curator
           QUALITY_THRESHOLD: 0.5
           SOURCE_COOLDOWN_DAYS: 7
+          PYTHON_GIL: '0'
         run: |
           # Generate articles with configurable max count
           uv run python -m src.generate --max-articles ${{ github.event.inputs.max_articles || '10' }} --generate-images
