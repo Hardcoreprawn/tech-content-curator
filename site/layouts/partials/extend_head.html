@@ -45,16 +45,18 @@ window.addEventListener("load", function(){
 
 function loadGoogleAnalytics() {
   // Only load GA4 if user consented
-  {{ with .Site.Services.GoogleAnalytics.ID }}
+  {{ $gaID := site.Config.Services.GoogleAnalytics.ID }}
+  {{ if $gaID }}
+  var gaID = {{ $gaID | jsonify }};
   var script = document.createElement('script');
   script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id={{ . }}';
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaID;
   document.head.appendChild(script);
   
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '{{ . }}', {
+  gtag('config', gaID, {
     'anonymize_ip': true,
     'cookie_flags': 'SameSite=None;Secure'
   });
