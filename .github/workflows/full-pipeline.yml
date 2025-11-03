@@ -196,6 +196,8 @@ jobs:
             - Updated adaptive learning patterns
             
             Manual override trigger: full collection, enrichment, and generation"
+            # Pull first to avoid race conditions with concurrent workflows
+            git pull --rebase || true
             git push
           fi
       

@@ -117,6 +117,8 @@ jobs:
 
             Generated 1 test article for validation
             Updated site design/configuration"
+            # Pull first to avoid race conditions with concurrent workflows
+            git pull --rebase || true
             git push
           fi
       

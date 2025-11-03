@@ -189,6 +189,8 @@ jobs:
             - Updated adaptive learning patterns
             
             Scheduled content collection run"
+            # Pull first to avoid race conditions with concurrent workflows
+            git pull --rebase || true
             git push
           fi
       
