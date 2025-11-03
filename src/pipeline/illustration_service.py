@@ -352,11 +352,13 @@ class IllustrationService:
             parser = PlacementAnalyzer()
             sections = parser.parse_structure(content)
 
-            # Filter suitable sections (>75 words, no existing visuals)
+            # Filter suitable sections (>75 words, no existing visuals, not list-based)
             suitable_sections = [
                 (idx, sec)
                 for idx, sec in enumerate(sections)
-                if sec.word_count >= 75 and not sec.has_visuals
+                if sec.word_count >= 75
+                and not sec.has_visuals
+                and sec.section_type == "narrative"  # Skip list-heavy sections
             ]
 
             console.print(

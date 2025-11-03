@@ -59,6 +59,9 @@ class Section:
     has_visuals: bool
     """Whether section already has images/diagrams"""
 
+    section_type: str = "narrative"
+    """Section type: 'list' if >50% lines are list items, else 'narrative'"""
+
 
 @dataclass
 class PlacementPoint:
@@ -174,6 +177,7 @@ class PlacementAnalyzer:
         has_list = bool(re.search(r"^\s*[-*+]\s|^\s*\d+\.", content, re.MULTILINE))
         has_table = bool(re.search(r"\|", content))
         has_visuals = bool(re.search(r"!\[|<svg|<img|mermaid", content))
+        section_type = self._analyze_section_type(content)
 
         return Section(
             title=title,
@@ -186,7 +190,39 @@ class PlacementAnalyzer:
             has_list=has_list,
             has_table=has_table,
             has_visuals=has_visuals,
+            section_type=section_type,
         )
+
+    def _analyze_section_type(self, content: str) -> str:
+        """Determine if section is list-based or narrative.
+
+        Analyzes the section content to classify it as either "list" or "narrative".
+        A section is considered "list" if more than 50% of non-empty lines are list items.
+
+        Args:
+            content: Section content to analyze
+
+        Returns:
+            "list" if >50% of lines are list items, else "narrative"
+        """
+        lines = [line.strip() for line in content.split("\n") if line.strip()]
+
+        if not lines:
+            return "narrative"
+
+        # Skip the first line (heading)
+        if len(lines) > 1:
+            lines = lines[1:]
+
+        if not lines:
+            return "narrative"
+
+        # Count lines starting with list markers
+        list_pattern = re.compile(r"^[-*•\d]+\.?\s")
+        list_lines = sum(1 for line in lines if list_pattern.match(line))
+
+        list_ratio = list_lines / len(lines)
+        return "list" if list_ratio > 0.5 else "narrative"
 
     def find_placements(
         self, content: str, concept_names: list[str], max_placements: int = 3

@@ -5,13 +5,15 @@ Complete setup instructions for the Tech Content Curator project.
 ## System Requirements
 
 ### Minimum Requirements
-- **Python**: 3.13+ (officially supported)
+
+- **Python**: 3.14+ (officially supported for free-threading)
 - **Package Manager**: `uv` (astral.sh/uv)
 - **OS**: Windows 10/11 with WSL2 or native Linux/macOS
 
 ### Recommended Setup
+
 - **OS**: Ubuntu 24.04 LTS (via WSL2 on Windows)
-- **Python**: 3.13.9 (managed by uv)
+- **Python**: 3.14+ (managed by uv)
 - **Terminal**: WSL bash in VS Code
 
 ## Quick Start (Recommended: WSL2 on Windows)
@@ -34,20 +36,20 @@ sudo apt-get update && sudo apt-get upgrade -y
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Add to PATH
+# Add to PATH (add this to ~/.bashrc or ~/.zshrc)
 export PATH=/home/$USER/.local/bin:$PATH
 
 # Verify installation
 uv --version                   # Should show version 0.9.7+
 ```
 
-### 3. Install Python 3.13
+### 3. Install Python 3.14
 
 ```bash
-uv python install 3.13         # Download and install Python 3.13.9
+uv python install 3.14         # Download and install Python 3.14
 
 # Verify
-uv python list                 # Should show cpython-3.13.9
+uv python list                 # Should show python-3.14.x
 ```
 
 ### 4. Set Up Project
@@ -56,11 +58,11 @@ uv python list                 # Should show cpython-3.13.9
 # Clone and navigate to project
 cd /path/to/tech-content-curator
 
-# Sync dependencies with Python 3.13
-uv sync --python 3.13
+# Sync dependencies with Python 3.14 and all extras (includes dev/pytest)
+uv sync --python 3.14 --all-extras
 
 # Verify setup
-uv run python --version        # Should show 3.13.9
+uv run python --version        # Should show 3.14.x
 uv run pytest --version        # Should show pytest installed
 ```
 
@@ -92,18 +94,19 @@ When you open a terminal in VS Code, it will automatically use WSL.
 cd /mnt/d/projects/tech-content-curator
 
 # Run all tests
-uv run pytest tests/ -v
+uv run python -m pytest tests/ -v
 
 # Run specific test file
-uv run pytest tests/test_illustrations.py -v
+uv run python -m pytest tests/test_illustrations.py -v
 
 # Run with coverage
-uv run pytest tests/ --cov=src --cov-report=html
+uv run python -m pytest tests/ --cov=src --cov-report=html
 ```
 
 ### Running Single Test
+
 ```bash
-uv run pytest tests/test_generate.py::test_generate_single_article_success -v
+uv run python -m pytest tests/test_illustrations.py::TestListSectionDetection -v
 ```
 
 ## Environment Variables
@@ -182,32 +185,36 @@ git push origin feature/your-feature-name
 ## Troubleshooting
 
 ### pytest not found
-```bash
-# Make sure dependencies are synced
-uv sync --python 3.13 --no-cache
 
-# Run as module
+```bash
+# Make sure all dependencies are synced, including dev extras
+uv sync --python 3.14 --all-extras
+
+# Run tests using python -m pytest
 uv run python -m pytest tests/
 ```
 
 ### Wrong Python version
+
 ```bash
 # Check active Python
 uv run python --version
 
-# Force Python 3.13
-uv run --python 3.13 python --version
+# Force Python 3.14
+uv run --python 3.14 python --version
 
 # Resync with correct version
-uv sync --python 3.13 --no-cache
+uv sync --python 3.14 --all-extras --no-cache
 ```
 
 ### WSL Terminal Not Opening
+
 1. Make sure `.vscode/settings.json` exists with correct WSL configuration
 2. Restart VS Code
 3. Open new terminal: Ctrl+`
 
 ### API Rate Limiting
+
 The project includes rate limiting and caching. Check `src/rate_limit.py` for configuration.
 
 ## Testing Feature 3: Illustration System
@@ -216,18 +223,19 @@ The illustration system (Feature 3) uses AI to generate context-aware diagrams:
 
 ```bash
 # Test illustration generation
-uv run pytest tests/test_illustrations.py -v
+uv run python -m pytest tests/test_illustrations.py -v
 
 # Test format selection (Mermaid, ASCII, SVG)
-uv run pytest tests/test_illustrations_phase2.py -v
+uv run python -m pytest tests/test_illustrations_phase2.py -v
 
 # Test orchestrator with illustrations
-uv run pytest tests/test_generate.py::test_generate_single_article_success -v
+uv run python -m pytest tests/test_generate.py::test_generate_single_article_success -v
 ```
 
 ### Test Coverage
 
 Current test coverage:
+
 - Phase 1 (Foundation): 50 tests ✅
 - Phase 2 (Intelligence): 38 tests ✅
 - Phase 3 (Integration): 11 tests ✅
@@ -293,7 +301,7 @@ uv run pytest tests/ -v
 
 ---
 
-**Last Updated**: November 1, 2025
-**Python Version**: 3.13.9
+**Last Updated**: November 3, 2025
+**Python Version**: 3.14+
 **uv Version**: 0.9.7+
 **OS**: Ubuntu 24.04 LTS (recommended)
