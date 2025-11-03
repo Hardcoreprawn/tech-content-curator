@@ -11,6 +11,8 @@ Quick reference for AI agents working on this project. **Always follow these pat
 
 **Golden Rule:** When in doubt about environment, use `uv run <command>`
 
+**⚠️ Terminal Note**: If VS Code spawns 15-20 terminals, run `wsl --shutdown` in PowerShell and restart VS Code. See SETUP.md for details.
+
 ## Standard Commands
 
 ```bash

@@ -210,6 +210,70 @@ cp .env.example .env
 
 ## Troubleshooting
 
+### Terminal Issues (Multiple Spawning, "Terminal Broken")
+
+**Symptom**: VS Code opens 15-20 new terminal tabs instead of one, terminals won't respond, or "terminal broken" errors
+
+**Root Cause**: Usually triggered by WSL Ubuntu upgrade (e.g., 22.04 → 24.04), terminal profile misconfiguration, or bash initialization loops
+
+**⚡ Quick Fix**:
+
+1. **Close VS Code completely** (not just minimize)
+2. **In PowerShell**: `wsl --shutdown` (terminates WSL)
+3. **Reopen VS Code** - should have clean terminal
+4. **Open new terminal** (Ctrl+` or View → Terminal)
+
+**If issue persists**:
+
+```bash
+# Run this ONCE in WSL to clean bash initialization
+bash scripts/wsl-reset-terminals.sh
+```
+
+Then:
+1. Close all terminal tabs
+2. Restart VS Code
+3. Open new terminal
+
+**If still broken** (nuclear option - clears everything):
+
+```powershell
+# In PowerShell as admin
+wsl --terminate Ubuntu
+wsl --unregister Ubuntu
+# Then reinstall Ubuntu from Microsoft Store or Windows Terminal
+```
+
+**Ubuntu 24.04 Specific Issues**:
+
+After upgrading from 22.04 to 24.04:
+- systemd may be enabled (can interfere with terminals)
+- bash initialization may have changed
+
+Check:
+```bash
+cat /etc/wsl.conf | grep -i systemd
+```
+
+If it shows `systemd=true` and you have terminal issues, try disabling it (requires modifying `/etc/wsl.conf` - you may need `sudo` access).
+
+**VS Code Profile Issue**:
+
+The terminal profile in `.vscode/settings.json` should be simple:
+
+```json
+"terminal.integrated.defaultProfile.windows": "WSL",
+"terminal.integrated.profiles.windows": {
+  "WSL": {
+    "path": "wsl.exe",
+    "args": ["-d", "Ubuntu"],
+    "icon": "terminal-linux"
+  }
+}
+```
+
+Don't use `-e bash -li` (can cause re-initialization loops).
+
 ### "Python not found" in VS Code
 
 1. Check terminal is using WSL (should show `user@computer:/mnt/d/projects/...`)
