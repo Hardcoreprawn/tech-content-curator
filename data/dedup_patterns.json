@@ -1,36 +1,36 @@
 [
   {
     "entities": [
+      "python software foundation",
       "python",
-      "psf",
-      "python software foundation"
+      "psf"
     ],
     "keywords": [
-      "revenue",
-      "software",
-      "shared",
       "please",
-      "decision",
-      "inclusion",
       "tldr",
-      "foundation",
-      "python",
-      "tech",
-      "ahead",
       "core",
-      "than",
-      "shows",
-      "share",
-      "values",
-      "equity",
-      "seeking",
       "read",
       "diversity",
-      "spine",
-      "every",
+      "seeking",
+      "inclusion",
+      "community",
+      "tech",
+      "equity",
+      "shows",
+      "decision",
       "single",
+      "values",
+      "every",
+      "python",
+      "ahead",
+      "than",
+      "revenue",
       "giant",
-      "community"
+      "shared",
+      "foundation",
+      "spine",
+      "software",
+      "share"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "workforce",
-      "about",
-      "goal",
-      "jobs",
-      "jassy",
-      "bureaucracy",
-      "corporate",
-      "damn",
-      "devices",
-      "boost",
-      "including",
       "brutal",
-      "layoffs",
-      "help",
-      "ultimate",
-      "reduce",
-      "adoption",
-      "tomorrow",
-      "line",
-      "bottom",
       "stated",
-      "amazon",
+      "adoption",
+      "devices",
+      "bottom",
+      "ultimate",
+      "various",
       "groups",
+      "tomorrow",
+      "corporate",
+      "jassy",
+      "cost",
+      "goal",
+      "beginning",
+      "damn",
+      "reduce",
+      "layoffs",
+      "speed",
+      "including",
       "company",
       "cutting",
-      "beginning",
-      "cost",
-      "various",
-      "speed",
-      "move"
+      "move",
+      "jobs",
+      "amazon",
+      "workforce",
+      "boost",
+      "line",
+      "about",
+      "bureaucracy",
+      "help"
     ],
     "confidence": 0.95,
     "examples": [
@@ -447,8 +447,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -482,8 +482,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -499,8 +499,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -532,8 +532,8 @@
       "openai"
     ],
     "keywords": [
-      "openai",
-      "about"
+      "about",
+      "openai"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "running",
-      "excerpts",
+      "posts",
       "always",
       "anyone",
-      "posts"
+      "excerpts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "donations",
       "grant",
-      "recent"
+      "recent",
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "amazon",
-      "laying"
+      "laying",
+      "amazon"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
+      "european",
+      "criminal",
+      "office",
       "international",
       "alternative",
-      "criminal",
-      "court",
-      "source",
-      "microsoft",
-      "office",
       "ditch",
-      "european",
-      "open"
+      "open",
+      "microsoft",
+      "source",
+      "court"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2238,8 +2238,8 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "available"
+      "available",
+      "github"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2272,8 +2272,8 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "available"
+      "available",
+      "github"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2586,9 +2586,9 @@
       "go"
     ],
     "keywords": [
-      "world",
       "college",
-      "free"
+      "free",
+      "world"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -4350,6 +4350,126 @@
     ],
     "created_at": "2025-11-03T11:05:46.204827",
     "last_seen": "2025-11-03T11:05:46.204828",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "github"
+    ],
+    "keywords": [
+      "simple",
+      "experience",
+      "performance",
+      "href",
+      "github",
+      "both",
+      "nofollow",
+      "webassembly"
+    ],
+    "confidence": 0.8500000000000001,
+    "examples": [
+      "Those who still use MS windows at work or home for any reason, please see this debloat script to rec",
+      "WebAssembly (WASM) arch support for the Linux kernel\n\nDemos at: <a href=\"https:&#x2F;&#x2F;joelsever",
+      "Show HN: a Rust ray tracer that runs on any GPU \u2013 even in the browser\n\nI\u2019ve been experimenting with "
+    ],
+    "created_at": "2025-11-03T15:15:52.268098",
+    "last_seen": "2025-11-03T15:15:52.412488",
+    "frequency": 2
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Oxy is Cloudflare's Rust-based next generation proxy framework (2023)",
+      "Writing an Asciidoc Parser in Rust: Asciidocr"
+    ],
+    "created_at": "2025-11-03T15:15:52.358794",
+    "last_seen": "2025-11-03T15:15:52.358797",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-03T15:15:52.383278",
+    "last_seen": "2025-11-03T15:15:52.383282",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-03T15:15:52.390415",
+    "last_seen": "2025-11-03T15:15:52.390418",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Oxy is Cloudflare's Rust-based next generation proxy framework (2023)",
+      "Writing an Asciidoc Parser in Rust: Asciidocr"
+    ],
+    "created_at": "2025-11-03T15:15:52.502367",
+    "last_seen": "2025-11-03T15:15:52.502371",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-03T15:15:52.526759",
+    "last_seen": "2025-11-03T15:15:52.526762",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-03T15:15:52.533917",
+    "last_seen": "2025-11-03T15:15:52.533920",
     "frequency": 1
   }
 ]
