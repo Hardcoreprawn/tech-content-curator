@@ -50,18 +50,23 @@ console = Console()
 
 
 def _supports_async() -> bool:
-    """Check if async generation is available and beneficial."""
+    """Check if async generation is available and beneficial.
+    
+    Returns True only if:
+    1. Python 3.14+
+    2. PYTHON_GIL environment variable is set to '0'
+    3. Python build actually supports --disable-gil (will fail at runtime if not)
+    
+    Note: If PYTHON_GIL=0 is set but Python wasn't compiled with --disable-gil,
+    it will fail with "Fatal Python error: config_read_gil: Disabling the GIL is not supported"
+    In that case, the environment variable should be removed and this will return False.
+    """
     if sys.version_info < (3, 14):
         return False
     
-    # Check if GIL is disabled (free-threading)
-    # In Python 3.14+, this is True if PYTHON_GIL=0 is set
-    try:
-        import sys as _sys
-        # GIL is enabled by default in Python 3.14, disabled only with PYTHON_GIL=0
-        return os.getenv("PYTHON_GIL") == "0"
-    except Exception:
-        return False
+    # Only enable if explicitly set to '0'
+    # This is conservative - we check the env var but Python will validate at runtime
+    return os.getenv("PYTHON_GIL") == "0"
 
 
 async def _generate_with_async(
