@@ -1,77 +1,106 @@
-# Tech Content Curator - Setup Guide
+# Tech Content Curator - Development Setup
 
-Complete setup instructions for the Tech Content Curator project.
+Complete setup instructions for Windows developers using WSL2, optimized for VS Code and AI integration.
+
+## Architecture Decision
+
+This project is configured to run on **WSL2 (Linux)** for maximum consistency:
+- ✅ Matches GitHub Actions CI/CD environment exactly
+- ✅ Better performance via native WSL2 filesystem access
+- ✅ Eliminates shell compatibility issues (bash vs PowerShell)
+- ✅ Easier for AI to work with (single clear path)
+- ✅ Consistent with Linux production deployments
+
+**Why WSL2 instead of native Windows?**
+- Python 3.14 free-threading works best on POSIX systems
+- No PATH/shell escaping issues for AI to navigate
+- GitHub Actions uses Ubuntu, so WSL ensures parity
+- Modern WSL2 I/O performance is excellent
 
 ## System Requirements
 
-### Minimum Requirements
+- **Windows 10/11** with WSL2 enabled
+- **Ubuntu 24.04 LTS** in WSL2 (or upgrade via `sudo do-release-upgrade -d`)
+- **VS Code** with Python extension
+- **~2GB** disk space for Python 3.14 + dependencies
 
-- **Python**: 3.14+ (officially supported for free-threading)
-- **Package Manager**: `uv` (astral.sh/uv)
-- **OS**: Windows 10/11 with WSL2 or native Linux/macOS
+## One-Command Setup (Recommended)
 
-### Recommended Setup
-
-- **OS**: Ubuntu 24.04 LTS (via WSL2 on Windows)
-- **Python**: 3.14+ (managed by uv)
-- **Terminal**: WSL bash in VS Code
-
-## Quick Start (Recommended: WSL2 on Windows)
-
-### 1. Prepare WSL Environment
+After cloning the repository, run this in WSL bash terminal:
 
 ```bash
-# Update WSL to Ubuntu 24.04 LTS
-wsl --list --verbose           # Check current version
-# If on Ubuntu 22.04, upgrade: sudo do-release-upgrade -d
+cd /mnt/d/projects/tech-content-curator
+./scripts/setup-dev.sh
+```
 
-# Inside WSL, verify Python and install build tools
-lsb_release -a                 # Check Ubuntu version (should be 24.04)
-python3 --version              # Check Python (should be 3.12+)
+This script handles:
+- Installs `uv` package manager
+- Downloads Python 3.14
+- Syncs all dependencies (including dev/test)
+- Configures VS Code environment
+- Verifies everything works
+
+**If the script is missing**, see [Manual Setup](#manual-setup-step-by-step) below.
+
+## Manual Setup (Step-by-Step)
+
+### Step 1: Prepare WSL Environment
+
+```bash
+# Inside WSL bash terminal
+wsl --list --verbose                    # Check from Windows PowerShell
+lsb_release -a                          # Should show Ubuntu 24.04 LTS
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-### 2. Install uv Package Manager
+### Step 2: Install `uv` Package Manager
+
+`uv` manages Python versions and dependencies cleanly:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Add to PATH (add this to ~/.bashrc or ~/.zshrc)
-export PATH=/home/$USER/.local/bin:$PATH
-
-# Verify installation
-uv --version                   # Should show version 0.9.7+
+source $HOME/.bashrc                    # Reload PATH
+uv --version                            # Verify (should be 0.9.7+)
 ```
 
-### 3. Install Python 3.14
+### Step 3: Install Python 3.14
 
 ```bash
-uv python install 3.14         # Download and install Python 3.14
-
-# Verify
-uv python list                 # Should show python-3.14.x
+uv python install 3.14                  # Downloads and installs
+uv python list                          # Verify python-3.14.x installed
 ```
 
-### 4. Set Up Project
+### Step 4: Clone and Setup Project
 
 ```bash
-# Clone and navigate to project
-cd /path/to/tech-content-curator
-
-# Sync dependencies with Python 3.14 and all extras (includes dev/pytest)
-uv sync --python 3.14 --all-extras
-
-# Verify setup
-uv run python --version        # Should show 3.14.x
-uv run pytest --version        # Should show pytest installed
+cd /mnt/d/projects/tech-content-curator
+uv sync --python 3.14 --all-extras      # Install dependencies
+uv run pytest --version                 # Verify pytest works
 ```
 
-### 5. Configure VS Code
+### Step 5: Configure VS Code
 
-VS Code will automatically detect the WSL environment. Settings are in `.vscode/settings.json`:
+VS Code needs to know about the WSL Python environment.
+
+**Update `.vscode/settings.json`:**
 
 ```json
 {
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.14",
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "python.formatting.provider": "black",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests"],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.extraPaths": ["./src"],
   "terminal.integrated.defaultProfile.windows": "WSL",
   "terminal.integrated.profiles.windows": {
     "WSL": {
@@ -83,225 +112,236 @@ VS Code will automatically detect the WSL environment. Settings are in `.vscode/
 }
 ```
 
-When you open a terminal in VS Code, it will automatically use WSL.
+This ensures:
+- Integrated terminal opens in WSL bash
+- Python extension finds the WSL Python
+- pytest discovers tests correctly
+- Formatting/linting uses ruff (consistent with CI)
 
-## Running Tests
+## Verifying Your Setup
 
-### In WSL Terminal
+Run these commands in WSL bash terminal inside VS Code:
 
 ```bash
-# Navigate to project (VS Code does this automatically)
-cd /mnt/d/projects/tech-content-curator
+# Verify Python version
+uv run python --version            # Should show 3.14.x
 
-# Run all tests
-uv run python -m pytest tests/ -v
+# Verify dependencies installed
+uv run pytest --version            # Should work
 
-# Run specific test file
-uv run python -m pytest tests/test_illustrations.py -v
+# Run test suite
+uv run pytest tests/ -v            # Should show passing tests
 
-# Run with coverage
-uv run python -m pytest tests/ --cov=src --cov-report=html
+# Verify ruff (linter)
+uv run ruff --version              # Should work
 ```
 
-### Running Single Test
+If all show correct versions/output, **setup is complete!**
+
+## Daily Development Workflow
+
+### Running Code
+
+Always use `uv run` to ensure the right Python is used:
 
 ```bash
-uv run python -m pytest tests/test_illustrations.py::TestListSectionDetection -v
+uv run python script.py             # Run a script
+uv run pytest tests/                # Run tests
+uv run mypy src/                    # Type checking
+uv run ruff check src/              # Linting
+uv run ruff format src/             # Auto-format
+```
+
+**Important for AI agents:** Always prefix Python commands with `uv run` to guarantee the correct environment.
+
+### Running Tests
+
+```bash
+# All tests
+uv run pytest tests/ -v
+
+# Specific test file
+uv run pytest tests/test_illustrations.py -v
+
+# Specific test class
+uv run pytest tests/test_illustrations.py::TestListSectionDetection -v
+
+# With coverage
+uv run pytest tests/ --cov=src --cov-report=html
+```
+
+### Git Workflow
+
+```bash
+# Create feature branch
+git checkout -b feature/your-feature
+
+# Make changes and run tests
+uv run pytest tests/ -v
+
+# Commit with descriptive message
+git commit -m "Add feature: description"
+
+# Push to GitHub
+git push origin feature/your-feature
 ```
 
 ## Environment Variables
 
-Create a `.env` file in the project root:
+Create `.env` file in project root (never commit):
 
 ```bash
-# API Keys
-OPENAI_API_KEY=your_openai_key_here
+# Required for AI features
+OPENAI_API_KEY=sk-...
 
-# Optional: Social Media API Keys
-BLUESKY_USERNAME=your_handle
-BLUESKY_PASSWORD=your_password
+# Optional social media APIs
+BLUESKY_USERNAME=your.handle
+BLUESKY_PASSWORD=your_app_password
 MASTODON_INSTANCE=mastodon.social
 MASTODON_TOKEN=your_token
-
-# Optional: Redis (for caching)
-REDIS_URL=redis://localhost:6379/0
 ```
 
-Never commit `.env` file to version control!
+Copy from `.env.example` to get started:
 
-## Project Structure
-
-```
-.
-├── src/                          # Main source code
-│   ├── illustrations/            # Feature 3: AI-Powered Illustrations
-│   │   ├── ai_mermaid_generator.py
-│   │   ├── ai_ascii_generator.py
-│   │   ├── ai_svg_generator.py
-│   │   ├── placement.py
-│   │   ├── detector.py
-│   │   └── accessibility.py
-│   ├── pipeline/                 # Core orchestrator
-│   │   └── orchestrator.py
-│   ├── models/                   # Data models
-│   ├── collectors/               # Social media collectors
-│   └── generators/               # Content generators
-├── tests/                        # Test suite (331 tests)
-├── docs/                         # Documentation
-├── pyproject.toml                # Project configuration
-├── .vscode/
-│   ├── settings.json             # VS Code settings (WSL default)
-│   └── launch.json               # Debug configurations
-└── .env.example                  # Environment variables template
-```
-
-## Development Workflow
-
-### 1. Create Feature Branch
 ```bash
-git checkout -b feature/your-feature-name
-```
-
-### 2. Run Tests Before Committing
-```bash
-# Run all tests
-uv run pytest tests/ -v
-
-# Run linting
-uv run ruff check src/
-uv run ruff format src/
-
-# Run type checking
-uv run mypy src/
-```
-
-### 3. Commit and Push
-```bash
-git add .
-git commit -m "Brief description of changes"
-git push origin feature/your-feature-name
+cp .env.example .env
+# Edit .env with your keys
 ```
 
 ## Troubleshooting
 
-### pytest not found
+### "Python not found" in VS Code
+
+1. Check terminal is using WSL (should show `user@computer:/mnt/d/projects/...`)
+2. Verify in WSL: `which python3.14` (should show a path)
+3. Restart VS Code
+4. In VS Code: Ctrl+Shift+P → "Python: Select Interpreter" → Choose WSL Python
+
+### "uv command not found"
+
+The `uv` installation added to `~/.bashrc`. Make sure you're using bash, not sh:
 
 ```bash
-# Make sure all dependencies are synced, including dev extras
-uv sync --python 3.14 --all-extras
-
-# Run tests using python -m pytest
-uv run python -m pytest tests/
+bash --version                  # Should be version 4.x or 5.x
+source $HOME/.bashrc
+uv --version                    # Should now work
 ```
 
-### Wrong Python version
+### Wrong Python version when running tests
 
 ```bash
-# Check active Python
-uv run python --version
+# Check which Python pytest is using
+uv run which python
 
-# Force Python 3.14
-uv run --python 3.14 python --version
-
-# Resync with correct version
+# If wrong, resync with explicit version
 uv sync --python 3.14 --all-extras --no-cache
 ```
 
-### WSL Terminal Not Opening
+### VS Code shows wrong test count or can't find tests
 
-1. Make sure `.vscode/settings.json` exists with correct WSL configuration
-2. Restart VS Code
-3. Open new terminal: Ctrl+`
+1. Run in WSL terminal: `uv run pytest tests/ --collect-only`
+2. If it fails, dependencies may not be installed: `uv sync --python 3.14 --all-extras`
+3. Reload VS Code window: Ctrl+Shift+P → "Developer: Reload Window"
 
-### API Rate Limiting
+### Running on older Python version
 
-The project includes rate limiting and caching. Check `src/rate_limit.py` for configuration.
-
-## Testing Feature 3: Illustration System
-
-The illustration system (Feature 3) uses AI to generate context-aware diagrams:
+If you need to test with Python 3.13 or 3.12:
 
 ```bash
-# Test illustration generation
-uv run python -m pytest tests/test_illustrations.py -v
-
-# Test format selection (Mermaid, ASCII, SVG)
-uv run python -m pytest tests/test_illustrations_phase2.py -v
-
-# Test orchestrator with illustrations
-uv run python -m pytest tests/test_generate.py::test_generate_single_article_success -v
+uv python install 3.13           # Install if needed
+uv sync --python 3.13            # Use specific version
+uv run pytest tests/ -v          # Tests will use 3.13
+uv sync --python 3.14            # Switch back to 3.14
 ```
 
-### Test Coverage
+## For AI Agents / Automation
 
-Current test coverage:
+If you're an AI helping with this project, **use these commands**:
 
-- Phase 1 (Foundation): 50 tests ✅
-- Phase 2 (Intelligence): 38 tests ✅
-- Phase 3 (Integration): 11 tests ✅
-- Phase 4 (Multi-Format AI): Integrated into above ✅
-- **Total: 331 tests passing**
-
-## Performance Notes
-
-### WSL vs Native
-- **WSL2**: ~5-10% slower I/O than native, negligible for development
-- **Full Fiber**: WSL network performance is excellent
-- **Recommendation**: Use WSL for consistency with production Linux environment
-
-### Test Execution Time
-- Full test suite: ~5-10 seconds
-- Single test: <1 second typically
-- Integration tests with API mocks: 2-5 seconds
-
-## Advanced Configuration
-
-### Custom Python Version
 ```bash
-# Use specific Python version
-uv sync --python 3.13.9
+# Always start with
+cd /mnt/d/projects/tech-content-curator
 
-# Switch between versions
-uv run --python 3.12 python script.py
+# Run Python code - always prefix with uv
+uv run python -c "import sys; print(sys.version)"
+
+# Run tests - always use uv run
+uv run pytest tests/test_file.py -v --tb=short
+
+# Install dependencies
+uv sync --python 3.14 --all-extras
+
+# Verify environment
+uv run python --version
+uv run pytest --version
 ```
 
-### Development Dependencies Only
+**Golden Rule:** If it's a Python command and you're in WSL, prefix it with `uv run`.
+
+## Project Structure
+
+```
+tech-content-curator/
+├── src/                          # Main source code
+│   ├── illustrations/            # AI diagram generation
+│   ├── pipeline/                 # Core orchestrator
+│   ├── models/                   # Data models
+│   └── ...
+├── tests/                        # Test suite (~100 tests)
+├── docs/                         # Documentation
+├── .vscode/
+│   ├── settings.json            # VS Code configuration
+│   └── launch.json              # Debug configuration
+├── pyproject.toml               # Project metadata & dependencies
+├── uv.lock                      # Locked dependency versions
+├── .env.example                 # Environment template
+└── SETUP.md                     # This file
+```
+
+## Storage & Performance Optimization
+
+### WSL2 File Location
+
+Store the project on **Windows NTFS** (`/mnt/d/...`) for best performance:
+- ✅ Direct access to Windows filesystem
+- ✅ Fast I/O for tests and development
+- ✅ No serialization overhead
+
 ```bash
-# Install only dev dependencies (no main project)
-uv venv venv --python 3.13
-source venv/bin/activate
-pip install -e ".[dev]"
+# GOOD - Native Windows filesystem
+/mnt/d/projects/tech-content-curator
+
+# AVOID - WSL home directory (slower)
+~/projects/tech-content-curator
 ```
 
-### Local Testing with Real API Keys
-```bash
-# Create .env.local (not committed)
-cp .env.example .env.local
-# Edit .env.local with real API keys
+### Disk Space Required
 
-# Run tests with real keys
-export ENV_FILE=.env.local
-uv run pytest tests/ -v
-```
+- Python 3.14 + dependencies: ~1GB
+- Git repository: ~300MB
+- Virtual environments: ~500MB (included in above)
+- Test artifacts/cache: ~100MB
+
+**Total: ~2GB available recommended**
 
 ## Next Steps
 
-1. ✅ WSL2 Setup Complete
-2. ✅ Python 3.13 Installed
-3. ✅ Dependencies Synced
-4. ⏳ [Feature 3 Testing](#testing-feature-3-illustration-system) - Generate test articles with AI illustrations
-5. ⏳ Real content collection and generation validation
+1. ✅ Complete setup per steps above
+2. ✅ Verify with troubleshooting section if needed
+3. ⏳ Read `docs/QUICK-START.md` for project overview
+4. ⏳ Run sample: `uv run python demo/demo_single_article.py`
+5. ⏳ Run full test suite: `uv run pytest tests/ -v`
 
-## Support & Documentation
+## Additional Resources
 
-- **Feature 3 Design**: `docs/FEATURE-3-DESIGN.md`
-- **Phase 4 Architecture**: `docs/PHASE-4-MULTIFORMAT-DESIGN.md`
-- **Implementation Status**: `docs/IMPLEMENTATION-CHECKLIST.md`
-- **Project README**: `README.md`
+- **Quick Start**: `docs/QUICK-START.md`
+- **Architecture**: `docs/FEATURE-3-DESIGN.md`
+- **Implementation Plan**: `docs/ILLUSTRATION-QUALITY-IMPLEMENTATION.md`
+- **Python Project**: `pyproject.toml`
 
 ---
 
-**Last Updated**: November 3, 2025
-**Python Version**: 3.14+
-**uv Version**: 0.9.7+
-**OS**: Ubuntu 24.04 LTS (recommended)
+**Last Updated:** November 3, 2025  
+**Tested On:** Windows 11 + WSL2 Ubuntu 24.04 LTS + Python 3.14 + uv 0.9.7+  
+**For:** VS Code + Windows Developers with WSL2  
+**Also Works:** Linux/macOS (adapt WSL-specific sections)
