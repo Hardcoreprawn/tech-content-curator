@@ -30,6 +30,8 @@ dependencies = [
     "pillow>=10.0.0",
     # Markdown formatting and linting
     "mdformat>=0.7.17",
+    # Readability analysis
+    "textstat>=0.7.3",
 ]
 
 [project.optional-dependencies]
