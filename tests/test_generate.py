@@ -477,7 +477,7 @@ class TestArticleGeneration:
             ),
         ]
 
-        with patch("src.config.get_config") as mock_get_config:
+        with patch("src.pipeline.orchestrator.get_config") as mock_get_config:
             mock_get_config.return_value = MagicMock()
             with patch(
                 "src.pipeline.orchestrator.check_article_exists_for_source"
@@ -552,7 +552,7 @@ class TestArticleGeneration:
             ),
         ]
 
-        with patch("src.config.get_config") as mock_get_config:
+        with patch("src.pipeline.orchestrator.get_config") as mock_get_config:
             mock_get_config.return_value = MagicMock()
             with patch(
                 "src.pipeline.orchestrator.check_article_exists_for_source"
