@@ -24,8 +24,8 @@ contentDir = "../content"
   author = "Tech Content Curator"
   # Default social/share image (place an image at site/static/images/default-social.png)
   images = ["/tech-content-curator/images/default-social.png"]
-  # Optional: search engine verification tokens (fill these in to verify your site)
-  google_site_verification = ""
+  # Search engine verification tokens
+  google_site_verification = "yLEurScfJHoBR-rXsbSR0PomJDMJoUJ_8hCfQLllzQ4"
   bing_site_verification = ""
   # Show related posts (PaperMod)
   ShowRelatedPosts = true
@@ -134,7 +134,7 @@ contentDir = "../content"
     name = "title"
     weight = 30
 
-# Google Analytics (optional): set this to your GA4 Measurement ID (e.g., G-XXXXXXX)
+# Google Analytics 4: Tracking site visitors and traffic sources
 [services]
   [services.googleAnalytics]
-    ID = ""
+    ID = "G-XT0X5256TV"
