@@ -1,36 +1,36 @@
 [
   {
     "entities": [
+      "psf",
       "python",
-      "python software foundation",
-      "psf"
+      "python software foundation"
     ],
     "keywords": [
-      "community",
-      "diversity",
-      "values",
-      "decision",
-      "revenue",
-      "foundation",
+      "seeking",
       "shows",
+      "revenue",
+      "please",
+      "software",
+      "share",
+      "than",
+      "equity",
+      "single",
+      "values",
+      "core",
+      "ahead",
+      "giant",
+      "decision",
+      "community",
+      "inclusion",
       "every",
       "tech",
-      "inclusion",
-      "single",
-      "equity",
-      "python",
-      "giant",
-      "please",
-      "seeking",
-      "core",
-      "software",
-      "read",
-      "ahead",
-      "share",
       "spine",
-      "than",
+      "shared",
+      "python",
+      "read",
       "tldr",
-      "shared"
+      "foundation",
+      "diversity"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "stated",
-      "including",
-      "jassy",
-      "amazon",
-      "jobs",
-      "ultimate",
-      "bottom",
-      "devices",
-      "corporate",
-      "layoffs",
-      "reduce",
-      "company",
-      "tomorrow",
-      "bureaucracy",
-      "boost",
-      "about",
-      "goal",
-      "groups",
-      "line",
-      "move",
-      "beginning",
-      "brutal",
-      "damn",
-      "speed",
-      "workforce",
       "help",
+      "jobs",
+      "company",
+      "brutal",
       "cost",
-      "cutting",
+      "reduce",
+      "various",
+      "bottom",
+      "speed",
+      "ultimate",
+      "move",
+      "workforce",
+      "groups",
+      "boost",
+      "including",
+      "corporate",
+      "line",
       "adoption",
-      "various"
+      "goal",
+      "amazon",
+      "tomorrow",
+      "damn",
+      "cutting",
+      "stated",
+      "devices",
+      "jassy",
+      "layoffs",
+      "about",
+      "beginning",
+      "bureaucracy"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "excerpts",
-      "posts",
       "always",
       "running",
-      "anyone"
+      "excerpts",
+      "anyone",
+      "posts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,8 +682,8 @@
       "psf"
     ],
     "keywords": [
-      "recent",
       "donations",
+      "recent",
       "grant"
     ],
     "confidence": 0.8500000000000001,
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "laying",
-      "amazon"
+      "amazon",
+      "laying"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "laying",
-      "amazon"
+      "amazon",
+      "laying"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "criminal",
-      "international",
-      "microsoft",
-      "european",
-      "open",
-      "ditch",
-      "alternative",
       "office",
+      "ditch",
+      "international",
+      "alternative",
+      "criminal",
+      "court",
+      "european",
       "source",
-      "court"
+      "microsoft",
+      "open"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2586,8 +2586,8 @@
       "go"
     ],
     "keywords": [
-      "world",
       "free",
+      "world",
       "college"
     ],
     "confidence": 0.8500000000000001,
@@ -4162,6 +4162,102 @@
     ],
     "created_at": "2025-11-03T02:32:21.163259",
     "last_seen": "2025-11-03T02:32:21.163260",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "I love sorting tickets from oldest to newest, checking them against the current rustc behavior and c",
+      "Oxy is Cloudflare's Rust-based next generation proxy framework (2023)"
+    ],
+    "created_at": "2025-11-03T06:07:11.037836",
+    "last_seen": "2025-11-03T06:07:11.037839",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-03T06:07:11.092007",
+    "last_seen": "2025-11-03T06:07:11.092011",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-03T06:07:11.098599",
+    "last_seen": "2025-11-03T06:07:11.098601",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "I love sorting tickets from oldest to newest, checking them against the current rustc behavior and c",
+      "Oxy is Cloudflare's Rust-based next generation proxy framework (2023)"
+    ],
+    "created_at": "2025-11-03T06:07:11.129874",
+    "last_seen": "2025-11-03T06:07:11.129878",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-03T06:07:11.182584",
+    "last_seen": "2025-11-03T06:07:11.182588",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-03T06:07:11.189127",
+    "last_seen": "2025-11-03T06:07:11.189128",
     "frequency": 1
   }
 ]
