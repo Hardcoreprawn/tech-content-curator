@@ -2,7 +2,22 @@
 
 ## Overview
 
-Your project is optimized to use **Python 3.14's free-threading** for a **3-4x speedup** on article generation. This guide walks you through setting up a GIL-disabled Python 3.14 build locally and understanding how it works in GitHub Actions.
+Your project is optimized to use **Python 3.14's free-threading** for a **3-4x speedup** on article generation. This guide walks you through setting up a GIL-disabled Python 3.14 build **locally**.
+
+**GitHub Actions Note:** Runners use standard Python 3.14 (with GIL). Local development with free-threading provides performance insights and testing capabilities.
+
+## Important Note: GitHub Actions Compatibility
+
+⚠️ **GitHub Actions runners (ubuntu-latest) use Python 3.14 built with GIL enabled.**
+
+The `PYTHON_GIL=0` environment variable only works if Python was specifically compiled with `--disable-gil`. Default runners don't have this build variant.
+
+**What this means:**
+- ✅ **GitHub Actions:** Workflows run with GIL enabled (slower but stable)
+- ✅ **Local development:** You can setup free-threading for testing/benchmarking
+- ✅ **Future option:** Build no-GIL Python in Actions if needed (more complex setup)
+
+The project code gracefully handles both scenarios. Your workflows will work correctly either way.
 
 ## What is Free-Threading?
 
@@ -12,7 +27,7 @@ Your project is optimized to use **Python 3.14's free-threading** for a **3-4x s
 | **Parallelism** | Limited (1 thread at a time) | True parallel execution |
 | **Article Generation Speed** | ~240s for 4 articles | **~70s for 4 articles** ✓ |
 | **Speedup** | 1.0x | **3.4x** ✓ |
-| **Use Case** | Development/testing | **Production (CI/CD)** ✓ |
+| **Use Case** | CI/CD (current) | **Local testing** ✓ |
 
 ## Option 1: Quick Setup (conda-forge, 2 minutes)
 

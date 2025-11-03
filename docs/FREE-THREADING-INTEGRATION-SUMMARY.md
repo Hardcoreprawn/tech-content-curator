@@ -2,7 +2,9 @@
 
 ## What We've Built
 
-Your project now has **production-ready Python 3.14 free-threading support** that provides **3-4x speedup** on article generation.
+Your project now has **production-ready Python 3.14 free-threading support** that provides **3-4x speedup** on article generation when you use custom no-GIL Python builds locally.
+
+**GitHub Actions Note:** Runners use standard Python 3.14 (GIL enabled) for stability. Local free-threading setup is available for testing and development.
 
 ## Key Features
 
@@ -11,10 +13,10 @@ Your project now has **production-ready Python 3.14 free-threading support** tha
 - Seamlessly uses async generation with true parallelism
 - Falls back to sequential if not available (always works)
 
-### ✅ GitHub Actions Optimized
-- All three workflows configured with `PYTHON_GIL=0`
-- Automatic 3-4x speedup with zero manual intervention
-- Logs clearly indicate when free-threading is enabled
+### ✅ Local Free-Threading Support
+- Both conda and source build options available
+- Graceful fallback (no breaking changes)
+- Perfect for performance testing and benchmarking
 
 ### ✅ Two Installation Options
 1. **Conda-forge (Recommended)** - Pre-built binaries, 2 minutes
@@ -66,16 +68,13 @@ src/generate.py                              # Auto-detect & route to async
 
 ## Quick Start Guide
 
-### For GitHub Actions Users (No Setup Needed!)
+### For GitHub Actions Users
 
-✅ Your workflows already use free-threading automatically:
-1. Push code to GitHub
-2. Check workflow logs
-3. Look for message: `⚡ Python 3.14 free-threading enabled`
-4. Notice article generation is ~3x faster
-5. **Done!** - It just works.
+✅ **Your workflows run with standard Python 3.14 (GIL enabled)** - This is stable and tested on all runners.
 
-### For Local Development (Optional)
+The code gracefully handles this through the `_supports_async()` check in `src/generate.py`. Workflows work correctly without any manual setup.
+
+### For Local Development (Optional - Test Free-Threading)
 
 **Option 1: Quick conda setup (Recommended)**
 ```bash

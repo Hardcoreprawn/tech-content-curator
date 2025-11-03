@@ -140,7 +140,7 @@ If all show correct versions/output, **setup is complete!**
 
 ## Python 3.14 Free-Threading (Optional but Recommended)
 
-Your project is optimized for **Python 3.14's free-threading**, which provides 3-4x speedup on article generation!
+Your project is optimized for **Python 3.14's free-threading**, which provides 3-4x speedup on article generation when using a no-GIL build locally!
 
 ### Quick Summary
 
@@ -148,7 +148,8 @@ Your project is optimized for **Python 3.14's free-threading**, which provides 3
 |---------|---------|
 | **Standard Python 3.14** | Works fine, no speedup |
 | **Python 3.14 (no-GIL)** | **3-4x faster article generation** ✓ |
-| **GitHub Actions** | **Already enabled!** ✓ |
+| **GitHub Actions** | **Uses standard Python 3.14** (stable) |
+| **Local Testing** | **Free-threading available** (optional) |
 
 ### Two Easy Setup Options
 
@@ -171,22 +172,17 @@ PYTHON_GIL=0 python314-nogil scripts/benchmark_free_threading.py
 
 👉 See **[docs/FREE-THREADING-SETUP.md](docs/FREE-THREADING-SETUP.md)** for:
 - Detailed setup instructions
-- Performance comparisons
+- Performance comparisons  
 - Troubleshooting guide
-- GitHub Actions integration details
+- Local testing examples
 
 ### For GitHub Actions Users
 
 ✅ **Good News!** Your workflows are already configured:
-- Workflows automatically enable `PYTHON_GIL=0`
-- GitHub Actions runners have no-GIL Python 3.14 pre-installed
-- You get 3-4x speedup automatically!
+- Workflows use standard Python 3.14 (GIL enabled)
+- Stable, tested on all runners
 - No manual setup needed
-
-Check your workflow logs for:
-```
-⚡ Python 3.14 free-threading enabled - generating in parallel!
-```
+- Code has graceful fallback for both scenarios
 
 ## Daily Development Workflow
 
