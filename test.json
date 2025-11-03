@@ -14,16 +14,16 @@
       "OpenAI announced ChatGPT improvements."
     ],
     "created_at": "2025-10-31T22:00:23.621369",
-    "last_seen": "2025-11-02T22:24:20.537658",
-    "frequency": 63
+    "last_seen": "2025-11-03T10:39:26.044952",
+    "frequency": 65
   },
   {
     "entities": [
       "rust"
     ],
     "keywords": [
-      "memory",
       "safety",
+      "memory",
       "rust"
     ],
     "confidence": 0.95,
@@ -32,8 +32,8 @@
       "Rust memory management and safety features."
     ],
     "created_at": "2025-10-31T22:00:23.643352",
-    "last_seen": "2025-11-02T22:24:20.620045",
-    "frequency": 62
+    "last_seen": "2025-11-03T10:39:26.140976",
+    "frequency": 64
   },
   {
     "entities": [
@@ -66,8 +66,8 @@
       "Python development using Django backend."
     ],
     "created_at": "2025-10-31T22:00:23.705351",
-    "last_seen": "2025-11-02T22:24:20.595629",
-    "frequency": 31
+    "last_seen": "2025-11-03T10:39:26.114987",
+    "frequency": 32
   },
   {
     "entities": [
@@ -1074,6 +1074,39 @@
     ],
     "created_at": "2025-11-02T22:24:20.602510",
     "last_seen": "2025-11-02T22:24:20.602512",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-03T10:39:26.080326",
+    "last_seen": "2025-11-03T10:39:26.080330",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "memory",
+      "rust"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-03T10:39:26.127778",
+    "last_seen": "2025-11-03T10:39:26.127783",
     "frequency": 1
   }
 ]
