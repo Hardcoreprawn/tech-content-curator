@@ -45,7 +45,7 @@ window.addEventListener("load", function(){
 
 function loadGoogleAnalytics() {
   // Only load GA4 if user consented
-  {{ with .Site.GoogleAnalytics }}
+  {{ with .Site.Services.GoogleAnalytics.ID }}
   var script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id={{ . }}';
