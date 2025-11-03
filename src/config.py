@@ -83,6 +83,20 @@ def get_config() -> PipelineConfig:
             max_illustrations_per_article=int(
                 os.getenv("MAX_ILLUSTRATIONS_PER_ARTICLE", "3")
             ),
+            # Diagram validation settings
+            diagram_validation_threshold=float(
+                os.getenv("DIAGRAM_VALIDATION_THRESHOLD", "0.7")
+            ),
+            mermaid_candidates=int(os.getenv("MERMAID_CANDIDATES", "3")),
+            ascii_candidates=int(os.getenv("ASCII_CANDIDATES", "3")),
+            text_illustration_candidates=int(
+                os.getenv("TEXT_ILLUSTRATION_CANDIDATES", "3")
+            ),
+            text_illustration_quality_threshold=float(
+                os.getenv("TEXT_ILLUSTRATION_QUALITY_THRESHOLD", "0.6")
+            ),
+            skip_list_sections=os.getenv("SKIP_LIST_SECTIONS", "true").lower()
+            == "true",
         )
 
         # Validate required keys

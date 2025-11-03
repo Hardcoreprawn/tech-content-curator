@@ -203,3 +203,39 @@ class PipelineConfig(BaseModel):
         ge=1,
         description="Maximum number of illustrations to add per article",
     )
+
+    # Diagram validation configuration
+    diagram_validation_threshold: float = Field(
+        default=0.7,
+        ge=0.0,
+        le=1.0,
+        description="Minimum combined validation score (0.0-1.0) to accept diagrams",
+    )
+    mermaid_candidates: int = Field(
+        default=3,
+        ge=1,
+        le=5,
+        description="Number of Mermaid diagram candidates to generate for selection",
+    )
+    ascii_candidates: int = Field(
+        default=3,
+        ge=1,
+        le=5,
+        description="Number of ASCII diagram candidates to generate for selection",
+    )
+    text_illustration_candidates: int = Field(
+        default=3,
+        ge=1,
+        le=5,
+        description="Number of text illustration candidates to generate for selection",
+    )
+    text_illustration_quality_threshold: float = Field(
+        default=0.6,
+        ge=0.0,
+        le=1.0,
+        description="Minimum quality score for ASCII diagrams",
+    )
+    skip_list_sections: bool = Field(
+        default=True,
+        description="Skip illustration generation for list-heavy sections",
+    )

@@ -419,6 +419,7 @@ class IllustrationService:
             illustrations_added = 0
             illustration_costs: dict[str, float] = {}
             format_distribution: dict[str, int] = {}
+            rejected_count = 0
 
             for match in top_matches:
                 try:
@@ -433,12 +434,18 @@ class IllustrationService:
                         )
 
                         illustrations_added += 1
+                        # Track total cost including validation
+                        total_cost = diagram.total_cost
+                        # Validation cost is already part of diagram generation,
+                        # but we could add separate tracking if needed
                         illustration_costs[f"diagram_{illustrations_added}"] = (
-                            diagram.total_cost
+                            total_cost
                         )
                         format_distribution[selected_format] = (
                             format_distribution.get(selected_format, 0) + 1
                         )
+                    else:
+                        rejected_count += 1
 
                 except Exception as e:
                     logger.warning(
@@ -447,6 +454,7 @@ class IllustrationService:
                     console.print(
                         f"  [yellow]⚠ Diagram skipped: {str(e)[:50]}[/yellow]"
                     )
+                    rejected_count += 1
                     continue
 
             # Print summary
