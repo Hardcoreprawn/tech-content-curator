@@ -12,7 +12,6 @@ Cost: ~$0.0005 per article for LLM query generation.
 
 import json
 from dataclasses import dataclass
-from pathlib import Path
 
 import frontmatter
 import httpx

@@ -6,7 +6,6 @@ article structure and requirements based on the detected content type.
 
 from ..models import EnrichedItem
 
-
 # Keywords that indicate different content types
 CONTENT_TYPE_DETECTION = {
     "tutorial": [

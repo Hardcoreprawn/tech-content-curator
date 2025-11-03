@@ -11,16 +11,14 @@ Tests cover:
 - Integration with citations and images
 """
 
-import json
 import tempfile
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 
 from src.generators.base import BaseGenerator
-from src.generators.general import GeneralArticleGenerator
 from src.models import CollectedItem, EnrichedItem
 from src.pipeline import (
     calculate_image_cost,
@@ -48,7 +46,7 @@ def sample_collected_item():
         id="test-123",
         title="Understanding Kubernetes Architecture",
         content="""Deep dive into how Kubernetes works internally with the scheduler and API server.
-        
+
 This article covers the core components of K8s architecture including:
 - The API server and etcd for state management
 - The scheduler for pod placement decisions

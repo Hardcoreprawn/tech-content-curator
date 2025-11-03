@@ -96,7 +96,7 @@ class ArticleCategorizer:
             DifficultyLevel value as string
         """
         text = content.lower()
-        
+
         # Beginner indicators
         beginner_keywords = [
             "introduction",

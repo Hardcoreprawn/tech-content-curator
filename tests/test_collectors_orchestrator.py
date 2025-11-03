@@ -2,10 +2,7 @@
 
 import json
 from datetime import UTC, datetime
-from pathlib import Path
 from unittest.mock import Mock, patch
-
-import pytest
 
 from src.collectors.orchestrator import (
     collect_all_sources,
@@ -193,7 +190,7 @@ class TestDeduplicateItems:
         mock_feedback_class.return_value = mock_feedback
 
         items = [item1, item2]
-        result = deduplicate_items(items)
+        deduplicate_items(items)
 
         # Verify feedback recorded
         mock_feedback.record_deduplication_session.assert_called_once()

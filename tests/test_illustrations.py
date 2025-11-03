@@ -3,7 +3,6 @@
 Tests for concept detection, generator awareness, SVG templates, and Mermaid generation.
 """
 
-from datetime import UTC, datetime
 
 import pytest
 
@@ -15,8 +14,7 @@ from src.illustrations.generator_analyzer import (
     should_add_illustrations,
 )
 from src.illustrations.mermaid_generator import MermaidDiagram, MermaidDiagramGenerator
-from src.illustrations.svg_library import SVGTemplate, SVGTemplateLibrary
-from src.models import CollectedItem, EnrichedItem, GeneratedArticle
+from src.illustrations.svg_library import SVGTemplateLibrary
 
 # ============================================================================
 # Concept Detection Tests

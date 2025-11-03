@@ -15,7 +15,6 @@ from rich.console import Console
 
 from ..config import QUALITY_THRESHOLDS
 from ..content.categorizer import ArticleCategorizer
-from ..content.quality_scorer import QualityScorer
 from ..content.readability import ReadabilityAnalyzer
 from ..models import EnrichedItem
 from ..utils.url_tools import normalize_url

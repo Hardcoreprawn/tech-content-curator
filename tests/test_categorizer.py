@@ -2,8 +2,6 @@
 
 from datetime import UTC, datetime
 
-import pytest
-
 from src.content.categorizer import ArticleCategorizer, ContentType, DifficultyLevel
 from src.models import CollectedItem, EnrichedItem
 

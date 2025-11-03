@@ -1,12 +1,12 @@
 [
   {
     "entities": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "keywords": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "confidence": 0.95,
     "examples": [
@@ -14,17 +14,17 @@
       "OpenAI announced ChatGPT improvements."
     ],
     "created_at": "2025-10-31T22:00:23.621369",
-    "last_seen": "2025-11-03T21:44:49.528071",
-    "frequency": 93
+    "last_seen": "2025-11-03T22:01:13.354181",
+    "frequency": 101
   },
   {
     "entities": [
       "rust"
     ],
     "keywords": [
+      "safety",
       "rust",
-      "memory",
-      "safety"
+      "memory"
     ],
     "confidence": 0.95,
     "examples": [
@@ -32,8 +32,8 @@
       "Rust memory management and safety features."
     ],
     "created_at": "2025-10-31T22:00:23.643352",
-    "last_seen": "2025-11-03T21:44:49.618206",
-    "frequency": 92
+    "last_seen": "2025-11-03T22:01:13.447312",
+    "frequency": 100
   },
   {
     "entities": [
@@ -53,12 +53,12 @@
   },
   {
     "entities": [
-      "django",
-      "python"
+      "python",
+      "django"
     ],
     "keywords": [
-      "django",
-      "python"
+      "python",
+      "django"
     ],
     "confidence": 0.95,
     "examples": [
@@ -66,8 +66,8 @@
       "Python development using Django backend."
     ],
     "created_at": "2025-10-31T22:00:23.705351",
-    "last_seen": "2025-11-03T21:44:49.592851",
-    "frequency": 46
+    "last_seen": "2025-11-03T22:01:13.422165",
+    "frequency": 50
   },
   {
     "entities": [
@@ -1569,6 +1569,138 @@
     ],
     "created_at": "2025-11-03T21:44:49.606605",
     "last_seen": "2025-11-03T21:44:49.606609",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-03T21:52:28.218958",
+    "last_seen": "2025-11-03T21:52:28.218962",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust",
+      "memory"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-03T21:52:28.266736",
+    "last_seen": "2025-11-03T21:52:28.266740",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-03T21:56:44.616135",
+    "last_seen": "2025-11-03T21:56:44.616139",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust",
+      "memory"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-03T21:56:44.663969",
+    "last_seen": "2025-11-03T21:56:44.663972",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-03T21:59:45.882076",
+    "last_seen": "2025-11-03T21:59:45.882079",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust",
+      "memory"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-03T21:59:45.929700",
+    "last_seen": "2025-11-03T21:59:45.929704",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-03T22:01:13.388746",
+    "last_seen": "2025-11-03T22:01:13.388749",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust",
+      "memory"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-03T22:01:13.435016",
+    "last_seen": "2025-11-03T22:01:13.435019",
     "frequency": 1
   }
 ]

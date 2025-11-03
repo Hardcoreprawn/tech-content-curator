@@ -266,17 +266,17 @@ class TestAsyncGeneration:
 
         from src.pipeline.orchestrator import generate_articles_async
 
-        # Mock generators
-        mock_generator = MagicMock()
-        mock_builder.name = "TestBuilder"
-        mock_builder.priority = 1
-        mock_builder.can_handle.return_value = True
-        mock_builder.generate_content.return_value = (
+        # Mock builders
+        mock_builder_instance = MagicMock()
+        mock_builder_instance.name = "TestBuilder"
+        mock_builder_instance.priority = 1
+        mock_builder_instance.can_handle.return_value = True
+        mock_builder_instance.generate_content.return_value = (
             "# Test\n\nContent.",
             100,
             200,
         )
-        mock_get_builders.return_value = [mock_builder]
+        mock_get_generators.return_value = [mock_builder_instance]
         mock_check_exists.return_value = None
 
         # Create enriched items

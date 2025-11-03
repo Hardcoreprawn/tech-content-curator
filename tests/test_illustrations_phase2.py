@@ -1,10 +1,7 @@
 """Tests for Phase 2: Placement and Accessibility systems."""
 
-import pytest
-
-from src.illustrations.placement import PlacementAnalyzer, Section, PlacementPoint
 from src.illustrations.accessibility import AccessibilityChecker, AccessibilityReport
-
+from src.illustrations.placement import PlacementAnalyzer, PlacementPoint, Section
 
 # ============================================================================
 # Placement System Tests
@@ -225,7 +222,6 @@ def hello():
 Text after."""
 
         analyzer = PlacementAnalyzer()
-        sections = analyzer.parse_structure(content)
 
         # Position inside code block should be unsafe
         is_safe = analyzer.calculate_placement_safety(content, 0, 10)
@@ -240,7 +236,6 @@ Text after."""
 | A    | B    |"""
 
         analyzer = PlacementAnalyzer()
-        sections = analyzer.parse_structure(content)
 
         # Position inside table might be unsafe
         is_safe = analyzer.calculate_placement_safety(content, 0, 50)

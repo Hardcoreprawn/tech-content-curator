@@ -2,11 +2,9 @@
 
 import json
 from datetime import UTC, datetime
-from pathlib import Path
 from unittest.mock import Mock, patch
 
 import frontmatter
-import pytest
 
 from src.citations.extractor import Citation
 from src.citations.formatter import FormattedCitation

@@ -17,7 +17,6 @@ from src.collectors.base import (
 )
 from src.models import PipelineConfig
 
-
 # ============================================================================
 # Test Content Filtering
 # ============================================================================

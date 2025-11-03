@@ -8,7 +8,7 @@ import re
 from dataclasses import dataclass
 
 from ..models import GeneratedArticle
-from .readability import ReadabilityAnalyzer, ReadabilityScore
+from .readability import ReadabilityAnalyzer
 
 
 @dataclass

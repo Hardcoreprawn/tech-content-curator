@@ -27,7 +27,6 @@ DESIGN DECISIONS:
 import argparse
 import asyncio
 import os
-import sys
 
 from openai import OpenAI
 from rich.console import Console
@@ -51,19 +50,20 @@ console = Console()
 
 def _supports_async() -> bool:
     """Check if async generation is available and beneficial.
-    
+
     Returns True only if:
     1. Python 3.14+
     2. PYTHON_GIL environment variable is set to '0'
     3. Python build actually supports --disable-gil (will fail at runtime if not)
-    
+
     Note: If PYTHON_GIL=0 is set but Python wasn't compiled with --disable-gil,
     it will fail with "Fatal Python error: config_read_gil: Disabling the GIL is not supported"
     In that case, the environment variable should be removed and this will return False.
     """
-    if sys.version_info < (3, 14):
-        return False
-    
+    # Only enable if explicitly set to '0'
+    # This is conservative - we check the env var but Python will validate at runtime
+    # Note: Python 3.14+ is now required (version check removed as outdated)
+
     # Only enable if explicitly set to '0'
     # This is conservative - we check the env var but Python will validate at runtime
     return os.getenv("PYTHON_GIL") == "0"

@@ -5,7 +5,7 @@ from src.models import CollectedItem
 
 
 def make_item(
-    content: str, title: str = "Test", author: str = "testuser", metadata: dict = None
+    content: str, title: str = "Test", author: str = "testuser", metadata: dict | None = None
 ):
     """Helper to create CollectedItem."""
     return CollectedItem(
@@ -205,7 +205,7 @@ def test_high_quality_technical_content():
     """High-quality technical content with multiple positive signals."""
     item = make_item(
         """This comprehensive guide explains Kubernetes architecture in detail.
-        
+
 We'll cover Docker containers, API servers, and cloud deployment.
 Check out: https://github.com/example/k8s
 

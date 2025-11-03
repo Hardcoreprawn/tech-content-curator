@@ -17,7 +17,6 @@ from rich.console import Console
 
 from ..config import PipelineConfig
 from ..illustrations.ai_ascii_generator import TextIllustrationQualitySelector
-from ..illustrations.ai_mermaid_generator import AIMermaidGenerator
 from ..illustrations.capability_advisor import TextIllustrationCapabilityAdvisor
 from ..illustrations.detector import detect_concepts
 from ..illustrations.diagram_validator import DiagramValidator
@@ -268,7 +267,7 @@ class IllustrationService:
                 concept_type=match.concept,
             )
             diagram = mermaid_result.diagram
-            
+
             if diagram:
                 console.print(
                     f"  [dim]    Generated {mermaid_result.candidates_tested} "
