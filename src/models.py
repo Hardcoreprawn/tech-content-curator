@@ -88,18 +88,30 @@ class GeneratedArticle(BaseModel):
         default_factory=list,
         description="List of target audience segments for this article",
     )
-    # Categorization fields (added in Phase 1.2)
-    content_type: str = Field(
-        default="general",
-        description="Article type: tutorial, news, analysis, research, guide, or general",
+    estimated_read_time: str | None = Field(
+        default=None,
+        description="Human-readable reading time (e.g., '5 min read')",
     )
-    difficulty_level: str = Field(
-        default="intermediate",
-        description="Article difficulty: beginner, intermediate, or advanced",
+    # Quality scoring fields (added in Phase 1.3)
+    readability_score: float | None = Field(
+        default=None,
+        description="Flesch Reading Ease score (0-100, higher = easier)",
     )
-    target_audience: list[str] = Field(
-        default_factory=list,
-        description="List of target audience segments for this article",
+    grade_level: float | None = Field(
+        default=None,
+        description="Flesch-Kincaid Grade Level (U.S. school grade)",
+    )
+    quality_score: float | None = Field(
+        default=None,
+        description="Overall quality score (0-100)",
+    )
+    quality_dimensions: dict[str, float] | None = Field(
+        default=None,
+        description="Scores for each quality dimension",
+    )
+    quality_passed: bool = Field(
+        default=False,
+        description="Whether article meets minimum quality standards",
     )
 
 

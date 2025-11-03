@@ -137,3 +137,23 @@ def get_content_dir() -> Path:
     content_dir = get_project_root() / "content" / "posts"
     content_dir.mkdir(parents=True, exist_ok=True)
     return content_dir
+
+
+# Quality thresholds for different difficulty levels (Phase 1.3)
+QUALITY_THRESHOLDS = {
+    "beginner": {
+        "min_flesch_ease": 60.0,  # Fairly easy to read
+        "max_grade_level": 10.0,  # 10th grade or lower
+        "min_quality_score": 70.0,  # Minimum overall quality
+    },
+    "intermediate": {
+        "min_flesch_ease": 50.0,  # Fairly difficult
+        "max_grade_level": 14.0,  # College level
+        "min_quality_score": 75.0,  # Higher quality expected
+    },
+    "advanced": {
+        "min_flesch_ease": 30.0,  # Difficult (technical writing acceptable)
+        "max_grade_level": 18.0,  # Graduate level
+        "min_quality_score": 80.0,  # Highest quality expected
+    },
+}

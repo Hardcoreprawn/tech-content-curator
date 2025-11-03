@@ -299,16 +299,12 @@ class TestTitleGeneration:
         """Generate URL-friendly slug from title."""
         title = "Understanding Kubernetes Architecture in 2024"
 
-        # Mock the API response with a slug
-        mock_openai_client.chat.completions.create.return_value.choices[
-            0
-        ].message.content = "understanding-kubernetes-architecture-2024"
-
-        slug, cost = generate_article_slug(title, mock_openai_client)
+        slug = generate_article_slug(title)
 
         assert isinstance(slug, str)
         assert " " not in slug  # No spaces in slug
-        assert cost >= 0
+        assert len(slug) > 0
+        assert slug == "understanding-kubernetes-architecture-in-2024"
 
 
 # ============================================================================
@@ -474,17 +470,12 @@ class TestArticleGeneration:
             200,  # output tokens
         )
 
-        # Mock title and slug generation
+        # Mock title generation (slug generation now uses deterministic parsing)
         mock_openai_client.chat.completions.create.side_effect = [
             # Title generation
             MagicMock(
                 choices=[MagicMock(message=MagicMock(content="Test Article Title"))],
                 usage=MagicMock(prompt_tokens=50, completion_tokens=25),
-            ),
-            # Slug generation
-            MagicMock(
-                choices=[MagicMock(message=MagicMock(content="test-article-title"))],
-                usage=MagicMock(prompt_tokens=30, completion_tokens=10),
             ),
         ]
 
@@ -507,7 +498,6 @@ class TestArticleGeneration:
         assert article.word_count > 0
         assert "content_generation" in article.generation_costs
         assert "title_generation" in article.generation_costs
-        assert "slug_generation" in article.generation_costs
 
     def test_generate_single_article_skip_existing(
         self, high_quality_enriched_item, mock_generator, mock_openai_client

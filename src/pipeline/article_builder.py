@@ -10,13 +10,13 @@ Uses GPT-4o-mini for cost-effective, high-quality generation.
 
 from datetime import UTC, datetime
 
-from ..content.categorizer import ArticleCategorizer
-
-from ..content.categorizer import ArticleCategorizer
-
 from openai import OpenAI
 from rich.console import Console
 
+from ..config import QUALITY_THRESHOLDS
+from ..content.categorizer import ArticleCategorizer
+from ..content.quality_scorer import QualityScorer
+from ..content.readability import ReadabilityAnalyzer
 from ..models import EnrichedItem
 from ..utils.url_tools import normalize_url
 
@@ -77,20 +77,20 @@ def generate_article_slug(title: str) -> str:
     """
     # Convert to lowercase and split into words
     words = title.lower().split()
-    
+
     # Take first 3-6 words
     slug_words = words[:6]
-    
+
     # Join with hyphens
     slug = "-".join(slug_words)
-    
+
     # Remove any non-alphanumeric characters except hyphens
     slug = "".join(c if c.isalnum() or c == "-" else "" for c in slug)
-    
+
     # Remove multiple consecutive hyphens
     while "--" in slug:
         slug = slug.replace("--", "-")
-    
+
     # Remove leading/trailing hyphens and truncate to 60 chars
     return slug.strip("-")[:60]
 
@@ -196,13 +196,13 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
         Summary string extracted from content
     """
     import re
-    
+
     # Remove markdown formatting for cleaner summary
     cleaned = content.replace("## ", "").replace("# ", "")
-    
+
     # Split into sentences (split on period, question mark, exclamation)
     sentences = re.split(r'[.!?]+', cleaned)
-    
+
     # Filter out very short sentences and generic filler
     generic_phrases = {
         "based on",
@@ -213,31 +213,31 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
         "introduction",
         "overview",
     }
-    
+
     substantive_sentences = []
     for sentence in sentences:
         s = sentence.strip()
         if not s or len(s) < 15:
             continue
-        
+
         # Skip if it's mostly generic
         lower_s = s.lower()
         if any(phrase in lower_s for phrase in generic_phrases) and len(s) < 60:
             continue
-        
+
         substantive_sentences.append(s)
-    
+
     # Build summary from substantive sentences
     summary = ""
-    
-    # Prefer a mixture: if we have at least 2 substantive sentences, 
+
+    # Prefer a mixture: if we have at least 2 substantive sentences,
     # skip the first one if it's very generic, use the next one(s)
     start_idx = 0
     if len(substantive_sentences) > 1:
         first_s = substantive_sentences[0].lower()
         if any(phrase in first_s for phrase in generic_phrases):
             start_idx = 1
-    
+
     # Take 1-2 substantive sentences
     for i in range(start_idx, min(start_idx + 2, len(substantive_sentences))):
         candidate = (summary + " " + substantive_sentences[i]).strip()
@@ -245,10 +245,10 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
             summary = candidate
         else:
             break
-    
+
     # Clean up whitespace
     summary = " ".join(summary.split())
-    
+
     # Fallback if nothing worked
     if not summary or len(summary) < 20:
         # Use first non-empty sentence
@@ -257,16 +257,69 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
             if len(s) > 20:
                 summary = s[:max_length]
                 break
-    
+
     if not summary:
         # Last resort: first 180 chars
         summary = cleaned[:max_length].strip()
-    
+
     # Add period if it's not there
     if summary and not summary.endswith(('!', '?', '.')):
         summary += "."
-    
+
     return summary[:max_length]
+
+
+def analyze_article_quality(
+    content: str, difficulty_level: str
+) -> tuple[dict, bool]:
+    """Analyze article quality using readability and quality scoring.
+
+    Args:
+        content: The article content
+        difficulty_level: Target difficulty level (beginner, intermediate, advanced)
+
+    Returns:
+        Tuple of (quality_metrics dict, passed_threshold bool)
+    """
+    readability_analyzer = ReadabilityAnalyzer()
+
+    # Analyze readability
+    readability = readability_analyzer.analyze(content)
+
+    # Check if readability matches target
+    matches_target, match_explanation = readability_analyzer.matches_target_difficulty(
+        readability, difficulty_level
+    )
+
+    # Get quality thresholds for this difficulty level
+    thresholds = QUALITY_THRESHOLDS.get(
+        difficulty_level, QUALITY_THRESHOLDS["intermediate"]
+    )
+
+    # Check if meets minimum thresholds
+    passed = (
+        readability.flesch_reading_ease >= thresholds["min_flesch_ease"]
+        and readability.grade_level <= thresholds["max_grade_level"]
+    )
+
+    quality_metrics = {
+        "readability_score": readability.flesch_reading_ease,
+        "grade_level": readability.grade_level,
+        "fog_index": readability.fog_index,
+        "smog_index": readability.smog_index,
+        "overall_rating": readability.overall_rating,
+        "matches_target": matches_target,
+        "match_explanation": match_explanation,
+        "recommendations": readability.recommendations,
+        "passed_threshold": passed,
+    }
+
+    if not passed:
+        console.print(
+            f"[yellow]⚠[/yellow] Article readability below threshold: {match_explanation}"
+        )
+
+    return quality_metrics, passed
 
 
 def create_article_metadata(
@@ -275,7 +328,8 @@ def create_article_metadata(
     """Create frontmatter metadata for the article.
 
     This creates the YAML frontmatter that static site generators use.
-    Automatically extracts summary from the article content.
+    Automatically extracts summary from the article content and performs
+    quality analysis.
 
     Args:
         item: The enriched item
@@ -292,6 +346,9 @@ def create_article_metadata(
     categorizer = ArticleCategorizer()
     categories = categorizer.categorize(item, content)
 
+    # Analyze article quality (Phase 1.3)
+    quality_metrics, _ = analyze_article_quality(content, categories["difficulty_level"])
+
     return {
         "title": title,
         "date": datetime.now(UTC).strftime("%Y-%m-%d"),
@@ -306,11 +363,18 @@ def create_article_metadata(
         "quality_score": item.quality_score,
         "word_count": word_count,
         "reading_time": f"{max(1, round(word_count / 200))} min read",
-        # Categorization fields
+        # Categorization fields (Phase 1.2)
         "content_type": categories["content_type"],
         "difficulty": categories["difficulty_level"],
         "audience": categories["audience"],
         "estimated_read_time": categories["estimated_read_time"],
+        # Readability metrics (Phase 1.3)
+        "readability": {
+            "flesch_score": round(quality_metrics["readability_score"], 1),
+            "grade_level": round(quality_metrics["grade_level"], 1),
+            "rating": quality_metrics["overall_rating"],
+            "matches_target": quality_metrics["matches_target"],
+        },
         "cover": {
             "image": "",
             "alt": "",

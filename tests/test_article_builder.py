@@ -102,113 +102,67 @@ class TestCalculateImageCost:
 class TestGenerateArticleSlug:
     """Test article slug generation."""
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_generates_valid_slug(self, mock_openai_class):
-        """AI-generated slug is cleaned and validated."""
-        client = Mock()
-        mock_openai_class.return_value = client
+    def test_generates_valid_slug(self):
+        """Slug is generated from title deterministically."""
+        slug = generate_article_slug("Python Best Practices for 2025")
 
-        # Mock API response
-        mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content="python-best-practices"))]
-        mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
-        client.chat.completions.create.return_value = mock_response
-
-        slug, cost = generate_article_slug("Python Best Practices for 2025", client)
-
-        assert slug == "python-best-practices"
-        assert cost > 0
+        assert slug == "python-best-practices-for-2025"
         assert "--" not in slug  # No double hyphens
         assert slug.islower()
+        assert slug.replace("-", "").replace("2025", "").isalpha()
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_cleans_special_characters(self, mock_openai_class):
+    def test_cleans_special_characters(self):
         """Special characters are removed from slug."""
-        client = Mock()
-
-        # Mock response with special characters
-        mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content="python@#$best-practices"))]
-        mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
-        client.chat.completions.create.return_value = mock_response
-
-        slug, cost = generate_article_slug("Python Best Practices", client)
+        slug = generate_article_slug("Python@#$ Best! Practices?")
 
         assert "@" not in slug
         assert "#" not in slug
         assert "$" not in slug
+        assert "!" not in slug
+        assert "?" not in slug
         assert slug.replace("-", "").isalnum()
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_removes_quotes(self, mock_openai_class):
+    def test_removes_quotes(self):
         """Quotes are stripped from slug."""
-        client = Mock()
-
-        mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content='"python-practices"'))]
-        mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
-        client.chat.completions.create.return_value = mock_response
-
-        slug, cost = generate_article_slug("Python Practices", client)
+        slug = generate_article_slug('"Python" Practices')
 
         assert '"' not in slug
         assert slug == "python-practices"
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_truncates_long_slugs(self, mock_openai_class):
+    def test_truncates_long_slugs(self):
         """Slugs longer than 60 chars are truncated."""
-        client = Mock()
-
-        long_slug = "this-is-a-very-long-slug-that-exceeds-sixty-characters-and-should-be-truncated"
-        mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content=long_slug))]
-        mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
-        client.chat.completions.create.return_value = mock_response
-
-        slug, cost = generate_article_slug("Very Long Title", client)
+        long_title = "Very Long Title " * 20  # Creates a very long title
+        slug = generate_article_slug(long_title)
 
         assert len(slug) <= 60
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_fallback_on_api_error(self, mock_openai_class):
-        """Falls back to simple slug on API error."""
-        client = Mock()
-        client.chat.completions.create.side_effect = Exception("API error")
+    def test_deterministic_output(self):
+        """Same input always produces same output."""
+        title = "Python Best Practices"
+        slug1 = generate_article_slug(title)
+        slug2 = generate_article_slug(title)
 
-        slug, cost = generate_article_slug("Python Best Practices", client)
+        assert slug1 == slug2
+        assert slug1 == "python-best-practices"
 
-        assert slug == "python-best-practices"
-        assert cost == 0.0  # No cost on fallback
+    def test_handles_special_cases(self):
+        """Handles various edge cases properly."""
+        # Empty-ish title
+        slug = generate_article_slug("   ")
+        assert isinstance(slug, str)
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_fallback_on_empty_response(self, mock_openai_class):
-        """Falls back to simple slug on empty response."""
-        client = Mock()
+        # Only special characters
+        slug = generate_article_slug("@#$%")
+        assert isinstance(slug, str)
 
-        mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content=""))]
-        mock_response.usage = Mock(prompt_tokens=50, completion_tokens=0)
-        client.chat.completions.create.return_value = mock_response
+    def test_removes_multiple_consecutive_hyphens(self):
+        """Multiple consecutive hyphens are cleaned."""
+        # Title with multiple spaces becomes multiple hyphens initially
+        slug = generate_article_slug("Python    Best    Practices")
 
-        slug, cost = generate_article_slug("Python Practices", client)
-
-        assert slug == "python-practices"
-        assert cost == 0.0
-
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_removes_multiple_consecutive_hyphens(self, mock_openai_class):
-        """Multiple consecutive hyphens are collapsed to one."""
-        client = Mock()
-
-        mock_response = Mock()
-        mock_response.choices = [Mock(message=Mock(content="python---best--practices"))]
-        mock_response.usage = Mock(prompt_tokens=50, completion_tokens=10)
-        client.chat.completions.create.return_value = mock_response
-
-        slug, cost = generate_article_slug("Python Best Practices", client)
-
-        assert "---" not in slug
         assert "--" not in slug
+        assert "---" not in slug
+        assert slug == "python-best-practices"
         assert slug == "python-best-practices"
 
 
@@ -424,10 +378,18 @@ class TestCreateArticleMetadata:
         datetime.strptime(date_str, "%Y-%m-%d")  # Will raise if format wrong
 
     def test_summary_includes_topics(self):
-        """Summary mentions first two topics."""
+        """Summary is extracted from content."""
         item = make_enriched_item(topics=["Python", "Rust", "Go"])
+        content = """This article explores Python programming best practices.
+        We'll look at how Python compares to Rust and Go for modern development.
 
-        metadata = create_article_metadata(item, "Title", "Content")
+        ## Key Points
 
-        assert "Python" in metadata["summary"]
+        Python remains popular for its simplicity."""
+
+        metadata = create_article_metadata(item, "Title", content)
+
+        # Summary should extract substantive content
+        assert len(metadata["summary"]) > 20
+        assert isinstance(metadata["summary"], str)
         assert "Rust" in metadata["summary"]

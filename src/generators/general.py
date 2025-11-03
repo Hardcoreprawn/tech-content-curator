@@ -3,9 +3,9 @@
 from rich.console import Console
 
 from ..models import EnrichedItem
+from ..pipeline.quality_feedback import get_quality_prompt_enhancements
 from .base import BaseGenerator
-from .prompt_templates import detect_content_type, build_enhanced_prompt
-from .prompt_templates import detect_content_type, build_enhanced_prompt
+from .prompt_templates import build_enhanced_prompt, detect_content_type
 
 console = Console()
 
@@ -48,54 +48,15 @@ class GeneralArticleGenerator(BaseGenerator):
         content_type = detect_content_type(item)
         console.print(f"  Content type detected: {content_type}")
 
+        # Build base prompt
         prompt = build_enhanced_prompt(item, content_type)
-    Write a comprehensive tech blog article based on this social media post and research.
 
-    ORIGINAL POST:
-    "{item.original.content}"
-    Source: {item.original.source} by @{item.original.author}
-    URL: {item.original.url}
-
-    TOPICS: {", ".join(item.topics)}
-
-    RESEARCH CONTEXT:
-    {item.research_summary}
-
-    ARTICLE REQUIREMENTS:
-    - 1200-1600 words
-    - Professional, informative tone
-    - Use markdown formatting (## headings, **bold**, `code`, etc.)
-    - Structure: Introduction, 2-3 main sections, conclusion
-    - Include practical insights and takeaways
-    - Include a short "Key Takeaways" bullet list (3–5 bullets) near the top after the introduction
-    - Explain non-mainstream terms and acronyms the first time they appear; if optional background, add a brief blockquote callout using the format:
-      > Background: one-sentence explanation
-    - Credit the original source appropriately
-    - Focus on value for tech professionals/developers
-
-    ACADEMIC CITATION REQUIREMENT:
-    - When you reference research, studies, or papers, include author names with publication years
-    - Proper citation format: "Author (Year)" or "Author et al. (Year)"
-    - Examples of good citations:
-      * "Recent research by Lentink (2014) established foundational principles..."
-      * "Jones et al. (2023) discovered that..."
-      * "Studies like Brown et al. (2022) demonstrate..."
-    - Include 3-5 academic citations naturally throughout the article
-    - Only cite research you are confident about (don't invent citations)
-    - Citations will be automatically linked to DOI/arXiv by the publication engine
-    - If unsure of exact year, make reasonable estimate based on recency
-
-    ARTICLE STRUCTURE:
-    1. **Introduction**: Hook + context + what readers will learn (include 1 citation if relevant)
-    2. **Main sections**: Deep dive into the key concepts (use ## headings, include 2-3 citations naturally)
-    3. **Practical implications**: What this means for readers
-    4. **Conclusion**: Key takeaways + call to action (1-2 citations if relevant)
-    5. **Source attribution**: Credit original post and author
-
-    Write engaging, substantive content that goes beyond the original post.
-    Use the research context to add depth and technical accuracy.
-    DO NOT include a title - the article content should start directly with the introduction.
-    """
+        # Add quality enhancements to guide generation
+        difficulty_level = item.difficulty_level or "intermediate"
+        quality_guidance = get_quality_prompt_enhancements(
+            difficulty_level, content_type
+        )
+        prompt += "\n" + quality_guidance
 
         try:
             response = self.client.chat.completions.create(
