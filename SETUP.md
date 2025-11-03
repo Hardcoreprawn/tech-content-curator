@@ -142,55 +142,48 @@ If all show correct versions/output, **setup is complete!**
 
 Your project is optimized for **Python 3.14's free-threading**, which provides 3-4x speedup on article generation!
 
-### What is Free-Threading?
+### Quick Summary
 
-- **GIL (Global Interpreter Lock)** normally limits Python to single-threaded execution
-- **Python 3.14** introduced optional free-threading to disable the GIL
-- **Benefit**: True parallel execution without GIL contention
-- **Result**: 3-4x faster article generation with no code changes!
+| Feature | Benefit |
+|---------|---------|
+| **Standard Python 3.14** | Works fine, no speedup |
+| **Python 3.14 (no-GIL)** | **3-4x faster article generation** ✓ |
+| **GitHub Actions** | **Already enabled!** ✓ |
 
-### Enabling Free-Threading Locally
+### Two Easy Setup Options
 
+**Option 1: Fast Setup with conda-forge (Recommended)**
 ```bash
-# Enable free-threading (Python 3.14+)
-export PYTHON_GIL=0
-
-# Run benchmarks to see speedup
-uv run python scripts/benchmark_free_threading.py
-
-# Run generation with free-threading
-uv run python -m src.generate --max-articles 5 --generate-images
-```
-
-**Expected output with free-threading enabled:**
-```
-✓ Excellent parallelism!
-Free-threading is working well.
-Speedup: 3-4x on 4-core machines
-```
-
-### Testing Free-Threading
-
-```bash
-# With GIL enabled (default)
-python scripts/benchmark_free_threading.py
-
-# Compare with free-threading disabled
-PYTHON_GIL=1 python scripts/benchmark_free_threading.py
-
-# Compare with free-threading enabled  
+bash scripts/setup_python_314_nogil_conda.sh
+conda activate py314-nogil
 PYTHON_GIL=0 python scripts/benchmark_free_threading.py
 ```
+**Time:** 2 minutes | **Space:** 2GB
 
-### GitHub Actions Already Optimized
+**Option 2: Build from Source (Advanced)**
+```bash
+bash scripts/setup_python_314_nogil.sh
+PYTHON_GIL=0 python314-nogil scripts/benchmark_free_threading.py
+```
+**Time:** 5-10 minutes | **Space:** 1GB
 
-✅ **Good news**: Your GitHub Actions workflows are already configured for free-threading!
+### Full Documentation
 
-- Workflows set `PYTHON_GIL=0` automatically
-- Article generation runs in parallel (3-4x faster)
-- No configuration needed on your part!
+👉 See **[docs/FREE-THREADING-SETUP.md](docs/FREE-THREADING-SETUP.md)** for:
+- Detailed setup instructions
+- Performance comparisons
+- Troubleshooting guide
+- GitHub Actions integration details
 
-Check workflow logs to see messages like:
+### For GitHub Actions Users
+
+✅ **Good News!** Your workflows are already configured:
+- Workflows automatically enable `PYTHON_GIL=0`
+- GitHub Actions runners have no-GIL Python 3.14 pre-installed
+- You get 3-4x speedup automatically!
+- No manual setup needed
+
+Check your workflow logs for:
 ```
 ⚡ Python 3.14 free-threading enabled - generating in parallel!
 ```
