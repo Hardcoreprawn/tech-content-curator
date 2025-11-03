@@ -116,8 +116,7 @@ def generate_single_article(
 
         metadata = create_article_metadata(item, title, content)
 
-        slug, slug_cost = generate_article_slug(title, client)
-        costs["slug_generation"] = slug_cost
+        slug = generate_article_slug(title)
         console.print(f"  Slug: {slug}")
 
         filename = f"{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"

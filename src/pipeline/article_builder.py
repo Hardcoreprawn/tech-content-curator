@@ -59,68 +59,36 @@ def calculate_image_cost(model: str = "dall-e-3-hd-1792x1024") -> float:
     return PRICING.get(model, 0.0)
 
 
-def generate_article_slug(title: str, client: OpenAI) -> tuple[str, float]:
-    """Generate SEO-friendly slug from article title using gpt-4o-mini.
+def generate_article_slug(title: str) -> str:
+    """Generate SEO-friendly slug from article title.
 
-    Uses a cheap AI model to create readable, unique slugs.
+    Uses simple string parsing to create readable, URL-safe slugs.
+    No LLM calls needed - this is pure deterministic logic.
 
     Args:
         title: The article title
-        client: Configured OpenAI client
 
     Returns:
-        Tuple of (URL-safe slug string, cost in USD)
+        URL-safe slug string (3-6 words, lowercase, hyphenated)
     """
-    prompt = f"""Convert this title to a short, SEO-friendly URL slug:
-
-Rules:
-- 3-6 words maximum
-- Use hyphens between words
-- Lowercase only
-- No special characters
-- Capture the key topic
-
-Title: {title}
-
-Respond with ONLY the slug, nothing else."""
-
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3,
-            max_tokens=30,
-        )
-
-        slug = response.choices[0].message.content
-        if not slug:
-            raise ValueError("Empty response from AI")
-        slug = slug.strip()
-        # Clean up any quotes or extra characters
-        slug = slug.strip("\"'").lower()
-        # Ensure it's safe
-        slug = "".join(c if c.isalnum() or c == "-" else "-" for c in slug)
-        # Remove multiple hyphens
-        while "--" in slug:
-            slug = slug.replace("--", "-")
-
-        # Calculate cost
-        usage = response.usage
-        cost = calculate_text_cost(
-            "gpt-4o-mini",
-            usage.prompt_tokens if usage else 0,
-            usage.completion_tokens if usage else 0,
-        )
-        return slug.strip("-")[:60], cost
-
-    except Exception as e:
-        console.print(
-            f"[yellow]⚠[/yellow] AI slug generation failed, using fallback: {e}"
-        )
-        # Fallback: simple title-based slug
-        slug = title.lower().replace(" ", "-")
-        slug = "".join(c for c in slug if c.isalnum() or c == "-")
-        return slug[:60], 0.0
+    # Convert to lowercase and split into words
+    words = title.lower().split()
+    
+    # Take first 3-6 words
+    slug_words = words[:6]
+    
+    # Join with hyphens
+    slug = "-".join(slug_words)
+    
+    # Remove any non-alphanumeric characters except hyphens
+    slug = "".join(c if c.isalnum() or c == "-" else "" for c in slug)
+    
+    # Remove multiple consecutive hyphens
+    while "--" in slug:
+        slug = slug.replace("--", "-")
+    
+    # Remove leading/trailing hyphens and truncate to 60 chars
+    return slug.strip("-")[:60]
 
 
 def generate_article_title(
@@ -209,10 +177,101 @@ Return ONLY the title, no quotes or explanation."""
             return "Tech Insights: What You Need to Know", 0.0
 
 
-def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dict:
+def extract_article_summary(content: str, max_length: int = 180) -> str:
+    """Extract a compelling summary from article content.
+
+    Intelligently extracts substantive content, skipping generic openings.
+    Looks for sentences with key information rather than meta-descriptions.
+    Fast, free, and guaranteed to reflect actual article content.
+
+    Args:
+        content: The article content (markdown)
+        max_length: Maximum character length for summary (default 180)
+
+    Returns:
+        Summary string extracted from content
+    """
+    import re
+    
+    # Remove markdown formatting for cleaner summary
+    cleaned = content.replace("## ", "").replace("# ", "")
+    
+    # Split into sentences (split on period, question mark, exclamation)
+    sentences = re.split(r'[.!?]+', cleaned)
+    
+    # Filter out very short sentences and generic filler
+    generic_phrases = {
+        "based on",
+        "in this article",
+        "we will explore",
+        "let's look at",
+        "understanding",
+        "introduction",
+        "overview",
+    }
+    
+    substantive_sentences = []
+    for sentence in sentences:
+        s = sentence.strip()
+        if not s or len(s) < 15:
+            continue
+        
+        # Skip if it's mostly generic
+        lower_s = s.lower()
+        if any(phrase in lower_s for phrase in generic_phrases) and len(s) < 60:
+            continue
+        
+        substantive_sentences.append(s)
+    
+    # Build summary from substantive sentences
+    summary = ""
+    
+    # Prefer a mixture: if we have at least 2 substantive sentences, 
+    # skip the first one if it's very generic, use the next one(s)
+    start_idx = 0
+    if len(substantive_sentences) > 1:
+        first_s = substantive_sentences[0].lower()
+        if any(phrase in first_s for phrase in generic_phrases):
+            start_idx = 1
+    
+    # Take 1-2 substantive sentences
+    for i in range(start_idx, min(start_idx + 2, len(substantive_sentences))):
+        candidate = (summary + " " + substantive_sentences[i]).strip()
+        if len(candidate) <= max_length:
+            summary = candidate
+        else:
+            break
+    
+    # Clean up whitespace
+    summary = " ".join(summary.split())
+    
+    # Fallback if nothing worked
+    if not summary or len(summary) < 20:
+        # Use first non-empty sentence
+        for s in sentences:
+            s = s.strip()
+            if len(s) > 20:
+                summary = s[:max_length]
+                break
+    
+    if not summary:
+        # Last resort: first 180 chars
+        summary = cleaned[:max_length].strip()
+    
+    # Add period if it's not there
+    if summary and not summary.endswith(('!', '?', '.')):
+        summary += "."
+    
+    return summary[:max_length]
+
+
+def create_article_metadata(
+    item: EnrichedItem, title: str, content: str
+) -> dict:
     """Create frontmatter metadata for the article.
 
     This creates the YAML frontmatter that static site generators use.
+    Automatically extracts summary from the article content.
 
     Args:
         item: The enriched item
@@ -223,12 +282,13 @@ def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dic
         Dictionary of metadata
     """
     word_count = len(content.split())
+    summary = extract_article_summary(content)
 
     return {
         "title": title,
         "date": datetime.now(UTC).strftime("%Y-%m-%d"),
         "tags": item.topics[:5],  # Limit to 5 tags
-        "summary": f"An in-depth look at {', '.join(item.topics[:2])} based on insights from the tech community.",
+        "summary": summary,
         "source": {
             "platform": item.original.source,
             "author": item.original.author,

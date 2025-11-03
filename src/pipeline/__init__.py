@@ -29,6 +29,7 @@ from .article_builder import (
     calculate_image_cost,
     calculate_text_cost,
     create_article_metadata,
+    extract_article_summary,
     generate_article_slug,
     generate_article_title,
 )
@@ -69,6 +70,7 @@ __all__ = [
     "calculate_image_cost",
     "calculate_text_cost",
     "create_article_metadata",
+    "extract_article_summary",
     "generate_article_slug",
     "generate_article_title",
 ]
