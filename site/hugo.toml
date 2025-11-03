@@ -97,6 +97,12 @@ contentDir = "../content"
     name = "Search"
     url = "/search/"
     weight = 40
+  
+  [[menu.main]]
+    identifier = "privacy"
+    name = "Privacy"
+    url = "/privacy/"
+    weight = 50
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
