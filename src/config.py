@@ -110,7 +110,7 @@ def get_config() -> PipelineConfig:
 
     except (ValidationError, ValueError) as e:
         console.print(f"[red]Configuration error: {e}[/red]")
-        console.print("\n[yellow]Make sure you have:")
+        console.print("[yellow]Make sure you have:")
         console.print("1. Copied .env.example to .env")
         console.print("2. Added your OpenAI API key")
         console.print("3. Added at least one social media source[/yellow]")

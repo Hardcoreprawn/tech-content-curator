@@ -40,7 +40,7 @@ jobs:
         uses: astral-sh/setup-uv@v4
 
       - name: Install dependencies
-        run: uv sync --python 3.14
+        run: uv sync --python 3.14 --all-extras
 
       - name: 🔍 Lint with Ruff
         run: |
