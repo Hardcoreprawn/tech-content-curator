@@ -477,18 +477,20 @@ class TestArticleGeneration:
             ),
         ]
 
-        with patch(
-            "src.pipeline.orchestrator.check_article_exists_for_source"
-        ) as mock_check:
-            mock_check.return_value = None
-            with patch("src.pipeline.orchestrator.select_generator") as mock_select:
-                mock_select.return_value = mock_generator
+        with patch("src.config.get_config") as mock_get_config:
+            mock_get_config.return_value = MagicMock()
+            with patch(
+                "src.pipeline.orchestrator.check_article_exists_for_source"
+            ) as mock_check:
+                mock_check.return_value = None
+                with patch("src.pipeline.orchestrator.select_generator") as mock_select:
+                    mock_select.return_value = mock_generator
 
-                article = generate_single_article(
-                    high_quality_enriched_item,
-                    [mock_generator],
-                    mock_openai_client,
-                )
+                    article = generate_single_article(
+                        high_quality_enriched_item,
+                        [mock_generator],
+                        mock_openai_client,
+                    )
 
         assert article is not None
         assert article.title == "Test Article Title"
@@ -550,19 +552,21 @@ class TestArticleGeneration:
             ),
         ]
 
-        with patch(
-            "src.pipeline.orchestrator.check_article_exists_for_source"
-        ) as mock_check:
-            mock_check.return_value = existing_file
-            with patch("src.pipeline.orchestrator.select_generator") as mock_select:
-                mock_select.return_value = mock_generator
+        with patch("src.config.get_config") as mock_get_config:
+            mock_get_config.return_value = MagicMock()
+            with patch(
+                "src.pipeline.orchestrator.check_article_exists_for_source"
+            ) as mock_check:
+                mock_check.return_value = existing_file
+                with patch("src.pipeline.orchestrator.select_generator") as mock_select:
+                    mock_select.return_value = mock_generator
 
-                article = generate_single_article(
-                    high_quality_enriched_item,
-                    [mock_generator],
-                    mock_openai_client,
-                    force_regenerate=True,
-                )
+                    article = generate_single_article(
+                        high_quality_enriched_item,
+                        [mock_generator],
+                        mock_openai_client,
+                        force_regenerate=True,
+                    )
 
         # Should generate new article and delete old file
         assert article is not None
