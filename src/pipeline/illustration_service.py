@@ -20,6 +20,7 @@ from ..illustrations.ai_ascii_generator import TextIllustrationQualitySelector
 from ..illustrations.ai_mermaid_generator import AIMermaidGenerator
 from ..illustrations.capability_advisor import TextIllustrationCapabilityAdvisor
 from ..illustrations.detector import detect_concepts
+from ..illustrations.diagram_validator import DiagramValidator
 from ..illustrations.generator_analyzer import should_add_illustrations
 from ..illustrations.placement import PlacementAnalyzer, format_diagram_for_markdown
 
@@ -89,6 +90,10 @@ class IllustrationService:
             quality_threshold=getattr(
                 config, "text_illustration_quality_threshold", 0.6
             ),
+        )
+        self.diagram_validator = DiagramValidator(
+            client,
+            threshold=getattr(config, "diagram_validation_threshold", 0.7),
         )
 
     def should_generate_illustrations(self, generator_name: str, content: str) -> bool:
@@ -256,6 +261,28 @@ class IllustrationService:
                 section_content=match.section.content,
                 concept_type=match.concept,
             )
+
+        # Validate diagram if generated
+        if diagram:
+            validation = self.diagram_validator.validate_diagram(
+                section_title=match.section.title,
+                section_content=match.section.content,
+                diagram_content=diagram.content,
+                diagram_type=selected_format,
+            )
+
+            if not validation.is_valid:
+                console.print(
+                    f"  [yellow]    ✗ Diagram rejected "
+                    f"(score: {validation.combined_score:.2f}): {validation.reason}[/yellow]"
+                )
+                diagram = None  # Reject diagram
+            else:
+                console.print(
+                    f"  [dim]    ✓ Diagram validated "
+                    f"(accuracy: {validation.accuracy_score:.2f}, "
+                    f"value: {validation.value_score:.2f})[/dim]"
+                )
 
         return selected_format, diagram
 
