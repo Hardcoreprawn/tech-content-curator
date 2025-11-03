@@ -32,7 +32,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          python-version: '3.14t'
+          allow-prereleases: true
       
       - name: Install uv
         uses: astral-sh/setup-uv@v4
@@ -101,7 +102,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          python-version: '3.14t'
+          allow-prereleases: true
       
       - name: Install uv
         uses: astral-sh/setup-uv@v4
@@ -126,6 +128,7 @@ jobs:
           HUGO_BASE_URL: https://hardcoreprawn.github.io/tech-content-curator
           QUALITY_THRESHOLD: 0.5
           SOURCE_COOLDOWN_DAYS: 7
+          PYTHON_GIL: '0'
         run: |
           # Generate 10 articles sequentially to prevent race conditions
           uv run python -m src.generate --max-articles 10 --generate-images
