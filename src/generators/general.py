@@ -4,6 +4,8 @@ from rich.console import Console
 
 from ..models import EnrichedItem
 from .base import BaseGenerator
+from .prompt_templates import detect_content_type, build_enhanced_prompt
+from .prompt_templates import detect_content_type, build_enhanced_prompt
 
 console = Console()
 
@@ -42,7 +44,11 @@ class GeneralArticleGenerator(BaseGenerator):
         if not self.client:
             raise ValueError("OpenAI client not initialized")
 
-        prompt = f"""
+        # Detect content type and build specialized prompt
+        content_type = detect_content_type(item)
+        console.print(f"  Content type detected: {content_type}")
+
+        prompt = build_enhanced_prompt(item, content_type)
     Write a comprehensive tech blog article based on this social media post and research.
 
     ORIGINAL POST:

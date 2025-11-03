@@ -75,6 +75,32 @@ class GeneratedArticle(BaseModel):
     illustrations_count: int = Field(
         default=0, description="Number of illustrations added to article"
     )
+    # Categorization fields (added in Phase 1.2)
+    content_type: str = Field(
+        default="general",
+        description="Article type: tutorial, news, analysis, research, guide, or general",
+    )
+    difficulty_level: str = Field(
+        default="intermediate",
+        description="Article difficulty: beginner, intermediate, or advanced",
+    )
+    target_audience: list[str] = Field(
+        default_factory=list,
+        description="List of target audience segments for this article",
+    )
+    # Categorization fields (added in Phase 1.2)
+    content_type: str = Field(
+        default="general",
+        description="Article type: tutorial, news, analysis, research, guide, or general",
+    )
+    difficulty_level: str = Field(
+        default="intermediate",
+        description="Article difficulty: beginner, intermediate, or advanced",
+    )
+    target_audience: list[str] = Field(
+        default_factory=list,
+        description="List of target audience segments for this article",
+    )
 
 
 class PipelineConfig(BaseModel):

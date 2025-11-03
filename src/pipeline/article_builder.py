@@ -10,6 +10,10 @@ Uses GPT-4o-mini for cost-effective, high-quality generation.
 
 from datetime import UTC, datetime
 
+from ..content.categorizer import ArticleCategorizer
+
+from ..content.categorizer import ArticleCategorizer
+
 from openai import OpenAI
 from rich.console import Console
 
@@ -284,6 +288,10 @@ def create_article_metadata(
     word_count = len(content.split())
     summary = extract_article_summary(content)
 
+    # Add categorization (content type, difficulty, audience)
+    categorizer = ArticleCategorizer()
+    categories = categorizer.categorize(item, content)
+
     return {
         "title": title,
         "date": datetime.now(UTC).strftime("%Y-%m-%d"),
@@ -298,6 +306,11 @@ def create_article_metadata(
         "quality_score": item.quality_score,
         "word_count": word_count,
         "reading_time": f"{max(1, round(word_count / 200))} min read",
+        # Categorization fields
+        "content_type": categories["content_type"],
+        "difficulty": categories["difficulty_level"],
+        "audience": categories["audience"],
+        "estimated_read_time": categories["estimated_read_time"],
         "cover": {
             "image": "",
             "alt": "",
