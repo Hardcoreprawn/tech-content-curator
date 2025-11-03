@@ -22,6 +22,7 @@ from ..illustrations.capability_advisor import TextIllustrationCapabilityAdvisor
 from ..illustrations.detector import detect_concepts
 from ..illustrations.diagram_validator import DiagramValidator
 from ..illustrations.generator_analyzer import should_add_illustrations
+from ..illustrations.mermaid_quality_selector import MermaidQualitySelector
 from ..illustrations.placement import PlacementAnalyzer, format_diagram_for_markdown
 
 if TYPE_CHECKING:
@@ -94,6 +95,11 @@ class IllustrationService:
         self.diagram_validator = DiagramValidator(
             client,
             threshold=getattr(config, "diagram_validation_threshold", 0.7),
+        )
+        self.mermaid_selector = MermaidQualitySelector(
+            client,
+            n_candidates=getattr(config, "mermaid_candidates", 3),
+            validation_threshold=getattr(config, "diagram_validation_threshold", 0.7),
         )
 
     def should_generate_illustrations(self, generator_name: str, content: str) -> bool:
@@ -255,15 +261,27 @@ class IllustrationService:
 
         # Fallback to Mermaid if ASCII failed or not selected
         if diagram is None and selected_format != "ascii":
-            mermaid_gen = AIMermaidGenerator(self.client)
-            diagram = mermaid_gen.generate_for_section(
+            # Use multi-candidate selection for better quality
+            mermaid_result = self.mermaid_selector.generate_best(
                 section_title=match.section.title,
                 section_content=match.section.content,
                 concept_type=match.concept,
             )
+            diagram = mermaid_result.diagram
+            
+            if diagram:
+                console.print(
+                    f"  [dim]    Generated {mermaid_result.candidates_tested} "
+                    f"Mermaid candidates, selected with score {mermaid_result.best_score:.2f}[/dim]"
+                )
+            elif mermaid_result.all_rejected:
+                console.print(
+                    f"  [yellow]    ⚠ All {mermaid_result.candidates_tested} Mermaid "
+                    f"candidates rejected by validation[/yellow]"
+                )
 
-        # Validate diagram if generated
-        if diagram:
+        # Validate diagram if generated (skip Mermaid as it's pre-validated via multi-candidate)
+        if diagram and selected_format != "mermaid":
             validation = self.diagram_validator.validate_diagram(
                 section_title=match.section.title,
                 section_content=match.section.content,
