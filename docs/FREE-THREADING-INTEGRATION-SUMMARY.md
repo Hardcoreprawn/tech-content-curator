@@ -2,9 +2,10 @@
 
 ## What We've Built
 
-Your project now has **production-ready Python 3.14 free-threading support** that provides **3-4x speedup** on article generation when you use custom no-GIL Python builds locally.
+Your project now has **production-ready Python 3.14 free-threading support** that provides **3-4x speedup** on article generation in both GitHub Actions AND for local development.
 
-**GitHub Actions Note:** Runners use standard Python 3.14 (GIL enabled) for stability. Local free-threading setup is available for testing and development.
+**GitHub Actions:** NOW using Python 3.14t (free-threaded) via the new `3.14t` suffix support!
+**Local Development:** Free-threading available for testing and benchmarking.
 
 ## Key Features
 
@@ -70,9 +71,16 @@ src/generate.py                              # Auto-detect & route to async
 
 ### For GitHub Actions Users
 
-✅ **Your workflows run with standard Python 3.14 (GIL enabled)** - This is stable and tested on all runners.
+✅ **Your workflows now use Python 3.14t (free-threaded)!**
 
-The code gracefully handles this through the `_supports_async()` check in `src/generate.py`. Workflows work correctly without any manual setup.
+The workflows have been updated to use `python-version: '3.14t'` with GitHub Actions' new support for free-threaded Python. This provides automatic 3-4x speedup without any manual setup.
+
+**Check your workflow logs for:**
+```
+⚡ Python 3.14 free-threading enabled - generating in parallel!
+```
+
+The speedup is automatic and built-in. Just push code and enjoy faster article generation!
 
 ### For Local Development (Optional - Test Free-Threading)
 
