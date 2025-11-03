@@ -5,7 +5,10 @@ from src.models import CollectedItem
 
 
 def make_item(
-    content: str, title: str = "Test", author: str = "testuser", metadata: dict | None = None
+    content: str,
+    title: str = "Test",
+    author: str = "testuser",
+    metadata: dict | None = None,
 ):
     """Helper to create CollectedItem."""
     return CollectedItem(

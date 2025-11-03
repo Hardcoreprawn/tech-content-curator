@@ -119,11 +119,11 @@ class DiagramValidator:
             # Calculate cost
             usage = response.usage
             if usage:
-                cost = (
-                    (usage.prompt_tokens / 1000) * self.PRICING[self.model]["prompt"]
-                    + (usage.completion_tokens / 1000)
-                    * self.PRICING[self.model]["completion"]
-                )
+                cost = (usage.prompt_tokens / 1000) * self.PRICING[self.model][
+                    "prompt"
+                ] + (usage.completion_tokens / 1000) * self.PRICING[self.model][
+                    "completion"
+                ]
             else:
                 cost = 0.0
 

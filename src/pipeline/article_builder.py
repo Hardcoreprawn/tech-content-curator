@@ -200,7 +200,7 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
     cleaned = content.replace("## ", "").replace("# ", "")
 
     # Split into sentences (split on period, question mark, exclamation)
-    sentences = re.split(r'[.!?]+', cleaned)
+    sentences = re.split(r"[.!?]+", cleaned)
 
     # Filter out very short sentences and generic filler
     generic_phrases = {
@@ -262,15 +262,13 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
         summary = cleaned[:max_length].strip()
 
     # Add period if it's not there
-    if summary and not summary.endswith(('!', '?', '.')):
+    if summary and not summary.endswith(("!", "?", ".")):
         summary += "."
 
     return summary[:max_length]
 
 
-def analyze_article_quality(
-    content: str, difficulty_level: str
-) -> tuple[dict, bool]:
+def analyze_article_quality(content: str, difficulty_level: str) -> tuple[dict, bool]:
     """Analyze article quality using readability and quality scoring.
 
     Args:
@@ -321,9 +319,7 @@ def analyze_article_quality(
     return quality_metrics, passed
 
 
-def create_article_metadata(
-    item: EnrichedItem, title: str, content: str
-) -> dict:
+def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dict:
     """Create frontmatter metadata for the article.
 
     This creates the YAML frontmatter that static site generators use.
@@ -346,7 +342,9 @@ def create_article_metadata(
     categories = categorizer.categorize(item, content)
 
     # Analyze article quality (Phase 1.3)
-    quality_metrics, _ = analyze_article_quality(content, categories["difficulty_level"])
+    quality_metrics, _ = analyze_article_quality(
+        content, categories["difficulty_level"]
+    )
 
     return {
         "title": title,

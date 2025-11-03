@@ -36,28 +36,36 @@ class TestContentTypeDetection:
 
     def test_detects_tutorial(self):
         """Detects tutorial content type."""
-        item = make_enriched_item(title="How to Build a Web App", topics=["python", "web"])
+        item = make_enriched_item(
+            title="How to Build a Web App", topics=["python", "web"]
+        )
         categorizer = ArticleCategorizer()
         result = categorizer.categorize(item, "This is a tutorial content")
         assert result["content_type"] == ContentType.TUTORIAL.value
 
     def test_detects_news(self):
         """Detects news content type."""
-        item = make_enriched_item(title="Python 3.14 Released Today", topics=["python", "news"])
+        item = make_enriched_item(
+            title="Python 3.14 Released Today", topics=["python", "news"]
+        )
         categorizer = ArticleCategorizer()
         result = categorizer.categorize(item, "Python 3.14 was announced today")
         assert result["content_type"] == ContentType.NEWS.value
 
     def test_detects_analysis(self):
         """Detects analysis content type."""
-        item = make_enriched_item(title="Python vs Rust: Deep Dive", topics=["python", "rust"])
+        item = make_enriched_item(
+            title="Python vs Rust: Deep Dive", topics=["python", "rust"]
+        )
         categorizer = ArticleCategorizer()
         result = categorizer.categorize(item, "This article compares Python and Rust")
         assert result["content_type"] == ContentType.ANALYSIS.value
 
     def test_detects_research(self):
         """Detects research content type."""
-        item = make_enriched_item(title="Research Study on AI", topics=["ai", "research"])
+        item = make_enriched_item(
+            title="Research Study on AI", topics=["ai", "research"]
+        )
         categorizer = ArticleCategorizer()
         result = categorizer.categorize(item, "This study found important findings")
         assert result["content_type"] == ContentType.RESEARCH.value

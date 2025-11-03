@@ -64,23 +64,36 @@ class ArticleCategorizer:
         text = (item.original.title + " " + " ".join(item.topics)).lower()
 
         # Tutorial indicators
-        if any(k in text for k in ["how to", "guide", "tutorial", "step by step", "getting started"]):
+        if any(
+            k in text
+            for k in ["how to", "guide", "tutorial", "step by step", "getting started"]
+        ):
             return ContentType.TUTORIAL.value
 
         # News indicators
-        if any(k in text for k in ["announced", "released", "launched", "breaking", "news"]):
+        if any(
+            k in text for k in ["announced", "released", "launched", "breaking", "news"]
+        ):
             return ContentType.NEWS.value
 
         # Analysis indicators
-        if any(k in text for k in ["analysis", "review", "comparison", "deep dive", "benchmark"]):
+        if any(
+            k in text
+            for k in ["analysis", "review", "comparison", "deep dive", "benchmark"]
+        ):
             return ContentType.ANALYSIS.value
 
         # Research indicators
-        if any(k in text for k in ["research", "study", "paper", "findings", "academic"]):
+        if any(
+            k in text for k in ["research", "study", "paper", "findings", "academic"]
+        ):
             return ContentType.RESEARCH.value
 
         # Guide indicators
-        if any(k in text for k in ["getting started", "introduction to", "overview", "primer"]):
+        if any(
+            k in text
+            for k in ["getting started", "introduction to", "overview", "primer"]
+        ):
             return ContentType.GUIDE.value
 
         return ContentType.GENERAL.value
@@ -154,30 +167,74 @@ class ArticleCategorizer:
         topics_text = " ".join(item.topics).lower()
 
         # DevOps/Infrastructure audience
-        if any(k in topics_text for k in ["devops", "kubernetes", "docker", "ci/cd", "infrastructure", "deployment"]):
+        if any(
+            k in topics_text
+            for k in [
+                "devops",
+                "kubernetes",
+                "docker",
+                "ci/cd",
+                "infrastructure",
+                "deployment",
+            ]
+        ):
             audiences.append("DevOps Engineers")
 
         # Software Developers
         if any(
             k in topics_text
-            for k in ["python", "javascript", "rust", "go", "java", "typescript", "programming", "code"]
+            for k in [
+                "python",
+                "javascript",
+                "rust",
+                "go",
+                "java",
+                "typescript",
+                "programming",
+                "code",
+            ]
         ):
             audiences.append("Software Developers")
 
         # Security Professionals
-        if any(k in topics_text for k in ["security", "privacy", "encryption", "vulnerability", "cve", "attack"]):
+        if any(
+            k in topics_text
+            for k in [
+                "security",
+                "privacy",
+                "encryption",
+                "vulnerability",
+                "cve",
+                "attack",
+            ]
+        ):
             audiences.append("Security Professionals")
 
         # Data Scientists / ML Engineers
-        if any(k in topics_text for k in ["data", "machine learning", "ai", "analytics", "neural", "model"]):
+        if any(
+            k in topics_text
+            for k in ["data", "machine learning", "ai", "analytics", "neural", "model"]
+        ):
             audiences.append("Data Scientists")
 
         # Self-Hosters / Home Lab
-        if any(k in topics_text for k in ["self-hosted", "home lab", "raspberry pi", "self-hosting", "open source"]):
+        if any(
+            k in topics_text
+            for k in [
+                "self-hosted",
+                "home lab",
+                "raspberry pi",
+                "self-hosting",
+                "open source",
+            ]
+        ):
             audiences.append("Self-Hosters")
 
         # System Administrators
-        if any(k in topics_text for k in ["linux", "windows", "admin", "system", "network", "server"]):
+        if any(
+            k in topics_text
+            for k in ["linux", "windows", "admin", "system", "network", "server"]
+        ):
             audiences.append("System Administrators")
 
         # Fallback if no specific audience detected

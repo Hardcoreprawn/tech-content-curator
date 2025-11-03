@@ -161,7 +161,9 @@ class TestMermaidQualitySelector:
                 cost=0.0001,
             )
 
-        selector = MermaidQualitySelector(client, n_candidates=3, validation_threshold=0.7)
+        selector = MermaidQualitySelector(
+            client, n_candidates=3, validation_threshold=0.7
+        )
         selector.generator.generate_for_section = mock_generate
         selector.validator.validate_diagram = mock_validate
 

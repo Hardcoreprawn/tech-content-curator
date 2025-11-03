@@ -3,7 +3,6 @@
 Tests for concept detection, generator awareness, SVG templates, and Mermaid generation.
 """
 
-
 import pytest
 
 from src.illustrations.detector import Concept, ConceptDetector, detect_concepts

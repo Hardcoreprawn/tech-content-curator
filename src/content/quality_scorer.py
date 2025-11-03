@@ -59,8 +59,12 @@ class QualityScorer:
         # Calculate individual dimension scores
         readability_score = self._score_readability(article, content)
         structure_score = self._score_structure(content)
-        citation_score = self._score_citations(content, article.content_type or "general")
-        code_score = self._score_code_examples(content, article.content_type or "general")
+        citation_score = self._score_citations(
+            content, article.content_type or "general"
+        )
+        code_score = self._score_code_examples(
+            content, article.content_type or "general"
+        )
         length_score = self._score_length(content, article.content_type or "general")
         tone_score = self._score_tone(content, article.content_type or "general")
 
@@ -296,7 +300,9 @@ class QualityScorer:
         # Check for inappropriate casual language in formal content
         if content_type in ["research", "analysis"]:
             casual_markers = ["lol", "omg", "btw", "imho", "gonna", "wanna"]
-            casual_count = sum(1 for marker in casual_markers if marker in content_lower)
+            casual_count = sum(
+                1 for marker in casual_markers if marker in content_lower
+            )
             if casual_count > 0:
                 score -= casual_count * 10
 
@@ -304,20 +310,27 @@ class QualityScorer:
         if content_type == "tutorial":
             # Should use second person
             has_second_person = any(
-                word in content_lower for word in ["you will", "you can", "let's", "we'll"]
+                word in content_lower
+                for word in ["you will", "you can", "let's", "we'll"]
             )
             if not has_second_person:
                 score -= 20
 
         # Check for appropriate technical depth indicators
         has_technical_terms = bool(re.search(r"\b[A-Z]{2,}\b", content))  # Acronyms
-        if content_type in ["research", "analysis", "guide"] and not has_technical_terms:
+        if (
+            content_type in ["research", "analysis", "guide"]
+            and not has_technical_terms
+        ):
             score -= 10
 
         return max(0.0, score)
 
     def _generate_suggestions(
-        self, dimension_scores: dict[str, float], article: GeneratedArticle, content: str
+        self,
+        dimension_scores: dict[str, float],
+        article: GeneratedArticle,
+        content: str,
     ) -> list[str]:
         """Generate actionable improvement suggestions.
 
@@ -341,9 +354,13 @@ class QualityScorer:
         # Structure suggestions
         if dimension_scores["structure"] < 70:
             if "##" not in content:
-                suggestions.append("Add clear section headings (## and ###) for better structure.")
+                suggestions.append(
+                    "Add clear section headings (## and ###) for better structure."
+                )
             if "key takeaway" not in content.lower():
-                suggestions.append('Include a "Key Takeaways" section after the introduction.')
+                suggestions.append(
+                    'Include a "Key Takeaways" section after the introduction.'
+                )
 
         # Citation suggestions
         if dimension_scores["citations"] < 70:

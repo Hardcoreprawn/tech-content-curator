@@ -7,7 +7,6 @@ This test suite covers:
 - Integration with categorization system
 """
 
-
 from src.content.categorizer import ArticleCategorizer
 from src.content.quality_scorer import QualityScorer
 from src.content.readability import ReadabilityAnalyzer
