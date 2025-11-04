@@ -95,6 +95,29 @@ def generate_single_article(
         # Generate content
         generator = select_generator(item, generators)
         console.print(f"  Using: {generator.name}")
+
+        # Select voice for this article (Phase 1 feature)
+        try:
+            from ..generators.voices.selector import VoiceSelector
+
+            voice_selector = VoiceSelector()
+            voice_profile = voice_selector.select_voice(
+                content_type=getattr(item, "content_type", "general"),
+                complexity_score=item.quality_score,
+            )
+            voice_id = voice_profile.voice_id
+            console.print(f"  Voice: {voice_profile.name}")
+            voice_selector.add_to_history(
+                generate_article_slug(item.original.title), voice_id
+            )
+
+            # Set voice_profile on item so generator can access it
+            item.voice_profile = voice_id
+        except ImportError:
+            # Voice system not available (backwards compatibility)
+            voice_id = "default"
+            item.voice_profile = "default"
+
         console.print("  [dim]Calling OpenAI API for content generation...[/dim]")
         content, content_input_tokens, content_output_tokens = (
             generator.generate_content(item)
@@ -165,6 +188,8 @@ def generate_single_article(
             action_run_id=action_run_id,
             generator_name=generator.name,
             illustrations_count=illustrations_count,
+            voice_profile=voice_id,
+            voice_metadata={"complexity_score": item.quality_score},
         )
 
         console.print(f"[green]✓[/green] Generated: {title}")

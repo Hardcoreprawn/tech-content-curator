@@ -34,6 +34,7 @@ class GeneralArticleGenerator(BaseGenerator):
         - Maintains a professional, informative tone
         - Includes proper markdown formatting
         - Is 1200-1600 words for depth
+        - Uses voice-specific personality if available
 
         Args:
             item: The enriched item with all context
@@ -60,11 +61,41 @@ class GeneralArticleGenerator(BaseGenerator):
         )
         prompt += "\n" + quality_guidance
 
+        # Inject voice personality if voice_profile is specified
+        # (set during orchestrator's voice selection)
+        voice_id = getattr(item, "voice_profile", None)
+        system_message = None
+        temperature = 0.6  # Default temperature
+
+        if voice_id and voice_id != "default":
+            try:
+                from .voices.prompts import (
+                    build_voice_system_prompt,
+                    get_voice_prompt_kit,
+                )
+
+                # Get voice-specific system prompt
+                system_message = build_voice_system_prompt(voice_id, content_type)
+
+                # Get voice-specific temperature (varies by voice)
+                voice_kit = get_voice_prompt_kit(voice_id)
+                # Temperature is stored in the VoiceProfile, not VoicePromptKit
+                # For now, use default but could be enhanced
+                console.print(f"  [dim]Injected voice: {voice_id}[/dim]")
+            except (ImportError, ValueError, KeyError) as e:
+                console.print(f"  [dim]Voice injection skipped: {e}[/dim]")
+
         try:
+            # Build messages with voice-aware system prompt if available
+            messages = []
+            if system_message:
+                messages.append({"role": "system", "content": system_message})
+            messages.append({"role": "user", "content": prompt})
+
             response = self.client.chat.completions.create(
                 model="gpt-4o-mini",  # Better for long-form content
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.6,  # More creative for article writing
+                messages=messages,
+                temperature=temperature,  # Use voice-specific temperature if injected
                 max_tokens=2000,  # Allow for longer articles
             )
 

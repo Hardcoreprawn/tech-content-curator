@@ -113,6 +113,15 @@ class GeneratedArticle(BaseModel):
         default=False,
         description="Whether article meets minimum quality standards",
     )
+    # Voice variation fields (added in Phase 1)
+    voice_profile: str = Field(
+        default="default",
+        description="Voice ID used for this article (taylor, sam, aria, quinn, riley, jordan, emerson)",
+    )
+    voice_metadata: dict[str, Any] = Field(
+        default_factory=dict,
+        description="Metadata about voice selection (complexity_score, selection_details, etc)",
+    )
 
 
 class PipelineConfig(BaseModel):
