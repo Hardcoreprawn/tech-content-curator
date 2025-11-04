@@ -362,10 +362,8 @@ def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dic
         "reading_time": f"{max(1, round(word_count / 200))} min read",
         # Categorization fields (Phase 1.2)
         "content_type": categories["content_type"],
-        "difficulty_level": categories["difficulty_level"],  # For templates and metadata
-        "difficulty": categories["difficulty_level"],  # Legacy support
-        "target_audience": categories["audience"],
-        "audience": categories["audience"],  # Legacy support
+        "difficulty": categories["difficulty_level"],
+        "audience": categories["audience"],
         "estimated_read_time": categories["estimated_read_time"],
         # Readability metrics (Phase 1.3)
         "readability": {
