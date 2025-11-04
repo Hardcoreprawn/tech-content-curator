@@ -14,6 +14,7 @@ The goal is to maximize article quality while minimizing API costs by filtering
 out unsuitable content BEFORE calling expensive generation APIs.
 """
 
+import logging
 import os
 import re
 
@@ -35,6 +36,7 @@ from ..models import EnrichedItem
 from .deduplication import check_article_exists_for_source, is_source_in_cooldown
 
 console = Console()
+logger = logging.getLogger(__name__)
 
 
 def get_available_generators(client: OpenAI) -> list:
@@ -105,7 +107,6 @@ def select_article_candidates(
         List of items suitable for article generation
     """
     candidates = []
-    # Preload content directory once for existing-source checks
     content_dir = get_content_dir()
 
     # Initialize adaptive dedup systems
@@ -113,9 +114,15 @@ def select_article_candidates(
     adaptive_feedback = AdaptiveDedupFeedback()
     recent_cache = RecentContentCache(content_dir) if use_adaptive_filtering else None
 
+    logger.info(f"Starting candidate selection from {len(items)} enriched items (min_quality={min_quality})")
+    rejection_reasons = {}
+
     for item in items:
         # Primary filter: quality score
         if item.quality_score < min_quality:
+            reason = f"low_quality ({item.quality_score:.2f} < {min_quality})"
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected {item.original.id}: {reason}")
             continue
 
         # Secondary filters: content substance (allow short if it's clearly technical)
@@ -123,50 +130,60 @@ def select_article_candidates(
         content_lower = item.original.content.lower()
 
         # If it's a curated list/listicle, allow even if short (handled by specialized generator)
-        # Use the IntegrativeListGenerator to check
-        temp_gen = IntegrativeListGenerator(None)  # No client needed for can_handle
+        temp_gen = IntegrativeListGenerator(None)
         if temp_gen.can_handle(item):
             if item.topics:
                 candidates.append(item)
+                logger.debug(f"Accepted {item.original.id} as list/listicle content")
+            else:
+                reason = "list_format_but_no_topics"
+                rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+                logger.debug(f"Rejected {item.original.id}: {reason}")
             continue
 
         # Allow shorter content if it has strong technical signals (acronyms/links)
         has_link = "http" in content_lower
         has_acronym = bool(re.search(r"\b[A-Z0-9-]{2,10}\b", item.original.content))
-        if content_len < 200 and not (
-            has_link or has_acronym
-        ):  # Too short without signals
+        if content_len < 200 and not (has_link or has_acronym):
+            reason = f"too_short ({content_len} chars, no links/acronyms)"
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected {item.original.id}: {reason}")
             continue
 
-        if not item.topics:  # No topics identified
+        if not item.topics:
+            reason = "no_topics_identified"
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected {item.original.id}: {reason}")
             continue
 
         # Skip if we've already published an article for this source URL
         try:
             if check_article_exists_for_source(str(item.original.url), content_dir):
+                reason = "source_already_published"
+                rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+                logger.debug(f"Rejected {item.original.id}: {reason}")
                 console.print(
                     f"[dim]⏭ Skipping known source:[/dim] {item.original.title[:60]}..."
                 )
                 continue
-        except Exception:
-            # If the existence check fails for any reason, fall back to allowing the item
-            pass
+        except Exception as e:
+            logger.warning(f"Source existence check failed for {item.original.id}: {e}")
 
-        # Skip if source is in cooldown period (avoid republishing same sources too frequently)
+        # Skip if source is in cooldown period
         cooldown_days = int(os.getenv("SOURCE_COOLDOWN_DAYS", "7"))
         if is_source_in_cooldown(str(item.original.url), content_dir, cooldown_days):
+            reason = f"source_in_cooldown ({cooldown_days}d)"
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected {item.original.id}: {reason}")
             console.print(
                 f"[dim]⏸ In cooldown ({cooldown_days}d):[/dim] {item.original.title[:60]}..."
             )
             continue
 
-        # NEW: Adaptive pre-generation filtering
-        # Check if this would likely be a duplicate BEFORE spending API credits
+        # Adaptive pre-generation filtering
         if use_adaptive_filtering and recent_cache:
-            # Use enrichment summary as proxy for article content
-            candidate_summary = item.research_summary[:200]  # First 200 chars
+            candidate_summary = item.research_summary[:200]
 
-            # Check against recent articles
             is_dup, match = recent_cache.is_duplicate_candidate(
                 item.original.title, candidate_summary, item.topics
             )
@@ -174,6 +191,9 @@ def select_article_candidates(
             if is_dup and match:
                 recent_cache.report_match(match, item.original.title)
                 cost_tracker.record_pre_gen_rejection(item.original.title)
+                reason = "adaptive_dedup_match"
+                rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+                logger.debug(f"Rejected {item.original.id}: {reason}")
                 console.print(
                     "[yellow]⏭ Rejected pre-generation (likely duplicate)[/yellow]"
                 )
@@ -185,27 +205,37 @@ def select_article_candidates(
             )
 
             if matches_pattern and pattern:
+                reason = "learned_pattern_match"
+                rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+                logger.debug(f"Rejected {item.original.id}: {reason}")
                 console.print(
                     f"[yellow]⚠ Matches learned duplicate pattern:[/yellow] "
                     f"{list(pattern.common_tags)[:3]}..."
                 )
-                cost_tracker.record_pre_gen_rejection(item.original.title)
                 console.print(
                     "[yellow]⏭ Rejected pre-generation (pattern match)[/yellow]"
                 )
                 continue
 
         candidates.append(item)
+        logger.debug(f"Accepted {item.original.id} as candidate (quality: {item.quality_score:.3f})")
 
     # Sort by quality score (best first)
     candidates.sort(key=lambda x: x.quality_score, reverse=True)
 
+    # Show rejection summary
+    if rejection_reasons:
+        console.print("\n[yellow]📊 Rejection Summary:[/yellow]")
+        for reason, count in sorted(rejection_reasons.items(), key=lambda x: x[1], reverse=True):
+            console.print(f"  {reason}: {count}")
+        logger.info(f"Rejected {sum(rejection_reasons.values())} items: {rejection_reasons}")
+
     console.print(
         f"[green]✓[/green] Selected {len(candidates)} candidates from {len(items)} enriched items"
     )
+    logger.info(f"Candidate selection: {len(candidates)} candidates from {len(items)} items")
 
-    # NEW: Story clustering to detect cross-source duplicates
-    # This catches "Affinity Studio" from HackerNews + "Affinity Software" from Mastodon
+    # Story clustering to detect cross-source duplicates
     if deduplicate_stories and len(candidates) > 1:
         console.print(
             "\n[blue]🔍 Checking for duplicate stories across sources...[/blue]"
@@ -214,9 +244,12 @@ def select_article_candidates(
         # Find and report story clusters
         clusters = find_story_clusters(candidates, min_similarity=0.50)
         report_story_clusters(clusters, verbose=True)
+        logger.info(f"Story clustering: found {len(clusters)} potential story clusters")
 
         # Filter out duplicate stories (keep best source for each story)
+        pre_filter = len(candidates)
         candidates = filter_duplicate_stories(candidates, keep_best=True)
+        logger.info(f"After story dedup: {len(candidates)} candidates (removed {pre_filter - len(candidates)})")
 
     # Print cache stats if using adaptive filtering
     if use_adaptive_filtering and recent_cache:

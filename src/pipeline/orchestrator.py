@@ -197,6 +197,7 @@ def generate_articles_from_enriched(
     Returns:
         List of successfully generated articles
     """
+    logger.info(f"Starting article generation from {len(items)} enriched items")
     config = get_config()
     client = OpenAI(
         api_key=config.openai_api_key,
@@ -215,10 +216,14 @@ def generate_articles_from_enriched(
 
     if not candidates:
         console.print("[yellow]No suitable article candidates found.[/yellow]")
+        logger.warning(f"No candidates found from {len(items)} enriched items")
         return []
+
+    logger.info(f"Found {len(candidates)} candidates after filtering")
 
     selected = select_diverse_candidates(candidates, max_articles, generators)
     console.print(f"[green]✓[/green] Selected {len(selected)} diverse candidates")
+    logger.info(f"Selected {len(selected)} diverse candidates for generation (requested max: {max_articles})")
 
     # Generate articles
     console.print(f"\n[bold blue]📝 Generating {len(selected)} articles...[/bold blue]")
@@ -228,9 +233,11 @@ def generate_articles_from_enriched(
     fact_check_results: list[tuple[GeneratedArticle, FactCheckResult]] = []
     cost_tracker = CostTracker()
     adaptive_feedback = AdaptiveDedupFeedback()
+    generation_errors = []
 
     for i, item in enumerate(selected, 1):
         console.print(f"\n[bold cyan]Article {i}/{len(selected)}[/bold cyan]")
+        logger.debug(f"Generating article {i}/{len(selected)}: {item.original.title[:60]}")
 
         article = generate_single_article(
             item,
@@ -245,6 +252,7 @@ def generate_articles_from_enriched(
             try:
                 save_article_to_file(article, config, generate_images, client)
                 articles.append(article)
+                logger.info(f"Successfully generated article: {article.filename}")
 
                 cost_tracker.record_successful_generation(
                     article.title, article.filename, article.generation_costs
@@ -257,17 +265,30 @@ def generate_articles_from_enriched(
             except Exception as e:
                 logger.error(f"Failed to save article: {e}", exc_info=True)
                 console.print(f"[red]✗[/red] Failed to save article: {e}")
+                generation_errors.append((item.original.title[:50], str(e)[:60]))
                 continue
+        else:
+            logger.warning(f"Article generation returned None for: {item.original.title[:60]}")
+            generation_errors.append((item.original.title[:50], "generation_returned_none"))
 
     console.print(
         f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
     )
+    logger.info(f"Generation complete: {len(articles)}/{len(selected)} articles created successfully")
+
+    # Print errors if any
+    if generation_errors:
+        console.print(f"\n[yellow]⚠ Generation Errors ({len(generation_errors)}):[/yellow]")
+        for title, error in generation_errors:
+            console.print(f"  • {title}: {error}")
+            logger.warning(f"Generation error for '{title}': {error}")
 
     # Print fact-check summary
     if fact_check and fact_check_results:
         console.print("\n[bold cyan]📋 Fact-Check Summary:[/bold cyan]")
         passed = sum(1 for _, r in fact_check_results if r.passed)
         console.print(f"  Passed: {passed}/{len(fact_check_results)}")
+        logger.info(f"Fact-check: {passed}/{len(fact_check_results)} articles passed")
 
         failed = [(a, r) for a, r in fact_check_results if not r.passed]
         if failed:
