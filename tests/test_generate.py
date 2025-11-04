@@ -604,3 +604,118 @@ class TestErrorHandling:
 
         # Should return None on failure
         assert article is None
+
+
+# ============================================================================
+# Test Defensive Attribute Access
+# ============================================================================
+
+
+class TestDefensiveAttributeAccess:
+    """Test that generators safely handle optional attributes on models.
+
+    This test class ensures we don't repeat the difficulty_level bug where
+    the generator tried to access an attribute that only exists on the
+    GeneratedArticle model (post-categorization) but not on EnrichedItem
+    (pre-generation).
+    """
+
+    def test_general_generator_handles_missing_difficulty_level(
+        self, high_quality_enriched_item, mock_openai_client
+    ):
+        """GeneralArticleGenerator should handle EnrichedItem without difficulty_level.
+
+        EnrichedItem doesn't have difficulty_level field - it's added during
+        categorization after generation. The generator must use safe attribute
+        access (getattr) to avoid AttributeError.
+        """
+        from src.generators.general import GeneralArticleGenerator
+
+        generator = GeneralArticleGenerator(mock_openai_client)
+
+        # Verify EnrichedItem doesn't have difficulty_level
+        assert not hasattr(high_quality_enriched_item, "difficulty_level")
+
+        # Mock the OpenAI response
+        mock_response = MagicMock()
+        mock_response.choices = [
+            MagicMock(message=MagicMock(content="# Test Article\n\nContent here"))
+        ]
+        mock_response.usage = MagicMock(prompt_tokens=500, completion_tokens=1000)
+        mock_openai_client.chat.completions.create.return_value = mock_response
+
+        # This should NOT raise AttributeError despite missing difficulty_level
+        with patch(
+            "src.pipeline.quality_feedback.get_quality_prompt_enhancements"
+        ) as mock_enhancements:
+            mock_enhancements.return_value = "Quality guidance"
+            content, input_tokens, output_tokens = generator.generate_content(
+                high_quality_enriched_item
+            )
+
+        assert content is not None
+        assert len(content) > 0
+        assert input_tokens > 0
+        assert output_tokens > 0
+
+    def test_general_generator_handles_optional_attributes(
+        self, high_quality_enriched_item, mock_openai_client
+    ):
+        """Generator should safely handle any optional attributes using getattr.
+
+        Verifies that getattr() with default values is used for any fields
+        that might not exist on EnrichedItem.
+        """
+        from src.generators.general import GeneralArticleGenerator
+
+        generator = GeneralArticleGenerator(mock_openai_client)
+
+        # List of attributes that should be optionally accessed
+        optional_attrs = ["difficulty_level", "content_type_hint", "target_audience"]
+
+        for attr in optional_attrs:
+            if hasattr(high_quality_enriched_item, attr):
+                continue  # Skip if it happens to exist
+
+            # Mock OpenAI response
+            mock_response = MagicMock()
+            mock_response.choices = [
+                MagicMock(message=MagicMock(content="# Test\n\nContent"))
+            ]
+            mock_response.usage = MagicMock(prompt_tokens=100, completion_tokens=200)
+            mock_openai_client.chat.completions.create.return_value = mock_response
+
+            # Generate should work fine even without these optional attributes
+            with patch(
+                "src.pipeline.quality_feedback.get_quality_prompt_enhancements"
+            ) as mock_enhancements:
+                mock_enhancements.return_value = ""
+                content, _, _ = generator.generate_content(high_quality_enriched_item)
+
+            assert content is not None
+
+    def test_enriched_item_model_lacks_difficulty_level(self, sample_collected_item):
+        """Verify EnrichedItem model doesn't have difficulty_level field.
+
+        This documents the design intent: difficulty_level is populated
+        during categorization (after generation), not before generation.
+        """
+        item = EnrichedItem(
+            original=sample_collected_item,
+            research_summary="Test research",
+            related_sources=[],
+            topics=["test"],
+            quality_score=0.8,
+            enriched_at=datetime.now(UTC),
+        )
+
+        # EnrichedItem should not have difficulty_level
+        assert not hasattr(item, "difficulty_level")
+
+        # But using getattr with default should work safely
+        level = getattr(item, "difficulty_level", None)
+        assert level is None
+
+        # And we can provide a fallback
+        level = getattr(item, "difficulty_level", None) or "intermediate"
+        assert level == "intermediate"

@@ -52,7 +52,9 @@ class GeneralArticleGenerator(BaseGenerator):
         prompt = build_enhanced_prompt(item, content_type)
 
         # Add quality enhancements to guide generation
-        difficulty_level = item.difficulty_level or "intermediate"
+        # Note: difficulty_level is optional at enrichment stage,
+        # will be set during categorization after generation
+        difficulty_level = getattr(item, "difficulty_level", None) or "intermediate"
         quality_guidance = get_quality_prompt_enhancements(
             difficulty_level, content_type
         )
