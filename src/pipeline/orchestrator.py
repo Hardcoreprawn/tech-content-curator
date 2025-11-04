@@ -223,7 +223,9 @@ def generate_articles_from_enriched(
 
     selected = select_diverse_candidates(candidates, max_articles, generators)
     console.print(f"[green]✓[/green] Selected {len(selected)} diverse candidates")
-    logger.info(f"Selected {len(selected)} diverse candidates for generation (requested max: {max_articles})")
+    logger.info(
+        f"Selected {len(selected)} diverse candidates for generation (requested max: {max_articles})"
+    )
 
     # Generate articles
     console.print(f"\n[bold blue]📝 Generating {len(selected)} articles...[/bold blue]")
@@ -237,7 +239,9 @@ def generate_articles_from_enriched(
 
     for i, item in enumerate(selected, 1):
         console.print(f"\n[bold cyan]Article {i}/{len(selected)}[/bold cyan]")
-        logger.debug(f"Generating article {i}/{len(selected)}: {item.original.title[:60]}")
+        logger.debug(
+            f"Generating article {i}/{len(selected)}: {item.original.title[:60]}"
+        )
 
         article = generate_single_article(
             item,
@@ -268,17 +272,25 @@ def generate_articles_from_enriched(
                 generation_errors.append((item.original.title[:50], str(e)[:60]))
                 continue
         else:
-            logger.warning(f"Article generation returned None for: {item.original.title[:60]}")
-            generation_errors.append((item.original.title[:50], "generation_returned_none"))
+            logger.warning(
+                f"Article generation returned None for: {item.original.title[:60]}"
+            )
+            generation_errors.append(
+                (item.original.title[:50], "generation_returned_none")
+            )
 
     console.print(
         f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
     )
-    logger.info(f"Generation complete: {len(articles)}/{len(selected)} articles created successfully")
+    logger.info(
+        f"Generation complete: {len(articles)}/{len(selected)} articles created successfully"
+    )
 
     # Print errors if any
     if generation_errors:
-        console.print(f"\n[yellow]⚠ Generation Errors ({len(generation_errors)}):[/yellow]")
+        console.print(
+            f"\n[yellow]⚠ Generation Errors ({len(generation_errors)}):[/yellow]"
+        )
         for title, error in generation_errors:
             console.print(f"  • {title}: {error}")
             logger.warning(f"Generation error for '{title}': {error}")

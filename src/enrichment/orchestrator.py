@@ -73,12 +73,16 @@ def enrich_single_item(
         console.print(
             f"  Heuristic: {heuristic_score:.2f} - {heuristic_explanation[:50]}..."
         )
-        logger.debug(f"Heuristic score: {heuristic_score:.3f} | reason: {heuristic_explanation}")
+        logger.debug(
+            f"Heuristic score: {heuristic_score:.3f} | reason: {heuristic_explanation}"
+        )
 
         # Early exit for very low heuristic scores (save API costs)
         if heuristic_score < 0.15:
             console.print("[dim]  Skipping AI analysis - heuristic score too low[/dim]")
-            logger.info(f"Rejected at heuristic stage: {item.id} (score: {heuristic_score:.3f} < 0.15)")
+            logger.info(
+                f"Rejected at heuristic stage: {item.id} (score: {heuristic_score:.3f} < 0.15)"
+            )
             return EnrichedItem(
                 original=item,
                 research_summary="Heuristic score too low for AI analysis",
@@ -102,14 +106,18 @@ def enrich_single_item(
         # Combine scores (weighted average: 30% heuristic, 70% AI)
         final_score = (heuristic_score * 0.3) + (ai_score * 0.7)
         console.print(f"  Final: {final_score:.2f}")
-        logger.debug(f"Combined score: {final_score:.3f} = (heuristic:{heuristic_score:.3f}*0.3 + ai:{ai_score:.3f}*0.7)")
+        logger.debug(
+            f"Combined score: {final_score:.3f} = (heuristic:{heuristic_score:.3f}*0.3 + ai:{ai_score:.3f}*0.7)"
+        )
 
         # Early exit for low combined scores
         if final_score < 0.2:
             console.print(
                 "[dim]  Skipping further analysis - combined score too low[/dim]"
             )
-            logger.info(f"Rejected at combined score stage: {item.id} (score: {final_score:.3f} < 0.2)")
+            logger.info(
+                f"Rejected at combined score stage: {item.id} (score: {final_score:.3f} < 0.2)"
+            )
             return EnrichedItem(
                 original=item,
                 research_summary="Combined score too low for further analysis",
@@ -131,7 +139,9 @@ def enrich_single_item(
             logger.debug(f"Running deep research for item {item.id} (score >= 0.4)")
             research_summary = research_additional_context(item, topics, client)
         else:
-            logger.debug(f"Skipping deep research for item {item.id} (score {final_score:.3f} < 0.4)")
+            logger.debug(
+                f"Skipping deep research for item {item.id} (score {final_score:.3f} < 0.4)"
+            )
             research_summary = "Score below threshold for detailed research."
 
         # Create enriched item
@@ -147,7 +157,9 @@ def enrich_single_item(
         console.print(
             f"[green]✓[/green] Enriched: {item.title[:30]}... (score: {final_score:.2f})"
         )
-        logger.info(f"Successfully enriched item {item.id} with score {final_score:.3f}")
+        logger.info(
+            f"Successfully enriched item {item.id} with score {final_score:.3f}"
+        )
         return enriched
 
     except Exception as e:
@@ -191,7 +203,13 @@ def enrich_collected_items(
             if enriched:
                 # Track if item was rejected (returned but with low score)
                 if enriched.quality_score < 0.2:
-                    rejected_items.append((item.title[:50], enriched.quality_score, "combined_score_too_low"))
+                    rejected_items.append(
+                        (
+                            item.title[:50],
+                            enriched.quality_score,
+                            "combined_score_too_low",
+                        )
+                    )
                 enriched_items.append(enriched)
             else:
                 rejected_items.append((item.title[:50], 0.0, "enrichment_failed"))
@@ -220,21 +238,29 @@ def enrich_collected_items(
         console.print(f"  >= 0.5 (article ready): {above_threshold}")
         console.print(f"  < 0.5: {len(enriched_items) - above_threshold}")
         console.print(f"  Score range: {min(scores):.2f} - {max(scores):.2f}")
-        logger.info(f"Quality distribution: {above_threshold}/{len(enriched_items)} items >= 0.5 threshold")
+        logger.info(
+            f"Quality distribution: {above_threshold}/{len(enriched_items)} items >= 0.5 threshold"
+        )
 
     # Rejection analysis
     if rejected_items:
-        console.print(f"\n[yellow]⚠️ Rejection Analysis ({len(rejected_items)} items):[/yellow]")
+        console.print(
+            f"\n[yellow]⚠️ Rejection Analysis ({len(rejected_items)} items):[/yellow]"
+        )
         rejection_reasons = {}
         for title, score, reason in rejected_items:
             rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
             logger.debug(f"Rejected: '{title}' | score: {score:.3f} | reason: {reason}")
 
-        for reason, count in sorted(rejection_reasons.items(), key=lambda x: x[1], reverse=True):
+        for reason, count in sorted(
+            rejection_reasons.items(), key=lambda x: x[1], reverse=True
+        ):
             console.print(f"  {reason}: {count}")
 
     console.print(
         f"\n[bold green]✓ Enrichment complete: {len(enriched_items)}/{len(items)} items enriched[/bold green]"
     )
-    logger.info(f"Enrichment complete: {len(enriched_items)}/{len(items)} items (rejected: {len(rejected_items)})")
+    logger.info(
+        f"Enrichment complete: {len(enriched_items)}/{len(items)} items (rejected: {len(rejected_items)})"
+    )
     return enriched_items

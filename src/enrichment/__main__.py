@@ -48,12 +48,22 @@ def main():
         # Show threshold statistics
         above_threshold = sum(1 for e in enriched if e.quality_score >= 0.5)
         if above_threshold > 0:
-            console.print(f"[green]✓ {above_threshold} items ready for article generation (score >= 0.5)[/green]")
-            logger.info(f"Items ready for generation: {above_threshold}/{len(enriched)}")
+            console.print(
+                f"[green]✓ {above_threshold} items ready for article generation (score >= 0.5)[/green]"
+            )
+            logger.info(
+                f"Items ready for generation: {above_threshold}/{len(enriched)}"
+            )
         else:
-            console.print("[yellow]⚠ No items met article generation threshold (>= 0.5)[/yellow]")
-            console.print(f"[dim]  Best quality scores: {sorted([e.quality_score for e in enriched], reverse=True)[:5]}[/dim]")
-            logger.warning(f"No items met threshold. Top scores: {sorted([e.quality_score for e in enriched], reverse=True)[:5]}")
+            console.print(
+                "[yellow]⚠ No items met article generation threshold (>= 0.5)[/yellow]"
+            )
+            console.print(
+                f"[dim]  Best quality scores: {sorted([e.quality_score for e in enriched], reverse=True)[:5]}[/dim]"
+            )
+            logger.warning(
+                f"No items met threshold. Top scores: {sorted([e.quality_score for e in enriched], reverse=True)[:5]}"
+            )
 
         return 0
     else:

@@ -114,7 +114,9 @@ def select_article_candidates(
     adaptive_feedback = AdaptiveDedupFeedback()
     recent_cache = RecentContentCache(content_dir) if use_adaptive_filtering else None
 
-    logger.info(f"Starting candidate selection from {len(items)} enriched items (min_quality={min_quality})")
+    logger.info(
+        f"Starting candidate selection from {len(items)} enriched items (min_quality={min_quality})"
+    )
     rejection_reasons = {}
 
     for item in items:
@@ -218,7 +220,9 @@ def select_article_candidates(
                 continue
 
         candidates.append(item)
-        logger.debug(f"Accepted {item.original.id} as candidate (quality: {item.quality_score:.3f})")
+        logger.debug(
+            f"Accepted {item.original.id} as candidate (quality: {item.quality_score:.3f})"
+        )
 
     # Sort by quality score (best first)
     candidates.sort(key=lambda x: x.quality_score, reverse=True)
@@ -226,14 +230,20 @@ def select_article_candidates(
     # Show rejection summary
     if rejection_reasons:
         console.print("\n[yellow]📊 Rejection Summary:[/yellow]")
-        for reason, count in sorted(rejection_reasons.items(), key=lambda x: x[1], reverse=True):
+        for reason, count in sorted(
+            rejection_reasons.items(), key=lambda x: x[1], reverse=True
+        ):
             console.print(f"  {reason}: {count}")
-        logger.info(f"Rejected {sum(rejection_reasons.values())} items: {rejection_reasons}")
+        logger.info(
+            f"Rejected {sum(rejection_reasons.values())} items: {rejection_reasons}"
+        )
 
     console.print(
         f"[green]✓[/green] Selected {len(candidates)} candidates from {len(items)} enriched items"
     )
-    logger.info(f"Candidate selection: {len(candidates)} candidates from {len(items)} items")
+    logger.info(
+        f"Candidate selection: {len(candidates)} candidates from {len(items)} items"
+    )
 
     # Story clustering to detect cross-source duplicates
     if deduplicate_stories and len(candidates) > 1:
@@ -249,7 +259,9 @@ def select_article_candidates(
         # Filter out duplicate stories (keep best source for each story)
         pre_filter = len(candidates)
         candidates = filter_duplicate_stories(candidates, keep_best=True)
-        logger.info(f"After story dedup: {len(candidates)} candidates (removed {pre_filter - len(candidates)})")
+        logger.info(
+            f"After story dedup: {len(candidates)} candidates (removed {pre_filter - len(candidates)})"
+        )
 
     # Print cache stats if using adaptive filtering
     if use_adaptive_filtering and recent_cache:
