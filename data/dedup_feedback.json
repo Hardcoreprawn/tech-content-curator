@@ -1689,5 +1689,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 319,
+    "timestamp": "2025-11-04T06:07:03.738440",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Ask HN: How to deal with long vibe-coded PRs?\n\nToday I came across a PR for a (in theory) relatively",
+        "removed_items": [
+          "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Why is Python's OrderedDict ordered?",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
