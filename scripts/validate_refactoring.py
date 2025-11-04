@@ -50,13 +50,13 @@ def test_enrichment_scoring():
         title="Understanding Kubernetes Internals",
         content="""
         Deep dive into how Kubernetes schedules pods across nodes.
-        
+
         ```python
         def schedule_pod(pod, nodes):
             # Select best node based on resources
             return max(nodes, key=lambda n: n.available_memory)
         ```
-        
+
         This covers architecture, implementation details, and performance considerations.
         """,
         url="https://example.com/k8s",

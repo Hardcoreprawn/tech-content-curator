@@ -23,11 +23,11 @@ from typing import TYPE_CHECKING
 from openai import OpenAI
 from rich.console import Console
 
-from src.config import PipelineConfig, get_config, get_content_dir
+from src.config import PipelineConfig, get_config
 from src.pipeline.illustration_service import IllustrationService
 
 if TYPE_CHECKING:
-    from src.models import GeneratedArticle
+    pass
 
 console = Console()
 logger = logging.getLogger(__name__)
@@ -43,7 +43,7 @@ def extract_frontmatter(content: str) -> tuple[str, str]:
     if not content.startswith("---"):
         return "", content
 
-    # Find the closing --- 
+    # Find the closing ---
     end_index = content.find("\n---\n", 4)
     if end_index == -1:
         return "", content
@@ -115,7 +115,7 @@ def regenerate_illustrations(
     # Remove existing diagrams
     cleaned_content = remove_existing_diagrams(markdown_content)
     if cleaned_content != markdown_content:
-        console.print(f"[dim]Removed existing diagrams[/dim]")
+        console.print("[dim]Removed existing diagrams[/dim]")
 
     # Generate new illustrations
     console.print("[dim]Generating new illustrations...[/dim]")

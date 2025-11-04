@@ -7,7 +7,7 @@ Run: python scripts/test_story_clustering.py
 """
 
 import sys
-from datetime import datetime, UTC
+from datetime import UTC, datetime
 from pathlib import Path
 
 # Add project root to path
@@ -17,13 +17,13 @@ sys.path.insert(0, str(project_root))
 from pydantic import HttpUrl
 from rich.console import Console
 
-from src.models import CollectedItem, EnrichedItem, SourceType
 from src.deduplication import (
-    find_story_clusters,
-    filter_duplicate_stories,
-    report_story_clusters,
     calculate_story_similarity,
+    filter_duplicate_stories,
+    find_story_clusters,
+    report_story_clusters,
 )
+from src.models import CollectedItem, EnrichedItem, SourceType
 
 console = Console()
 
@@ -45,7 +45,7 @@ def create_test_item(
         author="test_user",
         collected_at=datetime.now(UTC),
     )
-    
+
     return EnrichedItem(
         original=collected,
         research_summary=content,
@@ -59,7 +59,7 @@ def create_test_item(
 def test_affinity_case():
     """Test case: Affinity Software from different sources."""
     console.print("\n[bold cyan]Test Case 1: Affinity Software (from your Oct 31 run)[/bold cyan]\n")
-    
+
     item1 = create_test_item(
         title="Affinity Studio Goes Free: A Game Changer for Designers",
         content="Affinity announces free release of their design software suite. "
@@ -68,7 +68,7 @@ def test_affinity_case():
         topics=["design", "software", "freemium", "affinity"],
         quality=0.85,
     )
-    
+
     item2 = create_test_item(
         title="Affinity Software's Freemium Shift: What Artists Need to Know",
         content="Affinity's business model change to freemium after Canva acquisition. "
@@ -77,16 +77,16 @@ def test_affinity_case():
         topics=["design", "software", "freemium", "canva", "affinity"],
         quality=0.80,
     )
-    
+
     # Calculate similarity
     similarity = calculate_story_similarity(item1, item2)
     console.print(f"Story similarity: {similarity:.1%}")
     console.print(f"Should be detected as duplicates: {'✓ Yes' if similarity > 0.55 else '✗ No'}\n")
-    
+
     # Cluster them
     clusters = find_story_clusters([item1, item2])
     report_story_clusters(clusters, verbose=True)
-    
+
     # Filter
     filtered = filter_duplicate_stories([item1, item2])
     console.print(f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]")
@@ -95,7 +95,7 @@ def test_affinity_case():
 def test_icc_case():
     """Test case: ICC Open Source from different sources."""
     console.print("\n[bold cyan]Test Case 2: ICC Open Source (from your Oct 31 run)[/bold cyan]\n")
-    
+
     item1 = create_test_item(
         title="ICC Ditches Microsoft 365 for Open-Source: A Data Privacy Win",
         content="International Criminal Court transitions from Microsoft 365 to open-source. "
@@ -104,7 +104,7 @@ def test_icc_case():
         topics=["open-source", "microsoft", "privacy", "icc", "cloud", "data-sovereignty"],
         quality=0.82,
     )
-    
+
     item2 = create_test_item(
         title="ICC's Bold Move: Embracing Open-Source Over Microsoft",
         content="ICC adopts open-source software instead of Microsoft 365. "
@@ -113,16 +113,16 @@ def test_icc_case():
         topics=["open-source", "microsoft", "enterprise", "icc", "europe", "cloud"],
         quality=0.78,
     )
-    
+
     # Calculate similarity
     similarity = calculate_story_similarity(item1, item2)
     console.print(f"Story similarity: {similarity:.1%}")
     console.print(f"Should be detected as duplicates: {'✓ Yes' if similarity > 0.55 else '✗ No'}\n")
-    
+
     # Cluster them
     clusters = find_story_clusters([item1, item2])
     report_story_clusters(clusters, verbose=True)
-    
+
     # Filter
     filtered = filter_duplicate_stories([item1, item2])
     console.print(f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]")
@@ -131,7 +131,7 @@ def test_icc_case():
 def test_unrelated_case():
     """Test case: Unrelated items should NOT be clustered."""
     console.print("\n[bold cyan]Test Case 3: Unrelated Items (should NOT cluster)[/bold cyan]\n")
-    
+
     item1 = create_test_item(
         title="Rust 1.75 Released with New Features",
         content="Rust programming language version 1.75 includes new async improvements.",
@@ -139,7 +139,7 @@ def test_unrelated_case():
         topics=["rust", "programming", "release"],
         quality=0.85,
     )
-    
+
     item2 = create_test_item(
         title="Python 3.13 Beta Now Available",
         content="Python 3.13 beta release with performance improvements.",
@@ -147,16 +147,16 @@ def test_unrelated_case():
         topics=["python", "programming", "release"],
         quality=0.87,
     )
-    
+
     # Calculate similarity
     similarity = calculate_story_similarity(item1, item2)
     console.print(f"Story similarity: {similarity:.1%}")
     console.print(f"Should NOT be detected as duplicates: {'✓ Correct' if similarity <= 0.55 else '✗ Wrong'}\n")
-    
+
     # Cluster them
     clusters = find_story_clusters([item1, item2])
     report_story_clusters(clusters, verbose=True)
-    
+
     # Filter
     filtered = filter_duplicate_stories([item1, item2])
     console.print(f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]")
@@ -165,7 +165,7 @@ def test_unrelated_case():
 def test_mixed_case():
     """Test case: Mix of related and unrelated items."""
     console.print("\n[bold cyan]Test Case 4: Mixed Batch (realistic scenario)[/bold cyan]\n")
-    
+
     items = [
         # Duplicate story pair
         create_test_item(
@@ -199,13 +199,13 @@ def test_mixed_case():
             0.92,
         ),
     ]
-    
+
     console.print(f"Input: {len(items)} items")
-    
+
     # Find clusters
     clusters = find_story_clusters(items)
     report_story_clusters(clusters, verbose=True)
-    
+
     # Filter
     filtered = filter_duplicate_stories(items)
     console.print(f"\n[green]After filtering: {len(filtered)} unique stories[/green]")
@@ -215,17 +215,17 @@ def test_mixed_case():
 if __name__ == "__main__":
     console.print("\n[bold]Story Clustering Test Suite[/bold]")
     console.print("=" * 60)
-    
+
     test_affinity_case()
     console.print("\n" + "=" * 60)
-    
+
     test_icc_case()
     console.print("\n" + "=" * 60)
-    
+
     test_unrelated_case()
     console.print("\n" + "=" * 60)
-    
+
     test_mixed_case()
     console.print("\n" + "=" * 60)
-    
+
     console.print("\n[bold green]✓ All tests complete![/bold green]")

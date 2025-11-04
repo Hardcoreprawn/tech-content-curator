@@ -6,6 +6,7 @@ Shows the enrichment pipeline structure with deterministic mocked responses.
 """
 
 from unittest.mock import Mock, patch
+
 from rich.console import Console
 
 from src.config import get_config, get_data_dir

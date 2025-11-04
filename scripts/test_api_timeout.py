@@ -2,6 +2,7 @@
 """Debug script to test OpenAI API timeout issues."""
 
 import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -43,19 +44,19 @@ print("\n3. Testing longer prompt (integrative generator style)...")
 try:
     long_prompt = """
     You're writing an in-depth integrative guide based on a curated list-style source.
-    
+
     CONTEXT FROM SOURCE:
     TITLE: Example Title
     CONTENT (excerpt): This is some test content
     SOURCE URL: https://example.com
     TOPICS: test, example
-    
+
     WRITE A COMPREHENSIVE GUIDE THAT:
     - Opens with why this problem space matters
     - Includes a short "Key Takeaways" bullet list
     - Groups tools into a clear taxonomy
     """
-    
+
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[

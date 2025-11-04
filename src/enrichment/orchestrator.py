@@ -110,8 +110,18 @@ def enrich_single_item(
             f"Combined score: {final_score:.3f} = (heuristic:{heuristic_score:.3f}*0.3 + ai:{ai_score:.3f}*0.7)"
         )
 
-        # Early exit for low combined scores
+        # Early exit for very low combined scores
         # Note: 0.5 threshold includes educational/historical tech content (0.5-0.55 range)
+        # But we still extract topics for items that didn't make the cut
+
+        # Step 2: Extract topics (always extract for metadata, even if score is low)
+        topics = extract_topics_and_themes(item, client)
+        console.print(
+            f"  Topics: {', '.join(topics[:3])}{'...' if len(topics) > 3 else ''}"
+        )
+        logger.debug(f"Extracted {len(topics)} topics: {topics}")
+
+        # Early exit for very low combined scores (after topic extraction)
         if final_score < 0.5:
             console.print(
                 "[dim]  Skipping further analysis - combined score too low[/dim]"
@@ -121,19 +131,12 @@ def enrich_single_item(
             )
             return EnrichedItem(
                 original=item,
-                research_summary="Combined score too low for further analysis",
+                research_summary="Score below threshold for further analysis.",
                 related_sources=[],
-                topics=[],
+                topics=topics,
                 quality_score=final_score,
                 enriched_at=datetime.now(UTC),
             )
-
-        # Step 2: Extract topics (only for items that passed scoring)
-        topics = extract_topics_and_themes(item, client)
-        console.print(
-            f"  Topics: {', '.join(topics[:3])}{'...' if len(topics) > 3 else ''}"
-        )
-        logger.debug(f"Extracted {len(topics)} topics: {topics}")
 
         # Step 3: Research context (only for decent quality items to save API costs)
         # Include educational/historical content (0.5+) in research for richer context

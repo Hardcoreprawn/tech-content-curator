@@ -144,7 +144,6 @@ def benchmark_threading() -> None:
     print("Threading Benchmark")
     print("=" * 60)
 
-    import threading
     from concurrent.futures import ThreadPoolExecutor
 
     def cpu_intensive_task(n: int) -> int:
@@ -159,13 +158,13 @@ def benchmark_threading() -> None:
 
     # Sequential benchmark
     start = time.time()
-    results = [cpu_intensive_task(iterations) for _ in range(num_workers)]
+    [cpu_intensive_task(iterations) for _ in range(num_workers)]
     sequential_time = time.time() - start
 
     # Parallel benchmark
     start = time.time()
     with ThreadPoolExecutor(max_workers=num_workers) as executor:
-        results = list(executor.map(cpu_intensive_task, [iterations] * num_workers))
+        list(executor.map(cpu_intensive_task, [iterations] * num_workers))
     parallel_time = time.time() - start
 
     speedup = sequential_time / parallel_time
@@ -228,10 +227,6 @@ def main() -> None:
     print("Next Steps")
     print("=" * 60)
 
-    if sys.version_info < (3, 14):
-        print("1. Install Python 3.14:")
-        print("   pyenv install 3.14.0")
-        print("   pyenv local 3.14.0")
 
     if hasattr(sys, "_is_gil_enabled") and sys._is_gil_enabled():
         print("2. Enable free-threading:")

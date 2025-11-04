@@ -5,8 +5,8 @@ Setup check: imports, config, and basic Mastodon collection.
 
 from rich.console import Console
 
-from src.config import get_config
 from src.collectors import collect_from_mastodon
+from src.config import get_config
 
 console = Console()
 

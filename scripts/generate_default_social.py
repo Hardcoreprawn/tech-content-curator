@@ -10,9 +10,10 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.images.cover_image import generate_featured_image
 from pathlib import Path
-from typing import Optional
+
+from src.images.cover_image import generate_featured_image
+
 
 def load_env_from_dotenv() -> None:
     """Attempt to load environment variables from a .env file if available."""
@@ -44,8 +45,8 @@ def main() -> None:
     console.print()
 
     title = "Tech Content Curator"
-    summary = """A curated collection of quality tech articles from HackerNews, GitHub Trending, 
-    Reddit, and Mastodon. Discover the latest in software development, open source, AI, 
+    summary = """A curated collection of quality tech articles from HackerNews, GitHub Trending,
+    Reddit, and Mastodon. Discover the latest in software development, open source, AI,
     infrastructure, and developer tools. Daily updates with well-researched, insightful content."""
 
     result = generate_featured_image(

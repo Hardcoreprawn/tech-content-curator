@@ -15,7 +15,6 @@ Usage:
 """
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -168,8 +167,7 @@ def main():
             # Strategy: Remove article2 (keep article1 for consistency)
             # Primary: Remove lower quality version
             # Secondary: Remove second article (keep first) if equal quality
-            reason = ""
-            
+
             if abs(score1 - score2) > 0.01:  # Meaningful quality difference
                 if score1 < score2:
                     to_remove.append(
