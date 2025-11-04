@@ -111,12 +111,13 @@ def enrich_single_item(
         )
 
         # Early exit for low combined scores
-        if final_score < 0.2:
+        # Note: 0.5 threshold includes educational/historical tech content (0.5-0.55 range)
+        if final_score < 0.5:
             console.print(
                 "[dim]  Skipping further analysis - combined score too low[/dim]"
             )
             logger.info(
-                f"Rejected at combined score stage: {item.id} (score: {final_score:.3f} < 0.2)"
+                f"Rejected at combined score stage: {item.id} (score: {final_score:.3f} < 0.5)"
             )
             return EnrichedItem(
                 original=item,
@@ -135,12 +136,13 @@ def enrich_single_item(
         logger.debug(f"Extracted {len(topics)} topics: {topics}")
 
         # Step 3: Research context (only for decent quality items to save API costs)
-        if final_score >= 0.4:
-            logger.debug(f"Running deep research for item {item.id} (score >= 0.4)")
+        # Include educational/historical content (0.5+) in research for richer context
+        if final_score >= 0.5:
+            logger.debug(f"Running deep research for item {item.id} (score >= 0.5)")
             research_summary = research_additional_context(item, topics, client)
         else:
             logger.debug(
-                f"Skipping deep research for item {item.id} (score {final_score:.3f} < 0.4)"
+                f"Skipping deep research for item {item.id} (score {final_score:.3f} < 0.5)"
             )
             research_summary = "Score below threshold for detailed research."
 

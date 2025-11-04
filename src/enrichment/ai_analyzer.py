@@ -67,7 +67,9 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
     """Analyze content quality with more selective, realistic scoring.
 
     This uses a more discriminating scale that better reflects the reality
-    that most social media content isn't article-worthy.
+    that most social media content isn't article-worthy. Includes special
+    consideration for educational/historical tech content featuring
+    underrepresented figures in science and technology.
 
     Args:
         item: The collected item to analyze
@@ -89,19 +91,28 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
     - Is it entitled whining or first-world problems disguised as insights?
     - Does it contain actionable insights or just commentary?
     - Is there enough technical depth to expand into an article?
+    - Is it educational/historical content about tech or science (biographies, foundational discoveries)?
 
     Consider these factors:
     - Technical depth and actionability
     - Broader applicability vs niche concerns
     - Whether it provides useful insights vs just complaints
     - Signal-to-noise ratio for a general tech audience
+    - For historical content: Does it highlight underrepresented figures? Is it about foundational breakthroughs?
 
     Then score it:
-    - 0.8-1.0: Major technical breakthrough or deep insight
-    - 0.6-0.7: Solid technical content with practical value
+    - 0.8-1.0: Major technical breakthrough, deep insight, or historically significant discovery
+    - 0.6-0.7: Solid technical content with practical value OR important historical figure/discovery
+    - 0.5-0.55: Educational/historical content about underrepresented tech pioneers or foundational science
     - 0.4-0.5: Some technical merit, basic but useful
     - 0.2-0.3: Minimal technical value, niche, or mostly commentary
     - 0.0-0.1: Not technical, purely personal, or no actionable value
+
+    SPECIAL CATEGORY - Historical Tech Content (0.5-0.55):
+    If this post highlights an underrepresented figure in tech/science (especially women or minorities),
+    or describes a foundational technological/scientific breakthrough with educational value, score it
+    at 0.5-0.55 even if it lacks current-day actionability. These pieces preserve important history
+    that's often overlooked in tech spaces.
 
     Be realistic but fair. Consider if the content would be useful to a meaningful portion of readers.
 
