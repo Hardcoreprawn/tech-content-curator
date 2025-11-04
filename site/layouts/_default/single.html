@@ -1,0 +1,58 @@
+{{/* 
+Override of PaperMod single.html to include our custom post metadata.
+This extends the default PaperMod layout and injects our difficulty level display.
+*/}}
+
+{{- define "main" }}
+
+{{ if .Title }}
+<header class="post-header">
+  {{ partial "breadcrumbs.html" . }}
+  <h1 class="post-title">
+    {{ .Title }}
+    {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[DRAFT]</span></sup>{{- end }}
+  </h1>
+  {{- if .Params.summary }}
+  <div class="post-description">{{ .Params.summary }}</div>
+  {{- end }}
+
+  {{/* Include our custom post metadata with difficulty level */}}
+  {{ partial "post-meta.html" . }}
+
+</header>
+{{- end }}
+
+{{- $isHidden := .Params.hidemeta }}
+{{- if (.Params.cover.image) }}
+<figure class="entry-cover">
+    <img loading="lazy" src="{{ .Params.cover.image }}" alt="{{ .Params.cover.alt }}" />
+    {{ if .Params.cover.caption }}<p>{{ .Params.cover.caption }}</p>{{ end }}
+</figure>
+{{- end }}
+
+<div class="post-content">
+  {{- if not (.Params.disableAnchoredHeadings) }}
+    {{- partial "anchored_headings.html" .Content }}
+  {{- else }}
+    {{.Content}}
+  {{- end }}
+</div>
+
+<footer class="post-footer">
+  {{- if .Params.tags }}
+  <nav class="tags-nav">
+    <span>Tags:</span>
+    {{- range (.GetTerms "tags") }}
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+
+  {{- partial "share_buttons.html" . }}
+</footer>
+
+{{- if (.Params.ShowRelated) | default (.Site.Params.ShowRelatedPosts) }}
+  {{- partial "related.html" . }}
+{{- end }}
+
+{{- end }}{{/* end main */}}
