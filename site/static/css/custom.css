@@ -1,5 +1,13 @@
 /* Custom CSS overrides for Tech Content Curator */
 
+/* Add subtle background pattern to hero area to fill empty black space */
+.profile {
+  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%),
+              repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.01) 10px, rgba(255,255,255,0.01) 20px);
+  padding: 16px;
+  border-radius: 8px;
+}
+
 /* Make abstract gradient hero images shorter (25% of original height)
    These are used as featured images and look less boring at reduced height.
    AI-generated featured images keep their original dimensions. */
@@ -12,28 +20,10 @@ img[src*="library/abstract-"] {
 
 /* Reduce hero section spacing */
 .home-info {
-  padding: 20px 0 !important;
+  padding: 16px 0 !important;
   margin: 0 !important;
 }
 
 .home-info p {
-  margin: 8px 0 !important;
-  font-size: 0.95rem !important;
-}
-
-/* Reduce social links spacing */
-.social-icons {
-  margin-top: 8px !important;
-  margin-bottom: 16px !important;
-  padding: 8px 0 !important;
-}
-
-.social-icons a {
-  margin-right: 12px !important;
-  margin-bottom: 8px !important;
-}
-
-/* Reduce homepage spacing overall */
-.home-info + .posts {
-  margin-top: 16px !important;
+  margin: 6px 0 !important;
 }
