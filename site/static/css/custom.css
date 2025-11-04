@@ -9,3 +9,31 @@ img[src*="library/abstract-"] {
   object-fit: cover;
   width: 100%;
 }
+
+/* Reduce hero section spacing */
+.home-info {
+  padding: 20px 0 !important;
+  margin: 0 !important;
+}
+
+.home-info p {
+  margin: 8px 0 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Reduce social links spacing */
+.social-icons {
+  margin-top: 8px !important;
+  margin-bottom: 16px !important;
+  padding: 8px 0 !important;
+}
+
+.social-icons a {
+  margin-right: 12px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Reduce homepage spacing overall */
+.home-info + .posts {
+  margin-top: 16px !important;
+}
