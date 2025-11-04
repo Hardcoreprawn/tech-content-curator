@@ -1658,5 +1658,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 313,
+    "timestamp": "2025-11-04T02:30:42.885783",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Ask HN: How to deal with long vibe-coded PRs?\n\nToday I came across a PR for a (in theory) relatively",
+        "removed_items": [
+          "awesome-go\n\nA curated list of awesome Go frameworks, libraries and software"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Why we migrated from Python to Node.js",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
