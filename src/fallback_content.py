@@ -186,9 +186,9 @@ def extract_fallback_data(item: EnrichedItem) -> dict[str, Any]:
         "point_4": points[3] if len(points) > 3 else "Key point 4",
         "point_1_title": f"Aspect of {topics.split(',')[0]}",
         "point_1_analysis": "See source material for detailed analysis.",
-        "point_2_title": f"Current developments",
+        "point_2_title": "Current developments",
         "point_2_analysis": "Following the latest industry trends and updates.",
-        "point_3_title": f"Future implications",
+        "point_3_title": "Future implications",
         "point_3_analysis": "Expected impact and next steps.",
         "significance": (
             f"Understanding these developments in {topics} is crucial for "

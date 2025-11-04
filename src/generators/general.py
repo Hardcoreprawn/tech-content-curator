@@ -69,18 +69,10 @@ class GeneralArticleGenerator(BaseGenerator):
 
         if voice_id and voice_id != "default":
             try:
-                from .voices.prompts import (
-                    build_voice_system_prompt,
-                    get_voice_prompt_kit,
-                )
+                from .voices.prompts import build_voice_system_prompt
 
                 # Get voice-specific system prompt
                 system_message = build_voice_system_prompt(voice_id, content_type)
-
-                # Get voice-specific temperature (varies by voice)
-                voice_kit = get_voice_prompt_kit(voice_id)
-                # Temperature is stored in the VoiceProfile, not VoicePromptKit
-                # For now, use default but could be enhanced
                 console.print(f"  [dim]Injected voice: {voice_id}[/dim]")
             except (ImportError, ValueError, KeyError) as e:
                 console.print(f"  [dim]Voice injection skipped: {e}[/dim]")
