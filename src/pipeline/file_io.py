@@ -20,56 +20,15 @@ from ..citations.resolver import ResolvedCitation
 from ..config import PipelineConfig, get_content_dir
 from ..images import CoverImageSelector, select_or_create_cover_image
 from ..models import EnrichedItem, GeneratedArticle
+from ..utils.file_io import (
+    atomic_write_text,
+    format_generation_costs,
+)
 from ..utils.logging import get_logger
 from ..utils.url_tools import normalize_url
 
 logger = get_logger(__name__)
 console = Console()
-
-
-def format_cost_value(cost: float, precision: int = 8) -> float:
-    """Format cost value with consistent decimal precision.
-
-    Ensures all cost values use standard decimal notation rather than
-    scientific notation or excessive precision. This keeps YAML frontmatter
-    readable and consistent across all generated articles.
-
-    Args:
-        cost: The cost value in USD
-        precision: Number of decimal places to round to
-
-    Returns:
-        Formatted cost value (rounded to avoid scientific notation)
-    """
-    if cost == 0.0:
-        return 0.0
-    # Round to specified precision to avoid scientific notation
-    # and keep values like 0.000054 readable
-    return round(cost, precision)
-
-
-def format_generation_costs(costs: dict[str, float]) -> dict[str, str]:
-    """Format all generation costs with consistent decimal notation.
-
-    Converts costs to strings to prevent YAML from using scientific notation
-    when serializing very small float values.
-
-    Args:
-        costs: Dictionary of cost values
-
-    Returns:
-        Dictionary with all values as formatted strings
-    """
-    result = {}
-    for key, value in costs.items():
-        formatted = format_cost_value(value)
-        # Convert to string to prevent scientific notation in YAML
-        if formatted == 0.0:
-            result[key] = 0.0  # Keep zero as float for cleaner YAML
-        else:
-            # Format with enough decimals, then strip trailing zeros
-            result[key] = float(f"{formatted:.8f}".rstrip("0").rstrip("."))
-    return result
 
 
 def save_article_to_file(
@@ -284,10 +243,10 @@ def save_article_to_file(
     # Combine everything
     full_content = attribution_block + article_content + references_block
 
-    # Write file
+    # Write file atomically to prevent corruption
     post = frontmatter.Post(full_content, **metadata)
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write(frontmatter.dumps(post))
+    article_text = frontmatter.dumps(post)
+    atomic_write_text(filepath, article_text)
 
     logger.info(
         f"Successfully saved article: {article.filename} ({len(full_content)} bytes)"

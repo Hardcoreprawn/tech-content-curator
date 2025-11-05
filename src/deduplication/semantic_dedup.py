@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Protocol
 
+from ..utils.file_io import atomic_write_json
 from ..utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -294,8 +295,8 @@ class SemanticDeduplicator:
                 }
             )
 
-        with open(self.patterns_file, "w") as f:
-            json.dump(patterns_data, f, indent=2)
+        # Use atomic write to prevent corruption
+        atomic_write_json(self.patterns_file, patterns_data)
 
     def load_patterns(self):
         """Load learned patterns from file."""

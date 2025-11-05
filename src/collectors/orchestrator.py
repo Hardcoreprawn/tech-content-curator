@@ -6,7 +6,6 @@ This module provides utility functions for managing collected items:
 - Orchestrating collection from all sources
 """
 
-import json
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -16,6 +15,7 @@ from ..config import get_config, get_data_dir
 from ..deduplication.dedup_feedback import DeduplicationFeedbackSystem
 from ..deduplication.semantic_dedup import SemanticDeduplicator
 from ..models import CollectedItem, PipelineConfig
+from ..utils.file_io import atomic_write_json
 from ..utils.logging import get_logger
 from ..utils.url_tools import normalize_url
 from .github import collect_from_github_trending
@@ -58,8 +58,8 @@ def save_collected_items(
         "items": [item.model_dump() for item in items],
     }
 
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False, default=str)
+    # Use atomic write to prevent corruption
+    atomic_write_json(filepath, data, ensure_ascii=False, default=str)
 
     console.print(f"[green]✓[/green] Saved {len(items)} items to {filename}")
     return filepath
