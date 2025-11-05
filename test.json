@@ -1,12 +1,12 @@
 [
   {
     "entities": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "keywords": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "confidence": 0.95,
     "examples": [
@@ -14,8 +14,8 @@
       "OpenAI announced ChatGPT improvements."
     ],
     "created_at": "2025-10-31T22:00:23.621369",
-    "last_seen": "2025-11-05T20:56:57.398667",
-    "frequency": 199
+    "last_seen": "2025-11-05T20:59:50.891592",
+    "frequency": 201
   },
   {
     "entities": [
@@ -32,8 +32,8 @@
       "Rust memory management and safety features."
     ],
     "created_at": "2025-10-31T22:00:23.643352",
-    "last_seen": "2025-11-05T20:56:57.473167",
-    "frequency": 198
+    "last_seen": "2025-11-05T20:59:50.966027",
+    "frequency": 200
   },
   {
     "entities": [
@@ -53,12 +53,12 @@
   },
   {
     "entities": [
-      "python",
-      "django"
+      "django",
+      "python"
     ],
     "keywords": [
-      "python",
-      "django"
+      "django",
+      "python"
     ],
     "confidence": 0.95,
     "examples": [
@@ -66,8 +66,8 @@
       "Python development using Django backend."
     ],
     "created_at": "2025-10-31T22:00:23.705351",
-    "last_seen": "2025-11-05T20:56:57.449506",
-    "frequency": 99
+    "last_seen": "2025-11-05T20:59:50.941991",
+    "frequency": 100
   },
   {
     "entities": [
@@ -3318,6 +3318,39 @@
     ],
     "created_at": "2025-11-05T20:56:57.464027",
     "last_seen": "2025-11-05T20:56:57.464031",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-05T20:59:50.914375",
+    "last_seen": "2025-11-05T20:59:50.914377",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust",
+      "memory"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-05T20:59:50.956647",
+    "last_seen": "2025-11-05T20:59:50.956650",
     "frequency": 1
   }
 ]

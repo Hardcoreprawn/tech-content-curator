@@ -37,29 +37,38 @@ def log_retry_attempt(retry_state):
         console.print(f"[yellow]⏳ Attempt {attempt_num}: retrying...[/yellow]")
 
 
-def get_openai_retry_decorator():
-    """Get tenacity retry decorator configured from config."""
-    from ..config import get_config
+def lazy_openai_retry(func):
+    """Decorator that applies retry logic with lazy config loading.
 
-    config = get_config()
-    return retry(
-        stop=stop_after_attempt(config.retries.max_attempts),
-        wait=wait_exponential(
-            multiplier=config.retries.backoff_multiplier,
-            min=config.retries.backoff_min,
-            max=config.retries.backoff_max,
-        ),
-        retry=retry_if_exception_type(
-            (APITimeoutError, APIConnectionError, RateLimitError)
-        ),
-        before_sleep=log_retry_attempt,
-    )
+    This decorator defers config loading until the function is actually called,
+    preventing import-time errors when the config isn't available (e.g., in CI tests).
+    """
+    from functools import wraps
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        from ..config import get_config
+
+        config = get_config()
+        decorator = retry(
+            stop=stop_after_attempt(config.retries.max_attempts),
+            wait=wait_exponential(
+                multiplier=config.retries.backoff_multiplier,
+                min=config.retries.backoff_min,
+                max=config.retries.backoff_max,
+            ),
+            retry=retry_if_exception_type(
+                (APITimeoutError, APIConnectionError, RateLimitError)
+            ),
+            before_sleep=log_retry_attempt,
+        )
+        decorated_func = decorator(func)
+        return decorated_func(*args, **kwargs)
+
+    return wrapper
 
 
-openai_retry = get_openai_retry_decorator()
-
-
-@openai_retry
+@lazy_openai_retry
 def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float, str]:
     """Analyze content quality with more selective, realistic scoring.
 
@@ -142,7 +151,7 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
         return 0.5, "Analysis failed - using default score"
 
 
-@openai_retry
+@lazy_openai_retry
 def extract_topics_and_themes(item: CollectedItem, client: OpenAI) -> list[str]:
     """Extract main topics and themes from content.
 
@@ -208,7 +217,7 @@ def extract_topics_and_themes(item: CollectedItem, client: OpenAI) -> list[str]:
         return []
 
 
-@openai_retry
+@lazy_openai_retry
 def research_additional_context(
     item: CollectedItem, topics: list[str], client: OpenAI
 ) -> str:
