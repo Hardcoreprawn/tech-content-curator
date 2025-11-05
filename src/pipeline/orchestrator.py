@@ -102,6 +102,7 @@ def generate_single_article(
         voice_id = "default"
         try:
             from ..generators.voices.selector import VoiceSelector
+
             voice_selector = VoiceSelector()
             voice_profile = voice_selector.select_voice(
                 content_type=getattr(item, "content_type", "general"),
@@ -195,7 +196,9 @@ def generate_single_article(
 
     except Exception as e:
         # Classify error - OpenAI errors are critical, other errors are warnings
-        error_type = handle_openai_error(e, context="article generation", should_raise=False)
+        error_type = handle_openai_error(
+            e, context="article generation", should_raise=False
+        )
         if is_fatal(error_type):
             raise
         logger.error(f"Article generation failed: {e}", exc_info=True)

@@ -16,14 +16,22 @@ class VoiceProfile:
     temperature: float  # 0.4-0.7 for varied creativity
     system_message: str  # Brief tone description (1-2 sentences)
     style_guidance: str  # Detailed writing instructions for GPT
-    content_type_fit: dict = field(default_factory=dict)  # {"tutorial": 0.8, "news": 0.3, ...}
-    opening_hook_styles: list[str] = field(default_factory=list)  # ["question", "stat", "story", ...]
-    preferred_structures: list[str] = field(default_factory=list)  # ["classic", "narrative_arc", ...]
+    content_type_fit: dict = field(
+        default_factory=dict
+    )  # {"tutorial": 0.8, "news": 0.3, ...}
+    opening_hook_styles: list[str] = field(
+        default_factory=list
+    )  # ["question", "stat", "story", ...]
+    preferred_structures: list[str] = field(
+        default_factory=list
+    )  # ["classic", "narrative_arc", ...]
     min_citations: int = 3
     max_word_count: int = 4000
     paragraph_style: str = "mixed"  # "short_punchy", "flowing", "mixed"
     banned_phrases: list[str] = field(default_factory=list)
-    pacing_style: str = "mixed"  # "fast_punchy", "flowing_contemplative", "mixed_dynamic"
+    pacing_style: str = (
+        "mixed"  # "fast_punchy", "flowing_contemplative", "mixed_dynamic"
+    )
 
 
 # Define all 7 voices with alliterative names (no labels/descriptors in names)
@@ -512,9 +520,7 @@ def get_voice_profile(voice_id: str) -> VoiceProfile:
     """
     if voice_id not in VOICE_PROFILES:
         available = ", ".join(VOICE_PROFILES.keys())
-        raise ValueError(
-            f"Unknown voice: {voice_id}. Available voices: {available}"
-        )
+        raise ValueError(f"Unknown voice: {voice_id}. Available voices: {available}")
     return VOICE_PROFILES[voice_id]
 
 

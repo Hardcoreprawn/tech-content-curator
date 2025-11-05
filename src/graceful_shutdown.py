@@ -47,7 +47,9 @@ def handle_credits_exhausted(error_message: str) -> None:
     console.print("  • Article generation pipeline has stopped\n")
 
     console.print("[yellow]Next steps:[/yellow]")
-    console.print("  1. Log into your OpenAI account: https://platform.openai.com/account/billing")
+    console.print(
+        "  1. Log into your OpenAI account: https://platform.openai.com/account/billing"
+    )
     console.print("  2. Add more credits or set a higher usage limit")
     console.print("  3. Verify your API key is still valid")
     console.print("  4. Restart the pipeline once credits are available\n")

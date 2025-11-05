@@ -824,15 +824,11 @@ def get_voice_prompt_kit(voice_id: str) -> VoicePromptKit:
     """
     if voice_id not in VOICE_PROMPT_KITS:
         available = ", ".join(VOICE_PROMPT_KITS.keys())
-        raise ValueError(
-            f"Unknown voice: {voice_id}. Available voices: {available}"
-        )
+        raise ValueError(f"Unknown voice: {voice_id}. Available voices: {available}")
     return VOICE_PROMPT_KITS[voice_id]
 
 
-def build_voice_system_prompt(
-    voice_id: str, content_type: str = "general"
-) -> str:
+def build_voice_system_prompt(voice_id: str, content_type: str = "general") -> str:
     """Build enhanced system prompt with voice personality injection.
 
     Combines voice identity with content-type specific guidance.

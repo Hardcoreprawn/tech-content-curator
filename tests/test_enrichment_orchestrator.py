@@ -63,9 +63,10 @@ class TestEnrichSingleItem:
         # Verify enrichment completed
         assert result is not None
         assert isinstance(result, EnrichedItem)
-        assert result.quality_score == pytest.approx(
-            0.71, abs=0.01
-        )  # 0.5*0.3 + 0.8*0.7
+        # After dual-scoring redesign: use AI score as primary (0.8), not combined
+        assert result.quality_score == pytest.approx(0.8, abs=0.01)
+        assert result.ai_score == pytest.approx(0.8, abs=0.01)
+        assert result.heuristic_score == pytest.approx(0.5, abs=0.01)
         assert result.topics == ["Python", "Programming", "Tech"]
         assert result.research_summary == "Detailed research summary"
 
