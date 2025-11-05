@@ -44,11 +44,6 @@ img[src*="library/abstract-"] {
     margin-top: 4px !important;
     margin-bottom: 0 !important;
   }
-
-  /* Add some breathing room below the header section before content */
-  .post-content {
-    margin-top: 24px !important;
-  }
 }
 
 /* High-resolution displays (≥1024px): Aggressive compression for visual balance */
@@ -75,6 +70,6 @@ img[src*="library/abstract-"] {
 
   /* Tighter spacing between sections */
   .post-content {
-    margin-top: 16px !important;
+    margin-top: 0px !important;
   }
 }
