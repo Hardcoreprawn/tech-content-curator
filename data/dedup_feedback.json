@@ -2051,5 +2051,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 5,
+    "patterns_used": 386,
+    "timestamp": "2025-11-05T06:07:08.466631",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Hypothesis: Property-Based Testing for Python",
+        "removed_items": [
+          "Launch HN: Plexe (YC X25) \u2013 Build production-grade ML models from prompts\n\nHey HN! We&#x27;re Vaibha",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google Removed 749M Anna's Archive URLs from Its Search Results",
+        "removed_items": [
+          "Epic vs. Google settlement: Opening up Android"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
