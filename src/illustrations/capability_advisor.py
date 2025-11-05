@@ -5,6 +5,10 @@ based on concept type, complexity, and content characteristics. Provides confide
 scores and reasoning for orchestrator decision-making.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 class TextIllustrationCapabilityAdvisor:
     """Tell orchestrator if text-based diagrams are appropriate for a concept.
@@ -42,6 +46,9 @@ class TextIllustrationCapabilityAdvisor:
             >>> advisor.should_use_text("system_architecture", 0.9, 8)
             (False, "system_complex_use_svg", 0.85)
         """
+        logger.debug(
+            f"Routing decision for {concept_type}: complexity={complexity}, length={content_length}"
+        )
         requirements = requirements or {}
 
         # Decision tree based on concept type
@@ -110,6 +117,7 @@ class TextIllustrationCapabilityAdvisor:
             return (False, "architecture_complex_use_svg", 0.90)
 
         # Default: uncertain
+        logger.warning(f"Unknown concept type: {concept_type}")
         return (False, "unknown_concept_type", 0.5)
 
     def get_all_recommendations(

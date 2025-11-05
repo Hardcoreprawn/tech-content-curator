@@ -7,6 +7,9 @@ difficulty level (beginner, intermediate, advanced), and target audience.
 from enum import Enum
 
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class ContentType(str, Enum):
@@ -45,12 +48,21 @@ class ArticleCategorizer:
             - audience: List of target audience segments
             - estimated_read_time: Human-readable reading time
         """
-        return {
+        logger.debug(f"Starting categorization for item: {item.original.title[:50]}")
+
+        result = {
             "content_type": self._detect_content_type(item),
             "difficulty_level": self._detect_difficulty(item, content),
             "audience": self._detect_audience(item),
             "estimated_read_time": self._calculate_read_time(content),
         }
+
+        logger.debug(
+            f"Categorization result: type={result['content_type']}, "
+            f"difficulty={result['difficulty_level']}, "
+            f"audiences={len(result['audience'])}"
+        )
+        return result
 
     def _detect_content_type(self, item: EnrichedItem) -> str:
         """Detect primary content type from item metadata.
@@ -62,18 +74,21 @@ class ArticleCategorizer:
             ContentType value as string
         """
         text = (item.original.title + " " + " ".join(item.topics)).lower()
+        logger.debug(f"Detecting content type from: {text[:60]}")
 
         # Tutorial indicators
         if any(
             k in text
             for k in ["how to", "guide", "tutorial", "step by step", "getting started"]
         ):
+            logger.debug("Detected content type: TUTORIAL")
             return ContentType.TUTORIAL.value
 
         # News indicators
         if any(
             k in text for k in ["announced", "released", "launched", "breaking", "news"]
         ):
+            logger.debug("Detected content type: NEWS")
             return ContentType.NEWS.value
 
         # Analysis indicators
@@ -81,12 +96,14 @@ class ArticleCategorizer:
             k in text
             for k in ["analysis", "review", "comparison", "deep dive", "benchmark"]
         ):
+            logger.debug("Detected content type: ANALYSIS")
             return ContentType.ANALYSIS.value
 
         # Research indicators
         if any(
             k in text for k in ["research", "study", "paper", "findings", "academic"]
         ):
+            logger.debug("Detected content type: RESEARCH")
             return ContentType.RESEARCH.value
 
         # Guide indicators
@@ -94,8 +111,10 @@ class ArticleCategorizer:
             k in text
             for k in ["getting started", "introduction to", "overview", "primer"]
         ):
+            logger.debug("Detected content type: GUIDE")
             return ContentType.GUIDE.value
 
+        logger.debug("Detected content type: GENERAL (default)")
         return ContentType.GENERAL.value
 
     def _detect_difficulty(self, item: EnrichedItem, content: str) -> str:

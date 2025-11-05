@@ -8,6 +8,11 @@ This module handles the AI-powered generation of article components:
 Uses GPT-4o-mini for cost-effective, high-quality generation.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 from datetime import UTC, datetime
 
 from openai import OpenAI
@@ -33,6 +38,9 @@ def calculate_text_cost(model: str, input_tokens: int, output_tokens: int) -> fl
     Returns:
         Cost in USD
     """
+    logger.debug(
+        f"Calculating text cost: {model} ({input_tokens} in, {output_tokens} out)"
+    )
     # OpenAI API Pricing (as of Oct 2024)
     PRICING = {
         "gpt-4o-mini": {"input": 0.150 / 1_000_000, "output": 0.600 / 1_000_000},
@@ -40,10 +48,13 @@ def calculate_text_cost(model: str, input_tokens: int, output_tokens: int) -> fl
     }
 
     if model not in PRICING:
+        logger.warning(f"Unknown model for pricing: {model}, returning 0.0")
         return 0.0
 
     pricing = PRICING[model]
-    return (input_tokens * pricing["input"]) + (output_tokens * pricing["output"])
+    cost = (input_tokens * pricing["input"]) + (output_tokens * pricing["output"])
+    logger.debug(f"Calculated cost: ${cost:.8f}")
+    return cost
 
 
 def calculate_image_cost(model: str = "dall-e-3-hd-1792x1024") -> float:
@@ -74,6 +85,7 @@ def generate_article_slug(title: str) -> str:
     Returns:
         URL-safe slug string (3-6 words, lowercase, hyphenated)
     """
+    logger.debug(f"Generating slug for title: {title[:50]}...")
     # Convert to lowercase and split into words
     words = title.lower().split()
 
@@ -91,7 +103,9 @@ def generate_article_slug(title: str) -> str:
         slug = slug.replace("--", "-")
 
     # Remove leading/trailing hyphens and truncate to 60 chars
-    return slug.strip("-")[:60]
+    final_slug = slug.strip("-")[:60]
+    logger.debug(f"Generated slug: {final_slug}")
+    return final_slug
 
 
 def generate_article_title(
@@ -109,6 +123,7 @@ def generate_article_title(
     Returns:
         Tuple of (title, cost)
     """
+    logger.debug(f"Generating article title for: {str(item.original.url)[:60]}...")
 
     # Get first 800 chars of article for context
     article_preview = content[:800]
@@ -137,6 +152,7 @@ Examples of good titles:
 Return ONLY the title, no quotes or explanation."""
 
     try:
+        logger.debug("Requesting title from OpenAI (gpt-4o-mini)")
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
@@ -169,9 +185,11 @@ Return ONLY the title, no quotes or explanation."""
             usage.prompt_tokens if usage else 0,
             usage.completion_tokens if usage else 0,
         )
+        logger.info(f"Generated title: {title} (cost: ${cost:.8f})")
         return title, cost
 
     except Exception as e:
+        logger.error(f"Title generation failed: {e}", exc_info=True)
         console.print(f"[yellow]⚠[/yellow] Title generation failed: {e}")
         # Create fallback title from topics
         if item.topics:
@@ -334,19 +352,27 @@ def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dic
     Returns:
         Dictionary of metadata
     """
+    logger.debug(f"Creating metadata for article: {title}")
     word_count = len(content.split())
     summary = extract_article_summary(content)
+    logger.debug(f"Extracted summary ({len(summary)} chars) for article")
 
     # Add categorization (content type, difficulty, audience)
     categorizer = ArticleCategorizer()
     categories = categorizer.categorize(item, content)
+    logger.debug(
+        f"Categorized article: {categories['content_type']}, difficulty={categories['difficulty_level']}"
+    )
 
     # Analyze article quality (Phase 1.3)
     quality_metrics, _ = analyze_article_quality(
         content, categories["difficulty_level"]
     )
+    logger.debug(
+        f"Quality analysis: flesch={quality_metrics['readability_score']:.1f}, grade={quality_metrics['grade_level']:.1f}"
+    )
 
-    return {
+    metadata = {
         "title": title,
         "date": datetime.now(UTC).strftime("%Y-%m-%d"),
         "tags": item.topics[:5],  # Limit to 5 tags
@@ -378,3 +404,5 @@ def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dic
         },
         "generated_at": datetime.now(UTC).isoformat(),
     }
+    logger.info(f"Created metadata: {word_count} words, {len(item.topics)} topics")
+    return metadata

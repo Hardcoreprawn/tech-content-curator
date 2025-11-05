@@ -12,6 +12,9 @@ from dataclasses import dataclass
 import httpx
 from rich.console import Console
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 # Rich console for styled output
 console = Console()
 
@@ -76,30 +79,38 @@ class CitationResolver:
         Returns:
             ResolvedCitation with URL and metadata if found
         """
+        logger.debug(f"Resolving citation: {authors} ({year})")
+
         # Try CrossRef (most comprehensive for journal articles)
         result = self._search_crossref(authors, year)
         if result:
+            logger.info(f"Resolved via CrossRef: {authors} ({year}) -> {result.url}")
             return result
 
         # Try with first author only (handles "et al." variations)
         first_author = self._extract_first_author(authors)
         if first_author and first_author != authors:
+            logger.debug(f"Trying first author only: {first_author}")
             result = self._search_crossref(first_author, year)
             if result:
+                logger.info(f"Resolved via CrossRef (first author): {first_author} ({year}) -> {result.url}")
                 return result
 
         # Try arXiv (good for preprints and CS papers)
         result = self._search_arxiv(authors, year)
         if result:
+            logger.info(f"Resolved via arXiv: {authors} ({year}) -> {result.url}")
             return result
 
         # Try arXiv with first author only
         if first_author and first_author != authors:
             result = self._search_arxiv(first_author, year)
             if result:
+                logger.info(f"Resolved via arXiv (first author): {first_author} ({year}) -> {result.url}")
                 return result
 
         # No match found
+        logger.debug(f"Could not resolve citation: {authors} ({year})")
         return ResolvedCitation(
             doi=None,
             arxiv_id=None,

@@ -16,8 +16,10 @@ from typing import NamedTuple
 import frontmatter
 from rich.console import Console
 
+from ..utils.logging import get_logger
 from .post_gen_dedup import calculate_tag_overlap, calculate_text_similarity
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -74,7 +76,9 @@ class RecentContentCache:
     def _load_recent_articles(self):
         """Load articles generated in the last N days."""
         cutoff_date = datetime.now(UTC) - timedelta(days=self.cache_days)
+        logger.debug(f"Loading recent articles from {self.content_dir} (cutoff: {self.cache_days} days ago)")
 
+        loaded_count = 0
         for filepath in self.content_dir.glob("*.md"):
             try:
                 post = frontmatter.load(str(filepath))

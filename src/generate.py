@@ -44,8 +44,10 @@ from .pipeline.diversity_selector import (
     select_diverse_candidates as _select_diverse_candidates,
 )
 from .pipeline.orchestrator import generate_articles_async
+from .utils.logging import get_logger
 
 console = Console()
+logger = get_logger(__name__)
 
 
 def _supports_async() -> bool:
@@ -92,6 +94,7 @@ async def _generate_with_async(
 
 if __name__ == "__main__":
     """Generate articles from the most recent enriched data."""
+    logger.info("Starting article generation pipeline")
     # Load config early so CLI defaults reflect environment (.env)
     config = get_config()
 

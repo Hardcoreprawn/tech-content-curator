@@ -7,8 +7,10 @@ architectural guidance, component comparisons, and practical setup instructions.
 from rich.console import Console
 
 from ...models import EnrichedItem
+from ...utils.logging import get_logger
 from ..base import BaseGenerator
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -28,6 +30,7 @@ class SelfHostedGenerator(BaseGenerator):
 
         Uses both extracted topics and raw content keywords.
         """
+        logger.debug(f"Checking if item is self-hosted/home-lab topic: {item.original.title[:50]}")
         topic_text = " ".join(item.topics).lower() if item.topics else ""
         content_text = item.original.content.lower()
 
@@ -61,6 +64,8 @@ class SelfHostedGenerator(BaseGenerator):
             " nas ",
             "nas server",  # More specific NAS matches
         ]
+        if any(k in topic_text or k in content_text for k in keywords):
+            logger.debug("Item matched self-hosted/home-lab keywords")
         return any(k in topic_text or k in content_text for k in keywords)
 
     def generate_content(self, item: EnrichedItem) -> tuple[str, int, int]:
@@ -72,26 +77,13 @@ class SelfHostedGenerator(BaseGenerator):
             item: The enriched item about self-hosting
 
         Returns:
-                        Tuple of (article content as markdown string, input tokens, output tokens)
+            Tuple of (article content as markdown string, input tokens, output tokens)
         """
         if not self.client:
             raise ValueError("OpenAI client not initialized")
 
+        logger.debug(f"Generating self-hosted article for: {item.original.title[:50]}")
         prompt = f"""
-    Write a comprehensive, practical guide for running self-hosted services at home.
-
-    CONTEXT FROM SOCIAL POST:
-    "{item.original.content}"
-    SOURCE URL: {item.original.url}
-    TOPICS: {", ".join(item.topics)}
-
-  GOALS:
-    - Explain a reference architecture for a home network running containers
-    - Compare 2-3 credible options per key category with detailed trade-offs and use-case fit
-        if not self.client:
-            raise ValueError("OpenAI client not initialized")
-
-        prompt = f
     Write a comprehensive, practical guide for running self-hosted services at home.
 
     CONTEXT FROM SOCIAL POST:
@@ -139,6 +131,7 @@ class SelfHostedGenerator(BaseGenerator):
     """
 
         try:
+            logger.debug("Calling OpenAI API for self-hosted article generation")
             response = self.client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[{"role": "user", "content": prompt}],
@@ -154,8 +147,10 @@ class SelfHostedGenerator(BaseGenerator):
             input_tokens = usage.prompt_tokens if usage else 0
             output_tokens = usage.completion_tokens if usage else 0
 
+            logger.info(f"Self-hosted article generated: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}")
             return content.strip(), input_tokens, output_tokens
         except Exception as e:
+            logger.error(f"Self-hosted article generation failed: {type(e).__name__}: {e}")
             console.print(
                 f"[yellow]⚠[/yellow] Self-hosted article generation failed: {e}"
             )

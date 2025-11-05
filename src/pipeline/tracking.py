@@ -6,13 +6,13 @@ for post-analysis.
 """
 
 import json
-import logging
 from datetime import UTC, datetime
 
 from ..config import get_data_dir
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 class PipelineTracker:
@@ -150,23 +150,23 @@ class PipelineTracker:
             i for i in items if i["stage"] == "generation" and i.get("success")
         ]
 
-        print(f"\n{'=' * 70}")
-        print("PIPELINE TRACKING SUMMARY")
-        print(f"{'=' * 70}")
-        print(f"Enriched: {len(enriched)}")
-        print(f"Candidates accepted: {len(accepted)}")
-        print(f"Candidates rejected: {len(rejected)}")
-        print(f"Articles generated: {len(generated)}")
+        logger.info(f"\n{'=' * 70}")
+        logger.info("PIPELINE TRACKING SUMMARY")
+        logger.info(f"{'=' * 70}")
+        logger.info(f"Enriched: {len(enriched)}")
+        logger.info(f"Candidates accepted: {len(accepted)}")
+        logger.info(f"Candidates rejected: {len(rejected)}")
+        logger.info(f"Articles generated: {len(generated)}")
 
         # Score distribution for enriched items
         if enriched:
             ai_scores = [i["scores"]["ai"] for i in enriched]
             heur_scores = [i["scores"]["heuristic"] for i in enriched]
-            print("\nAI Score Distribution (enriched):")
-            print(f"  Mean: {sum(ai_scores) / len(ai_scores):.2f}")
-            print(f"  Below 0.5: {sum(1 for s in ai_scores if s < 0.5)}")
-            print(f"  0.5+: {sum(1 for s in ai_scores if s >= 0.5)}")
-            print("\nHeuristic Score Distribution (enriched):")
-            print(f"  Mean: {sum(heur_scores) / len(heur_scores):.2f}")
-            print(f"  Below 0.3: {sum(1 for s in heur_scores if s < 0.3)}")
-            print(f"  0.3+: {sum(1 for s in heur_scores if s >= 0.3)}")
+            logger.info("\nAI Score Distribution (enriched):")
+            logger.info(f"  Mean: {sum(ai_scores) / len(ai_scores):.2f}")
+            logger.info(f"  Below 0.5: {sum(1 for s in ai_scores if s < 0.5)}")
+            logger.info(f"  0.5+: {sum(1 for s in ai_scores if s >= 0.5)}")
+            logger.info("\nHeuristic Score Distribution (enriched):")
+            logger.info(f"  Mean: {sum(heur_scores) / len(heur_scores):.2f}")
+            logger.info(f"  Below 0.3: {sum(1 for s in heur_scores if s < 0.3)}")
+            logger.info(f"  0.3+: {sum(1 for s in heur_scores if s >= 0.3)}")

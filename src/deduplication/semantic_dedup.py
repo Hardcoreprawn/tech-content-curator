@@ -10,6 +10,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Protocol
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 class ContentProtocol(Protocol):
     """Protocol for content items that have a content attribute."""

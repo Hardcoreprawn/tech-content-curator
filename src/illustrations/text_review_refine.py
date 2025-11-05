@@ -5,6 +5,11 @@ diagrams based on review feedback. Only runs for high-importance articles.
 Adds refinement cycles and quality metrics to diagrams.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 import json
 
 from openai import OpenAI
@@ -52,30 +57,44 @@ class TextIllustrationReviewRefine:
         Returns:
             GeneratedAsciiArt with review metadata, or None if generation failed
         """
+        logger.debug(
+            f"Generating ASCII with review for {section_title} (importance={importance}, type={concept_type})"
+        )
         # Stage 1: Generate
         initial = self.generator.generate_for_section(
             section_title, section_content, concept_type
         )
 
         if initial is None:
+            logger.warning(f"ASCII generation failed for {section_title}")
             return None
 
         # If low importance, skip review and return quickly
         if importance < 0.7:
+            logger.debug(
+                f"Skipping review for low-importance section (importance={importance} < 0.7)"
+            )
             initial.review_cycles = 0
             return initial
 
         # Stage 2: Review quality
         review_data = self._review_quality(initial, concept_type)
         review_score = review_data.get("score", 0.5)
+        logger.debug(f"Review score: {review_score:.2f}")
 
         # Stage 3: Refinement if needed
         if review_score < 0.7:
+            logger.debug(f"Attempting refinement (score {review_score:.2f} < 0.7)")
             refined = self._refine_based_on_review(initial, concept_type, review_data)
             if refined:
+                logger.info(
+                    f"ASCII diagram refined after review (score improved from {review_score:.2f})"
+                )
                 return refined
+            logger.warning(f"Refinement failed for {section_title}")
 
         # No refinement needed, return initial with review metadata
+        logger.info(f"ASCII diagram approved after review (score: {review_score:.2f})")
         initial.review_cycles = 1
         return initial
 
@@ -89,6 +108,7 @@ class TextIllustrationReviewRefine:
         Returns:
             Dict with score (0-1), identified issues, and suggested fixes
         """
+        logger.debug(f"Reviewing ASCII diagram quality ({concept_type})")
         review_prompt = f"""Review this {concept_type} Unicode text diagram for quality.
 Rate the overall quality from 0.0 (poor) to 1.0 (excellent).
 Identify 2-3 specific issues if any (alignment, clarity, clutter, completeness).

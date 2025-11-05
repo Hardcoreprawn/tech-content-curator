@@ -16,6 +16,10 @@ Article-specific variants are saved in site/static/images/ as <slug>.png and <sl
 from __future__ import annotations
 
 import hashlib
+
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -54,11 +58,14 @@ def build_gradient_library_if_empty(count: int = 12) -> list[Path]:
 
     Returns the list of library image paths (existing + created).
     """
+    logger.debug(f"Building gradient library with {count} images")
     lib = _library_dir()
     existing = sorted(lib.glob("abstract-*.png"))
     if existing:
+        logger.debug(f"Gradient library already exists with {len(existing)} images")
         return existing
 
+    logger.info(f"Creating abstract gradient library ({count} images)")
     console.print(f"[dim]Building abstract gradient library ({count} images)...[/dim]")
     size = 1024
     for i in range(1, count + 1):
@@ -86,6 +93,7 @@ def build_gradient_library_if_empty(count: int = 12) -> list[Path]:
         out = img.convert("RGB")
         out_path = lib / f"abstract-{i:02d}.png"
         out.save(out_path, "PNG")
+    logger.info(f"Created {count} gradient library images")
     return sorted(lib.glob("abstract-*.png"))
 
 
@@ -164,9 +172,13 @@ def select_or_create_cover_image(
     Returns:
         Tuple of (hero_url, icon_url)
     """
+    logger.debug(
+        f"Selecting or creating cover image for {slug} with tags: {list(tags)}"
+    )
     # First, try to find an existing AI image by tag
     existing = find_reusable_image(list(tags))
     if existing:
+        logger.debug(f"Found existing AI image for {slug}")
         # If we found an existing image, make sure it has the proper base URL
         hero_url, icon_url = existing
         if base_url and not hero_url.startswith("http"):
@@ -184,6 +196,7 @@ def select_or_create_cover_image(
         return (hero_url, icon_url)
 
     # Fall back to gradient library
+    logger.debug(f"Creating gradient-based cover image for {slug}")
     bases = build_gradient_library_if_empty()
     key = "-".join(list(tags)[:1]) or slug
     idx = _hash_to_index(key.lower(), len(bases))

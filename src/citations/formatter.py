@@ -13,8 +13,11 @@ Lower-confidence matches are left unchanged.
 
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
 from .extractor import Citation
 from .resolver import ResolvedCitation
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -66,6 +69,9 @@ class CitationFormatter:
         # Check if resolution is confident enough
         if not resolved.url or resolved.confidence < self.confidence_threshold:
             # Not confident enough - return original unchanged
+            logger.debug(
+                f"Citation not resolved with sufficient confidence ({resolved.confidence:.2f}): {citation.original_text}"
+            )
             return FormattedCitation(
                 markdown=citation.original_text,
                 original=citation.original_text,
@@ -76,6 +82,7 @@ class CitationFormatter:
 
         # Create markdown link
         markdown = f"[{citation.original_text}]({resolved.url})"
+        logger.debug(f"Formatted citation: {citation.original_text} -> {resolved.url}")
 
         return FormattedCitation(
             markdown=markdown,

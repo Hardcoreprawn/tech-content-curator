@@ -8,7 +8,10 @@ import re
 from dataclasses import dataclass
 
 from ..models import GeneratedArticle
+from ..utils.logging import get_logger
 from .readability import ReadabilityAnalyzer
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -56,6 +59,11 @@ class QualityScorer:
         Returns:
             QualityScore with overall score, dimension scores, and suggestions
         """
+        logger.debug(f"Starting quality scoring for article: {article.title[:50]}")
+        logger.debug(
+            f"Threshold: {min_threshold}, content_type: {article.content_type}"
+        )
+
         # Calculate individual dimension scores
         readability_score = self._score_readability(article, content)
         structure_score = self._score_structure(content)
@@ -92,6 +100,12 @@ class QualityScorer:
 
         # Check if passed threshold
         passed = overall_score >= min_threshold
+
+        logger.info(
+            f"Quality score: {overall_score:.1f}/100, passed={passed}, "
+            f"readability={readability_score:.1f}, structure={structure_score:.1f}, "
+            f"citations={citation_score:.1f}, code={code_score:.1f}"
+        )
 
         # Generate improvement suggestions
         suggestions = self._generate_suggestions(dimension_scores, article, content)

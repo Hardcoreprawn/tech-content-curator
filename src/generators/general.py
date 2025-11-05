@@ -4,9 +4,11 @@ from rich.console import Console
 
 from ..models import EnrichedItem
 from ..pipeline.quality_feedback import get_quality_prompt_enhancements
+from ..utils.logging import get_logger
 from .base import BaseGenerator
 from .prompt_templates import build_enhanced_prompt, detect_content_type
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -47,6 +49,7 @@ class GeneralArticleGenerator(BaseGenerator):
 
         # Detect content type and build specialized prompt
         content_type = detect_content_type(item)
+        logger.debug(f"Detected content type: {content_type}")
         console.print(f"  Content type detected: {content_type}")
 
         # Build base prompt
@@ -73,8 +76,10 @@ class GeneralArticleGenerator(BaseGenerator):
 
                 # Get voice-specific system prompt
                 system_message = build_voice_system_prompt(voice_id, content_type)
+                logger.debug(f"Injected voice: {voice_id}")
                 console.print(f"  [dim]Injected voice: {voice_id}[/dim]")
             except (ImportError, ValueError, KeyError) as e:
+                logger.debug(f"Voice injection skipped: {type(e).__name__}: {e}")
                 console.print(f"  [dim]Voice injection skipped: {e}[/dim]")
 
         try:
@@ -84,6 +89,7 @@ class GeneralArticleGenerator(BaseGenerator):
                 messages.append({"role": "system", "content": system_message})
             messages.append({"role": "user", "content": prompt})
 
+            logger.debug(f"Calling OpenAI API for article generation (temperature={temperature})")
             response = self.client.chat.completions.create(
                 model="gpt-4o-mini",  # Better for long-form content
                 messages=messages,
@@ -121,9 +127,11 @@ class GeneralArticleGenerator(BaseGenerator):
             input_tokens = usage.prompt_tokens if usage else 0
             output_tokens = usage.completion_tokens if usage else 0
 
+            logger.info(f"Article generated successfully: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}")
             return content.strip(), input_tokens, output_tokens
 
         except Exception as e:
+            logger.error(f"Article generation failed: {type(e).__name__}: {e}")
             console.print(f"[yellow]⚠[/yellow] Article generation failed: {e}")
             # Create basic fallback article
             fallback = f"""Based on a social media post discussing {", ".join(item.topics[:3])}.

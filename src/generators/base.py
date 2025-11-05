@@ -8,6 +8,9 @@ from abc import ABC, abstractmethod
 from openai import OpenAI
 
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class BaseGenerator(ABC):

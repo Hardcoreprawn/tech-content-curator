@@ -13,6 +13,10 @@ import json
 from datetime import datetime, timedelta
 from pathlib import Path
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 class CitationCache:
     """JSON-based cache for citation resolutions with 30-day TTL.
@@ -54,12 +58,15 @@ class CitationCache:
             entry = self.data[key]
             # Check if cache entry is still fresh
             if self._is_fresh(entry["timestamp"]):
+                logger.debug(f"Cache hit: {authors} ({year})")
                 return entry
             else:
                 # Expired, remove from cache
+                logger.debug(f"Cache expired: {authors} ({year})")
                 del self.data[key]
                 self._save()
 
+        logger.debug(f"Cache miss: {authors} ({year})")
         return None
 
     def put(self, authors: str, year: int, doi: str | None, url: str | None) -> None:
@@ -82,6 +89,9 @@ class CitationCache:
             "url": url,
             "timestamp": datetime.now().isoformat(),
         }
+        logger.debug(
+            f"Cached citation: {authors} ({year}) -> {url or doi or 'no resolution'}"
+        )
         self._save()
 
     def clear(self) -> None:

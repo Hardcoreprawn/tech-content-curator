@@ -5,10 +5,11 @@ illustrations into article content. Optimized for batched API calls and
 prepared for Python 3.14 free-threading.
 """
 
+
+
 from __future__ import annotations
 
 import json
-import logging
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
@@ -23,6 +24,7 @@ from ..illustrations.diagram_validator import DiagramValidator
 from ..illustrations.generator_analyzer import should_add_illustrations
 from ..illustrations.mermaid_quality_selector import MermaidQualitySelector
 from ..illustrations.placement import PlacementAnalyzer, format_diagram_for_markdown
+from ..utils.logging import get_logger
 
 if TYPE_CHECKING:
     from ..illustrations.ai_ascii_generator import GeneratedAsciiArt
@@ -30,7 +32,7 @@ if TYPE_CHECKING:
     from ..illustrations.placement import ContentSection
 
 console = Console()
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 # Format selection mapping: routes concepts to best format(s)
 CONCEPT_TO_FORMAT: dict[str, list[str]] = {
@@ -81,6 +83,7 @@ class IllustrationService:
             client: OpenAI client for API calls
             config: Pipeline configuration
         """
+        logger.debug("Initializing IllustrationService")
         self.client = client
         self.config = config
         self.text_advisor = TextIllustrationCapabilityAdvisor()
@@ -100,6 +103,7 @@ class IllustrationService:
             n_candidates=getattr(config, "mermaid_candidates", 3),
             validation_threshold=getattr(config, "diagram_validation_threshold", 0.7),
         )
+        logger.debug("IllustrationService initialized successfully")
 
     def should_generate_illustrations(self, generator_name: str, content: str) -> bool:
         """Determine if illustrations should be generated for this content.
@@ -111,7 +115,9 @@ class IllustrationService:
         Returns:
             True if illustrations should be generated
         """
-        return should_add_illustrations(generator_name, content)
+        should_gen = should_add_illustrations(generator_name, content)
+        logger.debug(f"Should generate illustrations for {generator_name}: {should_gen}")
+        return should_gen
 
     def _score_concept_section_pairs_batch(
         self,
@@ -366,7 +372,9 @@ class IllustrationService:
         Returns:
             IllustrationResult with modified content and metadata
         """
+        logger.debug(f"Starting illustration generation for {generator_name} (content: {len(content)} chars)")
         if not self.should_generate_illustrations(generator_name, content):
+            logger.debug("Skipping illustrations - no benefit for this content")
             console.print(
                 "  [dim]Skipping illustrations - no benefit for this content[/dim]"
             )
@@ -379,12 +387,14 @@ class IllustrationService:
 
         try:
             # Step 1: Detect concepts
+            logger.debug("Detecting concepts in content")
             concepts_detected = detect_concepts(content)
             concept_names = (
                 [c.name for c in concepts_detected] if concepts_detected else []
             )
 
             if not concept_names:
+                logger.debug("No concepts detected for illustration")
                 return IllustrationResult(
                     content=content,
                     count=0,

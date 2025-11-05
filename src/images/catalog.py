@@ -16,7 +16,9 @@ import frontmatter
 from rich.console import Console
 
 from ..config import get_content_dir, get_project_root
+from ..utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -32,8 +34,10 @@ def build_image_catalog(
     Returns:
         Dict mapping tag -> [(image_url, article_slug), ...]
     """
+    logger.debug(f"Building image catalog (force_rebuild={force_rebuild})")
     catalog_file = _catalog_path()
     if catalog_file.exists() and not force_rebuild:
+        logger.debug("Loading existing image catalog from file")
         with open(catalog_file, encoding="utf-8") as f:
             return json.load(f)
 
@@ -67,6 +71,7 @@ def build_image_catalog(
                 catalog[tag_lower].append((image_url, slug))
 
         except Exception as e:
+            logger.warning(f"Failed to parse {md_file.name}: {type(e).__name__}: {e}")
             console.print(f"[yellow]⚠[/yellow] Failed to parse {md_file.name}: {e}")
 
     # Save catalog
@@ -74,6 +79,7 @@ def build_image_catalog(
     with open(catalog_file, "w", encoding="utf-8") as f:
         json.dump(catalog, f, indent=2)
 
+    logger.info(f"Image catalog built: {len(catalog)} unique tags, {sum(len(v) for v in catalog.values())} total images")
     console.print(f"[green]✓[/green] Image catalog built: {len(catalog)} unique tags")
     return catalog
 
@@ -84,6 +90,7 @@ def find_reusable_image(tags: list[str]) -> tuple[str, str] | None:
     Returns:
         (hero_url, icon_url) if found, else None
     """
+    logger.debug(f"Looking for reusable image matching tags: {tags}")
     catalog = build_image_catalog()
     for tag in tags:
         candidates = catalog.get(tag.lower(), [])
@@ -92,5 +99,7 @@ def find_reusable_image(tags: list[str]) -> tuple[str, str] | None:
             image_url, _slug = candidates[0]
             # Derive icon path (convention: <slug>-icon.png)
             icon_url = image_url.replace(".png", "-icon.png")
+            logger.debug(f"Found reusable image for tag '{tag}': {image_url}")
             return (image_url, icon_url)
+    logger.debug(f"No reusable image found for tags: {tags}")
     return None

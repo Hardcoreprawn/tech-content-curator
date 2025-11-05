@@ -15,7 +15,9 @@ import httpx
 from rich.console import Console
 
 from ..models import EnrichedItem, GeneratedArticle
+from ..utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -43,14 +45,22 @@ def validate_url_reachable(url: str, timeout: float = 10.0) -> bool:
     try:
         with httpx.Client(timeout=timeout, follow_redirects=True) as client:
             response = client.head(url)
+            logger.debug(
+                f"URL validation HEAD request: {url} -> {response.status_code}"
+            )
             return response.status_code < 400
-    except Exception:
+    except Exception as e:
         # Try GET if HEAD fails (some servers don't support HEAD)
+        logger.debug(f"HEAD request failed for {url}: {type(e).__name__}, trying GET")
         try:
             with httpx.Client(timeout=timeout, follow_redirects=True) as client:
                 response = client.get(url, timeout=5.0)
+                logger.debug(
+                    f"URL validation GET request: {url} -> {response.status_code}"
+                )
                 return response.status_code < 400
-        except Exception:
+        except Exception as e:
+            logger.warning(f"URL unreachable: {url} ({type(e).__name__})")
             return False
 
 
@@ -81,6 +91,7 @@ def validate_article(
     Returns:
         FactCheckResult with confidence score and warnings
     """
+    logger.debug(f"Validating article: {article.title[:50]}")
     console.print(f"[blue]Fact-checking:[/blue] {article.title[:50]}...")
 
     warnings: list[str] = []
@@ -88,6 +99,7 @@ def validate_article(
     unreachable_sources: list[str] = []
 
     # 1. Check all source URLs are reachable
+    logger.debug(f"Checking {len(article.sources)} source URLs")
     console.print("  Checking source URLs...")
     for source in article.sources:
         url = str(source.original.url)
@@ -96,6 +108,7 @@ def validate_article(
             warnings.append(f"Source URL unreachable: {url}")
 
     # 2. Extract and validate all markdown links in the article
+    logger.debug("Checking markdown links in article")
     console.print("  Checking markdown links...")
     links = extract_markdown_links(article.content)
     for text, url in links:
@@ -160,13 +173,20 @@ def validate_article(
         passed=passed,
     )
 
-    # Print summary
+    # Print summary and log results
     if passed:
+        logger.info(
+            f"Article validation passed: {article.title[:50]} (confidence: {confidence:.2f})"
+        )
         console.print(f"  [green]✓[/green] Passed (confidence: {confidence:.2f})")
     else:
+        logger.warning(
+            f"Article validation failed: {article.title[:50]} (confidence: {confidence:.2f})"
+        )
         console.print(f"  [yellow]⚠[/yellow] Failed (confidence: {confidence:.2f})")
 
     if warnings:
+        logger.debug(f"Article validation warnings ({len(warnings)}): {warnings[:3]}")
         console.print(f"  [yellow]{len(warnings)} warning(s)[/yellow]")
         for warning in warnings[:3]:  # Show first 3
             console.print(f"    • {warning}")

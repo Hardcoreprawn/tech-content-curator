@@ -20,8 +20,10 @@ from difflib import SequenceMatcher
 from rich.console import Console
 
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
 from .post_gen_dedup import calculate_entity_similarity, extract_entities
 
+logger = get_logger(__name__)
 console = Console()
 
 

@@ -16,6 +16,10 @@ Tier definitions:
 from dataclasses import dataclass
 from enum import Enum
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 class SourceTier(str, Enum):
     """Quality tiers for content sources."""
@@ -114,6 +118,7 @@ def calculate_selection_percentage(item_count: int, tier: SourceTier) -> float:
     Returns:
         Percentage (0.0 to 1.0) of items to keep
     """
+    logger.debug(f"Calculating selection percentage: tier={tier.value}, item_count={item_count}")
     # Base percentages by tier (for medium volumes ~30 items)
     base_percentages = {
         SourceTier.S_TIER: 0.60,  # Keep 60% of S-tier
@@ -147,7 +152,9 @@ def calculate_selection_percentage(item_count: int, tier: SourceTier) -> float:
     min_items = max(1, int(item_count * 0.05))  # At least 5% or 1 item
     min_percentage = min_items / item_count if item_count > 0 else 0
 
-    return max(min_percentage, min(1.0, percentage))
+    final_percentage = max(min_percentage, min(1.0, percentage))
+    logger.debug(f"Calculated percentage: {final_percentage:.2%} (base={base:.2%}, multiplier={multiplier:.1f})")
+    return final_percentage
 
 
 def get_selection_strategy(source_name: str, item_count: int) -> dict:
@@ -161,9 +168,11 @@ def get_selection_strategy(source_name: str, item_count: int) -> dict:
     Returns:
         Dict with selection parameters
     """
+    logger.debug(f"Getting selection strategy for source: {source_name}, collected={item_count}")
     config = SOURCE_CONFIGS.get(source_name)
     if not config:
         # Unknown source - default to B-tier behavior
+        logger.warning(f"Unknown source: {source_name}, defaulting to B-tier behavior")
         tier = SourceTier.B_TIER
         min_score = 0.65
     else:
@@ -173,13 +182,15 @@ def get_selection_strategy(source_name: str, item_count: int) -> dict:
     keep_percentage = calculate_selection_percentage(item_count, tier)
     target_count = int(item_count * keep_percentage)
 
-    return {
+    strategy_info = {
         "tier": tier.value,
         "keep_percentage": keep_percentage,
         "target_count": max(1, target_count),  # At least 1
         "min_score": min_score,
         "strategy": _describe_strategy(tier, item_count, target_count),
     }
+    logger.info(f"Strategy: {strategy_info['strategy']} (min_score={min_score})")
+    return strategy_info
 
 
 def _describe_strategy(tier: SourceTier, collected: int, keeping: int) -> str:
@@ -211,7 +222,9 @@ def select_best_items(items: list, scores: list[float], source_name: str) -> lis
     Returns:
         Filtered list of items
     """
+    logger.debug(f"Selecting best items from {source_name}: {len(items)} items, {len(scores)} scores")
     if not items:
+        logger.debug("No items to select")
         return []
 
     strategy = get_selection_strategy(source_name, len(items))
@@ -222,6 +235,7 @@ def select_best_items(items: list, scores: list[float], source_name: str) -> lis
 
     # Apply both percentage-based and score-based filtering
     selected = []
+    filtered_low_score = 0
     for item, score in item_scores:
         # Stop if we've hit our target count
         if len(selected) >= strategy["target_count"]:
@@ -229,14 +243,17 @@ def select_best_items(items: list, scores: list[float], source_name: str) -> lis
 
         # Skip if below minimum score threshold
         if score < strategy["min_score"]:
+            filtered_low_score += 1
             continue
 
         selected.append(item)
 
     # If we got nothing but we have items, take at least the best one
     if not selected and items:
+        logger.warning(f"No items met score threshold (min={strategy['min_score']}), taking best item")
         selected.append(item_scores[0][0])
 
+    logger.info(f"Selected {len(selected)}/{len(items)} items from {source_name} (filtered {filtered_low_score} low-score items)")
     return selected
 
 

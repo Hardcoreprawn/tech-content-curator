@@ -6,6 +6,10 @@ Each voice is tailored for specific content types and generates distinctive arti
 
 from dataclasses import dataclass, field
 
+from ...utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 @dataclass
 class VoiceProfile:
@@ -518,8 +522,10 @@ def get_voice_profile(voice_id: str) -> VoiceProfile:
     Raises:
         ValueError: If voice_id not found
     """
+    logger.debug(f"Retrieving voice profile: {voice_id}")
     if voice_id not in VOICE_PROFILES:
         available = ", ".join(VOICE_PROFILES.keys())
+        logger.error(f"Unknown voice: {voice_id}")
         raise ValueError(f"Unknown voice: {voice_id}. Available voices: {available}")
     return VOICE_PROFILES[voice_id]
 

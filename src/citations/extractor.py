@@ -16,6 +16,10 @@ Filters false positives like month names, section references, etc.
 import re
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 @dataclass
 class Citation:
@@ -101,6 +105,7 @@ class CitationExtractor:
         Returns:
             List of Citation objects found, in order of appearance
         """
+        logger.debug(f"Extracting citations from text ({len(text)} chars)")
         citations: list[Citation] = []
         seen_positions: set[tuple[int, int]] = set()
 
@@ -136,6 +141,7 @@ class CitationExtractor:
 
         # Sort by position to maintain order
         citations.sort(key=lambda c: c.position[0])
+        logger.info(f"Extracted {len(citations)} citations from text")
         return citations
 
     def _extract_with_pattern(

@@ -4,6 +4,11 @@ Generates N Mermaid diagram candidates and selects the best based on
 validation scores. Similar to TextIllustrationQualitySelector for ASCII.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 from dataclasses import dataclass
 
 from openai import OpenAI
@@ -71,6 +76,9 @@ class MermaidQualitySelector:
         Returns:
             MermaidCandidateResult with best diagram or None
         """
+        logger.debug(
+            f"Generating {self.n_candidates} Mermaid candidates for {section_title} ({concept_type})"
+        )
         candidates: list[tuple[float, GeneratedMermaidDiagram, float]] = []
         total_cost = 0.0
 
@@ -101,6 +109,7 @@ class MermaidQualitySelector:
         candidates.sort(key=lambda x: x[0], reverse=True)
 
         if not candidates:
+            logger.warning(f"No Mermaid candidates generated for {section_title}")
             return MermaidCandidateResult(
                 diagram=None,
                 candidates_tested=0,
@@ -113,6 +122,9 @@ class MermaidQualitySelector:
 
         # Check if best passes threshold
         if best_score < self.validation_threshold:
+            logger.warning(
+                f"Best Mermaid score {best_score:.2f} below threshold {self.validation_threshold} (tested {len(candidates)} candidates, cost: ${total_cost:.4f})"
+            )
             return MermaidCandidateResult(
                 diagram=None,
                 candidates_tested=len(candidates),
@@ -121,6 +133,9 @@ class MermaidQualitySelector:
                 total_cost=total_cost,
             )
 
+        logger.info(
+            f"Mermaid diagram selected: score={best_score:.2f} (tested {len(candidates)} candidates, cost: ${total_cost:.4f})"
+        )
         return MermaidCandidateResult(
             diagram=best_diagram,
             candidates_tested=len(candidates),

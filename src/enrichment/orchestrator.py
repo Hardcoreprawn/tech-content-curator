@@ -12,7 +12,6 @@ The orchestrator manages:
 - Early exit optimization to save API costs
 """
 
-import logging
 from datetime import UTC, datetime
 
 from openai import OpenAI
@@ -21,6 +20,7 @@ from rich.console import Console
 from ..api.openai_error_handler import handle_openai_error, is_fatal
 from ..config import get_config
 from ..models import CollectedItem, EnrichedItem, PipelineConfig
+from ..utils.logging import get_logger
 from .adaptive_scoring import ScoringAdapter
 from .ai_analyzer import (
     analyze_content_quality,
@@ -30,7 +30,7 @@ from .ai_analyzer import (
 from .scorer import calculate_heuristic_score
 
 console = Console()
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def enrich_single_item(
@@ -171,6 +171,7 @@ def enrich_single_item(
 
         # If it's a fatal error (quota, auth), propagate to stop pipeline
         if is_fatal(error_type):
+            logger.critical(f"Fatal error enriching {item.id}: {e}", exc_info=True)
             raise
 
         # Otherwise, log and return None to skip this item
@@ -224,9 +225,11 @@ def enrich_collected_items(
                 enriched_items.append(enriched)
             else:
                 rejected_items.append((item.title[:50], 0.0, "enrichment_failed"))
-        except Exception as e:
+        except (ValueError, TypeError, AttributeError, KeyError) as e:
             console.print(f"\n[red]✗[/red] Item {i} failed: {e}")
-            logger.error(f"Item {i} processing failed: {e}")
+            logger.error(
+                f"Item {i} processing failed with validation error: {e}", exc_info=True
+            )
             rejected_items.append((item.title[:50], 0.0, f"exception: {str(e)[:40]}"))
             continue
 

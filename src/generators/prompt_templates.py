@@ -5,6 +5,9 @@ article structure and requirements based on the detected content type.
 """
 
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 
 # Keywords that indicate different content types
 CONTENT_TYPE_DETECTION = {
@@ -64,8 +67,10 @@ def detect_content_type(item: EnrichedItem) -> str:
 
     for content_type, keywords in CONTENT_TYPE_DETECTION.items():
         if any(keyword in text for keyword in keywords):
+            logger.debug(f"Content type detected: {content_type}")
             return content_type
 
+    logger.debug("Content type: general (no specific keywords matched)")
     return "general"
 
 
@@ -192,6 +197,7 @@ def build_enhanced_prompt(item: EnrichedItem, content_type: str) -> str:
     Returns:
         Complete prompt string for the LLM
     """
+    logger.debug(f"Building enhanced prompt for {content_type} content")
     base_prompt = f"""
 Write a comprehensive tech blog article based on this social media post and research.
 

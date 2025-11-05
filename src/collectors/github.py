@@ -10,7 +10,9 @@ import httpx
 from rich.console import Console
 
 from ..models import CollectedItem, SourceType
+from ..utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -48,6 +50,9 @@ def collect_from_github_trending(
             if language:
                 params["q"] += f" language:{language}"
 
+            logger.debug(
+                f"Searching GitHub for trending repos (language={language}, limit={limit})"
+            )
             response = client.get(
                 "https://api.github.com/search/repositories",
                 params=params,
@@ -55,6 +60,7 @@ def collect_from_github_trending(
             )
 
             if response.status_code == 403:
+                logger.warning("GitHub API rate limit hit")
                 console.print("[yellow]⚠[/yellow] GitHub API rate limit hit, skipping")
                 return []
 
@@ -62,6 +68,7 @@ def collect_from_github_trending(
             data = response.json()
 
             repos = data.get("items", [])[:limit]
+            logger.info(f"Found {len(repos)} trending repositories from GitHub")
             console.print(f"  Found {len(repos)} trending repositories...")
 
             for repo in repos:
@@ -92,14 +99,17 @@ def collect_from_github_trending(
                     items.append(item)
 
                 except Exception as e:
+                    logger.debug(f"Error processing GitHub repo: {type(e).__name__}")
                     console.print(
                         f"[yellow]⚠[/yellow] Failed to process GitHub repo: {e}"
                     )
                     continue
 
     except Exception as e:
+        logger.error(f"GitHub trending collection failed: {type(e).__name__} - {e}")
         console.print(f"[red]✗[/red] GitHub trending collection failed: {e}")
         return []
 
+    logger.info(f"Collected {len(items)} trending repos from GitHub")
     console.print(f"[green]✓[/green] Collected {len(items)} trending repos from GitHub")
     return items

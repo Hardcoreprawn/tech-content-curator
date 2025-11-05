@@ -6,6 +6,10 @@ for processes, comparisons, and network topologies.
 
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 from openai import OpenAI
 
 
@@ -84,6 +88,7 @@ class AIAsciiGenerator:
         Returns:
             GeneratedAsciiArt if successful, None if generation failed
         """
+        logger.debug(f"Generating ASCII art for {section_title} ({concept_type})")
         prompt = self._build_prompt(section_title, section_content, concept_type)
         art_type = self._determine_art_type(concept_type)
 
@@ -138,6 +143,8 @@ COMMON PATTERNS:
             completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
                 "completion"
             ]
+            total_cost = prompt_cost + completion_cost
+            logger.debug(f"ASCII art generated: {len(ascii_content)} chars, cost: ${total_cost:.4f}")
 
             # Generate alt-text
             alt_text = self._generate_alt_text(section_title, concept_type)
@@ -151,7 +158,7 @@ COMMON PATTERNS:
             )
 
         except Exception as e:
-            print(f"Failed to generate ASCII art: {e}")
+            logger.error(f"ASCII art generation failed: {type(e).__name__}: {e}")
             return None
 
     def _build_prompt(
@@ -305,6 +312,7 @@ class TextIllustrationQualitySelector:
         Returns:
             GeneratedAsciiArt with highest quality score, or None if all below threshold
         """
+        logger.debug(f"Generating {self.n_candidates} ASCII art candidates for {section_title}")
         candidates = []
 
         for _i in range(self.n_candidates):
@@ -326,7 +334,12 @@ class TextIllustrationQualitySelector:
         best_art.quality_score = best_score
         best_art.candidates_tested = len(candidates)
 
-        return best_art if best_score >= self.quality_threshold else None
+        if best_score >= self.quality_threshold:
+            logger.info(f"Best ASCII art selected: score={best_score:.2f} (tested {len(candidates)} candidates)")
+            return best_art
+        else:
+            logger.warning(f"Best ASCII art score {best_score:.2f} below threshold {self.quality_threshold}")
+            return None
 
     def _score(self, content: str, concept_type: str) -> float:
         """Score diagram on multiple quality dimensions.

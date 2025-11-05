@@ -4,6 +4,11 @@ Provides a collection of pre-designed SVG templates that can be used directly
 or as a basis for generating custom diagrams.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 from dataclasses import dataclass
 
 
@@ -43,8 +48,12 @@ class SVGTemplateLibrary:
 
     def __init__(self):
         """Initialize the template library."""
+        logger.debug("Initializing SVG template library")
         self._templates: dict[str, SVGTemplate] = {}
         self._load_templates()
+        logger.info(
+            f"SVG template library loaded: {len(self._templates)} templates available"
+        )
 
     def _load_templates(self):
         """Load all SVG templates into memory."""
@@ -332,7 +341,12 @@ class SVGTemplateLibrary:
         Returns:
             SVGTemplate if found, None otherwise
         """
-        return self._templates.get(template_name)
+        template = self._templates.get(template_name)
+        if template:
+            logger.debug(f"Retrieved SVG template: {template_name}")
+        else:
+            logger.warning(f"SVG template not found: {template_name}")
+        return template
 
     def list_templates(self) -> list[SVGTemplate]:
         """Get all templates in the library.
@@ -351,7 +365,9 @@ class SVGTemplateLibrary:
         Returns:
             List of templates that address this concept
         """
-        return [t for t in self._templates.values() if concept in t.concepts]
+        results = [t for t in self._templates.values() if concept in t.concepts]
+        logger.debug(f"Found {len(results)} SVG templates for concept: {concept}")
+        return results
 
     def find_by_tag(self, tag: str) -> list[SVGTemplate]:
         """Find templates by tag.

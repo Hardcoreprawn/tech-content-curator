@@ -4,6 +4,11 @@ Detects high-value concepts in article content that would benefit from visual ai
 Performs keyword analysis, structural pattern detection, and content density analysis.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 from dataclasses import dataclass
 
 
@@ -135,6 +140,7 @@ class ConceptDetector:
         Returns:
             List of detected concepts, sorted by confidence (highest first)
         """
+        logger.debug(f"Detecting concepts in content ({len(content)} chars)")
         concepts: dict[str, Concept] = {}
         content_lower = content.lower()
 
@@ -163,6 +169,11 @@ class ConceptDetector:
             concepts.values(), key=lambda c: c.confidence, reverse=True
         )
 
+        logger.info(
+            f"Detected {len(sorted_concepts)} concepts: {[c.name for c in sorted_concepts[:3]]}..."
+            if len(sorted_concepts) > 3
+            else f"Detected {len(sorted_concepts)} concepts: {[c.name for c in sorted_concepts]}"
+        )
         return sorted_concepts
 
     def filter_by_confidence(
@@ -177,7 +188,12 @@ class ConceptDetector:
         Returns:
             Filtered list of concepts meeting confidence threshold
         """
-        return [c for c in concepts if c.confidence >= min_confidence]
+        logger.debug(
+            f"Filtering {len(concepts)} concepts by confidence >= {min_confidence}"
+        )
+        filtered = [c for c in concepts if c.confidence >= min_confidence]
+        logger.info(f"Filtered to {len(filtered)} concepts above confidence threshold")
+        return filtered
 
     def limit_by_type(
         self, concepts: list[Concept], visual_type: str | None = None

@@ -4,6 +4,11 @@ Scores diagrams on content accuracy and explanatory value to prevent
 nonsensical or low-quality visualizations from being injected.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 import json
 from dataclasses import dataclass
 
@@ -85,6 +90,7 @@ class DiagramValidator:
             diagram_type,
         )
 
+        logger.debug(f"Validating {diagram_type} diagram for {section_title}")
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -127,6 +133,15 @@ class DiagramValidator:
             else:
                 cost = 0.0
 
+            if combined >= self.threshold:
+                logger.info(
+                    f"Diagram validation passed: accuracy={accuracy:.2f}, value={value:.2f}, combined={combined:.2f}"
+                )
+            else:
+                logger.warning(
+                    f"Diagram validation failed: combined score {combined:.2f} below threshold {self.threshold}"
+                )
+
             return ValidationResult(
                 is_valid=combined >= self.threshold,
                 accuracy_score=accuracy,
@@ -137,8 +152,10 @@ class DiagramValidator:
             )
 
         except (json.JSONDecodeError, ValueError, KeyError) as e:
+            logger.error(f"Validation parsing error: {type(e).__name__}: {e}")
             return self._create_failed_result(f"Parse error: {e}")
         except Exception as e:
+            logger.error(f"Diagram validation error: {type(e).__name__}: {e}")
             return self._create_failed_result(f"Validation error: {e}")
 
     def _build_validation_prompt(

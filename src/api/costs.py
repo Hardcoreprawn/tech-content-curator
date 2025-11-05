@@ -19,7 +19,10 @@ from typing import Literal
 from rich.console import Console
 from rich.table import Table
 
+from ..utils.logging import get_logger
+
 console = Console()
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -70,6 +73,7 @@ class CostTracker:
         Args:
             data_file: Path to cost tracking JSON file
         """
+        logger.debug(f"Initializing CostTracker with file: {data_file}")
         self.data_file = data_file
         self.data_file.parent.mkdir(parents=True, exist_ok=True)
         self.entries: list[GenerationCostEntry] = []
@@ -77,19 +81,25 @@ class CostTracker:
 
     def load(self):
         """Load historical cost data."""
+        logger.debug(f"Loading cost data from: {self.data_file}")
         if self.data_file.exists():
             try:
                 with open(self.data_file, encoding="utf-8") as f:
                     data = json.load(f)
                     self.entries = [GenerationCostEntry(**entry) for entry in data]
+                logger.info(f"Loaded {len(self.entries)} cost entries from history")
             except Exception as e:
+                logger.error(f"Failed to load cost data: {e}", exc_info=True)
                 console.print(
                     f"[yellow]Warning: Could not load cost data: {e}[/yellow]"
                 )
                 self.entries = []
+        else:
+            logger.debug(f"Cost file does not exist yet: {self.data_file}")
 
     def save(self):
         """Save cost data to file."""
+        logger.debug(f"Saving {len(self.entries)} cost entries to file")
         try:
             with open(self.data_file, "w", encoding="utf-8") as f:
                 json.dump(
@@ -115,6 +125,10 @@ class CostTracker:
             article_filename: Filename of saved article
             generation_costs: Dict with content_generation, title_generation, etc.
         """
+        total_cost = sum(generation_costs.values())
+        logger.debug(
+            f"Recording successful generation: {article_filename} (cost: ${total_cost:.8f})"
+        )
         entry = GenerationCostEntry(
             timestamp=datetime.now(UTC).isoformat(),
             article_title=article_title,
@@ -124,10 +138,11 @@ class CostTracker:
             slug_cost=generation_costs.get("slug_generation", 0.0),
             image_cost=generation_costs.get("image_generation", 0.0)
             + generation_costs.get("icon_generation", 0.0),
-            total_cost=sum(generation_costs.values()),
+            total_cost=total_cost,
             status="saved",
         )
         self.entries.append(entry)
+        logger.info(f"Recorded cost for {article_filename}: ${total_cost:.8f}")
         self.save()
 
     def record_rejected_duplicate(
@@ -202,6 +217,7 @@ class CostTracker:
         """
         from datetime import timedelta
 
+        logger.debug(f"Calculating cost summary for last {days} days")
         cutoff = datetime.now(UTC) - timedelta(days=days)
         recent = [
             e
@@ -219,6 +235,10 @@ class CostTracker:
         total_spent = successful_cost + wasted_cost
 
         efficiency = (successful_cost / total_spent * 100) if total_spent > 0 else 100.0
+
+        logger.info(
+            f"Cost summary: {len(saved)} saved (${successful_cost:.2f}), {len(rejected_post)} wasted (${wasted_cost:.2f}), efficiency={efficiency:.1f}%"
+        )
 
         return CostSummary(
             total_spent=total_spent,

@@ -16,7 +16,10 @@ from pathlib import Path
 
 import frontmatter
 
+from ..utils.logging import get_logger
 from ..utils.url_tools import normalize_url
+
+logger = get_logger(__name__)
 
 
 def check_article_exists_for_source(source_url: str, content_dir: Path) -> Path | None:
@@ -29,6 +32,7 @@ def check_article_exists_for_source(source_url: str, content_dir: Path) -> Path 
     Returns:
         Path to existing article if found, None otherwise
     """
+    logger.debug(f"Checking if article exists for source: {source_url}")
     # Normalize incoming URL once
     normalized_input = normalize_url(source_url)
 
@@ -49,9 +53,12 @@ def check_article_exists_for_source(source_url: str, content_dir: Path) -> Path 
             if isinstance(source_meta, dict):
                 url = source_meta.get("url")
                 if url and normalize_url(str(url)) == normalized_input:
+                    logger.info(f"Found existing article for source: {filepath.name}")
                     return filepath
-        except Exception:
+        except (OSError, ValueError, Exception) as e:
+            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
             continue
+    logger.debug("No existing article found for source")
     return None
 
 
@@ -66,6 +73,7 @@ def collect_existing_source_urls(content_dir: Path) -> set[str]:
     Returns:
         Set of normalized source URLs
     """
+    logger.debug("Collecting existing source URLs from articles")
     urls: set[str] = set()
     for filepath in content_dir.glob("*.md"):
         try:
@@ -84,8 +92,10 @@ def collect_existing_source_urls(content_dir: Path) -> set[str]:
                 url = legacy.get("url")
                 if url:
                     urls.add(normalize_url(str(url)))
-        except Exception:
+        except (OSError, ValueError, Exception) as e:
+            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
             continue
+    logger.info(f"Collected {len(urls)} existing source URLs")
     return urls
 
 
@@ -148,11 +158,14 @@ def is_source_in_cooldown(
                 for s in sources:
                     url = s.get("url") if isinstance(s, dict) else None
                     if url and normalize_url(str(url)) == normalized_url:
+                        logger.debug(f"Source {source_url} in cooldown (article from {article_date})")
                         return True  # Found recent article with this source
 
-        except Exception:
+        except (OSError, ValueError, Exception) as e:
+            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
             continue
 
+    logger.debug(f"Source {source_url} not in cooldown")
     return False  # Source not used recently
 
 
@@ -168,6 +181,7 @@ def load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
     Returns:
         List of article metadata dictionaries
     """
+    logger.debug("Loading article metadata for deduplication")
     articles = []
 
     for filepath in content_dir.glob("*.md"):
@@ -184,7 +198,9 @@ def load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
                     "filepath": filepath,
                 }
             )
-        except Exception:
+        except (OSError, ValueError, Exception) as e:
+            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
             continue
 
+    logger.info(f"Loaded metadata for {len(articles)} articles for deduplication")
     return articles

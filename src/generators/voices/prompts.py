@@ -15,6 +15,10 @@ Each voice has:
 
 from dataclasses import dataclass
 
+from ...utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 @dataclass
 class VoicePromptKit:
@@ -822,8 +826,10 @@ def get_voice_prompt_kit(voice_id: str) -> VoicePromptKit:
     Raises:
         ValueError: If voice_id not found
     """
+    logger.debug(f"Retrieving prompt kit for voice: {voice_id}")
     if voice_id not in VOICE_PROMPT_KITS:
         available = ", ".join(VOICE_PROMPT_KITS.keys())
+        logger.error(f"Unknown voice: {voice_id}")
         raise ValueError(f"Unknown voice: {voice_id}. Available voices: {available}")
     return VOICE_PROMPT_KITS[voice_id]
 
@@ -840,6 +846,7 @@ def build_voice_system_prompt(voice_id: str, content_type: str = "general") -> s
     Returns:
         Complete system prompt ready for OpenAI API
     """
+    logger.debug(f"Building voice system prompt: {voice_id} for {content_type} content")
     kit = get_voice_prompt_kit(voice_id)
 
     # Start with voice system message

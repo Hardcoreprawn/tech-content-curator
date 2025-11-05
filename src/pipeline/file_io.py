@@ -20,8 +20,10 @@ from ..citations.resolver import ResolvedCitation
 from ..config import PipelineConfig, get_content_dir
 from ..images import CoverImageSelector, select_or_create_cover_image
 from ..models import EnrichedItem, GeneratedArticle
+from ..utils.logging import get_logger
 from ..utils.url_tools import normalize_url
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -78,6 +80,8 @@ def save_article_to_file(
 ) -> Path:
     """Save a generated article to markdown file with frontmatter.
 
+    Logs file creation, metadata setup, and citation processing.
+
     Args:
         article: The generated article to save
         config: Pipeline configuration for API keys
@@ -87,6 +91,7 @@ def save_article_to_file(
     Returns:
         Path to the saved file
     """
+    logger.debug(f"Saving article: {article.title} (filename: {article.filename})")
     content_dir = get_content_dir()
     filepath = content_dir / article.filename
 
@@ -146,7 +151,11 @@ def save_article_to_file(
                         f"[green]✓[/green] Selected {cover_image.source} image "
                         f"(cost: ${cover_image.cost:.4f})"
                     )
-                except Exception as e:
+                except (ValueError, KeyError, AttributeError) as e:
+                    logger.warning(
+                        f"Multi-source image selection failed for article '{article.title}': {e}",
+                        exc_info=True,
+                    )
                     console.print(
                         f"[yellow]⚠ Multi-source image selection failed: {e}[/yellow]"
                     )
@@ -160,7 +169,11 @@ def save_article_to_file(
                     article.tags, slug, config.hugo_base_url
                 )
                 article.generation_costs["image_generation"] = 0.0
-        except Exception as ie:
+        except (OSError, ValueError, KeyError) as ie:
+            logger.error(
+                f"Image attachment failed for article '{article.title}': {ie}",
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠[/yellow] Image attach failed: {ie}")
 
         if hero_path:
@@ -235,6 +248,10 @@ def save_article_to_file(
                     formatted_citations
                 )
         except Exception as e:
+            logger.warning(
+                f"Citation processing failed for article '{article.title}': {e}",
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠ Citation processing failed: {e}[/yellow]")
 
     # Append references (now citation_bibliography is defined)
@@ -272,6 +289,9 @@ def save_article_to_file(
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(frontmatter.dumps(post))
 
+    logger.info(
+        f"Successfully saved article: {article.filename} ({len(full_content)} bytes)"
+    )
     console.print(f"[green]✓[/green] Saved article to {article.filename}")
     return filepath
 
@@ -285,6 +305,7 @@ def load_enriched_items(filepath: Path) -> list[EnrichedItem]:
     Returns:
         List of EnrichedItem objects
     """
+    logger.debug(f"Loading enriched items from: {filepath}")
     with open(filepath, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -293,7 +314,11 @@ def load_enriched_items(filepath: Path) -> list[EnrichedItem]:
         try:
             item = EnrichedItem(**item_data)
             items.append(item)
-        except Exception as e:
+        except (ValueError, TypeError, KeyError) as e:
+            logger.warning(
+                f"Failed to load enriched item: {e}, item data: {item_data}",
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠[/yellow] Failed to load enriched item: {e}")
             continue
 

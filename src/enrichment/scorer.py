@@ -26,7 +26,10 @@ saves API costs by filtering low-quality content early.
 import re
 
 from ..models import CollectedItem
+from ..utils.logging import get_logger
 from .adaptive_scoring import ScoringAdapter
+
+logger = get_logger(__name__)
 
 
 def calculate_heuristic_score(
@@ -48,6 +51,7 @@ def calculate_heuristic_score(
     Returns:
         Tuple of (heuristic_score, explanation)
     """
+    logger.debug(f"Calculating heuristic score for item: {item.id}")
     score = 0.0
     factors = []
 

@@ -7,7 +7,6 @@ modular design. Thread-safe and optimized for Python 3.14 free-threading.
 from __future__ import annotations
 
 import asyncio
-import logging
 import os
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
@@ -15,13 +14,14 @@ from datetime import UTC, datetime
 from openai import OpenAI
 from rich.console import Console
 
+from ..api.costs import CostTracker
 from ..api.openai_error_handler import handle_openai_error, is_fatal
 from ..config import PipelineConfig, get_config, get_content_dir
-from ..costs import CostTracker
 from ..deduplication.adaptive_dedup import AdaptiveDedupFeedback
 from ..enrichment.fact_check import FactCheckResult, validate_article
 from ..generators.base import BaseGenerator
 from ..models import EnrichedItem, GeneratedArticle
+from ..utils.logging import get_logger
 from .article_builder import (
     calculate_text_cost,
     create_article_metadata,
@@ -46,7 +46,7 @@ except ImportError:
     format_markdown = None
 
 console = Console()
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def generate_single_article(
@@ -75,6 +75,7 @@ def generate_single_article(
     if config is None:
         config = illustration_service.config if illustration_service else get_config()
     console.print(f"[blue]Generating article:[/blue] {item.original.title[:50]}...")
+    logger.debug(f"Starting article generation for: {item.original.url}")
 
     try:
         # Check if article already exists
@@ -87,16 +88,19 @@ def generate_single_article(
                 console.print(
                     "[yellow]♻ Regenerating - deleting existing article[/yellow]"
                 )
+                logger.info(f"Regenerating existing article: {existing_file.name}")
                 existing_file.unlink()
             else:
                 console.print(
                     "[yellow]⚠ Skipping - article already exists for this source[/yellow]"
                 )
+                logger.info(f"Skipping: article already exists for {item.original.url}")
                 return None
 
         # Generate content
         generator = select_generator(item, generators)
         console.print(f"  Using: {generator.name}")
+        logger.debug(f"Selected generator: {generator.name}")
 
         # Select voice for this article (Phase 1 feature)
         voice_id = "default"

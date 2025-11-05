@@ -7,6 +7,9 @@ that cover different specialized generators.
 from __future__ import annotations
 
 from ..generators.base import BaseGenerator
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 from ..models import EnrichedItem
 
 
@@ -26,7 +29,11 @@ def select_diverse_candidates(
     Returns:
         Ordered list of selected items (length <= max_articles)
     """
+    logger.debug(
+        f"Selecting diverse candidates: {len(candidates)} total, max={max_articles}"
+    )
     if max_articles <= 0 or not candidates:
+        logger.debug("No candidates to select or max_articles <= 0")
         return []
 
     selected: list[EnrichedItem] = []
@@ -41,14 +48,21 @@ def select_diverse_candidates(
                 buckets[gen.name].append(item)
                 break
 
+    logger.debug(
+        f"Generator coverage: {[(name, len(items)) for name, items in buckets.items() if items]}"
+    )
+
     # Helper to append if capacity remains
     def try_add(item: EnrichedItem) -> None:
         if len(selected) < max_articles and item not in selected:
             selected.append(item)
 
     # Ensure coverage: pick one from each specialized generator when available
-    for _gen_name, items in buckets.items():
+    for gen_name, items in buckets.items():
         if items:
+            logger.debug(
+                f"Adding item for generator {gen_name}: {items[0].original.id}"
+            )
             try_add(items[0])
 
     # Fill remaining slots by overall quality order
@@ -57,4 +71,7 @@ def select_diverse_candidates(
             break
         try_add(c)
 
+    logger.info(
+        f"Selected {len(selected)} diverse candidates from {len(candidates)} total"
+    )
     return selected

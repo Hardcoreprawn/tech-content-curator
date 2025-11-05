@@ -8,6 +8,10 @@ from dataclasses import dataclass
 
 import textstat
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 @dataclass
 class ReadabilityScore:
@@ -44,6 +48,8 @@ class ReadabilityAnalyzer:
         Returns:
             ReadabilityScore containing all metrics and recommendations
         """
+        logger.debug(f"Starting readability analysis ({len(content)} chars)")
+
         # Calculate core metrics using textstat
         flesch_ease = textstat.flesch_reading_ease(content)
         grade_level = textstat.flesch_kincaid_grade(content)
@@ -56,6 +62,11 @@ class ReadabilityAnalyzer:
         # Generate recommendations
         recommendations = self._suggest_improvements(
             flesch_ease, grade_level, fog_index, smog_index, content
+        )
+
+        logger.debug(
+            f"Readability metrics: flesch={flesch_ease:.1f}, "
+            f"grade={grade_level:.1f}, rating={overall_rating}"
         )
 
         return ReadabilityScore(
@@ -165,13 +176,20 @@ class ReadabilityAnalyzer:
             Tuple of (matches: bool, explanation: str)
         """
         flesch = readability.flesch_reading_ease
+        logger.debug(
+            f"Checking readability match: target={target_difficulty}, flesch={flesch:.1f}"
+        )
 
         # Define acceptable ranges for each difficulty level
         if target_difficulty == "beginner":
             # Beginners need easier content (Flesch 60-100)
             if flesch >= 60:
+                logger.debug("Readability matches beginner level")
                 return True, "Readability is appropriate for beginners."
             else:
+                logger.debug(
+                    f"Readability too difficult for beginner level (need 60+, got {flesch:.1f})"
+                )
                 return (
                     False,
                     f"Too difficult for beginners (Flesch: {flesch:.1f}, need 60+). "
@@ -181,14 +199,21 @@ class ReadabilityAnalyzer:
         elif target_difficulty == "intermediate":
             # Intermediate readers (Flesch 50-70)
             if 50 <= flesch <= 70:
+                logger.debug("Readability matches intermediate level")
                 return True, "Readability is appropriate for intermediate readers."
             elif flesch > 70:
+                logger.debug(
+                    f"Readability too easy for intermediate level ({flesch:.1f})"
+                )
                 return (
                     False,
                     f"Too easy for intermediate readers (Flesch: {flesch:.1f}). "
                     "Can introduce more technical depth.",
                 )
             else:
+                logger.debug(
+                    f"Readability too difficult for intermediate level ({flesch:.1f})"
+                )
                 return (
                     False,
                     f"Too difficult for intermediate readers (Flesch: {flesch:.1f}, need 50-70). "
@@ -198,14 +223,21 @@ class ReadabilityAnalyzer:
         elif target_difficulty == "advanced":
             # Advanced readers can handle complex content (Flesch 30-60)
             if 30 <= flesch <= 60:
+                logger.debug("Readability matches advanced level")
                 return True, "Readability is appropriate for advanced readers."
             elif flesch > 60:
+                logger.debug(
+                    f"Readability too simple for advanced level ({flesch:.1f})"
+                )
                 return (
                     False,
                     f"Too simple for advanced readers (Flesch: {flesch:.1f}). "
                     "Can use more precise technical terminology.",
                 )
             else:
+                logger.debug(
+                    f"Readability very technical for advanced level ({flesch:.1f})"
+                )
                 return (
                     True,
                     f"Very technical (Flesch: {flesch:.1f}), acceptable for advanced readers.",
@@ -213,4 +245,5 @@ class ReadabilityAnalyzer:
 
         else:
             # Unknown difficulty level
+            logger.debug(f"Unknown target difficulty: {target_difficulty}")
             return True, f"Unknown difficulty level: {target_difficulty}"

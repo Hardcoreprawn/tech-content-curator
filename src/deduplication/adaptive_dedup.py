@@ -17,6 +17,9 @@ from pathlib import Path
 
 from rich.console import Console
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -73,12 +76,16 @@ class AdaptiveDedupFeedback:
                             avg_similarity=item["avg_similarity"],
                         )
                         self.patterns.append(pattern)
+                logger.info(f"Loaded {len(self.patterns)} learned dedup patterns from {self.patterns_file}")
                 console.print(
                     f"[dim]Loaded {len(self.patterns)} learned dedup patterns[/dim]"
                 )
             except Exception as e:
+                logger.error(f"Error loading dedup patterns: {type(e).__name__} - {e}")
                 console.print(f"[yellow]Warning: Could not load patterns: {e}[/yellow]")
                 self.patterns = []
+        else:
+            logger.debug(f"No patterns file found at {self.patterns_file}, starting with empty patterns")
 
     def save(self):
         """Save learned patterns to disk."""

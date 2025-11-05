@@ -14,7 +14,9 @@ from rich.console import Console
 
 from ..config import get_data_dir
 from ..models import CollectedItem, EnrichedItem
+from ..utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -30,6 +32,7 @@ def save_enriched_items(
     Returns:
         Path to saved file
     """
+    logger.debug(f"Saving {len(items)} enriched items")
     if not timestamp:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
@@ -46,6 +49,7 @@ def save_enriched_items(
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False, default=str)
 
+    logger.info(f"Saved {len(items)} enriched items to {filename}")
     console.print(f"[green]✓[/green] Saved {len(items)} enriched items to {filename}")
     return filepath
 
@@ -59,6 +63,7 @@ def load_collected_items(filepath: Path) -> list[CollectedItem]:
     Returns:
         List of CollectedItem objects
     """
+    logger.debug(f"Loading collected items from {filepath.name}")
     with open(filepath, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -68,9 +73,11 @@ def load_collected_items(filepath: Path) -> list[CollectedItem]:
             item = CollectedItem(**item_data)
             items.append(item)
         except Exception as e:
+            logger.warning(f"Failed to load item: {type(e).__name__}: {e}")
             console.print(f"[yellow]⚠[/yellow] Failed to load item: {e}")
             continue
 
+    logger.info(f"Loaded {len(items)} collected items from {filepath.name}")
     console.print(
         f"[green]✓[/green] Loaded {len(items)} collected items from {filepath.name}"
     )
@@ -86,6 +93,7 @@ def load_enriched_items(filepath: Path) -> list[EnrichedItem]:
     Returns:
         List of EnrichedItem objects
     """
+    logger.debug(f"Loading enriched items from {filepath.name}")
     with open(filepath, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -95,9 +103,11 @@ def load_enriched_items(filepath: Path) -> list[EnrichedItem]:
             item = EnrichedItem(**item_data)
             items.append(item)
         except Exception as e:
+            logger.warning(f"Failed to load item: {type(e).__name__}: {e}")
             console.print(f"[yellow]⚠[/yellow] Failed to load item: {e}")
             continue
 
+    logger.info(f"Loaded {len(items)} enriched items from {filepath.name}")
     console.print(
         f"[green]✓[/green] Loaded {len(items)} enriched items from {filepath.name}"
     )

@@ -14,6 +14,9 @@ from typing import NamedTuple
 
 from rich.console import Console
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 console = Console()
 
 

@@ -11,6 +11,7 @@ import httpx
 from rich.console import Console
 
 from ..models import CollectedItem, PipelineConfig, SourceType
+from ..utils.logging import get_logger
 from .base import (
     clean_html_content,
     extract_title_from_content,
@@ -19,6 +20,7 @@ from .base import (
     is_relevant_content,
 )
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -40,6 +42,9 @@ def collect_from_mastodon_trending(
         List of collected items from Mastodon trending
     """
     instance = config.mastodon_instances[0]  # Use first instance from list
+    logger.debug(
+        f"Starting Mastodon trending collection from {instance} (limit={limit})"
+    )
     console.print(
         f"[blue]Collecting trending content from Mastodon ({instance})...[/blue]"
     )
@@ -56,6 +61,9 @@ def collect_from_mastodon_trending(
 
             if trending_response.status_code == 200:
                 trending_posts = trending_response.json()
+                logger.info(
+                    f"Retrieved {len(trending_posts)} trending posts from Mastodon"
+                )
                 console.print(
                     f"[green]✓[/green] Found {len(trending_posts)} trending posts"
                 )
@@ -66,11 +74,13 @@ def collect_from_mastodon_trending(
                     )
 
             # Fallback to public timeline if trending fails
+            logger.debug("Trending API not available, falling back to public timeline")
             console.print(
                 "[yellow]Trending not available, falling back to public timeline[/yellow]"
             )
 
     except Exception as e:
+        logger.warning(f"Mastodon trending API error: {type(e).__name__} - {e}")
         console.print(
             f"[yellow]Trending collection failed: {e}, using public timeline[/yellow]"
         )
@@ -88,7 +98,10 @@ def collect_from_mastodon(
     """
     try:
         return collect_from_mastodon_trending(config, limit)
-    except Exception:
+    except (httpx.HTTPError, ValueError, Exception) as e:
+        logger.warning(
+            f"Mastodon collection failed (limit={limit}): {type(e).__name__}"
+        )
         return collect_from_mastodon_public(config, limit)
 
 
@@ -105,6 +118,7 @@ def collect_from_mastodon_public(
         List of collected items from Mastodon public timeline
     """
     instance = config.mastodon_instances[0]  # Use first instance from list
+    logger.debug(f"Starting Mastodon public timeline collection from {instance}")
     console.print(f"[blue]Collecting from public timeline ({instance})...[/blue]")
 
     # Mastodon API endpoint for public timeline
@@ -123,6 +137,7 @@ def collect_from_mastodon_public(
             response.raise_for_status()
 
         posts = response.json()
+        logger.info(f"Retrieved {len(posts)} posts from Mastodon public timeline")
         console.print(
             f"[green]✓[/green] Retrieved {len(posts)} posts from public timeline"
         )
@@ -130,6 +145,7 @@ def collect_from_mastodon_public(
         return _process_mastodon_posts(posts, config, "public", instance)
 
     except httpx.HTTPError as e:
+        logger.error(f"Mastodon HTTP error: {type(e).__name__} - {e}")
         console.print(f"[red]✗[/red] Failed to collect from Mastodon: {e}")
         raise
 
@@ -163,6 +179,9 @@ def _process_mastodon_posts(
         "off_topic": 0,
         "processed": 0,
     }
+    logger.debug(
+        f"Starting to process {len(posts)} posts from source_type={source_type}"
+    )
 
     for post in posts:
         try:
@@ -267,6 +286,7 @@ def _process_mastodon_posts(
 
         except (KeyError, ValueError) as e:
             filtered_counts["malformed"] += 1
+            logger.debug(f"Malformed post: {type(e).__name__}")
             console.print(f"[yellow]⚠[/yellow] Malformed post: {e}")
             continue
 
@@ -291,5 +311,8 @@ def _process_mastodon_posts(
 
     console.print(
         f"[green]✓[/green] Final result: {len(items)} items from Mastodon {source_type}"
+    )
+    logger.info(
+        f"Processed Mastodon {source_type}: {len(items)} items kept, {total_filtered} filtered"
     )
     return items

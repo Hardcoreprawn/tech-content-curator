@@ -25,11 +25,13 @@ from pydantic import HttpUrl
 from rich.console import Console
 
 from ..models import CollectedItem, PipelineConfig, SourceType
+from ..utils.logging import get_logger
 from .base import (
     is_entitled_whining,
     is_political_content,
 )
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -46,11 +48,13 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
     if not all(
         [config.reddit_client_id, config.reddit_client_secret, config.reddit_user_agent]
     ):
+        logger.debug("Reddit credentials not configured, skipping Reddit collection")
         console.print(
             "[yellow]⚠ Reddit credentials not configured, skipping Reddit collection[/yellow]"
         )
         return []
 
+    logger.debug(f"Starting Reddit collection (limit={limit})")
     console.print("[blue]Collecting from Reddit...[/blue]")
 
     # Tech-focused subreddits for high-quality content
@@ -90,6 +94,7 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
             :8
         ]:  # Limit to 8 subreddits to avoid rate limits
             try:
+                logger.debug(f"Collecting from r/{subreddit_name}")
                 console.print(f"[dim]  Checking r/{subreddit_name}...[/dim]")
                 subreddit = reddit.subreddit(subreddit_name)
 
@@ -118,6 +123,7 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
                     break
 
             except Exception as e:
+                logger.warning(f"Error collecting from r/{subreddit_name}: {type(e).__name__}")
                 console.print(
                     f"[yellow]⚠ Failed to collect from r/{subreddit_name}: {e}[/yellow]"
                 )
@@ -127,6 +133,7 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
         return _process_reddit_posts(all_posts, config)
 
     except Exception as e:
+        logger.error(f"Reddit collection failed: {type(e).__name__} - {e}")
         console.print(f"[red]✗ Reddit collection failed: {e}[/red]")
         return []
 
@@ -154,6 +161,7 @@ def _process_reddit_posts(posts: list, config: PipelineConfig) -> list[Collected
         "entitled": 0,
         "processed": 0,
     }
+    logger.debug(f"Starting to process {len(posts)} Reddit posts")
 
     for post in posts:
         try:
@@ -214,6 +222,7 @@ def _process_reddit_posts(posts: list, config: PipelineConfig) -> list[Collected
 
         except Exception as e:
             filtered_counts["malformed"] += 1
+            logger.debug(f"Malformed Reddit post: {type(e).__name__}")
             console.print(f"[yellow]⚠[/yellow] Malformed Reddit post: {e}")
             continue
 
@@ -236,4 +245,5 @@ def _process_reddit_posts(posts: list, config: PipelineConfig) -> list[Collected
                 console.print(f"[dim]    {reason_name}: {count}[/dim]")
 
     console.print(f"[green]✓[/green] Final result: {len(items)} items from Reddit")
+    logger.info(f"Processed Reddit collection: {len(items)} items kept, {total_filtered} filtered")
     return items

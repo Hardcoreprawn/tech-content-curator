@@ -16,12 +16,14 @@ from ..config import get_config, get_data_dir
 from ..deduplication.dedup_feedback import DeduplicationFeedbackSystem
 from ..deduplication.semantic_dedup import SemanticDeduplicator
 from ..models import CollectedItem, PipelineConfig
+from ..utils.logging import get_logger
 from ..utils.url_tools import normalize_url
 from .github import collect_from_github_trending
 from .hackernews import collect_from_hackernews
 from .mastodon import collect_from_mastodon_trending
 from .reddit import collect_from_reddit
 
+logger = get_logger(__name__)
 console = Console()
 
 

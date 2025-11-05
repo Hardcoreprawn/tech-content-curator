@@ -8,7 +8,9 @@ from pydantic import ValidationError
 from rich.console import Console
 
 from .models import PipelineConfig
+from .utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 # Load environment variables from .env file

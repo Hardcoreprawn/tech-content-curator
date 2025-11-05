@@ -7,7 +7,10 @@ from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
 
+from ..utils.logging import get_logger
 from .semantic_dedup import SemanticDeduplicator
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -38,6 +41,8 @@ class DeduplicationFeedbackSystem:
     ):
         """Record the results of a deduplication session."""
 
+        logger.debug(f"Recording dedup session: {len(original_items)} items -> {len(deduplicated_items)} unique")
+        
         # Get examples of what was deduplicated
         examples = []
         duplicate_groups = deduplicator.find_duplicates(original_items, threshold=0.6)
@@ -67,6 +72,9 @@ class DeduplicationFeedbackSystem:
 
         self.feedback_history.append(feedback)
         self.save_feedback()
+        
+        logger.info(f"Dedup session recorded: {feedback.duplicates_found} duplicates found, "
+                   f"{feedback.patterns_used} patterns used")
 
         return feedback
 

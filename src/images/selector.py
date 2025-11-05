@@ -10,6 +10,11 @@ All search queries are generated via gpt-3.5-turbo for better context-aware resu
 Cost: ~$0.0005 per article for LLM query generation.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 import json
 from dataclasses import dataclass
 
@@ -129,16 +134,19 @@ class CoverImageSelector:
         Returns:
             CoverImage with URL, source, cost, and quality score
         """
+        logger.debug(f"Selecting cover image for article: {title}")
         console.print("[blue]🖼  Selecting cover image...[/blue]")
 
         # Step 1: Generate search queries via LLM
         queries = self._generate_search_queries(title, topics)
+        logger.debug(f"Generated search queries: {queries}")
         console.print(f"[dim]Generated search queries: {queries}[/dim]")
 
         # Tier 1: Try Unsplash (free stock)
         if self.config.unsplash_api_key:
             result = self._search_unsplash(queries.get("unsplash", title))
             if result and result.quality_score >= 0.70:
+                logger.info(f"Found Unsplash image (score: {result.quality_score})")
                 console.print(
                     f"[green]✓ Found Unsplash image (score: {result.quality_score})[/green]"
                 )
@@ -148,12 +156,14 @@ class CoverImageSelector:
         if self.config.pexels_api_key:
             result = self._search_pexels(queries.get("pexels", title))
             if result and result.quality_score >= 0.65:
+                logger.info(f"Found Pexels image (score: {result.quality_score})")
                 console.print(
                     f"[green]✓ Found Pexels image (score: {result.quality_score})[/green]"
                 )
                 return result
 
         # Tier 3: Generate AI image (fallback)
+        logger.warning("Free image sources unavailable, falling back to AI generation")
         console.print(
             "[yellow]⚠  Free sources unavailable, generating AI image...[/yellow]"
         )
@@ -220,6 +230,7 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
         Returns:
             CoverImage if found, None otherwise
         """
+        logger.debug(f"Searching Unsplash for: {query}")
         try:
             response = httpx.get(
                 "https://api.unsplash.com/search/photos",
@@ -261,6 +272,7 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
         Returns:
             CoverImage if found, None otherwise
         """
+        logger.debug(f"Searching Pexels for: {query}")
         try:
             response = httpx.get(
                 "https://api.pexels.com/v1/search",

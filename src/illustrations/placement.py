@@ -8,6 +8,10 @@ concept matching, and density controls to maintain article quality.
 import re
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 def format_diagram_for_markdown(diagram: str, section_title: str = "") -> str:
     """Wrap ASCII diagram with centering and proper spacing for markdown.
@@ -118,6 +122,7 @@ class PlacementAnalyzer:
         Returns:
             List of Section objects representing article structure
         """
+        logger.debug(f'Parsing article structure ({len(content)} chars)"')
         sections = []
         lines = content.split("\n")
 
@@ -161,6 +166,7 @@ class PlacementAnalyzer:
                 )
             )
 
+        logger.info(f"Parsed {len(sections)} sections from article")
         return sections
 
     def _create_section(
@@ -237,7 +243,9 @@ class PlacementAnalyzer:
         Returns:
             Sorted list of PlacementPoint objects (best first)
         """
+        logger.debug(f"Finding placements for concepts: {concept_names}")
         if not concept_names:
+            logger.warning("find_placements called with no concepts")
             return []
 
         sections = self.parse_structure(content)
@@ -257,6 +265,7 @@ class PlacementAnalyzer:
             content, placements, self.min_between_distance
         )
 
+        logger.info(f"Found {len(validated)} optimal placement(s) for {len(concept_names)} concepts")
         return validated[:max_placements]
 
     def _find_best_placement_for_concept(
@@ -298,22 +307,22 @@ class PlacementAnalyzer:
         best_placement = None
         best_weight = 0.0
 
-        print(f"[DEBUG] Looking for concept '{concept}' with keywords: {keywords}")
-        print(f"[DEBUG]   min_section_words={self.min_section_words}")
+        logger.debug(f"Looking for concept '{concept}' with keywords: {keywords}")
+        logger.debug(f"  min_section_words={self.min_section_words}")
 
         for section_idx, section in enumerate(sections):
             # Skip sections that aren't suitable
             if section.word_count < self.min_section_words:
-                print(
-                    f"[DEBUG]   Section {section_idx} '{section.title}': SKIP (only {section.word_count} words, need {self.min_section_words})"
+                logger.debug(
+                    f"Section {section_idx} '{section.title}': SKIP (only {section.word_count} words, need {self.min_section_words})"
                 )
                 continue
             # Note: Removed strict filtering for code_block, list, table - these are common in tech content
             # Instead, we'll place diagrams after these elements intelligently
             if section.has_visuals:
                 # Skip only if section already has visuals
-                print(
-                    f"[DEBUG]   Section {section_idx} '{section.title}': SKIP (already has visuals)"
+                logger.debug(
+                    f"Section {section_idx} '{section.title}': SKIP (already has visuals)"
                 )
                 continue
 
@@ -322,13 +331,13 @@ class PlacementAnalyzer:
             keyword_matches = sum(1 for kw in keywords if kw in content_lower)
 
             if keyword_matches == 0:
-                print(
-                    f"[DEBUG]   Section {section_idx} '{section.title}': SKIP (no keyword matches)"
+                logger.debug(
+                    f"Section {section_idx} '{section.title}': SKIP (no keyword matches)"
                 )
                 continue
 
-            print(
-                f"[DEBUG]   Section '{section.title}': {section.word_count} words, {keyword_matches} keyword matches"
+            logger.debug(
+                f"Section '{section.title}': {section.word_count} words, {keyword_matches} keyword matches"
             )
 
             # Calculate section weight
@@ -379,6 +388,7 @@ class PlacementAnalyzer:
         Returns:
             Validated placements that meet density requirements
         """
+        logger.debug(f"Validating placement density for {len(placements)} placement(s) (min_distance={min_distance})")
         if not placements:
             return []
 
@@ -388,11 +398,14 @@ class PlacementAnalyzer:
             # Check distance from last validated placement
             # Simple heuristic: section positions roughly correlate to article position
             if placement.section_index - validated[-1].section_index >= 2:
+                logger.debug(f"Placement in section {placement.section_index} validated (sufficient distance)")
                 validated.append(placement)
             elif len(validated) >= 3:
                 # Already have max for typical article
+                logger.debug("Skipping placement: max density limit reached (3 placements)")
                 break
 
+        logger.debug(f"Validated {len(validated)} placement(s) after density check")
         return validated
 
     def calculate_placement_safety(

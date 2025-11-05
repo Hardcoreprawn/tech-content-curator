@@ -12,11 +12,14 @@ import json
 import random
 from pathlib import Path
 
+from ...utils.logging import get_logger
 from .profiles import (
     VOICE_PROFILES,
     VoiceProfile,
     get_voices_for_content_type,
 )
+
+logger = get_logger(__name__)
 
 
 class VoiceSelector:
@@ -28,6 +31,7 @@ class VoiceSelector:
         Args:
             history_file: Path to JSON file tracking voice usage history
         """
+        logger.debug(f"Initializing VoiceSelector with history file: {history_file}")
         self.history_file = Path(history_file)
         self.history_file.parent.mkdir(parents=True, exist_ok=True)
         self._ensure_history_file()
@@ -61,6 +65,7 @@ class VoiceSelector:
             article_slug: Unique identifier for the article
             voice_id: Voice ID used for the article
         """
+        logger.debug(f"Recording voice usage: {voice_id} for article {article_slug}")
         history = self._load_history()
         history.append({"article_slug": article_slug, "voice_id": voice_id})
         # Keep last 50 entries for recency filtering
@@ -176,6 +181,9 @@ class VoiceSelector:
         Raises:
             ValueError: If no valid voices available
         """
+        logger.debug(
+            f"Selecting voice for {content_type} content (complexity={complexity_score})"
+        )
         # Get candidate voices for this content type
         ranked_voices = get_voices_for_content_type(content_type)
 
@@ -202,7 +210,11 @@ class VoiceSelector:
 
         # Sort by score (descending) and return top voice
         best_voice_id = sorted(scores.keys(), key=lambda v: scores[v], reverse=True)[0]
-        return VOICE_PROFILES[best_voice_id]
+        selected_profile = VOICE_PROFILES[best_voice_id]
+        logger.info(
+            f"Selected voice: {selected_profile.name} (score: {scores[best_voice_id]:.2f})"
+        )
+        return selected_profile
 
     def select_voice_with_details(
         self,
@@ -220,6 +232,9 @@ class VoiceSelector:
         Returns:
             Tuple of (VoiceProfile, dict with scoring details)
         """
+        logger.debug(
+            f"Selecting voice with details: {content_type} (complexity={complexity_score})"
+        )
         ranked_voices = get_voices_for_content_type(content_type)
         if preferred_voices:
             ranked_voices = [v for v in ranked_voices if v in preferred_voices]

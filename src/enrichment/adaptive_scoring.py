@@ -13,7 +13,9 @@ from rich.console import Console
 
 from ..config import get_data_dir
 from ..models import CollectedItem
+from ..utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 

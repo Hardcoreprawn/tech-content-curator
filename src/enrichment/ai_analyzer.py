@@ -10,7 +10,6 @@ for graceful degradation when the API is unavailable.
 """
 
 import json
-import logging
 
 from openai import APIConnectionError, APITimeoutError, OpenAI, RateLimitError
 from rich.console import Console
@@ -23,12 +22,10 @@ from tenacity import (
 
 from ..api.openai_error_handler import handle_openai_error
 from ..models import CollectedItem
+from ..utils.logging import get_logger
 
 console = Console()
-
-# Set up a simple logger for tenacity
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def log_retry_attempt(retry_state):
@@ -36,6 +33,7 @@ def log_retry_attempt(retry_state):
     exception = retry_state.outcome.exception() if retry_state.outcome.failed else None
     attempt_num = retry_state.attempt_number
     if exception:
+        logger.debug(f"Retry attempt {attempt_num}: {type(exception).__name__}")
         console.print(f"[yellow]⏳ Attempt {attempt_num}: retrying...[/yellow]")
 
 
@@ -66,6 +64,7 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
         Tuple of (quality_score, explanation)
         Score is 0.0-1.0 with more realistic distribution
     """
+    logger.debug(f"Starting AI quality analysis for item: {item.id}")
     # Create a more specific prompt that forces the AI to actually analyze the content
     prompt = f"""
     Analyze this social media post and give it a realistic quality score for a tech blog.

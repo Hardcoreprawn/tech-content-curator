@@ -22,7 +22,6 @@ Supported Error Modes:
 from __future__ import annotations
 
 import json
-import logging
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 from enum import Enum
@@ -37,7 +36,9 @@ from openai import (
 )
 from rich.console import Console
 
-logger = logging.getLogger(__name__)
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -299,10 +300,14 @@ class CreditManager:
         Returns:
             True if we should try the API, False if we should skip to cache/fallback
         """
-        return self.current_mode in [
+        should_attempt = self.current_mode in [
             ContentDegradationMode.FULL,
             ContentDegradationMode.DEGRADED,
         ]
+        logger.debug(
+            f"Should attempt API call: {should_attempt} (mode={self.current_mode.value})"
+        )
+        return should_attempt
 
     def get_retry_delay(self, attempt: int) -> float:
         """Calculate retry delay with exponential backoff.

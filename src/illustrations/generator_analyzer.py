@@ -4,6 +4,11 @@ Identifies which generators already provide visual content and prevents
 redundant illustration generation.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 import re
 
 VISUAL_AWARE_GENERATORS = {
@@ -36,6 +41,7 @@ def has_existing_visuals(content: str) -> bool:
     Returns:
         True if content already contains visual elements, False otherwise
     """
+    logger.debug("Checking for existing visual elements")
     # Indicators of existing visual content
     indicators = [
         r"```",  # Code blocks
@@ -49,6 +55,7 @@ def has_existing_visuals(content: str) -> bool:
 
     for pattern in indicators:
         if re.search(pattern, content, re.MULTILINE):
+            logger.debug(f"Found existing visual element matching pattern: {pattern}")
             return True
 
     return False
@@ -86,13 +93,18 @@ def should_add_illustrations(generator_name: str, content: str) -> bool:
     Returns:
         True if illustrations should be added, False otherwise
     """
+    logger.debug(f"Evaluating illustration addition for generator: {generator_name}")
     # First, check if this generator type already provides visuals
     if generator_includes_visuals(generator_name):
+        logger.info(
+            f"Skipping illustrations: {generator_name} already provides visuals"
+        )
         return False
 
     # Otherwise, illustrations would add value
     # NOTE: Temporarily disabled has_existing_visuals check to allow testing
     # of AI-generated illustrations alongside any existing visuals
+    logger.info(f"Proceeding with illustration generation for {generator_name}")
     return True
 
 

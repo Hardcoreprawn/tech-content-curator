@@ -4,6 +4,12 @@ This module provides feedback mechanisms to improve article generation
 based on quality analysis results.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
+
 from ..config import QUALITY_THRESHOLDS
 
 
@@ -22,6 +28,7 @@ def generate_quality_feedback(
     Returns:
         Formatted feedback string to append to generation prompt
     """
+    logger.debug(f"Generating quality feedback: difficulty={difficulty_level}, type={content_type}")
     feedback_parts = []
 
     # Get thresholds for this difficulty level
@@ -32,8 +39,10 @@ def generate_quality_feedback(
     # Readability feedback
     readability_score = quality_metrics.get("readability_score", 0)
     grade_level = quality_metrics.get("grade_level", 0)
+    logger.debug(f"Quality metrics: flesch={readability_score:.1f}, grade={grade_level:.1f}")
 
     if not quality_metrics.get("matches_target", True):
+        logger.debug("Quality does not meet target, generating improvement feedback")
         feedback_parts.append("\n## Content Readability Guidelines")
 
         if readability_score < thresholds["min_flesch_ease"]:
@@ -72,13 +81,16 @@ def generate_quality_feedback(
     # Recommendations from readability analysis
     recommendations = quality_metrics.get("recommendations", [])
     if recommendations:
+        logger.debug(f"Adding {len(recommendations)} recommendations")
         feedback_parts.append("\n## Specific Improvements Needed")
         for rec in recommendations:
             feedback_parts.append(f"- {rec}")
 
     if not feedback_parts:
+        logger.debug("No quality feedback needed")
         return ""
 
+    logger.debug(f"Generated {len(feedback_parts)} feedback sections")
     return "\n".join(feedback_parts)
 
 
@@ -140,14 +152,21 @@ def should_regenerate_article(
         True if article should be regenerated
     """
     if not auto_improve:
+        logger.debug("Auto-improve disabled, not regenerating")
         return False
 
     # Only regenerate if significantly below threshold
     passed = quality_metrics.get("passed_threshold", True)
     readability_score = quality_metrics.get("readability_score", 100)
 
+    should_regen = not passed and readability_score < 30
+    if should_regen:
+        logger.warning(f"Quality too low (score={readability_score:.1f}), article needs regeneration")
+    else:
+        logger.debug(f"Quality acceptable (passed={passed}, score={readability_score:.1f})")
+
     # Regenerate if failed and score is very low (< 30 = very hard to read)
-    return not passed and readability_score < 30
+    return should_regen
 
 
 def get_quality_prompt_enhancements(

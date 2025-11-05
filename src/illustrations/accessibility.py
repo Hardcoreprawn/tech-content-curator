@@ -7,6 +7,10 @@ SVG accessibility wrapping, and WCAG 2.1 AA compliance checking.
 import re
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 @dataclass
 class AccessibilityReport:
@@ -55,6 +59,7 @@ class AccessibilityChecker:
         Returns:
             Alt-text suitable for screen readers (max 125 chars for optimization)
         """
+        logger.debug(f"Generating alt-text for {illustration_name} ({concept_name})")
         # Map concept names to descriptions
         concept_descriptions = {
             "network_topology": "network diagram showing devices and connections",
@@ -162,6 +167,7 @@ class AccessibilityChecker:
         Returns:
             Enhanced SVG with accessibility elements
         """
+        logger.debug("Adding accessibility elements to SVG")
         # Check if SVG already has accessibility elements
         if "<title>" in svg_content and "<desc>" in svg_content:
             return svg_content
@@ -201,6 +207,7 @@ class AccessibilityChecker:
         Returns:
             AccessibilityReport with compliance status and issues
         """
+        logger.debug(f"Validating WCAG compliance for {illustration_type} (target: {self.target_wcag_level})")
         issues = []
         warnings = []
         alt_text = ""
@@ -255,6 +262,11 @@ class AccessibilityChecker:
 
         if not is_compliant and self.target_wcag_level == "AAA":
             wcag_level = "A"
+
+        if issues:
+            logger.warning(f"WCAG compliance issues found: {issues}")
+        else:
+            logger.info(f"WCAG {wcag_level} compliance achieved for {illustration_type}")
 
         return AccessibilityReport(
             wcag_level=wcag_level,

@@ -11,7 +11,9 @@ import httpx
 from rich.console import Console
 
 from ..models import CollectedItem, SourceType
+from ..utils.logging import get_logger
 
+logger = get_logger(__name__)
 console = Console()
 
 
@@ -26,6 +28,7 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
     Returns:
         List of collected items from HackerNews
     """
+    logger.debug(f"Starting HackerNews collection (limit={limit})")
     console.print("[blue]Collecting from HackerNews...[/blue]")
 
     items = []
@@ -40,6 +43,7 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
             response.raise_for_status()
             story_ids = response.json()[:limit]  # Top N stories
 
+            logger.info(f"Retrieved {len(story_ids)} top story IDs from HackerNews")
             console.print(f"  Fetching {len(story_ids)} top stories...")
 
             for story_id in story_ids:
@@ -83,6 +87,9 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
                     items.append(item)
 
                 except Exception as e:
+                    logger.debug(
+                        f"Error fetching HN story {story_id}: {type(e).__name__}"
+                    )
                     console.print(
                         f"[yellow]⚠[/yellow] Failed to fetch HN story {story_id}: {e}"
                     )
@@ -92,8 +99,10 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
                 time.sleep(0.1)
 
     except Exception as e:
+        logger.error(f"HackerNews collection failed: {type(e).__name__} - {e}")
         console.print(f"[red]✗[/red] HackerNews collection failed: {e}")
         return []
 
+    logger.info(f"Collected {len(items)} stories from HackerNews")
     console.print(f"[green]✓[/green] Collected {len(items)} stories from HackerNews")
     return items

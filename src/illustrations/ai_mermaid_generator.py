@@ -7,7 +7,13 @@ dynamic, relevant diagrams matched to the specific article section.
 
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 from openai import OpenAI
+
+from ..utils.logging import get_logger
 
 
 @dataclass
@@ -80,6 +86,7 @@ class AIMermaidGenerator:
         Returns:
             GeneratedMermaidDiagram if successful, None if generation failed
         """
+        logger.debug(f"Generating Mermaid diagram for {section_title} ({concept_type})")
         # Build a targeted prompt based on concept type
         prompt = self._build_prompt(section_title, section_content, concept_type)
 
@@ -102,13 +109,13 @@ class AIMermaidGenerator:
             # Extract the Mermaid diagram from response
             mermaid_content = response.choices[0].message.content
             if mermaid_content is None:
-                print("Failed to generate Mermaid diagram: No content in response")
+                logger.error("Mermaid generation failed: No content in response")
                 return None
             mermaid_content = mermaid_content.strip()
 
             # Calculate costs
             if response.usage is None:
-                print("Failed to retrieve token usage from response")
+                logger.error("Mermaid generation failed: No token usage data")
                 return None
 
             prompt_tokens = response.usage.prompt_tokens
@@ -118,6 +125,10 @@ class AIMermaidGenerator:
             completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
                 "completion"
             ]
+            total_cost = prompt_cost + completion_cost
+            logger.debug(
+                f"Mermaid diagram generated: {len(mermaid_content)} chars, cost: ${total_cost:.4f}"
+            )
 
             # Generate alt-text using the section content
             alt_text = self._generate_alt_text(
@@ -133,7 +144,7 @@ class AIMermaidGenerator:
             )
 
         except Exception as e:
-            print(f"Failed to generate Mermaid diagram: {e}")
+            logger.error(f"Mermaid generation failed: {type(e).__name__}: {e}")
             return None
 
     def _build_prompt(

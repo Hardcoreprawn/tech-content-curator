@@ -4,6 +4,11 @@ Generates Mermaid diagrams that can be rendered by Hugo/markdown for
 flowcharts, graphs, and other visual representations.
 """
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
 from dataclasses import dataclass
 
 
@@ -109,7 +114,9 @@ class MermaidDiagramGenerator:
         Raises:
             ValueError: If pattern_name is not found
         """
+        logger.debug(f"Generating Mermaid diagram from pattern: {pattern_name}")
         if pattern_name not in self.DIAGRAM_PATTERNS:
+            logger.error(f"Unknown Mermaid pattern: {pattern_name}")
             raise ValueError(f"Unknown Mermaid pattern: {pattern_name}")
 
         pattern = self.DIAGRAM_PATTERNS[pattern_name]
@@ -131,6 +138,7 @@ class MermaidDiagramGenerator:
         Returns:
             MermaidDiagram if a suitable pattern exists, None otherwise
         """
+        logger.debug(f"Generating Mermaid diagram for concept: {concept_name}")
         # Map concepts to best-fit diagram patterns
         concept_patterns = {
             "network_topology": "network_flow",
@@ -143,8 +151,10 @@ class MermaidDiagramGenerator:
 
         pattern_name = concept_patterns.get(concept_name)
         if not pattern_name:
+            logger.warning(f"No Mermaid pattern found for concept: {concept_name}")
             return None
 
+        logger.info(f"Using pattern {pattern_name} for concept {concept_name}")
         return self.generate(pattern_name)
 
     def format_for_markdown(self, diagram: MermaidDiagram) -> str:
@@ -181,10 +191,17 @@ class MermaidDiagramGenerator:
         Raises:
             ValueError: If nodes or edges are invalid
         """
+        logger.debug(
+            f"Creating custom Mermaid flowchart: {len(nodes)} nodes, {len(edges)} edges"
+        )
         if not nodes:
+            logger.error("Cannot create custom flow: no nodes provided")
             raise ValueError("At least one node is required")
 
         if len(nodes) > 20:
+            logger.error(
+                f"Cannot create custom flow: too many nodes ({len(nodes)} > 20)"
+            )
             raise ValueError("Maximum 20 nodes for custom flowcharts")
 
         # Create flowchart syntax

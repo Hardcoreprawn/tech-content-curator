@@ -6,6 +6,10 @@ system architecture, network topology, and visual explanations.
 
 from dataclasses import dataclass
 
+from ..utils.logging import get_logger
+
+logger = get_logger(__name__)
+
 from openai import OpenAI
 
 
@@ -85,6 +89,9 @@ class AISvgGenerator:
         Returns:
             GeneratedSvg if successful, None if generation failed
         """
+        logger.debug(
+            f"Generating SVG for {section_title} ({concept_type}): {width}x{height}"
+        )
         prompt = self._build_prompt(
             section_title, section_content, concept_type, width, height
         )
@@ -108,13 +115,13 @@ class AISvgGenerator:
 
             svg_content = response.choices[0].message.content
             if svg_content is None:
-                print("Failed to generate SVG: No content returned")
+                logger.error("SVG generation failed: No content returned from API")
                 return None
             svg_content = svg_content.strip()
 
             # Calculate costs
             if response.usage is None:
-                print("Failed to generate SVG: No usage data returned")
+                logger.error("SVG generation failed: No usage data returned from API")
                 return None
             prompt_tokens = response.usage.prompt_tokens
             completion_tokens = response.usage.completion_tokens
@@ -123,6 +130,10 @@ class AISvgGenerator:
             completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
                 "completion"
             ]
+            total_cost = prompt_cost + completion_cost
+            logger.debug(
+                f"SVG generated: {len(svg_content)} chars, cost: ${total_cost:.4f}"
+            )
 
             # Generate alt-text
             alt_text = self._generate_alt_text(section_title, concept_type)
@@ -138,7 +149,7 @@ class AISvgGenerator:
             )
 
         except Exception as e:
-            print(f"Failed to generate SVG: {e}")
+            logger.error(f"SVG generation failed: {type(e).__name__}: {e}")
             return None
 
     def _build_prompt(

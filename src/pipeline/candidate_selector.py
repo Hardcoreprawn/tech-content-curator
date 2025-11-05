@@ -14,15 +14,14 @@ The goal is to maximize article quality while minimizing API costs by filtering
 out unsuitable content BEFORE calling expensive generation APIs.
 """
 
-import logging
 import os
 import re
 
 from openai import OpenAI
 from rich.console import Console
 
+from ..api.costs import CostTracker
 from ..config import get_content_dir
-from ..costs import CostTracker
 from ..deduplication import (
     AdaptiveDedupFeedback,
     RecentContentCache,
@@ -33,10 +32,11 @@ from ..deduplication import (
 from ..generators.base import BaseGenerator
 from ..generators.integrative import IntegrativeListGenerator
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
 from .deduplication import check_article_exists_for_source, is_source_in_cooldown
 
 console = Console()
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def get_available_generators(client: OpenAI) -> list:
@@ -48,6 +48,7 @@ def get_available_generators(client: OpenAI) -> list:
     Returns:
         List of generators sorted by priority (highest first)
     """
+    logger.debug("Loading available generators")
     from ..generators.general import GeneralArticleGenerator
     from ..generators.integrative import IntegrativeListGenerator
 
@@ -58,6 +59,7 @@ def get_available_generators(client: OpenAI) -> list:
 
     # Sort by priority (highest first)
     generators.sort(key=lambda g: g.priority, reverse=True)
+    logger.info(f"Loaded {len(generators)} generators: {[g.name for g in generators]}")
     return generators
 
 

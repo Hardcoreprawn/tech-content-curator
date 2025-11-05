@@ -15,7 +15,6 @@ the primary API is unavailable, just with reduced quality/automation.
 from __future__ import annotations
 
 import json
-import logging
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -24,8 +23,9 @@ from typing import Any
 from rich.console import Console
 
 from .models import EnrichedItem, GeneratedArticle
+from .utils.logging import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 console = Console()
 
 
