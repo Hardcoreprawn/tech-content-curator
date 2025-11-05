@@ -123,7 +123,6 @@ def select_article_candidates(
         # Primary filter: quality score (AI-based, >= 0.5 for good content)
         # Log both heuristic and AI scores for tracking
         heuristic = getattr(item, "heuristic_score", 0)
-        ai_score_val = getattr(item, "ai_score", item.quality_score)
 
         if item.quality_score < min_quality:
             reason = f"low_quality (AI: {item.quality_score:.2f} < {min_quality}, heur: {heuristic:.2f})"

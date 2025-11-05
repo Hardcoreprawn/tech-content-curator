@@ -191,9 +191,14 @@ jobs:
             - Updated adaptive learning patterns
             
             Scheduled content collection run"
-            # Pull first to avoid race conditions with concurrent workflows
-            git pull --rebase || true
-            git push
+            # Pull with rebase, abort if conflicts occur
+            if ! git pull --rebase; then
+              echo "Rebase failed due to conflicts, aborting rebase"
+              git rebase --abort
+              echo "Skipping push due to merge conflicts in data files"
+            else
+              git push
+            fi
           fi
       
       - name: Set up Hugo
