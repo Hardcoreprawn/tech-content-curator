@@ -50,3 +50,31 @@ img[src*="library/abstract-"] {
     margin-top: 24px !important;
   }
 }
+
+/* High-resolution displays (≥1024px): Aggressive compression for visual balance */
+@media (min-width: 1024px) {
+  .home-info {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .home-info h1 {
+    margin: 0 0 4px 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .home-info p {
+    margin: 0 0 4px 0 !important;
+    line-height: 1.4 !important;
+  }
+
+  .social-icons {
+    margin-top: 2px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Tighter spacing between sections */
+  .post-content {
+    margin-top: 16px !important;
+  }
+}
