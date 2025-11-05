@@ -17,14 +17,14 @@ logger = get_logger(__name__)
 original_load = frontmatter.load
 
 
-def patched_load(fd, encoding="utf-8", **defaults):
+def patched_load(fd: str | object, encoding: str = "utf-8", **defaults: object):  # type: ignore[no-untyped-def]
     """Load frontmatter using open() instead of codecs.open()."""
     if isinstance(fd, str):
         # If it's a file path, use regular open()
         logger.debug(f"Loading frontmatter from file: {fd}")
         try:
             with open(fd, encoding=encoding) as f:
-                result = frontmatter.loads(f.read(), **defaults)
+                result = frontmatter.loads(f.read())
             logger.debug(f"Successfully loaded frontmatter from {fd}")
             return result
         except Exception as e:
@@ -35,7 +35,7 @@ def patched_load(fd, encoding="utf-8", **defaults):
     else:
         # If it's already a file object, use original function
         logger.debug("Loading frontmatter from file object using original function")
-        return original_load(fd, encoding=encoding, **defaults)
+        return original_load(fd, encoding=encoding, **defaults)  # type: ignore[arg-type]
 
 
 # Apply the patch

@@ -58,6 +58,7 @@ def safe_filename(slug: str, max_length: int = 100) -> str:
 
     Uses python-slugify to handle Unicode and special characters properly,
     then validates the result to ensure filesystem safety.
+    Preserves file extensions (e.g., .md, .txt).
 
     Args:
         slug: Input string to convert to safe filename
@@ -81,6 +82,17 @@ def safe_filename(slug: str, max_length: int = 100) -> str:
 
     logger.debug(f"Sanitizing filename from slug: {slug[:50]}...")
 
+    # Extract and preserve file extension (e.g., .md, .txt)
+    extension = ""
+    if "." in slug and not slug.startswith("."):
+        # Get the last dot for extension
+        parts = slug.rsplit(".", 1)
+        if (
+            len(parts) == 2 and parts[1] and len(parts[1]) <= 10
+        ):  # reasonable extension length
+            slug = parts[0]
+            extension = f".{parts[1]}"
+
     # Use python-slugify for robust Unicode handling and character conversion
     safe = slugify(slug, max_length=max_length, word_boundary=True, separator="-")
 
@@ -94,6 +106,9 @@ def safe_filename(slug: str, max_length: int = 100) -> str:
         safe = safe.lstrip(".")
         if not safe:
             raise ValueError(f"Slug is only dots: {slug}")
+
+    # Reattach the extension
+    safe = safe + extension
 
     logger.debug(f"Generated safe filename: {safe}")
     return safe

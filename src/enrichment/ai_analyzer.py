@@ -28,7 +28,7 @@ console = Console()
 logger = get_logger(__name__)
 
 
-def log_retry_attempt(retry_state):
+def log_retry_attempt(retry_state: object) -> None:
     """Custom callback to log retry attempts with Rich console."""
     exception = retry_state.outcome.exception() if retry_state.outcome.failed else None
     attempt_num = retry_state.attempt_number
@@ -37,7 +37,7 @@ def log_retry_attempt(retry_state):
         console.print(f"[yellow]⏳ Attempt {attempt_num}: retrying...[/yellow]")
 
 
-def lazy_openai_retry(func):
+def lazy_openai_retry(func):  # type: ignore[no-untyped-def]
     """Decorator that applies retry logic with lazy config loading.
 
     This decorator defers config loading until the function is actually called,
@@ -46,7 +46,7 @@ def lazy_openai_retry(func):
     from functools import wraps
 
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: object, **kwargs: object):  # type: ignore[no-untyped-def]
         from ..config import get_config
 
         config = get_config()

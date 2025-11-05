@@ -13,7 +13,7 @@ from .orchestrator import collect_all_sources, save_collected_items
 console = Console()
 
 
-def main():
+def main() -> int:
     """Run collection from all sources."""
     console.print("[bold blue]📥 Starting content collection...[/bold blue]")
 

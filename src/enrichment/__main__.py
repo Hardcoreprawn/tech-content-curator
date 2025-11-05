@@ -18,7 +18,7 @@ console = Console()
 logger = logging.getLogger(__name__)
 
 
-def main():
+def main() -> int:
     """Run enrichment on the most recent collected data."""
     data_dir = get_data_dir()
 

@@ -9,9 +9,78 @@ ARCHITECTURE NOTE: These are the ONLY classes in this project.
 
 from datetime import datetime
 from enum import Enum
-from typing import Any
+from typing import TypedDict
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+
+
+class CollectedItemMetadata(TypedDict, total=False):
+    """Type definition for metadata in collected items.
+
+    Uses total=False to make all fields optional since different sources
+    provide different metadata. Known fields:
+    - Mastodon: favourites_count, reblogs_count, replies_count, language, instance, source_type
+    - Reddit: score, upvote_ratio, num_comments, subreddit, created_utc, is_self, over_18
+    - HackerNews: score, comments, time, story_type
+    - GitHub: stars, forks, watchers, language, topics, open_issues
+    """
+
+    # Engagement metrics
+    score: int
+    upvote_ratio: float
+    num_comments: int
+    comments: int
+    favourites_count: int
+    reblogs_count: int
+    replies_count: int
+
+    # Time fields
+    created_at: str
+    created_utc: float
+    time: int
+
+    # Source-specific
+    subreddit: str
+    language: str
+    instance: str
+    source_type: str
+    source_name: str
+    story_type: str
+    is_self: bool
+    over_18: bool
+
+    # GitHub
+    stars: int
+    forks: int
+    watchers: int
+    topics: list[str]
+    open_issues: int
+
+
+class GeneratedArticleVoiceMetadata(TypedDict, total=False):
+    """Type definition for voice-related metadata in generated articles.
+
+    Fields:
+    - complexity_score: Quality/complexity score when voice is selected based on content
+    - mode: Generation mode (normal, fallback, etc.)
+    - template: Template name if using templated content
+    - selection_details: Details about voice selection criteria
+    """
+
+    complexity_score: float
+    mode: str
+    template: str
+    selection_details: str
+
+
+class GeneratedArticleQualityDimensions(TypedDict, total=False):
+    """Type definition for quality dimension scores in generated articles."""
+
+    relevance: float
+    clarity: float
+    structure: float
+    accuracy: float
+    originality: float
 
 
 class SourceType(str, Enum):
@@ -34,8 +103,9 @@ class CollectedItem(BaseModel):
     url: HttpUrl = Field(..., description="Original URL")
     author: str = Field(..., description="Username/handle of author")
     collected_at: datetime = Field(default_factory=datetime.now)
-    metadata: dict[str, Any] = Field(
-        default_factory=dict, description="Source-specific data"
+    metadata: CollectedItemMetadata = Field(
+        default_factory=dict,
+        description="Source-specific data",  # type: ignore[assignment]
     )
 
     model_config = ConfigDict(use_enum_values=True)
@@ -113,7 +183,7 @@ class GeneratedArticle(BaseModel):
         default=None,
         description="Overall quality score (0-100)",
     )
-    quality_dimensions: dict[str, float] | None = Field(
+    quality_dimensions: GeneratedArticleQualityDimensions | None = Field(
         default=None,
         description="Scores for each quality dimension",
     )
@@ -126,9 +196,9 @@ class GeneratedArticle(BaseModel):
         default="default",
         description="Voice ID used for this article (taylor, sam, aria, quinn, riley, jordan, emerson)",
     )
-    voice_metadata: dict[str, Any] = Field(
+    voice_metadata: GeneratedArticleVoiceMetadata = Field(
         default_factory=dict,
-        description="Metadata about voice selection (complexity_score, selection_details, etc)",
+        description="Metadata about voice selection (complexity_score, selection_details, etc)",  # type: ignore[assignment]
     )
 
 

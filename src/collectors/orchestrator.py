@@ -8,6 +8,7 @@ This module provides utility functions for managing collected items:
 
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import cast
 
 from rich.console import Console
 
@@ -123,14 +124,21 @@ def deduplicate_items(items: list[CollectedItem]) -> list[CollectedItem]:
     deduplicator = SemanticDeduplicator()
     feedback_system = DeduplicationFeedbackSystem()
 
-    duplicate_groups = deduplicator.find_duplicates(url_deduped, threshold=0.6)  # type: ignore
+    # find_duplicates expects list[ContentProtocol], but we're using list[CollectedItem]
+    # which implements the protocol. Mypy doesn't properly infer protocol implementation
+    # for invariant generics. Consider using Sequence in SemanticDeduplicator for better compatibility.
+    duplicate_groups = cast(
+        list[list[CollectedItem]],
+        deduplicator.find_duplicates(url_deduped, threshold=0.6),  # type: ignore[arg-type]
+    )
 
     # Create set of items that are duplicates
-    duplicate_items = set()
-    unique_items = []
+    duplicate_items: set[int] = set()
+    unique_items: list[CollectedItem] = []
 
     for group in duplicate_groups:
-        best_item = max(group, key=lambda x: get_engagement(x))  # type: ignore
+        # max() with key function to find item with highest engagement
+        best_item = max(group, key=lambda x: get_engagement(x))
         unique_items.append(best_item)
 
         for item in group:
