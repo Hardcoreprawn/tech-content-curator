@@ -2247,5 +2247,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 418,
+    "timestamp": "2025-11-05T12:57:47.651238",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "SPy: An interpreter and compiler for a fast statically typed variant of Python",
+        "removed_items": [
+          "Hypothesis: Property-Based Testing for Python",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]

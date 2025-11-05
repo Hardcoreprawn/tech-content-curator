@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "python",
       "psf",
-      "python software foundation"
+      "python software foundation",
+      "python"
     ],
     "keywords": [
-      "than",
+      "equity",
+      "inclusion",
+      "shows",
       "tldr",
       "shared",
-      "shows",
-      "please",
-      "foundation",
-      "values",
-      "share",
-      "seeking",
-      "giant",
-      "core",
-      "software",
-      "diversity",
-      "spine",
-      "decision",
-      "community",
-      "tech",
-      "ahead",
-      "equity",
-      "revenue",
-      "single",
-      "inclusion",
       "python",
+      "single",
+      "than",
+      "revenue",
+      "community",
+      "giant",
+      "values",
+      "decision",
+      "please",
+      "software",
+      "core",
+      "tech",
+      "share",
+      "read",
+      "foundation",
+      "spine",
+      "diversity",
+      "seeking",
       "every",
-      "read"
+      "ahead"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "devices",
-      "line",
-      "tomorrow",
-      "including",
-      "speed",
-      "cost",
-      "about",
-      "jobs",
       "beginning",
-      "adoption",
-      "stated",
-      "reduce",
-      "damn",
-      "company",
-      "amazon",
-      "groups",
-      "goal",
-      "move",
-      "ultimate",
-      "boost",
-      "bottom",
-      "layoffs",
-      "help",
-      "various",
-      "jassy",
       "corporate",
-      "workforce",
-      "bureaucracy",
+      "line",
+      "stated",
+      "adoption",
+      "various",
+      "devices",
+      "cost",
       "cutting",
-      "brutal"
+      "workforce",
+      "goal",
+      "brutal",
+      "help",
+      "ultimate",
+      "about",
+      "bottom",
+      "including",
+      "layoffs",
+      "boost",
+      "reduce",
+      "speed",
+      "company",
+      "tomorrow",
+      "amazon",
+      "move",
+      "jobs",
+      "groups",
+      "bureaucracy",
+      "damn",
+      "jassy"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "always",
-      "posts",
       "running",
       "anyone",
-      "excerpts"
+      "always",
+      "excerpts",
+      "posts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,8 +682,8 @@
       "psf"
     ],
     "keywords": [
-      "donations",
       "grant",
+      "donations",
       "recent"
     ],
     "confidence": 0.8500000000000001,
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "laying",
-      "amazon"
+      "amazon",
+      "laying"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "laying",
-      "amazon"
+      "amazon",
+      "laying"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "european",
-      "open",
       "office",
+      "ditch",
+      "criminal",
+      "european",
       "alternative",
       "court",
       "international",
-      "ditch",
-      "criminal",
-      "microsoft",
-      "source"
+      "source",
+      "open",
+      "microsoft"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2238,8 +2238,8 @@
       "github"
     ],
     "keywords": [
-      "available",
-      "github"
+      "github",
+      "available"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2272,8 +2272,8 @@
       "github"
     ],
     "keywords": [
-      "available",
-      "github"
+      "github",
+      "available"
     ],
     "confidence": 0.8,
     "examples": [
@@ -2586,8 +2586,8 @@
       "go"
     ],
     "keywords": [
-      "college",
       "world",
+      "college",
       "free"
     ],
     "confidence": 0.8500000000000001,
@@ -4357,14 +4357,14 @@
       "github"
     ],
     "keywords": [
-      "experience",
       "both",
       "nofollow",
-      "href",
       "simple",
+      "href",
+      "webassembly",
+      "experience",
       "performance",
-      "github",
-      "webassembly"
+      "github"
     ],
     "confidence": 0.95,
     "examples": [
@@ -5235,8 +5235,8 @@
     "keywords": [
       "billions",
       "social",
-      "while",
-      "amazon"
+      "amazon",
+      "while"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -6775,6 +6775,72 @@
     ],
     "created_at": "2025-11-05T12:55:31.000744",
     "last_seen": "2025-11-05T12:55:31.000748",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "SPy: An interpreter and compiler for a fast statically typed variant of Python",
+      "Hypothesis: Property-Based Testing for Python",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources."
+    ],
+    "created_at": "2025-11-05T12:57:47.391955",
+    "last_seen": "2025-11-05T12:57:47.391959",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-05T12:57:47.453323",
+    "last_seen": "2025-11-05T12:57:47.453327",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "SPy: An interpreter and compiler for a fast statically typed variant of Python",
+      "Hypothesis: Property-Based Testing for Python",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources."
+    ],
+    "created_at": "2025-11-05T12:57:47.581653",
+    "last_seen": "2025-11-05T12:57:47.581656",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-05T12:57:47.642719",
+    "last_seen": "2025-11-05T12:57:47.642723",
     "frequency": 1
   }
 ]
