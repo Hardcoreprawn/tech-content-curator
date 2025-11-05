@@ -2298,5 +2298,32 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 426,
+    "timestamp": "2025-11-05T19:36:16.527805",
+    "examples": [
+      {
+        "group_size": 6,
+        "kept_item": "Forget about trying to get your company to support something abstract like the PSF. You use PyPI: yo",
+        "removed_items": [
+          "SPy: An interpreter and compiler for a fast statically typed variant of Python",
+          "Ask HN: My family business runs on a 1993-era text-based-UI (TUI). Anybody else?\n\nIs anybody still u",
+          "Hypothesis: Property-Based Testing for Python",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
