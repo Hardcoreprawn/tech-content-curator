@@ -133,6 +133,8 @@ def enrich_single_item(
                 related_sources=[],
                 topics=topics,
                 quality_score=final_score,
+                heuristic_score=heuristic_score,
+                ai_score=ai_score,
                 enriched_at=datetime.now(UTC),
             )
 
@@ -163,9 +165,7 @@ def enrich_single_item(
 
     except Exception as e:
         # Classify error and log with context
-        error_type = handle_openai_error(
-            e, context=f"enriching {item.id}", should_raise=False
-        )
+        error_type = handle_openai_error(e, context=f"enriching {item.id}", should_raise=False)
 
         # If it's a fatal error (quota, auth), propagate to stop pipeline
         if is_fatal(error_type):

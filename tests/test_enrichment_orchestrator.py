@@ -4,9 +4,10 @@ from datetime import UTC, datetime
 from unittest.mock import Mock, patch
 
 import pytest
+from pydantic import HttpUrl
 
 from src.enrichment.orchestrator import enrich_collected_items, enrich_single_item
-from src.models import CollectedItem, EnrichedItem, PipelineConfig
+from src.models import CollectedItem, EnrichedItem, PipelineConfig, SourceType
 
 
 def make_item(
@@ -18,11 +19,11 @@ def make_item(
     """Helper to create test CollectedItem with valid defaults."""
     return CollectedItem(
         id="test-id",
-        source="mastodon",
+        source=SourceType.MASTODON,
         author="testuser",
         content=content,
         title=title,
-        url=url,
+        url=HttpUrl(url),
         collected_at=datetime.now(UTC),
         metadata=metadata or {},
     )
@@ -32,8 +33,6 @@ def make_config() -> PipelineConfig:
     """Helper to create test PipelineConfig."""
     return PipelineConfig(
         openai_api_key="test-key",
-        content_dirs={"posts": "content/posts"},
-        use_semantic_dedup=False,
     )
 
 
@@ -101,7 +100,7 @@ class TestEnrichSingleItem:
     def test_skip_research_low_combined_score(
         self, mock_topics, mock_ai, mock_heuristic, mock_openai
     ):
-        """Low combined score skips research but extracts topics."""
+        """Low AI score skips research but extracts topics."""
         item = make_item()
         config = make_config()
 
@@ -113,10 +112,13 @@ class TestEnrichSingleItem:
         result = enrich_single_item(item, config)
 
         # Verify partial enrichment (topics but no research)
+        # Now using AI-only scoring: quality_score = ai_score (0.2)
         assert result is not None
         assert result.quality_score == pytest.approx(
-            0.23, abs=0.01
-        )  # 0.3*0.3 + 0.2*0.7
+            0.2, abs=0.01
+        )  # AI-only, not combined
+        assert result.ai_score == pytest.approx(0.2, abs=0.01)
+        assert result.heuristic_score == pytest.approx(0.3, abs=0.01)
         assert result.topics == ["Topic1"]
         assert "below threshold" in result.research_summary.lower()
 
@@ -128,11 +130,11 @@ class TestEnrichSingleItem:
     def test_research_included_for_high_score(
         self, mock_research, mock_topics, mock_ai, mock_heuristic, mock_openai
     ):
-        """Score >= 0.4 includes detailed research."""
+        """Score >= 0.3 includes detailed research."""
         item = make_item()
         config = make_config()
 
-        # Mock scores that combine to >= 0.4
+        # Mock scores
         mock_heuristic.return_value = (0.5, "Good score")
         mock_ai.return_value = (0.5, "Good AI score")
         mock_topics.return_value = ["Tech"]
@@ -141,8 +143,11 @@ class TestEnrichSingleItem:
         result = enrich_single_item(item, config)
 
         # Verify research was included
+        # Using AI-only scoring: quality_score = ai_score (0.5)
         assert result is not None
-        assert result.quality_score == pytest.approx(0.5, abs=0.01)  # 0.5*0.3 + 0.5*0.7
+        assert result.quality_score == pytest.approx(0.5, abs=0.01)
+        assert result.ai_score == pytest.approx(0.5, abs=0.01)
+        assert result.heuristic_score == pytest.approx(0.5, abs=0.01)
         assert result.research_summary == "Research details"
         mock_research.assert_called_once()
 
@@ -183,7 +188,7 @@ class TestEnrichSingleItem:
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
     @patch("src.enrichment.orchestrator.analyze_content_quality")
     def test_score_weighting(self, mock_ai, mock_heuristic, mock_openai):
-        """Final score is weighted 30% heuristic, 70% AI."""
+        """Final score uses AI-only (not combined weighting)."""
         item = make_item()
         config = make_config()
 
@@ -193,9 +198,11 @@ class TestEnrichSingleItem:
 
         result = enrich_single_item(item, config)
 
-        # Verify weighting: 1.0*0.3 + 0.0*0.7 = 0.3
+        # Verify AI-only scoring: quality_score = ai_score (0.0)
         assert result is not None
-        assert result.quality_score == pytest.approx(0.3, abs=0.01)
+        assert result.quality_score == pytest.approx(0.0, abs=0.01)
+        assert result.ai_score == pytest.approx(0.0, abs=0.01)
+        assert result.heuristic_score == pytest.approx(1.0, abs=0.01)
 
 
 class TestEnrichCollectedItems:
