@@ -14,12 +14,12 @@ The orchestrator manages:
 
 from datetime import UTC, datetime
 
-from openai import OpenAI
 from rich.console import Console
 
 from ..api.openai_error_handler import handle_openai_error, is_fatal
 from ..config import get_config
 from ..models import CollectedItem, EnrichedItem, PipelineConfig
+from ..utils.clients import get_openai_client
 from ..utils.logging import get_logger
 from .adaptive_scoring import ScoringAdapter
 from .ai_analyzer import (
@@ -61,76 +61,92 @@ def enrich_single_item(
     logger.info(f"Starting enrichment for item: {item.id} | title: {item.title[:60]}")
 
     try:
-        client = OpenAI(
-            api_key=config.openai_api_key,
-            timeout=config.timeouts.enrichment_timeout,
-            max_retries=0,  # Let tenacity handle retries instead
-        )
+        with get_openai_client(config) as client:
+            # Step 1a: Fast heuristic scoring with adaptive improvements (no API cost)
+            heuristic_score, heuristic_explanation = calculate_heuristic_score(
+                item, adapter
+            )
+            console.print(
+                f"  Heuristic: {heuristic_score:.2f} - {heuristic_explanation[:50]}..."
+            )
+            logger.debug(
+                f"Heuristic score: {heuristic_score:.3f} | reason: {heuristic_explanation}"
+            )
 
-        # Step 1a: Fast heuristic scoring with adaptive improvements (no API cost)
-        heuristic_score, heuristic_explanation = calculate_heuristic_score(
-            item, adapter
-        )
-        console.print(
-            f"  Heuristic: {heuristic_score:.2f} - {heuristic_explanation[:50]}..."
-        )
-        logger.debug(
-            f"Heuristic score: {heuristic_score:.3f} | reason: {heuristic_explanation}"
-        )
+            # Early exit for very low heuristic scores (save API costs)
+            if heuristic_score < 0.15:
+                console.print(
+                    "[dim]  Skipping AI analysis - heuristic score too low[/dim]"
+                )
+                logger.info(
+                    f"Rejected at heuristic stage: {item.id} (score: {heuristic_score:.3f} < 0.15)"
+                )
+                return EnrichedItem(
+                    original=item,
+                    research_summary="Heuristic score too low for AI analysis",
+                    related_sources=[],
+                    topics=[],
+                    quality_score=heuristic_score,
+                    enriched_at=datetime.now(UTC),
+                )
 
-        # Early exit for very low heuristic scores (save API costs)
-        if heuristic_score < 0.15:
-            console.print("[dim]  Skipping AI analysis - heuristic score too low[/dim]")
+            # Step 1b: AI quality analysis (only for promising content)
+            ai_score, ai_explanation = analyze_content_quality(item, client)
+            console.print(f"  AI Quality: {ai_score:.2f} - {ai_explanation[:50]}...")
+            logger.debug(f"AI quality score: {ai_score:.3f} | reason: {ai_explanation}")
+
+            # Record feedback for adaptive learning
+            if adapter:
+                adapter.record_feedback(
+                    item, heuristic_score, ai_score, heuristic_explanation
+                )
+
+            # NEW APPROACH: Use AI as primary score, keep heuristic for pre-filtering analysis
+            # The heuristic and AI are uncorrelated, so we use AI for quality judgment
+            # and keep heuristic for cost-analysis purposes only
+            final_score = ai_score  # Trust AI for quality judgment
+            console.print(f"  Final (AI-based): {final_score:.2f}")
             logger.info(
-                f"Rejected at heuristic stage: {item.id} (score: {heuristic_score:.3f} < 0.15)"
+                f"Scoring analysis - Heuristic: {heuristic_score:.3f} | AI: {ai_score:.3f} | Using: {final_score:.3f} (AI-based)"
             )
-            return EnrichedItem(
+
+            # Step 2: Extract topics (always extract for metadata, even if score is low)
+            topics = extract_topics_and_themes(item, client)
+            console.print(
+                f"  Topics: {', '.join(topics[:3])}{'...' if len(topics) > 3 else ''}"
+            )
+            logger.debug(f"Extracted {len(topics)} topics: {topics}")
+
+            # Early exit for very low AI scores (after topic extraction)
+            # Note: We use 0.3 as the absolute minimum (below this, don't even research)
+            if final_score < 0.3:
+                console.print(
+                    "[dim]  Skipping further analysis - AI score too low[/dim]"
+                )
+                logger.info(
+                    f"Rejected at AI score stage: {item.id} (score: {final_score:.3f} < 0.3)"
+                )
+                return EnrichedItem(
+                    original=item,
+                    research_summary="Score below threshold for further analysis.",
+                    related_sources=[],
+                    topics=topics,
+                    quality_score=final_score,
+                    heuristic_score=heuristic_score,
+                    ai_score=ai_score,
+                    enriched_at=datetime.now(UTC),
+                )
+
+            # Step 3: Research context (for all items >= 0.3 to gather rich metadata)
+            # This allows us to include educational content and do full analysis
+            logger.debug(f"Running deep research for item {item.id} (score >= 0.3)")
+            research_summary = research_additional_context(item, topics, client)
+
+            # Create enriched item with both scores for analysis
+            enriched = EnrichedItem(
                 original=item,
-                research_summary="Heuristic score too low for AI analysis",
-                related_sources=[],
-                topics=[],
-                quality_score=heuristic_score,
-                enriched_at=datetime.now(UTC),
-            )
-
-        # Step 1b: AI quality analysis (only for promising content)
-        ai_score, ai_explanation = analyze_content_quality(item, client)
-        console.print(f"  AI Quality: {ai_score:.2f} - {ai_explanation[:50]}...")
-        logger.debug(f"AI quality score: {ai_score:.3f} | reason: {ai_explanation}")
-
-        # Record feedback for adaptive learning
-        if adapter:
-            adapter.record_feedback(
-                item, heuristic_score, ai_score, heuristic_explanation
-            )
-
-        # NEW APPROACH: Use AI as primary score, keep heuristic for pre-filtering analysis
-        # The heuristic and AI are uncorrelated, so we use AI for quality judgment
-        # and keep heuristic for cost-analysis purposes only
-        final_score = ai_score  # Trust AI for quality judgment
-        console.print(f"  Final (AI-based): {final_score:.2f}")
-        logger.info(
-            f"Scoring analysis - Heuristic: {heuristic_score:.3f} | AI: {ai_score:.3f} | Using: {final_score:.3f} (AI-based)"
-        )
-
-        # Step 2: Extract topics (always extract for metadata, even if score is low)
-        topics = extract_topics_and_themes(item, client)
-        console.print(
-            f"  Topics: {', '.join(topics[:3])}{'...' if len(topics) > 3 else ''}"
-        )
-        logger.debug(f"Extracted {len(topics)} topics: {topics}")
-
-        # Early exit for very low AI scores (after topic extraction)
-        # Note: We use 0.3 as the absolute minimum (below this, don't even research)
-        if final_score < 0.3:
-            console.print("[dim]  Skipping further analysis - AI score too low[/dim]")
-            logger.info(
-                f"Rejected at AI score stage: {item.id} (score: {final_score:.3f} < 0.3)"
-            )
-            return EnrichedItem(
-                original=item,
-                research_summary="Score below threshold for further analysis.",
-                related_sources=[],
+                research_summary=research_summary,
+                related_sources=[],  # We'll add web search in a future iteration
                 topics=topics,
                 quality_score=final_score,
                 heuristic_score=heuristic_score,
@@ -138,30 +154,13 @@ def enrich_single_item(
                 enriched_at=datetime.now(UTC),
             )
 
-        # Step 3: Research context (for all items >= 0.3 to gather rich metadata)
-        # This allows us to include educational content and do full analysis
-        logger.debug(f"Running deep research for item {item.id} (score >= 0.3)")
-        research_summary = research_additional_context(item, topics, client)
-
-        # Create enriched item with both scores for analysis
-        enriched = EnrichedItem(
-            original=item,
-            research_summary=research_summary,
-            related_sources=[],  # We'll add web search in a future iteration
-            topics=topics,
-            quality_score=final_score,
-            heuristic_score=heuristic_score,
-            ai_score=ai_score,
-            enriched_at=datetime.now(UTC),
-        )
-
-        console.print(
-            f"[green]✓[/green] Enriched: {item.title[:30]}... (score: {final_score:.2f})"
-        )
-        logger.info(
-            f"Successfully enriched item {item.id} with score {final_score:.3f}"
-        )
-        return enriched
+            console.print(
+                f"[green]✓[/green] Enriched: {item.title[:30]}... (score: {final_score:.2f})"
+            )
+            logger.info(
+                f"Successfully enriched item {item.id} with score {final_score:.3f}"
+            )
+            return enriched
 
     except Exception as e:
         # Classify error and log with context

@@ -10,8 +10,8 @@ import asyncio
 import os
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
+from typing import TYPE_CHECKING
 
-from openai import OpenAI
 from rich.console import Console
 
 from ..api.costs import CostTracker
@@ -21,7 +21,11 @@ from ..deduplication.adaptive_dedup import AdaptiveDedupFeedback
 from ..enrichment.fact_check import FactCheckResult, validate_article
 from ..generators.base import BaseGenerator
 from ..models import EnrichedItem, GeneratedArticle
+from ..utils.clients import get_openai_client
 from ..utils.logging import get_logger
+
+if TYPE_CHECKING:
+    from openai import OpenAI
 from .article_builder import (
     calculate_text_cost,
     create_article_metadata,
@@ -233,148 +237,148 @@ def generate_articles_from_enriched(
     """
     logger.info(f"Starting article generation from {len(items)} enriched items")
     config = get_config()
-    client = OpenAI(
-        api_key=config.openai_api_key,
-        timeout=config.timeouts.openai_api_timeout,
-        max_retries=config.retries.max_attempts,
-    )
 
     if not action_run_id:
         action_run_id = os.getenv("GITHUB_RUN_ID")
 
-    generators = get_available_generators(client)
+    with get_openai_client(config) as client:
+        generators = get_available_generators(client)
 
-    # Select candidates
-    console.print("\n[bold blue]📋 Selecting article candidates...[/bold blue]")
-    candidates = select_article_candidates(items)
+        # Select candidates
+        console.print("\n[bold blue]📋 Selecting article candidates...[/bold blue]")
+        candidates = select_article_candidates(items)
 
-    if not candidates:
-        console.print("[yellow]No suitable article candidates found.[/yellow]")
-        logger.warning(f"No candidates found from {len(items)} enriched items")
-        return []
+        if not candidates:
+            console.print("[yellow]No suitable article candidates found.[/yellow]")
+            logger.warning(f"No candidates found from {len(items)} enriched items")
+            return []
 
-    logger.info(f"Found {len(candidates)} candidates after filtering")
+        logger.info(f"Found {len(candidates)} candidates after filtering")
 
-    selected = select_diverse_candidates(candidates, max_articles, generators)
-    console.print(f"[green]✓[/green] Selected {len(selected)} diverse candidates")
-    logger.info(
-        f"Selected {len(selected)} diverse candidates for generation (requested max: {max_articles})"
-    )
-
-    # Generate articles
-    console.print(f"\n[bold blue]📝 Generating {len(selected)} articles...[/bold blue]")
-
-    illustration_service = IllustrationService(client, config)
-    articles: list[GeneratedArticle] = []
-    fact_check_results: list[tuple[GeneratedArticle, FactCheckResult]] = []
-    cost_tracker = CostTracker()
-    adaptive_feedback = AdaptiveDedupFeedback()
-    generation_errors = []
-    tracker = PipelineTracker()  # Track pipeline progress
-
-    for i, item in enumerate(selected, 1):
-        console.print(f"\n[bold cyan]Article {i}/{len(selected)}[/bold cyan]")
-        logger.debug(
-            f"Generating article {i}/{len(selected)}: {item.original.title[:60]}"
+        selected = select_diverse_candidates(candidates, max_articles, generators)
+        console.print(f"[green]✓[/green] Selected {len(selected)} diverse candidates")
+        logger.info(
+            f"Selected {len(selected)} diverse candidates for generation (requested max: {max_articles})"
         )
 
-        article = generate_single_article(
-            item,
-            generators,
-            client,
-            illustration_service,
-            force_regenerate,
-            action_run_id,
-        )
-
-        if article:
-            try:
-                save_article_to_file(article, config, generate_images, client)
-                articles.append(article)
-                logger.info(f"Successfully generated article: {article.filename}")
-                tracker.track_generation(item, article.generator_name, success=True)
-
-                cost_tracker.record_successful_generation(
-                    article.title, article.filename, article.generation_costs
-                )
-
-                if fact_check:
-                    result = validate_article(article, [item])
-                    fact_check_results.append((article, result))
-
-            except Exception as e:
-                logger.error(f"Failed to save article: {e}", exc_info=True)
-                console.print(f"[red]✗[/red] Failed to save article: {e}")
-                tracker.track_generation(
-                    item, "unknown", success=False, reason=str(e)[:60]
-                )
-                generation_errors.append((item.original.title[:50], str(e)[:60]))
-                continue
-        else:
-            logger.warning(
-                f"Article generation returned None for: {item.original.title[:60]}"
-            )
-            tracker.track_generation(
-                item, "unknown", success=False, reason="generation_returned_none"
-            )
-            generation_errors.append(
-                (item.original.title[:50], "generation_returned_none")
-            )
-
-    console.print(
-        f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
-    )
-    logger.info(
-        f"Generation complete: {len(articles)}/{len(selected)} articles created successfully"
-    )
-
-    # Save pipeline tracking
-    tracker.print_summary()
-    tracker.save()
-
-    # Print errors if any
-    if generation_errors:
+        # Generate articles
         console.print(
-            f"\n[yellow]⚠ Generation Errors ({len(generation_errors)}):[/yellow]"
+            f"\n[bold blue]📝 Generating {len(selected)} articles...[/bold blue]"
         )
-        for title, error in generation_errors:
-            console.print(f"  • {title}: {error}")
-            logger.warning(f"Generation error for '{title}': {error}")
 
-    # Print fact-check summary
-    if fact_check and fact_check_results:
-        console.print("\n[bold cyan]📋 Fact-Check Summary:[/bold cyan]")
-        passed = sum(1 for _, r in fact_check_results if r.passed)
-        console.print(f"  Passed: {passed}/{len(fact_check_results)}")
-        logger.info(f"Fact-check: {passed}/{len(fact_check_results)} articles passed")
+        illustration_service = IllustrationService(client, config)
+        articles: list[GeneratedArticle] = []
+        fact_check_results: list[tuple[GeneratedArticle, FactCheckResult]] = []
+        cost_tracker = CostTracker()
+        adaptive_feedback = AdaptiveDedupFeedback()
+        generation_errors = []
+        tracker = PipelineTracker()  # Track pipeline progress
 
-        failed = [(a, r) for a, r in fact_check_results if not r.passed]
-        if failed:
-            console.print("\n[yellow]⚠ Failed Articles:[/yellow]")
-            for article, result in failed:
-                console.print(f"  • {article.title[:60]}")
-                console.print(f"    Confidence: {result.confidence_score:.2f}")
-                if result.unreachable_sources:
-                    console.print(
-                        f"    Unreachable sources: {len(result.unreachable_sources)}"
-                    )
-                if result.broken_links:
-                    console.print(f"    Broken links: {len(result.broken_links)}")
-
-    # Print summary
-    if articles:
-        console.print("\n[bold cyan]📝 New Articles:[/bold cyan]")
-        for article in articles:
-            console.print(f"  • {article.filename}")
-            console.print(f"    Title: {article.title}")
-            console.print(
-                f"    Words: {article.word_count}, Score: {article.sources[0].quality_score:.2f}"
+        for i, item in enumerate(selected, 1):
+            console.print(f"\n[bold cyan]Article {i}/{len(selected)}[/bold cyan]")
+            logger.debug(
+                f"Generating article {i}/{len(selected)}: {item.original.title[:60]}"
             )
 
-    cost_tracker.print_summary(days=7)
-    adaptive_feedback.print_stats()
+            article = generate_single_article(
+                item,
+                generators,
+                client,
+                illustration_service,
+                force_regenerate,
+                action_run_id,
+            )
 
-    return articles
+            if article:
+                try:
+                    save_article_to_file(article, config, generate_images, client)
+                    articles.append(article)
+                    logger.info(f"Successfully generated article: {article.filename}")
+                    tracker.track_generation(item, article.generator_name, success=True)
+
+                    cost_tracker.record_successful_generation(
+                        article.title, article.filename, article.generation_costs
+                    )
+
+                    if fact_check:
+                        result = validate_article(article, [item])
+                        fact_check_results.append((article, result))
+
+                except Exception as e:
+                    logger.error(f"Failed to save article: {e}", exc_info=True)
+                    console.print(f"[red]✗[/red] Failed to save article: {e}")
+                    tracker.track_generation(
+                        item, "unknown", success=False, reason=str(e)[:60]
+                    )
+                    generation_errors.append((item.original.title[:50], str(e)[:60]))
+                    continue
+            else:
+                logger.warning(
+                    f"Article generation returned None for: {item.original.title[:60]}"
+                )
+                tracker.track_generation(
+                    item, "unknown", success=False, reason="generation_returned_none"
+                )
+                generation_errors.append(
+                    (item.original.title[:50], "generation_returned_none")
+                )
+
+        console.print(
+            f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
+        )
+        logger.info(
+            f"Generation complete: {len(articles)}/{len(selected)} articles created successfully"
+        )
+
+        # Save pipeline tracking
+        tracker.print_summary()
+        tracker.save()
+
+        # Print errors if any
+        if generation_errors:
+            console.print(
+                f"\n[yellow]⚠ Generation Errors ({len(generation_errors)}):[/yellow]"
+            )
+            for title, error in generation_errors:
+                console.print(f"  • {title}: {error}")
+                logger.warning(f"Generation error for '{title}': {error}")
+
+        # Print fact-check summary
+        if fact_check and fact_check_results:
+            console.print("\n[bold cyan]📋 Fact-Check Summary:[/bold cyan]")
+            passed = sum(1 for _, r in fact_check_results if r.passed)
+            console.print(f"  Passed: {passed}/{len(fact_check_results)}")
+            logger.info(
+                f"Fact-check: {passed}/{len(fact_check_results)} articles passed"
+            )
+
+            failed = [(a, r) for a, r in fact_check_results if not r.passed]
+            if failed:
+                console.print("\n[yellow]⚠ Failed Articles:[/yellow]")
+                for article, result in failed:
+                    console.print(f"  • {article.title[:60]}")
+                    console.print(f"    Confidence: {result.confidence_score:.2f}")
+                    if result.unreachable_sources:
+                        console.print(
+                            f"    Unreachable sources: {len(result.unreachable_sources)}"
+                        )
+                    if result.broken_links:
+                        console.print(f"    Broken links: {len(result.broken_links)}")
+
+        # Print summary
+        if articles:
+            console.print("\n[bold cyan]📝 New Articles:[/bold cyan]")
+            for article in articles:
+                console.print(f"  • {article.filename}")
+                console.print(f"    Title: {article.title}")
+                console.print(
+                    f"    Words: {article.word_count}, Score: {article.sources[0].quality_score:.2f}"
+                )
+
+        cost_tracker.print_summary(days=7)
+        adaptive_feedback.print_stats()
+
+        return articles
 
 
 # Python 3.14 free-threading: async variant
@@ -402,88 +406,86 @@ async def generate_articles_async(
         List of successfully generated articles
     """
     config = get_config()
-    client = OpenAI(
-        api_key=config.openai_api_key,
-        timeout=120.0,
-        max_retries=2,
-    )
 
     if not action_run_id:
         action_run_id = os.getenv("GITHUB_RUN_ID")
 
-    generators = get_available_generators(client)
+    with get_openai_client(config) as client:
+        generators = get_available_generators(client)
 
-    console.print("\n[bold blue]📋 Selecting article candidates...[/bold blue]")
-    candidates = select_article_candidates(items)
+        console.print("\n[bold blue]📋 Selecting article candidates...[/bold blue]")
+        candidates = select_article_candidates(items)
 
-    if not candidates:
-        console.print("[yellow]No suitable article candidates found.[/yellow]")
-        return []
+        if not candidates:
+            console.print("[yellow]No suitable article candidates found.[/yellow]")
+            return []
 
-    selected = select_diverse_candidates(candidates, max_articles, generators)
-    console.print(f"[green]✓[/green] Selected {len(selected)} diverse candidates")
+        selected = select_diverse_candidates(candidates, max_articles, generators)
+        console.print(f"[green]✓[/green] Selected {len(selected)} diverse candidates")
 
-    console.print(
-        f"\n[bold blue]📝 Generating {len(selected)} articles (async)...[/bold blue]"
-    )
-
-    # Shared services (thread-safe)
-    illustration_service = IllustrationService(client, config)
-    cost_tracker = CostTracker()
-
-    articles: list[GeneratedArticle] = []
-
-    def generate_wrapper(item: EnrichedItem, index: int) -> GeneratedArticle | None:
-        """Wrapper for thread execution."""
-        console.print(f"\n[bold cyan]Article {index + 1}/{len(selected)}[/bold cyan]")
-        return generate_single_article(
-            item,
-            generators,
-            client,
-            illustration_service,
-            force_regenerate,
-            action_run_id,
+        console.print(
+            f"\n[bold blue]📝 Generating {len(selected)} articles (async)...[/bold blue]"
         )
 
-    # Execute in thread pool (true parallelism in Python 3.14)
-    loop = asyncio.get_event_loop()
-    with ThreadPoolExecutor(max_workers=min(4, len(selected))) as executor:
-        futures = [
-            loop.run_in_executor(executor, generate_wrapper, item, i)
-            for i, item in enumerate(selected)
-        ]
+        # Shared services (thread-safe)
+        illustration_service = IllustrationService(client, config)
+        cost_tracker = CostTracker()
 
-        results = await asyncio.gather(*futures, return_exceptions=True)
+        articles: list[GeneratedArticle] = []
 
-    # Process results
-    for i, result in enumerate(results):
-        if isinstance(result, Exception):
-            logger.error(f"Article {i + 1} generation failed: {result}")
-            console.print(f"[red]✗[/red] Article {i + 1} failed: {result}")
-            continue
+        def generate_wrapper(item: EnrichedItem, index: int) -> GeneratedArticle | None:
+            """Wrapper for thread execution."""
+            console.print(
+                f"\n[bold cyan]Article {index + 1}/{len(selected)}[/bold cyan]"
+            )
+            return generate_single_article(
+                item,
+                generators,
+                client,
+                illustration_service,
+                force_regenerate,
+                action_run_id,
+            )
 
-        if result and isinstance(result, GeneratedArticle):
-            articles.append(result)
+        # Execute in thread pool (true parallelism in Python 3.14)
+        loop = asyncio.get_event_loop()
+        with ThreadPoolExecutor(max_workers=min(4, len(selected))) as executor:
+            futures = [
+                loop.run_in_executor(executor, generate_wrapper, item, i)
+                for i, item in enumerate(selected)
+            ]
 
-            try:
-                save_article_to_file(result, config, generate_images, client)
-                cost_tracker.record_successful_generation(
-                    result.title, result.filename, result.generation_costs
-                )
-            except Exception as e:
-                logger.error(f"Failed to save article: {e}", exc_info=True)
-                console.print(f"[red]✗[/red] Failed to save article: {e}")
+            results = await asyncio.gather(*futures, return_exceptions=True)
 
-    console.print(
-        f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
-    )
+        # Process results
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                logger.error(f"Article {i + 1} generation failed: {result}")
+                console.print(f"[red]✗[/red] Article {i + 1} failed: {result}")
+                continue
 
-    if articles:
-        console.print("\n[bold cyan]📝 New Articles:[/bold cyan]")
-        for article in articles:
-            console.print(f"  • {article.filename}")
-            console.print(f"    Title: {article.title}")
+            if result and isinstance(result, GeneratedArticle):
+                articles.append(result)
 
-    cost_tracker.print_summary(days=7)
+                try:
+                    save_article_to_file(result, config, generate_images, client)
+                    cost_tracker.record_successful_generation(
+                        result.title, result.filename, result.generation_costs
+                    )
+                except Exception as e:
+                    logger.error(f"Failed to save article: {e}", exc_info=True)
+                    console.print(f"[red]✗[/red] Failed to save article: {e}")
 
-    return articles
+        console.print(
+            f"\n[bold green]✓ Article generation complete: {len(articles)} articles created[/bold green]"
+        )
+
+        if articles:
+            console.print("\n[bold cyan]📝 New Articles:[/bold cyan]")
+            for article in articles:
+                console.print(f"  • {article.filename}")
+                console.print(f"    Title: {article.title}")
+
+        cost_tracker.print_summary(days=7)
+
+        return articles

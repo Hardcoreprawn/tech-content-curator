@@ -49,6 +49,10 @@ class CitationResolver:
     3. Return unresolved if both fail
 
     All APIs are free and don't require authentication.
+
+    Can be used as a context manager for automatic cleanup:
+        with CitationResolver() as resolver:
+            citation = resolver.resolve("Smith et al.", 2020)
     """
 
     CROSSREF_URL = "https://api.crossref.org/v1/works"
@@ -68,6 +72,15 @@ class CitationResolver:
         self.timeout = timeout
         # Create httpx client with redirect handling enabled by default
         self.client = httpx.Client(follow_redirects=True, timeout=timeout)
+
+    def __enter__(self) -> CitationResolver:
+        """Enter context manager - return self for use in with statement."""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        """Exit context manager - ensure client is closed."""
+        self.close()
+        return False  # Don't suppress exceptions
 
     def resolve(self, authors: str, year: int) -> ResolvedCitation:
         """Resolve a citation to DOI or arXiv link.

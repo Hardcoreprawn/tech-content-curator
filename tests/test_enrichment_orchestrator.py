@@ -39,17 +39,22 @@ def make_config() -> PipelineConfig:
 class TestEnrichSingleItem:
     """Test the single item enrichment orchestration."""
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
     @patch("src.enrichment.orchestrator.analyze_content_quality")
     @patch("src.enrichment.orchestrator.extract_topics_and_themes")
     @patch("src.enrichment.orchestrator.research_additional_context")
     def test_full_enrichment_flow(
-        self, mock_research, mock_topics, mock_ai, mock_heuristic, mock_openai
+        self, mock_research, mock_topics, mock_ai, mock_heuristic, mock_get_client
     ):
         """High-quality item gets full enrichment pipeline."""
         item = make_item()
         config = make_config()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Mock scoring responses
         mock_heuristic.return_value = (0.5, "Good heuristic score")
@@ -75,12 +80,17 @@ class TestEnrichSingleItem:
         mock_topics.assert_called_once()
         mock_research.assert_called_once()
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
-    def test_early_exit_low_heuristic(self, mock_heuristic, mock_openai):
+    def test_early_exit_low_heuristic(self, mock_heuristic, mock_get_client):
         """Very low heuristic score exits early without AI call."""
         item = make_item()
         config = make_config()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Mock very low heuristic score
         mock_heuristic.return_value = (0.1, "Poor heuristic score")
@@ -93,16 +103,21 @@ class TestEnrichSingleItem:
         assert "Heuristic score too low" in result.research_summary
         assert result.topics == []
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
     @patch("src.enrichment.orchestrator.analyze_content_quality")
     @patch("src.enrichment.orchestrator.extract_topics_and_themes")
     def test_skip_research_low_combined_score(
-        self, mock_topics, mock_ai, mock_heuristic, mock_openai
+        self, mock_topics, mock_ai, mock_heuristic, mock_get_client
     ):
         """Low AI score skips research but extracts topics."""
         item = make_item()
         config = make_config()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Mock moderate heuristic but low AI score
         mock_heuristic.return_value = (0.3, "Moderate heuristic")
@@ -122,17 +137,22 @@ class TestEnrichSingleItem:
         assert result.topics == ["Topic1"]
         assert "below threshold" in result.research_summary.lower()
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
     @patch("src.enrichment.orchestrator.analyze_content_quality")
     @patch("src.enrichment.orchestrator.extract_topics_and_themes")
     @patch("src.enrichment.orchestrator.research_additional_context")
     def test_research_included_for_high_score(
-        self, mock_research, mock_topics, mock_ai, mock_heuristic, mock_openai
+        self, mock_research, mock_topics, mock_ai, mock_heuristic, mock_get_client
     ):
         """Score >= 0.3 includes detailed research."""
         item = make_item()
         config = make_config()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Mock scores
         mock_heuristic.return_value = (0.5, "Good score")
@@ -151,12 +171,17 @@ class TestEnrichSingleItem:
         assert result.research_summary == "Research details"
         mock_research.assert_called_once()
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
-    def test_exception_handling(self, mock_heuristic, mock_openai):
+    def test_exception_handling(self, mock_heuristic, mock_get_client):
         """Exception during enrichment returns None."""
         item = make_item()
         config = make_config()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Mock exception during scoring
         mock_heuristic.side_effect = Exception("API error")
@@ -166,14 +191,19 @@ class TestEnrichSingleItem:
         # Verify graceful failure
         assert result is None
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
     @patch("src.enrichment.orchestrator.analyze_content_quality")
-    def test_adaptive_scoring_feedback(self, mock_ai, mock_heuristic, mock_openai):
+    def test_adaptive_scoring_feedback(self, mock_ai, mock_heuristic, mock_get_client):
         """Adaptive scoring adapter receives feedback."""
         item = make_item()
         config = make_config()
         adapter = Mock()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Mock scores
         mock_heuristic.return_value = (0.5, "Good")
@@ -184,13 +214,18 @@ class TestEnrichSingleItem:
         # Verify feedback was recorded
         adapter.record_feedback.assert_called_once()
 
-    @patch("src.enrichment.orchestrator.OpenAI")
+    @patch("src.enrichment.orchestrator.get_openai_client")
     @patch("src.enrichment.orchestrator.calculate_heuristic_score")
     @patch("src.enrichment.orchestrator.analyze_content_quality")
-    def test_score_weighting(self, mock_ai, mock_heuristic, mock_openai):
+    def test_score_weighting(self, mock_ai, mock_heuristic, mock_get_client):
         """Final score uses AI-only (not combined weighting)."""
         item = make_item()
         config = make_config()
+
+        # Mock the context manager
+        mock_client = Mock()
+        mock_get_client.return_value.__enter__.return_value = mock_client
+        mock_get_client.return_value.__exit__.return_value = None
 
         # Test with known scores
         mock_heuristic.return_value = (1.0, "Perfect heuristic")
