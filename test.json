@@ -1,12 +1,12 @@
 [
   {
     "entities": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "keywords": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "confidence": 0.95,
     "examples": [
@@ -14,17 +14,17 @@
       "OpenAI announced ChatGPT improvements."
     ],
     "created_at": "2025-10-31T22:00:23.621369",
-    "last_seen": "2025-11-05T19:35:08.512218",
-    "frequency": 173
+    "last_seen": "2025-11-05T19:37:28.787742",
+    "frequency": 175
   },
   {
     "entities": [
       "rust"
     ],
     "keywords": [
-      "rust",
       "safety",
-      "memory"
+      "memory",
+      "rust"
     ],
     "confidence": 0.95,
     "examples": [
@@ -32,8 +32,8 @@
       "Rust memory management and safety features."
     ],
     "created_at": "2025-10-31T22:00:23.643352",
-    "last_seen": "2025-11-05T19:35:08.577314",
-    "frequency": 172
+    "last_seen": "2025-11-05T19:37:28.846586",
+    "frequency": 174
   },
   {
     "entities": [
@@ -66,8 +66,8 @@
       "Python development using Django backend."
     ],
     "created_at": "2025-10-31T22:00:23.705351",
-    "last_seen": "2025-11-05T19:35:08.560042",
-    "frequency": 86
+    "last_seen": "2025-11-05T19:37:28.828902",
+    "frequency": 87
   },
   {
     "entities": [
@@ -2889,6 +2889,39 @@
     ],
     "created_at": "2025-11-05T19:35:08.568612",
     "last_seen": "2025-11-05T19:35:08.568614",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Python Django web framework.",
+      "Python Flask web development."
+    ],
+    "created_at": "2025-11-05T19:37:28.808801",
+    "last_seen": "2025-11-05T19:37:28.808808",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "rust"
+    ],
+    "keywords": [
+      "rust",
+      "memory"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Rust memory safety features.",
+      "Rust memory management benefits."
+    ],
+    "created_at": "2025-11-05T19:37:28.837327",
+    "last_seen": "2025-11-05T19:37:28.837330",
     "frequency": 1
   }
 ]
