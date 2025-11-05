@@ -15,6 +15,7 @@ from datetime import UTC, datetime
 from openai import OpenAI
 from rich.console import Console
 
+from ..api.openai_error_handler import handle_openai_error, is_fatal
 from ..config import PipelineConfig, get_config, get_content_dir
 from ..costs import CostTracker
 from ..deduplication.adaptive_dedup import AdaptiveDedupFeedback
@@ -98,9 +99,9 @@ def generate_single_article(
         console.print(f"  Using: {generator.name}")
 
         # Select voice for this article (Phase 1 feature)
+        voice_id = "default"
         try:
             from ..generators.voices.selector import VoiceSelector
-
             voice_selector = VoiceSelector()
             voice_profile = voice_selector.select_voice(
                 content_type=getattr(item, "content_type", "general"),
@@ -111,13 +112,9 @@ def generate_single_article(
             voice_selector.add_to_history(
                 generate_article_slug(item.original.title), voice_id
             )
-
-            # Set voice_profile on item so generator can access it
-            item.voice_profile = voice_id
-        except ImportError:
+        except (ImportError, ModuleNotFoundError):
             # Voice system not available (backwards compatibility)
-            voice_id = "default"
-            item.voice_profile = "default"
+            console.print("  Voice: default (module not available)")
 
         console.print("  [dim]Calling OpenAI API for content generation...[/dim]")
         content, content_input_tokens, content_output_tokens = (
@@ -197,8 +194,12 @@ def generate_single_article(
         return article
 
     except Exception as e:
+        # Classify error - OpenAI errors are critical, other errors are warnings
+        error_type = handle_openai_error(e, context="article generation", should_raise=False)
+        if is_fatal(error_type):
+            raise
         logger.error(f"Article generation failed: {e}", exc_info=True)
-        console.print(f"[red]✗[/red] Article generation failed: {e}")
+        console.print("[red]✗[/red] Article generation failed")
         return None
 
 
@@ -454,7 +455,7 @@ async def generate_articles_async(
             console.print(f"[red]✗[/red] Article {i + 1} failed: {result}")
             continue
 
-        if result:
+        if result and isinstance(result, GeneratedArticle):
             articles.append(result)
 
             try:

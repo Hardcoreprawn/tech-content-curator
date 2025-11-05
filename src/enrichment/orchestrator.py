@@ -18,6 +18,7 @@ from datetime import UTC, datetime
 from openai import OpenAI
 from rich.console import Console
 
+from ..api.openai_error_handler import handle_openai_error, is_fatal
 from ..config import get_config
 from ..models import CollectedItem, EnrichedItem, PipelineConfig
 from .adaptive_scoring import ScoringAdapter
@@ -161,7 +162,15 @@ def enrich_single_item(
         return enriched
 
     except Exception as e:
-        console.print(f"[red]✗[/red] Enrichment failed for {item.id}: {e}")
+        # Classify error and log with context
+        error_type = handle_openai_error(e, context=f"enriching {item.id}", should_raise=False)
+
+        # If it's a fatal error (quota, auth), propagate to stop pipeline
+        if is_fatal(error_type):
+            raise
+
+        # Otherwise, log and return None to skip this item
+        console.print(f"[red]✗[/red] Enrichment failed for {item.id}")
         logger.error(f"Enrichment failed for item {item.id}: {e}", exc_info=True)
         return None
 

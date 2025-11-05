@@ -21,12 +21,10 @@ from tenacity import (
     wait_exponential,
 )
 
+from ..api.openai_error_handler import handle_openai_error
 from ..models import CollectedItem
 
 console = Console()
-
-
-# Configure tenacity retry logic for OpenAI API calls
 
 # Set up a simple logger for tenacity
 logging.basicConfig(level=logging.INFO)
@@ -38,18 +36,7 @@ def log_retry_attempt(retry_state):
     exception = retry_state.outcome.exception() if retry_state.outcome.failed else None
     attempt_num = retry_state.attempt_number
     if exception:
-        console.print(
-            f"[yellow]⏳ OpenAI API attempt {attempt_num} failed: {exception}. Retrying...[/yellow]"
-        )
-
-
-def log_final_failure(retry_state):
-    """Custom callback to log final failure."""
-    exception = retry_state.outcome.exception() if retry_state.outcome.failed else None
-    if exception:
-        console.print(
-            f"[red]❌ OpenAI API failed after {retry_state.attempt_number} attempts: {exception}[/red]"
-        )
+        console.print(f"[yellow]⏳ Attempt {attempt_num}: retrying...[/yellow]")
 
 
 openai_retry = retry(
@@ -138,9 +125,10 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
         return float(result["score"]), str(result["explanation"])
 
     except Exception as e:
-        console.print(f"[yellow]⚠[/yellow] Quality analysis failed for {item.id}: {e}")
-        # Default to medium quality if AI fails
-        return 0.5, f"Analysis failed: {e}"
+        # Classify and log error, but don't stop pipeline for analysis failures
+        handle_openai_error(e, context="quality analysis", should_raise=False)
+        # Return degraded response
+        return 0.5, "Analysis failed - using default score"
 
 
 @openai_retry
@@ -204,7 +192,8 @@ def extract_topics_and_themes(item: CollectedItem, client: OpenAI) -> list[str]:
             return []
 
     except Exception as e:
-        console.print(f"[yellow]⚠[/yellow] Topic extraction failed for {item.id}: {e}")
+        # Classify and log error, but don't stop pipeline for extraction failures
+        handle_openai_error(e, context="topic extraction", should_raise=False)
         return []
 
 
@@ -256,5 +245,6 @@ def research_additional_context(
         return content.strip()
 
     except Exception as e:
-        console.print(f"[yellow]⚠[/yellow] Research failed for {item.id}: {e}")
-        return f"Research unavailable: {e}"
+        # Classify and log error, but don't stop pipeline for research failures
+        handle_openai_error(e, context="research generation", should_raise=False)
+        return "Research unavailable"
