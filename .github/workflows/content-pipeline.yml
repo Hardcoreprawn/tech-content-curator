@@ -178,6 +178,8 @@ jobs:
           # Only commit articles, images, and pattern files (not raw data)
           git add content/posts/ site/static/images/ || true
           git add data/*_patterns.json data/*_feedback.json || true
+          # Preserve enriched data for debugging quality issues
+          git add data/enriched_*.json || true
           
           if git diff --staged --quiet; then
             echo "No changes from pipeline run"

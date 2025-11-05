@@ -103,16 +103,14 @@ def enrich_single_item(
                 item, heuristic_score, ai_score, heuristic_explanation
             )
 
-        # Combine scores (weighted average: 30% heuristic, 70% AI)
-        final_score = (heuristic_score * 0.3) + (ai_score * 0.7)
-        console.print(f"  Final: {final_score:.2f}")
-        logger.debug(
-            f"Combined score: {final_score:.3f} = (heuristic:{heuristic_score:.3f}*0.3 + ai:{ai_score:.3f}*0.7)"
+        # NEW APPROACH: Use AI as primary score, keep heuristic for pre-filtering analysis
+        # The heuristic and AI are uncorrelated, so we use AI for quality judgment
+        # and keep heuristic for cost-analysis purposes only
+        final_score = ai_score  # Trust AI for quality judgment
+        console.print(f"  Final (AI-based): {final_score:.2f}")
+        logger.info(
+            f"Scoring analysis - Heuristic: {heuristic_score:.3f} | AI: {ai_score:.3f} | Using: {final_score:.3f} (AI-based)"
         )
-
-        # Early exit for very low combined scores
-        # Note: 0.5 threshold includes educational/historical tech content (0.5-0.55 range)
-        # But we still extract topics for items that didn't make the cut
 
         # Step 2: Extract topics (always extract for metadata, even if score is low)
         topics = extract_topics_and_themes(item, client)
@@ -121,13 +119,12 @@ def enrich_single_item(
         )
         logger.debug(f"Extracted {len(topics)} topics: {topics}")
 
-        # Early exit for very low combined scores (after topic extraction)
-        if final_score < 0.5:
-            console.print(
-                "[dim]  Skipping further analysis - combined score too low[/dim]"
-            )
+        # Early exit for very low AI scores (after topic extraction)
+        # Note: We use 0.3 as the absolute minimum (below this, don't even research)
+        if final_score < 0.3:
+            console.print("[dim]  Skipping further analysis - AI score too low[/dim]")
             logger.info(
-                f"Rejected at combined score stage: {item.id} (score: {final_score:.3f} < 0.5)"
+                f"Rejected at AI score stage: {item.id} (score: {final_score:.3f} < 0.3)"
             )
             return EnrichedItem(
                 original=item,
@@ -138,24 +135,20 @@ def enrich_single_item(
                 enriched_at=datetime.now(UTC),
             )
 
-        # Step 3: Research context (only for decent quality items to save API costs)
-        # Include educational/historical content (0.5+) in research for richer context
-        if final_score >= 0.5:
-            logger.debug(f"Running deep research for item {item.id} (score >= 0.5)")
-            research_summary = research_additional_context(item, topics, client)
-        else:
-            logger.debug(
-                f"Skipping deep research for item {item.id} (score {final_score:.3f} < 0.5)"
-            )
-            research_summary = "Score below threshold for detailed research."
+        # Step 3: Research context (for all items >= 0.3 to gather rich metadata)
+        # This allows us to include educational content and do full analysis
+        logger.debug(f"Running deep research for item {item.id} (score >= 0.3)")
+        research_summary = research_additional_context(item, topics, client)
 
-        # Create enriched item
+        # Create enriched item with both scores for analysis
         enriched = EnrichedItem(
             original=item,
             research_summary=research_summary,
             related_sources=[],  # We'll add web search in a future iteration
             topics=topics,
             quality_score=final_score,
+            heuristic_score=heuristic_score,
+            ai_score=ai_score,
             enriched_at=datetime.now(UTC),
         )
 

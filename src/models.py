@@ -48,7 +48,15 @@ class EnrichedItem(BaseModel):
     research_summary: str = Field(..., description="AI-generated research summary")
     related_sources: list[HttpUrl] = Field(default_factory=list)
     topics: list[str] = Field(default_factory=list, description="Extracted topics/tags")
-    quality_score: float = Field(ge=0.0, le=1.0, description="Quality assessment score")
+    quality_score: float = Field(
+        ge=0.0, le=1.0, description="Quality assessment score (AI-based)"
+    )
+    heuristic_score: float = Field(
+        default=0.0, ge=0.0, description="Heuristic pre-filter score for analysis"
+    )
+    ai_score: float = Field(
+        default=0.0, ge=0.0, description="AI quality score (same as quality_score)"
+    )
     enriched_at: datetime = Field(default_factory=datetime.now)
 
 

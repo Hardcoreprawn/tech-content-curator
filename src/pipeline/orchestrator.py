@@ -36,6 +36,7 @@ from .deduplication import check_article_exists_for_source
 from .diversity_selector import select_diverse_candidates
 from .file_io import save_article_to_file
 from .illustration_service import IllustrationService
+from .tracking import PipelineTracker
 
 # Optional mdformat support
 try:
@@ -261,6 +262,7 @@ def generate_articles_from_enriched(
     cost_tracker = CostTracker()
     adaptive_feedback = AdaptiveDedupFeedback()
     generation_errors = []
+    tracker = PipelineTracker()  # Track pipeline progress
 
     for i, item in enumerate(selected, 1):
         console.print(f"\n[bold cyan]Article {i}/{len(selected)}[/bold cyan]")
@@ -282,6 +284,7 @@ def generate_articles_from_enriched(
                 save_article_to_file(article, config, generate_images, client)
                 articles.append(article)
                 logger.info(f"Successfully generated article: {article.filename}")
+                tracker.track_generation(item, article.generator_name, success=True)
 
                 cost_tracker.record_successful_generation(
                     article.title, article.filename, article.generation_costs
@@ -294,11 +297,17 @@ def generate_articles_from_enriched(
             except Exception as e:
                 logger.error(f"Failed to save article: {e}", exc_info=True)
                 console.print(f"[red]✗[/red] Failed to save article: {e}")
+                tracker.track_generation(
+                    item, "unknown", success=False, reason=str(e)[:60]
+                )
                 generation_errors.append((item.original.title[:50], str(e)[:60]))
                 continue
         else:
             logger.warning(
                 f"Article generation returned None for: {item.original.title[:60]}"
+            )
+            tracker.track_generation(
+                item, "unknown", success=False, reason="generation_returned_none"
             )
             generation_errors.append(
                 (item.original.title[:50], "generation_returned_none")
@@ -310,6 +319,10 @@ def generate_articles_from_enriched(
     logger.info(
         f"Generation complete: {len(articles)}/{len(selected)} articles created successfully"
     )
+
+    # Save pipeline tracking
+    tracker.print_summary()
+    tracker.save()
 
     # Print errors if any
     if generation_errors:
