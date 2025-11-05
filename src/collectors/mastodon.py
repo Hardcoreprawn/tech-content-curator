@@ -53,7 +53,10 @@ def collect_from_mastodon_trending(
     trending_url = urljoin(instance, "/api/v1/trends/statuses")
 
     try:
-        with httpx.Client(timeout=30.0) as client:
+        from ..config import get_config
+
+        config = get_config()
+        with httpx.Client(timeout=config.timeouts.http_client_timeout) as client:
             # Get trending posts
             trending_response = client.get(
                 trending_url, params={"limit": min(limit, 20)}
@@ -132,7 +135,10 @@ def collect_from_mastodon_public(
     }
 
     try:
-        with httpx.Client(timeout=30.0) as client:
+        from ..config import get_config
+
+        config = get_config()
+        with httpx.Client(timeout=config.timeouts.http_client_timeout) as client:
             response = client.get(url, params=params)
             response.raise_for_status()
 

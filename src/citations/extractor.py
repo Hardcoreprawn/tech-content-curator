@@ -110,11 +110,14 @@ class CitationExtractor:
         seen_positions: set[tuple[int, int]] = set()
 
         # Try primary pattern first (most reliable)
+        from ..config import get_config
+
+        config = get_config()
         citations.extend(
             self._extract_with_pattern(
                 text,
                 self.PRIMARY_CITATION_PATTERN,
-                confidence=1.0,
+                confidence=config.confidences.citation_extracted_url,
                 seen_positions=seen_positions,
             )
         )
@@ -124,17 +127,20 @@ class CitationExtractor:
             self._extract_with_pattern(
                 text,
                 self.SECONDARY_CITATION_PATTERN,
-                confidence=0.9,
+                confidence=config.confidences.citation_extracted_metadata,
                 seen_positions=seen_positions,
             )
         )
 
         # Try tertiary pattern (with comma)
+        from ..config import get_config
+
+        config = get_config()
         citations.extend(
             self._extract_with_pattern(
                 text,
                 self.TERTIARY_CITATION_PATTERN,
-                confidence=0.85,
+                confidence=config.confidences.citation_extracted_bibtex,
                 seen_positions=seen_positions,
             )
         )

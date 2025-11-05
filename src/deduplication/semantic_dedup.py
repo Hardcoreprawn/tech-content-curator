@@ -239,10 +239,13 @@ class SemanticDeduplicator:
 
         # Create or update pattern
         if common_entities or common_keywords:
+            from ..config import get_config
+
+            config = get_config()
             pattern = DuplicationPattern(
                 entities=common_entities,
                 keywords=common_keywords,
-                confidence=0.8,  # Start with high confidence for learned patterns
+                confidence=config.confidences.dedup_confidence,
                 examples=[item.content[:100] for item in duplicate_group[:3]],
                 created_at=datetime.now(),
                 last_seen=datetime.now(),

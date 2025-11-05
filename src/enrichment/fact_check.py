@@ -32,16 +32,21 @@ class FactCheckResult:
     passed: bool
 
 
-def validate_url_reachable(url: str, timeout: float = 10.0) -> bool:
+def validate_url_reachable(url: str, timeout: float | None = None) -> bool:
     """Check if a URL is reachable with a HEAD request.
 
     Args:
         url: URL to check
-        timeout: Request timeout in seconds
+        timeout: Request timeout in seconds (uses config default if not provided)
 
     Returns:
         True if URL returns 2xx or 3xx status code
     """
+    from ..config import get_config
+
+    if timeout is None:
+        config = get_config()
+        timeout = config.timeouts.fact_check_timeout
     try:
         with httpx.Client(timeout=timeout, follow_redirects=True) as client:
             response = client.head(url)

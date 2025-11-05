@@ -60,11 +60,15 @@ class RateLimiter:
         self.jitter = max(0.0, min(jitter, 1.0))
 
     def acquire(self, amount: float = 1.0) -> None:
+        from ..config import get_config
+
+        config = get_config()
+        min_interval = config.sleep_intervals.rate_limit_minimum_interval
         while not self.bucket.try_take(amount):
             wait = self.bucket.time_until_available(amount)
             # Add small jitter to avoid thundering herd
             wait *= 1.0 + random.uniform(-self.jitter, self.jitter)
-            time.sleep(max(0.01, wait))
+            time.sleep(max(min_interval, wait))
 
     def next_available_in(self, amount: float = 1.0) -> float:
         return self.bucket.time_until_available(amount)

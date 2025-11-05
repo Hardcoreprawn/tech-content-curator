@@ -117,13 +117,18 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
                         break
 
                 # Rate limiting - be respectful to Reddit API
-                time.sleep(0.5)  # 500ms between subreddit requests
+                from ..config import get_config
+
+                config = get_config()
+                time.sleep(config.sleep_intervals.between_subreddit_requests)
 
                 if len(all_posts) >= limit:
                     break
 
             except Exception as e:
-                logger.warning(f"Error collecting from r/{subreddit_name}: {type(e).__name__}")
+                logger.warning(
+                    f"Error collecting from r/{subreddit_name}: {type(e).__name__}"
+                )
                 console.print(
                     f"[yellow]⚠ Failed to collect from r/{subreddit_name}: {e}[/yellow]"
                 )
@@ -245,5 +250,7 @@ def _process_reddit_posts(posts: list, config: PipelineConfig) -> list[Collected
                 console.print(f"[dim]    {reason_name}: {count}[/dim]")
 
     console.print(f"[green]✓[/green] Final result: {len(items)} items from Reddit")
-    logger.info(f"Processed Reddit collection: {len(items)} items kept, {total_filtered} filtered")
+    logger.info(
+        f"Processed Reddit collection: {len(items)} items kept, {total_filtered} filtered"
+    )
     return items

@@ -38,7 +38,10 @@ def collect_from_github_trending(
 
     try:
         # GitHub trending doesn't have an official API, but we can use search
-        with httpx.Client(timeout=30.0) as client:
+        from ..config import get_config
+
+        config = get_config()
+        with httpx.Client(timeout=config.timeouts.http_client_timeout) as client:
             # Search for recently starred repos
             params = {
                 "q": "stars:>100 pushed:>2025-10-01",  # Active repos with good engagement

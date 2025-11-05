@@ -63,7 +63,7 @@ def enrich_single_item(
     try:
         client = OpenAI(
             api_key=config.openai_api_key,
-            timeout=60.0,  # 60 second timeout for API calls
+            timeout=config.timeouts.enrichment_timeout,
             max_retries=0,  # Let tenacity handle retries instead
         )
 

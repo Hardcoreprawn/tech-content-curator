@@ -7,7 +7,13 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 from rich.console import Console
 
-from .models import PipelineConfig
+from .models import (
+    ConfidenceThresholds,
+    PipelineConfig,
+    RetryConfig,
+    SleepIntervals,
+    TimeoutConfig,
+)
 from .utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -20,7 +26,58 @@ load_dotenv()
 def get_config() -> PipelineConfig:
     """Get validated configuration from environment variables."""
     try:
+        # Build nested config sections
+        timeouts = TimeoutConfig(
+            openai_api_timeout=float(os.getenv("OPENAI_API_TIMEOUT", "120.0")),
+            enrichment_timeout=float(os.getenv("ENRICHMENT_TIMEOUT", "60.0")),
+            http_client_timeout=float(os.getenv("HTTP_CLIENT_TIMEOUT", "30.0")),
+            fact_check_timeout=float(os.getenv("FACT_CHECK_TIMEOUT", "5.0")),
+            citation_resolver_timeout=int(os.getenv("CITATION_RESOLVER_TIMEOUT", "10")),
+        )
+
+        retries = RetryConfig(
+            max_attempts=int(os.getenv("RETRY_MAX_ATTEMPTS", "3")),
+            backoff_multiplier=float(os.getenv("RETRY_BACKOFF_MULTIPLIER", "1.0")),
+            backoff_min=float(os.getenv("RETRY_BACKOFF_MIN", "2.0")),
+            backoff_max=float(os.getenv("RETRY_BACKOFF_MAX", "30.0")),
+            jitter=float(os.getenv("RETRY_JITTER", "0.1")),
+        )
+
+        confidences = ConfidenceThresholds(
+            dedup_confidence=float(os.getenv("CONFIDENCE_DEDUP", "0.8")),
+            citation_baseline=float(os.getenv("CONFIDENCE_CITATION_BASELINE", "0.0")),
+            citation_exact_year_match=float(
+                os.getenv("CONFIDENCE_CITATION_EXACT_YEAR", "0.9")
+            ),
+            citation_partial_year_match=float(
+                os.getenv("CONFIDENCE_CITATION_PARTIAL_YEAR", "0.6")
+            ),
+            citation_extracted_url=float(os.getenv("CONFIDENCE_CITATION_URL", "1.0")),
+            citation_extracted_metadata=float(
+                os.getenv("CONFIDENCE_CITATION_METADATA", "0.9")
+            ),
+            citation_extracted_bibtex=float(
+                os.getenv("CONFIDENCE_CITATION_BIBTEX", "0.85")
+            ),
+        )
+
+        sleep_intervals = SleepIntervals(
+            between_subreddit_requests=float(
+                os.getenv("SLEEP_BETWEEN_SUBREDDIT_REQUESTS", "0.5")
+            ),
+            between_hackernews_requests=float(
+                os.getenv("SLEEP_BETWEEN_HACKERNEWS_REQUESTS", "0.1")
+            ),
+            rate_limit_minimum_interval=float(
+                os.getenv("SLEEP_RATE_LIMIT_MIN_INTERVAL", "0.01")
+            ),
+        )
+
         config = PipelineConfig(
+            timeouts=timeouts,
+            retries=retries,
+            confidences=confidences,
+            sleep_intervals=sleep_intervals,
             openai_api_key=os.getenv("OPENAI_API_KEY", ""),
             bluesky_handle=os.getenv("BLUESKY_HANDLE"),
             bluesky_app_password=os.getenv("BLUESKY_APP_PASSWORD"),

@@ -132,8 +132,155 @@ class GeneratedArticle(BaseModel):
     )
 
 
+class TimeoutConfig(BaseModel):
+    """HTTP and API timeout settings (in seconds)."""
+
+    openai_api_timeout: float = Field(
+        default=120.0,
+        gt=0,
+        description="Timeout for OpenAI API calls",
+    )
+    enrichment_timeout: float = Field(
+        default=60.0,
+        gt=0,
+        description="Timeout for enrichment API calls",
+    )
+    http_client_timeout: float = Field(
+        default=30.0,
+        gt=0,
+        description="Timeout for general HTTP client requests (images, collectors)",
+    )
+    fact_check_timeout: float = Field(
+        default=5.0,
+        gt=0,
+        description="Timeout for fact-checking URL validation",
+    )
+    citation_resolver_timeout: int = Field(
+        default=10,
+        gt=0,
+        description="Timeout for citation resolver requests",
+    )
+
+
+class RetryConfig(BaseModel):
+    """Retry and exponential backoff configuration."""
+
+    max_attempts: int = Field(
+        default=3,
+        ge=1,
+        le=10,
+        description="Maximum number of retry attempts",
+    )
+    backoff_multiplier: float = Field(
+        default=1.0,
+        gt=0,
+        description="Multiplier for exponential backoff",
+    )
+    backoff_min: float = Field(
+        default=2.0,
+        gt=0,
+        description="Minimum backoff time in seconds",
+    )
+    backoff_max: float = Field(
+        default=30.0,
+        gt=0,
+        description="Maximum backoff time in seconds",
+    )
+    jitter: float = Field(
+        default=0.1,
+        ge=0,
+        le=1,
+        description="Jitter factor (0-1) to add randomness to backoff",
+    )
+
+
+class ConfidenceThresholds(BaseModel):
+    """Confidence score thresholds (0.0-1.0 range)."""
+
+    dedup_confidence: float = Field(
+        default=0.8,
+        ge=0,
+        le=1,
+        description="Minimum confidence for learned deduplication patterns",
+    )
+    citation_baseline: float = Field(
+        default=0.0,
+        ge=0,
+        le=1,
+        description="Baseline confidence for unverified citations",
+    )
+    citation_exact_year_match: float = Field(
+        default=0.9,
+        ge=0,
+        le=1,
+        description="Confidence boost for exact publication year match",
+    )
+    citation_partial_year_match: float = Field(
+        default=0.6,
+        ge=0,
+        le=1,
+        description="Confidence for approximate year match (+/- 1 year)",
+    )
+    citation_extracted_url: float = Field(
+        default=1.0,
+        ge=0,
+        le=1,
+        description="Confidence for extracted URL citations",
+    )
+    citation_extracted_metadata: float = Field(
+        default=0.9,
+        ge=0,
+        le=1,
+        description="Confidence for metadata-extracted citations",
+    )
+    citation_extracted_bibtex: float = Field(
+        default=0.85,
+        ge=0,
+        le=1,
+        description="Confidence for BibTeX-extracted citations",
+    )
+
+
+class SleepIntervals(BaseModel):
+    """Inter-request sleep intervals (in seconds)."""
+
+    between_subreddit_requests: float = Field(
+        default=0.5,
+        ge=0,
+        description="Sleep between subreddit API requests to avoid rate limits",
+    )
+    between_hackernews_requests: float = Field(
+        default=0.1,
+        ge=0,
+        description="Sleep between HackerNews API requests",
+    )
+    rate_limit_minimum_interval: float = Field(
+        default=0.01,
+        ge=0,
+        description="Minimum sleep interval in rate limiter",
+    )
+
+
 class PipelineConfig(BaseModel):
     """Configuration for the content pipeline."""
+
+    # Nested config sections (Priority 4 - centralized configuration)
+    timeouts: TimeoutConfig = Field(
+        default_factory=TimeoutConfig,
+        description="API and HTTP timeout settings",
+    )
+    retries: RetryConfig = Field(
+        default_factory=RetryConfig,
+        description="Retry and backoff configuration",
+    )
+    confidences: ConfidenceThresholds = Field(
+        default_factory=ConfidenceThresholds,
+        description="Confidence score thresholds",
+    )
+    sleep_intervals: SleepIntervals = Field(
+        default_factory=SleepIntervals,
+        description="Inter-request sleep intervals",
+    )
 
     # API Keys
     openai_api_key: str

@@ -161,8 +161,8 @@ Examples:
         candidates = select_article_candidates(items)
         client = OpenAI(
             api_key=config.openai_api_key,
-            timeout=120.0,  # 120 second timeout for API calls
-            max_retries=2,  # Retry up to 2 times on transient errors
+            timeout=config.timeouts.openai_api_timeout,
+            max_retries=config.retries.max_attempts,
         )
         generators = get_available_generators(client)
         selected = _select_diverse_candidates(candidates, args.max_articles, generators)

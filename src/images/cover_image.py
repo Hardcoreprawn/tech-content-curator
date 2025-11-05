@@ -92,7 +92,10 @@ The image should work well as a blog header - wide format, visually appealing, n
         # Download the image
         logger.debug(f"Downloading image from OpenAI: {image_url}")
         console.print("[blue]Downloading image from OpenAI...[/blue]")
-        with httpx.Client(timeout=30.0) as http_client:
+        from ..config import get_config
+
+        config = get_config()
+        with httpx.Client(timeout=config.timeouts.http_client_timeout) as http_client:
             img_response = http_client.get(image_url)
             img_response.raise_for_status()
 

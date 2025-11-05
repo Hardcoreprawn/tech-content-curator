@@ -235,8 +235,8 @@ def generate_articles_from_enriched(
     config = get_config()
     client = OpenAI(
         api_key=config.openai_api_key,
-        timeout=120.0,
-        max_retries=2,
+        timeout=config.timeouts.openai_api_timeout,
+        max_retries=config.retries.max_attempts,
     )
 
     if not action_run_id:

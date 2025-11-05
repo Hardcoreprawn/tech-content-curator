@@ -37,14 +37,26 @@ def log_retry_attempt(retry_state):
         console.print(f"[yellow]⏳ Attempt {attempt_num}: retrying...[/yellow]")
 
 
-openai_retry = retry(
-    stop=stop_after_attempt(3),
-    wait=wait_exponential(multiplier=1, min=2, max=30),
-    retry=retry_if_exception_type(
-        (APITimeoutError, APIConnectionError, RateLimitError)
-    ),
-    before_sleep=log_retry_attempt,
-)
+def get_openai_retry_decorator():
+    """Get tenacity retry decorator configured from config."""
+    from ..config import get_config
+
+    config = get_config()
+    return retry(
+        stop=stop_after_attempt(config.retries.max_attempts),
+        wait=wait_exponential(
+            multiplier=config.retries.backoff_multiplier,
+            min=config.retries.backoff_min,
+            max=config.retries.backoff_max,
+        ),
+        retry=retry_if_exception_type(
+            (APITimeoutError, APIConnectionError, RateLimitError)
+        ),
+        before_sleep=log_retry_attempt,
+    )
+
+
+openai_retry = get_openai_retry_decorator()
 
 
 @openai_retry

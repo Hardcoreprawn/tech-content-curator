@@ -35,7 +35,10 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
 
     try:
         # HackerNews has a nice simple API
-        with httpx.Client(timeout=30.0) as client:
+        from ..config import get_config
+
+        config = get_config()
+        with httpx.Client(timeout=config.timeouts.http_client_timeout) as client:
             # Get top story IDs
             response = client.get(
                 "https://hacker-news.firebaseio.com/v0/topstories.json"
@@ -96,7 +99,10 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
                     continue
 
                 # Rate limiting - be nice to HN
-                time.sleep(0.1)
+                from ..config import get_config
+
+                config = get_config()
+                time.sleep(config.sleep_intervals.between_hackernews_requests)
 
     except Exception as e:
         logger.error(f"HackerNews collection failed: {type(e).__name__} - {e}")

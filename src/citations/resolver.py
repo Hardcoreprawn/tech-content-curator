@@ -54,12 +54,17 @@ class CitationResolver:
     CROSSREF_URL = "https://api.crossref.org/v1/works"
     ARXIV_URL = "https://export.arxiv.org/api/query"  # Use https and allows redirects
 
-    def __init__(self, timeout: int = 10) -> None:
+    def __init__(self, timeout: int | None = None) -> None:
         """Initialize the resolver.
 
         Args:
-            timeout: HTTP request timeout in seconds
+            timeout: HTTP request timeout in seconds (uses config default if not provided)
         """
+        from ..config import get_config
+
+        if timeout is None:
+            config = get_config()
+            timeout = config.timeouts.citation_resolver_timeout
         self.timeout = timeout
         # Create httpx client with redirect handling enabled by default
         self.client = httpx.Client(follow_redirects=True, timeout=timeout)
@@ -93,7 +98,9 @@ class CitationResolver:
             logger.debug(f"Trying first author only: {first_author}")
             result = self._search_crossref(first_author, year)
             if result:
-                logger.info(f"Resolved via CrossRef (first author): {first_author} ({year}) -> {result.url}")
+                logger.info(
+                    f"Resolved via CrossRef (first author): {first_author} ({year}) -> {result.url}"
+                )
                 return result
 
         # Try arXiv (good for preprints and CS papers)
@@ -106,17 +113,22 @@ class CitationResolver:
         if first_author and first_author != authors:
             result = self._search_arxiv(first_author, year)
             if result:
-                logger.info(f"Resolved via arXiv (first author): {first_author} ({year}) -> {result.url}")
+                logger.info(
+                    f"Resolved via arXiv (first author): {first_author} ({year}) -> {result.url}"
+                )
                 return result
 
         # No match found
         logger.debug(f"Could not resolve citation: {authors} ({year})")
+        from ..config import get_config
+
+        config = get_config()
         return ResolvedCitation(
             doi=None,
             arxiv_id=None,
             pmid=None,
             url=None,
-            confidence=0.0,
+            confidence=config.confidences.citation_baseline,
             source_uri=None,
         )
 
@@ -175,7 +187,14 @@ class CitationResolver:
                 published_year = date_parts[0][0]
 
             # Calculate confidence based on year match
-            confidence = 0.9 if published_year == year else 0.6
+            from ..config import get_config
+
+            config = get_config()
+            confidence = (
+                config.confidences.citation_exact_year_match
+                if published_year == year
+                else config.confidences.citation_partial_year_match
+            )
 
             # Skip low-confidence matches
             if confidence < 0.7:
@@ -236,13 +255,16 @@ class CitationResolver:
 
             match = re.search(r"arxiv\.org/abs/([\d.]+)", text)
             if match:
+                from ..config import get_config
+
+                config = get_config()
                 arxiv_id = match.group(1)
                 return ResolvedCitation(
                     doi=None,
                     arxiv_id=arxiv_id,
                     pmid=None,
                     url=f"https://arxiv.org/abs/{arxiv_id}",
-                    confidence=0.85,
+                    confidence=config.confidences.citation_extracted_bibtex,
                     source_uri=f"https://arxiv.org/abs/{arxiv_id}",
                 )
 
