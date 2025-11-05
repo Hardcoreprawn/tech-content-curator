@@ -10,7 +10,7 @@ img[src*="library/abstract-"] {
   width: 100%;
 }
 
-/* Reduce blank space between hero elements */
+/* Reduce blank space between hero elements - Mobile/Tablet (optimized) */
 .home-info {
   padding: 10px 0 !important;
   margin: 0 !important;
@@ -23,4 +23,30 @@ img[src*="library/abstract-"] {
 .social-icons {
   margin-top: 6px !important;
   margin-bottom: 10px !important;
+}
+
+/* Desktop view (≥768px): Compress header spacing further for visual cohesion */
+@media (min-width: 768px) {
+  .home-info {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .home-info h1 {
+    margin-bottom: 8px !important;
+  }
+
+  .home-info p {
+    margin: 0 0 8px 0 !important;
+  }
+
+  .social-icons {
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Add some breathing room below the header section before content */
+  .post-content {
+    margin-top: 24px !important;
+  }
 }
