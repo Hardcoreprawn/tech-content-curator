@@ -79,7 +79,9 @@ def build_image_catalog(
     with open(catalog_file, "w", encoding="utf-8") as f:
         json.dump(catalog, f, indent=2)
 
-    logger.info(f"Image catalog built: {len(catalog)} unique tags, {sum(len(v) for v in catalog.values())} total images")
+    logger.info(
+        f"Image catalog built: {len(catalog)} unique tags, {sum(len(v) for v in catalog.values())} total images"
+    )
     console.print(f"[green]✓[/green] Image catalog built: {len(catalog)} unique tags")
     return catalog
 

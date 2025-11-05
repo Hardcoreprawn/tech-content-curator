@@ -158,7 +158,9 @@ def is_source_in_cooldown(
                 for s in sources:
                     url = s.get("url") if isinstance(s, dict) else None
                     if url and normalize_url(str(url)) == normalized_url:
-                        logger.debug(f"Source {source_url} in cooldown (article from {article_date})")
+                        logger.debug(
+                            f"Source {source_url} in cooldown (article from {article_date})"
+                        )
                         return True  # Found recent article with this source
 
         except (OSError, ValueError, Exception) as e:

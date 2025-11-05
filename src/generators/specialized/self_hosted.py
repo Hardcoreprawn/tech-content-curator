@@ -30,7 +30,9 @@ class SelfHostedGenerator(BaseGenerator):
 
         Uses both extracted topics and raw content keywords.
         """
-        logger.debug(f"Checking if item is self-hosted/home-lab topic: {item.original.title[:50]}")
+        logger.debug(
+            f"Checking if item is self-hosted/home-lab topic: {item.original.title[:50]}"
+        )
         topic_text = " ".join(item.topics).lower() if item.topics else ""
         content_text = item.original.content.lower()
 
@@ -147,10 +149,14 @@ class SelfHostedGenerator(BaseGenerator):
             input_tokens = usage.prompt_tokens if usage else 0
             output_tokens = usage.completion_tokens if usage else 0
 
-            logger.info(f"Self-hosted article generated: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}")
+            logger.info(
+                f"Self-hosted article generated: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}"
+            )
             return content.strip(), input_tokens, output_tokens
         except Exception as e:
-            logger.error(f"Self-hosted article generation failed: {type(e).__name__}: {e}")
+            logger.error(
+                f"Self-hosted article generation failed: {type(e).__name__}: {e}"
+            )
             console.print(
                 f"[yellow]⚠[/yellow] Self-hosted article generation failed: {e}"
             )

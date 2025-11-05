@@ -207,7 +207,9 @@ class AccessibilityChecker:
         Returns:
             AccessibilityReport with compliance status and issues
         """
-        logger.debug(f"Validating WCAG compliance for {illustration_type} (target: {self.target_wcag_level})")
+        logger.debug(
+            f"Validating WCAG compliance for {illustration_type} (target: {self.target_wcag_level})"
+        )
         issues = []
         warnings = []
         alt_text = ""
@@ -266,7 +268,9 @@ class AccessibilityChecker:
         if issues:
             logger.warning(f"WCAG compliance issues found: {issues}")
         else:
-            logger.info(f"WCAG {wcag_level} compliance achieved for {illustration_type}")
+            logger.info(
+                f"WCAG {wcag_level} compliance achieved for {illustration_type}"
+            )
 
         return AccessibilityReport(
             wcag_level=wcag_level,

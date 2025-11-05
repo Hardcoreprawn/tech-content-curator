@@ -89,7 +89,9 @@ class GeneralArticleGenerator(BaseGenerator):
                 messages.append({"role": "system", "content": system_message})
             messages.append({"role": "user", "content": prompt})
 
-            logger.debug(f"Calling OpenAI API for article generation (temperature={temperature})")
+            logger.debug(
+                f"Calling OpenAI API for article generation (temperature={temperature})"
+            )
             response = self.client.chat.completions.create(
                 model="gpt-4o-mini",  # Better for long-form content
                 messages=messages,
@@ -127,7 +129,9 @@ class GeneralArticleGenerator(BaseGenerator):
             input_tokens = usage.prompt_tokens if usage else 0
             output_tokens = usage.completion_tokens if usage else 0
 
-            logger.info(f"Article generated successfully: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}")
+            logger.info(
+                f"Article generated successfully: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}"
+            )
             return content.strip(), input_tokens, output_tokens
 
         except Exception as e:

@@ -265,7 +265,9 @@ class PlacementAnalyzer:
             content, placements, self.min_between_distance
         )
 
-        logger.info(f"Found {len(validated)} optimal placement(s) for {len(concept_names)} concepts")
+        logger.info(
+            f"Found {len(validated)} optimal placement(s) for {len(concept_names)} concepts"
+        )
         return validated[:max_placements]
 
     def _find_best_placement_for_concept(
@@ -388,7 +390,9 @@ class PlacementAnalyzer:
         Returns:
             Validated placements that meet density requirements
         """
-        logger.debug(f"Validating placement density for {len(placements)} placement(s) (min_distance={min_distance})")
+        logger.debug(
+            f"Validating placement density for {len(placements)} placement(s) (min_distance={min_distance})"
+        )
         if not placements:
             return []
 
@@ -398,11 +402,15 @@ class PlacementAnalyzer:
             # Check distance from last validated placement
             # Simple heuristic: section positions roughly correlate to article position
             if placement.section_index - validated[-1].section_index >= 2:
-                logger.debug(f"Placement in section {placement.section_index} validated (sufficient distance)")
+                logger.debug(
+                    f"Placement in section {placement.section_index} validated (sufficient distance)"
+                )
                 validated.append(placement)
             elif len(validated) >= 3:
                 # Already have max for typical article
-                logger.debug("Skipping placement: max density limit reached (3 placements)")
+                logger.debug(
+                    "Skipping placement: max density limit reached (3 placements)"
+                )
                 break
 
         logger.debug(f"Validated {len(validated)} placement(s) after density check")

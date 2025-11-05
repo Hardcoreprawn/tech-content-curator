@@ -9,7 +9,6 @@ from ..utils.logging import get_logger
 logger = get_logger(__name__)
 
 
-
 from ..config import QUALITY_THRESHOLDS
 
 
@@ -28,7 +27,9 @@ def generate_quality_feedback(
     Returns:
         Formatted feedback string to append to generation prompt
     """
-    logger.debug(f"Generating quality feedback: difficulty={difficulty_level}, type={content_type}")
+    logger.debug(
+        f"Generating quality feedback: difficulty={difficulty_level}, type={content_type}"
+    )
     feedback_parts = []
 
     # Get thresholds for this difficulty level
@@ -39,7 +40,9 @@ def generate_quality_feedback(
     # Readability feedback
     readability_score = quality_metrics.get("readability_score", 0)
     grade_level = quality_metrics.get("grade_level", 0)
-    logger.debug(f"Quality metrics: flesch={readability_score:.1f}, grade={grade_level:.1f}")
+    logger.debug(
+        f"Quality metrics: flesch={readability_score:.1f}, grade={grade_level:.1f}"
+    )
 
     if not quality_metrics.get("matches_target", True):
         logger.debug("Quality does not meet target, generating improvement feedback")
@@ -161,9 +164,13 @@ def should_regenerate_article(
 
     should_regen = not passed and readability_score < 30
     if should_regen:
-        logger.warning(f"Quality too low (score={readability_score:.1f}), article needs regeneration")
+        logger.warning(
+            f"Quality too low (score={readability_score:.1f}), article needs regeneration"
+        )
     else:
-        logger.debug(f"Quality acceptable (passed={passed}, score={readability_score:.1f})")
+        logger.debug(
+            f"Quality acceptable (passed={passed}, score={readability_score:.1f})"
+        )
 
     # Regenerate if failed and score is very low (< 30 = very hard to read)
     return should_regen

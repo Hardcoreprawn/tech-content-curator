@@ -41,7 +41,9 @@ class DeduplicationFeedbackSystem:
     ):
         """Record the results of a deduplication session."""
 
-        logger.debug(f"Recording dedup session: {len(original_items)} items -> {len(deduplicated_items)} unique")
+        logger.debug(
+            f"Recording dedup session: {len(original_items)} items -> {len(deduplicated_items)} unique"
+        )
 
         # Get examples of what was deduplicated
         examples = []
@@ -73,8 +75,10 @@ class DeduplicationFeedbackSystem:
         self.feedback_history.append(feedback)
         self.save_feedback()
 
-        logger.info(f"Dedup session recorded: {feedback.duplicates_found} duplicates found, "
-                   f"{feedback.patterns_used} patterns used")
+        logger.info(
+            f"Dedup session recorded: {feedback.duplicates_found} duplicates found, "
+            f"{feedback.patterns_used} patterns used"
+        )
 
         return feedback
 

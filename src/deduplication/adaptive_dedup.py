@@ -76,7 +76,9 @@ class AdaptiveDedupFeedback:
                             avg_similarity=item["avg_similarity"],
                         )
                         self.patterns.append(pattern)
-                logger.info(f"Loaded {len(self.patterns)} learned dedup patterns from {self.patterns_file}")
+                logger.info(
+                    f"Loaded {len(self.patterns)} learned dedup patterns from {self.patterns_file}"
+                )
                 console.print(
                     f"[dim]Loaded {len(self.patterns)} learned dedup patterns[/dim]"
                 )
@@ -85,7 +87,9 @@ class AdaptiveDedupFeedback:
                 console.print(f"[yellow]Warning: Could not load patterns: {e}[/yellow]")
                 self.patterns = []
         else:
-            logger.debug(f"No patterns file found at {self.patterns_file}, starting with empty patterns")
+            logger.debug(
+                f"No patterns file found at {self.patterns_file}, starting with empty patterns"
+            )
 
     def save(self):
         """Save learned patterns to disk."""

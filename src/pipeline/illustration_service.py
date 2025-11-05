@@ -5,8 +5,6 @@ illustrations into article content. Optimized for batched API calls and
 prepared for Python 3.14 free-threading.
 """
 
-
-
 from __future__ import annotations
 
 import json
@@ -116,7 +114,9 @@ class IllustrationService:
             True if illustrations should be generated
         """
         should_gen = should_add_illustrations(generator_name, content)
-        logger.debug(f"Should generate illustrations for {generator_name}: {should_gen}")
+        logger.debug(
+            f"Should generate illustrations for {generator_name}: {should_gen}"
+        )
         return should_gen
 
     def _score_concept_section_pairs_batch(
@@ -372,7 +372,9 @@ class IllustrationService:
         Returns:
             IllustrationResult with modified content and metadata
         """
-        logger.debug(f"Starting illustration generation for {generator_name} (content: {len(content)} chars)")
+        logger.debug(
+            f"Starting illustration generation for {generator_name} (content: {len(content)} chars)"
+        )
         if not self.should_generate_illustrations(generator_name, content):
             logger.debug("Skipping illustrations - no benefit for this content")
             console.print(

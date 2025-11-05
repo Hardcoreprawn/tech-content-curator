@@ -144,7 +144,9 @@ COMMON PATTERNS:
                 "completion"
             ]
             total_cost = prompt_cost + completion_cost
-            logger.debug(f"ASCII art generated: {len(ascii_content)} chars, cost: ${total_cost:.4f}")
+            logger.debug(
+                f"ASCII art generated: {len(ascii_content)} chars, cost: ${total_cost:.4f}"
+            )
 
             # Generate alt-text
             alt_text = self._generate_alt_text(section_title, concept_type)
@@ -312,7 +314,9 @@ class TextIllustrationQualitySelector:
         Returns:
             GeneratedAsciiArt with highest quality score, or None if all below threshold
         """
-        logger.debug(f"Generating {self.n_candidates} ASCII art candidates for {section_title}")
+        logger.debug(
+            f"Generating {self.n_candidates} ASCII art candidates for {section_title}"
+        )
         candidates = []
 
         for _i in range(self.n_candidates):
@@ -335,10 +339,14 @@ class TextIllustrationQualitySelector:
         best_art.candidates_tested = len(candidates)
 
         if best_score >= self.quality_threshold:
-            logger.info(f"Best ASCII art selected: score={best_score:.2f} (tested {len(candidates)} candidates)")
+            logger.info(
+                f"Best ASCII art selected: score={best_score:.2f} (tested {len(candidates)} candidates)"
+            )
             return best_art
         else:
-            logger.warning(f"Best ASCII art score {best_score:.2f} below threshold {self.quality_threshold}")
+            logger.warning(
+                f"Best ASCII art score {best_score:.2f} below threshold {self.quality_threshold}"
+            )
             return None
 
     def _score(self, content: str, concept_type: str) -> float:

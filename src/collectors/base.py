@@ -13,7 +13,6 @@ Shared utilities:
 - Title extraction
 """
 
-
 from rich.console import Console
 
 from ..models import PipelineConfig

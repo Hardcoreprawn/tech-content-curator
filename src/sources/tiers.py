@@ -118,7 +118,9 @@ def calculate_selection_percentage(item_count: int, tier: SourceTier) -> float:
     Returns:
         Percentage (0.0 to 1.0) of items to keep
     """
-    logger.debug(f"Calculating selection percentage: tier={tier.value}, item_count={item_count}")
+    logger.debug(
+        f"Calculating selection percentage: tier={tier.value}, item_count={item_count}"
+    )
     # Base percentages by tier (for medium volumes ~30 items)
     base_percentages = {
         SourceTier.S_TIER: 0.60,  # Keep 60% of S-tier
@@ -153,7 +155,9 @@ def calculate_selection_percentage(item_count: int, tier: SourceTier) -> float:
     min_percentage = min_items / item_count if item_count > 0 else 0
 
     final_percentage = max(min_percentage, min(1.0, percentage))
-    logger.debug(f"Calculated percentage: {final_percentage:.2%} (base={base:.2%}, multiplier={multiplier:.1f})")
+    logger.debug(
+        f"Calculated percentage: {final_percentage:.2%} (base={base:.2%}, multiplier={multiplier:.1f})"
+    )
     return final_percentage
 
 
@@ -168,7 +172,9 @@ def get_selection_strategy(source_name: str, item_count: int) -> dict:
     Returns:
         Dict with selection parameters
     """
-    logger.debug(f"Getting selection strategy for source: {source_name}, collected={item_count}")
+    logger.debug(
+        f"Getting selection strategy for source: {source_name}, collected={item_count}"
+    )
     config = SOURCE_CONFIGS.get(source_name)
     if not config:
         # Unknown source - default to B-tier behavior
@@ -222,7 +228,9 @@ def select_best_items(items: list, scores: list[float], source_name: str) -> lis
     Returns:
         Filtered list of items
     """
-    logger.debug(f"Selecting best items from {source_name}: {len(items)} items, {len(scores)} scores")
+    logger.debug(
+        f"Selecting best items from {source_name}: {len(items)} items, {len(scores)} scores"
+    )
     if not items:
         logger.debug("No items to select")
         return []
@@ -250,10 +258,14 @@ def select_best_items(items: list, scores: list[float], source_name: str) -> lis
 
     # If we got nothing but we have items, take at least the best one
     if not selected and items:
-        logger.warning(f"No items met score threshold (min={strategy['min_score']}), taking best item")
+        logger.warning(
+            f"No items met score threshold (min={strategy['min_score']}), taking best item"
+        )
         selected.append(item_scores[0][0])
 
-    logger.info(f"Selected {len(selected)}/{len(items)} items from {source_name} (filtered {filtered_low_score} low-score items)")
+    logger.info(
+        f"Selected {len(selected)}/{len(items)} items from {source_name} (filtered {filtered_low_score} low-score items)"
+    )
     return selected
 
 

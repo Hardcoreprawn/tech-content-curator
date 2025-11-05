@@ -29,7 +29,9 @@ class IntegrativeListGenerator(BaseGenerator):
         Signals: 'awesome' repos, 'list of', 'top N', heavy bulleting/numbering.
         EXCLUDES: How-to guides, tutorials, installation instructions, educational content.
         """
-        logger.debug(f"Checking if item can be handled as integrative list: {item.original.title[:50]}")
+        logger.debug(
+            f"Checking if item can be handled as integrative list: {item.original.title[:50]}"
+        )
         title = item.original.title.lower()
         content = item.original.content
         content_lower = content.lower()
@@ -109,7 +111,9 @@ class IntegrativeListGenerator(BaseGenerator):
         if not self.client:
             raise ValueError("OpenAI client not initialized")
 
-        logger.debug(f"Generating integrative list article for: {item.original.title[:50]}")
+        logger.debug(
+            f"Generating integrative list article for: {item.original.title[:50]}"
+        )
         prompt = f"""
     You're writing an in-depth integrative guide based on a curated list-style source. Do NOT just reproduce a list.
 
@@ -173,7 +177,9 @@ class IntegrativeListGenerator(BaseGenerator):
             input_tokens = usage.prompt_tokens if usage else 0
             output_tokens = usage.completion_tokens if usage else 0
 
-            logger.info(f"Integrative list article generated: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}")
+            logger.info(
+                f"Integrative list article generated: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}"
+            )
             return content.strip(), input_tokens, output_tokens
         except Exception as e:
             logger.error(f"Integrative list generation failed: {type(e).__name__}: {e}")
