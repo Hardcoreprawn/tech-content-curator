@@ -1,36 +1,36 @@
 [
   {
     "entities": [
-      "psf",
       "python",
-      "python software foundation"
+      "python software foundation",
+      "psf"
     ],
     "keywords": [
-      "revenue",
-      "foundation",
-      "equity",
-      "shared",
-      "diversity",
-      "core",
+      "tech",
       "python",
-      "please",
-      "ahead",
-      "community",
-      "decision",
       "inclusion",
+      "decision",
+      "shared",
+      "ahead",
+      "core",
+      "giant",
+      "tldr",
+      "equity",
+      "every",
+      "community",
+      "than",
       "single",
+      "software",
+      "diversity",
       "share",
+      "values",
+      "seeking",
+      "please",
+      "spine",
+      "revenue",
       "shows",
       "read",
-      "every",
-      "giant",
-      "seeking",
-      "than",
-      "tldr",
-      "tech",
-      "spine",
-      "values",
-      "software"
+      "foundation"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "jassy",
-      "beginning",
-      "jobs",
-      "various",
-      "layoffs",
-      "help",
-      "line",
-      "brutal",
-      "tomorrow",
-      "cost",
-      "devices",
-      "bottom",
-      "damn",
-      "goal",
-      "corporate",
-      "including",
-      "move",
-      "about",
-      "boost",
       "speed",
-      "bureaucracy",
-      "cutting",
-      "reduce",
-      "company",
-      "workforce",
+      "jassy",
       "adoption",
-      "amazon",
+      "various",
+      "help",
+      "boost",
       "stated",
+      "including",
+      "reduce",
+      "move",
+      "brutal",
+      "beginning",
+      "about",
+      "amazon",
+      "company",
+      "bottom",
+      "devices",
+      "damn",
       "ultimate",
-      "groups"
+      "cost",
+      "workforce",
+      "corporate",
+      "cutting",
+      "tomorrow",
+      "goal",
+      "bureaucracy",
+      "groups",
+      "layoffs",
+      "line",
+      "jobs"
     ],
     "confidence": 0.95,
     "examples": [
@@ -325,8 +325,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -377,8 +377,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -429,8 +429,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -464,8 +464,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "running",
-      "always",
       "excerpts",
       "anyone",
-      "posts"
+      "posts",
+      "always"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -616,8 +616,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -664,8 +664,8 @@
       "python"
     ],
     "keywords": [
-      "python",
-      "software"
+      "software",
+      "python"
     ],
     "confidence": 0.8,
     "examples": [
@@ -682,8 +682,8 @@
       "psf"
     ],
     "keywords": [
-      "recent",
       "donations",
+      "recent",
       "grant"
     ],
     "confidence": 0.8500000000000001,
@@ -988,8 +988,8 @@
       "amazon"
     ],
     "keywords": [
-      "laying",
-      "amazon"
+      "amazon",
+      "laying"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1021,8 +1021,8 @@
       "amazon"
     ],
     "keywords": [
-      "laying",
-      "amazon"
+      "amazon",
+      "laying"
     ],
     "confidence": 0.8,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "microsoft",
-      "criminal",
       "court",
       "open",
-      "european",
-      "ditch",
+      "criminal",
       "alternative",
-      "source",
+      "european",
+      "microsoft",
+      "ditch",
+      "international",
       "office",
-      "international"
+      "source"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2586,8 +2586,8 @@
       "go"
     ],
     "keywords": [
-      "world",
       "college",
+      "world",
       "free"
     ],
     "confidence": 0.8500000000000001,
@@ -4357,14 +4357,14 @@
       "github"
     ],
     "keywords": [
+      "performance",
+      "experience",
+      "github",
       "href",
+      "webassembly",
       "simple",
       "both",
-      "nofollow",
-      "experience",
-      "performance",
-      "webassembly",
-      "github"
+      "nofollow"
     ],
     "confidence": 0.95,
     "examples": [
@@ -5234,9 +5234,9 @@
     ],
     "keywords": [
       "while",
-      "social",
+      "billions",
       "amazon",
-      "billions"
+      "social"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -6151,6 +6151,72 @@
     ],
     "created_at": "2025-11-04T23:10:18.251148",
     "last_seen": "2025-11-04T23:10:18.251150",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Launch HN: Plexe (YC X25) \u2013 Build production-grade ML models from prompts\n\nHey HN! We&#x27;re Vaibha",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-05T02:31:10.878671",
+    "last_seen": "2025-11-05T02:31:10.878674",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-05T02:31:10.921784",
+    "last_seen": "2025-11-05T02:31:10.921786",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Launch HN: Plexe (YC X25) \u2013 Build production-grade ML models from prompts\n\nHey HN! We&#x27;re Vaibha",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-05T02:31:11.084501",
+    "last_seen": "2025-11-05T02:31:11.084505",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-05T02:31:11.128663",
+    "last_seen": "2025-11-05T02:31:11.128666",
     "frequency": 1
   }
 ]
