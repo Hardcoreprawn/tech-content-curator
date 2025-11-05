@@ -25,6 +25,7 @@ from ..utils.file_io import (
     format_generation_costs,
 )
 from ..utils.logging import get_logger
+from ..utils.sanitization import safe_filename, validate_path
 from ..utils.url_tools import normalize_url
 
 logger = get_logger(__name__)
@@ -40,6 +41,7 @@ def save_article_to_file(
     """Save a generated article to markdown file with frontmatter.
 
     Logs file creation, metadata setup, and citation processing.
+    Validates and sanitizes filenames to prevent directory traversal.
 
     Args:
         article: The generated article to save
@@ -49,10 +51,22 @@ def save_article_to_file(
 
     Returns:
         Path to the saved file
+
+    Raises:
+        ValueError: If filename is invalid or attempts directory traversal
     """
     logger.debug(f"Saving article: {article.title} (filename: {article.filename})")
     content_dir = get_content_dir()
-    filepath = content_dir / article.filename
+
+    # Validate and sanitize filename
+    try:
+        safe_name = safe_filename(article.filename, max_length=100)
+        filepath = content_dir / safe_name
+        # Validate that path stays within content directory
+        validate_path(filepath, base_dir=content_dir)
+    except ValueError as e:
+        logger.error(f"Invalid filename '{article.filename}': {e}")
+        raise ValueError(f"Invalid filename for article: {e}") from e
 
     # Ensure filename uniqueness
     if filepath.exists():
@@ -60,6 +74,12 @@ def save_article_to_file(
         suffix_num = 2
         while True:
             candidate = content_dir / f"{stem}-{suffix_num}.md"
+            try:
+                validate_path(candidate, base_dir=content_dir)
+            except ValueError as e:
+                logger.error(f"Generated candidate path escapes content dir: {e}")
+                raise ValueError(f"Cannot create unique filename: {e}") from e
+
             if not candidate.exists():
                 console.print(
                     f"[yellow]⚠ Filename exists, saving as {candidate.name}[/yellow]"

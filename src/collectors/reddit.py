@@ -26,6 +26,7 @@ from rich.console import Console
 
 from ..models import CollectedItem, PipelineConfig, SourceType
 from ..utils.logging import get_logger
+from ..utils.sanitization import sanitize_text
 from .base import (
     is_entitled_whining,
     is_political_content,
@@ -205,17 +206,21 @@ def _process_reddit_posts(posts: list, config: PipelineConfig) -> list[Collected
 
             item = CollectedItem(
                 id=f"reddit_{post.id}",
-                title=post.title,
-                content=content,
+                title=sanitize_text(post.title, max_length=300),
+                content=sanitize_text(content, max_length=10000),
                 source=SourceType.REDDIT,
                 url=HttpUrl(f"https://reddit.com{post.permalink}"),
-                author=str(post.author) if post.author else "deleted",
+                author=sanitize_text(
+                    str(post.author) if post.author else "deleted", max_length=255
+                ),
                 collected_at=datetime.now(UTC),
                 metadata={
                     "score": post.score,
                     "upvote_ratio": post.upvote_ratio,
                     "num_comments": post.num_comments,
-                    "subreddit": post.subreddit.display_name,
+                    "subreddit": sanitize_text(
+                        post.subreddit.display_name, max_length=255
+                    ),
                     "created_utc": post.created_utc,
                     "is_self": post.is_self,
                     "over_18": post.over_18,

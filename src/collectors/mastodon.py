@@ -12,6 +12,7 @@ from rich.console import Console
 
 from ..models import CollectedItem, PipelineConfig, SourceType
 from ..utils.logging import get_logger
+from ..utils.sanitization import sanitize_html, sanitize_text
 from .base import (
     clean_html_content,
     extract_title_from_content,
@@ -271,19 +272,19 @@ def _process_mastodon_posts(
             item = CollectedItem(
                 id=f"mastodon_{post['id']}",
                 title=title,
-                content=content,
+                content=sanitize_html(content, max_length=10000),
                 source=SourceType.MASTODON,
                 url=post["url"],
-                author=post["account"]["username"],
+                author=sanitize_text(post["account"]["username"], max_length=255),
                 collected_at=datetime.now(UTC),
                 metadata={
                     "favourites_count": post.get("favourites_count", 0),
                     "reblogs_count": post.get("reblogs_count", 0),
                     "replies_count": post.get("replies_count", 0),
                     "created_at": post.get("created_at"),
-                    "language": language,
-                    "instance": instance,
-                    "source_type": source_type,
+                    "language": sanitize_text(language, max_length=10),
+                    "instance": sanitize_text(instance, max_length=255),
+                    "source_type": sanitize_text(source_type, max_length=50),
                     "source_name": "mastodon_trending",
                 },
             )

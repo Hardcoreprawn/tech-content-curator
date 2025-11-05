@@ -26,6 +26,10 @@ dependencies = [
     "beautifulsoup4>=4.14.2",
     # URL normalization (lightweight, RFC-friendly)
     "url-normalize>=1.4.3",
+    # Input sanitization (security)
+    "bleach>=6.1.0",
+    "python-slugify>=8.0.0",
+    "markupsafe>=2.1.0",
     # Image processing for icon generation
     "pillow>=10.0.0",
     # Markdown formatting and linting
@@ -40,6 +44,7 @@ dev = [
     "ruff>=0.1.6",
     "mypy>=1.7.0",
     "types-requests",
+    "types-bleach>=6.3.0",
 ]
 
 [build-system]

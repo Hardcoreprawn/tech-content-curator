@@ -9,6 +9,7 @@ Uses GPT-4o-mini for cost-effective, high-quality generation.
 """
 
 from ..utils.logging import get_logger
+from ..utils.sanitization import safe_filename
 
 logger = get_logger(__name__)
 
@@ -76,36 +77,42 @@ def calculate_image_cost(model: str = "dall-e-3-hd-1792x1024") -> float:
 def generate_article_slug(title: str) -> str:
     """Generate SEO-friendly slug from article title.
 
-    Uses simple string parsing to create readable, URL-safe slugs.
-    No LLM calls needed - this is pure deterministic logic.
+    Uses python-slugify for robust Unicode handling and safe character conversion.
+    Prevents directory traversal and other path-based attacks.
 
     Args:
         title: The article title
 
     Returns:
-        URL-safe slug string (3-6 words, lowercase, hyphenated)
+        URL-safe slug string (lowercase, hyphenated, filesystem-safe)
+
+    Raises:
+        ValueError: If title is empty or becomes empty after sanitization
     """
     logger.debug(f"Generating slug for title: {title[:50]}...")
-    # Convert to lowercase and split into words
-    words = title.lower().split()
 
-    # Take first 3-6 words
-    slug_words = words[:6]
+    if not title or not isinstance(title, str):
+        raise ValueError(
+            f"Invalid title: expected non-empty string, got {type(title).__name__}"
+        )
 
-    # Join with hyphens
-    slug = "-".join(slug_words)
+    # Strip whitespace
+    title = title.strip()
+    if not title:
+        # Fallback for empty/whitespace-only titles
+        return "untitled-article"
 
-    # Remove any non-alphanumeric characters except hyphens
-    slug = "".join(c if c.isalnum() or c == "-" else "" for c in slug)
+    try:
+        # Use safe_filename to generate slug with sanitization
+        # This uses python-slugify internally and validates filesystem safety
+        slug = safe_filename(title, max_length=60)
+    except ValueError:
+        # Fallback if sanitization fails (e.g., only special chars)
+        logger.warning(f"Failed to sanitize slug from title '{title}', using fallback")
+        slug = "untitled-article"
 
-    # Remove multiple consecutive hyphens
-    while "--" in slug:
-        slug = slug.replace("--", "-")
-
-    # Remove leading/trailing hyphens and truncate to 60 chars
-    final_slug = slug.strip("-")[:60]
-    logger.debug(f"Generated slug: {final_slug}")
-    return final_slug
+    logger.debug(f"Generated slug: {slug}")
+    return slug
 
 
 def generate_article_title(
