@@ -55,8 +55,7 @@ data/*.lock
 .DS_Store
 
 # Hugo (site)
-# Unignored site/public/ to analyze generated content
-# site/public/
+site/public/
 site/resources/_gen/
 site/.hugo_build.lock
 
