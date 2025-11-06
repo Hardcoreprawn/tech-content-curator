@@ -1,0 +1,14 @@
+/* PaperMod Theme Variable Overrides
+   This file overrides PaperMod's default CSS variables
+   to align article content width with header navigation width.
+   
+   Loaded by Hugo's asset pipeline as part of css/extended/*.css
+   See: site/themes/PaperMod/layouts/partials/head.html line 64
+*/
+
+:root {
+    /* Align main content width with header nav width (1024px)
+       Original: --main-width: 720px; --nav-width: 1024px;
+       This ensures articles display at the same width as the header */
+    --main-width: 1024px;
+}

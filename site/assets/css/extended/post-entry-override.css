@@ -1,7 +1,7 @@
 /* Override PaperMod's .first-entry fixed height constraints
-   This file is loaded AFTER theme CSS due to Hugo's asset pipeline ordering
-   See: site/themes/PaperMod/layouts/partials/head.html line 65 
-   Extended CSS loads after core theme, so !important ensures override */
+   This file is loaded as part of css/extended/*.css
+   See: site/themes/PaperMod/layouts/partials/head.html line 64
+   Extended CSS loads after core/common theme CSS, allowing us to override component styles */
 
 .first-entry {
     min-height: auto !important;
