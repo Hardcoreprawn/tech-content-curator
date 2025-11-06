@@ -1,0 +1,14 @@
+/* Override PaperMod's .first-entry fixed height constraints
+   This file is loaded AFTER theme CSS due to Hugo's asset pipeline ordering
+   See: site/themes/PaperMod/layouts/partials/head.html (extended CSS loads after core) */
+
+.first-entry {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+}
+
+@media screen and (max-width: 768px) {
+    .first-entry {
+        min-height: auto !important;
+    }
+}

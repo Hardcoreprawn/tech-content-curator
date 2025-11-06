@@ -4,7 +4,6 @@
    These are used as featured images and look less boring at reduced height.
    AI-generated featured images keep their original dimensions. */
 img[src*="library/abstract-"] {
-  max-height: 256px;
   height: auto;
   object-fit: cover;
   width: 100%;
@@ -25,8 +24,29 @@ img[src*="library/abstract-"] {
   margin-bottom: 10px !important;
 }
 
+
+main .first-entry.home-info {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0px !important;
+  }
+
+main .first-entry {
+    min-height: auto !important;
+  }
+
 /* Desktop view (≥768px): Compress header spacing further for visual cohesion */
 @media (min-width: 768px) {
+  main .first-entry.home-info {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0px !important;
+  }
+
+  main .first-entry {
+    min-height: auto !important;
+  }
+
   .home-info {
     padding: 0 !important;
     margin: 0 !important;
@@ -48,28 +68,36 @@ img[src*="library/abstract-"] {
 
 /* High-resolution displays (≥1024px): Aggressive compression for visual balance */
 @media (min-width: 1024px) {
+  main .first-entry.home-info {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0px !important;
+  }
+
+  main .first-entry {
+    min-height: auto !important;
+  }
+
   .home-info {
     padding: 0 !important;
     margin: 0 !important;
   }
 
   .home-info h1 {
-    margin: 0 0 4px 0 !important;
-    line-height: 1.2 !important;
+    margin: 0 !important;
   }
 
   .home-info p {
-    margin: 0 0 4px 0 !important;
-    line-height: 1.4 !important;
+    margin: 0 !important;
   }
 
   .social-icons {
-    margin-top: 2px !important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
 
-  /* Tighter spacing between sections */
+  /* Zero out post-content margin */
   .post-content {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
   }
 }
