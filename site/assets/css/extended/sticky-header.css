@@ -1,0 +1,33 @@
+/* Sticky Header - Apply to ALL pages
+   Make header sticky on all pages
+   Hide only the large first-entry title (homepage) to avoid duplication with header logo
+   Other page titles (posts, tags, etc.) scroll up normally under the sticky header
+   
+   Loaded by Hugo's asset pipeline as part of css/extended/*.css
+   See: site/themes/PaperMod/layouts/partials/head.html line 64
+*/
+
+/* Make header sticky and position at top - applies to ALL pages */
+header.header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99 !important;
+    background: var(--theme) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+/* Hide only the large first-entry title (homepage) to avoid duplication with header logo */
+article.first-entry .entry-header h1 {
+    display: none !important;
+}
+
+/* Responsive: Show first-entry title on mobile since header is not sticky there */
+@media screen and (max-width: 768px) {
+    header.header {
+        position: relative !important;
+    }
+    
+    article.first-entry .entry-header h1 {
+        display: block !important;
+    }
+}
