@@ -40,7 +40,9 @@ def run_sample() -> None:
         enriched = enrich_single_item(item, config)
         if enriched:
             console.print("[green]✓ Success![/green]")
-            console.print(f"[dim]Final Quality Score:[/dim] {enriched.quality_score:.2f}")
+            console.print(
+                f"[dim]Final Quality Score:[/dim] {enriched.quality_score:.2f}"
+            )
             console.print(f"[dim]Topics:[/dim] {', '.join(enriched.topics)}")
             console.print(
                 f"[dim]Research Preview:[/dim] {enriched.research_summary[:150]}...\n"

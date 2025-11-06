@@ -34,7 +34,9 @@ def check_config() -> bool:
 
         os.environ.setdefault("OPENAI_API_KEY", "test-key-for-validation")
         config = get_config()
-        instance = (config.mastodon_instances[0] if config.mastodon_instances else "<none>")
+        instance = (
+            config.mastodon_instances[0] if config.mastodon_instances else "<none>"
+        )
         console.print(f"[green]✓[/green] Config loaded: mastodon instance {instance}")
         return True
     except Exception as e:  # noqa: BLE001 - show any error clearly to user

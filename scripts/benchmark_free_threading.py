@@ -119,7 +119,9 @@ def benchmark_threaded() -> tuple[float, int]:
 
     start = time.time()
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        results = list(executor.map(lambda _: simulate_article_generation(), range(num_articles)))
+        results = list(
+            executor.map(lambda _: simulate_article_generation(), range(num_articles))
+        )
     parallel_time = time.time() - start
 
     print(f"Parallel time: {parallel_time:.2f}s")
@@ -167,7 +169,9 @@ async def benchmark_async() -> tuple[float, int]:
     return async_time, len(results)
 
 
-def print_summary(sequential_time: float, parallel_time: float, async_time: float) -> None:
+def print_summary(
+    sequential_time: float, parallel_time: float, async_time: float
+) -> None:
     """Print comparison summary."""
     print("\n" + "=" * 60)
     print("Summary & Speedup Analysis")
@@ -203,13 +207,19 @@ def print_summary(sequential_time: float, parallel_time: float, async_time: floa
 
     # Calculate potential savings
     articles_per_run = 10
-    time_saved_per_run = sequential_time * articles_per_run - async_time * articles_per_run
+    time_saved_per_run = (
+        sequential_time * articles_per_run - async_time * articles_per_run
+    )
     time_saved_per_day = time_saved_per_run * 3  # 3 runs per day
 
     print("\n💰 Potential Savings (10 articles per run, 3 runs/day):")
     print(f"  Per run: {time_saved_per_run:.0f}s saved")
-    print(f"  Per day: {time_saved_per_day:.0f}s saved ({time_saved_per_day/60:.1f} minutes)")
-    print(f"  Per month: {time_saved_per_day * 30:.0f}s saved ({time_saved_per_day * 30 / 3600:.1f} hours)")
+    print(
+        f"  Per day: {time_saved_per_day:.0f}s saved ({time_saved_per_day / 60:.1f} minutes)"
+    )
+    print(
+        f"  Per month: {time_saved_per_day * 30:.0f}s saved ({time_saved_per_day * 30 / 3600:.1f} hours)"
+    )
 
 
 def main() -> None:
@@ -268,5 +278,6 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\n❌ Unexpected error: {e}")
         import traceback
+
         traceback.print_exc()
         sys.exit(1)

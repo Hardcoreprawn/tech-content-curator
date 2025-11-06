@@ -26,9 +26,10 @@ from src.config import get_content_dir
 from src.deduplication import find_duplicate_articles, report_duplicate_candidates
 
 # Ensure UTF-8 encoding on Windows
-if sys.platform == 'win32':
+if sys.platform == "win32":
     import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 console = Console(force_terminal=False, legacy_windows=False)
 
@@ -122,8 +123,12 @@ def main():
     table.add_column("Action", width=20)
 
     for i, dup in enumerate(duplicates, 1):
-        article1 = next((a for a in articles if a["path"] == str(dup.article1_path)), None)
-        article2 = next((a for a in articles if a["path"] == str(dup.article2_path)), None)
+        article1 = next(
+            (a for a in articles if a["path"] == str(dup.article1_path)), None
+        )
+        article2 = next(
+            (a for a in articles if a["path"] == str(dup.article2_path)), None
+        )
 
         if not article1 or not article2:
             continue
@@ -155,8 +160,12 @@ def main():
 
         to_remove = []
         for dup in duplicates:
-            article1 = next((a for a in articles if a["path"] == str(dup.article1_path)), None)
-            article2 = next((a for a in articles if a["path"] == str(dup.article2_path)), None)
+            article1 = next(
+                (a for a in articles if a["path"] == str(dup.article1_path)), None
+            )
+            article2 = next(
+                (a for a in articles if a["path"] == str(dup.article2_path)), None
+            )
 
             if not article1 or not article2:
                 continue
@@ -197,7 +206,9 @@ def main():
                 )
 
         if to_remove:
-            console.print(f"[yellow]Found {len(to_remove)} articles to remove:[/yellow]\n")
+            console.print(
+                f"[yellow]Found {len(to_remove)} articles to remove:[/yellow]\n"
+            )
 
             for item in to_remove:
                 console.print(f"  [red]✗[/red] {item['path'].name}")
@@ -213,10 +224,14 @@ def main():
                         item["path"].unlink()
                         console.print(f"[green]✓ Removed {item['path'].name}[/green]")
                     except Exception as e:
-                        console.print(f"[red]✗ Failed to remove {item['path'].name}: {e}[/red]")
+                        console.print(
+                            f"[red]✗ Failed to remove {item['path'].name}: {e}[/red]"
+                        )
 
                 console.print("\n[green]Removal complete![/green]")
-                console.print("[yellow]Don't forget to commit and push changes[/yellow]")
+                console.print(
+                    "[yellow]Don't forget to commit and push changes[/yellow]"
+                )
         else:
             console.print("[green]✓ No articles need removal[/green]")
 

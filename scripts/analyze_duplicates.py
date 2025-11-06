@@ -19,6 +19,7 @@ affinity2_path = Path("content/posts/2025-10-31-affinity-software-freemium-shift
 icc1_path = Path("content/posts/2025-10-31-icc-ditches-microsoft-365.md")
 icc2_path = Path("content/posts/2025-10-31-icc-open-source-move.md")
 
+
 def load_article(path):
     """Load article and extract metadata."""
     post = frontmatter.load(str(path))
@@ -28,8 +29,9 @@ def load_article(path):
         "summary": meta.get("summary", ""),
         "tags": meta.get("tags", []),
         "content": post.content,
-        "path": str(path)
+        "path": str(path),
     }
+
 
 affinity1 = load_article(affinity1_path)
 affinity2 = load_article(affinity2_path)
@@ -63,21 +65,23 @@ print(f"\nEntities Article 1: {entities1}")
 print(f"Entities Article 2: {entities2}")
 
 overall_score = (
-    (title_sim * 0.30) +
-    (summary_sim * 0.20) +
-    (tag_overlap * 0.10) +
-    (entity_sim * 0.40)
+    (title_sim * 0.30)
+    + (summary_sim * 0.20)
+    + (tag_overlap * 0.10)
+    + (entity_sim * 0.40)
 )
 print(f"\nOverall score (without content): {overall_score:.3f}")
 
 overall_score_with_content = (
-    (title_sim * 0.25) +
-    (summary_sim * 0.15) +
-    (tag_overlap * 0.10) +
-    (entity_sim * 0.25) +
-    (content_sim * 0.25)
+    (title_sim * 0.25)
+    + (summary_sim * 0.15)
+    + (tag_overlap * 0.10)
+    + (entity_sim * 0.25)
+    + (content_sim * 0.25)
 )
-print(f"Overall score (with content):    {overall_score_with_content:.3f} (threshold: > 0.55)")
+print(
+    f"Overall score (with content):    {overall_score_with_content:.3f} (threshold: > 0.55)"
+)
 
 dup = check_articles_for_duplicates(affinity1, affinity2)
 print(f"\nDuplicate detected: {dup is not None}")
@@ -113,21 +117,23 @@ print(f"\nEntities Article 1: {entities1}")
 print(f"Entities Article 2: {entities2}")
 
 overall_score = (
-    (title_sim * 0.30) +
-    (summary_sim * 0.20) +
-    (tag_overlap * 0.10) +
-    (entity_sim * 0.40)
+    (title_sim * 0.30)
+    + (summary_sim * 0.20)
+    + (tag_overlap * 0.10)
+    + (entity_sim * 0.40)
 )
 print(f"\nOverall score (without content): {overall_score:.3f}")
 
 overall_score_with_content = (
-    (title_sim * 0.25) +
-    (summary_sim * 0.15) +
-    (tag_overlap * 0.10) +
-    (entity_sim * 0.25) +
-    (content_sim * 0.25)
+    (title_sim * 0.25)
+    + (summary_sim * 0.15)
+    + (tag_overlap * 0.10)
+    + (entity_sim * 0.25)
+    + (content_sim * 0.25)
 )
-print(f"Overall score (with content):    {overall_score_with_content:.3f} (threshold: > 0.55)")
+print(
+    f"Overall score (with content):    {overall_score_with_content:.3f} (threshold: > 0.55)"
+)
 
 dup = check_articles_for_duplicates(icc1, icc2)
 print(f"\nDuplicate detected: {dup is not None}")
@@ -135,4 +141,3 @@ if dup:
     print(f"  Overall score: {dup.overall_score:.3f}")
     print(f"  Entity similarity: {dup.entity_similarity:.3f}")
     print(f"  Content similarity: {dup.content_similarity:.3f}")
-

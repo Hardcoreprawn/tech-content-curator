@@ -25,27 +25,27 @@ def _mock_openai_responses() -> Mock:
 
     quality_response = Mock()
     quality_response.choices = [Mock()]
-    quality_response.choices[0].message.content = (
+    quality_response.choices[
+        0
+    ].message.content = (
         '{"score": 0.8, "explanation": "Interesting technical content with good depth"}'
     )
 
     topics_response = Mock()
     topics_response.choices = [Mock()]
-    topics_response.choices[0].message.content = (
-        '["python", "web development", "api design"]'
-    )
+    topics_response.choices[
+        0
+    ].message.content = '["python", "web development", "api design"]'
 
     research_response = Mock()
     research_response.choices = [Mock()]
-    research_response.choices[0].message.content = (
-        """
+    research_response.choices[0].message.content = """
         This content discusses modern web development practices, particularly API design patterns.
 
         Current state: RESTful APIs remain the dominant architecture, though GraphQL and gRPC are gaining traction in specific use cases. The Python ecosystem offers excellent frameworks like FastAPI and Django Rest Framework for building robust APIs.
 
         Key questions readers might have include: What are the trade-offs between different API styles? How do you handle authentication and rate limiting? What are the best practices for API versioning and documentation?
         """
-    )
 
     call_count = 0
 

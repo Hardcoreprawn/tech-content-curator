@@ -49,7 +49,7 @@ def extract_frontmatter(content: str) -> tuple[str, str]:
         return "", content
 
     frontmatter = content[3:end_index].strip()
-    markdown = content[end_index + 5:].strip()
+    markdown = content[end_index + 5 :].strip()
     return frontmatter, markdown
 
 
@@ -59,19 +59,21 @@ def remove_existing_diagrams(content: str) -> str:
     Preserves HTML comments about what was removed for reference.
     """
     # Pattern for mermaid diagrams
-    mermaid_pattern = r'<!-- MERMAID:.*?-->\s*```mermaid\s*.*?```\s*'
-    content = re.sub(mermaid_pattern, '', content, flags=re.DOTALL)
+    mermaid_pattern = r"<!-- MERMAID:.*?-->\s*```mermaid\s*.*?```\s*"
+    content = re.sub(mermaid_pattern, "", content, flags=re.DOTALL)
 
     # Pattern for ASCII diagrams
-    ascii_pattern = r'<!-- ASCII:.*?-->\s*<div[^>]*>.*?```.*?```.*?</div>\s*(?:\*Figure:.*?\*\s*)?'
-    content = re.sub(ascii_pattern, '', content, flags=re.DOTALL)
+    ascii_pattern = (
+        r"<!-- ASCII:.*?-->\s*<div[^>]*>.*?```.*?```.*?</div>\s*(?:\*Figure:.*?\*\s*)?"
+    )
+    content = re.sub(ascii_pattern, "", content, flags=re.DOTALL)
 
     # Pattern for remaining diagram blocks
-    diagram_comment_pattern = r'<!-- MERMAID:.*?-->\n*'
-    content = re.sub(diagram_comment_pattern, '', content)
+    diagram_comment_pattern = r"<!-- MERMAID:.*?-->\n*"
+    content = re.sub(diagram_comment_pattern, "", content)
 
     # Clean up multiple newlines
-    content = re.sub(r'\n\n\n+', '\n\n', content)
+    content = re.sub(r"\n\n\n+", "\n\n", content)
 
     return content.strip()
 
@@ -98,7 +100,7 @@ def regenerate_illustrations(
         return False
 
     # Read the article
-    content = article_file.read_text(encoding='utf-8')
+    content = article_file.read_text(encoding="utf-8")
     frontmatter, markdown_content = extract_frontmatter(content)
 
     if not frontmatter:
@@ -108,8 +110,12 @@ def regenerate_illustrations(
     console.print(f"[dim]Content length: {len(markdown_content)} chars[/dim]")
 
     # Extract generator name from frontmatter
-    generator_match = re.search(r'generator:\s*(.+)', frontmatter)
-    generator_name = generator_match.group(1).strip() if generator_match else "General Article Generator"
+    generator_match = re.search(r"generator:\s*(.+)", frontmatter)
+    generator_name = (
+        generator_match.group(1).strip()
+        if generator_match
+        else "General Article Generator"
+    )
     console.print(f"[dim]Generator: {generator_name}[/dim]")
 
     # Remove existing diagrams
@@ -132,34 +138,34 @@ def regenerate_illustrations(
 
             # Update frontmatter with new illustration count and costs
             new_frontmatter = re.sub(
-                r'illustrations_count:\s*\d+',
-                f'illustrations_count: {result.count}',
-                frontmatter
+                r"illustrations_count:\s*\d+",
+                f"illustrations_count: {result.count}",
+                frontmatter,
             )
 
             # Merge costs into frontmatter
-            if 'generation_costs:' in new_frontmatter:
+            if "generation_costs:" in new_frontmatter:
                 # Replace existing generation_costs section
                 costs_yaml = _format_costs_yaml(result.costs)
                 new_frontmatter = re.sub(
-                    r'generation_costs:\s*\n(?:  [^\n]+\n)*',
-                    f'generation_costs:\n{costs_yaml}',
-                    new_frontmatter
+                    r"generation_costs:\s*\n(?:  [^\n]+\n)*",
+                    f"generation_costs:\n{costs_yaml}",
+                    new_frontmatter,
                 )
             else:
                 # Add generation_costs section before illustrations_count
                 costs_yaml = _format_costs_yaml(result.costs)
                 new_frontmatter = re.sub(
-                    r'(generator:.+\n)',
-                    f'\\1generation_costs:\n{costs_yaml}',
-                    new_frontmatter
+                    r"(generator:.+\n)",
+                    f"\\1generation_costs:\n{costs_yaml}",
+                    new_frontmatter,
                 )
 
             # Reconstruct the file
             updated_content = f"---\n{new_frontmatter}\n---\n\n{result.content}"
 
             # Write back
-            article_file.write_text(updated_content, encoding='utf-8')
+            article_file.write_text(updated_content, encoding="utf-8")
             console.print(f"[green]✓[/green] Updated: {article_file.name}")
             return True
         else:
@@ -180,7 +186,7 @@ def _format_costs_yaml(costs: dict) -> str:
             lines.append(f"  {key}: {value}")
         else:
             lines.append(f"  {key}: {value}")
-    return '\n'.join(lines) + '\n'
+    return "\n".join(lines) + "\n"
 
 
 def main():
@@ -206,7 +212,9 @@ def main():
 
     # Load config
     config = get_config()
-    console.print(f"[dim]Config loaded: illustrations enabled = {config.enable_illustrations}[/dim]")
+    console.print(
+        f"[dim]Config loaded: illustrations enabled = {config.enable_illustrations}[/dim]"
+    )
 
     # Verify OpenAI API key
     api_key = config.openai_api_key
@@ -228,9 +236,7 @@ def main():
             failed += 1
 
     # Summary
-    console.print(
-        f"\n[bold]Summary:[/bold] {successful} successful, {failed} failed"
-    )
+    console.print(f"\n[bold]Summary:[/bold] {successful} successful, {failed} failed")
     return 0 if failed == 0 else 1
 
 

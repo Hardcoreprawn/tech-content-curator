@@ -27,6 +27,8 @@ def load_env_from_dotenv() -> None:
     env_path = project_root / ".env"
     if env_path.exists():
         load_dotenv(dotenv_path=env_path)
+
+
 from rich.console import Console
 
 console = Console()
@@ -38,7 +40,9 @@ def main() -> None:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         console.print("[red]Error:[/red] OPENAI_API_KEY not found in environment")
-        console.print("Set it in your environment or create a .env file with:\nOPENAI_API_KEY=sk-...\n")
+        console.print(
+            "Set it in your environment or create a .env file with:\nOPENAI_API_KEY=sk-...\n"
+        )
         sys.exit(1)
 
     console.print("[bold blue]Generating default social share image...[/bold blue]")
@@ -64,7 +68,9 @@ def main() -> None:
         console.print(f"  Hero: {hero_path}")
         console.print(f"  Icon: {icon_path}")
         console.print()
-        console.print("[dim]Note: The hero image (default-social.png) will be used as the default OpenGraph/Twitter card image for pages without a specific image.[/dim]")
+        console.print(
+            "[dim]Note: The hero image (default-social.png) will be used as the default OpenGraph/Twitter card image for pages without a specific image.[/dim]"
+        )
     else:
         console.print("[red]✗[/red] Failed to generate image")
         sys.exit(1)

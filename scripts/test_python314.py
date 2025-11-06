@@ -227,7 +227,6 @@ def main() -> None:
     print("Next Steps")
     print("=" * 60)
 
-
     if hasattr(sys, "_is_gil_enabled") and sys._is_gil_enabled():
         print("2. Enable free-threading:")
         print("   export PYTHON_GIL=0")

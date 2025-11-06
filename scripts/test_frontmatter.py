@@ -4,7 +4,7 @@ from pathlib import Path
 
 import frontmatter
 
-three_days_ago = (datetime.now(UTC) - timedelta(days=3)).strftime('%Y-%m-%d')
+three_days_ago = (datetime.now(UTC) - timedelta(days=3)).strftime("%Y-%m-%d")
 content = f"""---
 title: Recent Article
 date: {three_days_ago}
@@ -14,13 +14,15 @@ sources:
 Content.
 """
 
-with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, encoding='utf-8') as f:
+with tempfile.NamedTemporaryFile(
+    mode="w", suffix=".md", delete=False, encoding="utf-8"
+) as f:
     f.write(content)
     fname = f.name
 
 post = frontmatter.load(fname)
-print('Meta:', post.metadata)
-print('Date:', post.metadata.get('date'))
-print('Sources:', post.metadata.get('sources'))
+print("Meta:", post.metadata)
+print("Date:", post.metadata.get("date"))
+print("Sources:", post.metadata.get("sources"))
 
 Path(fname).unlink()

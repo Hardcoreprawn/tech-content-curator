@@ -25,11 +25,17 @@ def test_collectors_filtering():
     console.print("[blue]Testing collectors filtering...[/blue]")
 
     # Test political content detection
-    political_text = "Democrats and Republicans debate the election results in congress."
+    political_text = (
+        "Democrats and Republicans debate the election results in congress."
+    )
     assert is_political_content(political_text), "Should detect political content"
 
-    tech_policy_text = "New GDPR regulations affect data privacy and encryption policies."
-    assert not is_political_content(tech_policy_text), "Should allow tech policy content"
+    tech_policy_text = (
+        "New GDPR regulations affect data privacy and encryption policies."
+    )
+    assert not is_political_content(tech_policy_text), (
+        "Should allow tech policy content"
+    )
 
     # Test HTML cleaning
     html_text = "<p>This is <strong>bold</strong> text.</p>"

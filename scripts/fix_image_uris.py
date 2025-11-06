@@ -126,7 +126,9 @@ def main():
         else:
             console.print(f"[dim]  {filepath.name}[/dim]")
 
-    console.print(f"\n[bold green]Done![/bold green] Modified {modified_count}/{len(md_files)} files.")
+    console.print(
+        f"\n[bold green]Done![/bold green] Modified {modified_count}/{len(md_files)} files."
+    )
 
 
 if __name__ == "__main__":

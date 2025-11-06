@@ -41,11 +41,18 @@ def test_article(file_path: str, article_name: str) -> dict:
         print(f"\nFound {len(citations)} citation(s):")
         for i, cit in enumerate(citations, 1):
             confidence_pct = int(cit.confidence * 100)
-            print(f"  {i}. '{cit.original_text}' ({cit.year}, confidence: {confidence_pct}%)")
+            print(
+                f"  {i}. '{cit.original_text}' ({cit.year}, confidence: {confidence_pct}%)"
+            )
 
         if not citations:
             print("  (no citations found)")
-            return {"article": article_name, "extracted": 0, "resolved": 0, "error": None}
+            return {
+                "article": article_name,
+                "extracted": 0,
+                "resolved": 0,
+                "error": None,
+            }
 
         # Resolve citations
         resolver = CitationResolver()
@@ -63,11 +70,16 @@ def test_article(file_path: str, article_name: str) -> dict:
                 # Try API resolution
                 resolved = resolver.resolve(citation.authors, citation.year)
                 if resolved.url:
-                    print("  ✓ {} ({}) - RESOLVED ({})".format(
-                        citation.authors, citation.year, resolved.doi or "arXiv"))
+                    print(
+                        "  ✓ {} ({}) - RESOLVED ({})".format(
+                            citation.authors, citation.year, resolved.doi or "arXiv"
+                        )
+                    )
                     resolved_count += 1
                     # Cache for next time
-                    cache.put(citation.authors, citation.year, resolved.doi, resolved.url)
+                    cache.put(
+                        citation.authors, citation.year, resolved.doi, resolved.url
+                    )
                 else:
                     print(f"  ✗ {citation.authors} ({citation.year}) - NOT FOUND")
 
@@ -76,27 +88,34 @@ def test_article(file_path: str, article_name: str) -> dict:
             "article": article_name,
             "extracted": len(citations),
             "resolved": resolved_count,
-            "error": None
+            "error": None,
         }
 
     except Exception as e:
         print(f"\nERROR: {str(e)}")
-        return {
-            "article": article_name,
-            "extracted": 0,
-            "resolved": 0,
-            "error": str(e)
-        }
+        return {"article": article_name, "extracted": 0, "resolved": 0, "error": str(e)}
 
 
 def main() -> None:
     """Test citation engine on multiple real articles."""
 
     articles_to_test = [
-        ("content/posts/2025-10-31-owl-flight-quieter-drones.md", "Owl Flight & Drones"),
-        ("content/posts/2025-10-31-covid-19-air-travel-safety.md", "COVID-19 Air Travel Safety"),
-        ("content/posts/2025-10-30-enhancing-simulations-zozo-solver.md", "ZOZO Contact Solver"),
-        ("content/archive/2025-10-28-debugging-challenges-llm-applications-d08d30636b6c.md", "Debugging LLM Applications"),
+        (
+            "content/posts/2025-10-31-owl-flight-quieter-drones.md",
+            "Owl Flight & Drones",
+        ),
+        (
+            "content/posts/2025-10-31-covid-19-air-travel-safety.md",
+            "COVID-19 Air Travel Safety",
+        ),
+        (
+            "content/posts/2025-10-30-enhancing-simulations-zozo-solver.md",
+            "ZOZO Contact Solver",
+        ),
+        (
+            "content/archive/2025-10-28-debugging-challenges-llm-applications-d08d30636b6c.md",
+            "Debugging LLM Applications",
+        ),
     ]
 
     print("\n" + "=" * 80)
@@ -112,12 +131,14 @@ def main() -> None:
             results.append(result)
         else:
             print(f"\nSKIPPED: {article_name} (file not found)")
-            results.append({
-                "article": article_name,
-                "extracted": 0,
-                "resolved": 0,
-                "error": "File not found"
-            })
+            results.append(
+                {
+                    "article": article_name,
+                    "extracted": 0,
+                    "resolved": 0,
+                    "error": "File not found",
+                }
+            )
 
     # Summary
     print("\n\n" + "=" * 80)
@@ -140,8 +161,11 @@ def main() -> None:
     print("\nDetailed results:")
     for result in results:
         status = "✓" if result["error"] is None else "✗"
-        print("  {} {} - {}/{} resolved".format(
-            status, result["article"], result["resolved"], result["extracted"]))
+        print(
+            "  {} {} - {}/{} resolved".format(
+                status, result["article"], result["resolved"], result["extracted"]
+            )
+        )
         if result["error"]:
             print("     Error: {}".format(result["error"]))
 

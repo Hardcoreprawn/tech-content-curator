@@ -30,9 +30,7 @@ print("\n2. Testing simple chat completion...")
 try:
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": "Say hello"}
-        ],
+        messages=[{"role": "user", "content": "Say hello"}],
         max_tokens=10,
     )
     print(f"   ✓ Success: {response.choices[0].message.content}")
@@ -59,12 +57,12 @@ try:
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": long_prompt}
-        ],
+        messages=[{"role": "user", "content": long_prompt}],
         max_tokens=100,
     )
-    print(f"   ✓ Success: Got response ({len(response.choices[0].message.content)} chars)")
+    print(
+        f"   ✓ Success: Got response ({len(response.choices[0].message.content)} chars)"
+    )
 except Exception as e:
     print(f"   ✗ Failed: {e}")
 

@@ -41,7 +41,7 @@ def main():
         post.metadata["cover"] = {
             "image": hero_path,
             "alt": post.metadata.get("title", "Article cover image"),
-            "caption": ""
+            "caption": "",
         }
         post.metadata["images"] = [icon_path]
 
@@ -53,6 +53,7 @@ def main():
         print(f"✓ {slug}")
 
     print(f"\n✅ Assigned images to {fixed} articles")
+
 
 if __name__ == "__main__":
     main()

@@ -58,12 +58,14 @@ def create_test_item(
 
 def test_affinity_case():
     """Test case: Affinity Software from different sources."""
-    console.print("\n[bold cyan]Test Case 1: Affinity Software (from your Oct 31 run)[/bold cyan]\n")
+    console.print(
+        "\n[bold cyan]Test Case 1: Affinity Software (from your Oct 31 run)[/bold cyan]\n"
+    )
 
     item1 = create_test_item(
         title="Affinity Studio Goes Free: A Game Changer for Designers",
         content="Affinity announces free release of their design software suite. "
-                "The move comes after Canva acquisition. Major shift from paid model.",
+        "The move comes after Canva acquisition. Major shift from paid model.",
         source=SourceType.HACKERNEWS,
         topics=["design", "software", "freemium", "affinity"],
         quality=0.85,
@@ -72,7 +74,7 @@ def test_affinity_case():
     item2 = create_test_item(
         title="Affinity Software's Freemium Shift: What Artists Need to Know",
         content="Affinity's business model change to freemium after Canva acquisition. "
-                "Artists should understand implications of this shift.",
+        "Artists should understand implications of this shift.",
         source=SourceType.MASTODON,
         topics=["design", "software", "freemium", "canva", "affinity"],
         quality=0.80,
@@ -81,7 +83,9 @@ def test_affinity_case():
     # Calculate similarity
     similarity = calculate_story_similarity(item1, item2)
     console.print(f"Story similarity: {similarity:.1%}")
-    console.print(f"Should be detected as duplicates: {'✓ Yes' if similarity > 0.55 else '✗ No'}\n")
+    console.print(
+        f"Should be detected as duplicates: {'✓ Yes' if similarity > 0.55 else '✗ No'}\n"
+    )
 
     # Cluster them
     clusters = find_story_clusters([item1, item2])
@@ -89,26 +93,37 @@ def test_affinity_case():
 
     # Filter
     filtered = filter_duplicate_stories([item1, item2])
-    console.print(f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]")
+    console.print(
+        f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]"
+    )
 
 
 def test_icc_case():
     """Test case: ICC Open Source from different sources."""
-    console.print("\n[bold cyan]Test Case 2: ICC Open Source (from your Oct 31 run)[/bold cyan]\n")
+    console.print(
+        "\n[bold cyan]Test Case 2: ICC Open Source (from your Oct 31 run)[/bold cyan]\n"
+    )
 
     item1 = create_test_item(
         title="ICC Ditches Microsoft 365 for Open-Source: A Data Privacy Win",
         content="International Criminal Court transitions from Microsoft 365 to open-source. "
-                "Focus on data privacy and sovereignty concerns.",
+        "Focus on data privacy and sovereignty concerns.",
         source=SourceType.MASTODON,
-        topics=["open-source", "microsoft", "privacy", "icc", "cloud", "data-sovereignty"],
+        topics=[
+            "open-source",
+            "microsoft",
+            "privacy",
+            "icc",
+            "cloud",
+            "data-sovereignty",
+        ],
         quality=0.82,
     )
 
     item2 = create_test_item(
         title="ICC's Bold Move: Embracing Open-Source Over Microsoft",
         content="ICC adopts open-source software instead of Microsoft 365. "
-                "Part of broader European tech development and industry adoption trends.",
+        "Part of broader European tech development and industry adoption trends.",
         source=SourceType.MASTODON,
         topics=["open-source", "microsoft", "enterprise", "icc", "europe", "cloud"],
         quality=0.78,
@@ -117,7 +132,9 @@ def test_icc_case():
     # Calculate similarity
     similarity = calculate_story_similarity(item1, item2)
     console.print(f"Story similarity: {similarity:.1%}")
-    console.print(f"Should be detected as duplicates: {'✓ Yes' if similarity > 0.55 else '✗ No'}\n")
+    console.print(
+        f"Should be detected as duplicates: {'✓ Yes' if similarity > 0.55 else '✗ No'}\n"
+    )
 
     # Cluster them
     clusters = find_story_clusters([item1, item2])
@@ -125,12 +142,16 @@ def test_icc_case():
 
     # Filter
     filtered = filter_duplicate_stories([item1, item2])
-    console.print(f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]")
+    console.print(
+        f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]"
+    )
 
 
 def test_unrelated_case():
     """Test case: Unrelated items should NOT be clustered."""
-    console.print("\n[bold cyan]Test Case 3: Unrelated Items (should NOT cluster)[/bold cyan]\n")
+    console.print(
+        "\n[bold cyan]Test Case 3: Unrelated Items (should NOT cluster)[/bold cyan]\n"
+    )
 
     item1 = create_test_item(
         title="Rust 1.75 Released with New Features",
@@ -151,7 +172,9 @@ def test_unrelated_case():
     # Calculate similarity
     similarity = calculate_story_similarity(item1, item2)
     console.print(f"Story similarity: {similarity:.1%}")
-    console.print(f"Should NOT be detected as duplicates: {'✓ Correct' if similarity <= 0.55 else '✗ Wrong'}\n")
+    console.print(
+        f"Should NOT be detected as duplicates: {'✓ Correct' if similarity <= 0.55 else '✗ Wrong'}\n"
+    )
 
     # Cluster them
     clusters = find_story_clusters([item1, item2])
@@ -159,12 +182,16 @@ def test_unrelated_case():
 
     # Filter
     filtered = filter_duplicate_stories([item1, item2])
-    console.print(f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]")
+    console.print(
+        f"\n[green]After filtering: {len(filtered)} items (started with 2)[/green]"
+    )
 
 
 def test_mixed_case():
     """Test case: Mix of related and unrelated items."""
-    console.print("\n[bold cyan]Test Case 4: Mixed Batch (realistic scenario)[/bold cyan]\n")
+    console.print(
+        "\n[bold cyan]Test Case 4: Mixed Batch (realistic scenario)[/bold cyan]\n"
+    )
 
     items = [
         # Duplicate story pair
