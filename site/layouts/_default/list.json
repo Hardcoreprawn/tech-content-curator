@@ -1,0 +1,16 @@
+{
+  "results": [
+    {{- $pages := where .Pages "Type" "!=" "search" }}
+    {{- $pages = where $pages "Params.private" "!=" true }}
+    {{- range $index, $page := $pages -}}
+    {
+      "objectID": "{{ $page.Permalink }}",
+      "title": {{ $page.Title | jsonify }},
+      "href": "{{ $page.Permalink }}",
+      "date": "{{ $page.Date.Format "2006-01-02" }}",
+      "summary": {{ ($page.Summary | truncate 160) | jsonify }},
+      "content": {{ $page.Plain | jsonify }}
+    }{{ if ne $index (sub (len $pages) 1) }},{{ end }}
+    {{- end }}
+  ]
+}
