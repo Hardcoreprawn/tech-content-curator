@@ -22,6 +22,7 @@ from typing import Any
 
 from rich.console import Console
 
+from .content.tag_normalizer import normalize_tags
 from .models import EnrichedItem, GeneratedArticle
 from .utils.logging import get_logger
 
@@ -235,13 +236,16 @@ def generate_fallback_article(
 
     # Generate slug from title
     slug = item.original.title.lower().replace(" ", "-").replace(":", "")[:50]
+    # Normalize tags to canonical taxonomy
+    normalized_tags = normalize_tags(item.topics, max_tags=5)
+    normalized_tags = normalize_tags(item.topics, max_tags=5)
 
     article = GeneratedArticle(
         title=item.original.title,
         content=content,
         summary=data["summary"],
         sources=[item],
-        tags=item.topics[:5],
+        tags=normalized_tags,
         word_count=word_count,
         generated_at=datetime.now(UTC),
         filename=f"{datetime.now(UTC).strftime('%Y-%m-%d')}-{slug}.md",

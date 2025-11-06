@@ -172,21 +172,23 @@ def extract_topics_and_themes(item: CollectedItem, client: OpenAI) -> list[str]:
 
     Content: "{item.content}"
 
-    Identify 3-7 specific topics that this post covers. Focus on:
-    - Programming languages and technologies
-    - Technical concepts and methodologies
-    - Tools and frameworks
-    - Industry trends and practices
+    Identify 5-7 specific topics that this post covers. Focus on:
+    - Programming languages (python, rust, javascript, etc.)
+    - Technical concepts (machine learning, devops, cybersecurity, etc.)
+    - Tools and frameworks (kubernetes, docker, react, etc.)
+    - Core technologies (databases, cloud computing, networking, etc.)
 
     Return topics as a simple JSON array of strings:
     ["topic1", "topic2", "topic3"]
 
     Examples:
-    - ["python", "web scraping", "data analysis"]
-    - ["kubernetes", "devops", "container orchestration"]
-    - ["machine learning", "neural networks", "pytorch"]
+    - ["python", "web development", "data science"]
+    - ["kubernetes", "devops", "containers"]
+    - ["machine learning", "neural networks", "deep learning"]
 
-    Be specific but not overly narrow. "python web development" is better than just "programming".
+    Use common, standard terminology. Avoid overly specific phrases.
+    Prefer "web development" over "building web applications".
+    Prefer "machine learning" over "ML model training".
     """
 
     try:

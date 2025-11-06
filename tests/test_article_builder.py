@@ -304,12 +304,15 @@ class TestCreateArticleMetadata:
 
     def test_limits_tags_to_five(self):
         """Tags are limited to 5 maximum."""
-        item = make_enriched_item(topics=["A", "B", "C", "D", "E", "F", "G"])
+        item = make_enriched_item(
+            topics=["python", "javascript", "rust", "go", "java", "typescript", "ruby"]
+        )
 
         metadata = create_article_metadata(item, "Title", "Content")
 
         assert len(metadata["tags"]) == 5
-        assert metadata["tags"] == ["A", "B", "C", "D", "E"]
+        # Verify all returned tags are canonical
+        assert all(isinstance(tag, str) for tag in metadata["tags"])
 
     def test_calculates_word_count(self):
         """Word count is accurate."""

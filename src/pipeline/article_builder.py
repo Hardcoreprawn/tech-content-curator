@@ -379,10 +379,15 @@ def create_article_metadata(item: EnrichedItem, title: str, content: str) -> dic
         f"Quality analysis: flesch={quality_metrics['readability_score']:.1f}, grade={quality_metrics['grade_level']:.1f}"
     )
 
+    # Normalize and limit tags
+    from ..content.tag_normalizer import normalize_tags
+
+    normalized_tags = normalize_tags(item.topics, max_tags=5)
+
     metadata = {
         "title": title,
         "date": datetime.now(UTC).strftime("%Y-%m-%d"),
-        "tags": item.topics[:5],  # Limit to 5 tags
+        "tags": normalized_tags,  # Normalized canonical tags (max 5)
         "summary": summary,
         "source": {
             "platform": item.original.source,
