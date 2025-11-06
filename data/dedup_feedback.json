@@ -2652,5 +2652,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 488,
+    "timestamp": "2025-11-06T20:01:11.693787",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Meta, Meta, Meta. So Meta. This Reuters report is \ud83d\udd25 \"Meta is earning a fortune on a deluge of fraudu",
+        "removed_items": [
+          "Bombshell report exposes how Meta relied on scam ad profits to fund AI Meta goosed its revenue by ta"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "We\u2019re happy to announce that Mastodon 4.5 is now ready for prime time! Quote posts, async fetching o",
+        "removed_items": [
+          "Show HN: TabPFN-2.5 \u2013 SOTA foundation model for tabular data\n\nI am excited to announce the release o",
+          "Show HN: See chords as flags \u2013 Visual harmony of top composers on musescore\n\nI designed a relative p"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "How often does Python allocate?",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
