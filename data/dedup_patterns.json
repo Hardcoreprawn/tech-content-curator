@@ -1,36 +1,36 @@
 [
   {
     "entities": [
+      "psf",
       "python",
-      "python software foundation",
-      "psf"
+      "python software foundation"
     ],
     "keywords": [
-      "tldr",
-      "share",
-      "every",
       "single",
-      "giant",
-      "community",
-      "shared",
-      "seeking",
-      "python",
-      "decision",
-      "revenue",
       "inclusion",
-      "than",
-      "ahead",
+      "seeking",
       "tech",
-      "diversity",
-      "spine",
-      "please",
+      "revenue",
+      "community",
       "software",
+      "decision",
       "foundation",
-      "core",
-      "equity",
-      "values",
+      "python",
+      "giant",
       "shows",
-      "read"
+      "spine",
+      "core",
+      "diversity",
+      "values",
+      "read",
+      "equity",
+      "tldr",
+      "than",
+      "please",
+      "every",
+      "shared",
+      "share",
+      "ahead"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "goal",
-      "adoption",
-      "bottom",
-      "various",
-      "about",
-      "amazon",
+      "speed",
       "corporate",
-      "cost",
-      "tomorrow",
-      "brutal",
-      "jobs",
-      "stated",
-      "beginning",
-      "boost",
-      "bureaucracy",
-      "move",
       "groups",
-      "damn",
-      "line",
-      "reduce",
+      "devices",
+      "bureaucracy",
+      "beginning",
+      "stated",
       "ultimate",
-      "workforce",
-      "cutting",
+      "various",
+      "line",
+      "tomorrow",
+      "company",
       "jassy",
       "including",
-      "company",
-      "devices",
+      "brutal",
       "help",
-      "speed",
-      "layoffs"
+      "amazon",
+      "goal",
+      "cost",
+      "reduce",
+      "about",
+      "bottom",
+      "cutting",
+      "jobs",
+      "damn",
+      "move",
+      "adoption",
+      "layoffs",
+      "workforce",
+      "boost"
     ],
     "confidence": 0.95,
     "examples": [
@@ -581,11 +581,11 @@
       "go"
     ],
     "keywords": [
-      "anyone",
-      "always",
       "running",
+      "posts",
+      "anyone",
       "excerpts",
-      "posts"
+      "always"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -683,8 +683,8 @@
     ],
     "keywords": [
       "recent",
-      "donations",
-      "grant"
+      "grant",
+      "donations"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "office",
-      "alternative",
-      "source",
-      "open",
       "criminal",
-      "microsoft",
-      "international",
-      "court",
       "ditch",
-      "european"
+      "court",
+      "alternative",
+      "office",
+      "source",
+      "european",
+      "international",
+      "microsoft",
+      "open"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2586,9 +2586,9 @@
       "go"
     ],
     "keywords": [
-      "world",
+      "free",
       "college",
-      "free"
+      "world"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -3845,8 +3845,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "native"
+      "native",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -3910,8 +3910,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "native"
+      "native",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -3991,8 +3991,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "native"
+      "native",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -4056,8 +4056,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "native"
+      "native",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -4357,14 +4357,14 @@
       "github"
     ],
     "keywords": [
-      "href",
       "webassembly",
       "github",
-      "simple",
+      "href",
+      "nofollow",
       "experience",
+      "simple",
       "both",
-      "performance",
-      "nofollow"
+      "performance"
     ],
     "confidence": 0.95,
     "examples": [
@@ -5233,10 +5233,10 @@
       "amazon"
     ],
     "keywords": [
-      "social",
-      "while",
       "amazon",
-      "billions"
+      "while",
+      "billions",
+      "social"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -7501,6 +7501,92 @@
     ],
     "created_at": "2025-11-05T22:46:16.449510",
     "last_seen": "2025-11-05T22:46:16.449513",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "copilot",
+      "microsoft"
+    ],
+    "keywords": [
+      "copilot",
+      "microsoft",
+      "australia",
+      "subscription"
+    ],
+    "confidence": 0.8500000000000001,
+    "examples": [
+      "Regulatory action works yet again. Microsoft 365 customers are being refunded in Australia after MS ",
+      "So, I’m one of the people Microsoft has been forced by the ACCC to email in Australia to offer a dow"
+    ],
+    "created_at": "2025-11-06T02:31:35.766227",
+    "last_seen": "2025-11-06T02:31:35.965854",
+    "frequency": 2
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Unicode Footguns in Python",
+      "SPy: An interpreter and compiler for a fast statically typed variant of Python",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources."
+    ],
+    "created_at": "2025-11-06T02:31:35.871312",
+    "last_seen": "2025-11-06T02:31:35.871314",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n📝 Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-06T02:31:35.911320",
+    "last_seen": "2025-11-06T02:31:35.911321",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "Unicode Footguns in Python",
+      "SPy: An interpreter and compiler for a fast statically typed variant of Python",
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources."
+    ],
+    "created_at": "2025-11-06T02:31:36.062696",
+    "last_seen": "2025-11-06T02:31:36.062697",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n📝 Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-06T02:31:36.101324",
+    "last_seen": "2025-11-06T02:31:36.101326",
     "frequency": 1
   }
 ]
