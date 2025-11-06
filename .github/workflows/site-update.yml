@@ -131,7 +131,7 @@ jobs:
       - name: 🏗️ Build Hugo site
         run: |
           cd site
-          hugo --minify
+          hugo
       
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
