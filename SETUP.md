@@ -22,7 +22,8 @@ This project is configured to run on **WSL2 (Linux)** for maximum consistency:
 - **Windows 10/11** with WSL2 enabled
 - **Ubuntu 24.04 LTS** in WSL2 (or upgrade via `sudo do-release-upgrade -d`)
 - **VS Code** with Python extension
-- **~2GB** disk space for Python 3.14 + dependencies
+- **Python 3.14+** (free-threading support for 3-4x speedup)
+- **~2GB** disk space for Python + dependencies
 
 ## One-Command Setup (Recommended)
 
@@ -400,19 +401,35 @@ uv run pytest --version
 ```
 tech-content-curator/
 ├── src/                          # Main source code
-│   ├── illustrations/            # AI diagram generation
-│   ├── pipeline/                 # Core orchestrator
-│   ├── models/                   # Data models
-│   └── ...
+│   ├── collectors/               # Multi-source collection
+│   ├── enrichment/               # AI research & scoring
+│   ├── deduplication/            # Adaptive dedup
+│   ├── illustrations/            # Visual generation (Mermaid, ASCII, SVG)
+│   ├── generators/               # Article generators + voices
+│   ├── pipeline/                 # Modular orchestrator
+│   ├── images/                   # DALL-E 3 integration
+│   ├── citations/                # Citation resolution
+│   └── models/                   # Data models
 ├── tests/                        # Test suite (~100 tests)
-├── docs/                         # Documentation
+├── docs/                         # Architecture documentation
+├── .github/workflows/            # CI/CD pipelines
 ├── .vscode/
 │   ├── settings.json            # VS Code configuration
 │   └── launch.json              # Debug configuration
 ├── pyproject.toml               # Project metadata & dependencies
 ├── uv.lock                      # Locked dependency versions
 ├── .env.example                 # Environment template
+├── README.md                    # Project overview
 └── SETUP.md                     # This file
+
+**Key Features**:
+- 163 articles published and growing (3x daily automated runs)
+- Modular pipeline architecture (split from 928-line monolith)
+- Python 3.14 free-threading support (3-4x speedup with PYTHON_GIL=0)
+- Intelligent illustration system with AI-generated visuals
+- Voice system (5 distinct writing styles)
+- Adaptive deduplication with pattern learning
+- Automated GitHub Actions workflows
 ```
 
 ## Storage & Performance Optimization
@@ -445,20 +462,25 @@ Store the project on **Windows NTFS** (`/mnt/d/...`) for best performance:
 
 1. ✅ Complete setup per steps above
 2. ✅ Verify with troubleshooting section if needed
-3. ⏳ Read `docs/QUICK-START.md` for project overview
-4. ⏳ Run sample: `uv run python demo/demo_single_article.py`
-5. ⏳ Run full test suite: `uv run pytest tests/ -v`
+3. ✅ Run full test suite: `uv run pytest tests/ -v`
+4. ⏳ Explore the codebase and documentation
+5. ⏳ Try generating articles: `uv run python -m src.pipeline.orchestrator`
+6. ⏳ Review automated workflows in `.github/workflows/`
 
 ## Additional Resources
 
-- **Quick Start**: `docs/QUICK-START.md`
-- **Architecture**: `docs/FEATURE-3-DESIGN.md`
-- **Implementation Plan**: `docs/ILLUSTRATION-QUALITY-IMPLEMENTATION.md`
+- **Project Overview**: `README.md`
+- **Free-Threading Setup**: `docs/FREE-THREADING-SETUP.md`
+- **Architecture Decisions**: `docs/ADR-*.md` (6 ADRs documenting key choices)
+- **Feature Documentation**:
+  - Illustrations: `docs/FEATURE-3-DESIGN.md`, `docs/ILLUSTRATION-QUALITY-IMPLEMENTATION.md`
+  - Voice System: `docs/VOICE-SYSTEM-IMPLEMENTATION.md`
+  - Deduplication: `docs/ADR-004-ADAPTIVE-DEDUPLICATION.md`
 - **Python Project**: `pyproject.toml`
 
 ---
 
-**Last Updated:** November 3, 2025  
+**Last Updated:** November 7, 2025  
 **Tested On:** Windows 11 + WSL2 Ubuntu 24.04 LTS + Python 3.14 + uv 0.9.7+  
 **For:** VS Code + Windows Developers with WSL2  
 **Also Works:** Linux/macOS (adapt WSL-specific sections)

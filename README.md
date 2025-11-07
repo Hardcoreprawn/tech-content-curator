@@ -8,46 +8,49 @@
 
 ## Project status (snapshot)
 
-- Phase: Phase 3 – Quality Improvement (in progress)
-- What works: multi-source collection (GitHub, Mastodon, HackerNews, Reddit), URL+semantic dedup, AI enrichment, specialized generators (general, integrative, self-hosted), featured image generation (DALL-E 3 with local processing), transparent cost tracking, fact-checking validation, Hugo site; 25+ posts live
-- Latest improvements: Cost transparency with actual token tracking, optimized image generation (1024x1024 @ $0.02 → local resize to hero+icon), switched title/slug to gpt-4o-mini (70% cost reduction)
+- Phase: Phase 3 – Quality Improvement ✅ COMPLETE
+- What works: multi-source collection (GitHub Trending, HackerNews, Mastodon, Reddit), URL+semantic dedup with adaptive learning, AI enrichment with research, specialized generators (general, integrative, self-hosted), voice system (5 distinct writing styles), intelligent illustration system (Mermaid diagrams, ASCII art, SVG graphics), featured image generation (DALL-E 3 with local processing), transparent cost tracking, fact-checking validation, Hugo site with PaperMod theme; **163 articles live**
+- Latest improvements: Modular pipeline architecture (split from 928-line monolith into focused modules), Python 3.14 free-threading support (3-4x speedup), automated GitHub Actions workflows (3x daily scheduled runs), adaptive deduplication with pattern learning, diversity-based candidate selection
 - Known issues: None blocking
 - Next steps (priority):
-    1) Fresh collection cycle to test GitHub/HackerNews source types
-    2) Generate articles with images and fact-checking
-    3) Theme customization (PaperMod polish)
-    4) Highlights extraction to frontmatter
-    5) GitHub Actions automation
+    1) Monitor automated pipeline performance
+    2) Refine adaptive learning patterns
+    3) Explore multi-language support
+    4) Analytics dashboard for content performance
 
 ### Quick checklist
 
 - [x] Phase 1: Basic Pipeline
 - [x] Phase 2: Multi-Source
-- [ ] Phase 3: Quality Improvement
+- [x] Phase 3: Quality Improvement ✅
   - [x] AI enrichment with topics/research
   - [x] Specialized generators (general, integrative, self-hosted)
+  - [x] Voice system (5 distinct writing styles)
+  - [x] Intelligent illustration system (Mermaid, ASCII, SVG)
   - [x] Clear attribution at top of articles
   - [x] References section with original links
   - [x] Reading time in frontmatter
   - [x] Fact-checking integration
   - [x] Featured images with DALL-E 3
-  - [x] **Cost tracking with actual token usage**
-  - [x] **Optimized image generation (50% cost reduction)**
-  - [ ] Highlights/key takeaways in frontmatter
-  - [ ] Theme customization/polish
-- [ ] Phase 4: Automation
-  - [ ] Scheduled runs (GitHub Actions)
-  - [ ] Error notifications/monitoring
+  - [x] Cost tracking with actual token usage
+  - [x] Optimized image generation (50% cost reduction)
+  - [x] Theme customization (PaperMod)
+  - [x] Adaptive deduplication with pattern learning
+- [x] Phase 4: Automation ✅
+  - [x] Scheduled runs (GitHub Actions - 3x daily)
+  - [x] Three workflow strategies (scheduled, quick deploy, manual override)
+  - [x] Automated SEO (sitemap notifications)
+  - [x] Git conflict handling
 
 ## Core Decisions (Locked In)
 
 These are **fixed** - don't second-guess these:
 
-1. **Language**: Python 3.12+ (modern, simple, great AI/data libraries)
-2. **Sources**: Reddit, Mastodon, Bluesky (diverse, tech-focused communities)
-3. **Output Format**: Blog-style overview articles (800-1200 words, well-researched)
-4. **Publishing**: GitHub Pages (free, simple, reliable)
-5. **Quality Bar**: "Readable and gets read" - value over volume
+1. **Language**: Python 3.14+ (free-threading support, modern features)
+2. **Sources**: GitHub Trending, HackerNews, Mastodon, Reddit (diverse, tech-focused communities)
+3. **Output Format**: Blog-style articles (1200-1500 words, well-researched with visuals)
+4. **Publishing**: GitHub Pages with Hugo (free, simple, reliable)
+5. **Quality Bar**: "Readable and gets read" - value over volume, diversity over duplication
 
 ## What We're Building
 
@@ -64,30 +67,41 @@ A **simple content pipeline** that:
 
 ### Core (Required)
 
-- **Python 3.12+** - Latest stable release, modern syntax
+- **Python 3.14+** - Free-threading support (3-4x speedup on article generation)
 - **uv** - Fast Python package manager (replaces pip/poetry)
 - **Pydantic 2.x** - Type validation and settings
-- **httpx** - Modern HTTP client (replaces requests)
+- **httpx** - Modern HTTP client with retry logic
 - **Rich** - Beautiful console output for debugging
 
 ### AI & Content
 
-- **OpenAI Python SDK** - For GPT-4 content generation
-- **atproto** - Bluesky API client
-- **mastodon.py** - Mastodon API client  
-- **praw** - Reddit API client (if we use it)
-  - Now uses a token-bucket rate limiter and exponential backoff to avoid 429s
+- **OpenAI Python SDK** - GPT-4 content generation, GPT-4o-mini for titles/slugs, DALL-E 3 for images
+- **mastodon.py** - Mastodon API client
+- **praw** - Reddit API client with token-bucket rate limiter
+- **HackerNews API** - Direct API access (no client library needed)
+- **GitHub API** - Trending repositories via httpx
+
+### Content Processing
+
+- **python-frontmatter** - YAML frontmatter handling
+- **python-slugify** - URL-safe slug generation
+- **textstat** - Readability analysis
+- **mdformat** - Markdown linting and formatting
+- **Pillow** - Image processing for icons
+- **bleach** - Input sanitization
+- **url-normalize** - RFC-compliant URL normalization
 
 ### Static Site
 
-- **Markdown** - Article format
-- **Hugo** - Static site generator
-- **GitHub Pages** - Free hosting
+- **Markdown** - Article format with extended syntax
+- **Hugo** - Static site generator (extended version)
+- **PaperMod Theme** - Clean, fast Hugo theme
+- **GitHub Pages** - Free hosting with Actions deployment
 
 ### Development
 
-- **pytest** - Testing framework
-- **ruff** - Fast Python linter (replaces flake8, black, isort)
+- **pytest** - Testing framework (~100 tests)
+- **ruff** - Fast Python linter/formatter (replaces flake8, black, isort)
 - **mypy** - Type checking
   
 ### Rate limiting & retries
@@ -111,15 +125,15 @@ See details in [Architecture Principles](#architecture-principles) and [AI Agent
 
 To keep content professional, ethical, and accessible:
 
-- Attribution: Every article begins with a clear line crediting the original post/author and links to the source. We don’t reproduce content; we expand upon it.
-- Key takeaways: Near the top, include a short bullet list (3–5) summarizing the most important points.
-- References: A “References” section at the end lists the original source(s) with links and authors.
-- Explanations: Define acronyms and non‑mainstream terms the first time they appear. When background is optional, add a short blockquote callout like:
-  
-    > Background: one‑sentence explanation
-
-- Reading time: We estimate and include reading time in frontmatter to set expectations.
-- Tone: Informative, respectful, and non‑condescending; assume curiosity, not prior expertise.
+- **Attribution**: Every article begins with a clear line crediting the original post/author and links to the source. We don't reproduce content; we expand upon it.
+- **Key takeaways**: Near the top, include a short bullet list (3–5) summarizing the most important points.
+- **Visual aids**: Intelligent illustration system adds Mermaid diagrams, ASCII art, or SVG graphics where they enhance understanding.
+- **Voice variety**: Five distinct writing styles (balanced, technical-deep, conversational, analytical, story-driven) for diverse content.
+- **References**: A "References" section at the end lists the original source(s) with links and authors.
+- **Explanations**: Define acronyms and non‑mainstream terms the first time they appear. When background is optional, add a short blockquote callout.
+- **Reading time**: We estimate and include reading time in frontmatter to set expectations.
+- **Accessibility**: All visual elements include descriptive alt-text for screen readers.
+- **Tone**: Informative, respectful, and non‑condescending; assume curiosity, not prior expertise.
 
 ## Cost tracking and optimization
 
@@ -161,11 +175,12 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 
 **Volume and costs**:
 
-- **10 articles per run** (configurable via `ARTICLES_PER_RUN`)
-- **2-3 runs per day** aligned with timezone peaks = 20-30 articles/day
-- **Cost**: ~$0.22/run with images = **$0.44-0.66/day** for 20-30 articles
+- **3 articles per run** (default, configurable via `ARTICLES_PER_RUN` environment variable)
+- **3 runs per day** aligned with timezone peaks (06:00, 18:00, 02:00 UTC) = ~9 articles/day
+- **Cost**: ~$0.06-0.07/run with images = **~$0.20/day** for 9 articles
 - **Quality threshold**: 0.5 minimum score (filters low-quality content)
 - **Source cooldown**: 7 days (prevents same GitHub repo appearing too frequently)
+- **Adaptive learning**: Deduplication and scoring patterns improve over time
 
 **Timezone alignment** (recommended GitHub Actions schedule):
 
@@ -350,32 +365,54 @@ If you had a single `pipeline.yml`:
 ```
 content-curator/
 ├── README.md                 # This file
-├── pyproject.toml           # Python dependencies and config
+├── SETUP.md                 # Development setup guide
+├── pyproject.toml           # Python 3.14+ dependencies
 ├── .env.example             # Template for API keys
-├── .gitignore               # Standard Python gitignore
+│
+├── .github/workflows/       # Automated pipelines
+│   ├── content-pipeline.yml # Scheduled 3x daily
+│   ├── site-update.yml     # Quick deploy
+│   └── full-pipeline.yml   # Manual override
 │
 ├── src/
-│   ├── collect.py           # Collect from social media
-│   ├── enrich.py            # Research and enrich content
-│   ├── generate.py          # Generate blog articles (orchestration)
-│   ├── generators/          # Article generation strategies
-│   │   ├── base.py         # Abstract base generator
-│   │   ├── general.py      # Standard technical articles
-│   │   ├── integrative.py  # List → integrative guides
-│   │   └── specialized/    # Topic-specific generators
-│   │       └── self_hosted.py
-│   ├── publish.py           # Build and deploy site
-│   ├── models.py            # Pydantic data models
-│   └── config.py            # Settings management
+│   ├── collectors/          # Multi-source content collection
+│   │   ├── hackernews.py   # HackerNews top stories
+│   │   ├── github.py       # GitHub Trending
+│   │   ├── mastodon.py     # Mastodon feeds
+│   │   └── reddit.py       # Reddit subreddits
+│   ├── enrichment/          # AI research and scoring
+│   ├── deduplication/       # Adaptive dedup system
+│   ├── generators/          # Article generation
+│   │   ├── base.py         # Abstract base
+│   │   ├── general.py      # Standard articles
+│   │   ├── integrative.py  # Integrative guides
+│   │   ├── voices/         # 5 writing styles
+│   │   └── specialized/    # Topic-specific
+│   ├── illustrations/       # Visual generation
+│   │   ├── ai_mermaid_generator.py
+│   │   ├── ai_ascii_generator.py
+│   │   ├── placement.py
+│   │   └── accessibility.py
+│   ├── pipeline/            # Modular orchestration
+│   │   ├── orchestrator.py # Main coordinator
+│   │   ├── diversity_selector.py
+│   │   ├── illustration_service.py
+│   │   └── article_builder.py
+│   ├── images/              # Image generation
+│   ├── citations/           # Citation resolution
+│   ├── models.py            # Pydantic models
+│   └── config.py            # Configuration
 │
-├── tests/
-│   ├── test_collect.py
-│   ├── test_enrich.py
-│   └── test_generate.py
+├── tests/                   # ~100 test cases
+│   ├── test_illustrations.py
+│   ├── test_generators.py
+│   ├── test_deduplication.py
+│   └── ...
 │
-├── content/                 # Generated articles (markdown)
-├── site/                    # Hugo site
-└── data/                    # Collected raw data (gitignored)
+├── content/posts/           # 163 generated articles
+├── site/                    # Hugo site + PaperMod
+├── data/                    # JSON data + patterns
+└── docs/                    # Architecture docs
 ```
 
 ## Architecture Principles
@@ -495,18 +532,20 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # Clone/create your repo
 cd your-new-repo/
 
-# Create a project-local virtual environment (prefer Python 3.13 if available)
-uv venv --python 3.13 || uv venv --python 3.12 || uv venv --python 3.11
+# Create a project-local virtual environment with Python 3.14+
+uv venv --python 3.14
 
 # No need to activate with uv; use `uv run` to execute inside the venv
 
 # Install dependencies with dev tools
-uv pip install -e .[dev]
+uv sync --all-extras
 
 # Copy environment template
 cp .env.example .env
-# Edit .env and add your API keys
+# Edit .env and add your API keys (OPENAI_API_KEY required)
 ```
+
+**Python 3.14 Benefits**: Free-threading support provides 3-4x speedup on article generation when GIL is disabled (`export PYTHON_GIL=0`).
 
 ### uv as default, Python versions, and the .venv
 
