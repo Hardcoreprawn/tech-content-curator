@@ -56,9 +56,7 @@ def normalize_article_tags(filepath: Path, dry_run: bool = True) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Normalize tags in existing articles"
-    )
+    parser = argparse.ArgumentParser(description="Normalize tags in existing articles")
     parser.add_argument(
         "--dry-run",
         action="store_true",
