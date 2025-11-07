@@ -18,10 +18,7 @@ sources:
   url: https://mastodon.social/@QasimRashid/115477208975678483
 summary: An in-depth look at technology access, poverty escape based on insights from
   the tech community.
-tags:
-- technology access
-- poverty escape
-- social stigma
+tags: []
 title: 'Tech Access: A Pathway Out of Poverty, Not a Luxury'
 word_count: 1133
 ---

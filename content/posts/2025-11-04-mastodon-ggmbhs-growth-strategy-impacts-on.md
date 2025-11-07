@@ -18,12 +18,7 @@ sources:
   url: https://social.chinwag.org/@FediThing/115492120189076969
 summary: The landscape of social media is evolving rapidly, with decentralized platforms
   like Mastodon gaining traction as alternatives to mainstream networks.
-tags:
-- server software development
-- social media platforms
-- server growth strategies
-- fediverse
-- online communities
+tags: []
 title: 'Mastodon gGmbH''s Growth Strategy: Impacts on the Fediverse'
 word_count: 1057
 ---

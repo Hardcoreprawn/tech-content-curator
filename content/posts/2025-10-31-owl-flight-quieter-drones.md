@@ -18,10 +18,7 @@ sources:
   url: https://mastodon.social/@wonderofscience/115465184154273561
 summary: An in-depth look at aerodynamics, fluid dynamics based on insights from the
   tech community.
-tags:
-- aerodynamics
-- fluid dynamics
-- biomechanics
+tags: []
 title: 'Unlocking Owl Flight: Nature''s Blueprint for Quieter Drones'
 word_count: 1110
 ---

@@ -18,12 +18,7 @@ sources:
   url: https://www.youtube.com/watch?v=A_IUIyyqw0M
 summary: An in-depth look at pcb prototyping, factory-made vias based on insights
   from the tech community.
-tags:
-- pcb prototyping
-- factory-made vias
-- rapid prototyping
-- technical templates
-- electronics manufacturing
+tags: []
 title: Revolutionize PCB Prototyping with Viagrid's Factory-Made...
 word_count: 894
 ---

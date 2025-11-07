@@ -18,10 +18,7 @@ sources:
   url: https://hachyderm.io/@thomasfuchs/115463573357730420
 summary: An in-depth look at self-driving cars, renewable energy based on insights
   from the tech community.
-tags:
-- self-driving cars
-- renewable energy
-- ai skepticism
+tags: []
 title: Navigating the Hurdles of AI and Self-Driving Tech
 word_count: 1133
 ---

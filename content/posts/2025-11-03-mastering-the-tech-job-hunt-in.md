@@ -21,12 +21,7 @@ summary: 'Introduction
 
   In the fast-paced world of technology, job searching has evolved dramatically, especially
   with the increasing prevalence of remote work.'
-tags:
-- job search
-- remote work
-- resume writing
-- email communication
-- job search website
+tags: []
 title: Mastering the Tech Job Hunt in a Remote World
 word_count: 1013
 ---

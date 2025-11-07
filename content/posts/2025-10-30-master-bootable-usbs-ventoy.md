@@ -18,12 +18,7 @@ sources:
   url: https://github.com/ventoy/Ventoy
 summary: An in-depth look at bootable usb drive, iso files based on insights from
   the tech community.
-tags:
-- bootable usb drive
-- iso files
-- wim files
-- img files
-- vhd files
+tags: []
 title: 'Master Bootable USBs: Simplify with Ventoy Today!'
 word_count: 931
 ---

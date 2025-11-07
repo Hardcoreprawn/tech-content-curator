@@ -22,9 +22,6 @@ summary: An in-depth look at linux, windows based on insights from the tech comm
 tags:
 - linux
 - windows
-- software compatibility
-- user requirements
-- migration path
 title: 'Navigating the Shift: From Windows to Linux or Haiku'
 word_count: 1119
 ---

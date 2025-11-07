@@ -22,12 +22,7 @@ sources:
   url: https://arxiv.org/abs/2312.17043
 summary: An in-depth look at pseudorandom number generators, collatz-weyl generators
   based on insights from the tech community.
-tags:
-- pseudorandom number generators
-- collatz-weyl generators
-- '2023'
-- technical concepts
-- industry trends
+tags: []
 title: 'Unlocking Randomness: The Rise of Collatz-Weyl Generators'
 word_count: 930
 ---

@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at e-bike components, engineering based on insights from
   the tech community.
 tags:
-- e-bike components
-- engineering
-- electronics
-- hands-on approach
-- passion for bikes
+- data-engineering
 title: 'Intradrive''s Hiring Push: Join the E-Bike Revolution'
 word_count: 999
 ---

@@ -19,10 +19,7 @@ sources:
   url: https://mastodon.social/@sundogplanets/115486067866354002
 summary: An in-depth look at space debris, public speaking based on insights from
   the tech community.
-tags:
-- space debris
-- public speaking
-- educational outreach
+tags: []
 title: 'Space Debris: What Farmers Need to Know About Space Junk'
 word_count: 1024
 ---

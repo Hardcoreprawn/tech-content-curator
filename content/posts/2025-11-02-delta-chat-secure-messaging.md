@@ -20,12 +20,7 @@ sources:
   url: https://chaos.social/@delta/115479392746850836
 summary: An in-depth look at messaging apps, onboarding experience based on insights
   from the tech community.
-tags:
-- messaging apps
-- onboarding experience
-- secure private chat
-- qr code/link
-- serverless architecture
+tags: []
 title: 'Delta Chat: Revolutionizing Secure Messaging Onboarding'
 word_count: 904
 ---

@@ -41,6 +41,7 @@ from .candidate_selector import (
 from .deduplication import (
     check_article_exists_for_source,
     collect_existing_source_urls,
+    find_article_by_slug,
     is_source_in_cooldown,
 )
 from .file_io import load_enriched_items, save_article_to_file
@@ -65,6 +66,7 @@ __all__ = [
     # Deduplication
     "check_article_exists_for_source",
     "collect_existing_source_urls",
+    "find_article_by_slug",
     "is_source_in_cooldown",
     # Article building
     "calculate_image_cost",

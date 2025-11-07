@@ -18,12 +18,7 @@ sources:
   url: https://hachyderm.io/@kernellogger/115462657084794938
 summary: An in-depth look at linux kernel development, git forge based on insights
   from the tech community.
-tags:
-- linux kernel development
-- git forge
-- community consensus building
-- rubygems
-- ruby programming language
+tags: []
 title: 'Decentralized Collaboration: Lessons from Linux and Ruby'
 word_count: 1070
 ---

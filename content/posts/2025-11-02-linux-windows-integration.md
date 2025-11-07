@@ -20,9 +20,6 @@ summary: An in-depth look at linux, windows based on insights from the tech comm
 tags:
 - linux
 - windows
-- kerberos
-- sssd
-- dfs
 title: 'Mastering Linux-Windows Integration: Kerberos, SSSD, and DFS'
 word_count: 1112
 ---

@@ -20,10 +20,8 @@ sources:
 summary: An in-depth look at powershell, windows customization based on insights from
   the tech community.
 tags:
-- powershell
-- windows customization
-- performance optimization
-- privacy protection
+- performance
+- privacy
 title: Transform Your Windows Experience with Win11Debloat
 word_count: 1074
 ---

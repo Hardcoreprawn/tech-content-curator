@@ -19,10 +19,7 @@ sources:
   url: https://mastodon.social/@arstechnica/115485680163113130
 summary: An in-depth look at copyright laws, digital preservation based on insights
   from the tech community.
-tags:
-- copyright laws
-- digital preservation
-- internet archiving
+tags: []
 title: Copyright Challenges Threaten the Future of Digital Archives
 word_count: 1007
 ---

@@ -19,11 +19,8 @@ sources:
 summary: Enter Plexe, a platform designed to transform natural language prompts into
   production-grade ML models.
 tags:
-- machine learning
-- natural language processing
-- model deployment
-- data analysis
-- open-source development
+- machine-learning
+- nlp
 title: Transform ML Development with Plexe's Automation Power
 word_count: 974
 ---

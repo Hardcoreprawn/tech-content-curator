@@ -18,12 +18,7 @@ sources:
   url: https://board.fun/
 summary: An in-depth look at game development, sdk based on insights from the tech
   community.
-tags:
-- game development
-- sdk
-- physical pieces recognition
-- console technology
-- open-source development
+tags: []
 title: 'Board: The Console Merging Physical and Digital Gaming'
 word_count: 1037
 ---

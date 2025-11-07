@@ -18,12 +18,7 @@ sources:
   url: https://infosec.exchange/@david_chisnall/115463730854960344
 summary: An in-depth look at fortran 77 compiler industry, doe subsidies based on
   insights from the tech community.
-tags:
-- fortran 77 compiler industry
-- doe subsidies
-- codebase maintenance
-- nuclear bomb modeling
-- test-ban treaty
+tags: []
 title: 'Legacy Code and National Security: The Fortran 77 Dilemma'
 word_count: 1117
 ---

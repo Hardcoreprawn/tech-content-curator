@@ -22,9 +22,7 @@ sources:
 summary: An in-depth look at google labs, web development based on insights from the
   tech community.
 tags:
-- google labs
-- web development
-- software tools
+- web-development
 title: 'Pomelli: Google''s Game-Changer for Web Development Tools'
 word_count: 1142
 ---

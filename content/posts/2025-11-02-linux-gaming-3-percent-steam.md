@@ -21,10 +21,6 @@ sources:
 summary: An in-depth look at linux, steam based on insights from the tech community.
 tags:
 - linux
-- steam
-- gaming
-- steamos
-- steamdeck
 title: 'Linux Gaming Hits 3% on Steam: A New Era Begins'
 word_count: 1124
 ---

@@ -19,12 +19,7 @@ sources:
   url: https://social.growyourown.services/@FediTips/115469982786412727
 summary: An in-depth look at social media platform, post editing based on insights
   from the tech community.
-tags:
-- social media platform
-- post editing
-- notification system
-- privacy control
-- online abuse prevention
+tags: []
 title: 'Mastodon''s Post Editing: A Game Changer for Privacy and...'
 word_count: 1177
 ---

@@ -14,11 +14,7 @@ sources:
 summary: An in-depth look at ai coach, journaling app based on insights from the tech
   community.
 tags:
-- ai coach
-- journaling app
-- sem (structural equation model)
-- on-device analytics
-- privacy ux
+- privacy
 title: 'Revolutionizing Journaling: Meet Dlog''s AI Coach'
 word_count: 830
 ---

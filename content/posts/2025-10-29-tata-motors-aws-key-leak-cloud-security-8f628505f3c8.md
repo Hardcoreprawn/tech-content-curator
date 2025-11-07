@@ -14,10 +14,6 @@ sources:
 summary: An in-depth look at aws, security flaws based on insights from the tech community.
 tags:
 - aws
-- security flaws
-- data exposure
-- website security
-- tata motors
 title: 'Tata Motors'' AWS Key Leak: A Wake-Up Call for Cloud Security'
 word_count: 793
 ---

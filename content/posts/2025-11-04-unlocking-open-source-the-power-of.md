@@ -19,9 +19,8 @@ sources:
 summary: In the world of software development, open source has emerged as a powerful
   model that emphasizes collaboration, transparency, and community engagement.
 tags:
-- open source
-- community contribution
-- software development
+- open-source
+- software-engineering
 title: 'Unlocking Open Source: The Power of Appreciation'
 word_count: 1128
 ---

@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.social/@nixCraft/115457209787883811
 summary: An in-depth look at windows 11 installations, microsoft account based on
   insights from the tech community.
-tags:
-- windows 11 installations
-- microsoft account
-- unsupported hardware
-- linux desktop adoption
-- youtube content removal
+tags: []
 title: 'Overcoming Windows 11 Installation Hurdles: Explore...'
 word_count: 1214
 ---

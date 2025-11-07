@@ -20,9 +20,8 @@ sources:
 summary: An in-depth look at natural language processing, machine learning models
   based on insights from the tech community.
 tags:
-- natural language processing
-- machine learning models
-- open-source development
+- nlp
+- machine-learning
 title: 'Unlocking Tongyi DeepResearch: The Future of Open-Source NLP'
 word_count: 829
 ---

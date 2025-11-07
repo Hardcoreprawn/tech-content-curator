@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at declarative programming, ai workflows based on insights
   from the tech community.
 tags:
-- declarative programming
-- ai workflows
-- dsl
-- python runtime
-- llms
+- artificial-intelligence
 title: Mastering AI Workflows with Declarative Programming Tools
 word_count: 1158
 ---

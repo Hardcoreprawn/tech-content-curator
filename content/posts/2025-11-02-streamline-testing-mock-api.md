@@ -20,10 +20,8 @@ sources:
 summary: An in-depth look at api, mocking based on insights from the tech community.
 tags:
 - api
-- mocking
 - testing
-- utility
-- software development
+- software-engineering
 title: 'Streamline Testing with Mock: The Future of API Mocking'
 word_count: 1015
 ---

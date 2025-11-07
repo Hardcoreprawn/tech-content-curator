@@ -19,11 +19,7 @@ sources:
 summary: In an age where personalized experiences are paramount, the need for effective
   recommendation systems has never been greater.
 tags:
-- web scraping
-- recommendation model
-- data processing
-- website development
-- user data privacy
+- web-development
 title: Unlocking Book Recommendations with 3 Billion Goodreads...
 word_count: 818
 ---

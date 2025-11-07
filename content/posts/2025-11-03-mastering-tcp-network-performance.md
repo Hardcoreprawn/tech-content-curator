@@ -19,12 +19,7 @@ sources:
   url: https://blog.cloudflare.com/measuring-network-connections-at-scale/
 summary: An in-depth look at tcp connections, internet scale based on insights from
   the tech community.
-tags:
-- tcp connections
-- internet scale
-- networking protocols
-- data measurement
-- network performance analysis
+tags: []
 title: 'Mastering TCP: Insights for Optimizing Network Performance'
 word_count: 1073
 ---

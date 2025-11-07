@@ -20,11 +20,9 @@ sources:
   url: https://mastodon.social/@nixCraft/115479580399818259
 summary: An in-depth look at text editor, vim based on insights from the tech community.
 tags:
-- text editor
 - vim
 - unix
 - linux
-- apple
 title: 'Celebrating 33 Years of Vim: The Programmer''s Essential Tool'
 word_count: 956
 ---

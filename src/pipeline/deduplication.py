@@ -171,6 +171,36 @@ def is_source_in_cooldown(
     return False  # Source not used recently
 
 
+def find_article_by_slug(slug: str, content_dir: Path) -> Path | None:
+    """Find an existing article that matches the given slug.
+
+    Matches articles with pattern: YYYY-MM-DD-{slug}.md
+    This allows updating existing articles instead of creating duplicates.
+
+    Args:
+        slug: Article slug (e.g., 'docker-best-practices')
+        content_dir: Directory containing articles
+
+    Returns:
+        Path to existing article if found, None otherwise
+    """
+    logger.debug(f"Searching for existing article with slug: {slug}")
+
+    # Pattern: any date prefix followed by the slug
+    pattern = f"*-{slug}.md"
+
+    for filepath in content_dir.glob(pattern):
+        # Verify it matches the date-slug pattern
+        filename = filepath.stem  # Remove .md extension
+        # Expected format: YYYY-MM-DD-slug
+        if filename.endswith(f"-{slug}"):
+            logger.info(f"Found existing article with slug '{slug}': {filepath.name}")
+            return filepath
+
+    logger.debug(f"No existing article found with slug: {slug}")
+    return None
+
+
 def load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
     """Load existing article metadata for deduplication checks.
 

@@ -18,12 +18,7 @@ sources:
   url: https://chaos.social/@delta/115467919139998369
 summary: An in-depth look at end-to-end encryption, grassroots interventions based
   on insights from the tech community.
-tags:
-- end-to-end encryption
-- grassroots interventions
-- vigilance
-- eu council presidency
-- social media activism
+tags: []
 title: 'EU''s Chat Control Withdrawal: A Win for Digital Privacy'
 word_count: 1059
 ---

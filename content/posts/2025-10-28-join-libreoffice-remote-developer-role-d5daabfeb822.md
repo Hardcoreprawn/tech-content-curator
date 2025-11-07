@@ -13,12 +13,7 @@ sources:
   url: https://fosstodon.org/@libreoffice/115450940634404701
 summary: An in-depth look at libreoffice, scripting support based on insights from
   the tech community.
-tags:
-- libreoffice
-- scripting support
-- paid developer
-- remote work
-- programming languages
+tags: []
 title: 'Join LibreOffice: Remote Developer Role in Scripting Support'
 word_count: 787
 ---

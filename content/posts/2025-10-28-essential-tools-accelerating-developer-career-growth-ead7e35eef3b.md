@@ -13,10 +13,7 @@ sources:
   url: https://github.com/kamranahmedse/developer-roadmap
 summary: An in-depth look at developer career growth, interactive roadmaps based on
   insights from the tech community.
-tags:
-- developer career growth
-- interactive roadmaps
-- educational content
+tags: []
 title: Essential Tools for Accelerating Developer Career Growth
 word_count: 1225
 ---

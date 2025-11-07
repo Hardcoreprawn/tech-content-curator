@@ -19,11 +19,7 @@ sources:
   url: https://thepit.social/@peter/115479211164361468
 summary: An in-depth look at software maintenance, aging workforce based on insights
   from the tech community.
-tags:
-- software maintenance
-- aging workforce
-- technical skills gap
-- industry reliance on older developers
+tags: []
 title: 'Bridging the Gap: The Aging Developer Dilemma'
 word_count: 1053
 ---

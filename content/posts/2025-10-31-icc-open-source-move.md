@@ -19,10 +19,7 @@ sources:
 summary: An in-depth look at open source software, microsoft office alternative based
   on insights from the tech community.
 tags:
-- open source software
-- microsoft office alternative
-- european technology
-- industry adoption trends
+- open-source
 title: 'ICC''s Bold Move: Embracing Open-Source Over Microsoft'
 word_count: 1031
 ---

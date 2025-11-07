@@ -23,11 +23,7 @@ sources:
 summary: An in-depth look at lisp, programming languages based on insights from the
   tech community.
 tags:
-- lisp
-- programming languages
-- historical overview
-- future developments
-- software development
+- software-engineering
 title: 'Unraveling Lisp: A Legacy in Programming and AI Evolution'
 word_count: 990
 ---

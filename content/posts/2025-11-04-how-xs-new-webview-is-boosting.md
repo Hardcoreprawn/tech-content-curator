@@ -18,12 +18,7 @@ sources:
   url: https://news.ycombinator.com/item?id=45807775
 summary: Recently, a post on Hacker News caught the attention of many, highlighting
   a significant shift in how X (formerly Twitter) handles tweet links.
-tags:
-- webview
-- social media algorithms
-- traffic monitoring
-- link suppression
-- in-app browsing
+tags: []
 title: How X's New Webview is Boosting Business Traffic
 word_count: 955
 ---

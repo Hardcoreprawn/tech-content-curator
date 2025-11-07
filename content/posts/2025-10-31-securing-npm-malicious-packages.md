@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at npm, malicious packages based on insights from the tech
   community.
 tags:
-- npm
-- malicious packages
 - cybersecurity
-- software vulnerabilities
-- package management
 title: 'Securing NPM: Combatting Malicious Package Threats'
 word_count: 977
 ---

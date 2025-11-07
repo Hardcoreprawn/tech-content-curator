@@ -19,10 +19,9 @@ sources:
 summary: An in-depth look at open source software, european commission based on insights
   from the tech community.
 tags:
-- open source software
-- european commission
-- ai
-- cloud computing
+- open-source
+- artificial-intelligence
+- cloud-computing
 - cybersecurity
 title: 'Europe''s Bold Move: Building Open-Source Software Together'
 word_count: 1148

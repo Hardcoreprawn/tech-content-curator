@@ -18,12 +18,7 @@ sources:
   url: https://www.tomshardware.com/pc-components/storage/server-dram-prices-surge-50-percent
 summary: In recent months, the tech industry has been abuzz with news of skyrocketing
   server DRAM (Dynamic Random Access Memory) prices, surging by approximately 50%.
-tags:
-- dram prices
-- ai-induced memory shortage
-- hyperscalers
-- server technology
-- industry trends
+tags: []
 title: AI Surge Fuels 50% Spike in Server DRAM Prices
 word_count: 920
 ---

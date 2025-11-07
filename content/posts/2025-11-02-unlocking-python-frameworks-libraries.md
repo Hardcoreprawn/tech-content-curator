@@ -20,10 +20,6 @@ sources:
 summary: An in-depth look at python, frameworks based on insights from the tech community.
 tags:
 - python
-- frameworks
-- libraries
-- software
-- resources
 title: 'Unlocking Python: Top Frameworks and Libraries You Need'
 word_count: 1385
 ---

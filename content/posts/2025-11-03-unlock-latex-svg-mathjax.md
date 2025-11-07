@@ -18,12 +18,7 @@ sources:
   quality_score: 0.565
   url: https://sigwait.org/~alex/blog/2025/10/07/3t8acq.html
 summary: An in-depth look at latex, svg based on insights from the tech community.
-tags:
-- latex
-- svg
-- mathjax
-- conversion
-- offline math
+tags: []
 title: 'Unlock Offline LaTeX: Convert to SVG with MathJax'
 word_count: 964
 ---

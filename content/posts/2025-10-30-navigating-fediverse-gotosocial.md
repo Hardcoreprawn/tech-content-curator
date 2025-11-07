@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at fediverse, gotosocial servers based on insights from
   the tech community.
 tags:
-- fediverse
-- gotosocial servers
-- public signups
 - self-hosting
-- social media platforms
 title: 'Navigating the Fediverse: A Guide to GoToSocial Servers'
 word_count: 1019
 ---

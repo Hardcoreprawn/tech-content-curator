@@ -19,12 +19,7 @@ sources:
   url: https://matched.energy/blog/matched-clean-power-index-is-live
 summary: An in-depth look at data analysis, renewable energy based on insights from
   the tech community.
-tags:
-- data analysis
-- renewable energy
-- api design
-- open data
-- energy industry trends
+tags: []
 title: 'Unveiling the Matched Clean Power Index: A New Energy...'
 word_count: 987
 ---

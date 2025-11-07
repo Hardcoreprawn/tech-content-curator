@@ -19,10 +19,7 @@ sources:
   url: https://mastodon.social/@esoastronomy/115484708161690519
 summary: An in-depth look at telescope engineering, observatory construction based
   on insights from the tech community.
-tags:
-- telescope engineering
-- observatory construction
-- astronomical instrumentation
+tags: []
 title: 'Unlocking the Cosmos: The ELT''s Engineering Breakthrough'
 word_count: 1056
 ---

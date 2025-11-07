@@ -17,12 +17,7 @@ sources:
   quality_score: 0.565
   url: https://www.guru3d.com/story/amd-enters-arm-market-with-sound-wave-apu-built-on-tsmc-3nm-process/
 summary: An in-depth look at amd, arm market based on insights from the tech community.
-tags:
-- amd
-- arm market
-- sound wave apu
-- tsmc 3nm process
-- semiconductor industry trends
+tags: []
 title: 'AMD''s Bold Move: Entering the ARM Market with Sound Wave...'
 word_count: 1043
 ---

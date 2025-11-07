@@ -13,12 +13,7 @@ sources:
   url: https://zirk.us/@ChrisMayLA6/115450520202755963
 summary: An in-depth look at wind power, renewable energy sector based on insights
   from the tech community.
-tags:
-- wind power
-- renewable energy sector
-- energy bills
-- green transition
-- jobs
+tags: []
 title: 'Wind Power: Transforming the UK''s Energy Future and Economy'
 word_count: 859
 ---

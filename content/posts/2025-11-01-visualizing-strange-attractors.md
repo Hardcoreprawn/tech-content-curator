@@ -18,12 +18,7 @@ sources:
   url: https://blog.shashanktomar.com/posts/strange-attractors
 summary: An in-depth look at three.js, mathematics based on insights from the tech
   community.
-tags:
-- three.js
-- mathematics
-- math-art experiments
-- simone attractor
-- gpt
+tags: []
 title: 'Visualizing Mathematics: The Art of Strange Attractors'
 word_count: 920
 ---

@@ -22,10 +22,7 @@ sources:
   url: https://wetdry.world/@micr0/115484020583923863
 summary: An in-depth look at digital rights law, safety/accessibility tools based
   on insights from the tech community.
-tags:
-- digital rights law
-- safety/accessibility tools
-- cross-border legal considerations
+tags: []
 title: 'Navigating Digital Rights: A Guide for Tech Developers'
 word_count: 947
 ---

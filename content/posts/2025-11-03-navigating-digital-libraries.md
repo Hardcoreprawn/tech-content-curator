@@ -19,11 +19,7 @@ sources:
   url: https://mastodon.archive.org/@internetarchive/115486730607394345
 summary: An in-depth look at digital preservation, copyright law based on insights
   from the tech community.
-tags:
-- digital preservation
-- copyright law
-- online access
-- information sharing
+tags: []
 title: 'Navigating Digital Libraries: Copyright, AI, and Open Access'
 word_count: 1091
 ---

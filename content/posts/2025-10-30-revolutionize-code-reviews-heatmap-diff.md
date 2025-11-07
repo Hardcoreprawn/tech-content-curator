@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at code reviews, diff viewer based on insights from the
   tech community.
 tags:
-- code reviews
-- diff viewer
-- pull request viewer
-- data visualization
-- software development
+- software-engineering
 title: Revolutionize Code Reviews with Heatmap Diff Tools
 word_count: 1178
 ---

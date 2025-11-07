@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at qt creator, software development based on insights from
   the tech community.
 tags:
-- qt creator
-- software development
-- ide
-- release
-- programming tools
+- software-engineering
 title: 'Unlocking Qt Creator 18: Boost Your Development Efficiency'
 word_count: 944
 ---

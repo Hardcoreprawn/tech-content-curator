@@ -21,10 +21,6 @@ summary: An in-depth look at security, tls certificates based on insights from t
   tech community.
 tags:
 - security
-- tls certificates
-- let's encrypt
-- caa records
-- man-in-the-middle attacks
 title: Enhancing TLS Security with Let's Encrypt's AccountURI...
 word_count: 1003
 ---

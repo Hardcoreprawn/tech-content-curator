@@ -23,10 +23,7 @@ sources:
 summary: An in-depth look at privacy protection, browser extension based on insights
   from the tech community.
 tags:
-- privacy protection
-- browser extension
-- it management
-- data security
+- privacy
 title: 'Enhancing Privacy in Schools: Deploying Privacy Badger'
 word_count: 955
 ---

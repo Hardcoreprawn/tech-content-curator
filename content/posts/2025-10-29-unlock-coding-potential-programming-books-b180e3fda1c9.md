@@ -13,10 +13,7 @@ sources:
   url: https://github.com/EbookFoundation/free-programming-books
 summary: An in-depth look at programming books, freely available resources based on
   insights from the tech community.
-tags:
-- programming books
-- freely available resources
-- coding languages
+tags: []
 title: 'Unlock Your Coding Potential: Free Programming Books Guide'
 word_count: 1126
 ---

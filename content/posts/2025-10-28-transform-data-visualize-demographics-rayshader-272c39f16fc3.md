@@ -14,11 +14,7 @@ sources:
 summary: An in-depth look at open source software, rayshader based on insights from
   the tech community.
 tags:
-- open source software
-- rayshader
-- 3d mapping
-- demographic data visualization
-- population density analysis
+- open-source
 title: 'Transforming Data: Visualize Demographics with Rayshader'
 word_count: 811
 ---

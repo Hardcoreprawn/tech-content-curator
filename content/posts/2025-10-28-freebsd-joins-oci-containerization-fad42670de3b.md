@@ -14,11 +14,8 @@ sources:
 summary: An in-depth look at freebsd, oci runtime spec based on insights from the
   tech community.
 tags:
-- freebsd
-- oci runtime spec
+- bsd
 - containers
-- podman
-- programming languages
 title: 'FreeBSD Joins OCI: A New Era for Containerization'
 word_count: 802
 ---

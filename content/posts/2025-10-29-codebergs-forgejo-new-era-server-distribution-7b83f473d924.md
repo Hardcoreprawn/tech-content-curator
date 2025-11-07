@@ -13,12 +13,7 @@ sources:
   url: https://social.anoxinon.de/@Codeberg/115453746398808875
 summary: An in-depth look at server distribution, load balancing based on insights
   from the tech community.
-tags:
-- server distribution
-- load balancing
-- web hosting
-- availability improvement
-- scalability testing
+tags: []
 title: 'Codeberg''s Forgejo: A New Era in Server Distribution'
 word_count: 863
 ---

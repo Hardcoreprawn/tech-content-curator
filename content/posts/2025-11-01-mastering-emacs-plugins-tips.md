@@ -18,10 +18,7 @@ sources:
   url: https://news.ycombinator.com/item?id=45783376
 summary: An in-depth look at emacs plugins, neovim based on insights from the tech
   community.
-tags:
-- emacs plugins
-- neovim
-- configuration management
+tags: []
 title: 'Mastering Emacs: Essential Plugins and Config Tips for...'
 word_count: 1048
 ---

@@ -18,12 +18,7 @@ sources:
   url: https://social.growyourown.services/@FediTips/115487054130399556
 summary: Mastodon, a decentralized social media network, is at the forefront of this
   trend with features that enhance user control over their interactions.
-tags:
-- social media platforms
-- user experience
-- notification management
-- third party apps
-- online community management
+tags: []
 title: Mastering Mental Well-Being with Mastodon's Timed Mute...
 word_count: 1050
 ---

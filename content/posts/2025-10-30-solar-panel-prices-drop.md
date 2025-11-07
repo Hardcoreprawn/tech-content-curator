@@ -18,12 +18,7 @@ sources:
   url: https://arstechnica.com/science/2025/10/theres-a-global-boom-in-solar-except-in-the-united-states/
 summary: An in-depth look at solar energy, panel prices based on insights from the
   tech community.
-tags:
-- solar energy
-- panel prices
-- global market trends
-- renewable energy industry
-- us market dynamics
+tags: []
 title: 'Solar Panel Prices Drop: U.S. Market Faces Unique Challenges'
 word_count: 1005
 ---

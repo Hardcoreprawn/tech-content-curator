@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.archive.org/@brewsterkahle/115478416083147772
 summary: An in-depth look at open web, network interoperability based on insights
   from the tech community.
-tags:
-- open web
-- network interoperability
-- libraries safeguarding
-- competition restoration
-- truth vs lies on the web
+tags: []
 title: 'Reviving the Open Web: A Call for Collective Action'
 word_count: 1023
 ---

@@ -18,12 +18,7 @@ sources:
   url: https://www.pv-magazine.com/2025/10/27/3d-solar-tower-increases-capacity-factor-50-triples-solar-surface-area/
 summary: An in-depth look at solar energy, renewable energy based on insights from
   the tech community.
-tags:
-- solar energy
-- renewable energy
-- 3d technology
-- energy efficiency
-- solar power generation
+tags: []
 title: 'Revolutionizing Solar: The Power of 3D Solar Towers'
 word_count: 1095
 ---

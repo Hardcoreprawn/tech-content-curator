@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at digital sovereignty, open source projects based on insights
   from the tech community.
 tags:
-- digital sovereignty
-- open source projects
-- government-wide strategy
 - foss
-- ospo
 title: 'Unlocking Digital Sovereignty: The Netherlands'' OSS Strategy'
 word_count: 1111
 ---

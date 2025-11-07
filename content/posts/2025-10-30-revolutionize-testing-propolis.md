@@ -18,12 +18,7 @@ sources:
   url: https://app.propolis.tech/
 summary: An in-depth look at browser agents, end-to-end testing based on insights
   from the tech community.
-tags:
-- browser agents
-- end-to-end testing
-- automated testing
-- ci/cd pipeline
-- software quality assurance
+tags: []
 title: 'Revolutionize Testing with Propolis: The Future of QA'
 word_count: 825
 ---

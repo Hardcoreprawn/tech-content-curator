@@ -12,12 +12,7 @@ sources:
   quality_score: 0.6759999999999999
   url: https://fosstodon.org/@FreeCAD/115451046154354184
 summary: An in-depth look at freecad, arduino based on insights from the tech community.
-tags:
-- freecad
-- arduino
-- open source projects
-- sfk25 conference
-- flossk team
+tags: []
 title: 'Unlocking Innovation: FreeCAD Meets Arduino UNO Q'
 word_count: 732
 ---

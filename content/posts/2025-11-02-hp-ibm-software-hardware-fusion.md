@@ -23,9 +23,7 @@ sources:
 summary: An in-depth look at software development, technology history based on insights
   from the tech community.
 tags:
-- software development
-- technology history
-- computer hardware
+- software-engineering
 title: How HP and IBM Shaped Today's Software-Hardware Fusion
 word_count: 1026
 ---

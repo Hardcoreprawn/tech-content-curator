@@ -19,10 +19,7 @@ sources:
   url: https://supercarblondie.com/electric-motor-yasa-more-powerful-tesla-mercedes/
 summary: An in-depth look at electric motors, efficiency improvements based on insights
   from the tech community.
-tags:
-- electric motors
-- efficiency improvements
-- technology advancements
+tags: []
 title: Revolutionary Tiny Motor Boosts Efficiency by 40%!
 word_count: 1126
 ---

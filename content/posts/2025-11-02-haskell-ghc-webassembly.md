@@ -22,9 +22,7 @@ sources:
 summary: An in-depth look at haskell, web development based on insights from the tech
   community.
 tags:
-- haskell
-- web development
-- browser compatibility
+- web-development
 title: 'Haskell Hits the Browser: GHC and WebAssembly Unleashed'
 word_count: 1068
 ---

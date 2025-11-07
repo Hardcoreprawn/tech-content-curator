@@ -18,12 +18,7 @@ sources:
   url: https://github.com/agg23/fpga-tamagotchi
 summary: The recent surge in retro computing and hardware emulation highlights how
   developers are creatively reimagining classic experiences.
-tags:
-- fpga development
-- emulation
-- hardware design
-- clock speed optimization
-- savestates implementation
+tags: []
 title: 'Reviving Tamagotchi: FPGA Innovation Meets Retro Computing'
 word_count: 985
 ---

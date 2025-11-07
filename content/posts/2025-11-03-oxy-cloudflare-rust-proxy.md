@@ -24,10 +24,6 @@ summary: An in-depth look at rust, proxy framework based on insights from the te
   community.
 tags:
 - rust
-- proxy framework
-- cloudflare
-- next generation
-- '2023'
 title: 'Introducing Oxy: Cloudflare''s Next-Gen Rust Proxy Framework'
 word_count: 967
 ---

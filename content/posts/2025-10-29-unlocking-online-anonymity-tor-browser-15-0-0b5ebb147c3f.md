@@ -13,12 +13,7 @@ sources:
   url: https://mastodon.social/@torproject/115454280903454769
 summary: An in-depth look at tor browser, firefox esr 140 based on insights from the
   tech community.
-tags:
-- tor browser
-- firefox esr 140
-- web browser development
-- software updates
-- internet privacy
+tags: []
 title: 'Unlocking Online Anonymity: What''s New in Tor Browser 15.0'
 word_count: 800
 ---

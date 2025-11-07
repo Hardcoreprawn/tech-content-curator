@@ -20,10 +20,7 @@ sources:
 summary: One of the most powerful tools in this regard is the ability to map minified
   JavaScript (JS) code back to its original TypeScript source code.
 tags:
-- devtools
-- minified js code
 - typescript
-- source code mapping
 - debugging
 title: 'Mastering Source Maps: Debugging Minified JS with Ease'
 word_count: 904

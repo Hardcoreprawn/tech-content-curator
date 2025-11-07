@@ -18,11 +18,7 @@ sources:
   quality_score: 0.525
   url: https://mailman3.common-lisp.net/hyperkitty/list/ecl-devel@common-lisp.net/thread/T64S5EMVV6WHDPKWZ3AQHEPO3EQE2K5M/
 summary: An in-depth look at ecl, maxima based on insights from the tech community.
-tags:
-- ecl
-- maxima
-- browser compatibility
-- web-based computing
+tags: []
 title: 'Run Maxima in Your Browser: The ECL Revolution'
 word_count: 1061
 ---

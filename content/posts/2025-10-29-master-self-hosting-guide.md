@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at self-hosted services, free software based on insights
   from the tech community.
 tags:
-- self-hosted services
-- free software
-- network services
-- web applications
-- server hosting
+- foss
 title: 'Master Self-Hosting: Your Guide to Home Services Setup'
 word_count: 1234
 ---

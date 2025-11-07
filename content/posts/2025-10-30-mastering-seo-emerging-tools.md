@@ -18,11 +18,7 @@ sources:
   url: https://infosec.exchange/@catsalad/115463475682075601
 summary: An in-depth look at seo, aio based on insights from the tech community.
 tags:
-- seo
-- aio
-- geo
-- llmo
-- owo
+- go
 title: Mastering SEO and Emerging Tools for Digital Success
 word_count: 1075
 ---

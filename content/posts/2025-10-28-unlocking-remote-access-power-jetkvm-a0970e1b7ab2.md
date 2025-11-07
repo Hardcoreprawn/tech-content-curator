@@ -13,10 +13,7 @@ sources:
   url: https://jetkvm.com/
 summary: An in-depth look at remote access, computer control based on insights from
   the tech community.
-tags:
-- remote access
-- computer control
-- retail purchase
+tags: []
 title: 'Unlocking Remote Access: The Power of JetKVM Explained'
 word_count: 769
 ---

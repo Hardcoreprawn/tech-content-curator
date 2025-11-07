@@ -19,12 +19,7 @@ sources:
   url: https://skyfall-gs.jayinnn.dev/
 summary: An in-depth look at 3d modeling, satellite imagery based on insights from
   the tech community.
-tags:
-- 3d modeling
-- satellite imagery
-- urban scenes
-- synthesizing
-- immersive experiences
+tags: []
 title: Revolutionizing Urban Planning with AI and 3D Modeling
 word_count: 992
 ---

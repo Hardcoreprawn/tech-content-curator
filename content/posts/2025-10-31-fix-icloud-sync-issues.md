@@ -19,12 +19,7 @@ sources:
   url: https://mastodon.social/@gedeonm/115468808586745639
 summary: An in-depth look at icloud syncing, ios settings based on insights from the
   tech community.
-tags:
-- icloud syncing
-- ios settings
-- app troubleshooting
-- apple
-- terms and conditions agreement
+tags: []
 title: 'Fixing iCloud Sync Issues: Accepting Terms Made Easy'
 word_count: 1039
 ---

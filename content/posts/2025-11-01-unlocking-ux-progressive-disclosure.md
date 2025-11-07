@@ -18,10 +18,7 @@ sources:
   url: https://mamot.fr/@n1k0/115474222681086993
 summary: An in-depth look at progressive disclosure, user experience (ux) design based
   on insights from the tech community.
-tags:
-- progressive disclosure
-- user experience (ux) design
-- productivity enhancement
+tags: []
 title: 'Unlocking UX: Mastering Progressive Disclosure for Users'
 word_count: 940
 ---

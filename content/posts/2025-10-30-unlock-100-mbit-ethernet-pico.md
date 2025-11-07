@@ -18,10 +18,7 @@ sources:
   url: https://www.elektormagazine.com/news/rp2350-bit-bangs-100-mbit-ethernet
 summary: An in-depth look at raspberry pi pico, bit-banging based on insights from
   the tech community.
-tags:
-- raspberry pi pico
-- bit-banging
-- ethernet communication
+tags: []
 title: Unlock 100 Mbit/s Ethernet on Raspberry Pi Pico with...
 word_count: 1030
 ---

@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.archive.org/@brewsterkahle/115476442309939471
 summary: An in-depth look at renewable energy sources, grid data analysis based on
   insights from the tech community.
-tags:
-- renewable energy sources
-- grid data analysis
-- battery storage capacity
-- electricity demand
-- energy sustainability
+tags: []
 title: 'California''s Summer Success: No Flex Alerts in 2025'
 word_count: 971
 ---

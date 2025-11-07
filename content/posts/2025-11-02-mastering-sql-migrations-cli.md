@@ -21,11 +21,7 @@ sources:
   url: https://github.com/gh-PonyM/shed
 summary: An in-depth look at cli, sql database based on insights from the tech community.
 tags:
-- cli
-- sql database
-- schemas
-- migrations
-- database management
+- databases
 title: 'Mastering SQL Migrations with CLI Tools: A Developer''s Guide'
 word_count: 965
 ---

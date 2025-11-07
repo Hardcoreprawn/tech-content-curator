@@ -19,12 +19,7 @@ sources:
   url: https://finbodhi.com/
 summary: An in-depth look at local-first data storage, double-entry accounting based
   on insights from the tech community.
-tags:
-- local-first data storage
-- double-entry accounting
-- personal finance app development
-- multi-currency support
-- financial planning tools
+tags: []
 title: 'FinBodhi: The Privacy-First App Redefining Personal Finance'
 word_count: 1053
 ---

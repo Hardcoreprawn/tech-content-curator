@@ -19,11 +19,7 @@ sources:
   url: https://grim7reaper.github.io/blog/2023/01/09/the-hydronium-project/
 summary: An in-depth look at uber h3, rust based on insights from the tech community.
 tags:
-- uber h3
 - rust
-- geospatial data processing
-- optimization
-- performance improvement
 title: 'Unlocking Geospatial Data: H3''s Rust Revolution'
 word_count: 1040
 ---

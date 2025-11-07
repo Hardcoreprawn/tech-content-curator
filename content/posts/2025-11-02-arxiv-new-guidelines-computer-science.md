@@ -18,12 +18,7 @@ sources:
   url: https://blog.arxiv.org/2025/10/31/attention-authors-updated-practice-for-review-articles-and-position-papers-in-arxiv-cs-category/
 summary: An in-depth look at academic publishing, review articles based on insights
   from the tech community.
-tags:
-- academic publishing
-- review articles
-- position papers
-- arxiv
-- computer science
+tags: []
 title: 'ArXiv''s New Guidelines: Elevating Computer Science Research'
 word_count: 944
 ---

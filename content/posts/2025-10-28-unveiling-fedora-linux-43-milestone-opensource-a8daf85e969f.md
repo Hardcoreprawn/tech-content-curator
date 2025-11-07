@@ -13,10 +13,7 @@ sources:
   url: https://hachyderm.io/@mattdm/115452201318036275
 summary: An in-depth look at fedora linux, release management based on insights from
   the tech community.
-tags:
-- fedora linux
-- release management
-- quality assurance
+tags: []
 title: 'Unveiling Fedora Linux 43: A Milestone in Open Source'
 word_count: 721
 ---

@@ -14,9 +14,7 @@ sources:
 summary: An in-depth look at programming, software development based on insights from
   the tech community.
 tags:
-- programming
-- software development
-- technology recreation
+- software-engineering
 title: 'Mastering Tech: Build Your Own Software from Scratch'
 word_count: 1161
 ---

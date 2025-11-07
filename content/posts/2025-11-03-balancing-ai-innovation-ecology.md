@@ -19,10 +19,7 @@ sources:
   url: https://tldr.nettime.org/@tante/115484863394771045
 summary: An in-depth look at ai, chatbots based on insights from the tech community.
 tags:
-- ai
-- chatbots
-- llm
-- ecological impacts
+- artificial-intelligence
 - automation
 title: Balancing AI Innovation with Ecological Responsibility
 word_count: 1001

@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.social/@MastodonEngineering/115458682999238026
 summary: An in-depth look at mastodon 4.5, quote post authoring based on insights
   from the tech community.
-tags:
-- mastodon 4.5
-- quote post authoring
-- asyncrefresh api
-- developer tools
-- social media integration
+tags: []
 title: 'Mastodon 4.5: Elevate Engagement with New Developer Tools'
 word_count: 866
 ---

@@ -13,12 +13,7 @@ sources:
   url: https://github.com/ohmyzsh/ohmyzsh
 summary: An in-depth look at zsh configuration, community-driven framework based on
   insights from the tech community.
-tags:
-- zsh configuration
-- community-driven framework
-- plugins
-- themes
-- auto-update tool
+tags: []
 title: 'Unlocking Oh My Zsh: Supercharge Your Command Line...'
 word_count: 790
 ---

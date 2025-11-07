@@ -19,10 +19,8 @@ sources:
   url: https://infosec.exchange/@fooflington/115485359394830594
 summary: An in-depth look at ai, genai based on insights from the tech community.
 tags:
-- ai
-- genai
-- machine learning
-- technology trends
+- artificial-intelligence
+- machine-learning
 title: 'Navigating the AI Revolution: Ethics, Risks, and Future...'
 word_count: 902
 ---

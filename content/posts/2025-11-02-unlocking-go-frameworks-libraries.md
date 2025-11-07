@@ -21,10 +21,7 @@ sources:
   url: https://github.com/avelino/awesome-go
 summary: An in-depth look at go programming language, frameworks based on insights
   from the tech community.
-tags:
-- go programming language
-- frameworks
-- libraries
+tags: []
 title: 'Unlocking Go: Essential Frameworks and Libraries for...'
 word_count: 1403
 ---

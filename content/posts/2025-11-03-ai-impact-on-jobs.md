@@ -20,10 +20,8 @@ sources:
 summary: An in-depth look at artificial intelligence, job analysis based on insights
   from the tech community.
 tags:
-- artificial intelligence
-- job analysis
+- artificial-intelligence
 - automation
-- employment trends
 title: 'AI''s Impact on 180 Million Jobs: What You Need to Know'
 word_count: 997
 ---

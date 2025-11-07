@@ -18,10 +18,7 @@ sources:
   url: https://lgbtqia.space/@alice/115472489494084245
 summary: An in-depth look at social media moderation, nonconsensual porn detection
   based on insights from the tech community.
-tags:
-- social media moderation
-- nonconsensual porn detection
-- community guidelines enforcement
+tags: []
 title: Spotting and Reporting Nonconsensual Porn Accounts
 word_count: 1108
 ---

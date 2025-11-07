@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at software engineering, job opportunity based on insights
   from the tech community.
 tags:
-- software engineering
-- job opportunity
-- recruitment
-- programming languages
-- technologies
+- software-engineering
 title: 'Unlocking Software Engineering Careers: Skills and Insights'
 word_count: 1039
 ---

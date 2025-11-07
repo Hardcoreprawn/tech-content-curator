@@ -18,12 +18,7 @@ sources:
   url: https://hachyderm.io/@thejpster/115463011863762914
 summary: An in-depth look at rust programming language, embedded systems development
   based on insights from the tech community.
-tags:
-- rust programming language
-- embedded systems development
-- espressif chips
-- hardware abstraction layer (hal)
-- support for rust programming
+tags: []
 title: 'Revolutionizing Embedded Systems: Rust''s Impact on IoT...'
 word_count: 1040
 ---

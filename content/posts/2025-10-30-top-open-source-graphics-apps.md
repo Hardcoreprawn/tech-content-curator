@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.social/@eugenialoli/115461893088817491
 summary: An in-depth look at open source graphics apps, raster manipulation based
   on insights from the tech community.
-tags:
-- open source graphics apps
-- raster manipulation
-- vector graphics
-- 3d modeling
-- video editing
+tags: []
 title: Top Open Source Graphics Apps for Every Creative Need
 word_count: 1337
 ---

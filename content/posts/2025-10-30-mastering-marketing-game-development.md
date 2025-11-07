@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.gamedev.place/@eniko/115462385683010136
 summary: An in-depth look at game development, marketing strategies based on insights
   from the tech community.
-tags:
-- game development
-- marketing strategies
-- publicity
-- word of mouth
-- open development
+tags: []
 title: 'Mastering Marketing in Open Game Development: Key Strategies'
 word_count: 1092
 ---

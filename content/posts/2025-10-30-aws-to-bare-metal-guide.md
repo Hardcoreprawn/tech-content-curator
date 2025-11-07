@@ -19,10 +19,6 @@ sources:
 summary: An in-depth look at aws, bare metal based on insights from the tech community.
 tags:
 - aws
-- bare metal
-- cloud migration
-- infrastructure management
-- cost optimization
 title: 'Shifting from AWS to Bare Metal: A Cost-Effective Guide'
 word_count: 1187
 ---

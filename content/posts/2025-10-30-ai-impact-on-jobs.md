@@ -19,9 +19,7 @@ sources:
 summary: An in-depth look at artificial intelligence, labor market based on insights
   from the tech community.
 tags:
-- artificial intelligence
-- labor market
-- employment trends
+- artificial-intelligence
 title: 'AI''s Impact on Jobs: Navigating Wage Suppression and...'
 word_count: 1099
 ---

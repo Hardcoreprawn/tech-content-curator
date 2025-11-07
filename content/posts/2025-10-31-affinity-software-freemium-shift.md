@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at software deprecation, freemium model based on insights
   from the tech community.
 tags:
-- software deprecation
-- freemium model
-- ai features
-- license activation services
-- developer acquisition
+- artificial-intelligence
 title: 'Affinity Software''s Freemium Shift: What Artists Need to...'
 word_count: 903
 ---

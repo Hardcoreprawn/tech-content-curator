@@ -19,9 +19,7 @@ sources:
 summary: An in-depth look at productivity gains, organization efficiency based on
   insights from the tech community.
 tags:
-- productivity gains
-- organization efficiency
-- task analysis
+- productivity
 title: 'Maximizing LLMs: Boosting Productivity Without the Pitfalls'
 word_count: 998
 ---

@@ -23,10 +23,7 @@ sources:
 summary: An in-depth look at aws, race condition based on insights from the tech community.
 tags:
 - aws
-- race condition
-- model checker
-- cloud computing
-- fault tolerance
+- cloud-computing
 title: 'Reproducing AWS Outages: Unpacking Race Conditions'
 word_count: 1002
 ---

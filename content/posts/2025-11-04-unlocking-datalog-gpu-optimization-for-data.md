@@ -18,12 +18,7 @@ sources:
   url: https://danglingpointers.substack.com/p/optimizing-datalog-for-the-gpu
 summary: In the era of big data and complex analytics, the need for efficient data
   processing methods has never been more critical.
-tags:
-- datalog
-- gpu optimization
-- parallel computing
-- data processing
-- high-performance computing
+tags: []
 title: 'Unlocking Datalog: GPU Optimization for Data Processing'
 word_count: 988
 ---

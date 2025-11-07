@@ -17,7 +17,6 @@ sources:
 summary: An in-depth look at networking, nat based on insights from the tech community.
 tags:
 - networking
-- nat
 - security
 title: 'Navigating NAT: Challenges and Solutions for Modern Networks'
 word_count: 1121

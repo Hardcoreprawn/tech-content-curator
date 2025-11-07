@@ -13,11 +13,7 @@ sources:
   url: https://floss.social/@kde/115451836159120913
 summary: An in-depth look at plasma 6.5.1, kde based on insights from the tech community.
 tags:
-- plasma 6.5.1
-- kde
-- software development
-- improvements
-- corrections
+- software-engineering
 title: 'Unpacking KDE Plasma 6.5.1: Key Updates and Enhancements'
 word_count: 782
 ---

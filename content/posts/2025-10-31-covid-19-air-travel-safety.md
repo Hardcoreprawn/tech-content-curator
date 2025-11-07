@@ -18,11 +18,7 @@ sources:
   url: https://aus.social/@DenisCOVIDinfoguy/115466090222193078
 summary: An in-depth look at covid-19, air travel based on insights from the tech
   community.
-tags:
-- covid-19
-- air travel
-- virus transmission
-- research findings
+tags: []
 title: 'COVID-19 in the Skies: Rethinking Air Travel Safety'
 word_count: 1026
 ---

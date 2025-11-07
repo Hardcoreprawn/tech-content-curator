@@ -18,12 +18,7 @@ sources:
   url: https://mastodon.online/@hildabast/115462514769994151
 summary: An in-depth look at social media platforms, user migration based on insights
   from the tech community.
-tags:
-- social media platforms
-- user migration
-- controversies
-- studies
-- exodus
+tags: []
 title: 'Bluesky''s User Exodus: Lessons from the Mastodon Migration'
 word_count: 1028
 ---

@@ -18,10 +18,7 @@ sources:
   url: https://hachyderm.io/@samhenrigold/115466504862637845
 summary: An in-depth look at graphic design, localization based on insights from the
   tech community.
-tags:
-- graphic design
-- localization
-- branding
+tags: []
 title: 'Mastering Logo Localization for RTL Markets: A Designer''s...'
 word_count: 985
 ---

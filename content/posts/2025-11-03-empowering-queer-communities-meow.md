@@ -20,11 +20,7 @@ sources:
 summary: An in-depth look at gtld registration, icann application support program
   based on insights from the tech community.
 tags:
-- gtld registration
-- icann application support program
-- web development
-- social media presence
-- crowdfunding
+- web-development
 title: Empowering Queer Communities with the .meow gTLD Initiative
 word_count: 993
 ---

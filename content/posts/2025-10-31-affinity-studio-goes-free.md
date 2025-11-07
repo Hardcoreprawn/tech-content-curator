@@ -19,9 +19,8 @@ sources:
 summary: An in-depth look at web development, software development based on insights
   from the tech community.
 tags:
-- web development
-- software development
-- design tools
+- web-development
+- software-engineering
 title: 'Affinity Studio Goes Free: A Game Changer for Designers'
 word_count: 999
 ---

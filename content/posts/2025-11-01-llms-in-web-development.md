@@ -19,11 +19,10 @@ sources:
 summary: An in-depth look at artificial intelligence, web development based on insights
   from the tech community.
 tags:
-- artificial intelligence
-- web development
-- database management
-- performance optimization
-- user interface design
+- artificial-intelligence
+- web-development
+- databases
+- performance
 title: 'LLMs in Web Development: The Future of Coding?'
 word_count: 902
 ---

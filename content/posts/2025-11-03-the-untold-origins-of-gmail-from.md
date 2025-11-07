@@ -19,9 +19,7 @@ sources:
 summary: As of 2023, Gmail stands as one of the most widely used email services globally,
   with over 1 5 billion users.
 tags:
-- email services
-- web development
-- internet history
+- web-development
 title: 'The Untold Origins of Gmail: From Fan Service to Giant'
 word_count: 986
 ---

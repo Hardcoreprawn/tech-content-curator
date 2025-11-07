@@ -18,11 +18,7 @@ sources:
   url: https://blog.tymscar.com/posts/wifi7speedhunt/
 summary: An in-depth look at wifi 7, debugging based on insights from the tech community.
 tags:
-- wifi 7
 - debugging
-- network speed optimization
-- wireless technology
-- performance testing
 title: 'Unlocking WiFi 7: Speed, Efficiency, and Optimization Tips'
 word_count: 991
 ---

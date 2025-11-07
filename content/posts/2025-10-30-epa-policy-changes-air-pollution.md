@@ -18,12 +18,7 @@ sources:
   url: https://newsie.social/@ProPublica/115463121097163852
 summary: An in-depth look at epa regulations, air pollution based on insights from
   the tech community.
-tags:
-- epa regulations
-- air pollution
-- health risks
-- environmental impact
-- government policy
+tags: []
 title: 'EPA Policy Changes: 90,000 at Risk from Air Pollution'
 word_count: 1016
 ---

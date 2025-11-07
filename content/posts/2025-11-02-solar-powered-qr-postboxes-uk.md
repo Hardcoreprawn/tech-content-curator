@@ -22,12 +22,7 @@ sources:
   url: https://www.bbc.co.uk/news/articles/cgln72rgrero
 summary: An in-depth look at solar power, qr codes based on insights from the tech
   community.
-tags:
-- solar power
-- qr codes
-- postboxes
-- uk
-- renewable energy
+tags: []
 title: 'Revolutionizing Mail: Solar-Powered QR Postboxes in the UK'
 word_count: 895
 ---

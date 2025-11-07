@@ -20,11 +20,7 @@ sources:
 summary: An in-depth look at open-source llms, coding assistants based on insights
   from the tech community.
 tags:
-- open-source llms
-- coding assistants
-- vs code plugin
-- laptop hardware
-- workflow tasks
+- open-source
 title: 'Unlocking Local Open Source LLMs: A Developer''s Guide'
 word_count: 964
 ---

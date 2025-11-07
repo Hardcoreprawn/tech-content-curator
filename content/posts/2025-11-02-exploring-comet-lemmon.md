@@ -20,12 +20,7 @@ sources:
   url: https://mastodon.social/@coreyspowell/115478767994501168
 summary: An in-depth look at astrophotography, comet lemmon based on insights from
   the tech community.
-tags:
-- astrophotography
-- comet lemmon
-- space exploration
-- science communication
-- artistic photography
+tags: []
 title: 'Exploring Comet Lemmon: Astrophotography Meets Cosmic Wonder'
 word_count: 1129
 ---

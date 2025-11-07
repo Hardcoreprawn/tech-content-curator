@@ -18,11 +18,7 @@ sources:
   url: https://eupolicy.social/@ella/115463747493432363
 summary: An in-depth look at end-to-end encryption, mass scanning based on insights
   from the tech community.
-tags:
-- end-to-end encryption
-- mass scanning
-- privacy concerns
-- government regulations
+tags: []
 title: 'Danish Privacy Shift: End-to-End Encryption Wins'
 word_count: 966
 ---

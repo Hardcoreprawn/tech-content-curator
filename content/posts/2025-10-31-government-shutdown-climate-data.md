@@ -19,9 +19,7 @@ sources:
 summary: An in-depth look at data monitoring, government shutdown impact based on
   insights from the tech community.
 tags:
-- data monitoring
-- government shutdown impact
-- climate data analysis
+- monitoring
 title: 'Government Shutdown: The Fallout for Climate Data Monitoring'
 word_count: 1249
 ---

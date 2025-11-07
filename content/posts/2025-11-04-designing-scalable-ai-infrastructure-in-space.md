@@ -23,9 +23,7 @@ summary: '#Exploring Space-Based, Scalable AI Infrastructure System Design
   The digital landscape is evolving, and with it, the potential of artificial intelligence
   (AI) is expanding beyond '
 tags:
-- ai infrastructure
-- scalability
-- system design
+- artificial-intelligence
 title: 'Designing Scalable AI Infrastructure in Space: A New...'
 word_count: 862
 ---

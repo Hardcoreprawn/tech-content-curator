@@ -20,11 +20,7 @@ sources:
   url: https://xoxo.zone/@Ashedryden/115480535002398446
 summary: An in-depth look at police surveillance, data collection based on insights
   from the tech community.
-tags:
-- police surveillance
-- data collection
-- privacy concerns
-- future technology trends
+tags: []
 title: 'Navigating Police Surveillance: Data, Ethics, and...'
 word_count: 1108
 ---

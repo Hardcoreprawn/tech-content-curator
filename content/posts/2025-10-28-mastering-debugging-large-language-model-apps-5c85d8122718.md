@@ -14,11 +14,9 @@ sources:
 summary: An in-depth look at llm applications, debugging based on insights from the
   tech community.
 tags:
-- llm applications
 - debugging
-- api monitoring
-- containerization
-- self-hosted solutions
+- monitoring
+- containers
 title: Mastering Debugging for Large Language Model Applications
 word_count: 866
 ---

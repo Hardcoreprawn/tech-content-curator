@@ -15,8 +15,6 @@ summary: An in-depth look at python, software foundation based on insights from 
   tech community.
 tags:
 - python
-- software foundation
-- government grant program
 title: 'PSF Withdraws $1.5M Grant: Impacts on Open-Source Funding'
 word_count: 828
 ---

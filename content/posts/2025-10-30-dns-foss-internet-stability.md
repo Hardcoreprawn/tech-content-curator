@@ -18,11 +18,7 @@ sources:
   url: https://www.icann.org/en/blogs/details/the-internet-runs-on-free-and-open-source-softwareand-so-does-the-dns-23-10-2025-en
 summary: An in-depth look at free and open source software, domain name system (dns)
   based on insights from the tech community.
-tags:
-- free and open source software
-- domain name system (dns)
-- security and stability
-- internet infrastructure
+tags: []
 title: 'Unveiling DNS: The Role of FOSS in Internet Stability'
 word_count: 1230
 ---

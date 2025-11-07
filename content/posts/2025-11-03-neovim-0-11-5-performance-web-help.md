@@ -18,12 +18,7 @@ sources:
   quality_score: 0.85
   url: https://hachyderm.io/@neovim/115485248410191234
 summary: An in-depth look at neovim, bugfixes based on insights from the tech community.
-tags:
-- neovim
-- bugfixes
-- performance improvements
-- help buffers
-- web browser integration
+tags: []
 title: 'Neovim 0.11.5: Boosted Performance and Web Help Integration'
 word_count: 1022
 ---

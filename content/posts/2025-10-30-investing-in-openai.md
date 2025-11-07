@@ -19,9 +19,7 @@ sources:
 summary: An in-depth look at artificial general intelligence, investment strategies
   based on insights from the tech community.
 tags:
-- artificial general intelligence
-- investment strategies
-- public offerings
+- artificial-intelligence
 title: 'Investing in OpenAI: Promises, Pitfalls, and Ethical...'
 word_count: 1085
 ---

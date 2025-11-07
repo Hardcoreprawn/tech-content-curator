@@ -21,10 +21,7 @@ sources:
   url: https://reentry.codl.fr/@apod/statuses/01K91NQXPP3BZ0DTQC85YA5XF2
 summary: An in-depth look at hubble space telescope, gravitational lensing based on
   insights from the tech community.
-tags:
-- hubble space telescope
-- gravitational lensing
-- galaxy observation
+tags: []
 title: 'Unveiling the Universe: The Science of Gravitational Lensing'
 word_count: 1208
 ---

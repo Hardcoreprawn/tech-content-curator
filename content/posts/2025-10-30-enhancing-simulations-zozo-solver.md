@@ -18,10 +18,7 @@ sources:
   url: https://github.com/st-tech/ppf-contact-solver
 summary: An in-depth look at physics-based simulations, contact solver based on insights
   from the tech community.
-tags:
-- physics-based simulations
-- contact solver
-- simulation software
+tags: []
 title: 'Enhancing Simulations: ZOZO''s Breakthrough Contact Solver'
 word_count: 808
 ---

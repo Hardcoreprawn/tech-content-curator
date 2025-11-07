@@ -17,10 +17,7 @@ sources:
   quality_score: 0.5549999999999999
   url: https://www.ft.com/content/120d2321-8382-4d74-ab48-f9ecb483c2a9
 summary: An in-depth look at ai costs, bond sale based on insights from the tech community.
-tags:
-- ai costs
-- bond sale
-- stock sell-off
+tags: []
 title: 'Meta''s $25B Bond Sale: AI Costs and Market Reactions'
 word_count: 995
 ---

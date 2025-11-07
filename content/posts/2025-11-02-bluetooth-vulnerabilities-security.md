@@ -23,10 +23,6 @@ sources:
 summary: An in-depth look at bluetooth technology, rf signals based on insights from
   the tech community.
 tags:
-- bluetooth technology
-- rf signals
-- security vulnerabilities
-- wireless communication
 - cybersecurity
 title: 'Exposing Bluetooth Vulnerabilities: Securing Your...'
 word_count: 890

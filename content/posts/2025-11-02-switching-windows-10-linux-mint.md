@@ -22,12 +22,7 @@ sources:
   url: https://hachyderm.io/@wingsylver/115481756174535655
 summary: An in-depth look at linux mint cinnamon, windows 10 support based on insights
   from the tech community.
-tags:
-- linux mint cinnamon
-- windows 10 support
-- repair cafes
-- installation events
-- solarpunk
+tags: []
 title: 'Switching from Windows 10 to Linux Mint Cinnamon: A...'
 word_count: 1232
 ---

@@ -18,10 +18,7 @@ sources:
   url: https://hachyderm.io/@thomasfuchs/115475053386637165
 summary: An in-depth look at product identification, online research based on insights
   from the tech community.
-tags:
-- product identification
-- online research
-- desktop organization
+tags: []
 title: Mastering Product Identification and Desktop Organization...
 word_count: 1087
 ---

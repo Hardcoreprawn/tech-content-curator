@@ -19,10 +19,8 @@ sources:
 summary: In an era where data privacy concerns are at an all-time high, the demand
   for applications that prioritize user autonomy and local data storage is growing.
 tags:
-- ios development
-- local-first applications
-- daily planner
-- mobile app development
+- ios
+- mobile-development
 title: 'Empowering Privacy: The Rise of Local-First Daily Planners'
 word_count: 1103
 ---

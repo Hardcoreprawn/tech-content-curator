@@ -19,10 +19,7 @@ sources:
 summary: An in-depth look at firefox, translation based on insights from the tech
   community.
 tags:
-- firefox
-- translation
-- command line
-- web development
+- web-development
 title: Unlock Firefox's Hidden Translation Tools for Developers
 word_count: 914
 ---

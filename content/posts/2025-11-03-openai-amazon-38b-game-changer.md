@@ -20,9 +20,8 @@ sources:
 summary: An in-depth look at cloud computing, artificial intelligence based on insights
   from the tech community.
 tags:
-- cloud computing
-- artificial intelligence
-- partnerships
+- cloud-computing
+- artificial-intelligence
 title: 'OpenAI and Amazon: A $38B Game-Changer for AI and Cloud'
 word_count: 1165
 ---

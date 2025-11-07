@@ -21,10 +21,6 @@ summary: 'OpenMW, the ambitious open-source project dedicated to reimplementing 
   milestone with the r'
 tags:
 - open-source
-- morrowind
-- reimplementation
-- programming languages
-- core technologies
 title: 'OpenMW 0.50.0: Reviving Morrowind with Modern Enhancements'
 word_count: 871
 ---

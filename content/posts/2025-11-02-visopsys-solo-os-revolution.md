@@ -18,10 +18,7 @@ sources:
   url: https://visopsys.org/
 summary: An in-depth look at operating systems, software maintenance based on insights
   from the tech community.
-tags:
-- operating systems
-- software maintenance
-- single developer projects
+tags: []
 title: 'Visopsys: The Solo OS Revolutionizing Software Development'
 word_count: 905
 ---

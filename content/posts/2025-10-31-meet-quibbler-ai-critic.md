@@ -19,10 +19,7 @@ sources:
 summary: An in-depth look at coding agent, critic tool based on insights from the
   tech community.
 tags:
-- coding agent
-- critic tool
-- machine learning
-- feedback system
+- machine-learning
 title: 'Meet Quibbler: Your New AI Critic for Coding Agents'
 word_count: 901
 ---

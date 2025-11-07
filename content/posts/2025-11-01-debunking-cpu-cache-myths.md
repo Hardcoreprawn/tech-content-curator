@@ -19,9 +19,7 @@ sources:
 summary: An in-depth look at cpu caches, programming myths based on insights from
   the tech community.
 tags:
-- cpu caches
-- programming myths
-- performance optimization
+- performance
 title: Debunking CPU Cache Myths for Better Performance
 word_count: 999
 ---

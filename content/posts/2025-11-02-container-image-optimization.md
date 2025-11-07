@@ -21,9 +21,8 @@ sources:
 summary: An in-depth look at containerization, image optimization based on insights
   from the tech community.
 tags:
-- containerization
-- image optimization
-- software development
+- containers
+- software-engineering
 title: 'From 800GB to 2GB: Mastering Container Image Optimization'
 word_count: 1069
 ---

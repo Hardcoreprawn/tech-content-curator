@@ -18,10 +18,7 @@ sources:
   url: https://mastodon.social/@AlSweigart/115477410585217213
 summary: An in-depth look at supermarket waste management, surveillance technology
   based on insights from the tech community.
-tags:
-- supermarket waste management
-- surveillance technology
-- literature references
+tags: []
 title: 'Unpacking Grocery Store Waste: Surveillance and Ethics'
 word_count: 1189
 ---

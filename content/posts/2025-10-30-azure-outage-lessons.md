@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at azure outage, cloud services based on insights from the
   tech community.
 tags:
-- azure outage
-- cloud services
-- service disruption
-- server location
-- downtime monitoring
+- cloud-computing
 title: 'Lessons from the Recent Azure Outage: What You Need to Know'
 word_count: 856
 ---

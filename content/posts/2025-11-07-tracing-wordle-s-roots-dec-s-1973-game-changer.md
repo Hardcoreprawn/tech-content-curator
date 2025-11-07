@@ -18,12 +18,7 @@ sources:
   url: https://troypress.com/1973-implementation-of-wordle-was-published-by-dec/
 summary: In January 2022, a simple yet addictive word-guessing game called Wordle
   took the internet by storm, captivating millions of players worldwide.
-tags:
-- programming languages
-- implementation
-- wordle
-- dec
-- publication
+tags: []
 title: 'Tracing Wordle''s Roots: DEC''s 1973 Game-Changer'
 word_count: 1084
 ---

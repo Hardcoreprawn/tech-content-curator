@@ -19,9 +19,7 @@ sources:
 summary: An in-depth look at data privacy, eu regulations based on insights from the
   tech community.
 tags:
-- data privacy
-- eu regulations
-- online campaigning
+- privacy
 title: 'EU Withdraws #ChatControl: A Win for Data Privacy Advocates'
 word_count: 1053
 ---

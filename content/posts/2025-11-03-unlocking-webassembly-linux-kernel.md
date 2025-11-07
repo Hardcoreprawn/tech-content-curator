@@ -19,12 +19,7 @@ sources:
   url: https://github.com/joelseverin/linux-wasm
 summary: An in-depth look at webassembly, linux kernel based on insights from the
   tech community.
-tags:
-- webassembly
-- linux kernel
-- arch support
-- programming languages
-- technologies
+tags: []
 title: 'Unlocking WebAssembly: A New Era for the Linux Kernel'
 word_count: 1247
 ---

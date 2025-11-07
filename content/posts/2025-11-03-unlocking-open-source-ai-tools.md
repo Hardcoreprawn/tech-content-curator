@@ -24,10 +24,6 @@ summary: An in-depth look at open-source, agentic ai based on insights from the 
   community.
 tags:
 - open-source
-- agentic ai
-- rag
-- multi-channel deploy
-- tools
 title: 'Unlocking Open-Source Agentic AI: Trends and Tools'
 word_count: 882
 ---

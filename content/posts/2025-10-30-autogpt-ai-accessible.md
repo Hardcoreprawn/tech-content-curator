@@ -18,11 +18,7 @@ sources:
   url: https://github.com/Significant-Gravitas/AutoGPT
 summary: An in-depth look at ai, accessibility based on insights from the tech community.
 tags:
-- ai
-- accessibility
-- tools
-- focus
-- building on ai
+- artificial-intelligence
 title: 'AutoGPT: Making AI Accessible for Everyone'
 word_count: 943
 ---

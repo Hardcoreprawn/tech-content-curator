@@ -18,11 +18,7 @@ sources:
   url: https://floss.social/@kde/115463110731285248
 summary: An in-depth look at kde, fundraising based on insights from the tech community.
 tags:
-- kde
-- fundraising
-- freesoftware
-- opensource
-- donations
+- open-source
 title: 'Support KDE: Fight Tech Hobgoblins This Fundraising Season'
 word_count: 954
 ---

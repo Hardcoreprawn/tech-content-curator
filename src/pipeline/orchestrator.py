@@ -37,7 +37,7 @@ from .candidate_selector import (
     select_article_candidates,
     select_generator,
 )
-from .deduplication import check_article_exists_for_source
+from .deduplication import check_article_exists_for_source, find_article_by_slug
 from .diversity_selector import select_diverse_candidates
 from .file_io import save_article_to_file
 from .illustration_service import IllustrationService
@@ -149,7 +149,20 @@ def generate_single_article(
         slug = generate_article_slug(title)
         console.print(f"  Slug: {slug}")
 
-        filename = f"{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
+        # Check if an article with this slug already exists
+        # This preserves URLs when updating similar content
+        existing_by_slug = find_article_by_slug(slug, content_dir)
+        if existing_by_slug:
+            console.print(
+                f"  [cyan]📝 Will update existing article:[/cyan] {existing_by_slug.name}"
+            )
+            logger.info(
+                f"Found existing article with slug '{slug}': {existing_by_slug.name}"
+            )
+            # Use the existing filename to preserve the URL
+            filename = existing_by_slug.name
+        else:
+            filename = f"{datetime.now().strftime('%Y-%m-%d')}-{slug}.md"
 
         # Generate illustrations if enabled
         illustrations_count = 0

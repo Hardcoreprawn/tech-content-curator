@@ -19,11 +19,7 @@ sources:
 summary: An in-depth look at ebs replacement, postgres storage based on insights from
   the tech community.
 tags:
-- ebs replacement
-- postgres storage
-- database management
-- storage optimization
-- technical infrastructure
+- databases
 title: 'Boost PostgreSQL Performance: Rethink Your Storage Strategy'
 word_count: 1032
 ---

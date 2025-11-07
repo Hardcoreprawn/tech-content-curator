@@ -20,10 +20,7 @@ sources:
   url: https://www.windowslatest.com/2025/11/02/update-and-shut-down-no-longer-restarts-pc-as-windows-11-25h2-patch-addresses-a-decades-old-bug/
 summary: An in-depth look at pc restart bug, windows 25h2 patch based on insights
   from the tech community.
-tags:
-- pc restart bug
-- windows 25h2 patch
-- software updates
+tags: []
 title: 'Windows 10 25H2 Patch Fixes Restart Bug: What You Need to...'
 word_count: 888
 ---

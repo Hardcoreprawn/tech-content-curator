@@ -18,12 +18,7 @@ sources:
   url: https://rfd.shared.oxide.computer/rfd/0609
 summary: An in-depth look at async rust, oxide control plane based on insights from
   the tech community.
-tags:
-- async rust
-- oxide control plane
-- futurelock
-- rust programming language
-- technical issue
+tags: []
 title: 'Understanding Futurelock: Async Rust''s Hidden Challenge'
 word_count: 1060
 ---

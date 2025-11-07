@@ -19,11 +19,8 @@ sources:
 summary: An in-depth look at cloud solutions, open source based on insights from the
   tech community.
 tags:
-- cloud solutions
-- open source
-- microsoft 365
-- icc - international criminal court
-- it security
+- open-source
+- security
 title: 'ICC Ditches Microsoft 365 for Open-Source: A Data Privacy...'
 word_count: 968
 ---

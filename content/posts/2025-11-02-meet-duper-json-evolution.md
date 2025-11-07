@@ -18,12 +18,7 @@ sources:
   url: https://duper.dev.br/
 summary: An in-depth look at json, rust programming language based on insights from
   the tech community.
-tags:
-- json
-- rust programming language
-- python bindings
-- webassembly
-- syntax highlighting
+tags: []
 title: 'Meet Duper: The JSON Evolution Every Developer Needs'
 word_count: 977
 ---

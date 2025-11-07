@@ -20,11 +20,8 @@ sources:
 summary: An in-depth look at open source software, web user interface based on insights
   from the tech community.
 tags:
-- open source software
-- web user interface
-- api development
-- command-line interface
-- natural language processing
+- open-source
+- nlp
 title: 'Unlocking AI: Open-Source UI Alternatives for Chatbots'
 word_count: 992
 ---

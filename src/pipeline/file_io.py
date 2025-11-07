@@ -27,6 +27,7 @@ from ..utils.file_io import (
 from ..utils.logging import get_logger
 from ..utils.sanitization import safe_filename, validate_path
 from ..utils.url_tools import normalize_url
+from .deduplication import find_article_by_slug
 
 logger = get_logger(__name__)
 console = Console()
@@ -37,17 +38,23 @@ def save_article_to_file(
     config: PipelineConfig,
     generate_image: bool = False,
     client: OpenAI | None = None,
+    update_existing: bool = True,
 ) -> Path:
     """Save a generated article to markdown file with frontmatter.
 
     Logs file creation, metadata setup, and citation processing.
     Validates and sanitizes filenames to prevent directory traversal.
 
+    If update_existing=True (default), checks if an article with the same slug
+    already exists and updates it instead of creating a new file. This preserves
+    URLs and prevents 404s.
+
     Args:
         article: The generated article to save
         config: Pipeline configuration for API keys
         generate_image: If True, generate a featured image using DALL-E 3
         client: OpenAI client for image selection (required if generate_image is True)
+        update_existing: If True, update existing article with same slug instead of creating new file
 
     Returns:
         Path to the saved file
@@ -58,60 +65,104 @@ def save_article_to_file(
     logger.debug(f"Saving article: {article.title} (filename: {article.filename})")
     content_dir = get_content_dir()
 
-    # Validate and sanitize filename
-    try:
-        safe_name = safe_filename(article.filename, max_length=100)
-        filepath = content_dir / safe_name
-        # Validate that path stays within content directory
-        validate_path(filepath, base_dir=content_dir)
-    except ValueError as e:
-        logger.error(f"Invalid filename '{article.filename}': {e}")
-        raise ValueError(f"Invalid filename for article: {e}") from e
+    # Extract slug from filename (remove date prefix and .md extension)
+    # Expected format: YYYY-MM-DD-slug.md
+    filename_parts = article.filename.rsplit(".", 1)[0]  # Remove .md
+    parts = filename_parts.split("-", 3)  # Split on first 3 hyphens
+    if len(parts) == 4:  # Has date prefix
+        slug = parts[3]  # Everything after YYYY-MM-DD-
+    else:
+        slug = filename_parts  # No date prefix, use as-is
 
-    # Ensure filename uniqueness
-    if filepath.exists():
-        stem = filepath.stem
-        suffix_num = 2
-        while True:
-            candidate = content_dir / f"{stem}-{suffix_num}.md"
-            try:
-                validate_path(candidate, base_dir=content_dir)
-            except ValueError as e:
-                logger.error(f"Generated candidate path escapes content dir: {e}")
-                raise ValueError(f"Cannot create unique filename: {e}") from e
+    # Check if article with this slug already exists
+    existing_article = None
+    if update_existing:
+        existing_article = find_article_by_slug(slug, content_dir)
 
-            if not candidate.exists():
-                console.print(
-                    f"[yellow]⚠ Filename exists, saving as {candidate.name}[/yellow]"
-                )
-                article.filename = candidate.name
-                filepath = candidate
-                break
-            suffix_num += 1
+    if existing_article:
+        logger.info(f"Updating existing article: {existing_article.name}")
+        console.print(
+            f"[cyan]🔄 Updating existing article:[/cyan] {existing_article.name}"
+        )
+        filepath = existing_article
+
+        # Load existing metadata to preserve some fields
+        try:
+            existing_post = frontmatter.load(str(existing_article))
+            original_date = existing_post.metadata.get("date")
+            if original_date:
+                logger.debug(f"Preserving original publish date: {original_date}")
+        except Exception as e:
+            logger.warning(f"Could not load existing article metadata: {e}")
+            original_date = None
+    else:
+        logger.debug(f"Creating new article: {article.filename}")
+        original_date = None
+
+        # Validate and sanitize filename for NEW articles only
+        try:
+            safe_name = safe_filename(article.filename, max_length=100)
+            filepath = content_dir / safe_name
+            # Validate that path stays within content directory
+            validate_path(filepath, base_dir=content_dir)
+        except ValueError as e:
+            logger.error(f"Invalid filename '{article.filename}': {e}")
+            raise ValueError(f"Invalid filename for article: {e}") from e
+
+        # Ensure filename uniqueness for NEW articles only
+        if filepath.exists():
+            stem = filepath.stem
+            suffix_num = 2
+            while True:
+                candidate = content_dir / f"{stem}-{suffix_num}.md"
+                try:
+                    validate_path(candidate, base_dir=content_dir)
+                except ValueError as e:
+                    logger.error(f"Generated candidate path escapes content dir: {e}")
+                    raise ValueError(f"Cannot create unique filename: {e}") from e
+
+                if not candidate.exists():
+                    console.print(
+                        f"[yellow]⚠ Filename exists, saving as {candidate.name}[/yellow]"
+                    )
+                    article.filename = candidate.name
+                    filepath = candidate
+                    break
+                suffix_num += 1
 
     # Create frontmatter metadata
     metadata = {
         "title": article.title,
-        "date": article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "date": original_date or article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "tags": article.tags,
         "summary": article.summary,
         "word_count": article.word_count,
         "reading_time": f"{max(1, round(article.word_count / 200))} min read",
-        "sources": [
-            {
-                "platform": source.original.source,
-                "author": source.original.author,
-                "url": normalize_url(str(source.original.url)),
-                "quality_score": source.quality_score,
-            }
-            for source in article.sources
-        ],
-        "cover": {"image": "", "alt": ""},
-        "generation_costs": format_generation_costs(article.generation_costs),
-        "action_run_id": article.action_run_id,
-        "generator": article.generator_name,
-        "illustrations_count": article.illustrations_count,
     }
+
+    # Add last_updated timestamp if updating existing article
+    if existing_article:
+        metadata["last_updated"] = article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z")
+        logger.debug(f"Added last_updated timestamp for article update")
+
+    metadata.update(
+        {
+            "sources": [
+                {
+                    "platform": source.original.source,
+                    "author": source.original.author,
+                    "url": normalize_url(str(source.original.url)),
+                    "quality_score": source.quality_score,
+                }
+                for source in article.sources
+            ],
+            "cover": {"image": "", "alt": ""},
+            "generation_costs": format_generation_costs(article.generation_costs),
+            "action_run_id": article.action_run_id,
+            "generator": article.generator_name,
+            "illustrations_count": article.illustrations_count,
+        }
+    )
 
     # Optional: Attach cover image
     if generate_image:

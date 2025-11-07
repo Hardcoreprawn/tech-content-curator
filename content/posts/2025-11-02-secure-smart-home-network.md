@@ -6,10 +6,10 @@ cover:
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0008988
-  illustrations: 0.00063450
+  illustrations: 0.0006345
   image_generation: 0.0
-  slug_generation: 0.00001395
-  title_generation: 0.000054
+  slug_generation: 1.395e-05
+  title_generation: 5.4e-05
 generator: General Article Generator
 icon: https://images.unsplash.com/photo-1733810763720-4c83af0668ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBzbWFydCUyMGhvbWUlMjBuZXR3b3JrfGVufDB8MHx8fDE3NjIwNzI0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080
 illustrations_count: 3
@@ -22,9 +22,7 @@ sources:
 summary: An in-depth look at iot security, wifi networks based on insights from the
   tech community.
 tags:
-- iot security
-- wifi networks
-- smart devices
+- security
 title: 'Secure Your Smart Home: IoT Devices Need Their Own Network'
 word_count: 957
 ---
