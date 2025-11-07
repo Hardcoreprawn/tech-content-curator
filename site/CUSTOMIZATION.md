@@ -180,6 +180,35 @@ When overriding component styles, match these breakpoints for consistency.
 6. **Test in both light and dark modes** - PaperMod has separate color variables for each
 7. **Check responsive behavior** - Test at 768px, 900px, and mobile breakpoints
 
+## ⚠️ Important: Git Submodule Warning
+
+**DO NOT create or modify files inside `site/themes/PaperMod/`**
+
+PaperMod is a Git submodule. Any files you create or modify inside the theme directory will:
+- Show as "untracked content" in Git status
+- Create recurring Git issues
+- Cause merge conflicts
+- Be lost when the submodule is updated
+
+### If You Accidentally Modified the Submodule
+
+If you see Git showing `modified: site/themes/PaperMod (untracked content)`, clean it up:
+
+```bash
+cd site/themes/PaperMod
+git clean -fd          # Remove untracked files
+git checkout .         # Discard any modifications
+cd ../../..
+git status             # Verify clean state
+```
+
+### The Correct Way to Customize
+
+✅ **DO:** Place custom CSS in `site/assets/css/extended/`
+❌ **DON'T:** Place custom CSS in `site/themes/PaperMod/assets/css/extended/`
+
+Hugo will automatically load files from your project's `assets/css/extended/` directory, which takes precedence over the theme's built-in files.
+
 ## Debugging
 
 ### Check loaded CSS
