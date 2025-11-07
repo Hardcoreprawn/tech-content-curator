@@ -2739,5 +2739,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 505,
+    "timestamp": "2025-11-07T18:04:42.696366",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Leaving Meta and PyTorch",
+        "removed_items": [
+          "PyTorch Helion",
+          "Meta projected 10% of 2024 revenue came from scams"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
