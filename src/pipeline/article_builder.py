@@ -116,7 +116,10 @@ def generate_article_slug(title: str) -> str:
 
 
 def generate_article_title(
-    item: EnrichedItem, content: str, client: OpenAI
+    item: EnrichedItem,
+    content: str,
+    client: OpenAI,
+    recent_titles: list[str] | None = None,
 ) -> tuple[str, float]:
     """Generate a compelling article title using gpt-4o-mini.
 
@@ -126,6 +129,7 @@ def generate_article_title(
         item: The enriched item
         content: Generated article content
         client: Configured OpenAI client
+        recent_titles: Optional list of recently generated titles to avoid repetition
 
     Returns:
         Tuple of (title, cost)
@@ -135,12 +139,19 @@ def generate_article_title(
     # Get first 800 chars of article for context
     article_preview = content[:800]
 
+    # Add recent titles context to avoid repetition
+    recent_context = ""
+    if recent_titles:
+        recent_context = "\n\nRECENT TITLES (avoid similar patterns):\n" + "\n".join(
+            f"- {t}" for t in recent_titles[-5:]
+        )
+
     prompt = f"""Create a compelling, snappy blog article title for this article.
 
 ARTICLE PREVIEW:
 {article_preview}
 
-TOPICS: {", ".join(item.topics)}
+TOPICS: {", ".join(item.topics)}{recent_context}
 
 Requirements:
 - Under 60 characters (for SEO)
@@ -149,6 +160,7 @@ Requirements:
 - NOT clickbait - be honest and direct
 - Tech/professional audience appropriate
 - Should accurately reflect the actual article content
+- VARY YOUR STYLE - don't repeat opening words or patterns from recent titles
 
 Examples of good titles:
 - "Why Your Database Migrations Keep Breaking"

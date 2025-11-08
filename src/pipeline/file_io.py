@@ -143,7 +143,7 @@ def save_article_to_file(
     # Add last_updated timestamp if updating existing article
     if existing_article:
         metadata["last_updated"] = article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z")
-        logger.debug(f"Added last_updated timestamp for article update")
+        logger.debug("Added last_updated timestamp for article update")
 
     metadata.update(
         {

@@ -61,6 +61,7 @@ def generate_single_article(
     force_regenerate: bool = False,
     action_run_id: str | None = None,
     config: PipelineConfig | None = None,  # Backwards compatibility
+    recent_titles: list[str] | None = None,
 ) -> GeneratedArticle | None:
     """Generate a complete article from an enriched item.
 
@@ -72,6 +73,7 @@ def generate_single_article(
         force_regenerate: If True, delete and regenerate existing articles
         action_run_id: GitHub Actions run ID that triggered this generation
         config: Optional pipeline config (for backwards compatibility, auto-detected if not provided)
+        recent_titles: Optional list of recently generated titles to avoid pattern repetition
 
     Returns:
         GeneratedArticle if successful, None if generation fails
@@ -140,7 +142,7 @@ def generate_single_article(
         }
 
         # Generate title and slug
-        title, title_cost = generate_article_title(item, content, client)
+        title, title_cost = generate_article_title(item, content, client, recent_titles)
         costs["title_generation"] = title_cost
         console.print(f"  Title: {title}")
 
@@ -286,6 +288,7 @@ def generate_articles_from_enriched(
         adaptive_feedback = AdaptiveDedupFeedback()
         generation_errors = []
         tracker = PipelineTracker()  # Track pipeline progress
+        recent_titles: list[str] = []  # Track titles to avoid repetition
 
         for i, item in enumerate(selected, 1):
             console.print(f"\n[bold cyan]Article {i}/{len(selected)}[/bold cyan]")
@@ -300,12 +303,15 @@ def generate_articles_from_enriched(
                 illustration_service,
                 force_regenerate,
                 action_run_id,
+                config,
+                recent_titles,
             )
 
             if article:
                 try:
                     save_article_to_file(article, config, generate_images, client)
                     articles.append(article)
+                    recent_titles.append(article.title)  # Track for diversity
                     logger.info(f"Successfully generated article: {article.filename}")
                     tracker.track_generation(item, article.generator_name, success=True)
 
