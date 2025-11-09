@@ -2,35 +2,35 @@
   {
     "entities": [
       "python",
-      "psf",
-      "python software foundation"
+      "python software foundation",
+      "psf"
     ],
     "keywords": [
-      "community",
-      "share",
-      "single",
-      "giant",
-      "foundation",
-      "decision",
-      "equity",
       "ahead",
-      "inclusion",
-      "values",
-      "software",
-      "read",
-      "tldr",
-      "than",
-      "every",
-      "please",
-      "tech",
-      "shared",
-      "seeking",
-      "revenue",
-      "core",
       "python",
-      "diversity",
+      "spine",
+      "read",
+      "tech",
+      "inclusion",
+      "every",
+      "single",
       "shows",
-      "spine"
+      "diversity",
+      "seeking",
+      "values",
+      "core",
+      "decision",
+      "community",
+      "equity",
+      "revenue",
+      "shared",
+      "share",
+      "giant",
+      "than",
+      "software",
+      "foundation",
+      "please",
+      "tldr"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "corporate",
-      "including",
-      "brutal",
-      "goal",
-      "adoption",
-      "speed",
-      "company",
-      "reduce",
-      "jassy",
       "move",
-      "devices",
-      "cutting",
-      "beginning",
-      "about",
-      "line",
       "cost",
-      "help",
-      "stated",
-      "damn",
-      "bureaucracy",
+      "amazon",
+      "corporate",
+      "bottom",
       "workforce",
-      "various",
+      "bureaucracy",
+      "company",
+      "groups",
       "ultimate",
       "boost",
+      "reduce",
+      "devices",
+      "goal",
       "layoffs",
-      "bottom",
-      "groups",
-      "jobs",
+      "help",
+      "line",
       "tomorrow",
-      "amazon"
+      "jassy",
+      "damn",
+      "brutal",
+      "beginning",
+      "stated",
+      "cutting",
+      "speed",
+      "jobs",
+      "about",
+      "various",
+      "including",
+      "adoption"
     ],
     "confidence": 0.95,
     "examples": [
@@ -447,8 +447,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -482,8 +482,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -499,8 +499,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -532,8 +532,8 @@
       "openai"
     ],
     "keywords": [
-      "about",
-      "openai"
+      "openai",
+      "about"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,10 +582,10 @@
     ],
     "keywords": [
       "always",
-      "running",
-      "posts",
       "excerpts",
-      "anyone"
+      "anyone",
+      "running",
+      "posts"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "grant",
+      "recent",
       "donations",
-      "recent"
+      "grant"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1964,16 +1964,16 @@
       "microsoft"
     ],
     "keywords": [
-      "alternative",
-      "ditch",
+      "criminal",
+      "court",
       "european",
-      "microsoft",
       "open",
       "international",
-      "criminal",
+      "alternative",
       "source",
+      "ditch",
       "office",
-      "court"
+      "microsoft"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2586,9 +2586,9 @@
       "go"
     ],
     "keywords": [
-      "college",
       "free",
-      "world"
+      "world",
+      "college"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -4357,14 +4357,14 @@
       "github"
     ],
     "keywords": [
-      "github",
-      "webassembly",
       "performance",
+      "github",
       "nofollow",
-      "both",
-      "experience",
+      "webassembly",
       "simple",
-      "href"
+      "href",
+      "experience",
+      "both"
     ],
     "confidence": 0.95,
     "examples": [
@@ -5233,9 +5233,9 @@
       "amazon"
     ],
     "keywords": [
+      "billions",
       "while",
       "social",
-      "billions",
       "amazon"
     ],
     "confidence": 0.8500000000000001,
@@ -5252,8 +5252,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "apps"
+      "apps",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -5317,8 +5317,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "apps"
+      "apps",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -7505,14 +7505,14 @@
   },
   {
     "entities": [
-      "copilot",
-      "microsoft"
+      "microsoft",
+      "copilot"
     ],
     "keywords": [
-      "copilot",
-      "australia",
       "microsoft",
-      "subscription"
+      "australia",
+      "subscription",
+      "copilot"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -7688,12 +7688,12 @@
   },
   {
     "entities": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "keywords": [
-      "chatgpt",
-      "openai"
+      "openai",
+      "chatgpt"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -7899,13 +7899,13 @@
       "meta"
     ],
     "keywords": [
-      "report",
-      "social",
-      "show",
-      "revenue",
       "users",
+      "meta",
+      "social",
       "scam",
-      "meta"
+      "revenue",
+      "show",
+      "report"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -7922,20 +7922,20 @@
     ],
     "keywords": [
       "context",
-      "missing",
-      "designed",
-      "complex",
-      "available",
       "major",
-      "nofollow",
-      "there",
       "improvements",
-      "show",
+      "release",
+      "based",
+      "complex",
+      "designed",
+      "available",
+      "nofollow",
       "announce",
+      "missing",
+      "there",
       "href",
       "text",
-      "based",
-      "release"
+      "show"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -8674,6 +8674,100 @@
     ],
     "created_at": "2025-11-08T18:08:40.940767",
     "last_seen": "2025-11-08T18:08:40.940768",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "go"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "Today I learned that 1.2M veteran families rely on the Supplemental Nutrition Assistance Program. An",
+      "GPS 'kill' switch allows state police cruisers to go dark and disable tracking\n\n<a href=\"https:&#x2F",
+      "Opencloud – An alternative to Nextcloud written in Go"
+    ],
+    "created_at": "2025-11-09T02:31:37.483486",
+    "last_seen": "2025-11-09T02:31:37.483489",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-09T02:31:37.570675",
+    "last_seen": "2025-11-09T02:31:37.570679",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n📝 Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-09T02:31:37.585069",
+    "last_seen": "2025-11-09T02:31:37.585071",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "go"
+    ],
+    "keywords": [],
+    "confidence": 0.8,
+    "examples": [
+      "Today I learned that 1.2M veteran families rely on the Supplemental Nutrition Assistance Program. An",
+      "GPS 'kill' switch allows state police cruisers to go dark and disable tracking\n\n<a href=\"https:&#x2F",
+      "Opencloud – An alternative to Nextcloud written in Go"
+    ],
+    "created_at": "2025-11-09T02:31:37.688026",
+    "last_seen": "2025-11-09T02:31:37.688030",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2025-11-09T02:31:37.768145",
+    "last_seen": "2025-11-09T02:31:37.768149",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "javascript-algorithms\n\n📝 Algorithms and data structures implemented in JavaScript with explanations ",
+      "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+    ],
+    "created_at": "2025-11-09T02:31:37.782958",
+    "last_seen": "2025-11-09T02:31:37.782960",
     "frequency": 1
   }
 ]
