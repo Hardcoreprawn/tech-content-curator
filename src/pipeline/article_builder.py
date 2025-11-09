@@ -217,7 +217,7 @@ Return ONLY the title, no quotes or explanation."""
             return "Tech Insights: What You Need to Know", 0.0
 
 
-def extract_article_summary(content: str, max_length: int = 180) -> str:
+def extract_article_summary(content: str, max_length: int = 200) -> str:
     """Extract a compelling summary from article content.
 
     Intelligently extracts substantive content, skipping generic openings.
@@ -226,10 +226,10 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
 
     Args:
         content: The article content (markdown)
-        max_length: Maximum character length for summary (default 180)
+        max_length: Maximum character length for summary (default 200)
 
     Returns:
-        Summary string extracted from content
+        Summary string extracted from content, truncated at word boundaries
     """
     import re
 
@@ -291,18 +291,32 @@ def extract_article_summary(content: str, max_length: int = 180) -> str:
         for s in sentences:
             s = s.strip()
             if len(s) > 20:
-                summary = s[:max_length]
+                summary = s
                 break
 
     if not summary:
-        # Last resort: first 180 chars
-        summary = cleaned[:max_length].strip()
+        # Last resort: first max_length chars
+        summary = cleaned.strip()
 
-    # Add period if it's not there
-    if summary and not summary.endswith(("!", "?", ".")):
+    # Clean up whitespace
+    summary = " ".join(summary.split())
+
+    # Truncate at word boundary if needed
+    if len(summary) > max_length:
+        # Reserve space for ellipsis if needed
+        target_length = max_length - 3  # Reserve for "..."
+        # Find last space before target_length
+        truncated = summary[:target_length].rsplit(" ", 1)[0]
+        # Add ellipsis if we actually truncated mid-sentence
+        if not truncated.endswith((".", "!", "?")):
+            summary = truncated + "..."
+        else:
+            summary = truncated
+    elif summary and not summary.endswith(("!", "?", ".")):
+        # Add period if it's not there and we didn't truncate
         summary += "."
 
-    return summary[:max_length]
+    return summary
 
 
 def analyze_article_quality(content: str, difficulty_level: str) -> tuple[dict, bool]:

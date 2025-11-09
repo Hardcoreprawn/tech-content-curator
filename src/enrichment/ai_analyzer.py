@@ -226,7 +226,8 @@ def research_additional_context(
     """Generate research summary and context for the content.
 
     This creates additional context that would be useful for turning
-    the social media post into a full article.
+    the social media post into a full article. Detects and handles
+    meta-content (posts about other articles) specially.
 
     Args:
         item: The collected item
@@ -236,7 +237,36 @@ def research_additional_context(
     Returns:
         Research summary string
     """
-    prompt = f"""
+    from .source_fetcher import extract_urls_from_content, is_meta_content
+
+    # Detect if this is meta-content (post about an article)
+    urls = extract_urls_from_content(item.content)
+    is_meta = is_meta_content(item, urls)
+
+    if is_meta and urls:
+        # Meta-content: Focus on the specific article being discussed
+        logger.info(f"Meta-content detected with URL: {urls[0]}")
+        prompt = f"""
+    You are researching context for a tech blog article about THIS SPECIFIC source:
+
+    Original Post: "{item.content}"
+    Source URL: {urls[0]}
+    Topics: {", ".join(topics)}
+
+    This post is discussing or sharing an existing article/piece. Provide research context
+    that would help a writer engage with the SPECIFIC content being discussed:
+
+    1. **Subject Context**: What is the main subject or claim being discussed? Who are the key people/projects involved?
+    2. **Significance**: Why is this particular article/piece noteworthy? What makes it worth discussing?
+    3. **Background**: What context do readers need to understand the significance?
+    4. **Key Angles**: What aspects of this specific piece would be most interesting to highlight?
+
+    Write 2-3 paragraphs focused on helping the writer discuss THIS SPECIFIC article,
+    not generic background on the topic. Emphasize what makes this source notable.
+    """
+    else:
+        # Standard content: Provide general background context
+        prompt = f"""
     You are researching background for a tech blog article based on this social media post.
 
     Original Content: "{item.content}"

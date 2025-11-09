@@ -75,6 +75,9 @@ class QualityScorer:
         )
         length_score = self._score_length(content, article.content_type or "general")
         tone_score = self._score_tone(content, article.content_type or "general")
+        source_citation_score = self._score_source_citation(
+            content, article.content_type or "general"
+        )
 
         # Store dimension scores
         dimension_scores = {
@@ -84,17 +87,33 @@ class QualityScorer:
             "code_examples": code_score,
             "length": length_score,
             "tone": tone_score,
+            "source_citation": source_citation_score,
         }
 
         # Calculate weighted overall score
-        weights = {
-            "readability": 0.25,
-            "structure": 0.20,
-            "citations": 0.15,
-            "code_examples": 0.15,
-            "length": 0.15,
-            "tone": 0.10,
-        }
+        # Adjust weights based on content type
+        if article.content_type == "commentary":
+            # Commentary articles weight source citation heavily
+            weights = {
+                "readability": 0.20,
+                "structure": 0.15,
+                "source_citation": 0.30,  # HIGH weight for commentary
+                "citations": 0.15,
+                "code_examples": 0.05,  # Less important for commentary
+                "length": 0.10,
+                "tone": 0.05,
+            }
+        else:
+            # Standard weights for other content types
+            weights = {
+                "readability": 0.25,
+                "structure": 0.20,
+                "citations": 0.15,
+                "code_examples": 0.15,
+                "length": 0.15,
+                "tone": 0.10,
+                "source_citation": 0.00,  # Not applicable for non-commentary
+            }
 
         overall_score = sum(dimension_scores[dim] * weights[dim] for dim in weights)
 
@@ -340,6 +359,89 @@ class QualityScorer:
 
         return max(0.0, score)
 
+    def _score_source_citation(self, content: str, content_type: str) -> float:
+        """Score primary source integration quality (for commentary content).
+
+        For commentary articles, checks whether the article engages with
+        the source material through quotes, attributions, and specifics.
+        Returns 100.0 for non-commentary content (not applicable).
+
+        Args:
+            content: Article content
+            content_type: Type of content
+
+        Returns:
+            Score 0-100
+        """
+        if content_type != "commentary":
+            return 100.0  # Not applicable to non-commentary
+
+        score = 0.0
+        content_lower = content.lower()
+
+        # Check for direct quotes (straight and typographic/smart quotes)
+        has_quotes = '"' in content or "'" in content
+        if has_quotes:
+            # Count straight quotes only (smart quotes would need different handling)
+            quote_count = content.count('"') + content.count("'")
+            # Award points based on quote usage (cap at 30)
+            score += min(quote_count * 5, 30.0)
+            logger.debug(
+                f"Found {quote_count} quote markers, added {min(quote_count * 5, 30.0)} points"
+            )
+
+        # Check for attribution phrases indicating source engagement
+        attribution_patterns = [
+            "according to",
+            "wrote that",
+            "stated",
+            "explained",
+            "argued",
+            "claimed",
+            "wrote:",
+            "said",
+            "noted",
+            "observed",
+            "pointed out",
+            "emphasized",
+            "in the article",
+            "in the piece",
+            "in the obituary",
+            "in the essay",
+        ]
+        attribution_count = sum(
+            1 for pattern in attribution_patterns if pattern in content_lower
+        )
+        # Award up to 40 points for attribution usage
+        attribution_score = min(attribution_count * 8, 40.0)
+        score += attribution_score
+        logger.debug(
+            f"Found {attribution_count} attribution patterns, added {attribution_score} points"
+        )
+
+        # Check for specificity indicators (actual engagement with content)
+        specific_indicators = [
+            "specifically",
+            "for example",
+            "for instance",
+            "in particular",
+            "such as",
+            "including",
+            "namely",
+        ]
+        specificity_count = sum(
+            1 for indicator in specific_indicators if indicator in content_lower
+        )
+        specificity_score = min(specificity_count * 10, 30.0)
+        score += specificity_score
+        logger.debug(
+            f"Found {specificity_count} specificity indicators, added {specificity_score} points"
+        )
+
+        final_score = min(score, 100.0)
+        logger.debug(f"Source citation score for commentary: {final_score:.1f}/100")
+        return final_score
+
     def _generate_suggestions(
         self,
         dimension_scores: dict[str, float],
@@ -401,6 +503,14 @@ class QualityScorer:
         if dimension_scores["tone"] < 70:
             suggestions.append(
                 f"Adjust tone to better match {article.content_type or 'content type'} expectations."
+            )
+
+        # Source citation suggestions (commentary only)
+        if dimension_scores.get("source_citation", 100) < 70:
+            suggestions.append(
+                "Add specific quotes and examples from the source material. "
+                "Instead of discussing the article generally, show what it actually says. "
+                'Use attribution phrases like "According to [Author]..." with direct quotes.'
             )
 
         if not suggestions:

@@ -11,6 +11,19 @@ logger = get_logger(__name__)
 
 # Keywords that indicate different content types
 CONTENT_TYPE_DETECTION = {
+    "commentary": [
+        "wrote about",
+        "published article",
+        "obituary for",
+        "essay on",
+        "piece about",
+        "analysis of",
+        "thread on",
+        "new post",
+        "just published",
+        "wrote",
+        "obituary",
+    ],
     "tutorial": [
         "how to",
         "guide",
@@ -55,16 +68,26 @@ CONTENT_TYPE_DETECTION = {
 
 
 def detect_content_type(item: EnrichedItem) -> str:
-    """Detect content type from title and topics.
+    """Detect content type from title, topics, and research summary.
 
     Args:
         item: The enriched item to analyze
 
     Returns:
-        Content type string: 'tutorial', 'news', 'analysis', 'research', or 'general'
+        Content type string: 'commentary', 'tutorial', 'news', 'analysis', 'research', or 'general'
     """
-    text = (item.original.title + " " + " ".join(item.topics)).lower()
+    # Include research summary for better meta-content detection
+    text = (
+        item.original.title
+        + " "
+        + item.original.content[:200]
+        + " "
+        + " ".join(item.topics)
+        + " "
+        + item.research_summary[:200]
+    ).lower()
 
+    # Check commentary FIRST (most specific, should take precedence)
     for content_type, keywords in CONTENT_TYPE_DETECTION.items():
         if any(keyword in text for keyword in keywords):
             logger.debug(f"Content type detected: {content_type}")
@@ -76,6 +99,20 @@ def detect_content_type(item: EnrichedItem) -> str:
 
 # Specialized prompt enhancements by content type
 PROMPT_ENHANCEMENTS = {
+    "commentary": """
+COMMENTARY-SPECIFIC REQUIREMENTS:
+- Open with what the original source ACTUALLY says (not meta-discussion about writing)
+- Include 3-5 direct quotes or specific paraphrases from the source material
+- Structure: What they said → Why it matters → Broader implications
+- Use "According to [Author]...", "[Author] wrote:", "[Author] argues that..." with actual content
+- Avoid generic meta-discussion about journalism or writing practices
+- Focus on the SPECIFIC arguments, claims, or points made in the source
+- If discussing controversial content, include the actual controversial statements
+- Example BAD: "This article discusses the challenges of obituary writing..."
+- Example GOOD: "Begley wrote: '[actual quote]', highlighting Watson's [specific claim]..."
+- Ground your analysis in concrete details from the source, not abstractions
+- Use the research context to inform what specifics to highlight
+""",
     "tutorial": """
 TUTORIAL-SPECIFIC REQUIREMENTS:
 - Start with clear prerequisites (what readers need to know before starting)
@@ -135,6 +172,16 @@ GENERAL ARTICLE REQUIREMENTS:
 
 # Structure templates for each content type
 STRUCTURE_TEMPLATES = {
+    "commentary": """
+RECOMMENDED STRUCTURE FOR COMMENTARY:
+1. **Introduction**: Brief context on what's being discussed and who wrote it
+2. **Main Arguments**: What does the source actually say? (use quotes)
+3. **Key Points**: 3-5 specific claims, statements, or findings from the source
+4. **Analysis**: Why these points matter or are significant
+5. **Context & Background**: Broader context readers need to understand
+6. **Implications**: What this means for the field/community/readers
+7. **Conclusion**: Summary of the source's impact and significance
+""",
     "tutorial": """
 RECOMMENDED STRUCTURE FOR TUTORIAL:
 1. **Introduction**: What will readers learn? Why should they care?

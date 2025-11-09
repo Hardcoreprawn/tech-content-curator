@@ -457,8 +457,8 @@ class TestQualityScorer:
         # Overall should be between 0 and 100
         assert 0 <= result.overall_score <= 100
 
-        # Should be influenced by all dimensions
-        assert len(result.dimension_scores) == 6
+        # Should be influenced by all dimensions (including new source_citation)
+        assert len(result.dimension_scores) == 7
 
     def test_passed_threshold_true(self):
         """Test that good content passes threshold."""
