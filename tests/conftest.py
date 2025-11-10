@@ -12,5 +12,3 @@ def reset_config():
     yield
     # Reset again after test to isolate tests
     _reset_config_cache()
-
-

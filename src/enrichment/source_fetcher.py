@@ -132,7 +132,9 @@ def is_meta_content(item: CollectedItem, urls: list[str]) -> bool:
     ]
 
     # Check if any indicators present
-    indicator_count = sum(1 for indicator in meta_indicators if indicator in content_lower)
+    indicator_count = sum(
+        1 for indicator in meta_indicators if indicator in content_lower
+    )
 
     # If we have URLs AND meta-indicators, likely meta-content
     # Require at least 2 indicators to avoid false positives

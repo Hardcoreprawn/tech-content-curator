@@ -306,6 +306,7 @@ class TestConfigEnvVarLoading:
             },
         ):
             from src.config import _reset_config_cache
+
             _reset_config_cache()
             config = get_config()
             assert config.timeouts.openai_api_timeout == 180.0
@@ -322,6 +323,7 @@ class TestConfigEnvVarLoading:
             },
         ):
             from src.config import _reset_config_cache
+
             _reset_config_cache()
             config = get_config()
             assert config.retries.max_attempts == 5
@@ -338,6 +340,7 @@ class TestConfigEnvVarLoading:
             },
         ):
             from src.config import _reset_config_cache
+
             _reset_config_cache()
             config = get_config()
             assert config.confidences.dedup_confidence == 0.75
@@ -353,6 +356,7 @@ class TestConfigEnvVarLoading:
             },
         ):
             from src.config import _reset_config_cache
+
             _reset_config_cache()
             config = get_config()
             assert config.sleep_intervals.between_subreddit_requests == 1.0
