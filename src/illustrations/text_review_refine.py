@@ -5,6 +5,8 @@ diagrams based on review feedback. Only runs for high-importance articles.
 Adds refinement cycles and quality metrics to diagrams.
 """
 
+from __future__ import annotations
+
 from ..utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -207,7 +209,11 @@ Requirements:
                 review_cycles=1,
             )
 
-        except Exception:
+        except Exception as e:
+            logger.error(
+                f"Refinement failed for {concept_type} diagram: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             return None
 
     def batch_review_refine(
@@ -236,7 +242,14 @@ Requirements:
                 )
                 if refined:
                     results.append(refined)
-            except Exception:
-                pass
+            except Exception as e:
+                section_title = diagram_spec.get("section_title", "unknown")
+                concept_type = diagram_spec.get("concept_type", "unknown")
+                logger.warning(
+                    f"Failed to review/refine diagram for '{section_title}' ({concept_type}): "
+                    f"{type(e).__name__}: {e}",
+                    exc_info=True,
+                )
+                # Continue processing remaining diagrams
 
         return results

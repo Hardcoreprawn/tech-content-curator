@@ -55,8 +55,10 @@ def check_article_exists_for_source(source_url: str, content_dir: Path) -> Path 
                 if url and normalize_url(str(url)) == normalized_input:
                     logger.info(f"Found existing article for source: {filepath.name}")
                     return filepath
-        except (OSError, ValueError, Exception) as e:
-            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
+        except (OSError, ValueError) as e:
+            logger.warning(
+                f"Failed to load article metadata from {filepath}: {e}", exc_info=True
+            )
             continue
     logger.debug("No existing article found for source")
     return None
@@ -92,8 +94,10 @@ def collect_existing_source_urls(content_dir: Path) -> set[str]:
                 url = legacy.get("url")
                 if url:
                     urls.add(normalize_url(str(url)))
-        except (OSError, ValueError, Exception) as e:
-            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
+        except (OSError, ValueError) as e:
+            logger.warning(
+                f"Failed to load article metadata from {filepath}: {e}", exc_info=True
+            )
             continue
     logger.info(f"Collected {len(urls)} existing source URLs")
     return urls
@@ -163,8 +167,10 @@ def is_source_in_cooldown(
                         )
                         return True  # Found recent article with this source
 
-        except (OSError, ValueError, Exception) as e:
-            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
+        except (OSError, ValueError) as e:
+            logger.warning(
+                f"Failed to load article metadata from {filepath}: {e}", exc_info=True
+            )
             continue
 
     logger.debug(f"Source {source_url} not in cooldown")
@@ -230,8 +236,10 @@ def load_article_metadata_for_dedup(content_dir: Path) -> list[dict]:
                     "filepath": filepath,
                 }
             )
-        except (OSError, ValueError, Exception) as e:
-            logger.debug(f"Failed to load article metadata from {filepath}: {e}")
+        except (OSError, ValueError) as e:
+            logger.warning(
+                f"Failed to load article metadata from {filepath}: {e}", exc_info=True
+            )
             continue
 
     logger.info(f"Loaded metadata for {len(articles)} articles for deduplication")

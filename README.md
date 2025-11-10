@@ -639,3 +639,20 @@ uv run pytest tests/ -v
 # All checks
 make check  # or create a simple script
 ```
+
+---
+
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| `README.md` | This file - project overview and quick start |
+| `SETUP.md` | Detailed development environment setup |
+| `PROJECT-STATUS.md` | Current status, metrics, architecture overview |
+| `BUGS.md` | Active bugs and known issues |
+| `TODO.md` | Priority tasks and implementation timeline |
+| `docs/CODE-IMPROVEMENTS.md` | Detailed technical debt and fixes |
+| `docs/` | Operational guides, ADRs, and reference material |
+
+**See `docs/README.md` for full documentation index.**
+```

@@ -369,6 +369,18 @@ Five distinct writing styles for content variety:
    - DALL-E 3 rate limits apply
    - Occasional generation failures (handled gracefully)
 
+### Active Issues (Being Addressed)
+
+**See `BUGS.md` and `TODO.md` for details:**
+
+1. **Exception Handling** 🚨 - Silent failures in production
+2. **Config Validation** - Fails late, wastes resources
+3. **Input Sanitization** 🔐 - Path traversal vulnerability
+4. **Logging Inconsistency** - Mixed print/logger usage
+5. **Async Strategy** - Unclear threading model
+
+**Timeline:** Critical issues being fixed Week of Nov 10-17, 2025
+
 ### Non-Issues
 
 These are **not** problems:

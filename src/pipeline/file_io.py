@@ -92,8 +92,10 @@ def save_article_to_file(
             original_date = existing_post.metadata.get("date")
             if original_date:
                 logger.debug(f"Preserving original publish date: {original_date}")
-        except Exception as e:
-            logger.warning(f"Could not load existing article metadata: {e}")
+        except (OSError, ValueError) as e:
+            logger.warning(
+                f"Could not load existing article metadata: {e}", exc_info=True
+            )
             original_date = None
     else:
         logger.debug(f"Creating new article: {article.filename}")
@@ -277,7 +279,7 @@ def save_article_to_file(
                 citation_bibliography = formatter.build_bibliography(
                     formatted_citations
                 )
-        except Exception as e:
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as e:
             logger.warning(
                 f"Citation processing failed for article '{article.title}': {e}",
                 exc_info=True,
@@ -346,7 +348,7 @@ def load_enriched_items(filepath: Path) -> list[EnrichedItem]:
             items.append(item)
         except (ValueError, TypeError, KeyError) as e:
             logger.warning(
-                f"Failed to load enriched item: {e}, item data: {item_data}",
+                f"Failed to load enriched item: {type(e).__name__} - {e}, item data: {item_data}",
                 exc_info=True,
             )
             console.print(f"[yellow]⚠[/yellow] Failed to load enriched item: {e}")

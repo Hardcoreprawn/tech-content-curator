@@ -83,8 +83,10 @@ def collect_from_mastodon_trending(
                 "[yellow]Trending not available, falling back to public timeline[/yellow]"
             )
 
-    except Exception as e:
-        logger.warning(f"Mastodon trending API error: {type(e).__name__} - {e}")
+    except (httpx.HTTPError, ValueError, TypeError) as e:
+        logger.warning(
+            f"Mastodon trending API error: {type(e).__name__} - {e}", exc_info=True
+        )
         console.print(
             f"[yellow]Trending collection failed: {e}, using public timeline[/yellow]"
         )
@@ -102,9 +104,10 @@ def collect_from_mastodon(
     """
     try:
         return collect_from_mastodon_trending(config, limit)
-    except (httpx.HTTPError, ValueError, Exception) as e:
+    except (httpx.HTTPError, ValueError, TypeError) as e:
         logger.warning(
-            f"Mastodon collection failed (limit={limit}): {type(e).__name__}"
+            f"Mastodon collection failed (limit={limit}): {type(e).__name__}",
+            exc_info=True,
         )
         return collect_from_mastodon_public(config, limit)
 
@@ -291,9 +294,9 @@ def _process_mastodon_posts(
             items.append(item)
             filtered_counts["processed"] += 1
 
-        except (KeyError, ValueError) as e:
+        except (KeyError, ValueError, TypeError, AttributeError) as e:
             filtered_counts["malformed"] += 1
-            logger.debug(f"Malformed post: {type(e).__name__}")
+            logger.warning(f"Malformed post: {type(e).__name__} - {e}", exc_info=True)
             console.print(f"[yellow]⚠[/yellow] Malformed post: {e}")
             continue
 

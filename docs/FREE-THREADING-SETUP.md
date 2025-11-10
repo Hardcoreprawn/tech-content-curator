@@ -20,8 +20,10 @@ The GitHub Actions team has added support for the `3.14t` suffix (free-threaded 
 
 **Technical details:**
 - Using `python-version: '3.14t'` with `actions/setup-python@v5`
-- `PYTHON_GIL=0` is now set automatically (safe with 3.14t build)
+- `allow-prereleases: true` required for 3.14 pre-release builds
+- `PYTHON_GIL=0` environment variable set automatically
 - Pre-built binaries provided by GitHub Actions (no build time needed)
+- Available since March 2025 (GitHub Actions update)
 
 Reference: [Free-threaded Python on GitHub Actions](https://hugovk.dev/blog/2025/free-threaded-python-on-github-actions/)
 
@@ -143,22 +145,34 @@ PYTHON_GIL=0 python -m src.generate --max-articles 10 --generate-images
 
 ### GitHub Actions (Automatic)
 
-✅ **Already configured!** Your workflows are set up for free-threading:
+✅ **Already configured!** Your workflows use the free-threaded Python build:
 
 ```yaml
+- name: Set up Python
+  uses: actions/setup-python@v5
+  with:
+    python-version: '3.14t'  # ← Free-threaded build (t suffix)
+    allow-prereleases: true  # ← Required for 3.14 pre-release
+
+- name: Set up free-threading
+  run: echo "PYTHON_GIL=0" >> "$GITHUB_ENV"
+
 - name: 📝 Generate articles
-  env:
-    PYTHON_GIL: '0'  # ← Enables free-threading in CI
-    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
   run: |
     uv run python -m src.generate --max-articles 10 --generate-images
 ```
 
 **Result:** GitHub Actions automatically:
-- Detects Python 3.14
-- Enables free-threading with `PYTHON_GIL=0`
+- Uses Python 3.14t (free-threaded build from GitHub Actions)
+- Sets `PYTHON_GIL=0` environment variable
 - Gets 3-4x speedup on article generation
-- No manual configuration needed!
+- No additional configuration needed!
+
+**How to verify it's working:**
+Check workflow logs for output like:
+```
+⚡ Python 3.14 free-threading enabled - generating in parallel!
+```
 
 ## How the Integration Works
 

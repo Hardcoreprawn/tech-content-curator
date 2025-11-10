@@ -5,15 +5,47 @@
 
 ---
 
+## Priority 0: Configuration Validation at Startup (CRITICAL)
+
+**Problem:** Config validation happens at runtime after work begins, wasting GitHub Actions time and API credits.
+
+**File to fix:**
+- `src/config.py` - Lines 100-115
+
+**Task:**
+1. Move validation to module import time for CLI scripts
+2. Keep deferred validation for library/test usage
+3. Add clear error messages for missing API keys
+4. Fail immediately before any API calls or data collection
+
+**Implementation:**
+```python
+# src/pipeline/__main__.py or src/collectors/__main__.py
+from src.config import get_config
+
+# Validate at script entry, before any work
+config = get_config()  # Raises ValueError if keys missing
+
+if __name__ == "__main__":
+    main()
+```
+
+**Impact:** Prevents wasting 30+ minutes of GitHub Actions + API credits on missing config.
+
+---
+
 ## Priority 1: Exception Handling (HIGH)
 
 **Problem:** Many bare `except Exception:` blocks swallow errors silently, making debugging difficult.
 
 **Files to fix:**
-- `src/pipeline/deduplication.py` - Lines 53, 87, 153, 187
+- `src/illustrations/text_review_refine.py` - Lines 210, 239 (confirmed bare except)
+- `src/pipeline/deduplication.py` - Multiple locations with bare except
 - `src/collectors/mastodon.py` - Line 91
 - `src/pipeline/file_io.py` - Lines 149, 163
 - `src/enrichment/orchestrator.py` - Throughout
+
+**Note**: This is CRITICAL for production reliability. Silent failures in GitHub Actions make debugging impossible.
 
 **Task:**
 1. Replace `except Exception:` with specific exception types
@@ -121,15 +153,24 @@ class PipelineConfig(BaseModel):
 
 ---
 
-## Priority 5: Input Sanitization (HIGH - Security)
+## Priority 5: Input Sanitization (HIGH - Security) 🔐
 
-**Problem:** External content not sanitized before processing.
+**Problem:** External content not sanitized before processing. **Path traversal vulnerability exists.**
+
+**Critical Vulnerability:**
+```python
+# If malicious article title: "../../etc/passwd.md"
+slug = generate_article_slug(title)  # → ../../etc/passwd
+filepath = content_dir / f"{slug}.md"  # Escapes content directory!
+```
 
 **Files to fix:**
-- `src/pipeline/article_builder.py` - `generate_article_slug()`
+- `src/pipeline/article_builder.py` - `generate_article_slug()` (CRITICAL)
 - `src/collectors/mastodon.py` - Content processing
 - `src/collectors/reddit.py` - Content processing
 - `src/pipeline/file_io.py` - Filename validation
+
+**Note:** `src/utils/sanitization.py` exists but not fully applied. Complete the implementation.
 
 **Task:**
 1. Create `src/utils/sanitization.py` with sanitization functions
@@ -183,7 +224,32 @@ def get_openai_client(config: PipelineConfig):
 
 ---
 
-## Priority 7: Type Safety (LOW-MEDIUM)
+## Priority 7: Async/Threading Strategy Clarification (MEDIUM)
+
+**Problem:** Mixing async/await with ThreadPoolExecutor without clear benefit.
+
+**File to fix:**
+- `src/pipeline/orchestrator.py` - Lines 404-477
+- `src/generate.py` - Lines 74-86
+
+**Task:**
+1. Choose ONE approach:
+   - **Option A (Recommended):** Remove async, use pure ThreadPoolExecutor
+   - **Option B:** Document Python 3.14 nogil requirements (`PYTHON_GIL=0`)
+   - **Option C:** True async with `asyncio` (requires rewriting API calls)
+
+2. Update README claims about "3-4x speedup with free-threading":
+   - Add environment variable setup: `export PYTHON_GIL=0`
+   - Add to GitHub Actions workflows if actually used
+   - Or remove claim if not implemented
+
+3. Document performance testing methodology
+
+**Current Issue:** ThreadPoolExecutor wrapped in async adds complexity without benefit unless running with GIL disabled.
+
+---
+
+## Priority 8: Type Safety (LOW-MEDIUM)
 
 **Problem:** Some `# type: ignore` without explanation, `Any` types lose safety.
 
@@ -231,33 +297,43 @@ These can be done in 1-2 hours each:
 
 ## Implementation Order
 
-**Week 1:**
-- Priority 1: Exception Handling
-- Priority 2: Logging Standardization
-- Quick Win: Remove print statements
+**Week 1 (Critical Reliability):**
+- Priority 0: Configuration Validation (2 hours) ⚠️
+- Priority 1: Exception Handling (4-6 hours) 🚨
+- Priority 5: Input Sanitization (3-4 hours) 🔐
 
-**Week 2:**
-- Priority 3: File I/O Safety  
-- Priority 5: Input Sanitization
-- Priority 8: Add error path tests
+**Week 2 (Maintainability):**
+- Priority 2: Logging Standardization (2-3 hours)
+- Priority 7: Async/Threading Strategy (2 hours to decide + document)
+- Priority 6: Resource Management (2 hours audit)
 
-**Week 3:**
-- Priority 4: Configuration Validation
-- Priority 6: Resource Management
-- Priority 7: Type Safety improvements
+**Week 3 (Quality):**
+- Priority 3: File I/O Safety
+- Priority 4: Configuration Validation (additional)
+- Priority 8: Type Safety improvements
+- Add error path tests
 
 ---
 
 ## Success Criteria
 
+### Critical (Week 1)
+- [ ] Config validation at startup (fails before any API calls)
 - [ ] No bare `except:` or `except Exception:` without logging
+- [ ] All external input sanitized (path traversal fixed)
+- [ ] GitHub Actions logs show clear error messages
+
+### Important (Week 2)
 - [ ] No `print()` statements in src/ (only logger and console)
-- [ ] All JSON writes use atomic operations
-- [ ] All config validated at startup with clear errors
-- [ ] All external input sanitized
+- [ ] Async/threading strategy documented and consistent
 - [ ] All clients properly closed (context managers)
+- [ ] Free-threading setup documented or claims removed
+
+### Quality (Week 3)
+- [ ] All JSON writes use atomic operations
 - [ ] All `# type: ignore` have explanations
 - [ ] Test coverage >85% including error paths
+- [ ] Magic numbers moved to config
 
 ---
 

@@ -280,8 +280,7 @@ def load_cached_article(cache_path: Path, item_url: str) -> GeneratedArticle | N
         for cached in cache.get("articles", []):
             if cached.get("source_url") == item_url:
                 logger.info(f"Loaded cached article for {item_url}")
-                # This would need proper deserialization in real code
-                return None  # Placeholder
+                return GeneratedArticle.model_validate(cached)
 
     except Exception as e:
         logger.warning(f"Failed to load cache: {e}")
