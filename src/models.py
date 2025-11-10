@@ -354,8 +354,6 @@ class PipelineConfig(BaseModel):
 
     # API Keys
     openai_api_key: str
-    bluesky_handle: str | None = None
-    bluesky_app_password: str | None = None
     mastodon_instances: list[str] = ["https://hachyderm.io"]  # Tech-focused instances
     mastodon_access_token: str | None = None
     reddit_client_id: str | None = None

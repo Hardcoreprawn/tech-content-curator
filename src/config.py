@@ -81,8 +81,6 @@ def _build_config() -> PipelineConfig:
         confidences=confidences,
         sleep_intervals=sleep_intervals,
         openai_api_key=os.getenv("OPENAI_API_KEY", ""),
-        bluesky_handle=os.getenv("BLUESKY_HANDLE"),
-        bluesky_app_password=os.getenv("BLUESKY_APP_PASSWORD"),
         mastodon_instances=os.getenv(
             "MASTODON_INSTANCES", "https://hachyderm.io"
         ).split(","),
