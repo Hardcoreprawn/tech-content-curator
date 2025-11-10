@@ -3000,5 +3000,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 3,
+    "patterns_used": 551,
+    "timestamp": "2025-11-10T02:32:42.223080",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: DroidDock \u2013 A sleek macOS app for browsing Android device files via ADB\n\nHi HN,<p>I\u2019m Rajiv",
+        "removed_items": [
+          "Show HN: Trilogy Studio, open-source browser-based SQL editor and visualizer\n\nSQL-first analytic IDE"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
