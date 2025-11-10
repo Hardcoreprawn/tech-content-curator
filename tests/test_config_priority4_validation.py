@@ -305,6 +305,8 @@ class TestConfigEnvVarLoading:
                 "HTTP_CLIENT_TIMEOUT": "45.0",
             },
         ):
+            from src.config import _reset_config_cache
+            _reset_config_cache()
             config = get_config()
             assert config.timeouts.openai_api_timeout == 180.0
             assert config.timeouts.http_client_timeout == 45.0
@@ -319,6 +321,8 @@ class TestConfigEnvVarLoading:
                 "RETRY_JITTER": "0.2",
             },
         ):
+            from src.config import _reset_config_cache
+            _reset_config_cache()
             config = get_config()
             assert config.retries.max_attempts == 5
             assert config.retries.backoff_max == 60.0
@@ -333,6 +337,8 @@ class TestConfigEnvVarLoading:
                 "CONFIDENCE_CITATION_EXACT_YEAR": "0.95",
             },
         ):
+            from src.config import _reset_config_cache
+            _reset_config_cache()
             config = get_config()
             assert config.confidences.dedup_confidence == 0.75
             assert config.confidences.citation_exact_year_match == 0.95
@@ -346,6 +352,8 @@ class TestConfigEnvVarLoading:
                 "SLEEP_BETWEEN_HACKERNEWS_REQUESTS": "0.5",
             },
         ):
+            from src.config import _reset_config_cache
+            _reset_config_cache()
             config = get_config()
             assert config.sleep_intervals.between_subreddit_requests == 1.0
             assert config.sleep_intervals.between_hackernews_requests == 0.5
