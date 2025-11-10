@@ -589,6 +589,6 @@ class TestIntegration:
 
         # Verify all components work together
         assert quality.overall_score > 0
-        assert len(quality.dimension_scores) == 6
+        assert len(quality.dimension_scores) == 7
         assert len(quality.improvement_suggestions) > 0
         assert isinstance(quality.passed_threshold, bool)

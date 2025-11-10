@@ -193,6 +193,16 @@ def get_config() -> PipelineConfig:
     return _validated_config
 
 
+def _reset_config_cache() -> None:
+    """Reset the config cache by rebuilding from environment.
+
+    INTERNAL: This is only meant for testing purposes to allow
+    environment variable patching to work correctly.
+    """
+    global _validated_config
+    _validated_config = _build_config()
+
+
 def get_project_root() -> Path:
     """Get the project root directory."""
     return Path(__file__).parent.parent

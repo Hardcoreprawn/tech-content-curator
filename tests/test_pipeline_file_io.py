@@ -413,7 +413,7 @@ class TestSaveArticleToFile:
         config.enable_citations = True
 
         with patch("src.pipeline.file_io.CitationExtractor") as mock_extractor:
-            mock_extractor.side_effect = Exception("Citation error")
+            mock_extractor.side_effect = ValueError("Citation error")
             with patch("src.pipeline.file_io.get_content_dir", return_value=tmp_path):
                 filepath = save_article_to_file(article, config)
 
