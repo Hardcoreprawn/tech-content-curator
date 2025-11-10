@@ -3084,5 +3084,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 51,
+    "duplicates_found": 4,
+    "patterns_used": 567,
+    "timestamp": "2025-11-10T23:38:13.953382",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Here we are again: stunned, floored, full of hope, because of you\u2013each of you wonderful humans in th",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Omnilingual ASR: Advancing automatic speech recognition for 1600 languages\n\nHF Demo: <a href=\"https:",
+        "removed_items": [
+          "Show HN: Davia \u2013 Open source visual, editable wiki from your codebase\n\nHi HN,<p>We\u2019re Ruben, Afnan, "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
