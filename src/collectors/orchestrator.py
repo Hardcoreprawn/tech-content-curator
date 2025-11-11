@@ -4,10 +4,12 @@ This module provides utility functions for managing collected items:
 - Saving collected items to JSON files
 - Deduplicating collected items
 - Orchestrating collection from all sources
+
+With PYTHON_GIL=0, uses parallel collection for improved performance.
 """
 
 import asyncio
-import os
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
@@ -209,7 +211,7 @@ async def collect_all_sources_async() -> list[CollectedItem]:
                 logger.info(f"Collected {len(mastodon_items)} items from {instance}")
 
                 if len(items) >= 80:
-                    logger.info(f"Reached 80 items from Mastodon, stopping")
+                    logger.info("Reached 80 items from Mastodon, stopping")
                     break
             except Exception as e:
                 logger.error(f"Mastodon {instance} failed: {e}")
@@ -247,7 +249,20 @@ async def collect_all_sources_async() -> list[CollectedItem]:
             return []
 
     # Parallel phase: each thread isolated, no sharing
-    loop = asyncio.get_event_loop()
+    collection_start = time.perf_counter()
+    console.print(
+        "[bold blue]⚡ Launching parallel collection from 4 sources...[/bold blue]"
+    )
+
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+    source_names = ["Mastodon", "Reddit", "HackerNews", "GitHub"]
+    source_start_times = {name: time.perf_counter() for name in source_names}
+
     with ThreadPoolExecutor(max_workers=4) as executor:
         futures = [
             loop.run_in_executor(executor, collect_mastodon_wrapper),
@@ -259,13 +274,17 @@ async def collect_all_sources_async() -> list[CollectedItem]:
 
     # Sequential merge: no locks needed
     all_items = []
-    source_names = ["Mastodon", "Reddit", "HackerNews", "GitHub"]
     for i, result in enumerate(results):
+        source_elapsed = time.perf_counter() - source_start_times[source_names[i]]
         if isinstance(result, Exception):
             logger.error(
                 f"{source_names[i]} collection failed: {result}",
                 exc_info=result,
-                extra={"source": source_names[i], "phase": "collection"},
+                extra={
+                    "source": source_names[i],
+                    "phase": "collection",
+                    "elapsed_seconds": source_elapsed,
+                },
             )
             console.print(
                 f"[yellow]⚠[/yellow] {source_names[i]} collection failed: {result}"
@@ -274,15 +293,35 @@ async def collect_all_sources_async() -> list[CollectedItem]:
         if isinstance(result, list):
             all_items.extend(result)
             logger.info(
-                f"{source_names[i]} collected {len(result)} items",
-                extra={"source": source_names[i], "count": len(result)},
+                f"{source_names[i]} collected {len(result)} items in {source_elapsed:.2f}s",
+                extra={
+                    "source": source_names[i],
+                    "count": len(result),
+                    "elapsed_seconds": source_elapsed,
+                },
             )
 
+    collection_elapsed = time.perf_counter() - collection_start
     console.print(f"\n[bold]Total items before deduplication: {len(all_items)}[/bold]")
+    console.print(f"[dim]Collection time: {collection_elapsed:.2f}s[/dim]")
 
     # Deduplication reads immutable patterns - no locks needed
+    dedup_start = time.perf_counter()
     unique_items = deduplicate_items(all_items)
+    dedup_elapsed = time.perf_counter() - dedup_start
+
+    logger.info(
+        f"Parallel collection completed: {len(all_items)} items in {collection_elapsed:.2f}s, "
+        f"deduplication {dedup_elapsed:.2f}s, final {len(unique_items)} unique items",
+        extra={
+            "collection_time": collection_elapsed,
+            "dedup_time": dedup_elapsed,
+            "total_items": len(all_items),
+            "unique_items": len(unique_items),
+        },
+    )
     console.print(f"[bold green]Final unique items: {len(unique_items)}[/bold green]")
+    console.print(f"[dim]Total time: {collection_elapsed + dedup_elapsed:.2f}s[/dim]")
 
     return unique_items
 
