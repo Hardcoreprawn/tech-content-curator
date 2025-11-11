@@ -50,6 +50,7 @@ from ..models import CollectedItem, PipelineConfig
 from ..utils.file_io import atomic_write_json
 from ..utils.logging import get_logger
 from ..utils.url_tools import normalize_url
+from ..utils.worker_config import get_optimal_worker_count, log_worker_config
 from .github import collect_from_github_trending
 from .hackernews import collect_from_hackernews
 from .mastodon import collect_from_mastodon_trending
@@ -289,7 +290,14 @@ async def collect_all_sources_async() -> list[CollectedItem]:
     source_names = ["Mastodon", "Reddit", "HackerNews", "GitHub"]
     source_start_times = {name: time.perf_counter() for name in source_names}
 
-    with ThreadPoolExecutor(max_workers=4) as executor:
+    # Determine optimal worker count based on environment and resources
+    optimal_workers = get_optimal_worker_count(use_case="collection", max_limit=4)
+    logger.info(
+        "Parallel collection starting with optimal worker configuration",
+        extra=log_worker_config("collection", optimal_workers),
+    )
+
+    with ThreadPoolExecutor(max_workers=optimal_workers) as executor:
         futures = [
             loop.run_in_executor(executor, collect_mastodon_wrapper),
             loop.run_in_executor(executor, collect_reddit_wrapper),

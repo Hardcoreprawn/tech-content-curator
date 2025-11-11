@@ -64,6 +64,7 @@ from ..config import get_config
 from ..models import CollectedItem, EnrichedItem, PipelineConfig
 from ..utils.clients import get_openai_client
 from ..utils.logging import get_logger
+from ..utils.worker_config import get_optimal_worker_count, log_worker_config
 from .adaptive_scoring import ScoringAdapter
 from .ai_analyzer import (
     analyze_content_quality,
@@ -74,7 +75,6 @@ from .scorer import calculate_heuristic_score
 
 console = Console()
 logger = get_logger(__name__)
-
 
 def enrich_single_item(
     item: CollectedItem, config: PipelineConfig, adapter: ScoringAdapter | None = None
@@ -421,16 +421,11 @@ async def enrich_collected_items_async(
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
 
-    # Dynamic worker count based on CPU count and rate limits
-    optimal_workers = min(max_workers, (os.cpu_count() or 4) * 2, 8)
+    # Dynamic worker count based on environment and API limits
+    optimal_workers = get_optimal_worker_count(use_case="enrichment", max_limit=max_workers)
     logger.info(
-        f"Using {optimal_workers} workers for parallel enrichment (CPU count: {os.cpu_count()})",
-        extra={
-            "phase": "enrichment",
-            "event": "workers_initialized",
-            "worker_count": optimal_workers,
-            "cpu_count": os.cpu_count(),
-        },
+        f"Using {optimal_workers} workers for parallel enrichment",
+        extra=log_worker_config("enrichment", optimal_workers),
     )
 
     # Execute parallel enrichment
