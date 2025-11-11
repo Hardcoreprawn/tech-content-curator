@@ -83,6 +83,7 @@ class CoverImageSelector:
                         post = frontmatter.load(f)
                         if (
                             "cover" in post.metadata
+                            and isinstance(post.metadata["cover"], dict)
                             and "image" in post.metadata["cover"]
                         ):
                             image_url = post.metadata["cover"]["image"]
@@ -171,6 +172,55 @@ class CoverImageSelector:
             queries.get("dalle", f"Professional article illustration for: {title}")
         )
 
+    def _detect_vintage_tech_context(self, title: str, topics: list[str]) -> bool:
+        """Detect if article is about vintage/historical technology.
+
+        Args:
+            title: Article title
+            topics: List of topics
+
+        Returns:
+            True if vintage/historical tech context detected
+        """
+        vintage_keywords = {
+            "unix",
+            "v4",
+            "v7",
+            "vintage",
+            "retro",
+            "legacy",
+            "historical",
+            "tape",
+            "punch card",
+            "mainframe",
+            "minicomputer",
+            "bbs",
+            "atari",
+            "commodore",
+            "amiga",
+            "nes",
+            "snes",
+            "genesis",
+            "floppy",
+            "cassette",
+            "reel-to-reel",
+            "vax",
+            "pdp",
+            "1970s",
+            "1980s",
+            "1990s",
+            "early computing",
+            "computer history",
+            "museum",
+            "preservation",
+            "archaeology",
+            "recovery",
+            "rediscovering",
+        }
+
+        text = f"{title} {' '.join(topics)}".lower()
+        return any(keyword in text for keyword in vintage_keywords)
+
     def _generate_search_queries(self, title: str, topics: list[str]) -> dict[str, str]:
         """Use gpt-3.5-turbo to generate effective search queries.
 
@@ -185,20 +235,35 @@ class CoverImageSelector:
         Returns:
             Dict with keys: unsplash, pexels, dalle
         """
+        is_vintage = self._detect_vintage_tech_context(title, topics)
+        vintage_hint = ""
+        if is_vintage:
+            vintage_hint = "\n\n**VINTAGE/HISTORICAL TECH DETECTED**: Use generic vintage computing imagery (old computer rooms, retro hardware, vintage tech equipment). Specific old models won't be on stock sites!"
+
         prompt = f"""Generate SPECIFIC image search queries for this article. Return ONLY valid JSON.
 
 Title: {title}
-Topics: {", ".join(topics) if topics else "general"}
+Topics: {", ".join(topics) if topics else "general"}{vintage_hint}
 
 Return JSON with these keys:
 - "unsplash": query for Unsplash (high-quality natural photos, very specific)
 - "pexels": query for Pexels (generic focus, very specific)
 - "dalle": detailed prompt for DALL-E if no stock photo found
 
-IMPORTANT: Make queries as SPECIFIC as possible to the article topic.
-For "Bird Flight" topics, search for "owl in flight" not just "bird"
-For "quantum computing", search for "quantum computer chip" not just "technology"
-Each query should be 2-5 words and capture the SPECIFIC subject matter."""
+CRITICAL RULES:
+1. For vintage/historical tech (Unix, old computers, tape drives, retro gaming, etc.), use GENERIC MODERN EQUIVALENTS
+   - "unix v4 tape recovery" → "vintage computer data center" or "old mainframe computer"
+   - "NES gaming history" → "retro game console" or "vintage video game"
+   - "punch cards" → "vintage computer equipment" or "old data storage"
+   - "legacy systems" → "server room equipment" or "computer hardware"
+
+2. Stock photo sites rarely have specific historical tech items. Use broader concepts that capture the FEELING/ERA.
+
+3. For modern tech, be SPECIFIC:
+   - "quantum computing" → "quantum computer chip"
+   - "AI development" → "machine learning code screen"
+
+Each query should be 2-5 words and capture the subject matter realistically available on stock photo sites."""
 
         try:
             response = self.client.chat.completions.create(
@@ -209,6 +274,8 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
             )
 
             content = response.choices[0].message.content
+            if content is None:
+                raise ValueError("OpenAI returned empty content")
             return json.loads(content)
         except (json.JSONDecodeError, AttributeError, Exception) as e:
             console.print(
@@ -322,6 +389,9 @@ Each query should be 2-5 words and capture the SPECIFIC subject matter."""
                 quality="standard",
                 n=1,
             )
+
+            if not response.data or not response.data[0].url:
+                raise ValueError("DALL-E returned no image data")
 
             return CoverImage(
                 url=response.data[0].url,
