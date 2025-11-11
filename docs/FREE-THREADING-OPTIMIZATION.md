@@ -1,20 +1,66 @@
 # Free-Threading Optimization Implementation Plan
 
-**Status:** Python 3.14 ready, article generation parallelized  
+**Status:** ✅ Phase 0 COMPLETE | Ready for Phase 1 (Collection Parallelization)  
 **Target:** Parallelize collection and enrichment  
 **Expected:** 1.7-2.4x speedup (11-12 min → 5-7 min)  
-**⚠️ CRITICAL ISSUES:** Review findings identified major ScoringAdapter I/O contention and CostTracker thread-safety gaps - must be fixed before production
+**✅ PHASE 0 COMPLETE:** All critical I/O contention and thread-safety issues fixed
 
 ## Current Performance (Nov 10, 2025)
 
-| Phase | Time | Parallelized? |
-|-------|------|---------------|
-| Collect & Enrich | 7m 44s | ❌ NO |
-| Generate | 2m 25s | ✅ YES |
-| Deploy | 30s | N/A |
-| **Total** | **10m 53s** | **22%** |
+| Phase | Time | Parallelized? | Status |
+|-------|------|---------------|--------|
+| Collect & Enrich | 7m 44s | ❌ NO | ⏳ Ready for Phase 1 |
+| Generate | 2m 25s | ✅ YES | ✅ Done |
+| Deploy | 30s | N/A | ✅ Done |
+| **Total** | **10m 53s** | **22%** | **Phase 0 ✅ Phase 1 Ready** |
 
-## Critical Issues Found (From Code Review)
+## Phase 0 Completion Summary
+
+✅ **PHASE 0 COMPLETE** - All critical issues fixed and tested
+
+### What Was Fixed
+
+#### 1. **CRITICAL: ScoringAdapter per-thread disk loads**
+- ✅ Implemented module-level pattern cache: `_SHARED_PATTERNS_CACHE`
+- ✅ Patterns loaded once with `get_shared_patterns()` static method
+- ✅ Thread-local adapters created with `use_empty=True` parameter
+- ✅ Eliminates massive I/O contention (each thread no longer reloads 1000+ entries)
+
+#### 2. **Thread-Safe CostTracker**
+- ✅ Atomic copy under lock: `batch = self.entries.copy()`
+- ✅ All reads/writes protected with `Lock()`
+- ✅ Slow I/O outside lock prevents contention
+- ✅ Added thread-safe `get_entries()` method
+
+#### 3. **Enrichment Orchestrator**
+- ✅ Fixed deprecated `asyncio.get_event_loop()` → `asyncio.get_running_loop()`
+- ✅ Dynamic worker count based on CPU cores
+- ✅ Better error handling with `return_exceptions=True`
+- ✅ Proper sequential merge phase
+
+#### 4. **Immutable Pattern Classes**
+- ✅ SemanticDeduplicator: Patterns read-only during parallel phase
+- ✅ DeduplicationFeedbackSystem: Single-threaded feedback writes
+
+### Test Results
+```
+===== 10/10 thread-safety tests PASSING =====
+✅ TestCostTrackerThreadSafety (3 tests)
+✅ TestScoringAdapterThreadSafety (3 tests)
+✅ TestScoringAdapterPatternCaching (2 tests) - NEW
+✅ TestSemanticDeduplicatorThreadSafety (1 test)
+✅ TestEndToEndParallelism (1 test)
+```
+
+### Code Quality
+- ✅ All linting passes (ruff)
+- ✅ All formatting passes (ruff format)
+- ✅ All enrichment orchestrator tests pass (11 tests)
+
+### Documentation
+- ✅ Updated SETUP.md with conda + free-threading workflow
+- ✅ Comprehensive Phase 0 implementation details
+- ✅ Clear conda environment setup instructions
 
 ### 🔴 MAJOR: ScoringAdapter Loading Existing Data
 
@@ -77,9 +123,13 @@ max_workers = min(max_workers or (os.cpu_count() or 4) * 2, 16)
 
 ## Implementation Plan
 
-### Phase 0: Lock-Free Architecture (REQUIRED FIRST) - 1-2 days
+### ✅ Phase 0: Lock-Free Architecture (COMPLETE) 
 
-**PRINCIPLE: Avoid locks by eliminating shared mutable state**
+**Status:** DONE - All critical thread-safety fixes implemented and tested
+
+See [Phase 0 Completion Summary](#phase-0-completion-summary) above for details.
+
+Completed:
 
 #### Strategy: Thread-Local Instances + Sequential Merge
 
@@ -255,11 +305,11 @@ for i in {1..10}; do
 done
 ```
 
-### Phase 1: Collection Parallelization - 2-3 hours
+### Phase 1: Collection Parallelization - ⏳ NEXT (2-3 hours)
+
+**Status:** Ready to implement - All dependencies (Phase 0) complete
 
 **Expected gain:** 7-8 min → 2-3 min (4x speedup)
-
-**Lock-free:** Each collector independent I/O, no shared state
 
 #### Implementation
 
@@ -616,25 +666,32 @@ def enrich_collected_items(items, use_parallel=None):
 
 ## Success Criteria
 
-### Phase 0 (Architecture)
-- [ ] ScoringAdapter loads patterns once, not per-thread
-- [ ] CostTracker all read/write operations thread-safe
-- [ ] No locks held during slow I/O operations
-- [ ] Asyncio uses `get_running_loop()` instead of deprecated `get_event_loop()`
+### Phase 0 (Architecture) - ✅ COMPLETE
+- [x] ScoringAdapter loads patterns once, not per-thread
+- [x] CostTracker all read/write operations thread-safe
+- [x] No locks held during slow I/O operations
+- [x] Asyncio uses `get_running_loop()` instead of deprecated `get_event_loop()`
+- [x] 10/10 thread-safety tests passing
 
-### Phase 1-2 (Implementation)
+### Phase 1 (Collection Parallelization) - ⏳ READY
+- [ ] Parallel collection from all sources (Mastodon, Reddit, HN, GitHub)
+- [ ] 4x speedup measured (7-8 min → 2-3 min)
 - [ ] No race conditions in 10 consecutive runs
-- [ ] No corrupted data files (JSON integrity checks)
-- [ ] No duplicate articles generated
+- [ ] No data corruption
+
+### Phase 2 (Enrichment Parallelization) - ⏳ READY
+- [ ] Parallel enrichment with thread-local adapters
+- [ ] 2-3x speedup measured (2-3 min → 1 min)
+- [ ] No race conditions in 10 consecutive runs
 - [ ] Cost tracking accurate (±5%)
 
-### Phase 3 (Benchmarking)
+### Phase 3 (Benchmarking) - ⏳ READY
 - [ ] Enrichment speedup ≥ 2.0x measured locally
 - [ ] Collection speedup ≥ 2.8x measured locally
 - [ ] Overall pipeline speedup ≥ 1.8x measured locally
 - [ ] Memory usage stays within ±15% of sequential
 
-### Phase 4 (Production)
+### Phase 4 (Production) - ⏳ READY
 - [ ] 10 consecutive integration tests all pass
 - [ ] No data corruption detected
 - [ ] GitHub Actions workflow completes successfully
