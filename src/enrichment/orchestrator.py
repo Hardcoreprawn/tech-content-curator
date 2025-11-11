@@ -7,13 +7,15 @@ This module coordinates the enrichment process, combining:
 
 The orchestrator manages:
 - Single item enrichment with combined scoring
-- Sequential batch processing for reliability
+- Parallel processing with thread-local adapters (with PYTHON_GIL=0)
+- Sequential batch processing fallback for reliability
 - Adaptive learning updates and feedback tracking
 - Early exit optimization to save API costs
 """
 
 import asyncio
 import os
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 
@@ -305,17 +307,29 @@ async def enrich_collected_items_async(
         List of successfully enriched items
     """
     config = get_config()
+    enrichment_start = time.perf_counter()
 
     console.print(
         f"[bold blue]⚡ Starting parallel enrichment of {len(items)} items...[/bold blue]"
     )
-    logger.info(f"Beginning parallel enrichment of {len(items)} collected items")
+    logger.info(
+        f"Beginning parallel enrichment of {len(items)} collected items",
+        extra={"phase": "enrichment", "mode": "parallel", "total_items": len(items)},
+    )
 
     # CRITICAL FIX: Load patterns ONCE before thread pool starts
     # This prevents per-thread disk reads (major I/O contention)
+    patterns_start = time.perf_counter()
     base_patterns = ScoringAdapter.get_shared_patterns()
-    logger.debug(
-        f"Loaded shared patterns: {len(base_patterns.get('undervalued_keywords', []))} keywords"
+    patterns_time = time.perf_counter() - patterns_start
+    logger.info(
+        f"Loaded shared patterns in {patterns_time:.2f}s: {len(base_patterns.get('undervalued_keywords', []))} keywords",
+        extra={
+            "phase": "enrichment",
+            "event": "patterns_loaded",
+            "time_seconds": patterns_time,
+            "keywords_count": len(base_patterns.get("undervalued_keywords", [])),
+        },
     )
 
     def enrich_wrapper(item: CollectedItem) -> tuple[EnrichedItem | None, dict]:
@@ -327,13 +341,38 @@ async def enrich_collected_items_async(
         """
         # Create per-thread adapter with empty feedback
         adapter = ScoringAdapter(use_empty=True)
+        item_start = time.perf_counter()
 
         try:
             enriched = enrich_single_item(item, config, adapter)
+            item_time = time.perf_counter() - item_start
+
+            # Log successful enrichment with timing
+            logger.debug(
+                f"Enriched item {item.id} in {item_time:.2f}s (score: {enriched.quality_score if enriched else 'N/A'})",
+                extra={
+                    "phase": "enrichment",
+                    "event": "item_enriched",
+                    "item_id": item.id,
+                    "time_seconds": item_time,
+                    "score": enriched.quality_score if enriched else None,
+                },
+            )
             # Return both result and adapter state for merging
             return (enriched, adapter.get_feedback_data())
         except Exception as e:
-            logger.error(f"Enrichment failed for item {item.id}: {e}", exc_info=True)
+            item_time = time.perf_counter() - item_start
+            logger.error(
+                f"Enrichment failed for item {item.id} after {item_time:.2f}s: {e}",
+                exc_info=True,
+                extra={
+                    "phase": "enrichment",
+                    "event": "item_failed",
+                    "item_id": item.id,
+                    "time_seconds": item_time,
+                    "error": str(e),
+                },
+            )
             return (None, {})
 
     # Parallel phase: isolated processing (no per-thread disk reads!)
@@ -346,8 +385,20 @@ async def enrich_collected_items_async(
 
     # Dynamic worker count based on CPU count and rate limits
     optimal_workers = min(max_workers, (os.cpu_count() or 4) * 2, 8)
-    logger.debug(
-        f"Using {optimal_workers} workers for enrichment (CPU count: {os.cpu_count()})"
+    logger.info(
+        f"Using {optimal_workers} workers for parallel enrichment (CPU count: {os.cpu_count()})",
+        extra={
+            "phase": "enrichment",
+            "event": "workers_initialized",
+            "worker_count": optimal_workers,
+            "cpu_count": os.cpu_count(),
+        },
+    )
+
+    # Execute parallel enrichment
+    parallel_start = time.perf_counter()
+    console.print(
+        f"[dim]Launching {optimal_workers} parallel enrichment workers...[/dim]"
     )
 
     with ThreadPoolExecutor(max_workers=optimal_workers) as executor:
@@ -356,16 +407,36 @@ async def enrich_collected_items_async(
         ]
         results = await asyncio.gather(*futures, return_exceptions=True)
 
+    parallel_time = time.perf_counter() - parallel_start
+    logger.info(
+        f"Parallel enrichment phase completed in {parallel_time:.2f}s",
+        extra={
+            "phase": "enrichment",
+            "event": "parallel_phase_complete",
+            "time_seconds": parallel_time,
+            "items_processed": len(results),
+        },
+    )
+
     # Sequential merge: no locks needed
+    merge_start = time.perf_counter()
     enriched_items = []
     final_adapter = ScoringAdapter()
     rejected_items = []
     failed_count = 0
+    exception_count = 0
 
     for result in results:
         if isinstance(result, Exception):
-            logger.error(f"Thread execution failed: {result}")
-            failed_count += 1
+            logger.error(
+                f"Thread execution failed: {result}",
+                extra={
+                    "phase": "enrichment",
+                    "event": "thread_exception",
+                    "error": str(result),
+                },
+            )
+            exception_count += 1
             rejected_items.append(("Unknown", 0.0, "thread_exception"))
             continue
 
@@ -383,19 +454,73 @@ async def enrich_collected_items_async(
             enriched_items.append(enriched)
             final_adapter.merge_feedback(feedback_data)
         else:
+            failed_count += 1
             rejected_items.append(("Unknown", 0.0, "enrichment_failed"))
 
-    if failed_count > 0:
-        console.print(f"[yellow]⚠ {failed_count} threads failed to complete[/yellow]")
-        logger.warning(f"Enrichment: {failed_count} thread exceptions")
+    merge_time = time.perf_counter() - merge_start
+
+    if exception_count > 0 or failed_count > 0:
+        console.print(
+            f"[yellow]⚠ {exception_count} thread exceptions, {failed_count} enrichment failures[/yellow]"
+        )
+        logger.warning(
+            f"Enrichment: {exception_count} thread exceptions, {failed_count} enrichment failures",
+            extra={
+                "phase": "enrichment",
+                "event": "merge_complete",
+                "thread_exceptions": exception_count,
+                "enrichment_failures": failed_count,
+                "successful": len(enriched_items),
+                "time_seconds": merge_time,
+            },
+        )
+    else:
+        logger.info(
+            f"Merge phase complete: {len(enriched_items)} items successfully enriched",
+            extra={
+                "phase": "enrichment",
+                "event": "merge_complete",
+                "successful": len(enriched_items),
+                "time_seconds": merge_time,
+            },
+        )
 
     # Single-threaded save
     console.print("[blue]Updating adaptive scoring patterns...[/blue]")
+    save_start = time.perf_counter()
     final_adapter.update_learned_patterns()
     final_adapter.save_feedback()
+    save_time = time.perf_counter() - save_start
+
+    logger.info(
+        f"Patterns and feedback saved in {save_time:.2f}s",
+        extra={
+            "phase": "enrichment",
+            "event": "patterns_saved",
+            "time_seconds": save_time,
+        },
+    )
 
     # Print analysis report
     final_adapter.print_analysis_report()
+
+    # Total timing summary
+    total_time = time.perf_counter() - enrichment_start
+    logger.info(
+        f"Complete enrichment finished: {len(enriched_items)} items in {total_time:.2f}s "
+        f"(parallel: {parallel_time:.2f}s, merge: {merge_time:.2f}s, save: {save_time:.2f}s)",
+        extra={
+            "phase": "enrichment",
+            "event": "complete",
+            "total_time": total_time,
+            "parallel_time": parallel_time,
+            "merge_time": merge_time,
+            "save_time": save_time,
+            "successful_items": len(enriched_items),
+            "rejected_items": len(rejected_items),
+        },
+    )
+    console.print(f"[dim]Total enrichment time: {total_time:.2f}s[/dim]")
 
     # Quality score distribution
     if enriched_items:
