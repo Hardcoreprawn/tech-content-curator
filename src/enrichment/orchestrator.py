@@ -11,6 +11,44 @@ The orchestrator manages:
 - Sequential batch processing fallback for reliability
 - Adaptive learning updates and feedback tracking
 - Early exit optimization to save API costs
+
+LOGGING & OBSERVABILITY:
+========================
+
+The enrichment pipeline includes comprehensive structured logging for tracking:
+
+1. Timing Instrumentation:
+   - Parallel enrichment phase (per-worker coordination time)
+   - Merge phase (sequential result aggregation time)
+   - Pattern loading and saving time
+   - Total enrichment duration with phase breakdown
+
+2. Structured Logging with Extras:
+   All INFO logs include 'extra' dict with:
+   - phase='enrichment' (consistent phase tag)
+   - event='patterns_loaded' | 'workers_initialized' | 'parallel_phase_complete'
+         | 'merge_complete' | 'patterns_saved' | 'complete'
+   - Metrics: time_seconds, worker_count, items_processed, successful_items, etc.
+   - Per-item: item_id, score, time_seconds for each enriched item
+   - Errors: error_type, error_context for failures
+
+3. Log Levels:
+   - INFO: Major phases, timing summaries, completion status
+   - DEBUG: Per-item processing timing and scores
+   - WARNING: Failures, exceptions (with counts and context)
+   - ERROR: Individual item enrichment failures
+
+4. Parsing Logs:
+   Structured logs can be parsed with:
+   ```
+   import json
+   log_line = "[INFO] ... extra={'phase': 'enrichment', 'event': 'complete', ...}"
+   # Extract metrics from 'extra' dict for analytics
+   ```
+
+Example Output:
+  [INFO] src.enrichment.orchestrator - Parallel enrichment phase completed in 130.32s
+    extra={...phase, event, time_seconds, items_processed...}
 """
 
 import asyncio

@@ -6,6 +6,32 @@ This module provides utility functions for managing collected items:
 - Orchestrating collection from all sources
 
 With PYTHON_GIL=0, uses parallel collection for improved performance.
+
+LOGGING & OBSERVABILITY:
+========================
+
+Parallel collection includes comprehensive structured logging for tracking:
+
+1. Timing Instrumentation:
+   - Per-source collection time (Mastodon, Reddit, HackerNews, GitHub)
+   - Deduplication time (exact + semantic)
+   - Total collection duration with phase breakdown
+
+2. Structured Logging with Extras:
+   All INFO logs include 'extra' dict with:
+   - phase='collection' (consistent phase tag)
+   - event='patterns_loaded' | 'workers_initialized' | 'parallel_phase_complete'
+   - Metrics: time_seconds, item_count per source, total_items, unique_items
+   - Source: 'Mastodon' | 'Reddit' | 'HackerNews' | 'GitHub'
+
+3. Timing Summaries:
+   - Source-level: Each source shows collection time
+   - Phase-level: Parallel collection phase + deduplication time
+   - Total: Complete collection time with all phases
+
+4. Example Output:
+   [INFO] src.collectors.orchestrator - Mastodon collected 36 items in 11.10s
+   [INFO] src.collectors.orchestrator - Parallel collection completed: 85 items ...
 """
 
 import asyncio
