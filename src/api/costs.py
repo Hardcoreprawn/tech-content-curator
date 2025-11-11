@@ -14,6 +14,7 @@ import json
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
+from threading import Lock
 from typing import Literal
 
 from rich.console import Console
@@ -77,6 +78,8 @@ class CostTracker:
         self.data_file = data_file
         self.data_file.parent.mkdir(parents=True, exist_ok=True)
         self.entries: list[GenerationCostEntry] = []
+        self._pending: list[GenerationCostEntry] = []  # Accumulate during run
+        self._lock = Lock()  # Only for fast appends
         self.load()
 
     def load(self):
@@ -98,12 +101,23 @@ class CostTracker:
             logger.debug(f"Cost file does not exist yet: {self.data_file}")
 
     def save(self):
-        """Save cost data to file."""
-        logger.debug(f"Saving {len(self.entries)} cost entries to file")
+        """Save cost data to file (batches pending entries).
+
+        Thread-safe: atomic copy under lock, I/O outside lock.
+        """
+        # Lock once, copy batch atomically
+        with self._lock:
+            batch = self.entries.copy()  # Atomic copy
+            batch.extend(self._pending)
+            self._pending = []
+            self.entries = batch  # Update under lock
+
+        logger.debug(f"Saving {len(batch)} cost entries to file")
         try:
+            # Slow I/O outside lock
             with open(self.data_file, "w", encoding="utf-8") as f:
                 json.dump(
-                    [asdict(entry) for entry in self.entries],
+                    [asdict(entry) for entry in batch],
                     f,
                     indent=2,
                     default=str,
@@ -141,9 +155,12 @@ class CostTracker:
             total_cost=total_cost,
             status="saved",
         )
-        self.entries.append(entry)
+
+        # Lock only for fast list append (< 1ms)
+        with self._lock:
+            self._pending.append(entry)
+
         logger.info(f"Recorded cost for {article_filename}: ${total_cost:.8f}")
-        self.save()
 
     def record_rejected_duplicate(
         self,
@@ -174,7 +191,11 @@ class CostTracker:
             status="rejected_duplicate",
             duplicate_of=duplicate_of,
         )
-        self.entries.append(entry)
+
+        # Thread-safe append
+        with self._lock:
+            self._pending.append(entry)
+
         self.save()
 
         console.print(
@@ -202,7 +223,11 @@ class CostTracker:
             total_cost=estimated_cost,
             status="rejected_pre_gen",
         )
-        self.entries.append(entry)
+
+        # Thread-safe append
+        with self._lock:
+            self._pending.append(entry)
+
         self.save()
 
     def get_summary(self, days: int = 30) -> CostSummary:
@@ -219,9 +244,14 @@ class CostTracker:
 
         logger.debug(f"Calculating cost summary for last {days} days")
         cutoff = datetime.now(UTC) - timedelta(days=days)
+
+        # Thread-safe read
+        with self._lock:
+            entries_copy = self.entries.copy()
+
         recent = [
             e
-            for e in self.entries
+            for e in entries_copy
             if datetime.fromisoformat(e.timestamp.replace("Z", "+00:00")) >= cutoff
         ]
 
@@ -301,6 +331,14 @@ class CostTracker:
                 f"[green]✓ Savings from pre-gen filtering:[/green] ${summary.estimated_savings:.4f}"
             )
 
+    def get_entries(self) -> list[GenerationCostEntry]:
+        """Thread-safe read of entries.
+
+        Returns a copy to prevent external mutations.
+        """
+        with self._lock:
+            return self.entries.copy()
+
     def get_waste_patterns(self) -> list[tuple[str, int, float]]:
         """
         Analyze what types of articles are being wasted.
@@ -310,9 +348,13 @@ class CostTracker:
         """
         from collections import defaultdict
 
+        # Thread-safe read
+        with self._lock:
+            entries_copy = self.entries.copy()
+
         waste_by_source = defaultdict(lambda: {"count": 0, "cost": 0.0})
 
-        for entry in self.entries:
+        for entry in entries_copy:
             if entry.status == "rejected_duplicate" and entry.duplicate_of:
                 waste_by_source[entry.duplicate_of]["count"] += 1
                 waste_by_source[entry.duplicate_of]["cost"] += entry.total_cost

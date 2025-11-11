@@ -36,7 +36,14 @@ class DuplicationPattern:
 
 
 class SemanticDeduplicator:
-    """Learns patterns for semantic deduplication."""
+    """Learns patterns for semantic deduplication.
+
+    Thread-safe design:
+    - Patterns are loaded once at initialization
+    - find_duplicates() is read-only, safe for parallel access
+    - Learning (_learn_from_duplicates) is called single-threaded after parallel phase
+    - save_patterns() is called single-threaded at pipeline end
+    """
 
     def __init__(self, patterns_file: Path = Path("data/dedup_patterns.json")):
         self.patterns_file = patterns_file

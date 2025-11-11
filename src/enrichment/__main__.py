@@ -4,15 +4,18 @@ Usage:
     python -m src.enrichment
 
 This will find the most recent collected data file and enrich all items.
+With PYTHON_GIL=0, uses parallel enrichment for faster results.
 """
 
+import asyncio
 import logging
 
 from rich.console import Console
 
 from ..config import get_data_dir
+from ..utils.free_threading import supports_free_threading
 from .file_io import load_collected_items, save_enriched_items
-from .orchestrator import enrich_collected_items
+from .orchestrator import enrich_collected_items, enrich_collected_items_async
 
 console = Console()
 logger = logging.getLogger(__name__)
@@ -35,7 +38,15 @@ def main() -> int:
 
     # Load and enrich items
     items = load_collected_items(latest_file)
-    enriched = enrich_collected_items(items)
+
+    # Use parallel enrichment if free-threading is available
+    if supports_free_threading():
+        console.print(
+            "[bold green]⚡ Python 3.14 free-threading enabled - enriching in parallel![/bold green]"
+        )
+        enriched = asyncio.run(enrich_collected_items_async(items))
+    else:
+        enriched = enrich_collected_items(items)
 
     # Save results - always save enriched items, even if count is low
     if enriched:

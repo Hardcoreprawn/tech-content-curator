@@ -3170,16 +3170,15 @@
     "user_corrections": null
   },
   {
-    "items_processed": 61,
-    "duplicates_found": 3,
+    "items_processed": 51,
+    "duplicates_found": 2,
     "patterns_used": 581,
-    "timestamp": "2025-11-11T09:26:27.840699",
+    "timestamp": "2025-11-11T12:41:54.714442",
     "examples": [
       {
-        "group_size": 3,
-        "kept_item": "Show HN: PhantomCollect \u2013 Open-Source Web Data Collection Framework in Python",
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
         "removed_items": [
-          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
           "Python\n\nAll Algorithms implemented in Python"
         ]
       },
@@ -3194,16 +3193,46 @@
     "user_corrections": null
   },
   {
-    "items_processed": 59,
+    "items_processed": 78,
     "duplicates_found": 3,
-    "patterns_used": 586,
-    "timestamp": "2025-11-11T18:10:07.914897",
+    "patterns_used": 587,
+    "timestamp": "2025-11-11T12:42:38.785137",
     "examples": [
       {
         "group_size": 2,
-        "kept_item": "According to Nevada's report into its recent ransomware attack, a state employee \"searched Google fo",
+        "kept_item": "Austria says yes to digital sovereignty \ud83d\udd25 The Federal Ministry for Economy, Energy and Tourism (BMWE",
         "removed_items": [
-          "Show HN: Gametje \u2013 A casual online gaming platform\n\nHi all, I\u2019ve been working on this project for a "
+          "The Linux Kernel Looks To &#34;Bite The Bullet&#34; In Enabling Microsoft C Extensions"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 78,
+    "duplicates_found": 3,
+    "patterns_used": 593,
+    "timestamp": "2025-11-11T12:43:05.429296",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Austria says yes to digital sovereignty \ud83d\udd25 The Federal Ministry for Economy, Energy and Tourism (BMWE",
+        "removed_items": [
+          "The Linux Kernel Looks To &#34;Bite The Bullet&#34; In Enabling Microsoft C Extensions"
         ]
       },
       {

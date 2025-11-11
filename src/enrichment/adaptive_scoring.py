@@ -8,6 +8,7 @@ the AI consistently scores content higher than heuristics, then adapts.
 import json
 import statistics
 from datetime import UTC, datetime
+from threading import Lock
 
 from rich.console import Console
 
@@ -18,14 +19,81 @@ from ..utils.logging import get_logger
 logger = get_logger(__name__)
 console = Console()
 
+# Module-level cache for shared patterns (loaded once, shared immutably)
+_SHARED_PATTERNS_CACHE: dict | None = None
+_PATTERNS_LOCK = Lock()
+
 
 class ScoringAdapter:
     """Learns from AI vs heuristic score differences to improve heuristic scoring."""
 
-    def __init__(self):
+    def __init__(self, use_empty=False):
+        """
+        Initialize adapter.
+
+        Args:
+            use_empty: If True, create with empty feedback (for thread-local accumulation).
+                      If False, load from disk (for main/merge instance).
+        """
         self.feedback_file = get_data_dir() / "scoring_feedback.json"
         self.patterns_file = get_data_dir() / "scoring_patterns.json"
-        self.load_feedback_data()
+        self.use_empty = use_empty
+
+        if use_empty:
+            # Thread-local instance: empty feedback, shared patterns reference
+            self.feedback_history = []
+            self.learned_patterns = ScoringAdapter.get_shared_patterns().copy()
+        else:
+            # Main instance: load everything from disk
+            self.load_feedback_data()
+
+    @staticmethod
+    def get_shared_patterns() -> dict:
+        """Load patterns once, cache at module level (immutable during execution).
+
+        This is critical for avoiding per-thread disk loads. Called once before
+        thread pool starts, then shared reference passed to each thread.
+        """
+        global _SHARED_PATTERNS_CACHE
+
+        if _SHARED_PATTERNS_CACHE is not None:
+            return _SHARED_PATTERNS_CACHE
+
+        with _PATTERNS_LOCK:
+            # Double-check pattern
+            if _SHARED_PATTERNS_CACHE is not None:
+                return _SHARED_PATTERNS_CACHE
+
+            patterns_file = get_data_dir() / "scoring_patterns.json"
+            try:
+                if patterns_file.exists():
+                    with open(patterns_file) as f:
+                        _SHARED_PATTERNS_CACHE = json.load(f)
+                        logger.debug("Loaded shared patterns from disk")
+                else:
+                    _SHARED_PATTERNS_CACHE = {
+                        "undervalued_keywords": [],
+                        "engagement_thresholds": {},
+                        "content_patterns": [],
+                        "length_adjustments": {},
+                    }
+                    logger.debug("Initialized empty shared patterns")
+            except Exception as e:
+                logger.error(f"Failed to load shared patterns: {e}")
+                _SHARED_PATTERNS_CACHE = {
+                    "undervalued_keywords": [],
+                    "engagement_thresholds": {},
+                    "content_patterns": [],
+                    "length_adjustments": {},
+                }
+
+            return _SHARED_PATTERNS_CACHE
+
+    @staticmethod
+    def clear_shared_patterns_cache():
+        """Clear the shared patterns cache. Useful for testing."""
+        global _SHARED_PATTERNS_CACHE
+        _SHARED_PATTERNS_CACHE = None
 
     def load_feedback_data(self) -> None:
         """Load historical scoring feedback and learned patterns."""
@@ -243,6 +311,73 @@ class ScoringAdapter:
                 json.dump(self.learned_patterns, f, indent=2)
         except Exception as e:
             console.print(f"[yellow]Warning: Could not save patterns: {e}[/yellow]")
+
+    def get_feedback_data(self) -> dict:
+        """Export feedback for merging across threads.
+
+        Returns:
+            Dictionary with feedback history and learned patterns
+        """
+        return {
+            "feedback_history": self.feedback_history[:],  # Copy
+            "learned_patterns": {
+                "undervalued_keywords": self.learned_patterns.get(
+                    "undervalued_keywords", []
+                )[:],
+                "engagement_thresholds": self.learned_patterns.get(
+                    "engagement_thresholds", {}
+                ).copy(),
+                "content_patterns": self.learned_patterns.get("content_patterns", [])[
+                    :
+                ],
+                "length_adjustments": self.learned_patterns.get(
+                    "length_adjustments", {}
+                ).copy(),
+            },
+        }
+
+    def merge_feedback(self, data: dict) -> None:
+        """Merge feedback from thread-local adapter.
+
+        Args:
+            data: Dictionary from get_feedback_data() containing feedback to merge
+        """
+        # Merge feedback history
+        self.feedback_history.extend(data.get("feedback_history", []))
+
+        # Merge learned patterns
+        patterns = data.get("learned_patterns", {})
+
+        # Merge undervalued keywords (deduplicate)
+        existing_keywords = set(self.learned_patterns.get("undervalued_keywords", []))
+        new_keywords = patterns.get("undervalued_keywords", [])
+        existing_keywords.update(new_keywords)
+        self.learned_patterns["undervalued_keywords"] = list(existing_keywords)
+
+        # Merge engagement thresholds (take max adjustment for each threshold)
+        existing_thresholds = self.learned_patterns.get("engagement_thresholds", {})
+        new_thresholds = patterns.get("engagement_thresholds", {})
+        for threshold, adjustment in new_thresholds.items():
+            if threshold in existing_thresholds:
+                existing_thresholds[threshold] = max(
+                    existing_thresholds[threshold], adjustment
+                )
+            else:
+                existing_thresholds[threshold] = adjustment
+
+        # Merge content patterns
+        self.learned_patterns["content_patterns"].extend(
+            patterns.get("content_patterns", [])
+        )
+
+        # Merge length adjustments
+        existing_lengths = self.learned_patterns.get("length_adjustments", {})
+        new_lengths = patterns.get("length_adjustments", {})
+        for length, adjustment in new_lengths.items():
+            if length in existing_lengths:
+                existing_lengths[length] = max(existing_lengths[length], adjustment)
+            else:
+                existing_lengths[length] = adjustment
 
     def save_feedback(self) -> None:
         """Save feedback history to disk."""

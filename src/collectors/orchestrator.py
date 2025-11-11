@@ -6,6 +6,9 @@ This module provides utility functions for managing collected items:
 - Orchestrating collection from all sources
 """
 
+import asyncio
+import os
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import cast
@@ -170,6 +173,116 @@ def deduplicate_items(items: list[CollectedItem]) -> list[CollectedItem]:
             console.print(
                 f"[dim]Using {stats['total_patterns']} learned patterns with {stats.get('avg_confidence', 0):.2f} avg confidence[/dim]"
             )
+
+    return unique_items
+
+
+async def collect_all_sources_async() -> list[CollectedItem]:
+    """Collect content from all sources in parallel using free-threading.
+
+    This function uses ThreadPoolExecutor for true parallel I/O when running
+    with PYTHON_GIL=0. Each collector runs independently with no shared state,
+    then results are merged sequentially at the end.
+
+    Returns:
+        List of deduplicated collected items
+    """
+    config = get_config()
+
+    console.print("[bold blue]⚡ Starting parallel content collection...[/bold blue]")
+
+    # Define wrapper functions for each source (isolated, no shared state)
+    def collect_mastodon_wrapper():
+        """Collect from all Mastodon instances."""
+        items = []
+        for instance in config.mastodon_instances:
+            try:
+                instance_config = PipelineConfig(
+                    openai_api_key=config.openai_api_key,
+                    mastodon_instances=[instance],
+                    articles_per_run=config.articles_per_run,
+                    min_content_length=config.min_content_length,
+                    max_content_length=config.max_content_length,
+                )
+                mastodon_items = collect_from_mastodon_trending(instance_config)
+                items.extend(mastodon_items)
+                logger.info(f"Collected {len(mastodon_items)} items from {instance}")
+
+                if len(items) >= 80:
+                    logger.info(f"Reached 80 items from Mastodon, stopping")
+                    break
+            except Exception as e:
+                logger.error(f"Mastodon {instance} failed: {e}")
+                continue
+        return items
+
+    def collect_reddit_wrapper():
+        """Collect from Reddit."""
+        try:
+            items = collect_from_reddit(config, limit=20)
+            logger.info(f"Collected {len(items)} items from Reddit")
+            return items
+        except Exception as e:
+            logger.error(f"Reddit collection failed: {e}")
+            return []
+
+    def collect_hn_wrapper():
+        """Collect from HackerNews."""
+        try:
+            items = collect_from_hackernews(limit=30)
+            logger.info(f"Collected {len(items)} items from HackerNews")
+            return items
+        except Exception as e:
+            logger.error(f"HackerNews collection failed: {e}")
+            return []
+
+    def collect_github_wrapper():
+        """Collect from GitHub Trending."""
+        try:
+            items = collect_from_github_trending(limit=20)
+            logger.info(f"Collected {len(items)} items from GitHub")
+            return items
+        except Exception as e:
+            logger.error(f"GitHub collection failed: {e}")
+            return []
+
+    # Parallel phase: each thread isolated, no sharing
+    loop = asyncio.get_event_loop()
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = [
+            loop.run_in_executor(executor, collect_mastodon_wrapper),
+            loop.run_in_executor(executor, collect_reddit_wrapper),
+            loop.run_in_executor(executor, collect_hn_wrapper),
+            loop.run_in_executor(executor, collect_github_wrapper),
+        ]
+        results = await asyncio.gather(*futures, return_exceptions=True)
+
+    # Sequential merge: no locks needed
+    all_items = []
+    source_names = ["Mastodon", "Reddit", "HackerNews", "GitHub"]
+    for i, result in enumerate(results):
+        if isinstance(result, Exception):
+            logger.error(
+                f"{source_names[i]} collection failed: {result}",
+                exc_info=result,
+                extra={"source": source_names[i], "phase": "collection"},
+            )
+            console.print(
+                f"[yellow]⚠[/yellow] {source_names[i]} collection failed: {result}"
+            )
+            continue
+        if isinstance(result, list):
+            all_items.extend(result)
+            logger.info(
+                f"{source_names[i]} collected {len(result)} items",
+                extra={"source": source_names[i], "count": len(result)},
+            )
+
+    console.print(f"\n[bold]Total items before deduplication: {len(all_items)}[/bold]")
+
+    # Deduplication reads immutable patterns - no locks needed
+    unique_items = deduplicate_items(all_items)
+    console.print(f"[bold green]Final unique items: {len(unique_items)}[/bold green]")
 
     return unique_items
 

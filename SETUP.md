@@ -27,16 +27,39 @@ This project is configured to run on **WSL2 (Linux)** for maximum consistency:
 
 ## One-Command Setup (Recommended)
 
+### For maximum performance: conda + free-threading
+
 After cloning the repository, run this in WSL bash terminal:
+
+```bash
+bash scripts/setup_python_314_nogil_conda.sh
+conda activate py314-nogil
+source .venv/bin/activate
+pytest tests/ -v                    # Verify setup with 3.14 no-GIL
+```
+
+This script handles:
+- Installs conda (if needed)
+- Creates Python 3.14 no-GIL environment (`py314-nogil`)
+- Installs `uv` package manager in that environment
+- Syncs all dependencies (including dev/test)
+- Configures VS Code environment
+- Verifies everything works (with 3-4x speedup!)
+
+**Performance:** Tests run 3-4x faster with free-threading enabled!
+
+### Alternative: Standard uv setup
+
+If you prefer not to use conda, run this instead:
 
 ```bash
 cd /mnt/d/projects/tech-content-curator
 ./scripts/setup-dev.sh
 ```
 
-This script handles:
+This handles:
 - Installs `uv` package manager
-- Downloads Python 3.14
+- Downloads Python 3.14 (standard, no free-threading)
 - Syncs all dependencies (including dev/test)
 - Configures VS Code environment
 - Verifies everything works
@@ -139,18 +162,18 @@ uv run ruff --version              # Should work
 
 If all show correct versions/output, **setup is complete!**
 
-## Python 3.14 Free-Threading (Now Enabled in GitHub Actions!)
+## Python 3.14 Free-Threading with conda (RECOMMENDED)
 
 Your project is optimized for **Python 3.14's free-threading**, which provides **3-4x speedup** on article generation.
 
 ### Quick Summary
 
-| Feature | Benefit |
-|---------|---------|
-| **Standard Python 3.14** | Works fine, no speedup |
-| **Python 3.14 (no-GIL)** | **3-4x faster article generation** ✓ |
-| **GitHub Actions** | **NOW using 3.14t (free-threaded)!** ✓ |
-| **Local Testing** | **Free-threading available** (optional) |
+| Feature | Benefit | How to Use |
+|---------|---------|-----------|
+| **Standard Python 3.14** | Works fine, no speedup | `uv run python ...` |
+| **Python 3.14 (no-GIL)** | **3-4x faster article generation** ✓ | `conda activate py314-nogil && source .venv/bin/activate && python ...` |
+| **GitHub Actions** | **NOW using 3.14t (free-threaded)!** ✓ | Auto - just push code |
+| **Local Development** | **Free-threading recommended** (optional) | See setup below |
 
 ### GitHub Actions Status
 
@@ -160,30 +183,94 @@ The workflows have been updated to use GitHub Actions' new support for free-thre
 
 Just push code and your workflows will run ~3-4x faster than before!
 
-### Two Easy Setup Options (For Local Testing)
+### Recommended: conda + uv Setup (Python 3.14 no-GIL)
 
-**Option 1: Fast Setup with conda-forge (Recommended)**
+This is the **recommended development setup** for maximum performance locally.
+
+#### Step 1: Install conda (if not already installed)
+
 ```bash
+# Use miniforge (lightweight, doesn't require activation)
+curl -L -o Miniforge3-Linux-x86_64.sh https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh
+source ~/.bashrc
+```
+
+#### Step 2: Create Python 3.14 no-GIL conda environment
+
+```bash
+# One-command setup (recommended)
 bash scripts/setup_python_314_nogil_conda.sh
+
+# OR manually:
+conda create -n py314-nogil python=3.14t -c conda-forge -y
 conda activate py314-nogil
+```
+
+#### Step 3: Install project dependencies with uv
+
+Once conda environment is active:
+
+```bash
+conda activate py314-nogil
+cd /mnt/d/projects/tech-content-curator
+uv sync --all-extras        # Installs into conda env's .venv
+source .venv/bin/activate   # Activate the generated venv
+```
+
+#### Step 4: Verify setup and run tests
+
+```bash
+# Verify Python version
+python --version                     # Should show 3.14.x (no-GIL)
+
+# Run thread-safety tests
+pytest tests/test_thread_safety.py -v
+
+# Benchmark parallel enrichment (if you have API keys)
 PYTHON_GIL=0 python scripts/benchmark_free_threading.py
 ```
-**Time:** 2 minutes | **Space:** 2GB
 
-**Option 2: Build from Source (Advanced)**
+#### Daily workflow with conda + free-threading
+
 ```bash
-bash scripts/setup_python_314_nogil.sh
-PYTHON_GIL=0 python314-nogil scripts/benchmark_free_threading.py
+# Start development session
+conda activate py314-nogil
+cd /mnt/d/projects/tech-content-curator
+source .venv/bin/activate
+
+# Run tests (automatically uses free-threading)
+pytest tests/ -v
+
+# Run with free-threading explicitly disabled for comparison
+PYTHON_GIL=1 pytest tests/test_thread_safety.py -v
+
+# Run with free-threading enabled (default if no-GIL Python)
+PYTHON_GIL=0 pytest tests/test_thread_safety.py -v
 ```
-**Time:** 5-10 minutes | **Space:** 1GB
+
+### Alternative: Standard uv Setup (without free-threading)
+
+If you prefer not to set up conda, standard `uv` setup still works fine:
+
+```bash
+# Use regular Python 3.14 (not no-GIL)
+uv python install 3.14
+cd /mnt/d/projects/tech-content-curator
+uv sync --python 3.14 --all-extras
+uv run pytest tests/ -v
+```
+
+This works well for development, but won't benefit from free-threading speedup.
 
 ### Full Documentation
 
 👉 See **[docs/FREE-THREADING-SETUP.md](docs/FREE-THREADING-SETUP.md)** for:
-- Detailed setup instructions
+- Detailed setup instructions (conda + uv)
 - Performance comparisons  
 - Troubleshooting guide
-- Local testing examples
+- Thread-safety validation tests
+- Phase 0 architecture improvements
 
 ### Performance Numbers
 
@@ -191,10 +278,31 @@ PYTHON_GIL=0 python314-nogil scripts/benchmark_free_threading.py
 - **Python 3.14 (no-GIL):** ~70s for 4 articles
 - **Speedup:** 3.4x faster ✓
 - **Monthly savings:** ~10.5 hours per month
+- **Thread-safety:** Phase 0 architecture fixes eliminate per-thread I/O contention
 
 ## Daily Development Workflow
 
-### Running Code
+### Option A: With conda + free-threading (Recommended)
+
+```bash
+# Start session with free-threading enabled
+conda activate py314-nogil
+cd /mnt/d/projects/tech-content-curator
+source .venv/bin/activate
+
+# Run commands (automatically uses free-threading)
+python script.py                    # Run a script
+pytest tests/                       # Run tests (3-4x faster)
+mypy src/                           # Type checking
+ruff check src/                     # Linting
+ruff format src/                    # Auto-format
+
+# Compare with standard Python (if needed)
+PYTHON_GIL=1 pytest tests/ -v       # Run with GIL enabled
+PYTHON_GIL=0 pytest tests/ -v       # Run with free-threading (default)
+```
+
+### Option B: With standard uv (no free-threading)
 
 Always use `uv run` to ensure the right Python is used:
 
@@ -206,7 +314,7 @@ uv run ruff check src/              # Linting
 uv run ruff format src/             # Auto-format
 ```
 
-**Important for AI agents:** Always prefix Python commands with `uv run` to guarantee the correct environment.
+**Important for AI agents:** Always prefix Python commands with `uv run` (Option B) or activate conda (Option A) to guarantee the correct environment.
 
 ### Running Tests
 
@@ -264,7 +372,48 @@ cp .env.example .env
 
 ## Troubleshooting
 
-### Terminal Issues (Multiple Spawning, "Terminal Broken")
+### conda + free-threading specific issues
+
+#### "python314-nogil not found"
+```bash
+# Verify conda-forge channel is available
+conda config --show channels
+
+# If not listed, add it
+conda config --add channels conda-forge
+
+# Create environment again
+conda create -n py314-nogil python=3.14t -c conda-forge -y
+```
+
+#### Tests fail with "Module not found" errors
+```bash
+# Make sure both conda env AND .venv are activated
+conda activate py314-nogil
+source .venv/bin/activate
+
+# Reinstall dependencies
+uv sync --all-extras
+
+# Verify pytest can find modules
+python -c "import pytest; print(pytest.__file__)"
+```
+
+#### Thread safety tests show issues
+```bash
+# Verify free-threading is enabled
+python -c "import sys; print('free_threading_enabled:', hasattr(sys, 'free_threading_enabled'))"
+
+# Run with explicit free-threading
+PYTHON_GIL=0 pytest tests/test_thread_safety.py -v
+
+# Compare with GIL enabled (should be slower but still work)
+PYTHON_GIL=1 pytest tests/test_thread_safety.py -v
+```
+
+### Standard uv issues
+
+#### "uv command not found"
 
 **Symptom**: VS Code opens 15-20 new terminal tabs instead of one, terminals won't respond, or "terminal broken" errors
 
@@ -374,27 +523,50 @@ uv sync --python 3.14            # Switch back to 3.14
 
 ## For AI Agents / Automation
 
-If you're an AI helping with this project, **use these commands**:
+### Option A: With conda + free-threading (Recommended for this project)
 
 ```bash
-# Always start with
+# Setup (one time)
+conda create -n py314-nogil python=3.14t -c conda-forge -y
+conda activate py314-nogil
 cd /mnt/d/projects/tech-content-curator
+uv sync --all-extras
+source .venv/bin/activate
 
-# Run Python code - always prefix with uv
+# For each Python command
+conda activate py314-nogil
+source .venv/bin/activate
+python -c "import sys; print(sys.version)"
+
+# Run tests
+pytest tests/test_file.py -v --tb=short
+
+# Run with explicit free-threading control
+PYTHON_GIL=0 pytest tests/ -v       # Free-threading enabled (default)
+PYTHON_GIL=1 pytest tests/ -v       # Free-threading disabled
+```
+
+### Option B: With standard uv
+
+```bash
+# Setup (one time)
+cd /mnt/d/projects/tech-content-curator
+uv sync --python 3.14 --all-extras
+
+# For each Python command
 uv run python -c "import sys; print(sys.version)"
 
-# Run tests - always use uv run
+# Run tests
 uv run pytest tests/test_file.py -v --tb=short
-
-# Install dependencies
-uv sync --python 3.14 --all-extras
 
 # Verify environment
 uv run python --version
 uv run pytest --version
 ```
 
-**Golden Rule:** If it's a Python command and you're in WSL, prefix it with `uv run`.
+**Golden Rule:** 
+- If you're using conda environment: Always activate with `conda activate py314-nogil && source .venv/bin/activate`
+- If you're using uv: Always prefix Python commands with `uv run`
 
 ## Project Structure
 
@@ -480,7 +652,7 @@ Store the project on **Windows NTFS** (`/mnt/d/...`) for best performance:
 
 ---
 
-**Last Updated:** November 7, 2025  
-**Tested On:** Windows 11 + WSL2 Ubuntu 24.04 LTS + Python 3.14 + uv 0.9.7+  
-**For:** VS Code + Windows Developers with WSL2  
+**Last Updated:** November 11, 2025  
+**Tested On:** Windows 11 + WSL2 Ubuntu 24.04 LTS + Python 3.14t (no-GIL) + conda-forge + uv 0.9.7+  
+**For:** VS Code + Windows Developers with WSL2 (conda setup recommended for free-threading)  
 **Also Works:** Linux/macOS (adapt WSL-specific sections)

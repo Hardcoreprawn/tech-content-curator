@@ -12,6 +12,9 @@ The orchestrator manages:
 - Early exit optimization to save API costs
 """
 
+import asyncio
+import os
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 
 from rich.console import Console
@@ -275,5 +278,157 @@ def enrich_collected_items(
     )
     logger.info(
         f"Enrichment complete: {len(enriched_items)}/{len(items)} items (rejected: {len(rejected_items)})"
+    )
+    return enriched_items
+
+
+async def enrich_collected_items_async(
+    items: list[CollectedItem], max_workers: int = 4
+) -> list[EnrichedItem]:
+    """Enrich items in parallel using free-threading with thread-local adapters.
+
+    Uses ThreadPoolExecutor for true parallel enrichment when running with
+    PYTHON_GIL=0. Each thread gets its own ScoringAdapter with shared patterns
+    loaded once before the thread pool starts.
+
+    CRITICAL FIX: Patterns are loaded ONCE before threading starts, preventing
+    per-thread disk I/O which would cause massive contention.
+
+    Note: Limited to 4 workers by default to avoid OpenAI rate limits.
+    Adjust based on your rate limit tier.
+
+    Args:
+        items: List of collected items to enrich
+        max_workers: Number of parallel workers (default: 4, max recommended: 8)
+
+    Returns:
+        List of successfully enriched items
+    """
+    config = get_config()
+
+    console.print(
+        f"[bold blue]⚡ Starting parallel enrichment of {len(items)} items...[/bold blue]"
+    )
+    logger.info(f"Beginning parallel enrichment of {len(items)} collected items")
+
+    # CRITICAL FIX: Load patterns ONCE before thread pool starts
+    # This prevents per-thread disk reads (major I/O contention)
+    base_patterns = ScoringAdapter.get_shared_patterns()
+    logger.debug(
+        f"Loaded shared patterns: {len(base_patterns.get('undervalued_keywords', []))} keywords"
+    )
+
+    def enrich_wrapper(item: CollectedItem) -> tuple[EnrichedItem | None, dict]:
+        """Wrapper that enriches item with thread-local adapter.
+
+        Each thread gets an isolated ScoringAdapter with:
+        - Empty feedback_history (accumulate from this run only)
+        - Shared reference to base_patterns (immutable, already loaded)
+        """
+        # Create per-thread adapter with empty feedback
+        adapter = ScoringAdapter(use_empty=True)
+
+        try:
+            enriched = enrich_single_item(item, config, adapter)
+            # Return both result and adapter state for merging
+            return (enriched, adapter.get_feedback_data())
+        except Exception as e:
+            logger.error(f"Enrichment failed for item {item.id}: {e}", exc_info=True)
+            return (None, {})
+
+    # Parallel phase: isolated processing (no per-thread disk reads!)
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        # No running loop, create one
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+    # Dynamic worker count based on CPU count and rate limits
+    optimal_workers = min(max_workers, (os.cpu_count() or 4) * 2, 8)
+    logger.debug(
+        f"Using {optimal_workers} workers for enrichment (CPU count: {os.cpu_count()})"
+    )
+
+    with ThreadPoolExecutor(max_workers=optimal_workers) as executor:
+        futures = [
+            loop.run_in_executor(executor, enrich_wrapper, item) for item in items
+        ]
+        results = await asyncio.gather(*futures, return_exceptions=True)
+
+    # Sequential merge: no locks needed
+    enriched_items = []
+    final_adapter = ScoringAdapter()
+    rejected_items = []
+    failed_count = 0
+
+    for result in results:
+        if isinstance(result, Exception):
+            logger.error(f"Thread execution failed: {result}")
+            failed_count += 1
+            rejected_items.append(("Unknown", 0.0, "thread_exception"))
+            continue
+
+        enriched, feedback_data = result
+        if enriched:
+            # Track if item was rejected (returned but with low score)
+            if enriched.quality_score < 0.2:
+                rejected_items.append(
+                    (
+                        enriched.original.title[:50],
+                        enriched.quality_score,
+                        "combined_score_too_low",
+                    )
+                )
+            enriched_items.append(enriched)
+            final_adapter.merge_feedback(feedback_data)
+        else:
+            rejected_items.append(("Unknown", 0.0, "enrichment_failed"))
+
+    if failed_count > 0:
+        console.print(f"[yellow]⚠ {failed_count} threads failed to complete[/yellow]")
+        logger.warning(f"Enrichment: {failed_count} thread exceptions")
+
+    # Single-threaded save
+    console.print("[blue]Updating adaptive scoring patterns...[/blue]")
+    final_adapter.update_learned_patterns()
+    final_adapter.save_feedback()
+
+    # Print analysis report
+    final_adapter.print_analysis_report()
+
+    # Quality score distribution
+    if enriched_items:
+        scores = [e.quality_score for e in enriched_items]
+        above_threshold = sum(1 for s in scores if s >= 0.5)
+        console.print("\n[cyan]📊 Quality Score Distribution:[/cyan]")
+        console.print(f"  Total enriched: {len(enriched_items)}")
+        console.print(f"  >= 0.5 (article ready): {above_threshold}")
+        console.print(f"  < 0.5: {len(enriched_items) - above_threshold}")
+        console.print(f"  Score range: {min(scores):.2f} - {max(scores):.2f}")
+        logger.info(
+            f"Quality distribution: {above_threshold}/{len(enriched_items)} items >= 0.5 threshold"
+        )
+
+    # Rejection analysis
+    if rejected_items:
+        console.print(
+            f"\n[yellow]⚠️ Rejection Analysis ({len(rejected_items)} items):[/yellow]"
+        )
+        rejection_reasons = {}
+        for title, score, reason in rejected_items:
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected: '{title}' | score: {score:.3f} | reason: {reason}")
+
+        for reason, count in sorted(
+            rejection_reasons.items(), key=lambda x: x[1], reverse=True
+        ):
+            console.print(f"  {reason}: {count}")
+
+    console.print(
+        f"\n[bold green]✓ Parallel enrichment complete: {len(enriched_items)}/{len(items)} items enriched[/bold green]"
+    )
+    logger.info(
+        f"Parallel enrichment complete: {len(enriched_items)}/{len(items)} items (rejected: {len(rejected_items)}, failed: {failed_count})"
     )
     return enriched_items

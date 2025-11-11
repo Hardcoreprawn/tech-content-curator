@@ -26,7 +26,14 @@ class DeduplicationFeedback:
 
 
 class DeduplicationFeedbackSystem:
-    """System for collecting and analyzing deduplication feedback."""
+    """System for collecting and analyzing deduplication feedback.
+
+    Thread-safe design:
+    - Feedback is loaded once at initialization (read-only during parallel phase)
+    - Feedback is only updated after deduplication is complete
+    - record_deduplication_session() is called single-threaded at pipeline end
+    - get_quality_metrics() performs read-only analysis
+    """
 
     def __init__(self, feedback_file: Path = Path("data/dedup_feedback.json")):
         self.feedback_file = feedback_file
