@@ -223,7 +223,7 @@ class TestScoringAdapterPatternCaching:
         ScoringAdapter.clear_shared_patterns_cache()
 
         # First load: reads disk once
-        base_patterns = ScoringAdapter.get_shared_patterns()
+        ScoringAdapter.get_shared_patterns()
 
         # Creating thread-local adapters should NOT read disk again
         # (they use copy of already-loaded patterns)

@@ -52,7 +52,6 @@ Example Output:
 """
 
 import asyncio
-import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
@@ -75,6 +74,7 @@ from .scorer import calculate_heuristic_score
 
 console = Console()
 logger = get_logger(__name__)
+
 
 def enrich_single_item(
     item: CollectedItem, config: PipelineConfig, adapter: ScoringAdapter | None = None
@@ -422,7 +422,9 @@ async def enrich_collected_items_async(
         asyncio.set_event_loop(loop)
 
     # Dynamic worker count based on environment and API limits
-    optimal_workers = get_optimal_worker_count(use_case="enrichment", max_limit=max_workers)
+    optimal_workers = get_optimal_worker_count(
+        use_case="enrichment", max_limit=max_workers
+    )
     logger.info(
         f"Using {optimal_workers} workers for parallel enrichment",
         extra=log_worker_config("enrichment", optimal_workers),

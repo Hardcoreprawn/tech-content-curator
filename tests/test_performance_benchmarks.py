@@ -14,14 +14,23 @@ Phase 3 Goals:
 import asyncio
 import json
 import logging
+import os
 import time
 from pathlib import Path
+
+import pytest
 
 from src.collectors.orchestrator import collect_all_sources
 from src.enrichment.orchestrator import enrich_collected_items_async
 from src.models import CollectedItem, SourceType
 
 logger = logging.getLogger(__name__)
+
+# Skip enrichment tests if OPENAI_API_KEY is not set
+pytestmark = pytest.mark.skipif(
+    not os.getenv("OPENAI_API_KEY"),
+    reason="OPENAI_API_KEY not set - enrichment tests require API access",
+)
 
 
 class TestEnrichmentPerformance:

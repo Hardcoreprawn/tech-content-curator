@@ -12,3 +12,10 @@ def reset_config():
     yield
     # Reset again after test to isolate tests
     _reset_config_cache()
+
+
+@pytest.fixture
+def mock_openai_key(monkeypatch):
+    """Provide a mock OpenAI API key for tests that need it."""
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-test-mock-key-for-testing-only")
+    return "sk-test-mock-key-for-testing-only"
