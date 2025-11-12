@@ -129,8 +129,12 @@ Remove underused tags that are redundant or too narrow.
 """
 
     try:
+        from src.config import get_config
+
+        config = get_config()
+
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=config.enrichment_model,
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
             temperature=0.3,

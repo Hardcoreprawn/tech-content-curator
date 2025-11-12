@@ -360,6 +360,24 @@ class PipelineConfig(BaseModel):
     reddit_client_secret: str | None = None
     reddit_user_agent: str | None = None
 
+    # AI Model Configuration
+    content_model: str = Field(
+        default="gpt-4o-mini",
+        description="Model for main article content generation",
+    )
+    title_model: str = Field(
+        default="gpt-4o-mini",
+        description="Model for title and slug generation",
+    )
+    review_model: str = Field(
+        default="gpt-4o-mini",
+        description="Model for article review and quality assessment",
+    )
+    enrichment_model: str = Field(
+        default="gpt-4o-mini",
+        description="Model for content enrichment and research",
+    )
+
     # Pipeline settings
     articles_per_run: int = Field(default=3, ge=1, le=10)
     min_content_length: int = Field(default=100, ge=50)
@@ -508,4 +526,35 @@ class PipelineConfig(BaseModel):
     skip_list_sections: bool = Field(
         default=True,
         description="Skip illustration generation for list-heavy sections",
+    )
+
+    # Article review configuration
+    enable_article_review: bool = False
+    article_review_min_threshold: float = 6.5
+    enable_review_regeneration: bool = False
+    max_regeneration_attempts: int = 2
+
+    # Quality gate configuration (two-tier system)
+    enable_quality_gate: bool = False
+    quality_gate_threshold: float = 70.0  # Tier 1: Free quality scorer threshold
+    enable_auto_review_on_failure: bool = True  # Tier 2: AI review if Tier 1 fails
+    enable_auto_regeneration: bool = True  # Auto-regenerate on review failure
+    review_score_threshold: float = 6.5  # Tier 2: AI review threshold (0-10)
+
+    # Voice adaptation and tracking
+    enable_voice_metrics: bool = Field(
+        default=True,
+        description="Track voice performance metrics and enable adaptation suggestions",
+    )
+
+    # Secondary source research
+    enable_secondary_sources: bool = Field(
+        default=False,
+        description="Fetch primary source articles and extract additional references for meta-content",
+    )
+    max_secondary_references: int = Field(
+        default=3,
+        ge=1,
+        le=10,
+        description="Maximum number of additional references to extract from primary sources",
     )

@@ -3722,11 +3722,18 @@
     "user_corrections": null
   },
   {
-    "items_processed": 59,
-    "duplicates_found": 5,
-    "patterns_used": 689,
-    "timestamp": "2025-11-12T21:28:50.915053",
+    "items_processed": 73,
+    "duplicates_found": 6,
+    "patterns_used": 691,
+    "timestamp": "2025-11-12T22:36:30.157770",
     "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "For the first time ever, astronomers have unveiled the shape of a star\u2019s explosion at its earliest s",
+        "removed_items": [
+          "Interesting one spotted by Daniel B in the NHS - ClickFix (fake browser adverts to encourage people "
+        ]
+      },
       {
         "group_size": 3,
         "kept_item": "Yt-dlp: External JavaScript runtime now required for full YouTube support",
@@ -3740,14 +3747,6 @@
         "kept_item": "Launch HN: JSX Tool (YC F25) \u2013 A Browser Dev-Panel IDE for React\n\nHi HN, We\u2019re Jamie &amp; Dan, buil",
         "removed_items": [
           "react\n\nThe library for web and native user interfaces."
-        ]
-      },
-      {
-        "group_size": 3,
-        "kept_item": "Building a CI/CD Pipeline Runner from Scratch in Python",
-        "removed_items": [
-          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
-          "Python\n\nAll Algorithms implemented in Python"
         ]
       }
     ],

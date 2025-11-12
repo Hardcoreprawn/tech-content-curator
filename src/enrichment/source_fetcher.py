@@ -166,19 +166,184 @@ def is_meta_content(item: CollectedItem, urls: list[str]) -> bool:
     return False
 
 
-# Future Phase 2: Article fetching
-# def fetch_article_content(url: str, max_size: int = 5000) -> str | None:
-#     """Fetch and extract main content from article URL.
-#
-#     Will use VS Code's fetch_webpage capability to get article content,
-#     then extract the main text using readability algorithms.
-#
-#     Args:
-#         url: Article URL to fetch
-#         max_size: Maximum characters to return
-#
-#     Returns:
-#         Main article content or None if fetch fails
-#     """
-#     # TODO: Implement in Phase 2
-#     pass
+def fetch_article_content(url: str, max_size: int = 5000) -> str | None:
+    """Fetch and extract main content from article URL.
+
+    Uses basic HTTP fetching to retrieve article content.
+    Extracts the main text and cleans it for use in enrichment.
+
+    Args:
+        url: Article URL to fetch
+        max_size: Maximum characters to return
+
+    Returns:
+        Main article content or None if fetch fails
+    """
+    try:
+        import time
+
+        import requests
+        from bs4 import BeautifulSoup
+
+        # Add delay to be respectful
+        time.sleep(0.5)
+
+        # Fetch with timeout
+        headers = {
+            "User-Agent": "Mozilla/5.0 (compatible; TechContentCurator/1.0; +https://github.com/Hardcoreprawn/tech-content-curator)"
+        }
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+
+        # Parse HTML
+        soup = BeautifulSoup(response.content, "html.parser")
+
+        # Remove script and style elements
+        for script in soup(["script", "style", "nav", "footer", "aside"]):
+            script.decompose()
+
+        # Try to find main content
+        # Look for common article containers
+        main_content = None
+        for selector in [
+            "article",
+            'div[class*="content"]',
+            'div[class*="post"]',
+            'div[class*="article"]',
+            "main",
+        ]:
+            main_content = soup.select_one(selector)
+            if main_content:
+                break
+
+        # Fallback to body if no article container found
+        if not main_content:
+            main_content = soup.body
+
+        if not main_content:
+            logger.warning(f"Could not find content in {url}")
+            return None
+
+        # Extract text
+        text = main_content.get_text(separator="\n", strip=True)
+
+        # Clean up excessive whitespace
+        lines = [line.strip() for line in text.split("\n") if line.strip()]
+        text = "\n".join(lines)
+
+        # Truncate if needed
+        if len(text) > max_size:
+            text = text[:max_size] + "\n\n[Content truncated...]"
+
+        logger.info(f"Fetched {len(text)} chars from {url}")
+        return text
+
+    except requests.Timeout:
+        logger.warning(f"Timeout fetching {url}")
+        return None
+    except requests.RequestException as e:
+        logger.warning(f"Failed to fetch {url}: {e}")
+        return None
+    except Exception as e:
+        logger.exception(f"Unexpected error fetching {url}: {e}")
+        return None
+
+
+def extract_additional_references(article_content: str) -> list[str]:
+    """Extract URLs from fetched article content for additional research.
+
+    Looks for URLs in the article text that might provide additional
+    context or related research.
+
+    Args:
+        article_content: The fetched article text
+
+    Returns:
+        List of URLs found in the article content
+    """
+    if not article_content:
+        return []
+
+    # Match URLs in text
+    url_pattern = r'https?://[^\s<>"{}|\\^`\[\]]+'
+    urls = re.findall(url_pattern, article_content)
+
+    # Filter for likely research/reference URLs
+    reference_domains = [
+        "doi.org",
+        "arxiv.org",
+        "github.com",
+        "gitlab.com",
+        "scholar.google",
+        "pubmed",
+        "ieee.org",
+        "acm.org",
+        ".edu",
+        "research",
+        "paper",
+        "proceedings",
+    ]
+
+    filtered_urls = []
+    seen_domains = set()
+
+    for url in urls:
+        url_lower = url.lower()
+
+        # Check if it's a reference URL
+        if any(domain in url_lower for domain in reference_domains):
+            # Avoid duplicates from same domain
+            domain = url.split("/")[2] if "/" in url else url
+            if domain not in seen_domains:
+                filtered_urls.append(url)
+                seen_domains.add(domain)
+
+    logger.debug(f"Extracted {len(filtered_urls)} reference URLs from article")
+    return filtered_urls
+
+
+def enrich_with_primary_source(
+    item: CollectedItem, max_references: int = 3
+) -> dict[str, any]:
+    """Enrich item by fetching primary source content and extracting references.
+
+    This is the main entry point for secondary URI retrieval.
+
+    Args:
+        item: The collected item to enrich
+        max_references: Maximum number of additional references to extract
+
+    Returns:
+        Dictionary with primary_source_content and additional_references
+    """
+    result = {"primary_source_content": None, "additional_references": []}
+
+    # Extract URLs from the post
+    urls = extract_urls_from_content(item.content)
+
+    if not urls:
+        logger.debug("No URLs found in item content")
+        return result
+
+    # Check if this is meta-content
+    if not is_meta_content(item, urls):
+        logger.debug("Not meta-content, skipping primary source fetch")
+        return result
+
+    logger.info(f"Meta-content detected, fetching primary source from {urls[0]}")
+
+    # Fetch the first (primary) URL
+    primary_content = fetch_article_content(urls[0])
+
+    if primary_content:
+        result["primary_source_content"] = primary_content
+
+        # Extract additional references from the primary source
+        references = extract_additional_references(primary_content)
+        result["additional_references"] = references[:max_references]
+
+        logger.info(
+            f"Enriched with {len(primary_content)} chars and {len(result['additional_references'])} references"
+        )
+
+    return result

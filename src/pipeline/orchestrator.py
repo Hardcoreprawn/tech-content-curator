@@ -17,6 +17,8 @@ from rich.console import Console
 from ..api.costs import CostTracker
 from ..api.openai_error_handler import handle_openai_error, is_fatal
 from ..config import PipelineConfig, get_config, get_content_dir
+from ..content.quality_scorer import QualityScorer
+from ..content.quality_tracker import QualityTracker
 from ..deduplication.adaptive_dedup import AdaptiveDedupFeedback
 from ..enrichment.fact_check import FactCheckResult, validate_article
 from ..generators.base import BaseGenerator
@@ -213,6 +215,37 @@ def generate_single_article(
             voice_profile=voice_id,
             voice_metadata={"complexity_score": item.quality_score},
         )
+
+        # Track quality metrics (Phase 2 - Model comparison)
+        try:
+            quality_scorer = QualityScorer()
+            quality_result = quality_scorer.score(article, final_content)
+
+            # Store quality score in article for metadata
+            article.quality_score = quality_result.overall_score
+            article.quality_dimensions = quality_result.dimension_scores
+            article.quality_passed = quality_result.passed_threshold
+
+            # Track quality for model comparison
+            quality_tracker = QualityTracker()
+            quality_tracker.record_quality(
+                article,
+                quality_result,
+                final_content,
+                models={
+                    "content_model": config.content_model,
+                    "title_model": config.title_model,
+                    "review_model": config.review_model,
+                    "enrichment_model": config.enrichment_model,
+                    "voice": voice_id,
+                },
+            )
+            logger.debug(
+                f"Quality tracked: score={quality_result.overall_score:.1f}, "
+                f"model={config.content_model}"
+            )
+        except Exception as e:
+            logger.warning(f"Failed to track quality metrics: {e}")
 
         console.print(f"[green]✓[/green] Generated: {title}")
         return article

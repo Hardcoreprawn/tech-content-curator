@@ -154,7 +154,7 @@ class IllustrationService:
                 )
 
                 response = self.client.chat.completions.create(
-                    model="gpt-3.5-turbo",
+                    model=self.config.enrichment_model,
                     messages=[{"role": "user", "content": prompt}],
                     temperature=0.1,
                     max_tokens=100,

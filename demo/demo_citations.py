@@ -39,7 +39,9 @@ laid groundwork for these investigations."""
     print(f"\nFound {len(citations)} citation(s):")
     for i, cit in enumerate(citations, 1):
         confidence_str = f"{int(cit.confidence * 100)}%"
-        print(f"  {i}. '{cit.original_text}' ({cit.authors}, confidence: {confidence_str})")
+        print(
+            f"  {i}. '{cit.original_text}' ({cit.authors}, confidence: {confidence_str})"
+        )
 
     # Step 2: Resolve (with fallback strategies)
     print("\n\n[2] RESOLVE: Looking up papers (tries multiple strategies)")
@@ -82,12 +84,13 @@ laid groundwork for these investigations."""
         if resolved:
             if isinstance(resolved, dict):
                 from src.citations.resolver import ResolvedCitation
+
                 resolved_obj = ResolvedCitation(
                     doi=resolved.get("doi"),
                     arxiv_id=None,
                     pmid=None,
                     url=resolved.get("url"),
-                    confidence=0.95
+                    confidence=0.95,
                 )
             else:
                 resolved_obj = resolved

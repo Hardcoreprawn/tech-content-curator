@@ -92,8 +92,13 @@ class GeneralArticleGenerator(BaseGenerator):
             logger.debug(
                 f"Calling OpenAI API for article generation (temperature={temperature})"
             )
+            # Get model from config
+            from ..config import get_config
+
+            config = get_config()
+
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",  # Better for long-form content
+                model=config.content_model,
                 messages=messages,
                 temperature=temperature,  # Use voice-specific temperature if injected
                 max_tokens=2000,  # Allow for longer articles

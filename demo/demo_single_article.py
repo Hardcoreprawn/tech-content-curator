@@ -22,7 +22,7 @@ def main() -> None:
     # Focus on the bird article
     article = {
         "title": "Understanding Bird Flight: Aerodynamics and Evolution",
-        "tags": ["birds", "aerodynamics", "flight", "biology", "science"]
+        "tags": ["birds", "aerodynamics", "flight", "biology", "science"],
     }
 
     print("\n" + "=" * 100)
@@ -35,25 +35,25 @@ def main() -> None:
         # Generate queries
         queries = selector._generate_search_queries(article["title"], article["tags"])
 
-        print(f"\n{'-'*100}")
+        print(f"\n{'-' * 100}")
         print("SEARCH QUERIES")
-        print(f"{'-'*100}")
+        print(f"{'-' * 100}")
         print(f"Wikimedia Query: {queries['wikimedia']}")
         print(f"Unsplash Query:  {queries['unsplash']}")
         print(f"Pexels Query:    {queries['pexels']}")
 
         # Get results from each service
-        print(f"\n{'-'*100}")
+        print(f"\n{'-' * 100}")
         print("IMAGE RESULTS FROM EACH SERVICE")
-        print(f"{'-'*100}\n")
+        print(f"{'-' * 100}\n")
 
         results = {}
 
         # Wikimedia
         print("[1] WIKIMEDIA COMMONS (Public Domain)")
-        wiki = selector._search_wikimedia(queries['wikimedia'])
+        wiki = selector._search_wikimedia(queries["wikimedia"])
         if wiki:
-            results['wikimedia'] = wiki
+            results["wikimedia"] = wiki
             print("    ✓ Found")
             print(f"    Source: {wiki.source}")
             print(f"    Quality: {wiki.quality_score:.2f}/1.00")
@@ -65,9 +65,9 @@ def main() -> None:
 
         # Unsplash
         print("\n[2] UNSPLASH (Free Stock Photos)")
-        unsplash = selector._search_unsplash(queries['unsplash'])
+        unsplash = selector._search_unsplash(queries["unsplash"])
         if unsplash:
-            results['unsplash'] = unsplash
+            results["unsplash"] = unsplash
             print("    ✓ Found")
             print(f"    Source: {unsplash.source}")
             print(f"    Quality: {unsplash.quality_score:.2f}/1.00")
@@ -79,9 +79,9 @@ def main() -> None:
 
         # Pexels
         print("\n[3] PEXELS (Free Stock Photos)")
-        pexels = selector._search_pexels(queries['pexels'])
+        pexels = selector._search_pexels(queries["pexels"])
         if pexels:
-            results['pexels'] = pexels
+            results["pexels"] = pexels
             print("    ✓ Found")
             print(f"    Source: {pexels.source}")
             print(f"    Quality: {pexels.quality_score:.2f}/1.00")
@@ -92,9 +92,9 @@ def main() -> None:
             print("    ✗ No image found")
 
         # Show comparison
-        print(f"\n{'-'*100}")
+        print(f"\n{'-' * 100}")
         print("COMPARISON & SELECTION")
-        print(f"{'-'*100}\n")
+        print(f"{'-' * 100}\n")
 
         print("Cost Comparison:")
         for source, img in results.items():
@@ -103,23 +103,28 @@ def main() -> None:
         # Show which one gets selected
         selected = selector.select(article["title"], article["tags"])
         print(f"\nSelected: {selected.source.upper()}")
-        print(f"Reason: Quality {selected.quality_score:.2f}, Cost ${selected.cost:.4f}")
+        print(
+            f"Reason: Quality {selected.quality_score:.2f}, Cost ${selected.cost:.4f}"
+        )
 
         # Summary
-        print(f"\n{'-'*100}")
+        print(f"\n{'-' * 100}")
         print("SUMMARY")
-        print(f"{'-'*100}")
+        print(f"{'-' * 100}")
         print(f"\nTotal free sources found: {len(results)}")
         print(f"Total potential cost: ${sum(img.cost for img in results.values()):.4f}")
         print(f"Actually paying: ${selected.cost:.4f}")
-        print(f"Savings: ${sum(img.cost for img in results.values()) - selected.cost:.4f}")
+        print(
+            f"Savings: ${sum(img.cost for img in results.values()) - selected.cost:.4f}"
+        )
 
     except Exception as e:
         print(f"\n✗ Failed: {e}")
         import traceback
+
         traceback.print_exc()
 
-    print(f"\n{'='*100}\n")
+    print(f"\n{'=' * 100}\n")
 
 
 if __name__ == "__main__":

@@ -171,9 +171,13 @@ Examples of good titles:
 Return ONLY the title, no quotes or explanation."""
 
     try:
-        logger.debug("Requesting title from OpenAI (gpt-4o-mini)")
+        from ..config import get_config
+
+        config = get_config()
+
+        logger.debug(f"Requesting title from OpenAI ({config.title_model})")
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=config.title_model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4,
             max_tokens=50,

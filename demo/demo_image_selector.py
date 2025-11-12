@@ -26,10 +26,14 @@ def main() -> None:
 
     # Parse arguments
     parser = argparse.ArgumentParser(description="Image selector demo")
-    parser.add_argument("--wikimedia", action="store_true", help="Test Wikimedia Commons")
+    parser.add_argument(
+        "--wikimedia", action="store_true", help="Test Wikimedia Commons"
+    )
     parser.add_argument("--unsplash", action="store_true", help="Test Unsplash")
     parser.add_argument("--pexels", action="store_true", help="Test Pexels")
-    parser.add_argument("--all", action="store_true", help="Test all services (default)")
+    parser.add_argument(
+        "--all", action="store_true", help="Test all services (default)"
+    )
     args = parser.parse_args()
 
     # Determine which services to test
@@ -54,16 +58,22 @@ def main() -> None:
     test_articles = [
         {
             "title": "Understanding Bird Flight: Aerodynamics and Evolution",
-            "tags": ["birds", "aerodynamics", "flight", "biology", "science"]
+            "tags": ["birds", "aerodynamics", "flight", "biology", "science"],
         },
         {
             "title": "Machine Learning in Healthcare: Practical Applications",
-            "tags": ["machine-learning", "healthcare", "AI", "technology", "data-science"]
+            "tags": [
+                "machine-learning",
+                "healthcare",
+                "AI",
+                "technology",
+                "data-science",
+            ],
         },
         {
             "title": "Quantum Computing: From Theory to Practice",
-            "tags": ["quantum-computing", "physics", "technology", "computer-science"]
-        }
+            "tags": ["quantum-computing", "physics", "technology", "computer-science"],
+        },
     ]
 
     print("\n" + "=" * 80)
@@ -80,28 +90,30 @@ def main() -> None:
     print(f"  - Pexels:    {'✓' if services_to_test['pexels'] else '✗'}")
 
     for i, article in enumerate(test_articles, 1):
-        print(f"\n{'='*80}")
+        print(f"\n{'=' * 80}")
         print(f"[{i}] Article: {article['title']}")
         print(f"    Tags: {', '.join(article['tags'][:3])}...")
-        print(f"{'-'*80}")
+        print(f"{'-' * 80}")
 
         try:
             # Generate search queries
-            queries = selector._generate_search_queries(article["title"], article["tags"])
+            queries = selector._generate_search_queries(
+                article["title"], article["tags"]
+            )
             print("\nGenerated Search Queries:")
             print(f"  Wikimedia: {queries['wikimedia']}")
             print(f"  Unsplash:  {queries['unsplash']}")
             print(f"  Pexels:    {queries['pexels']}")
 
             # Test each service individually
-            print(f"\n{'-'*80}")
+            print(f"\n{'-' * 80}")
             print("Individual Service Results (Engineering Debug):")
-            print(f"{'-'*80}")
+            print(f"{'-' * 80}")
 
             # Try Wikimedia
-            if services_to_test['wikimedia']:
+            if services_to_test["wikimedia"]:
                 print("\n[Wikimedia Commons]")
-                wiki_result = selector._search_wikimedia(queries['wikimedia'])
+                wiki_result = selector._search_wikimedia(queries["wikimedia"])
                 if wiki_result:
                     print("  ✓ Found image")
                     print(f"    Source: {wiki_result.source}")
@@ -113,9 +125,9 @@ def main() -> None:
                     print("  ✗ No image found")
 
             # Try Unsplash
-            if services_to_test['unsplash']:
+            if services_to_test["unsplash"]:
                 print("\n[Unsplash]")
-                unsplash_result = selector._search_unsplash(queries['unsplash'])
+                unsplash_result = selector._search_unsplash(queries["unsplash"])
                 if unsplash_result:
                     print("  ✓ Found image")
                     print(f"    Source: {unsplash_result.source}")
@@ -127,9 +139,9 @@ def main() -> None:
                     print("  ✗ No image found")
 
             # Try Pexels
-            if services_to_test['pexels']:
+            if services_to_test["pexels"]:
                 print("\n[Pexels]")
-                pexels_result = selector._search_pexels(queries['pexels'])
+                pexels_result = selector._search_pexels(queries["pexels"])
                 if pexels_result:
                     print("  ✓ Found image")
                     print(f"    Source: {pexels_result.source}")
@@ -141,9 +153,9 @@ def main() -> None:
                     print("  ✗ No image found")
 
             # Show final selection
-            print(f"\n{'-'*80}")
+            print(f"\n{'-' * 80}")
             print("Final Selection (Highest Priority):")
-            print(f"{'-'*80}")
+            print(f"{'-' * 80}")
             image = selector.select(article["title"], article["tags"])
 
             print(f"  Selected: {image.source.upper()}")
@@ -155,9 +167,9 @@ def main() -> None:
         except Exception as e:
             print(f"\n✗ Selection failed: {e}")
 
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print("DEMO COMPLETE")
-    print("="*80)
+    print("=" * 80)
     print("\nNext steps:")
     print("1. Review the images selected above")
     print("2. Commit changes and push to main")
@@ -167,4 +179,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

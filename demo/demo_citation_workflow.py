@@ -80,12 +80,13 @@ foundation for the next generation of biomimetic technologies."""
             print("    URL: {}".format(cached.get("url")))
             # Build formatted citation for caching
             from src.citations.resolver import ResolvedCitation
+
             resolved = ResolvedCitation(
                 doi=cached.get("doi"),
                 arxiv_id=None,
                 pmid=None,
                 url=cached.get("url"),
-                confidence=0.95
+                confidence=0.95,
             )
             formatted_citations.append((citation, resolved))
         else:
@@ -131,7 +132,9 @@ foundation for the next generation of biomimetic technologies."""
     print("-" * 80)
     print(f"✓ Extracted: {len(citations)} citations")
     print(f"✓ Resolved: {resolved_count} citations")
-    print(f"✓ Resolution rate: {(resolved_count / len(citations) * 100) if citations else 0:.1f}%")
+    print(
+        f"✓ Resolution rate: {(resolved_count / len(citations) * 100) if citations else 0:.1f}%"
+    )
     print(f"✓ Cached entries: {len(cache.data)}")
 
     print("\n[WORKFLOW BENEFITS]")
@@ -140,7 +143,9 @@ foundation for the next generation of biomimetic technologies."""
     print("2. DOI/arXiv resolution links research to official sources")
     print("3. Caching prevents duplicate API calls (better performance)")
     print("4. Readers can click citations to access original papers")
-    print("5. Works with various citation formats (handles et al., missing periods, etc.)")
+    print(
+        "5. Works with various citation formats (handles et al., missing periods, etc.)"
+    )
 
     print("\n[INTEGRATION POINTS]")
     print("-" * 80)

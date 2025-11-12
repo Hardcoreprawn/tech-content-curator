@@ -166,6 +166,30 @@ def save_article_to_file(
         }
     )
 
+    # Add quality metrics if available (Phase 2 - Model comparison)
+    if article.quality_score is not None:
+        metadata["article_quality"] = {
+            "overall_score": round(article.quality_score, 1),
+            "passed_threshold": article.quality_passed,
+        }
+
+        # Add dimension scores if available
+        if article.quality_dimensions:
+            dimensions = {}
+            for k, v in article.quality_dimensions.items():
+                if isinstance(v, (int, float)):
+                    dimensions[k] = round(v, 1)
+            if dimensions:
+                metadata["article_quality"]["dimensions"] = dimensions
+
+    # Add model configuration for tracking (Phase 2)
+    if config:
+        metadata["models_used"] = {
+            "content": config.content_model,
+            "title": config.title_model,
+            "enrichment": config.enrichment_model,
+        }
+
     # Optional: Attach cover image
     if generate_image:
         slug = filepath.stem

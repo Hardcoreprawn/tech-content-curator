@@ -128,8 +128,12 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
     """
 
     try:
+        from ..config import get_config
+
+        config = get_config()
+
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Cheaper for quality assessment
+            model=config.enrichment_model,  # Quality assessment
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4,  # Slightly higher for more variation
             max_tokens=150,
@@ -284,8 +288,12 @@ def research_additional_context(
     """
 
     try:
+        from ..config import get_config
+
+        config = get_config()
+
         response = client.chat.completions.create(
-            model="gpt-4o-mini",  # Better for research and reasoning
+            model=config.enrichment_model,  # Research and reasoning
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4,
             max_tokens=400,

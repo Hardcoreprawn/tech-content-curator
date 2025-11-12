@@ -20,7 +20,9 @@ Usage:
     client = get_openai_client()
     response = await call_with_retry(
         client.chat.completions.create,
-        model="gpt-4o-mini",
+        from .config import get_config
+        config = get_config()
+        model=config.content_model,
         messages=[...]
     )
 

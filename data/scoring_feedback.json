@@ -27140,1135 +27140,333 @@
     "source": "github"
   },
   {
-    "timestamp": "2025-11-12T21:28:53.936269+00:00",
-    "content_preview": "Yt-dlp: External JavaScript runtime now required for full YouTube support",
-    "content_length": 73,
-    "heuristic_score": 0.45000000000000007,
-    "ai_score": 0.4,
-    "score_gap": -0.050000000000000044,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 759,
-      "comments": 464,
-      "time": 1762942373,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:28:54.207773+00:00",
-    "content_preview": "Launch HN: JSX Tool (YC F25) \u2013 A Browser Dev-Panel IDE for React\n\nHi HN, We\u2019re Jamie &amp; Dan, building JSX Tool (<a href=\"https:&#x2F;&#x2F;jsxtool.com\">https:&#x2F;&#x2F;jsxtool.com</a>) a new insp",
-    "content_length": 3760,
-    "heuristic_score": 0.98,
-    "ai_score": 0.4,
-    "score_gap": -0.58,
-    "heuristic_reasoning": "Heuristic: very long, 5 tech keywords, includes links, structured text, some depth, some emoji, no code examples, contains undervalued keyword: love, contains undervalued keyword: your, contains undervalued keyword: first, engagement above learned threshold: 0 (+0.45 adaptive)",
-    "metadata": {
-      "score": 50,
-      "comments": 42,
-      "time": 1762969422,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:04.850922+00:00",
-    "content_preview": "Building a CI/CD Pipeline Runner from Scratch in Python",
-    "content_length": 55,
-    "heuristic_score": 0.45000000000000007,
-    "ai_score": 0.7,
-    "score_gap": 0.2499999999999999,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 29,
-      "comments": 6,
-      "time": 1762716389,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:07.096638+00:00",
-    "content_preview": "Reminder that AI is \"propping up\" the economy the same way a tape worm props up your metabolism. It has completely choked off all capital investment to any other activity for years. It completely devo",
-    "content_length": 348,
-    "heuristic_score": 0.92,
-    "ai_score": 0.3,
-    "score_gap": -0.6200000000000001,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), viral engagement (1259), no code examples, not actionable, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "favourites_count": 458,
-      "reblogs_count": 372,
-      "replies_count": 19,
-      "created_at": "2025-11-12T14:26:34.647Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:14.573711+00:00",
-    "content_preview": "# Valve announces desktop machine and # VR goggles powered by KDE's # Plasma desktop. https:// store.steampowered.com/sale/st eammachine https:// store.steampowered.com/sale/st eamframe",
-    "content_length": 185,
-    "heuristic_score": 0.8999999999999999,
-    "ai_score": 0.4,
-    "score_gap": -0.4999999999999999,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, very high engagement (940), link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 323,
-      "reblogs_count": 283,
-      "replies_count": 17,
-      "created_at": "2025-11-12T18:50:52.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:17.182357+00:00",
-    "content_preview": "This thing that 404 is writing about in the US\u2014the dehumanizing fake content created purely because Facebook pays people to make it? https://www. 404media.co/ai-generated-video s-of-ice-raids-are-wild",
-    "content_length": 450,
-    "heuristic_score": 0.75,
-    "ai_score": 0.2,
-    "score_gap": -0.55,
-    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, high engagement (478), no code examples, thread post (may lack context), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 85,
-      "reblogs_count": 189,
-      "replies_count": 5,
-      "created_at": "2025-11-12T18:56:01.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:18.490242+00:00",
-    "content_preview": "Pepper &amp; Carrot, Episode 39: \"The Tavern\" is finally out! This 11-page webcomic is a standalone episode that you can read in five minutes. It's about courage and an experiment with sound in the co",
-    "content_length": 540,
-    "heuristic_score": 0.7200000000000001,
-    "ai_score": 0.4,
-    "score_gap": -0.32000000000000006,
-    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, high engagement (441), no code examples, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 111,
-      "reblogs_count": 153,
-      "replies_count": 8,
-      "created_at": "2025-11-12T19:23:31.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:23.987185+00:00",
-    "content_preview": "For the first time ever, astronomers have unveiled the shape of a star\u2019s explosion at its earliest stage. The feat was achieved by ESO's Very Large Telescope just a day after the detection of this sup",
-    "content_length": 517,
-    "heuristic_score": 1.07,
-    "ai_score": 0.6,
-    "score_gap": -0.4700000000000001,
-    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), includes links, very high engagement (504), announcement content, single source, contains undervalued keyword: first, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "favourites_count": 141,
-      "reblogs_count": 177,
-      "replies_count": 3,
-      "created_at": "2025-11-12T19:00:07.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:30.656035+00:00",
-    "content_preview": "My friend Kara, the one currently incarcerated at Carswell, has had her hormones cut yet again. They haven't done labs or anything on her in weeks. They've now reduced her to 3 mg a week for her HRT. ",
-    "content_length": 292,
-    "heuristic_score": 0.8200000000000001,
-    "ai_score": 0.0,
-    "score_gap": -0.8200000000000001,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (290), not actionable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 51,
-      "reblogs_count": 109,
-      "replies_count": 7,
-      "created_at": "2025-11-12T19:44:18.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:32.856519+00:00",
-    "content_preview": "Corporate social networks are trying to kill the hashtag because they want users to only discover things through corporate algorithms \ud83d\ude29 Mastodon and the wider Fediverse love the hashtag as it allows h",
-    "content_length": 607,
-    "heuristic_score": 1.26,
-    "ai_score": 0.4,
-    "score_gap": -0.86,
-    "heuristic_reasoning": "Heuristic: substantial length, 4 tech keywords, includes links, high engagement (162), somewhat educational, some depth, no code examples, contains undervalued keyword: love, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.35 adaptive)",
-    "metadata": {
-      "favourites_count": 12,
-      "reblogs_count": 66,
-      "replies_count": 6,
-      "created_at": "2025-11-12T20:21:30.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:36.711773+00:00",
-    "content_preview": "Got turned down on a piece about ICE in Chicago for an international news org because they believed I couldn\u2019t be objective about my neighbors getting kidnapped. And well, guilty as charged I guess.",
-    "content_length": 198,
-    "heuristic_score": 0.9500000000000001,
-    "ai_score": 0.2,
-    "score_gap": -0.75,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), very high engagement (732), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 267,
-      "reblogs_count": 204,
-      "replies_count": 19,
-      "created_at": "2025-11-12T17:27:24.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:41.420663+00:00",
-    "content_preview": "the first one to stick a NeXT logo, WindowMaker and a web server onto one of those wins internets for an evening",
-    "content_length": 112,
-    "heuristic_score": 1.0,
-    "ai_score": 0.4,
-    "score_gap": -0.6,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (114), contains undervalued keyword: first, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "favourites_count": 2,
-      "reblogs_count": 50,
-      "replies_count": 4,
-      "created_at": "2025-11-12T20:07:05.715Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:40.684482+00:00",
-    "content_preview": "Please do not use \"AI-slop\" to illustrate your articles or presentations. If you need images and have none just use one of the free stock image sites. It's not harder and doesn't make you look like a ",
-    "content_length": 208,
-    "heuristic_score": 1.05,
-    "ai_score": 0.2,
-    "score_gap": -0.8500000000000001,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), very high engagement (618), contains undervalued keyword: your, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "favourites_count": 224,
-      "reblogs_count": 176,
-      "replies_count": 14,
-      "created_at": "2025-11-12T17:07:49.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:42.159776+00:00",
-    "content_preview": "the NTP foundation (yeah the time thing) is begging for scraps of cash, like a few thousand dollars - a low level manager at amazon, google, apple and meta could each whip out the corp credit card, gi",
-    "content_length": 311,
-    "heuristic_score": 0.7400000000000001,
-    "ai_score": 0.2,
-    "score_gap": -0.54,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, good engagement (76), single source, not actionable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 1,
-      "reblogs_count": 36,
-      "replies_count": 1,
-      "created_at": "2025-11-12T20:52:56.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:43.690802+00:00",
-    "content_preview": "Are there any pixel artists out there looking for a commission? We are interested in a pixel art logo for a campaign. Please contact us here if you are interested! Boosts welcome!",
-    "content_length": 179,
-    "heuristic_score": 0.8,
-    "ai_score": 0.2,
-    "score_gap": -0.6000000000000001,
-    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), high engagement (397), no code examples, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "favourites_count": 31,
-      "reblogs_count": 177,
-      "replies_count": 4,
-      "created_at": "2025-11-12T16:28:08.000Z",
-      "language": "en",
-      "instance": "https://hachyderm.io",
-      "source_type": "trending",
-      "source_name": "mastodon_trending"
-    },
-    "source": "mastodon"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:44.984435+00:00",
-    "content_preview": "The last-ever penny will be minted today in Philadelphia",
-    "content_length": 56,
-    "heuristic_score": 0.35,
-    "ai_score": 0.0,
-    "score_gap": -0.35,
-    "heuristic_reasoning": "Heuristic: short but viable, announcement content, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 373,
-      "comments": 536,
-      "time": 1762963813,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:46.272666+00:00",
-    "content_preview": "Project Euler",
-    "content_length": 13,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 173,
-      "comments": 43,
-      "time": 1762968294,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:48.644075+00:00",
-    "content_preview": "Steam Machine",
-    "content_length": 13,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 853,
-      "comments": 422,
-      "time": 1762970383,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:53.276953+00:00",
-    "content_preview": "Steam Frame",
-    "content_length": 11,
-    "heuristic_score": 0.15,
-    "ai_score": 0.2,
-    "score_gap": 0.05000000000000002,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 633,
-      "comments": 213,
-      "time": 1762970098,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:54.483384+00:00",
-    "content_preview": "Blasting Yeast with UV Light",
-    "content_length": 28,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 28,
-      "comments": 2,
-      "time": 1762973200,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:29:58.866598+00:00",
-    "content_preview": "Learn Prolog Now",
-    "content_length": 16,
-    "heuristic_score": 0.22999999999999998,
-    "ai_score": 0.4,
-    "score_gap": 0.17000000000000004,
-    "heuristic_reasoning": "Heuristic: too short, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 212,
-      "comments": 124,
-      "time": 1762959267,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:04.626315+00:00",
-    "content_preview": "A brief look at FreeBSD",
-    "content_length": 23,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 68,
-      "comments": 22,
-      "time": 1762949411,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:09.036963+00:00",
-    "content_preview": "Ioannis Yannas invented artificial skin for treatment of burns\u2013dies at 90",
-    "content_length": 73,
-    "heuristic_score": 0.25,
-    "ai_score": 0.55,
-    "score_gap": 0.30000000000000004,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 99,
-      "comments": 8,
-      "time": 1762017503,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:15.171086+00:00",
-    "content_preview": "How Tube Amplifiers Work",
-    "content_length": 24,
-    "heuristic_score": 0.15,
-    "ai_score": 0.6,
-    "score_gap": 0.44999999999999996,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 33,
-      "comments": 18,
-      "time": 1762972559,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:20.854464+00:00",
-    "content_preview": "Valve Announces New Steam Machine, Steam Controller and Steam Frame",
-    "content_length": 67,
-    "heuristic_score": 0.25,
-    "ai_score": 0.6,
-    "score_gap": 0.35,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 164,
-      "comments": 18,
-      "time": 1762971985,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:26.782658+00:00",
-    "content_preview": "LLM Output Drift in Financial Workflows: Validation and Mitigation (arXiv)",
-    "content_length": 74,
-    "heuristic_score": 0.25,
-    "ai_score": 0.6,
-    "score_gap": 0.35,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 14,
-      "comments": 7,
-      "time": 1762977205,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:30.412572+00:00",
-    "content_preview": ".NET 10",
-    "content_length": 7,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 448,
-      "comments": 380,
-      "time": 1762875875,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:37.270006+00:00",
-    "content_preview": "Software Development in the Time of New Angels",
-    "content_length": 46,
-    "heuristic_score": 0.35,
-    "ai_score": 0.2,
-    "score_gap": -0.14999999999999997,
-    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 10,
-      "comments": 5,
-      "time": 1762197036,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:38.060955+00:00",
-    "content_preview": "Fighting the New York Times' invasion of user privacy",
-    "content_length": 53,
-    "heuristic_score": 0.25,
-    "ai_score": 0.3,
-    "score_gap": 0.04999999999999999,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 206,
-      "comments": 213,
-      "time": 1762956508,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:38.601135+00:00",
-    "content_preview": "Making the Clang AST Leaner and Faster",
-    "content_length": 38,
-    "heuristic_score": 0.15,
-    "ai_score": 0.7,
-    "score_gap": 0.5499999999999999,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 5,
-      "comments": 0,
-      "time": 1762977778,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:47.780509+00:00",
-    "content_preview": "Anthropic invests $50B in US AI infrastructure",
-    "content_length": 46,
-    "heuristic_score": 0.35,
-    "ai_score": 0.7,
-    "score_gap": 0.35,
-    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 46,
-      "comments": 16,
-      "time": 1762962155,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:30:58.174329+00:00",
-    "content_preview": "The Single Byte That Kills Your Exploit: Understanding Endianness",
-    "content_length": 65,
-    "heuristic_score": 0.35,
-    "ai_score": 0.7,
-    "score_gap": 0.35,
-    "heuristic_reasoning": "Heuristic: short but viable, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "score": 22,
-      "comments": 7,
-      "time": 1762696613,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:05.120072+00:00",
-    "content_preview": "Async and Finaliser Deadlocks",
-    "content_length": 29,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 40,
-      "comments": 12,
-      "time": 1762971149,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:08.618967+00:00",
-    "content_preview": "Waymo robotaxis are now giving rides on freeways in LA, SF and Phoenix",
-    "content_length": 70,
-    "heuristic_score": 0.25,
-    "ai_score": 0.4,
-    "score_gap": 0.15000000000000002,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 252,
-      "comments": 293,
-      "time": 1762963589,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:16.898550+00:00",
-    "content_preview": "What happened to Transmeta, the last big dotcom IPO",
-    "content_length": 51,
-    "heuristic_score": 0.25,
-    "ai_score": 0.55,
-    "score_gap": 0.30000000000000004,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 190,
-      "comments": 106,
-      "time": 1762938101,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:17.287362+00:00",
-    "content_preview": "Maestro Technology Sells Used SSD Drives as New",
-    "content_length": 47,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 127,
-      "comments": 52,
-      "time": 1762972158,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:32:00.591175+00:00",
-    "content_preview": "Yann LeCun to depart Meta and launch AI startup focused on 'world models'",
-    "content_length": 73,
-    "heuristic_score": 0.45000000000000007,
-    "ai_score": 0.6,
-    "score_gap": 0.1499999999999999,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 771,
-      "comments": 586,
-      "time": 1762932330,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:28.384821+00:00",
-    "content_preview": "GLP-1 drugs linked to lower death rates in colon cancer patients",
-    "content_length": 64,
-    "heuristic_score": 0.25,
-    "ai_score": 0.4,
-    "score_gap": 0.15000000000000002,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 70,
-      "comments": 68,
-      "time": 1762977032,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:37.873368+00:00",
-    "content_preview": "Micro.blog launches new 'Studio' tier with video hosting",
-    "content_length": 56,
-    "heuristic_score": 0.25,
-    "ai_score": 0.4,
-    "score_gap": 0.15000000000000002,
-    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 92,
-      "comments": 30,
-      "time": 1762955188,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:48.243107+00:00",
-    "content_preview": "NetHack4 Philosophy",
-    "content_length": 19,
-    "heuristic_score": 0.15,
-    "ai_score": 0.4,
-    "score_gap": 0.25,
-    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "score": 57,
-      "comments": 25,
-      "time": 1762264363,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:31:59.090526+00:00",
-    "content_preview": "Show HN: Cancer diagnosis makes for an interesting RL environment for LLMs\n\nHey HN, this is David from Aluna (YC S24). We work with diagnostic labs to build datasets and evals for oncology tasks.<p>I ",
-    "content_length": 2727,
-    "heuristic_score": 0.9299999999999999,
-    "ai_score": 0.6,
-    "score_gap": -0.32999999999999996,
-    "heuristic_reasoning": "Heuristic: very long, 3 tech keywords, includes links, structured text, announcement content, some depth, no code examples, contains undervalued keyword: modern, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "score": 29,
-      "comments": 11,
-      "time": 1762966902,
-      "source_name": "hackernews",
-      "story_type": "story"
-    },
-    "source": "hackernews"
-  },
-  {
-    "timestamp": "2025-11-12T21:32:07.169046+00:00",
-    "content_preview": "build-your-own-x\n\nMaster programming by recreating your favorite technologies from scratch.",
-    "content_length": 91,
-    "heuristic_score": 0.5,
-    "ai_score": 0.4,
-    "score_gap": -0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, curated list repository, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "language": "Markdown",
-      "source_name": "github_trending",
-      "stars": 437489,
-      "forks": 40996,
-      "watchers": 437489,
-      "topics": [
-        "awesome-list",
-        "free",
-        "programming",
-        "tutorial-code",
-        "tutorial-exercises",
-        "tutorials"
-      ],
-      "open_issues": 439
-    },
-    "source": "github"
-  },
-  {
-    "timestamp": "2025-11-12T21:32:10.219244+00:00",
-    "content_preview": "freeCodeCamp\n\nfreeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
-    "content_length": 125,
-    "heuristic_score": 0.83,
-    "ai_score": 0.6,
-    "score_gap": -0.22999999999999998,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "TypeScript",
-      "source_name": "github_trending",
-      "stars": 431793,
-      "forks": 42347,
-      "watchers": 431793,
-      "topics": [
-        "careers",
-        "certification",
-        "community",
-        "curriculum",
-        "d3",
-        "education",
-        "freecodecamp",
-        "javascript",
-        "learn-to-code",
-        "math",
-        "nodejs",
-        "nonprofits",
-        "programming",
-        "react",
-        "teachers"
-      ],
-      "open_issues": 329
-    },
-    "source": "github"
-  },
-  {
-    "timestamp": "2025-11-12T21:32:19.498953+00:00",
-    "content_preview": "public-apis\n\nA collective list of free APIs",
-    "content_length": 43,
-    "heuristic_score": 0.45000000000000007,
-    "ai_score": 0.4,
-    "score_gap": -0.050000000000000044,
-    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "Python",
-      "source_name": "github_trending",
-      "stars": 378081,
-      "forks": 40059,
-      "watchers": 378081,
-      "topics": [
-        "api",
-        "apis",
-        "dataset",
-        "development",
-        "free",
-        "list",
-        "lists",
-        "open-source",
-        "public",
-        "public-api",
-        "public-apis",
-        "resources",
-        "software"
-      ],
-      "open_issues": 686
-    },
-    "source": "github"
-  },
-  {
-    "timestamp": "2025-11-12T21:32:20.512307+00:00",
-    "content_preview": "free-programming-books\n\n:books: Freely available programming books",
-    "content_length": 66,
-    "heuristic_score": 0.4,
+    "timestamp": "2025-11-12T22:35:58.937106+00:00",
+    "content_preview": "Test content for article 0 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
     "ai_score": 0.5,
-    "score_gap": 0.09999999999999998,
-    "heuristic_reasoning": "Heuristic: short but viable, 2 tech keyword(s), structured text, organization account, no code examples, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "Python",
-      "source_name": "github_trending",
-      "stars": 376720,
-      "forks": 65373,
-      "watchers": 376720,
-      "topics": [
-        "books",
-        "education",
-        "hacktoberfest",
-        "list",
-        "resource"
-      ],
-      "open_issues": 191
-    },
-    "source": "github"
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:32:28.772192+00:00",
-    "content_preview": "developer-roadmap\n\nInteractive roadmaps, guides and other educational content to help developers grow in their careers.",
-    "content_length": 119,
-    "heuristic_score": 0.63,
-    "ai_score": 0.7,
-    "score_gap": 0.06999999999999995,
-    "heuristic_reasoning": "Heuristic: good length, structured text, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "TypeScript",
-      "source_name": "github_trending",
-      "stars": 343431,
-      "forks": 43360,
-      "watchers": 343431,
-      "topics": [
-        "angular-roadmap",
-        "backend-roadmap",
-        "blockchain-roadmap",
-        "computer-science",
-        "dba-roadmap",
-        "developer-roadmap",
-        "devops-roadmap",
-        "frontend-roadmap",
-        "go-roadmap",
-        "java-roadmap",
-        "javascript-roadmap",
-        "nodejs-roadmap",
-        "python-roadmap",
-        "qa-roadmap",
-        "react-roadmap",
-        "roadmap",
-        "software-architect-roadmap",
-        "vue-roadmap"
-      ],
-      "open_issues": 134
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:35:58.809153+00:00",
+    "content_preview": "Test content for article 1 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:32:30.528000+00:00",
-    "content_preview": "system-design-primer\n\nLearn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
-    "content_length": 127,
-    "heuristic_score": 0.78,
-    "ai_score": 0.6,
-    "score_gap": -0.18000000000000005,
-    "heuristic_reasoning": "Heuristic: good length, structured text, educational content, some depth, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "Python",
-      "source_name": "github_trending",
-      "stars": 326288,
-      "forks": 53137,
-      "watchers": 326288,
-      "topics": [
-        "design",
-        "design-patterns",
-        "design-system",
-        "development",
-        "interview",
-        "interview-practice",
-        "interview-questions",
-        "programming",
-        "python",
-        "system",
-        "web",
-        "web-application",
-        "webapp"
-      ],
-      "open_issues": 511
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:35:58.505906+00:00",
+    "content_preview": "Test content for article 2 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:32:41.724155+00:00",
-    "content_preview": "linux\n\nLinux kernel source tree",
-    "content_length": 31,
-    "heuristic_score": 0.6000000000000001,
-    "ai_score": 0.4,
-    "score_gap": -0.20000000000000007,
-    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), structured text, authority account, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "C",
-      "source_name": "github_trending",
-      "stars": 206890,
-      "forks": 58360,
-      "watchers": 206890,
-      "topics": [],
-      "open_issues": 3
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:35:59.096552+00:00",
+    "content_preview": "Test content for article 3 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:32:42.705541+00:00",
-    "content_preview": "tensorflow\n\nAn Open Source Machine Learning Framework for Everyone",
-    "content_length": 66,
-    "heuristic_score": 0.73,
-    "ai_score": 0.7,
-    "score_gap": -0.030000000000000027,
-    "heuristic_reasoning": "Heuristic: short but viable, 3 tech keywords, structured text, somewhat educational, no code examples, contains undervalued keyword: framework, engagement above learned threshold: 0 (+0.25 adaptive)",
-    "metadata": {
-      "language": "C++",
-      "source_name": "github_trending",
-      "stars": 192412,
-      "forks": 74983,
-      "watchers": 192412,
-      "topics": [
-        "deep-learning",
-        "deep-neural-networks",
-        "distributed",
-        "machine-learning",
-        "ml",
-        "neural-network",
-        "python",
-        "tensorflow"
-      ],
-      "open_issues": 2227
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:35:59.995932+00:00",
+    "content_preview": "Test content for article 4 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:32:50.003918+00:00",
-    "content_preview": "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php",
-    "content_length": 351,
-    "heuristic_score": 0.97,
-    "ai_score": 0.4,
-    "score_gap": -0.57,
-    "heuristic_reasoning": "Heuristic: good length, 5 tech keywords, structured text, announcement content, no code examples, not actionable, contains undervalued keyword: framework, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.35 adaptive)",
-    "metadata": {
-      "language": "Shell",
-      "source_name": "github_trending",
-      "stars": 182687,
-      "forks": 26274,
-      "watchers": 182687,
-      "topics": [
-        "cli",
-        "cli-app",
-        "oh-my-zsh",
-        "oh-my-zsh-plugin",
-        "oh-my-zsh-theme",
-        "ohmyzsh",
-        "plugin-framework",
-        "plugins",
-        "productivity",
-        "shell",
-        "terminal",
-        "theme",
-        "themes",
-        "zsh",
-        "zsh-configuration"
-      ],
-      "open_issues": 522
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:36:00.363645+00:00",
+    "content_preview": "Test content for article 5 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:32:53.431131+00:00",
-    "content_preview": "AutoGPT\n\nAutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-    "content_length": 161,
-    "heuristic_score": 0.75,
-    "ai_score": 0.4,
-    "score_gap": -0.35,
-    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "Python",
-      "source_name": "github_trending",
-      "stars": 179642,
-      "forks": 46118,
-      "watchers": 179642,
-      "topics": [
-        "ai",
-        "artificial-intelligence",
-        "autonomous-agents",
-        "gpt-4",
-        "llama-api",
-        "openai",
-        "python"
-      ],
-      "open_issues": 280
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:36:01.060737+00:00",
+    "content_preview": "Test content for article 6 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:33:02.373650+00:00",
-    "content_preview": "vscode\n\nVisual Studio Code",
-    "content_length": 26,
-    "heuristic_score": 0.4,
-    "ai_score": 0.4,
-    "score_gap": 0.0,
-    "heuristic_reasoning": "Heuristic: too short, structured text, authority account, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "TypeScript",
-      "source_name": "github_trending",
-      "stars": 178481,
-      "forks": 36115,
-      "watchers": 178481,
-      "topics": [
-        "editor",
-        "electron",
-        "microsoft",
-        "typescript",
-        "visual-studio-code"
-      ],
-      "open_issues": 14331
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:36:01.090628+00:00",
+    "content_preview": "Test content for article 7 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:33:04.710762+00:00",
-    "content_preview": "flutter\n\nFlutter makes it easy and fast to build beautiful apps for mobile and beyond",
-    "content_length": 85,
-    "heuristic_score": 0.35,
-    "ai_score": 0.4,
-    "score_gap": 0.050000000000000044,
-    "heuristic_reasoning": "Heuristic: short but viable, structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "Dart",
-      "source_name": "github_trending",
-      "stars": 173857,
-      "forks": 29499,
-      "watchers": 173857,
-      "topics": [
-        "android",
-        "app-framework",
-        "cross-platform",
-        "dart",
-        "dart-platform",
-        "desktop",
-        "flutter",
-        "flutter-package",
-        "fuchsia",
-        "ios",
-        "linux-desktop",
-        "macos",
-        "material-design",
-        "mobile",
-        "mobile-development",
-        "skia",
-        "web",
-        "web-framework",
-        "windows"
-      ],
-      "open_issues": 12333
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:36:02.814041+00:00",
+    "content_preview": "Test content for article 8 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   },
   {
-    "timestamp": "2025-11-12T21:33:13.111781+00:00",
-    "content_preview": "stable-diffusion-webui\n\nStable Diffusion web UI",
-    "content_length": 47,
-    "heuristic_score": 0.25,
-    "ai_score": 0.4,
-    "score_gap": 0.15000000000000002,
-    "heuristic_reasoning": "Heuristic: too short, structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
-    "metadata": {
-      "language": "Python",
-      "source_name": "github_trending",
-      "stars": 158162,
-      "forks": 29359,
-      "watchers": 158162,
-      "topics": [
-        "ai",
-        "ai-art",
-        "deep-learning",
-        "diffusion",
-        "gradio",
-        "image-generation",
-        "image2image",
-        "img2img",
-        "pytorch",
-        "stable-diffusion",
-        "text2image",
-        "torch",
-        "txt2img",
-        "unstable",
-        "upscaling",
-        "web"
-      ],
-      "open_issues": 2436
-    },
-    "source": "github"
+    "timestamp": "2025-11-12T22:36:02.243672+00:00",
+    "content_preview": "Test content for article 9 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:02.308272+00:00",
+    "content_preview": "Test content for article 10 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:02.768754+00:00",
+    "content_preview": "Test content for article 11 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:03.297736+00:00",
+    "content_preview": "Test content for article 12 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:03.738133+00:00",
+    "content_preview": "Test content for article 13 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:03.820784+00:00",
+    "content_preview": "Test content for article 14 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:03.907604+00:00",
+    "content_preview": "Test content for article 15 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:04.529942+00:00",
+    "content_preview": "Test content for article 16 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:04.758468+00:00",
+    "content_preview": "Test content for article 17 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:04.976448+00:00",
+    "content_preview": "Test content for article 18 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:05.851617+00:00",
+    "content_preview": "Test content for article 19 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL",
+    "content_length": 201,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:06.959488+00:00",
+    "content_preview": "Test content for article 0 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:07.012799+00:00",
+    "content_preview": "Test content for article 1 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:07.078111+00:00",
+    "content_preview": "Test content for article 2 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:07.032187+00:00",
+    "content_preview": "Test content for article 3 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:07.990419+00:00",
+    "content_preview": "Test content for article 4 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:08.266742+00:00",
+    "content_preview": "Test content for article 5 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:08.329025+00:00",
+    "content_preview": "Test content for article 6 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:08.978447+00:00",
+    "content_preview": "Test content for article 7 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:09.051125+00:00",
+    "content_preview": "Test content for article 8 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-12T22:36:09.422690+00:00",
+    "content_preview": "Test content for article 9 about free-threading optimization. This validates that enrichment works correctly under parallelization. Python 3.14 free-threading enables true parallelism without the GIL.",
+    "content_length": 200,
+    "heuristic_score": 0.5299999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.029999999999999916,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some depth, thread post (may lack context)",
+    "metadata": {},
+    "source": "hackernews"
   }
 ]

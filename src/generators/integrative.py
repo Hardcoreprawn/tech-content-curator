@@ -162,8 +162,13 @@ class IntegrativeListGenerator(BaseGenerator):
 
         try:
             logger.debug("Calling OpenAI API for integrative list generation")
+            # Get model from config
+            from ..config import get_config
+
+            config = get_config()
+
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=config.content_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.5,
                 max_tokens=2500,  # Allow for longer, more detailed content

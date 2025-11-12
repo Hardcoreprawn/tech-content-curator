@@ -88,6 +88,11 @@ def _build_config() -> PipelineConfig:
         reddit_client_id=os.getenv("REDDIT_CLIENT_ID"),
         reddit_client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
         reddit_user_agent=os.getenv("REDDIT_USER_AGENT"),
+        # AI Model Configuration (GPT-5 Series - Nov 2025)
+        content_model=os.getenv("CONTENT_MODEL", "gpt-5-mini"),
+        title_model=os.getenv("TITLE_MODEL", "gpt-5-nano"),
+        review_model=os.getenv("REVIEW_MODEL", "gpt-5-mini"),
+        enrichment_model=os.getenv("ENRICHMENT_MODEL", "gpt-5-nano"),
         reddit_requests_per_minute=int(os.getenv("REDDIT_REQUESTS_PER_MINUTE", "30")),
         reddit_burst=int(os.getenv("REDDIT_BURST", "5")),
         reddit_request_interval_seconds=float(
@@ -150,6 +155,34 @@ def _build_config() -> PipelineConfig:
             os.getenv("TEXT_ILLUSTRATION_QUALITY_THRESHOLD", "0.6")
         ),
         skip_list_sections=os.getenv("SKIP_LIST_SECTIONS", "true").lower() == "true",
+        # Article review and quality improvement (Phase 2)
+        enable_article_review=os.getenv("ENABLE_ARTICLE_REVIEW", "false").lower()
+        == "true",
+        article_review_min_threshold=float(
+            os.getenv("ARTICLE_REVIEW_MIN_THRESHOLD", "6.0")
+        ),
+        enable_review_regeneration=os.getenv(
+            "ENABLE_REVIEW_REGENERATION", "false"
+        ).lower()
+        == "true",
+        max_regeneration_attempts=int(os.getenv("MAX_REGENERATION_ATTEMPTS", "2")),
+        # Quality gate configuration (two-tier system)
+        enable_quality_gate=os.getenv("ENABLE_QUALITY_GATE", "false").lower() == "true",
+        quality_gate_threshold=float(os.getenv("QUALITY_GATE_THRESHOLD", "70.0")),
+        enable_auto_review_on_failure=os.getenv(
+            "ENABLE_AUTO_REVIEW_ON_FAILURE", "true"
+        ).lower()
+        == "true",
+        enable_auto_regeneration=os.getenv("ENABLE_AUTO_REGENERATION", "true").lower()
+        == "true",
+        review_score_threshold=float(os.getenv("REVIEW_SCORE_THRESHOLD", "6.5")),
+        # Voice adaptation and tracking
+        enable_voice_metrics=os.getenv("ENABLE_VOICE_METRICS", "true").lower()
+        == "true",
+        # Secondary source research
+        enable_secondary_sources=os.getenv("ENABLE_SECONDARY_SOURCES", "false").lower()
+        == "true",
+        max_secondary_references=int(os.getenv("MAX_SECONDARY_REFERENCES", "3")),
     )
 
     # Validate required keys (except in test environment)
