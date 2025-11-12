@@ -3635,5 +3635,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 3,
+    "patterns_used": 673,
+    "timestamp": "2025-11-12T02:31:13.423055",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "FFmpeg to Google Fund Us or Stop Sending Bugs: https:// thenewstack.io/ffmpeg-to-googl e-fund-us-or-",
+        "removed_items": [
+          "FFmpeg to Google: Fund us or stop sending bugs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
