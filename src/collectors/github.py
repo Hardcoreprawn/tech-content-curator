@@ -93,7 +93,7 @@ def collect_from_github_trending(
                             "stars": repo["stargazers_count"],
                             "forks": repo["forks_count"],
                             "watchers": repo["watchers_count"],
-                            "language": repo.get("language"),
+                            "language": repo.get("language") or "Unknown",
                             "topics": repo.get("topics", []),
                             "source_name": "github_trending",
                             "open_issues": repo.get("open_issues_count", 0),
