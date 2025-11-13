@@ -32119,5 +32119,1190 @@
       "open_issues": 2436
     },
     "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:33:55.382326+00:00",
+    "content_preview": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+    "content_length": 100,
+    "heuristic_score": 0.7,
+    "ai_score": 0.5,
+    "score_gap": -0.19999999999999996,
+    "heuristic_reasoning": "Heuristic: good length, 3 tech keywords, structured text, no code examples, curated list repository, contains undervalued keyword: framework, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "language": "Python",
+      "source_name": "github_trending",
+      "stars": 269141,
+      "forks": 26683,
+      "watchers": 269141,
+      "topics": [
+        "awesome",
+        "collections",
+        "python",
+        "python-framework",
+        "python-library",
+        "python-resources"
+      ],
+      "open_issues": 513
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:33:55.491945+00:00",
+    "content_preview": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations and links to further readings",
+    "content_length": 129,
+    "heuristic_score": 0.83,
+    "ai_score": 0.5,
+    "score_gap": -0.32999999999999996,
+    "heuristic_reasoning": "Heuristic: good length, 3 tech keywords, structured text, some depth, no code examples, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "JavaScript",
+      "source_name": "github_trending",
+      "stars": 193979,
+      "forks": 30956,
+      "watchers": 193979,
+      "topics": [
+        "algorithm",
+        "algorithms",
+        "computer-science",
+        "data-structures",
+        "interview",
+        "interview-preparation",
+        "javascript",
+        "javascript-algorithms"
+      ],
+      "open_issues": 377
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:33:56.462033+00:00",
+    "content_preview": "\ud83e\udd80 I've improved the implementation behind all the string formatting macros in Rust: println!(), panic!(), format!(), write!(), log::info!(), and so on. (That is, everything based on format_args!().) T",
+    "content_length": 604,
+    "heuristic_score": 0.8500000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.3500000000000001,
+    "heuristic_reasoning": "Heuristic: substantial length, 3 tech keywords, very high engagement (771), some depth, no code examples, excessive punctuation, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 403,
+      "reblogs_count": 169,
+      "replies_count": 10,
+      "created_at": "2025-11-13T13:28:12.573Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:33:57.262573+00:00",
+    "content_preview": "I don't think a SteamOS landslide is inevitable or even likely but I definitely think MS doesn't realize how much they're playing with fire making Win11, their flagship and historic unbreakable monopo",
+    "content_length": 362,
+    "heuristic_score": 0.8,
+    "ai_score": 0.5,
+    "score_gap": -0.30000000000000004,
+    "heuristic_reasoning": "Heuristic: good length, high engagement (346), contains undervalued keyword: steam, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 144,
+      "reblogs_count": 83,
+      "replies_count": 12,
+      "created_at": "2025-11-13T17:29:30.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:33:58.161436+00:00",
+    "content_preview": "If this result holds up, it\u2019s potentially big: https://www. nature.com/articles/s41558-025 -02481-0 In short, it implies that # LightPollution is decreasing the efficiency with which # plants remove c",
+    "content_length": 792,
+    "heuristic_score": 0.8700000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.3700000000000001,
+    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), includes links, very high engagement (620), single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 141,
+      "reblogs_count": 220,
+      "replies_count": 13,
+      "created_at": "2025-11-13T14:28:38.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:33:59.252876+00:00",
+    "content_preview": "If you are wondering why Chat Control is being brought back so relentlessly, despite a clear and strong opposition from citizens, human rights advocates, and child protection organizations alike, I re",
+    "content_length": 815,
+    "heuristic_score": 0.8,
+    "ai_score": 0.5,
+    "score_gap": -0.30000000000000004,
+    "heuristic_reasoning": "Heuristic: very long, 1 tech keyword(s), includes links, high engagement (305), somewhat educational, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 36,
+      "reblogs_count": 124,
+      "replies_count": 7,
+      "created_at": "2025-11-13T15:49:48.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:00.081915+00:00",
+    "content_preview": "It's my birthday today! We celebrated yesterday by SPENDING THOUSANDS OF DOLLARS HAVING A NEW HVAC SYSTEM INSTALLED. Our furnace failed right as things started getting cold at the end of October. So, ",
+    "content_length": 480,
+    "heuristic_score": 0.9,
+    "ai_score": 0.5,
+    "score_gap": -0.4,
+    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), high engagement (269), active discussion, announcement content, excessive caps, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 66,
+      "reblogs_count": 70,
+      "replies_count": 21,
+      "created_at": "2025-11-13T17:33:02.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:00.593628+00:00",
+    "content_preview": "\ud83d\udea8 Attention EU Citizens \ud83d\udea8 \ud83d\udcac Chat Control could mandate all services to scan all private digital communications of everyone residing in the European Union, and it's currently waiting to be green-lit by",
+    "content_length": 478,
+    "heuristic_score": 0.7000000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.20000000000000007,
+    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), high engagement (265), no code examples, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 34,
+      "reblogs_count": 111,
+      "replies_count": 3,
+      "created_at": "2025-11-13T15:22:05.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:01.178458+00:00",
+    "content_preview": "Legit. # grickledoodle # spiderman # doctoroctopus # octopus # cartoon # marvel # art # drawing # funny",
+    "content_length": 103,
+    "heuristic_score": 0.9,
+    "ai_score": 0.5,
+    "score_gap": -0.4,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (139), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 40,
+      "reblogs_count": 48,
+      "replies_count": 1,
+      "created_at": "2025-11-13T17:02:27.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:01.675927+00:00",
+    "content_preview": "Dear Internet The freedom fighter's name is Gandhi not \"Ghandi\" The South American country is called Colombia not \"Columbia\" The usual manner is conventional for all intents and purposes Not \"for all ",
+    "content_length": 260,
+    "heuristic_score": 0.7000000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.20000000000000007,
+    "heuristic_reasoning": "Heuristic: good length, high engagement (153), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 38,
+      "reblogs_count": 35,
+      "replies_count": 15,
+      "created_at": "2025-11-13T17:42:50.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:03.219113+00:00",
+    "content_preview": "Nano Banana can be prompt engineered for nuanced AI image generation",
+    "content_length": 68,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 64,
+      "comments": 11,
+      "time": 1763055553,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:02.337678+00:00",
+    "content_preview": "Zed is our office",
+    "content_length": 17,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 234,
+      "comments": 95,
+      "time": 1763048486,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:02.999240+00:00",
+    "content_preview": "Launch HN: Tweeks (YC W25) \u2013 Browser extension to de-enshittify the web\n\nHey HN! We\u2019re Jason &amp; Matt and we\u2019re building Tweeks (<a href=\"https:&#x2F;&#x2F;tweeks.io\">https:&#x2F;&#x2F;tweeks.io</a>",
+    "content_length": 6289,
+    "heuristic_score": 0.8799999999999999,
+    "ai_score": 0.5,
+    "score_gap": -0.3799999999999999,
+    "heuristic_reasoning": "Heuristic: very long, 4 tech keywords, includes links, structured text, somewhat educational, some depth, emoji heavy, no code examples, excessive punctuation, contains undervalued keyword: terminal, contains undervalued keyword: using, contains undervalued keyword: love, engagement above learned threshold: 0 (+0.45 adaptive)",
+    "metadata": {
+      "score": 62,
+      "comments": 54,
+      "time": 1763049784,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:03.787857+00:00",
+    "content_preview": "GitHub Partial Outage",
+    "content_length": 21,
+    "heuristic_score": 0.35,
+    "ai_score": 0.5,
+    "score_gap": 0.15000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 117,
+      "comments": 48,
+      "time": 1763046279,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:03.905382+00:00",
+    "content_preview": "Rand Paul: Congress bill destroys hemp farmer livelihoods",
+    "content_length": 57,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 41,
+      "comments": 4,
+      "time": 1763054530,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:04.440409+00:00",
+    "content_preview": "Checkout.com hacked, refuses ransom payment, donates to security labs",
+    "content_length": 69,
+    "heuristic_score": 0.55,
+    "ai_score": 0.5,
+    "score_gap": -0.050000000000000044,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), announcement content, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 412,
+      "comments": 204,
+      "time": 1763025810,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:05.263009+00:00",
+    "content_preview": "SIMA 2: An agent that plays, reasons, and learns with you in virtual 3D worlds",
+    "content_length": 78,
+    "heuristic_score": 0.32999999999999996,
+    "ai_score": 0.5,
+    "score_gap": 0.17000000000000004,
+    "heuristic_reasoning": "Heuristic: short but viable, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 72,
+      "comments": 17,
+      "time": 1763047778,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:05.600412+00:00",
+    "content_preview": "Blender Lab",
+    "content_length": 11,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 133,
+      "comments": 38,
+      "time": 1763041127,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:06.200215+00:00",
+    "content_preview": "The Useful Personal Computer",
+    "content_length": 28,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 29,
+      "comments": 0,
+      "time": 1762093148,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:06.433672+00:00",
+    "content_preview": "Kratos - Cloud native Auth0 open-source alternative (self-hosted)",
+    "content_length": 65,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 83,
+      "comments": 54,
+      "time": 1763043276,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:07.137839+00:00",
+    "content_preview": "Let AI do the hard parts of your holiday shopping",
+    "content_length": 49,
+    "heuristic_score": 0.35,
+    "ai_score": 0.5,
+    "score_gap": 0.15000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 8,
+      "comments": 17,
+      "time": 1763055407,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:07.158153+00:00",
+    "content_preview": "Denx (a.k.a. U-Boot) Retires",
+    "content_length": 28,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 60,
+      "comments": 11,
+      "time": 1763043048,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:07.886143+00:00",
+    "content_preview": "We cut our Mongo DB costs by 90% by moving to Hetzner",
+    "content_length": 53,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 116,
+      "comments": 83,
+      "time": 1763047077,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:07.994771+00:00",
+    "content_preview": "Tesla Is Recalling Cybertrucks Again. Yep, More Pieces Are Falling Off",
+    "content_length": 70,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 219,
+      "comments": 179,
+      "time": 1763048284,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:08.639973+00:00",
+    "content_preview": "Pebble: How to Build a Smartwatch: Software \u2013 Setting Expectations and Roadmap",
+    "content_length": 78,
+    "heuristic_score": 0.53,
+    "ai_score": 0.5,
+    "score_gap": -0.030000000000000027,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 36,
+      "comments": 6,
+      "time": 1763043685,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:08.763009+00:00",
+    "content_preview": "Think in Math. Write in Code",
+    "content_length": 28,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 7,
+      "comments": 1,
+      "time": 1762689795,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:09.628644+00:00",
+    "content_preview": "Heartbeats in Distributed Systems",
+    "content_length": 33,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 55,
+      "comments": 20,
+      "time": 1763041430,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:09.745948+00:00",
+    "content_preview": "Microsoft confirms Windows 11 is about to change gets enormous backlash \u2013 Neowin",
+    "content_length": 80,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 18,
+      "comments": 1,
+      "time": 1763056912,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:10.561447+00:00",
+    "content_preview": "Android developer verification: Early access starts",
+    "content_length": 51,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 1239,
+      "comments": 572,
+      "time": 1762994005,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:11.580860+00:00",
+    "content_preview": "Human Fovea Detector",
+    "content_length": 20,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 392,
+      "comments": 81,
+      "time": 1762994925,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:11.886126+00:00",
+    "content_preview": "A Challenge to Roboticists: My Humanoid Olympics",
+    "content_length": 48,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 31,
+      "comments": 4,
+      "time": 1762261255,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:12.624209+00:00",
+    "content_preview": "Steam Machine",
+    "content_length": 13,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: too short, contains undervalued keyword: steam, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 2512,
+      "comments": 1185,
+      "time": 1762970383,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:12.993448+00:00",
+    "content_preview": "COBOL to Kotlin via Formal Models (IR and Alloy and Golden Master)",
+    "content_length": 66,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 29,
+      "comments": 8,
+      "time": 1762579951,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:14.048500+00:00",
+    "content_preview": "Android 16 QPR1 is being pushed to the Android Open Source Project",
+    "content_length": 66,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 212,
+      "comments": 113,
+      "time": 1763005763,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:13.672021+00:00",
+    "content_preview": "Reverse Engineering Yaesu FT-70D Firmware Encryption",
+    "content_length": 52,
+    "heuristic_score": 0.25,
+    "ai_score": 0.5,
+    "score_gap": 0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 113,
+      "comments": 15,
+      "time": 1763017921,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:14.845642+00:00",
+    "content_preview": "Britain's railway privatization was an abject failure",
+    "content_length": 53,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 401,
+      "comments": 354,
+      "time": 1763040878,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:14.932297+00:00",
+    "content_preview": "Homebrew no longer allows bypassing Gatekeeper for unsigned/unnotarized software",
+    "content_length": 80,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 309,
+      "comments": 244,
+      "time": 1762984214,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:15.455661+00:00",
+    "content_preview": "GPT-5.1: A smarter, more conversational ChatGPT",
+    "content_length": 47,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 504,
+      "comments": 640,
+      "time": 1762974341,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:15.762948+00:00",
+    "content_preview": "Continuous Autoregressive Language Models",
+    "content_length": 41,
+    "heuristic_score": 0.15,
+    "ai_score": 0.5,
+    "score_gap": 0.35,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 92,
+      "comments": 7,
+      "time": 1762379352,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:16.193995+00:00",
+    "content_preview": "build-your-own-x\n\nMaster programming by recreating your favorite technologies from scratch.",
+    "content_length": 91,
+    "heuristic_score": 0.4,
+    "ai_score": 0.5,
+    "score_gap": 0.09999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Markdown",
+      "source_name": "github_trending",
+      "stars": 437759,
+      "forks": 41027,
+      "watchers": 437759,
+      "topics": [
+        "awesome-list",
+        "free",
+        "programming",
+        "tutorial-code",
+        "tutorial-exercises",
+        "tutorials"
+      ],
+      "open_issues": 439
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:16.477407+00:00",
+    "content_preview": "freeCodeCamp\n\nfreeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
+    "content_length": 125,
+    "heuristic_score": 0.83,
+    "ai_score": 0.5,
+    "score_gap": -0.32999999999999996,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "TypeScript",
+      "source_name": "github_trending",
+      "stars": 431979,
+      "forks": 42378,
+      "watchers": 431979,
+      "topics": [
+        "careers",
+        "certification",
+        "community",
+        "curriculum",
+        "d3",
+        "education",
+        "freecodecamp",
+        "javascript",
+        "learn-to-code",
+        "math",
+        "nodejs",
+        "nonprofits",
+        "programming",
+        "react",
+        "teachers"
+      ],
+      "open_issues": 328
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:16.791823+00:00",
+    "content_preview": "awesome\n\n\ud83d\ude0e Awesome lists about all kinds of interesting topics",
+    "content_length": 62,
+    "heuristic_score": 0.2,
+    "ai_score": 0.5,
+    "score_gap": 0.3,
+    "heuristic_reasoning": "Heuristic: short but viable, structured text, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Unknown",
+      "source_name": "github_trending",
+      "stars": 414291,
+      "forks": 32226,
+      "watchers": 414291,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "lists",
+        "resources",
+        "unicorns"
+      ],
+      "open_issues": 49
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:17.502106+00:00",
+    "content_preview": "public-apis\n\nA collective list of free APIs",
+    "content_length": 43,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.5,
+    "score_gap": 0.04999999999999993,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Python",
+      "source_name": "github_trending",
+      "stars": 378261,
+      "forks": 40080,
+      "watchers": 378261,
+      "topics": [
+        "api",
+        "apis",
+        "dataset",
+        "development",
+        "free",
+        "list",
+        "lists",
+        "open-source",
+        "public",
+        "public-api",
+        "public-apis",
+        "resources",
+        "software"
+      ],
+      "open_issues": 682
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:18.044961+00:00",
+    "content_preview": "free-programming-books\n\n:books: Freely available programming books",
+    "content_length": 66,
+    "heuristic_score": 0.4,
+    "ai_score": 0.5,
+    "score_gap": 0.09999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, 2 tech keyword(s), structured text, organization account, no code examples, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Python",
+      "source_name": "github_trending",
+      "stars": 376759,
+      "forks": 65381,
+      "watchers": 376759,
+      "topics": [
+        "books",
+        "education",
+        "hacktoberfest",
+        "list",
+        "resource"
+      ],
+      "open_issues": 194
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:18.383624+00:00",
+    "content_preview": "developer-roadmap\n\nInteractive roadmaps, guides and other educational content to help developers grow in their careers.",
+    "content_length": 119,
+    "heuristic_score": 0.63,
+    "ai_score": 0.5,
+    "score_gap": -0.13,
+    "heuristic_reasoning": "Heuristic: good length, structured text, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "TypeScript",
+      "source_name": "github_trending",
+      "stars": 343515,
+      "forks": 43368,
+      "watchers": 343515,
+      "topics": [
+        "angular-roadmap",
+        "backend-roadmap",
+        "blockchain-roadmap",
+        "computer-science",
+        "dba-roadmap",
+        "developer-roadmap",
+        "devops-roadmap",
+        "frontend-roadmap",
+        "go-roadmap",
+        "java-roadmap",
+        "javascript-roadmap",
+        "nodejs-roadmap",
+        "python-roadmap",
+        "qa-roadmap",
+        "react-roadmap",
+        "roadmap",
+        "software-architect-roadmap",
+        "vue-roadmap"
+      ],
+      "open_issues": 134
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:18.787059+00:00",
+    "content_preview": "system-design-primer\n\nLearn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
+    "content_length": 127,
+    "heuristic_score": 0.78,
+    "ai_score": 0.5,
+    "score_gap": -0.28,
+    "heuristic_reasoning": "Heuristic: good length, structured text, educational content, some depth, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Python",
+      "source_name": "github_trending",
+      "stars": 326363,
+      "forks": 53153,
+      "watchers": 326363,
+      "topics": [
+        "design",
+        "design-patterns",
+        "design-system",
+        "development",
+        "interview",
+        "interview-practice",
+        "interview-questions",
+        "programming",
+        "python",
+        "system",
+        "web",
+        "web-application",
+        "webapp"
+      ],
+      "open_issues": 512
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:19.468254+00:00",
+    "content_preview": "awesome-selfhosted\n\nA list of Free Software network services and web applications which can be hosted on your own servers",
+    "content_length": 121,
+    "heuristic_score": 0.5,
+    "ai_score": 0.5,
+    "score_gap": 0.0,
+    "heuristic_reasoning": "Heuristic: good length, 2 tech keyword(s), structured text, no code examples, curated list repository, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Unknown",
+      "source_name": "github_trending",
+      "stars": 257960,
+      "forks": 11900,
+      "watchers": 257960,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "cloud",
+        "free-software",
+        "hosting",
+        "privacy",
+        "self-hosted",
+        "selfhosted"
+      ],
+      "open_issues": 0
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:19.940380+00:00",
+    "content_preview": "react\n\nThe library for web and native user interfaces.",
+    "content_length": 54,
+    "heuristic_score": 0.55,
+    "ai_score": 0.5,
+    "score_gap": -0.050000000000000044,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "JavaScript",
+      "source_name": "github_trending",
+      "stars": 240562,
+      "forks": 49851,
+      "watchers": 240562,
+      "topics": [
+        "declarative",
+        "frontend",
+        "javascript",
+        "library",
+        "react",
+        "ui"
+      ],
+      "open_issues": 1057
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:20.284434+00:00",
+    "content_preview": "linux\n\nLinux kernel source tree",
+    "content_length": 31,
+    "heuristic_score": 0.6000000000000001,
+    "ai_score": 0.5,
+    "score_gap": -0.10000000000000009,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), structured text, authority account, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "C",
+      "source_name": "github_trending",
+      "stars": 206956,
+      "forks": 58370,
+      "watchers": 206956,
+      "topics": [],
+      "open_issues": 3
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:20.655427+00:00",
+    "content_preview": "tensorflow\n\nAn Open Source Machine Learning Framework for Everyone",
+    "content_length": 66,
+    "heuristic_score": 0.73,
+    "ai_score": 0.5,
+    "score_gap": -0.22999999999999998,
+    "heuristic_reasoning": "Heuristic: short but viable, 3 tech keywords, structured text, somewhat educational, no code examples, contains undervalued keyword: framework, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "language": "C++",
+      "source_name": "github_trending",
+      "stars": 192424,
+      "forks": 74990,
+      "watchers": 192424,
+      "topics": [
+        "deep-learning",
+        "deep-neural-networks",
+        "distributed",
+        "machine-learning",
+        "ml",
+        "neural-network",
+        "python",
+        "tensorflow"
+      ],
+      "open_issues": 2258
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:21.015256+00:00",
+    "content_preview": "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php",
+    "content_length": 351,
+    "heuristic_score": 0.87,
+    "ai_score": 0.5,
+    "score_gap": -0.37,
+    "heuristic_reasoning": "Heuristic: good length, 5 tech keywords, structured text, announcement content, no code examples, not actionable, contains undervalued keyword: framework, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "language": "Shell",
+      "source_name": "github_trending",
+      "stars": 182710,
+      "forks": 26275,
+      "watchers": 182710,
+      "topics": [
+        "cli",
+        "cli-app",
+        "oh-my-zsh",
+        "oh-my-zsh-plugin",
+        "oh-my-zsh-theme",
+        "ohmyzsh",
+        "plugin-framework",
+        "plugins",
+        "productivity",
+        "shell",
+        "terminal",
+        "theme",
+        "themes",
+        "zsh",
+        "zsh-configuration"
+      ],
+      "open_issues": 524
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:21.370965+00:00",
+    "content_preview": "AutoGPT\n\nAutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+    "content_length": 161,
+    "heuristic_score": 0.75,
+    "ai_score": 0.5,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Python",
+      "source_name": "github_trending",
+      "stars": 179674,
+      "forks": 46117,
+      "watchers": 179674,
+      "topics": [
+        "ai",
+        "artificial-intelligence",
+        "autonomous-agents",
+        "gpt-4",
+        "llama-api",
+        "openai",
+        "python"
+      ],
+      "open_issues": 280
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:21.770963+00:00",
+    "content_preview": "vscode\n\nVisual Studio Code",
+    "content_length": 26,
+    "heuristic_score": 0.4,
+    "ai_score": 0.5,
+    "score_gap": 0.09999999999999998,
+    "heuristic_reasoning": "Heuristic: too short, structured text, authority account, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "TypeScript",
+      "source_name": "github_trending",
+      "stars": 178519,
+      "forks": 36135,
+      "watchers": 178519,
+      "topics": [
+        "editor",
+        "electron",
+        "microsoft",
+        "typescript",
+        "visual-studio-code"
+      ],
+      "open_issues": 14389
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:22.192222+00:00",
+    "content_preview": "flutter\n\nFlutter makes it easy and fast to build beautiful apps for mobile and beyond",
+    "content_length": 85,
+    "heuristic_score": 0.35,
+    "ai_score": 0.5,
+    "score_gap": 0.15000000000000002,
+    "heuristic_reasoning": "Heuristic: short but viable, structured text, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "language": "Dart",
+      "source_name": "github_trending",
+      "stars": 173879,
+      "forks": 29507,
+      "watchers": 173879,
+      "topics": [
+        "android",
+        "app-framework",
+        "cross-platform",
+        "dart",
+        "dart-platform",
+        "desktop",
+        "flutter",
+        "flutter-package",
+        "fuchsia",
+        "ios",
+        "linux-desktop",
+        "macos",
+        "material-design",
+        "mobile",
+        "mobile-development",
+        "skia",
+        "web",
+        "web-framework",
+        "windows"
+      ],
+      "open_issues": 12353
+    },
+    "source": "github"
+  },
+  {
+    "timestamp": "2025-11-13T18:34:22.498232+00:00",
+    "content_preview": "stable-diffusion-webui\n\nStable Diffusion web UI",
+    "content_length": 47,
+    "heuristic_score": 0.35,
+    "ai_score": 0.5,
+    "score_gap": 0.15000000000000002,
+    "heuristic_reasoning": "Heuristic: too short, structured text, contains undervalued keyword: diffusion, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "language": "Python",
+      "source_name": "github_trending",
+      "stars": 158182,
+      "forks": 29363,
+      "watchers": 158182,
+      "topics": [
+        "ai",
+        "ai-art",
+        "deep-learning",
+        "diffusion",
+        "gradio",
+        "image-generation",
+        "image2image",
+        "img2img",
+        "pytorch",
+        "stable-diffusion",
+        "text2image",
+        "torch",
+        "txt2img",
+        "unstable",
+        "upscaling",
+        "web"
+      ],
+      "open_issues": 2436
+    },
+    "source": "github"
   }
 ]
