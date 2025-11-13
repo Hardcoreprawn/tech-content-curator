@@ -3815,5 +3815,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 711,
+    "timestamp": "2025-11-13T03:08:55.239657",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This thing that 404 is writing about in the US\u2014the dehumanizing fake content created purely because ",
+        "removed_items": [
+          "Google will allow users to sideload Android apps without verification"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Yt-dlp: External JavaScript runtime now required for full YouTube support",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: JSX Tool (YC F25) \u2013 A Browser Dev-Panel IDE for React\n\nHi HN, We\u2019re Jamie &amp; Dan, buil",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
