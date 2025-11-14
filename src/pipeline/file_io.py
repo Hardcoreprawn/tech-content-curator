@@ -199,7 +199,9 @@ def save_article_to_file(
             if client and (config.unsplash_api_key or config.pexels_api_key):
                 try:
                     selector = CoverImageSelector(client, config)
-                    cover_image = selector.select(article.title, article.tags, article.content)
+                    cover_image = selector.select(
+                        article.title, article.tags, article.content
+                    )
                     hero_path = cover_image.url
                     icon_path = cover_image.url
                     article.generation_costs["image_generation"] = cover_image.cost

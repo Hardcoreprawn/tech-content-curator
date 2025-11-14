@@ -132,16 +132,35 @@ class CoverImageSelector:
             True if vintage tech context detected, False otherwise
         """
         vintage_keywords = {
-            "vintage", "retro", "historical", "legacy", "old", "classic",
-            "1970s", "1980s", "1990s", "early computing", "punch card",
-            "mainframe", "commodore", "atari", "ibm pc", "apple ii",
-            "unix", "dos", "analog", "mechanical", "obsolete"
+            "vintage",
+            "retro",
+            "historical",
+            "legacy",
+            "old",
+            "classic",
+            "1970s",
+            "1980s",
+            "1990s",
+            "early computing",
+            "punch card",
+            "mainframe",
+            "commodore",
+            "atari",
+            "ibm pc",
+            "apple ii",
+            "unix",
+            "dos",
+            "analog",
+            "mechanical",
+            "obsolete",
         }
 
         combined_text = (title + " " + " ".join(topics)).lower()
         return any(keyword in combined_text for keyword in vintage_keywords)
 
-    def _extract_key_entities(self, title: str, content: str, topics: list[str]) -> list[str]:
+    def _extract_key_entities(
+        self, title: str, content: str, topics: list[str]
+    ) -> list[str]:
         """Extract key entities from article title and content.
 
         Args:
@@ -155,15 +174,36 @@ class CoverImageSelector:
         entities = set(topics) if topics else set()
 
         # Add title words (except common stop words)
-        stop_words = {"the", "a", "an", "and", "or", "in", "on", "at", "to", "for", "of", "is", "are", "was", "were"}
-        title_words = [word.lower() for word in title.split() if word.lower() not in stop_words and len(word) > 3]
+        stop_words = {
+            "the",
+            "a",
+            "an",
+            "and",
+            "or",
+            "in",
+            "on",
+            "at",
+            "to",
+            "for",
+            "of",
+            "is",
+            "are",
+            "was",
+            "were",
+        }
+        title_words = [
+            word.lower()
+            for word in title.split()
+            if word.lower() not in stop_words and len(word) > 3
+        ]
         entities.update(title_words)
 
         # Extract key terms from content (simple heuristic: capitalized words)
         if content:
             import re
+
             # Find capitalized sequences (potential proper nouns)
-            capitalized = re.findall(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b', content)
+            capitalized = re.findall(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b", content)
             entities.update([e.lower() for e in capitalized[:10]])  # Limit to top 10
 
         return list(entities)[:15]  # Return top 15 entities
@@ -199,7 +239,9 @@ class CoverImageSelector:
             tried_queries.append(queries)
 
             logger.debug(f"Attempt {attempt}/{max_attempts} - Queries: {queries}")
-            console.print(f"[dim]Attempt {attempt}: {queries.get('unsplash', 'N/A')}[/dim]")
+            console.print(
+                f"[dim]Attempt {attempt}: {queries.get('unsplash', 'N/A')}[/dim]"
+            )
 
             # Tier 1: Try Unsplash (free stock)
             if self.config.unsplash_api_key:
@@ -209,11 +251,17 @@ class CoverImageSelector:
                         result.url, title, content[:500]
                     )
                     if is_relevant:
-                        logger.info(f"Found Unsplash image (attempt {attempt}, validated)")
-                        console.print("[green]✓ Found Unsplash image (validated)[/green]")
+                        logger.info(
+                            f"Found Unsplash image (attempt {attempt}, validated)"
+                        )
+                        console.print(
+                            "[green]✓ Found Unsplash image (validated)[/green]"
+                        )
                         return result
                     else:
-                        console.print("[dim]Unsplash image not relevant, retrying...[/dim]")
+                        console.print(
+                            "[dim]Unsplash image not relevant, retrying...[/dim]"
+                        )
                         continue  # Try next attempt
 
             # Tier 2: Try Pexels (free stock)
@@ -224,20 +272,28 @@ class CoverImageSelector:
                         result.url, title, content[:500]
                     )
                     if is_relevant:
-                        logger.info(f"Found Pexels image (attempt {attempt}, validated)")
+                        logger.info(
+                            f"Found Pexels image (attempt {attempt}, validated)"
+                        )
                         console.print("[green]✓ Found Pexels image (validated)[/green]")
                         return result
                     else:
-                        console.print("[dim]Pexels image not relevant, retrying...[/dim]")
+                        console.print(
+                            "[dim]Pexels image not relevant, retrying...[/dim]"
+                        )
                         continue  # Try next attempt
 
         # Tier 3: Generate AI image (fallback after all attempts)
-        logger.warning(f"No relevant free images found after {max_attempts} attempts, using AI")
+        logger.warning(
+            f"No relevant free images found after {max_attempts} attempts, using AI"
+        )
         console.print(
             "[yellow]⚠  No relevant free images found, generating AI image...[/yellow]"
         )
         return self._generate_ai_image(
-            tried_queries[-1].get("dalle", f"Professional article illustration for: {title}")
+            tried_queries[-1].get(
+                "dalle", f"Professional article illustration for: {title}"
+            )
         )
 
     def _generate_search_queries(
@@ -246,7 +302,7 @@ class CoverImageSelector:
         topics: list[str],
         content: str,
         attempt: int = 1,
-        previous_queries: list[dict[str, str]] | None = None
+        previous_queries: list[dict[str, str]] | None = None,
     ) -> dict[str, str]:
         """Use LLM to generate content-aware search queries.
 
@@ -270,7 +326,7 @@ class CoverImageSelector:
         retry_context = ""
         if attempt > 1 and previous_queries:
             prev = previous_queries[-1]
-            retry_context = f"\n\nPREVIOUS ATTEMPT {attempt-1} FAILED - tried: '{prev.get('unsplash', 'N/A')}'. Generate a DIFFERENT query (broader or more specific)."
+            retry_context = f"\n\nPREVIOUS ATTEMPT {attempt - 1} FAILED - tried: '{prev.get('unsplash', 'N/A')}'. Generate a DIFFERENT query (broader or more specific)."
 
         content_excerpt = content[:500] if content else ""
 
@@ -298,7 +354,7 @@ STRATEGY:
 2. Use those EXACT names in queries ("Intel 4004", "Busicom", "React", etc.)
 3. For stock sites: be specific but searchable ("Intel 4004 chip" not just "Intel 4004")
 4. For DALL-E: be detailed and descriptive
-5. Vintage tech{' (detected)' if is_vintage else ''}: Prefer specific products over generic terms
+5. Vintage tech{" (detected)" if is_vintage else ""}: Prefer specific products over generic terms
 
 Be SPECIFIC. Use ACTUAL subject matter from the content."""
 

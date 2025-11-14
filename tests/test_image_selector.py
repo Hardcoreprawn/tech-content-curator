@@ -56,7 +56,7 @@ class TestCoverImageSelector:
         )
 
         queries = selector._generate_search_queries(
-            "Article about bird flight", ["birds", "aviation"]
+            "Article about bird flight", ["birds", "aviation"], "Birds can fly using their wings."
         )
 
         assert queries["unsplash"] == "flying bird"
@@ -70,7 +70,7 @@ class TestCoverImageSelector:
             choices=[MagicMock(message=MagicMock(content="not valid json"))]
         )
 
-        queries = selector._generate_search_queries("Test title", ["test"])
+        queries = selector._generate_search_queries("Test title", ["test"], "Test content")
 
         assert queries["unsplash"] == "Test title"
         assert queries["pexels"] == "Test title"
@@ -166,16 +166,27 @@ class TestCoverImageSelector:
         self, mock_get, selector, mock_client
     ):
         """Test selection strategy tries free sources before DALL-E."""
-        # Mock LLM query generation
-        mock_client.chat.completions.create.return_value = MagicMock(
-            choices=[
-                MagicMock(
-                    message=MagicMock(
-                        content='{"wikimedia": "bird", "unsplash": "bird", "pexels": "bird", "dalle": "bird"}'
+        # Mock LLM query generation AND validation (needs 2 calls now)
+        mock_client.chat.completions.create.side_effect = [
+            # First call: query generation
+            MagicMock(
+                choices=[
+                    MagicMock(
+                        message=MagicMock(
+                            content='{"wikimedia": "bird", "unsplash": "bird", "pexels": "bird", "dalle": "bird"}'
+                        )
                     )
-                )
-            ]
-        )
+                ]
+            ),
+            # Second call: validation returns "yes"
+            MagicMock(
+                choices=[
+                    MagicMock(
+                        message=MagicMock(content="yes")
+                    )
+                ]
+            ),
+        ]
 
         # Mock Unsplash success
         mock_get.return_value.json.return_value = {
@@ -188,7 +199,7 @@ class TestCoverImageSelector:
             ]
         }
 
-        result = selector.select("Article about birds", ["birds"])
+        result = selector.select("Article about birds", ["birds"], "Birds fly in the sky.")
 
         # Should use Unsplash, not DALL-E
         assert result.source == "unsplash"
