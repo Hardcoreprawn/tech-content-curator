@@ -1,0 +1,215 @@
+{
+  "timestamp": "2025-11-14T20:11:57.571179",
+  "configs": {
+    "Budget (All 4o-mini)": {
+      "success": true,
+      "iterations": 3,
+      "successful_iterations": 3,
+      "config": {
+        "content_model": "gpt-4o-mini",
+        "title_model": "gpt-4o-mini",
+        "enrichment_model": "gpt-4o-mini",
+        "review_model": "gpt-4o-mini"
+      },
+      "avg_total_cost": 0.008204999999999999,
+      "avg_total_time": 20.591121117273968,
+      "min_total_cost": 0.007704999999999999,
+      "max_total_cost": 0.008765,
+      "role_breakdown": {
+        "content": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.0033299999999999996,
+          "avg_time": 8.772615512212118,
+          "avg_output_tokens": 324.0
+        },
+        "title": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.0002908333333333333,
+          "avg_time": 0.6886909008026123,
+          "avg_output_tokens": 16.333333333333332
+        },
+        "enrichment": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.0004275,
+          "avg_time": 0.9298679033915201,
+          "avg_output_tokens": 30.0
+        },
+        "review": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.004156666666666667,
+          "avg_time": 10.199946800867716,
+          "avg_output_tokens": 398.6666666666667
+        }
+      },
+      "monthly_cost_estimate_270_articles": 2.2153499999999995
+    },
+    "Mixed (5.1 content, 4o-mini other)": {
+      "success": true,
+      "iterations": 10,
+      "successful_iterations": 10,
+      "config": {
+        "content_model": "gpt-5.1",
+        "title_model": "gpt-4o-mini",
+        "enrichment_model": "gpt-4o-mini",
+        "review_model": "gpt-4o-mini"
+      },
+      "avg_total_cost": 0.00791475,
+      "avg_total_time": 17.6694819688797,
+      "min_total_cost": 0.00664875,
+      "max_total_cost": 0.00941875,
+      "role_breakdown": {
+        "content": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.00347875,
+          "avg_time": 7.149358129501342,
+          "avg_output_tokens": 343.5
+        },
+        "title": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.0002875,
+          "avg_time": 0.9160531044006348,
+          "avg_output_tokens": 16.0
+        },
+        "enrichment": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.0004255,
+          "avg_time": 1.6254717111587524,
+          "avg_output_tokens": 29.8
+        },
+        "review": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.0037229999999999997,
+          "avg_time": 7.97859902381897,
+          "avg_output_tokens": 355.3
+        }
+      },
+      "monthly_cost_estimate_270_articles": 2.1369825
+    },
+    "GPT-5 Mini (all roles)": {
+      "success": true,
+      "iterations": 3,
+      "successful_iterations": 3,
+      "config": {
+        "content_model": "gpt-5-mini",
+        "title_model": "gpt-5-mini",
+        "enrichment_model": "gpt-5-mini",
+        "review_model": "gpt-5-mini"
+      },
+      "avg_total_cost": 0.009115833333333333,
+      "avg_total_time": 70.15826312700908,
+      "min_total_cost": 0.0076145,
+      "max_total_cost": 0.0118765,
+      "role_breakdown": {
+        "content": {
+          "model": "gpt-5-mini",
+          "avg_cost": 0.00488075,
+          "avg_time": 34.24784024556478,
+          "avg_output_tokens": 2436.0
+        },
+        "title": {
+          "model": "gpt-5-mini",
+          "avg_cost": 0.0007018333333333334,
+          "avg_time": 7.225407838821411,
+          "avg_output_tokens": 344.6666666666667
+        },
+        "enrichment": {
+          "model": "gpt-5-mini",
+          "avg_cost": 0.0021384999999999998,
+          "avg_time": 17.352251768112183,
+          "avg_output_tokens": 1063.0
+        },
+        "review": {
+          "model": "gpt-5-mini",
+          "avg_cost": 0.0013947500000000002,
+          "avg_time": 11.332763274510702,
+          "avg_output_tokens": 689.0
+        }
+      },
+      "monthly_cost_estimate_270_articles": 2.461275
+    },
+    "Selective 5.1 (content & review)": {
+      "success": true,
+      "iterations": 10,
+      "successful_iterations": 10,
+      "config": {
+        "content_model": "gpt-5.1",
+        "title_model": "gpt-4o-mini",
+        "enrichment_model": "gpt-4o-mini",
+        "review_model": "gpt-5.1"
+      },
+      "avg_total_cost": 0.0059965,
+      "avg_total_time": 12.911657309532165,
+      "min_total_cost": 0.005452500000000001,
+      "max_total_cost": 0.0075925,
+      "role_breakdown": {
+        "content": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.00352575,
+          "avg_time": 7.216755485534668,
+          "avg_output_tokens": 348.2
+        },
+        "title": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.00029350000000000003,
+          "avg_time": 0.7500998258590699,
+          "avg_output_tokens": 16.6
+        },
+        "enrichment": {
+          "model": "gpt-4o-mini",
+          "avg_cost": 0.00042650000000000007,
+          "avg_time": 1.3672462940216064,
+          "avg_output_tokens": 29.9
+        },
+        "review": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.0017507500000000001,
+          "avg_time": 3.577555704116821,
+          "avg_output_tokens": 166.7
+        }
+      },
+      "monthly_cost_estimate_270_articles": 1.6190550000000001
+    },
+    "Premium (All 5.1)": {
+      "success": true,
+      "iterations": 10,
+      "successful_iterations": 10,
+      "config": {
+        "content_model": "gpt-5.1",
+        "title_model": "gpt-5.1",
+        "enrichment_model": "gpt-5.1",
+        "review_model": "gpt-5.1"
+      },
+      "avg_total_cost": 0.0056265,
+      "avg_total_time": 12.430726861953735,
+      "min_total_cost": 0.0054325,
+      "max_total_cost": 0.0059125,
+      "role_breakdown": {
+        "content": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.00350475,
+          "avg_time": 7.271074748039245,
+          "avg_output_tokens": 346.1
+        },
+        "title": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.0003105,
+          "avg_time": 0.9162200927734375,
+          "avg_output_tokens": 24.8
+        },
+        "enrichment": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.0004495,
+          "avg_time": 1.2936080932617187,
+          "avg_output_tokens": 38.7
+        },
+        "review": {
+          "model": "gpt-5.1",
+          "avg_cost": 0.0013617500000000001,
+          "avg_time": 2.9498239278793337,
+          "avg_output_tokens": 127.8
+        }
+      },
+      "monthly_cost_estimate_270_articles": 1.519155
+    }
+  }
+}
