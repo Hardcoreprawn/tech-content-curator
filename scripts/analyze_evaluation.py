@@ -75,7 +75,7 @@ def analyze_evaluation(eval_dir: Path, output_file: Path):
     ):
         md += f"| {name} | ${data['avg_total_cost']:.4f} | ${data['monthly_cost_estimate_270_articles']:.2f} |\n"
 
-    md += f"""
+    md += """
 
 ## Complex Article Test
 

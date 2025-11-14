@@ -113,7 +113,7 @@ def probe_parameter(
             }
 
             # Make minimal API call
-            response = client.chat.completions.create(**params)
+            client.chat.completions.create(**params)
 
             # Success! Parameter is supported
             return ParameterProbe(
@@ -122,7 +122,6 @@ def probe_parameter(
                 actual_api_name=api_name,
                 tested_value=param_value,
             )
-
         except Exception as e:
             error_msg = str(e).lower()
 
@@ -201,7 +200,7 @@ def probe_model(client: OpenAI, model_id: str) -> ModelCapabilities:
         console=console,
     ) as progress:
         task = progress.add_task(
-            f"Testing parameters...", total=len(PARAMETERS_TO_TEST)
+            "Testing parameters...", total=len(PARAMETERS_TO_TEST)
         )
 
         for param_name, test_value in PARAMETERS_TO_TEST.items():
@@ -216,7 +215,8 @@ def probe_model(client: OpenAI, model_id: str) -> ModelCapabilities:
                 console.print(f"  ✅ {param_name} -> {api_name}")
             else:
                 capabilities.unsupported_params.append(param_name)
-                console.print(f"  ❌ {param_name}: {probe.error_message[:60]}...")
+                error_text = (probe.error_message or "Unknown error")[:60]
+                console.print(f"  ❌ {param_name}: {error_text}...")
 
             progress.advance(task)
             time.sleep(0.5)  # Rate limiting

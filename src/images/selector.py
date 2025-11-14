@@ -121,17 +121,66 @@ class CoverImageSelector:
 
         return recent_images
 
-    def select(self, title: str, topics: list[str]) -> CoverImage:
+    def _detect_vintage_tech_context(self, title: str, topics: list[str]) -> bool:
+        """Detect if article is about vintage/historical technology.
+
+        Args:
+            title: Article title
+            topics: List of topic keywords
+
+        Returns:
+            True if vintage tech context detected, False otherwise
+        """
+        vintage_keywords = {
+            "vintage", "retro", "historical", "legacy", "old", "classic",
+            "1970s", "1980s", "1990s", "early computing", "punch card",
+            "mainframe", "commodore", "atari", "ibm pc", "apple ii",
+            "unix", "dos", "analog", "mechanical", "obsolete"
+        }
+
+        combined_text = (title + " " + " ".join(topics)).lower()
+        return any(keyword in combined_text for keyword in vintage_keywords)
+
+    def _extract_key_entities(self, title: str, content: str, topics: list[str]) -> list[str]:
+        """Extract key entities from article title and content.
+
+        Args:
+            title: Article title
+            content: Article content
+            topics: List of topic keywords
+
+        Returns:
+            List of key entities
+        """
+        entities = set(topics) if topics else set()
+
+        # Add title words (except common stop words)
+        stop_words = {"the", "a", "an", "and", "or", "in", "on", "at", "to", "for", "of", "is", "are", "was", "were"}
+        title_words = [word.lower() for word in title.split() if word.lower() not in stop_words and len(word) > 3]
+        entities.update(title_words)
+
+        # Extract key terms from content (simple heuristic: capitalized words)
+        if content:
+            import re
+            # Find capitalized sequences (potential proper nouns)
+            capitalized = re.findall(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b', content)
+            entities.update([e.lower() for e in capitalized[:10]])  # Limit to top 10
+
+        return list(entities)[:15]  # Return top 15 entities
+
+    def select(self, title: str, topics: list[str], content: str = "") -> CoverImage:
         """Select best image from free sources, fallback to AI.
 
         Strategy:
-        1. Generate search queries via LLM (better than deterministic rules)
-        2. Try free sources in order: Unsplash → Pexels
-        3. Fall back to DALL-E 3 if all free sources fail or score too low
+        1. Generate content-aware search queries via LLM
+        2. Try free sources: Unsplash → Pexels
+        3. Validate relevance with AI, retry with refined query if needed
+        4. Fall back to DALL-E 3 if all attempts fail
 
         Args:
             title: Article title
             topics: List of topic/tag keywords
+            content: Article content (first ~500 words used for context)
 
         Returns:
             CoverImage with URL, source, cost, and quality score
@@ -139,132 +188,119 @@ class CoverImageSelector:
         logger.debug(f"Selecting cover image for article: {title}")
         console.print("[blue]🖼  Selecting cover image...[/blue]")
 
-        # Step 1: Generate search queries via LLM
-        queries = self._generate_search_queries(title, topics)
-        logger.debug(f"Generated search queries: {queries}")
-        console.print(f"[dim]Generated search queries: {queries}[/dim]")
+        max_attempts = 3
+        tried_queries = []
 
-        # Tier 1: Try Unsplash (free stock)
-        if self.config.unsplash_api_key:
-            result = self._search_unsplash(queries.get("unsplash", title))
-            if result and result.quality_score >= 0.70:
-                logger.info(f"Found Unsplash image (score: {result.quality_score})")
-                console.print(
-                    f"[green]✓ Found Unsplash image (score: {result.quality_score})[/green]"
-                )
-                return result
+        for attempt in range(1, max_attempts + 1):
+            # Generate search queries with content context
+            queries = self._generate_search_queries(
+                title, topics, content, attempt, tried_queries
+            )
+            tried_queries.append(queries)
 
-        # Tier 2: Try Pexels (free stock)
-        if self.config.pexels_api_key:
-            result = self._search_pexels(queries.get("pexels", title))
-            if result and result.quality_score >= 0.65:
-                logger.info(f"Found Pexels image (score: {result.quality_score})")
-                console.print(
-                    f"[green]✓ Found Pexels image (score: {result.quality_score})[/green]"
-                )
-                return result
+            logger.debug(f"Attempt {attempt}/{max_attempts} - Queries: {queries}")
+            console.print(f"[dim]Attempt {attempt}: {queries.get('unsplash', 'N/A')}[/dim]")
 
-        # Tier 3: Generate AI image (fallback)
-        logger.warning("Free image sources unavailable, falling back to AI generation")
+            # Tier 1: Try Unsplash (free stock)
+            if self.config.unsplash_api_key:
+                result = self._search_unsplash(queries.get("unsplash", title))
+                if result:
+                    is_relevant = self._validate_image_relevance(
+                        result.url, title, content[:500]
+                    )
+                    if is_relevant:
+                        logger.info(f"Found Unsplash image (attempt {attempt}, validated)")
+                        console.print("[green]✓ Found Unsplash image (validated)[/green]")
+                        return result
+                    else:
+                        console.print("[dim]Unsplash image not relevant, retrying...[/dim]")
+                        continue  # Try next attempt
+
+            # Tier 2: Try Pexels (free stock)
+            if self.config.pexels_api_key:
+                result = self._search_pexels(queries.get("pexels", title))
+                if result:
+                    is_relevant = self._validate_image_relevance(
+                        result.url, title, content[:500]
+                    )
+                    if is_relevant:
+                        logger.info(f"Found Pexels image (attempt {attempt}, validated)")
+                        console.print("[green]✓ Found Pexels image (validated)[/green]")
+                        return result
+                    else:
+                        console.print("[dim]Pexels image not relevant, retrying...[/dim]")
+                        continue  # Try next attempt
+
+        # Tier 3: Generate AI image (fallback after all attempts)
+        logger.warning(f"No relevant free images found after {max_attempts} attempts, using AI")
         console.print(
-            "[yellow]⚠  Free sources unavailable, generating AI image...[/yellow]"
+            "[yellow]⚠  No relevant free images found, generating AI image...[/yellow]"
         )
         return self._generate_ai_image(
-            queries.get("dalle", f"Professional article illustration for: {title}")
+            tried_queries[-1].get("dalle", f"Professional article illustration for: {title}")
         )
 
-    def _detect_vintage_tech_context(self, title: str, topics: list[str]) -> bool:
-        """Detect if article is about vintage/historical technology.
+    def _generate_search_queries(
+        self,
+        title: str,
+        topics: list[str],
+        content: str,
+        attempt: int = 1,
+        previous_queries: list[dict[str, str]] | None = None
+    ) -> dict[str, str]:
+        """Use LLM to generate content-aware search queries.
 
-        Args:
-            title: Article title
-            topics: List of topics
+        Analyzes article content to identify specific subjects and generate
+        targeted search queries. On retry attempts, generates alternative queries.
 
-        Returns:
-            True if vintage/historical tech context detected
-        """
-        vintage_keywords = {
-            "unix",
-            "v4",
-            "v7",
-            "vintage",
-            "retro",
-            "legacy",
-            "historical",
-            "tape",
-            "punch card",
-            "mainframe",
-            "minicomputer",
-            "bbs",
-            "atari",
-            "commodore",
-            "amiga",
-            "nes",
-            "snes",
-            "genesis",
-            "floppy",
-            "cassette",
-            "reel-to-reel",
-            "vax",
-            "pdp",
-            "1970s",
-            "1980s",
-            "1990s",
-            "early computing",
-            "computer history",
-            "museum",
-            "preservation",
-            "archaeology",
-            "recovery",
-            "rediscovering",
-        }
-
-        text = f"{title} {' '.join(topics)}".lower()
-        return any(keyword in text for keyword in vintage_keywords)
-
-    def _generate_search_queries(self, title: str, topics: list[str]) -> dict[str, str]:
-        """Use gpt-3.5-turbo to generate effective search queries.
-
-        Why LLM? Deterministic rules produce generic, poor queries.
-        LLM understands context and generates natural searches.
         Cost: ~$0.0005 per article
 
         Args:
             title: Article title
             topics: List of topics
+            content: Article content (first ~500 words)
+            attempt: Current attempt number (1-3)
+            previous_queries: Previously tried queries to avoid
 
         Returns:
             Dict with keys: unsplash, pexels, dalle
         """
         is_vintage = self._detect_vintage_tech_context(title, topics)
-        vintage_hint = ""
-        if is_vintage:
-            vintage_hint = "\n\n**VINTAGE/HISTORICAL TECH DETECTED**: Use generic vintage computing imagery (old computer rooms, retro hardware, vintage tech equipment). Specific old models won't be on stock sites!"
 
-        prompt = f"""Generate SPECIFIC image search queries for this article. Return ONLY valid JSON.
+        retry_context = ""
+        if attempt > 1 and previous_queries:
+            prev = previous_queries[-1]
+            retry_context = f"\n\nPREVIOUS ATTEMPT {attempt-1} FAILED - tried: '{prev.get('unsplash', 'N/A')}'. Generate a DIFFERENT query (broader or more specific)."
+
+        content_excerpt = content[:500] if content else ""
+
+        prompt = f"""Generate image search queries by analyzing this article content. Return ONLY valid JSON.
 
 Title: {title}
-Topics: {", ".join(topics) if topics else "general"}{vintage_hint}
+Topics: {", ".join(topics) if topics else "general"}
+Content: {content_excerpt}{retry_context}
 
 Return JSON with these keys:
-- "unsplash": query for Unsplash (high-quality natural photos, very specific)
-- "pexels": query for Pexels (generic focus, very specific)
-- "dalle": detailed prompt for DALL-E if no stock photo found
+- "unsplash": query for Unsplash (2-6 words)
+- "pexels": query for Pexels (2-6 words)
+- "dalle": detailed DALL-E prompt (if stock photos fail)
 
-CRITICAL RULES:
-1. For vintage/historical tech (Unix, old computers, tape drives, retro gaming, etc.), use GENERIC MODERN EQUIVALENTS
-   - "unix v4 tape recovery" → "vintage computer data center" or "old mainframe computer"
-   - "NES gaming history" → "retro game console" or "vintage video game"
-   - "punch cards" → "vintage computer equipment" or "old data storage"
-   - "legacy systems" → "server room equipment" or "computer hardware"
+CRITICAL: Read the CONTENT and identify the MAIN SUBJECT.
 
-2. Stock photo sites rarely have specific historical tech items. Use broader concepts that capture the FEELING/ERA.
+EXAMPLES:
+- Content mentions "Intel 4004 microprocessor" → unsplash: "Intel 4004 chip", pexels: "vintage microprocessor"
+- Content mentions "Busicom calculator" → unsplash: "Busicom calculator", pexels: "vintage electronic calculator"
+- Content about "React hooks" → unsplash: "React code screen", pexels: "JavaScript programming"
+- Content about "quantum computing" → unsplash: "quantum computer", pexels: "quantum processor"
 
-3. For modern tech, be SPECIFIC:
-   - "quantum computing" → "quantum computer chip"
-   - "AI development" → "machine learning code screen"
+STRATEGY:
+1. FIRST: Look for specific products, people, technologies, or objects mentioned in the content
+2. Use those EXACT names in queries ("Intel 4004", "Busicom", "React", etc.)
+3. For stock sites: be specific but searchable ("Intel 4004 chip" not just "Intel 4004")
+4. For DALL-E: be detailed and descriptive
+5. Vintage tech{' (detected)' if is_vintage else ''}: Prefer specific products over generic terms
 
-Each query should be 2-5 words and capture the subject matter realistically available on stock photo sites."""
+Be SPECIFIC. Use ACTUAL subject matter from the content."""
 
         try:
             response = create_chat_completion(
@@ -275,10 +311,10 @@ Each query should be 2-5 words and capture the subject matter realistically avai
                 max_tokens=300,
             )
 
-            content = response.choices[0].message.content
-            if content is None:
+            response_content = response.choices[0].message.content
+            if response_content is None:
                 raise ValueError("OpenAI returned empty content")
-            return json.loads(content)
+            return json.loads(response_content)
         except (json.JSONDecodeError, AttributeError, Exception) as e:
             console.print(
                 f"[yellow]⚠  Query generation failed: {e}, using title as fallback[/yellow]"
@@ -373,6 +409,45 @@ Each query should be 2-5 words and capture the subject matter realistically avai
             console.print(f"[dim]Pexels search failed: {e}[/dim]")
 
         return None
+
+    def _validate_image_relevance(
+        self, image_url: str, title: str, content: str
+    ) -> bool:
+        """Validate if image is relevant to article content using AI.
+
+        Args:
+            image_url: URL of the image to validate
+            title: Article title
+            content: Article content excerpt (first ~500 words)
+
+        Returns:
+            True if image is relevant, False otherwise
+        """
+        try:
+            prompt = f"""Does this image match the article subject?
+
+Article: {title}
+Content: {content[:300]}
+Image URL: {image_url}
+
+Analyze the URL keywords (filename, path). Does it suggest relevance to the article's main subject?
+Respond ONLY "yes" or "no"."""
+
+            response = create_chat_completion(
+                client=self.client,
+                model=self.config.enrichment_model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.3,
+                max_tokens=10,
+            )
+
+            response_content = response.choices[0].message.content
+            if response_content is None:
+                return True  # Default to accepting if validation is unclear
+            return "yes" in response_content.lower()
+        except Exception as e:
+            logger.debug(f"Image validation failed: {e}, defaulting to accept")
+            return True  # Default to accepting on error
 
     def _generate_ai_image(self, prompt: str) -> CoverImage:
         """Generate image via DALL-E 3 (last resort).

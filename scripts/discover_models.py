@@ -31,7 +31,7 @@ def probe_new_models(client: OpenAI, new_models: list[str], output_dir: Path) ->
 
     # Import probe function (avoid circular import)
     try:
-        from probe_model_capabilities import probe_model, save_capabilities
+        from .probe_model_capabilities import probe_model, save_capabilities
     except ImportError:
         console.print(
             "[red]Could not import probe_model_capabilities. Skipping probing.[/red]"
