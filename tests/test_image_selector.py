@@ -56,7 +56,9 @@ class TestCoverImageSelector:
         )
 
         queries = selector._generate_search_queries(
-            "Article about bird flight", ["birds", "aviation"], "Birds can fly using their wings."
+            "Article about bird flight",
+            ["birds", "aviation"],
+            "Birds can fly using their wings.",
         )
 
         assert queries["unsplash"] == "flying bird"
@@ -70,7 +72,9 @@ class TestCoverImageSelector:
             choices=[MagicMock(message=MagicMock(content="not valid json"))]
         )
 
-        queries = selector._generate_search_queries("Test title", ["test"], "Test content")
+        queries = selector._generate_search_queries(
+            "Test title", ["test"], "Test content"
+        )
 
         assert queries["unsplash"] == "Test title"
         assert queries["pexels"] == "Test title"
@@ -179,13 +183,7 @@ class TestCoverImageSelector:
                 ]
             ),
             # Second call: validation returns "yes"
-            MagicMock(
-                choices=[
-                    MagicMock(
-                        message=MagicMock(content="yes")
-                    )
-                ]
-            ),
+            MagicMock(choices=[MagicMock(message=MagicMock(content="yes"))]),
         ]
 
         # Mock Unsplash success
@@ -199,7 +197,9 @@ class TestCoverImageSelector:
             ]
         }
 
-        result = selector.select("Article about birds", ["birds"], "Birds fly in the sky.")
+        result = selector.select(
+            "Article about birds", ["birds"], "Birds fly in the sky."
+        )
 
         # Should use Unsplash, not DALL-E
         assert result.source == "unsplash"
