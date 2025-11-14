@@ -89,16 +89,13 @@ def _build_config() -> PipelineConfig:
         reddit_client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
         reddit_user_agent=os.getenv("REDDIT_USER_AGENT"),
         # AI Model Configuration (GPT-5 Series - Nov 2025)
-        content_model=os.getenv("CONTENT_MODEL", "gpt-5"),  # GPT-5 full model
-        title_model=os.getenv(
-            "TITLE_MODEL", "gpt-5-nano"
-        ),  # Lightest for simple titles
-        review_model=os.getenv(
-            "REVIEW_MODEL", "gpt-4o-mini"
-        ),  # GPT-4 for review (needs temperature)
-        enrichment_model=os.getenv(
-            "ENRICHMENT_MODEL", "gpt-4o-mini"
-        ),  # GPT-5 models currently broken (empty responses)
+        # Note: GPT-5 models work correctly as long as max_tokens is NOT specified.
+        # The openai_client.py wrapper filters out max_tokens for GPT-5 models.
+        # If max_tokens is set, GPT-5 uses all tokens for reasoning, returning empty content.
+        content_model=os.getenv("CONTENT_MODEL", "gpt-5-mini"),
+        title_model=os.getenv("TITLE_MODEL", "gpt-5-nano"),
+        review_model=os.getenv("REVIEW_MODEL", "gpt-5-mini"),
+        enrichment_model=os.getenv("ENRICHMENT_MODEL", "gpt-5-nano"),
         reddit_requests_per_minute=int(os.getenv("REDDIT_REQUESTS_PER_MINUTE", "30")),
         reddit_burst=int(os.getenv("REDDIT_BURST", "5")),
         reddit_request_interval_seconds=float(

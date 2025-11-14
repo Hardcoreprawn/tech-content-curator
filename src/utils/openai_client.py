@@ -22,10 +22,13 @@ Usage:
     )
 """
 
+import logging
 from typing import Any, Literal, TypedDict
 
 from openai import OpenAI
 from openai.types.chat import ChatCompletion
+
+logger = logging.getLogger(__name__)
 
 
 class ModelConfig(TypedDict):
@@ -41,13 +44,17 @@ MODEL_CONFIGS: list[ModelConfig] = [
     {
         "prefix": "gpt-5",
         "param_map": {
-            "max_tokens": "max_completion_tokens",
+            # NOTE: GPT-5 models have a bug where specifying max_completion_tokens
+            # causes them to use all tokens for internal reasoning, returning empty content.
+            # We intentionally DON'T map max_tokens to prevent this issue.
+            # "max_tokens": "max_completion_tokens",  # DISABLED - causes empty responses
             "messages": "messages",
             "response_format": "response_format",
             "stop": "stop",
             "stream": "stream",
         },
         "unsupported": [
+            "max_tokens",  # CRITICAL: Causes empty responses in GPT-5
             "temperature",  # GPT-5 mini only supports default (1.0)
             "top_p",
             "frequency_penalty",
@@ -117,6 +124,41 @@ MODEL_CONFIGS: list[ModelConfig] = [
         ],
     },
 ]
+
+
+# GPT-5 to GPT-4 fallback mapping (for empty response handling)
+GPT5_TO_GPT4_FALLBACK: dict[str, str] = {
+    "gpt-5": "gpt-4o",
+    "gpt-5-mini": "gpt-4o-mini",
+    "gpt-5-nano": "gpt-4o-mini",
+    "gpt-5-pro": "gpt-4o",  # Pro falls back to standard gpt-4o
+    # Versioned models
+    "gpt-5-2025-08-07": "gpt-4o",
+    "gpt-5-mini-2025-08-07": "gpt-4o-mini",
+    "gpt-5-nano-2025-08-07": "gpt-4o-mini",
+    "gpt-5-pro-2025-10-06": "gpt-4o",
+}
+
+
+def get_fallback_model(model: str) -> str | None:
+    """Get GPT-4 fallback model for a GPT-5 model.
+
+    Args:
+        model: Original model name
+
+    Returns:
+        Fallback model name, or None if no fallback available
+    """
+    # Check exact match first
+    if model in GPT5_TO_GPT4_FALLBACK:
+        return GPT5_TO_GPT4_FALLBACK[model]
+
+    # Check if it starts with any GPT-5 prefix
+    for gpt5_prefix, gpt4_fallback in GPT5_TO_GPT4_FALLBACK.items():
+        if model.startswith(gpt5_prefix):
+            return gpt4_fallback
+
+    return None
 
 
 def get_model_config(model: str) -> ModelConfig:
@@ -264,7 +306,83 @@ def create_chat_completion(
 
     # Make the API call with automatic fallback on parameter errors
     try:
-        return client.chat.completions.create(**api_params)
+        response = client.chat.completions.create(**api_params)
+
+        # Check for empty response content (known GPT-5 bug)
+        if response.choices and response.choices[0].message.content is not None:
+            content = response.choices[0].message.content.strip()
+            if content:
+                return response  # Valid response
+
+        # Empty response detected
+        logger.warning(
+            f"Empty response from model '{model}' "
+            f"(tokens: {response.usage.prompt_tokens if response.usage else 0}/"
+            f"{response.usage.completion_tokens if response.usage else 0})"
+        )
+
+        # Try fallback to GPT-4 if available
+        fallback_model = get_fallback_model(model)
+        if fallback_model:
+            logger.info(
+                f"Attempting fallback: {model} -> {fallback_model} due to empty response"
+            )
+
+            # Update api_params with fallback model and adjust parameters
+            fallback_config = get_model_config(fallback_model)
+            fallback_params: dict[str, Any] = {"model": fallback_model}
+
+            # Re-map all parameters for the fallback model
+            fallback_params[fallback_config["param_map"]["messages"]] = messages
+
+            our_params = {
+                "max_tokens": max_tokens,
+                "temperature": temperature,
+                "response_format": response_format,
+                "top_p": top_p,
+                "frequency_penalty": frequency_penalty,
+                "presence_penalty": presence_penalty,
+                "seed": seed,
+                "stop": stop,
+                "stream": stream,
+                "logprobs": logprobs,
+                "top_logprobs": top_logprobs,
+            }
+
+            for our_name, value in our_params.items():
+                if value is None:
+                    continue
+                if our_name in fallback_config["unsupported"]:
+                    continue
+                if our_name in fallback_config["param_map"]:
+                    api_name = fallback_config["param_map"][our_name]
+                    fallback_params[api_name] = value
+
+            # Retry with fallback model
+            fallback_response = client.chat.completions.create(**fallback_params)
+
+            # Check fallback response
+            if (
+                fallback_response.choices
+                and fallback_response.choices[0].message.content
+            ):
+                fallback_content = fallback_response.choices[0].message.content.strip()
+                if fallback_content:
+                    logger.info(
+                        f"Fallback successful: {fallback_model} returned "
+                        f"{len(fallback_content)} chars"
+                    )
+                    return fallback_response
+
+            logger.error(f"Fallback to {fallback_model} also returned empty response")
+
+        # No fallback available or fallback also failed
+        logger.error(
+            f"No valid response from {model}"
+            + (f" or fallback {fallback_model}" if fallback_model else "")
+        )
+        return response  # Return original empty response
+
     except Exception as e:
         error_msg = str(e).lower()
 
@@ -286,6 +404,9 @@ def create_chat_completion(
 
             # If we identified failed params, retry without them
             if failed_params:
+                logger.warning(
+                    f"Model {model} doesn't support parameters: {failed_params}. Retrying without them."
+                )
                 # Remove failed parameters from api_params
                 for param in failed_params:
                     api_params.pop(param, None)

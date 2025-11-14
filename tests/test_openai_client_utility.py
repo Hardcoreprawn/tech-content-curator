@@ -55,8 +55,9 @@ class TestModelConfiguration:
         """Should retrieve GPT-5 config."""
         config = get_model_config("gpt-5-mini")
         assert config["prefix"] == "gpt-5"
-        assert "max_tokens" in config["param_map"]
-        assert config["param_map"]["max_tokens"] == "max_completion_tokens"
+        # max_tokens is unsupported (causes empty responses due to reasoning)
+        assert "max_tokens" in config["unsupported"]
+        assert "max_tokens" not in config["param_map"]
 
     def test_get_gpt4_config(self):
         """Should retrieve GPT-4 config."""
@@ -81,7 +82,7 @@ class TestParameterMapping:
     """Test parameter mapping for different models."""
 
     def test_gpt5_max_tokens_mapping(self):
-        """GPT-5 should use max_completion_tokens."""
+        """GPT-5 should filter out max_tokens (causes empty responses)."""
         mock_client = MagicMock(spec=OpenAI)
         mock_client.chat.completions.create.return_value = MagicMock()
 
@@ -93,9 +94,9 @@ class TestParameterMapping:
         )
 
         call_kwargs = mock_client.chat.completions.create.call_args[1]
-        assert "max_completion_tokens" in call_kwargs
+        # max_tokens should be filtered out for GPT-5 (causes empty responses)
+        assert "max_completion_tokens" not in call_kwargs
         assert "max_tokens" not in call_kwargs
-        assert call_kwargs["max_completion_tokens"] == 100
 
     def test_gpt4_max_tokens_mapping(self):
         """GPT-4 should use max_tokens."""
@@ -285,7 +286,7 @@ class TestAllParametersSupported:
             client=mock_client,
             model="gpt-5-mini",
             messages=[{"role": "user", "content": "test"}],
-            max_tokens=100,
+            max_tokens=100,  # Will be filtered out
             temperature=0.7,  # Will be skipped
             top_p=0.9,  # Will be skipped
             stop=["END"],
@@ -293,9 +294,10 @@ class TestAllParametersSupported:
 
         call_kwargs = mock_client.chat.completions.create.call_args[1]
         # GPT-5 only supports these parameters
-        assert call_kwargs["max_completion_tokens"] == 100
         assert call_kwargs["stop"] == ["END"]
-        # These are not supported by GPT-5 mini
+        # These are not supported by GPT-5 (filtered out)
+        assert "max_tokens" not in call_kwargs
+        assert "max_completion_tokens" not in call_kwargs  # Also filtered
         assert "temperature" not in call_kwargs
         assert "top_p" not in call_kwargs
         assert "frequency_penalty" not in call_kwargs
