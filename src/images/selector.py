@@ -11,6 +11,7 @@ Cost: ~$0.0005 per article for LLM query generation.
 """
 
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 logger = get_logger(__name__)
 
@@ -266,7 +267,8 @@ CRITICAL RULES:
 Each query should be 2-5 words and capture the subject matter realistically available on stock photo sites."""
 
         try:
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=self.config.enrichment_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.7,

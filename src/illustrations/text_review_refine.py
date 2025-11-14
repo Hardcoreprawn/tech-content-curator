@@ -8,6 +8,7 @@ Adds refinement cycles and quality metrics to diagrams.
 from __future__ import annotations
 
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 logger = get_logger(__name__)
 
@@ -125,7 +126,8 @@ Respond ONLY with valid JSON (no markdown):
 {{"score": 0.5, "issues": ["issue1", "issue2"], "fixes": ["fix1", "fix2"]}}"""
 
         try:
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=self.model,
                 messages=[{"role": "user", "content": review_prompt}],
                 temperature=0.3,
@@ -175,7 +177,8 @@ Requirements:
 - Return ONLY the improved diagram, no markdown or explanation"""
 
         try:
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=self.model,
                 messages=[{"role": "user", "content": refine_prompt}],
                 temperature=0.3,

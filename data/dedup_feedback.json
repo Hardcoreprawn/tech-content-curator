@@ -3952,5 +3952,96 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 80,
+    "duplicates_found": 7,
+    "patterns_used": 742,
+    "timestamp": "2025-11-14T09:29:42.335328",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Yay, the embargo was finally lifted yesterday so we can talk about the UK Government funding for # C",
+        "removed_items": [
+          "Rust in Android: move fast and fix things"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Under the hood quiet progress to keep your machine secure: \"Fedora Linux 43 will be the first releas",
+        "removed_items": [
+          "AI SRE Platforms: Because What DevOps Really Needed Was Another Overpriced Black Box\n\nOh good, anoth",
+          "Launch HN: Tweeks (YC W25) \u2013 Browser extension to deshittify the web\n\nHey HN! We\u2019re Jason &amp; Matt"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "mstdn.social, masto.ai and mastodon.coffee have been updated to # Mastodon v4.5.1 https:// github.co",
+        "removed_items": [
+          "Show HN: DBOS Java \u2013 Postgres-Backed Durable Workflows\n\nHi HN - I\u2019m Peter, here with Harry (devhawk)"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 78,
+    "duplicates_found": 6,
+    "patterns_used": 752,
+    "timestamp": "2025-11-14T10:29:07.817478",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Yay, the embargo was finally lifted yesterday so we can talk about the UK Government funding for # C",
+        "removed_items": [
+          "Rust in Android: move fast and fix things"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Under the hood quiet progress to keep your machine secure: \"Fedora Linux 43 will be the first releas",
+        "removed_items": [
+          "Launch HN: Tweeks (YC W25) \u2013 Browser extension to deshittify the web\n\nHey HN! We\u2019re Jason &amp; Matt"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "mstdn.social, masto.ai and mastodon.coffee have been updated to # Mastodon v4.5.1 https:// github.co",
+        "removed_items": [
+          "Show HN: DBOS Java \u2013 Postgres-Backed Durable Workflows\n\nHi HN - I\u2019m Peter, here with Harry (devhawk)"
+        ]
+      }
+    ],
+    "user_corrections": null
+  },
+  {
+    "items_processed": 78,
+    "duplicates_found": 6,
+    "patterns_used": 762,
+    "timestamp": "2025-11-14T10:31:19.013079",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Yay, the embargo was finally lifted yesterday so we can talk about the UK Government funding for # C",
+        "removed_items": [
+          "Rust in Android: move fast and fix things"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Under the hood quiet progress to keep your machine secure: \"Fedora Linux 43 will be the first releas",
+        "removed_items": [
+          "Launch HN: Tweeks (YC W25) \u2013 Browser extension to deshittify the web\n\nHey HN! We\u2019re Jason &amp; Matt"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "mstdn.social, masto.ai and mastodon.coffee have been updated to # Mastodon v4.5.1 https:// github.co",
+        "removed_items": [
+          "Show HN: DBOS Java \u2013 Postgres-Backed Durable Workflows\n\nHi HN - I\u2019m Peter, here with Harry (devhawk)"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]

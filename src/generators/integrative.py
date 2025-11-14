@@ -6,6 +6,7 @@ from rich.console import Console
 
 from ..models import EnrichedItem
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 from .base import BaseGenerator
 
 logger = get_logger(__name__)
@@ -167,11 +168,12 @@ class IntegrativeListGenerator(BaseGenerator):
 
             config = get_config()
 
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=config.content_model,
                 messages=[{"role": "user", "content": prompt}],
-                temperature=0.5,
-                max_tokens=2500,  # Allow for longer, more detailed content
+                temperature=0.7,
+                max_tokens=2500,
             )
             content = response.choices[0].message.content
             if not content:

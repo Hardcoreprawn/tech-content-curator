@@ -20,6 +20,7 @@ from openai import OpenAI
 from ..config import get_config
 from ..models import GeneratedArticle
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 if TYPE_CHECKING:
     from ..generators.voices.profiles import VoiceProfile
@@ -137,7 +138,8 @@ class ArticleReviewer:
 
         try:
             # Get AI review
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=self.config.review_model,
                 messages=[
                     {

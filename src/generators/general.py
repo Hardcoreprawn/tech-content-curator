@@ -5,6 +5,7 @@ from rich.console import Console
 from ..models import EnrichedItem
 from ..pipeline.quality_feedback import get_quality_prompt_enhancements
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 from .base import BaseGenerator
 from .prompt_templates import build_enhanced_prompt, detect_content_type
 
@@ -97,7 +98,8 @@ class GeneralArticleGenerator(BaseGenerator):
 
             config = get_config()
 
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=config.content_model,
                 messages=messages,
                 temperature=temperature,  # Use voice-specific temperature if injected

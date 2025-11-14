@@ -14,6 +14,7 @@ import json
 from openai import APIConnectionError, APITimeoutError, OpenAI, RateLimitError
 from rich.console import Console
 from tenacity import (
+    RetryCallState,
     retry,
     retry_if_exception_type,
     stop_after_attempt,
@@ -23,16 +24,17 @@ from tenacity import (
 from ..api.openai_error_handler import handle_openai_error
 from ..models import CollectedItem
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 console = Console()
 logger = get_logger(__name__)
 
 
-def log_retry_attempt(retry_state: object) -> None:
+def log_retry_attempt(retry_state: RetryCallState) -> None:
     """Custom callback to log retry attempts with Rich console."""
-    exception = retry_state.outcome.exception() if retry_state.outcome.failed else None
     attempt_num = retry_state.attempt_number
-    if exception:
+    if retry_state.outcome and retry_state.outcome.failed:
+        exception = retry_state.outcome.exception()
         logger.debug(f"Retry attempt {attempt_num}: {type(exception).__name__}")
         console.print(f"[yellow]⏳ Attempt {attempt_num}: retrying...[/yellow]")
 
@@ -132,7 +134,8 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
 
         config = get_config()
 
-        response = client.chat.completions.create(
+        response = create_chat_completion(
+            client=client,
             model=config.enrichment_model,  # Quality assessment
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4,  # Slightly higher for more variation
@@ -196,8 +199,13 @@ def extract_topics_and_themes(item: CollectedItem, client: OpenAI) -> list[str]:
     """
 
     try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+        from ..config import get_config
+
+        config = get_config()
+
+        response = create_chat_completion(
+            client=client,
+            model=config.enrichment_model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
             max_tokens=150,
@@ -292,11 +300,12 @@ def research_additional_context(
 
         config = get_config()
 
-        response = client.chat.completions.create(
-            model=config.enrichment_model,  # Research and reasoning
+        response = create_chat_completion(
+            client=client,
+            model=config.enrichment_model,  # Research context
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.4,
-            max_tokens=400,
+            temperature=0.3,
+            max_tokens=500,
         )
 
         content = response.choices[0].message.content

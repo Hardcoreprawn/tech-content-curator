@@ -3,6 +3,10 @@
 This module validates that all OpenAI API calls in the codebase use correct
 parameters according to the OpenAI API specification. This prevents runtime
 errors from invalid parameter names or types.
+
+NOTE: As of Nov 2024, we use src.utils.openai_client wrapper which automatically
+translates parameters for different model families (e.g., max_tokens -> max_completion_tokens
+for GPT-5). Tests validate the wrapper's output, not direct API calls.
 """
 
 from unittest.mock import MagicMock
@@ -22,11 +26,13 @@ from src.generators.specialized.self_hosted import SelfHostedGenerator
 from src.models import CollectedItem, EnrichedItem
 
 # Valid OpenAI Chat Completions API parameters (as of Nov 2024)
+# NOTE: Includes model-specific parameters that wrapper may use
 VALID_CHAT_COMPLETION_PARAMS = {
     "model",
     "messages",
     "temperature",
-    "max_tokens",
+    "max_tokens",  # GPT-4, GPT-3.5
+    "max_completion_tokens",  # GPT-5, o1, o3
     "top_p",
     "n",
     "stream",
@@ -77,9 +83,9 @@ class TestOpenAIAPIContract:
 
         # Verify all parameters are valid
         for param in call_kwargs.keys():
-            assert (
-                param in VALID_CHAT_COMPLETION_PARAMS
-            ), f"Invalid parameter '{param}' in analyze_content_quality"
+            assert param in VALID_CHAT_COMPLETION_PARAMS, (
+                f"Invalid parameter '{param}' in analyze_content_quality"
+            )
 
         # Verify required parameters are present
         assert "model" in call_kwargs
@@ -218,10 +224,13 @@ class TestOpenAIAPIContract:
         assert "messages" in call_kwargs
 
     def test_no_deprecated_parameters(self):
-        """Ensure no deprecated OpenAI parameters are used in codebase."""
+        """Ensure no deprecated OpenAI parameters are used in codebase.
+
+        NOTE: max_completion_tokens is VALID for GPT-5/o1/o3 models (required by OpenAI API).
+        The wrapper in src/utils/openai_client.py handles parameter translation.
+        """
         # Deprecated parameters that should not be used
         DEPRECATED_PARAMS = {
-            "max_completion_tokens",  # Old name, use max_tokens
             "logit_bias_type",  # Never existed
             "engine",  # Very old, replaced by model
         }

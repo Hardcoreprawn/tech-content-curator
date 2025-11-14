@@ -23,6 +23,7 @@ from ..illustrations.generator_analyzer import should_add_illustrations
 from ..illustrations.mermaid_quality_selector import MermaidQualitySelector
 from ..illustrations.placement import PlacementAnalyzer, format_diagram_for_markdown
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 if TYPE_CHECKING:
     from ..illustrations.ai_ascii_generator import GeneratedAsciiArt
@@ -153,7 +154,8 @@ class IllustrationService:
                     f'Reply with ONLY JSON: {{"concept_name": score, ...}}'
                 )
 
-                response = self.client.chat.completions.create(
+                response = create_chat_completion(
+                    client=self.client,
                     model=self.config.enrichment_model,
                     messages=[{"role": "user", "content": prompt}],
                     temperature=0.1,

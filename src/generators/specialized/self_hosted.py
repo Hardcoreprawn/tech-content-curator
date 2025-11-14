@@ -8,6 +8,7 @@ from rich.console import Console
 
 from ...models import EnrichedItem
 from ...utils.logging import get_logger
+from ...utils.openai_client import create_chat_completion
 from ..base import BaseGenerator
 
 logger = get_logger(__name__)
@@ -132,6 +133,8 @@ class SelfHostedGenerator(BaseGenerator):
     - Close with proper attribution: Credit the original post/author and include source URL
     """
 
+        messages = [{"role": "user", "content": prompt}]
+
         try:
             logger.debug("Calling OpenAI API for self-hosted article generation")
             # Get model from config
@@ -139,10 +142,11 @@ class SelfHostedGenerator(BaseGenerator):
 
             config = get_config()
 
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=config.content_model,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.5,
+                messages=messages,
+                temperature=0.7,
                 max_tokens=2500,  # Allow for longer, more detailed content
             )
             content = response.choices[0].message.content

@@ -5,6 +5,7 @@ nonsensical or low-quality visualizations from being injected.
 """
 
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 logger = get_logger(__name__)
 
@@ -92,7 +93,8 @@ class DiagramValidator:
 
         logger.debug(f"Validating {diagram_type} diagram for {section_title}")
         try:
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=self.model,
                 messages=[
                     {

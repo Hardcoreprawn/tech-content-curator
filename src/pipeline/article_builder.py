@@ -9,6 +9,7 @@ Uses GPT-4o-mini for cost-effective, high-quality generation.
 """
 
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 from ..utils.sanitization import safe_filename
 
 logger = get_logger(__name__)
@@ -176,7 +177,8 @@ Return ONLY the title, no quotes or explanation."""
         config = get_config()
 
         logger.debug(f"Requesting title from OpenAI ({config.title_model})")
-        response = client.chat.completions.create(
+        response = create_chat_completion(
+            client=client,
             model=config.title_model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4,

@@ -7,6 +7,7 @@ for processes, comparisons, and network topologies.
 from dataclasses import dataclass
 
 from ..utils.logging import get_logger
+from ..utils.openai_client import create_chat_completion
 
 logger = get_logger(__name__)
 
@@ -93,7 +94,8 @@ class AIAsciiGenerator:
         art_type = self._determine_art_type(concept_type)
 
         try:
-            response = self.client.chat.completions.create(
+            response = create_chat_completion(
+                client=self.client,
                 model=self.model,
                 messages=[
                     {
