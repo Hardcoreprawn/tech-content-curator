@@ -97,8 +97,8 @@ def _build_config() -> PipelineConfig:
             "REVIEW_MODEL", "gpt-4o-mini"
         ),  # GPT-4 for review (needs temperature)
         enrichment_model=os.getenv(
-            "ENRICHMENT_MODEL", "gpt-5-nano"
-        ),  # Lightest for enrichment
+            "ENRICHMENT_MODEL", "gpt-4o-mini"
+        ),  # GPT-5 models currently broken (empty responses)
         reddit_requests_per_minute=int(os.getenv("REDDIT_REQUESTS_PER_MINUTE", "30")),
         reddit_burst=int(os.getenv("REDDIT_BURST", "5")),
         reddit_request_interval_seconds=float(
