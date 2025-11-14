@@ -248,7 +248,7 @@ class CoverImageSelector:
                 result = self._search_unsplash(queries.get("unsplash", title))
                 if result:
                     is_relevant = self._validate_image_relevance(
-                        result.url, title, content[:500]
+                        result.alt_text, title, content[:500]
                     )
                     if is_relevant:
                         logger.info(
@@ -269,7 +269,7 @@ class CoverImageSelector:
                 result = self._search_pexels(queries.get("pexels", title))
                 if result:
                     is_relevant = self._validate_image_relevance(
-                        result.url, title, content[:500]
+                        result.alt_text, title, content[:500]
                     )
                     if is_relevant:
                         logger.info(
@@ -467,12 +467,12 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
         return None
 
     def _validate_image_relevance(
-        self, image_url: str, title: str, content: str
+        self, image_description: str, title: str, content: str
     ) -> bool:
         """Validate if image is relevant to article content using AI.
 
         Args:
-            image_url: URL of the image to validate
+            image_description: Alt text/description of the image
             title: Article title
             content: Article content excerpt (first ~500 words)
 
@@ -480,13 +480,14 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
             True if image is relevant, False otherwise
         """
         try:
-            prompt = f"""Does this image match the article subject?
+            prompt = f"""Is this image description relevant to the article?
 
 Article: {title}
 Content: {content[:300]}
-Image URL: {image_url}
+Image description: {image_description}
 
-Analyze the URL keywords (filename, path). Does it suggest relevance to the article's main subject?
+Does the image description match or relate to the article's subject matter?
+Be reasonably generous - if there's any topical overlap, say yes.
 Respond ONLY "yes" or "no"."""
 
             response = create_chat_completion(

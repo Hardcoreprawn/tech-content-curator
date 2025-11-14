@@ -148,14 +148,14 @@ ANALYSIS-SPECIFIC REQUIREMENTS:
 """,
     "research": """
 RESEARCH-SPECIFIC REQUIREMENTS:
-- Structure: Background → Methodology → Findings → Implications
-- Include 6-8 academic citations (Author et al., Year format)
-- Define all technical terms and jargon in context
-- Use "Results showed that..." style language for findings
-- Discuss limitations of the research or data
-- Suggest future research directions or open questions
-- Present data with appropriate context and caveats
-- Distinguish between findings and interpretations
+- Start with clear research question or hypothesis
+- Describe methodology in accessible terms
+- Present findings with supporting data
+- Discuss limitations and caveats
+- Compare results to related work with 5-7 citations
+- Explain implications for the field
+- Suggest future research directions
+- Balance technical depth with readability
 """,
     "general": """
 GENERAL ARTICLE REQUIREMENTS:
@@ -174,62 +174,69 @@ GENERAL ARTICLE REQUIREMENTS:
 STRUCTURE_TEMPLATES = {
     "commentary": """
 RECOMMENDED STRUCTURE FOR COMMENTARY:
-1. **Introduction**: Brief context on what's being discussed and who wrote it
-2. **Main Arguments**: What does the source actually say? (use quotes)
-3. **Key Points**: 3-5 specific claims, statements, or findings from the source
-4. **Analysis**: Why these points matter or are significant
-5. **Context & Background**: Broader context readers need to understand
-6. **Implications**: What this means for the field/community/readers
-7. **Conclusion**: Summary of the source's impact and significance
+Use ## for all section headings (not bold text):
+## Introduction
+## Main Arguments
+## Key Points
+## Analysis
+## Context & Background
+## Implications
+## Conclusion
 """,
     "tutorial": """
 RECOMMENDED STRUCTURE FOR TUTORIAL:
-1. **Introduction**: What will readers learn? Why should they care?
-2. **Prerequisites**: What knowledge/software/tools are needed?
-3. **Setup/Installation**: Get ready to begin (if applicable)
-4. **Step-by-step Instructions**: Numbered steps with code examples
-5. **Common Issues & Solutions**: Troubleshooting section
-6. **Next Steps**: What to learn or build next
-7. **Additional Resources**: Further reading and references
+Use ## for all section headings (not bold text):
+## Introduction
+## Prerequisites
+## Setup/Installation
+## Step-by-step Instructions
+## Common Issues & Solutions
+## Next Steps
+## Additional Resources
 """,
     "news": """
 RECOMMENDED STRUCTURE FOR NEWS:
-1. **Lead/Headline Info**: What was announced? When?
-2. **Impact & Significance**: Why does this matter?
-3. **Technical Details**: What are the key features or changes?
-4. **Background Context**: How does this fit into the bigger picture?
-5. **Availability & Timeline**: When/where can people access this?
-6. **What This Means**: Direct implications for readers
-7. **Related News**: Links to related announcements or stories
+Use ## for all section headings (not bold text):
+## Lead/Headline Info
+## Impact & Significance
+## Technical Details
+## Background Context
+## Availability & Timeline
+## What This Means
+## Related News
 """,
     "analysis": """
 RECOMMENDED STRUCTURE FOR ANALYSIS:
-1. **Introduction with Thesis**: What's the main point?
-2. **Background & Context**: What problem are we analyzing?
-3. **Detailed Comparison**: Feature/capability breakdown of alternatives
-4. **Performance Metrics**: Data, benchmarks, or measurable differences
-5. **Trade-offs Section**: Pros and cons of each approach
-6. **Decision Matrix**: "When to use" recommendations
-7. **Conclusion**: Summary and recommendations
+Use ## for all section headings (not bold text):
+## Introduction
+## Background & Context
+## Detailed Comparison
+## Performance Metrics
+## Trade-offs
+## Decision Matrix
+## Conclusion
 """,
     "research": """
 RECOMMENDED STRUCTURE FOR RESEARCH:
-1. **Introduction & Background**: What question is being answered?
-2. **Methodology Overview**: How was this research conducted?
-3. **Key Findings**: What did the research discover?
-4. **Data & Evidence**: Present findings with supporting data
-5. **Implications & Discussion**: What do these findings mean?
-6. **Limitations**: What are the boundaries of this research?
-7. **Future Directions**: What should be studied next?
+Use ## for all section headings (not bold text):
+## Introduction & Background
+## Methods/Approach
+## Key Findings
+## Technical Details
+## Implications
+## Limitations
+## Conclusion & Future Work
 """,
     "general": """
 RECOMMENDED STRUCTURE FOR GENERAL ARTICLE:
-1. **Introduction**: Hook + context + what readers will learn
-2. **Main Concepts**: Explain key ideas and terminology
-3. **Practical Applications**: Real-world examples and use cases
-4. **Best Practices**: Guidelines and recommendations
-5. **Implications & Insights**: Why this matters
-6. **Conclusion & Takeaways**: Summary and call to action
+Use ## for all section headings (not bold text):
+## Introduction
+## Background
+## Main Content
+## Examples/Applications
+## Best Practices
+## Implications
+## Conclusion
 """,
 }
 
@@ -280,6 +287,11 @@ UNIVERSAL REQUIREMENTS:
 - Include 3-7 citations naturally integrated (Author et al., Year format)
 - NO title in output - content starts directly with introduction
 - When referencing academic work, use format: "Author et al. (Year)" or "Author (Year)"
+
+TERMINOLOGY GUIDELINES:
+- Avoid anthropomorphizing AI (don't use "hallucination" - say "ungrounded output", "false generation", or "confabulation")
+- Don't attribute human qualities to AI systems (understanding, thinking, knowing)
+- Use precise technical terms: "generates", "predicts", "outputs" rather than "thinks", "believes", "understands"
 
 ACADEMIC CITATION QUALITY RULES:
 - Only cite research you are confident about (don't invent citations)
