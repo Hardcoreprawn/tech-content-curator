@@ -61,7 +61,7 @@ def make_generated_article(
         filename=filename,
         sources=[make_enriched_item()],
         word_count=100,
-        generation_costs={"total": 0.001},
+        generation_costs={"content_generation": [0.001]},
         generated_at=datetime(2025, 10, 31, 12, 0, 0, tzinfo=UTC),
         action_run_id="test-run-123",
         generator_name="General Article Generator",

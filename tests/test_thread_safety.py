@@ -70,10 +70,10 @@ class TestCostTrackerThreadSafety:
                     article_title=f"Article {thread_id}-{i}",
                     article_filename=f"article_{thread_id}_{i}.md",
                     generation_costs={
-                        "content_generation": 0.001,
-                        "title_generation": 0.0001,
-                        "slug_generation": 0.00001,
-                        "image_generation": 0.0005,
+                        "content_generation": [0.001],
+                        "title_generation": [0.0001],
+                        "slug_generation": [0.00001],
+                        "image_generation": [0.0005],
                     },
                 )
 
@@ -105,7 +105,7 @@ class TestCostTrackerThreadSafety:
                 tracker.record_successful_generation(
                     article_title=f"Test {thread_id}",
                     article_filename=f"test_{thread_id}.md",
-                    generation_costs={"content_generation": 0.001},
+                    generation_costs={"content_generation": [0.001]},
                 )
 
         with ThreadPoolExecutor(max_workers=num_threads) as executor:
@@ -348,7 +348,7 @@ class TestEndToEndParallelism:
                 tracker.record_successful_generation(
                     article_title=f"T{thread_id}-A{i}",
                     article_filename=f"t{thread_id}_a{i}.md",
-                    generation_costs={"content_generation": 0.001 * (thread_id + 1)},
+                    generation_costs={"content_generation": [0.001 * (thread_id + 1)]},
                 )
 
         # High contention scenario
