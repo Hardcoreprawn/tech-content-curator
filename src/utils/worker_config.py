@@ -84,20 +84,28 @@ def get_optimal_worker_count(
     in_ci = is_ci_environment()
 
     # Priority 2: Use case specific limits
-    # Enrichment: API rate limited (OpenAI typically 3-4 concurrent)
+    # Enrichment: I/O-bound (waiting on API responses), can use many threads
     if use_case == "enrichment":
-        api_rate_limit = 4
+        # Default conservative limit (can be overridden with max_limit or WORKER_COUNT)
+        # Note: OpenAI rate limits vary by tier - measure empirically for your account
+        # Free tier: ~3 RPM, Tier 1: ~500 RPM, Tier 2+: 5000+ RPM
+        # For I/O-bound work (threads spend 95% time waiting), can use 10-20x CPU cores
+        default_api_limit = 10  # Conservative for Tier 1+
+
         if max_limit:
-            api_rate_limit = min(api_rate_limit, max_limit)
+            api_rate_limit = max_limit
+        else:
+            api_rate_limit = default_api_limit
 
         if in_ci:
-            # GitHub Actions: Conservative (2 cores typical)
-            # Use minimum between CPU and API limit
-            return min(2, cpu_count, api_rate_limit)
+            # GitHub Actions: Conservative (2-4 cores typical)
+            # Use up to API limit, but don't exceed CPU count * 2 (I/O bound)
+            return min(cpu_count * 2, api_rate_limit)
         else:
-            # Local/production: Use CPU count up to API limit
-            # (cpu_count // 2) allows other processes to run
-            cpu_workers = max(1, cpu_count // 2)
+            # Local/production: Aggressive for I/O-bound work
+            # With 5% CPU per thread, can use ~20 threads per core
+            # But cap at reasonable limit to avoid overwhelming API
+            cpu_workers = cpu_count  # Full cores for I/O-bound
             return min(cpu_workers, api_rate_limit)
 
     # Collection: I/O-bound, not API-limited

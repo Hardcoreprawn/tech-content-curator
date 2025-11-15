@@ -443,6 +443,7 @@ async def enrich_collected_items_async(
         results = await asyncio.gather(*futures, return_exceptions=True)
 
     parallel_time = time.perf_counter() - parallel_start
+    throughput = len(results) / parallel_time if parallel_time > 0 else 0
     logger.info(
         f"Parallel enrichment phase completed in {parallel_time:.2f}s",
         extra={
@@ -450,7 +451,15 @@ async def enrich_collected_items_async(
             "event": "parallel_phase_complete",
             "time_seconds": parallel_time,
             "items_processed": len(results),
+            "workers": optimal_workers,
+            "throughput_items_per_sec": round(throughput, 2),
+            "avg_time_per_item": round(parallel_time / len(results), 2)
+            if results
+            else 0,
         },
+    )
+    console.print(
+        f"[dim]Throughput: {throughput:.2f} items/sec with {optimal_workers} workers[/dim]"
     )
 
     # Sequential merge: no locks needed
