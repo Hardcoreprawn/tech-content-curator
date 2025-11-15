@@ -120,7 +120,9 @@ def test_model_complex(
             "fog_index": readability_score.fog_index,
         }
 
-        console.print(f"  📖 Readability (Flesch): {readability_score.flesch_reading_ease:.1f}")
+        console.print(
+            f"  📖 Readability (Flesch): {readability_score.flesch_reading_ease:.1f}"
+        )
         console.print(f"  🎓 Grade Level: {readability_score.grade_level:.1f}")
 
         return {
@@ -203,7 +205,9 @@ def display_results(results: list[dict[str, Any]]) -> None:
             scores = result["quality_scores"]
             readability = result["readability"]
             console.print(f"\n[cyan]{result['model']}:[/cyan]")
-            console.print(f"  Flesch Reading Ease: {scores.get('readability_score', 0):.1f} (60-70 = standard)")
+            console.print(
+                f"  Flesch Reading Ease: {scores.get('readability_score', 0):.1f} (60-70 = standard)"
+            )
             console.print(f"  Grade Level: {scores.get('grade_level', 0):.1f}")
             console.print(f"  Fog Index: {scores.get('fog_index', 0):.1f}")
             console.print(f"  SMOG Index: {readability.get('smog_index', 0):.1f}")

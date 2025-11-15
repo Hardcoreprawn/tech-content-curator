@@ -174,7 +174,7 @@ def backfill_article_attribution(article_path: Path, config: Any) -> bool:
         return False
 
 
-def main():
+def main() -> int:
     """Backfill attribution for all articles missing it."""
     config = get_config()
 

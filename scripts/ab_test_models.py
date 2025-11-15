@@ -49,6 +49,7 @@ console = Console()
 @dataclass
 class ModelConfig:
     """Configuration for a model combination."""
+
     name: str
     content_model: str
     title_model: str
@@ -106,15 +107,12 @@ TEST_PROMPTS = {
     "content": """Write a 200-word technical article about Python async/await.
 Explain the concept clearly with a practical example.
 Target audience: intermediate Python developers.""",
-
     "title": """Generate a compelling, SEO-friendly title for this article:
 [Article about Python async/await covering event loops, coroutines, and practical use cases]
 Requirements: 6-10 words, engaging, technical but accessible.""",
-
     "enrichment": """Add a meta description (150-160 chars) for this article:
 Title: "Understanding Python's Async/Await: A Practical Guide"
 Content: Technical tutorial covering event loops, coroutines, and real-world examples.""",
-
     "review": """Review this article for quality issues:
 - Technical accuracy
 - Clarity and readability
@@ -269,7 +267,9 @@ def run_ab_tests(
 
         # Check if we should prune
         if adaptive and iteration == prune_after and len(active_configs) > keep_top:
-            console.print("\n[yellow]Adaptive pruning enabled - analyzing performance...[/yellow]")
+            console.print(
+                "\n[yellow]Adaptive pruning enabled - analyzing performance...[/yellow]"
+            )
 
             # Calculate average cost for each config
             avg_costs = {}
@@ -281,8 +281,7 @@ def run_ab_tests(
 
             # Keep only top performers
             sorted_configs = sorted(
-                active_configs,
-                key=lambda c: avg_costs.get(c.name, float("inf"))
+                active_configs, key=lambda c: avg_costs.get(c.name, float("inf"))
             )
             active_configs = sorted_configs[:keep_top]
 
@@ -306,8 +305,7 @@ def run_ab_tests(
             console=console,
         ) as progress:
             iteration_task = progress.add_task(
-                f"Iteration {iteration + 1}/{iterations}",
-                total=total_roles
+                f"Iteration {iteration + 1}/{iterations}", total=total_roles
             )
 
             # Run all configs in parallel
@@ -372,9 +370,12 @@ def aggregate_results(
             if role_results:
                 role_stats[role] = {
                     "model": role_results[0]["model"],
-                    "avg_cost": sum(r["cost"] for r in role_results) / len(role_results),
-                    "avg_time": sum(r["elapsed_seconds"] for r in role_results) / len(role_results),
-                    "avg_output_tokens": sum(r["output_tokens"] for r in role_results) / len(role_results),
+                    "avg_cost": sum(r["cost"] for r in role_results)
+                    / len(role_results),
+                    "avg_time": sum(r["elapsed_seconds"] for r in role_results)
+                    / len(role_results),
+                    "avg_output_tokens": sum(r["output_tokens"] for r in role_results)
+                    / len(role_results),
                 }
 
         aggregated["configs"][config.name] = {
@@ -387,8 +388,10 @@ def aggregate_results(
                 "enrichment_model": config.enrichment_model,
                 "review_model": config.review_model,
             },
-            "avg_total_cost": sum(r["total_cost"] for r in successful) / len(successful),
-            "avg_total_time": sum(r["total_time"] for r in successful) / len(successful),
+            "avg_total_cost": sum(r["total_cost"] for r in successful)
+            / len(successful),
+            "avg_total_time": sum(r["total_time"] for r in successful)
+            / len(successful),
             "min_total_cost": min(r["total_cost"] for r in successful),
             "max_total_cost": max(r["total_cost"] for r in successful),
             "role_breakdown": role_stats,
@@ -463,8 +466,10 @@ def display_comparison(results: dict[str, Any]) -> None:
         # Best value
         best_value = sorted_configs[0]
         console.print(f"  💰 Best Value: [cyan]{best_value[0]}[/cyan]")
-        console.print(f"     ${best_value[1]['avg_total_cost']:.6f}/article, "
-                     f"${best_value[1]['monthly_cost_estimate_270_articles']:.2f}/month")
+        console.print(
+            f"     ${best_value[1]['avg_total_cost']:.6f}/article, "
+            f"${best_value[1]['monthly_cost_estimate_270_articles']:.2f}/month"
+        )
 
         # Fastest
         fastest = min(sorted_configs, key=lambda x: x[1]["avg_total_time"])
@@ -475,9 +480,14 @@ def display_comparison(results: dict[str, Any]) -> None:
         baseline = sorted_configs[0][1]
         console.print("\n[bold]Cost vs Best Value:[/bold]")
         for name, data in sorted_configs[1:]:
-            cost_increase = data['avg_total_cost'] / baseline['avg_total_cost']
-            monthly_diff = data['monthly_cost_estimate_270_articles'] - baseline['monthly_cost_estimate_270_articles']
-            console.print(f"  {name}: {cost_increase:.1f}x more (+${monthly_diff:.2f}/month)")
+            cost_increase = data["avg_total_cost"] / baseline["avg_total_cost"]
+            monthly_diff = (
+                data["monthly_cost_estimate_270_articles"]
+                - baseline["monthly_cost_estimate_270_articles"]
+            )
+            console.print(
+                f"  {name}: {cost_increase:.1f}x more (+${monthly_diff:.2f}/month)"
+            )
 
 
 def save_results(results: dict[str, Any], output_file: Path) -> None:

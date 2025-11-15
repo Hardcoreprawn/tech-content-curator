@@ -54,8 +54,8 @@ def fix_article_images(article_path: Path) -> bool:
     article = frontmatter.load(str(article_path))
 
     title = str(article.get("title", "Article"))
-    str(article.get("summary", ""))
-    tags = article.get("tags", [])
+    tags_raw = article.get("tags", [])
+    tags = list(tags_raw) if isinstance(tags_raw, list) else []
 
     console.print(f"  [blue]Regenerating images for: {title}[/blue]")
 
@@ -103,7 +103,7 @@ def fix_article_images(article_path: Path) -> bool:
     return True
 
 
-def main():
+def main() -> int:
     """Find and fix all articles with expired images."""
     content_dir = Path("content/posts")
     if not content_dir.exists():

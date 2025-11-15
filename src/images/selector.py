@@ -231,7 +231,7 @@ class CoverImageSelector:
         console.print("[blue]🖼  Selecting cover image...[/blue]")
 
         max_attempts = 3
-        tried_queries = []
+        tried_queries: list[dict[str, str]] = []
 
         for attempt in range(1, max_attempts + 1):
             # Generate search queries with content context

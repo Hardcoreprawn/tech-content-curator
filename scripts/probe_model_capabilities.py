@@ -199,9 +199,7 @@ def probe_model(client: OpenAI, model_id: str) -> ModelCapabilities:
         TextColumn("[progress.description]{task.description}"),
         console=console,
     ) as progress:
-        task = progress.add_task(
-            "Testing parameters...", total=len(PARAMETERS_TO_TEST)
-        )
+        task = progress.add_task("Testing parameters...", total=len(PARAMETERS_TO_TEST))
 
         for param_name, test_value in PARAMETERS_TO_TEST.items():
             progress.update(task, description=f"Testing {param_name}...")
