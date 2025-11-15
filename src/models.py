@@ -141,8 +141,9 @@ class GeneratedArticle(BaseModel):
     word_count: int = Field(ge=0)
     generated_at: datetime = Field(default_factory=datetime.now)
     filename: str = Field(..., description="Output filename for the article")
-    generation_costs: dict[str, float] = Field(
-        default_factory=dict, description="Cost breakdown for generating this article"
+    generation_costs: dict[str, list[float]] = Field(
+        default_factory=dict,
+        description="Itemized cost breakdown with lists per operation type (e.g., multiple images)"
     )
     action_run_id: str | None = Field(
         default=None, description="GitHub Actions run ID that generated this article"

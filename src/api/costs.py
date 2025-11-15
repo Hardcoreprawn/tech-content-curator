@@ -20,6 +20,7 @@ from typing import Literal
 from rich.console import Console
 from rich.table import Table
 
+from ..utils.costs import calculate_total_cost
 from ..utils.logging import get_logger
 
 console = Console()
@@ -129,7 +130,7 @@ class CostTracker:
         self,
         article_title: str,
         article_filename: str,
-        generation_costs: dict[str, float],
+        generation_costs: dict[str, list[float]],
     ):
         """
         Record costs for a successfully saved article.
@@ -137,21 +138,25 @@ class CostTracker:
         Args:
             article_title: Title of generated article
             article_filename: Filename of saved article
-            generation_costs: Dict with content_generation, title_generation, etc.
+            generation_costs: Dict with lists of costs per operation type (itemized billing)
         """
-        total_cost = sum(generation_costs.values())
+        total_cost = calculate_total_cost(generation_costs)
         logger.debug(
             f"Recording successful generation: {article_filename} (cost: ${total_cost:.8f})"
         )
+
+        # Sum costs for each category (handling list values)
+        def sum_cost_list(key: str) -> float:
+            return sum(generation_costs.get(key, []))
+
         entry = GenerationCostEntry(
             timestamp=datetime.now(UTC).isoformat(),
             article_title=article_title,
             article_filename=article_filename,
-            content_cost=generation_costs.get("content_generation", 0.0),
-            title_cost=generation_costs.get("title_generation", 0.0),
-            slug_cost=generation_costs.get("slug_generation", 0.0),
-            image_cost=generation_costs.get("image_generation", 0.0)
-            + generation_costs.get("icon_generation", 0.0),
+            content_cost=sum_cost_list("content_generation"),
+            title_cost=sum_cost_list("title_generation"),
+            slug_cost=sum_cost_list("slug_generation"),
+            image_cost=sum_cost_list("image_generation") + sum_cost_list("icon_generation"),
             total_cost=total_cost,
             status="saved",
         )
@@ -165,7 +170,7 @@ class CostTracker:
     def record_rejected_duplicate(
         self,
         article_title: str,
-        generation_costs: dict[str, float],
+        generation_costs: dict[str, list[float]],
         duplicate_of: str | None = None,
     ):
         """
@@ -175,19 +180,22 @@ class CostTracker:
 
         Args:
             article_title: Title of rejected article
-            generation_costs: Costs already spent
+            generation_costs: Costs already spent (itemized lists)
             duplicate_of: Filename of article it duplicated
         """
+        # Sum costs for each category (handling list values)
+        def sum_cost_list(key: str) -> float:
+            return sum(generation_costs.get(key, []))
+
         entry = GenerationCostEntry(
             timestamp=datetime.now(UTC).isoformat(),
             article_title=article_title,
             article_filename="",  # Not saved
-            content_cost=generation_costs.get("content_generation", 0.0),
-            title_cost=generation_costs.get("title_generation", 0.0),
-            slug_cost=generation_costs.get("slug_generation", 0.0),
-            image_cost=generation_costs.get("image_generation", 0.0)
-            + generation_costs.get("icon_generation", 0.0),
-            total_cost=sum(generation_costs.values()),
+            content_cost=sum_cost_list("content_generation"),
+            title_cost=sum_cost_list("title_generation"),
+            slug_cost=sum_cost_list("slug_generation"),
+            image_cost=sum_cost_list("image_generation") + sum_cost_list("icon_generation"),
+            total_cost=calculate_total_cost(generation_costs),
             status="rejected_duplicate",
             duplicate_of=duplicate_of,
         )

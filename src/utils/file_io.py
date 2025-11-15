@@ -221,25 +221,38 @@ def format_cost_value(cost: float, precision: int = 8) -> float:
     return round(cost, precision)
 
 
-def format_generation_costs(costs: dict[str, float]) -> dict[str, str]:
+def format_generation_costs(costs: dict[str, float | list[float]]) -> dict[str, float | list[float]]:
     """Format all generation costs with consistent decimal notation.
 
-    Converts costs to strings to prevent YAML from using scientific notation
-    when serializing very small float values.
+    Converts costs to preserve itemized billing. Each cost type can be:
+    - A single float (for one-time operations)
+    - A list of floats (for multiple operations, e.g., multiple images)
+
+    Prevents YAML from using scientific notation when serializing very small values.
 
     Args:
-        costs: Dictionary of cost values
+        costs: Dictionary of cost values (floats or lists of floats)
 
     Returns:
-        Dictionary with all values as formatted strings
+        Dictionary with all values as formatted numbers (preserving lists)
     """
     result = {}
     for key, value in costs.items():
-        formatted = format_cost_value(value)
-        # Convert to string to prevent scientific notation in YAML
-        if formatted == 0.0:
-            result[key] = 0.0  # Keep zero as float for cleaner YAML
+        if isinstance(value, list):
+            # Handle list of costs (itemized billing)
+            formatted_list = []
+            for cost in value:
+                formatted = format_cost_value(cost)
+                if formatted == 0.0:
+                    formatted_list.append(0.0)
+                else:
+                    formatted_list.append(float(f"{formatted:.8f}".rstrip("0").rstrip(".")))
+            result[key] = formatted_list
         else:
-            # Format with enough decimals, then strip trailing zeros
-            result[key] = float(f"{formatted:.8f}".rstrip("0").rstrip("."))
+            # Handle single cost value
+            formatted = format_cost_value(value)
+            if formatted == 0.0:
+                result[key] = 0.0
+            else:
+                result[key] = float(f"{formatted:.8f}".rstrip("0").rstrip("."))
     return result

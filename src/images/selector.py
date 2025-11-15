@@ -10,6 +10,8 @@ All search queries are generated via gpt-3.5-turbo for better context-aware resu
 Cost: ~$0.0005 per article for LLM query generation.
 """
 
+import re
+
 from ..utils.logging import get_logger
 from ..utils.openai_client import create_chat_completion
 
@@ -200,8 +202,6 @@ class CoverImageSelector:
 
         # Extract key terms from content (simple heuristic: capitalized words)
         if content:
-            import re
-
             # Find capitalized sequences (potential proper nouns)
             capitalized = re.findall(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b", content)
             entities.update([e.lower() for e in capitalized[:10]])  # Limit to top 10

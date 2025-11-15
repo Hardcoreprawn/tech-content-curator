@@ -10,7 +10,7 @@ import asyncio
 import os
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 
 from rich.console import Console
 
@@ -22,8 +22,13 @@ from ..content.quality_tracker import QualityTracker
 from ..deduplication.adaptive_dedup import AdaptiveDedupFeedback
 from ..enrichment.fact_check import FactCheckResult, validate_article
 from ..generators.base import BaseGenerator
-from ..models import EnrichedItem, GeneratedArticle
+from ..models import (
+    EnrichedItem,
+    GeneratedArticle,
+    GeneratedArticleQualityDimensions,
+)
 from ..utils.clients import get_openai_client
+from ..utils.costs import append_generation_cost, merge_generation_costs
 from ..utils.logging import get_logger
 
 if TYPE_CHECKING:
@@ -136,16 +141,20 @@ def generate_single_article(
         word_count = len(content.split())
         console.print(f"  Content: {word_count} words")
 
-        # Initialize cost tracking
-        costs: dict[str, float] = {
-            "content_generation": calculate_text_cost(
+        # Initialize cost tracking with lists for itemized billing
+        costs: dict[str, list[float]] = {}
+
+        append_generation_cost(
+            costs,
+            "content_generation",
+            calculate_text_cost(
                 "gpt-4o-mini", content_input_tokens, content_output_tokens
-            )
-        }
+            ),
+        )
 
         # Generate title and slug
         title, title_cost = generate_article_title(item, content, client, recent_titles)
-        costs["title_generation"] = title_cost
+        append_generation_cost(costs, "title_generation", title_cost)
         console.print(f"  Title: {title}")
 
         metadata = create_article_metadata(item, title, content)
@@ -182,7 +191,8 @@ def generate_single_article(
 
             final_content = result.content
             illustrations_count = result.count
-            costs.update(result.costs)
+            # Merge illustration costs (convert scalars to lists for itemized billing)
+            merge_generation_costs(costs, result.costs)
 
         # Format markdown
         if format_markdown is not None:
@@ -223,7 +233,9 @@ def generate_single_article(
 
             # Store quality score in article for metadata
             article.quality_score = quality_result.overall_score
-            article.quality_dimensions = quality_result.dimension_scores
+            article.quality_dimensions = cast(
+                GeneratedArticleQualityDimensions, quality_result.dimension_scores
+            )
             article.quality_passed = quality_result.passed_threshold
 
             # Track quality for model comparison

@@ -20,6 +20,7 @@ from ..citations.resolver import ResolvedCitation
 from ..config import PipelineConfig, get_content_dir
 from ..images import CoverImageSelector, select_or_create_cover_image
 from ..models import EnrichedItem, GeneratedArticle
+from ..utils.costs import append_generation_cost
 from ..utils.file_io import (
     atomic_write_text,
     format_generation_costs,
@@ -159,7 +160,7 @@ def save_article_to_file(
                 for source in article.sources
             ],
             "cover": {"image": "", "alt": ""},
-            "generation_costs": format_generation_costs(article.generation_costs),
+            "generation_costs": format_generation_costs(dict(article.generation_costs)),
             "action_run_id": article.action_run_id,
             "generator": article.generator_name,
             "illustrations_count": article.illustrations_count,
@@ -204,7 +205,10 @@ def save_article_to_file(
                     )
                     hero_path = cover_image.url
                     icon_path = cover_image.url
-                    article.generation_costs["image_generation"] = cover_image.cost
+                    # Append image cost for itemized billing
+                    append_generation_cost(
+                        article.generation_costs, "image_generation", cover_image.cost
+                    )
                     console.print(
                         f"[green]✓[/green] Selected {cover_image.source} image "
                         f"(cost: ${cover_image.cost:.4f})"
@@ -226,7 +230,10 @@ def save_article_to_file(
                 hero_path, icon_path = select_or_create_cover_image(
                     article.tags, slug, config.hugo_base_url
                 )
-                article.generation_costs["image_generation"] = 0.0
+                # Append zero cost for reused image
+                append_generation_cost(
+                    article.generation_costs, "image_generation", 0.0
+                )
         except (OSError, ValueError, KeyError) as ie:
             logger.error(
                 f"Image attachment failed for article '{article.title}': {ie}",
@@ -341,6 +348,10 @@ def save_article_to_file(
 
     # Combine everything
     full_content = attribution_block + article_content + references_block
+
+    # Update generation_costs in metadata after all costs have been added
+    # (image costs are added during image selection above)
+    metadata["generation_costs"] = format_generation_costs(article.generation_costs)
 
     # Write file atomically to prevent corruption
     post = frontmatter.Post(full_content, **metadata)

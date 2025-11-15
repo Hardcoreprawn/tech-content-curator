@@ -8,14 +8,14 @@ This module handles the AI-powered generation of article components:
 Uses GPT-4o-mini for cost-effective, high-quality generation.
 """
 
+import re
+from datetime import UTC, datetime
+
 from ..utils.logging import get_logger
 from ..utils.openai_client import create_chat_completion
 from ..utils.sanitization import safe_filename
 
 logger = get_logger(__name__)
-
-
-from datetime import UTC, datetime
 
 from openai import OpenAI
 from rich.console import Console
@@ -237,8 +237,6 @@ def extract_article_summary(content: str, max_length: int = 200) -> str:
     Returns:
         Summary string extracted from content, truncated at word boundaries
     """
-    import re
-
     # Remove markdown formatting for cleaner summary
     cleaned = content.replace("## ", "").replace("# ", "")
 
