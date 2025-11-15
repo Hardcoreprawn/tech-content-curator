@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: Running Incus as Hypervisor on an Immutable Linux Host
-  image: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-dk7PSw4ZjdQtqUdNosv5WbwE.png?st=2025-11-14T22%3A21%3A02Z&se=2025-11-15T00%3A21%3A02Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=ed3ea2f9-5e38-44be-9a1b-7c1e65e4d54f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T08%3A14%3A52Z&ske=2025-11-15T08%3A14%3A52Z&sks=b&skv=2024-08-04&sig=uzEHiOIt4wx2qi9ViUjIvEr/%2BLnpkdfnfp4W9FzU1Vs%3D
+  image: /images/2025-11-14-running-incus-as-hypervisor-on-an-immutable-linux-host.png
 date: 2025-11-14T23:15:03+0000
 generation_costs:
   content_generation: 0.0023226
   title_generation: 0.00144525
 generator: General Article Generator
-icon: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-dk7PSw4ZjdQtqUdNosv5WbwE.png?st=2025-11-14T22%3A21%3A02Z&se=2025-11-15T00%3A21%3A02Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=ed3ea2f9-5e38-44be-9a1b-7c1e65e4d54f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T08%3A14%3A52Z&ske=2025-11-15T08%3A14%3A52Z&sks=b&skv=2024-08-04&sig=uzEHiOIt4wx2qi9ViUjIvEr/%2BLnpkdfnfp4W9FzU1Vs%3D
+icon: /images/2025-11-14-running-incus-as-hypervisor-on-an-immutable-linux-host-icon.png
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

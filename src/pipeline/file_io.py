@@ -195,6 +195,7 @@ def save_article_to_file(
     if generate_image:
         slug = filepath.stem
         hero_path = icon_path = None
+        image_attribution = None  # Store attribution info
         try:
             # Try multi-source image selection first
             if client and (config.unsplash_api_key or config.pexels_api_key):
@@ -205,6 +206,7 @@ def save_article_to_file(
                     )
                     hero_path = cover_image.url
                     icon_path = cover_image.url
+                    image_attribution = cover_image  # Store for attribution
                     # Append image cost for itemized billing
                     append_generation_cost(
                         article.generation_costs, "image_generation", cover_image.cost
@@ -245,6 +247,14 @@ def save_article_to_file(
             metadata["cover"]["image"] = hero_path
             metadata["cover"]["alt"] = article.title
             metadata["icon"] = icon_path or ""
+            # Add image attribution if available
+            if image_attribution and image_attribution.photographer_name:
+                metadata["cover"]["photographer"] = image_attribution.photographer_name
+                if image_attribution.photographer_url:
+                    metadata["cover"]["photographer_url"] = (
+                        image_attribution.photographer_url
+                    )
+                metadata["cover"]["image_source"] = image_attribution.source
 
     # Build content with attribution and references
     primary = article.sources[0].original if article.sources else None

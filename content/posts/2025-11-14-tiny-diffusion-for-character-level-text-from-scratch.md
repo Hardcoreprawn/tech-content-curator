@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: 'Tiny Diffusion for Character-Level Text: From Scratch'
-  image: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-a0Ni4cWsC5nKCTSoDvaNrBDf.png?st=2025-11-14T22%3A19%3A59Z&se=2025-11-15T00%3A19%3A59Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=77e5a8ec-6bd1-4477-8afc-16703a64f029&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T21%3A02%3A23Z&ske=2025-11-15T21%3A02%3A23Z&sks=b&skv=2024-08-04&sig=wOvwj/70B7ywfj92ZEzLheTDg2O7wO9WYEUeDFYvGho%3D
+  image: /images/2025-11-14-tiny-diffusion-for-character-level-text-from-scratch.png
 date: 2025-11-14T23:14:58+0000
 generation_costs:
   content_generation: 0.00219465
   title_generation: 0.0014079
 generator: General Article Generator
-icon: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-a0Ni4cWsC5nKCTSoDvaNrBDf.png?st=2025-11-14T22%3A19%3A59Z&se=2025-11-15T00%3A19%3A59Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=77e5a8ec-6bd1-4477-8afc-16703a64f029&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T21%3A02%3A23Z&ske=2025-11-15T21%3A02%3A23Z&sks=b&skv=2024-08-04&sig=wOvwj/70B7ywfj92ZEzLheTDg2O7wO9WYEUeDFYvGho%3D
+icon: /images/2025-11-14-tiny-diffusion-for-character-level-text-from-scratch-icon.png
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

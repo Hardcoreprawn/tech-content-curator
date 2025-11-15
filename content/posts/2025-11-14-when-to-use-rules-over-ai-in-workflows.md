@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: When to Use Rules Over AI in Workflows
-  image: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-HCtM7g3m1t0RbUaRiDMvRyjW.png?st=2025-11-14T22%3A18%3A24Z&se=2025-11-15T00%3A18%3A24Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=8b33a531-2df9-46a3-bc02-d4b1430a422c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T08%3A19%3A33Z&ske=2025-11-15T08%3A19%3A33Z&sks=b&skv=2024-08-04&sig=W2BOCbUQus8IC1rqkWlQoy12oWAWhlgnI2Ldz%2BRRuLc%3D
+  image: https://images.unsplash.com/photo-1717386255767-52643970d483?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxpZi10aGVuJTIwYXV0b21hdGlvbnxlbnwwfDB8fHwxNzYzMjQ1MDY4fDA&ixlib=rb-4.1.0&q=80&w=1080
 date: 2025-11-14T23:14:51+0000
 generation_costs:
   content_generation: 0.00210675
   title_generation: 0.000756
 generator: General Article Generator
-icon: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-HCtM7g3m1t0RbUaRiDMvRyjW.png?st=2025-11-14T22%3A18%3A24Z&se=2025-11-15T00%3A18%3A24Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=8b33a531-2df9-46a3-bc02-d4b1430a422c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T08%3A19%3A33Z&ske=2025-11-15T08%3A19%3A33Z&sks=b&skv=2024-08-04&sig=W2BOCbUQus8IC1rqkWlQoy12oWAWhlgnI2Ldz%2BRRuLc%3D
+icon: https://images.unsplash.com/photo-1717386255767-52643970d483?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxpZi10aGVuJTIwYXV0b21hdGlvbnxlbnwwfDB8fHwxNzYzMjQ1MDY4fDA&ixlib=rb-4.1.0&q=80&w=1080
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: 'Tiny JIT in C: CJ Backends for x86-64 and ARM64'
-  image: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-l1Dxkzwxdq4ogVY8D5YCYTSU.png?st=2025-11-14T22%3A17%3A15Z&se=2025-11-15T00%3A17%3A15Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=7daae675-7b42-4e2e-ab4c-8d8419a28d99&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T23%3A01%3A18Z&ske=2025-11-15T23%3A01%3A18Z&sks=b&skv=2024-08-04&sig=nIJkd/Qb%2BOyUQJxtmhvQ9XXtu%2BmeAU%2BlVhC%2BncdwaIc%3D
+  image: /images/2025-11-14-tiny-jit-in-c-cj-backends-for-x86-64-and-arm64.png
 date: 2025-11-14T23:14:58+0000
 generation_costs:
   content_generation: 0.00229995
   title_generation: 0.00064605
 generator: General Article Generator
-icon: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-l1Dxkzwxdq4ogVY8D5YCYTSU.png?st=2025-11-14T22%3A17%3A15Z&se=2025-11-15T00%3A17%3A15Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=7daae675-7b42-4e2e-ab4c-8d8419a28d99&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-14T23%3A01%3A18Z&ske=2025-11-15T23%3A01%3A18Z&sks=b&skv=2024-08-04&sig=nIJkd/Qb%2BOyUQJxtmhvQ9XXtu%2BmeAU%2BlVhC%2BncdwaIc%3D
+icon: /images/2025-11-14-tiny-jit-in-c-cj-backends-for-x86-64-and-arm64-icon.png
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

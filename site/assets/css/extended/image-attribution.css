@@ -1,0 +1,27 @@
+/* Custom styles for image attribution */
+.image-attribution {
+    display: block;
+    font-size: 13px;
+    color: var(--secondary);
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.image-attribution a {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.image-attribution a:hover {
+    color: var(--primary);
+}
+
+/* Entry cover figcaption styling */
+.entry-cover figcaption {
+    color: var(--primary);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+    padding: 0 16px;
+}

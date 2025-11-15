@@ -41,6 +41,8 @@ class CoverImage:
     source: str  # "wikimedia", "unsplash", "pexels", "dalle-3"
     cost: float
     quality_score: float  # 0-1, how confident we are in the match
+    photographer_name: str | None = None  # Photographer/creator name for attribution
+    photographer_url: str | None = None  # Link to photographer's profile
 
 
 class CoverImageSelector:
@@ -382,6 +384,49 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
                 "dalle": f"Professional article illustration for: {title}",
             }
 
+    def _map_unsplash_result(self, result: dict, query: str) -> CoverImage:
+        """Map Unsplash API response to CoverImage with safe attribute access.
+
+        Args:
+            result: Unsplash photo result dictionary
+            query: Original search query for fallback alt text
+
+        Returns:
+            CoverImage with normalized data
+        """
+        # Safely extract nested user data
+        user = result.get("user") or {}
+        photographer_name = user.get("name") or "Unknown Photographer"
+        photographer_username = user.get("username") or ""
+
+        # Build photographer URL if we have username
+        photographer_url = (
+            f"https://unsplash.com/@{photographer_username}"
+            if photographer_username
+            else None
+        )
+
+        # Safely extract image URLs
+        urls = result.get("urls") or {}
+        image_url = urls.get("regular") or urls.get("full") or ""
+
+        # Get description with fallback to alt_description or query
+        alt_text = (
+            result.get("description")
+            or result.get("alt_description")
+            or query
+        )
+
+        return CoverImage(
+            url=image_url,
+            alt_text=alt_text,
+            source="unsplash",
+            cost=0.0,
+            quality_score=0.80,
+            photographer_name=photographer_name,
+            photographer_url=photographer_url,
+        )
+
     def _search_unsplash(self, query: str) -> CoverImage | None:
         """Search Unsplash for free stock photos, skipping recently used.
 
@@ -406,23 +451,53 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
             response.raise_for_status()
             data = response.json()
 
-            if data.get("results"):
-                # Try each result until we find one that's not recently used
-                for result in data["results"]:
-                    photo_id = result["id"]
-                    if f"unsplash:{photo_id}" not in self._recently_used_images:
-                        return CoverImage(
-                            url=result["urls"]["regular"],
-                            alt_text=result.get("description", query) or query,
-                            source="unsplash",
-                            cost=0.0,
-                            quality_score=0.80,  # Unsplash is high quality
-                        )
-                console.print("[dim]All Unsplash results were recently used[/dim]")
+            results = data.get("results") or []
+            # Try each result until we find one that's not recently used
+            for result in results:
+                photo_id = result.get("id")
+                if not photo_id:
+                    continue
+
+                if f"unsplash:{photo_id}" not in self._recently_used_images:
+                    return self._map_unsplash_result(result, query)
+
+            console.print("[dim]All Unsplash results were recently used[/dim]")
         except Exception as e:
             console.print(f"[dim]Unsplash search failed: {e}[/dim]")
+            logger.debug(f"Unsplash error details: {e}", exc_info=True)
 
         return None
+
+    def _map_pexels_result(self, result: dict, query: str) -> CoverImage:
+        """Map Pexels API response to CoverImage with safe attribute access.
+
+        Args:
+            result: Pexels photo result dictionary
+            query: Original search query for fallback alt text
+
+        Returns:
+            CoverImage with normalized data
+        """
+        # Safely extract photographer data
+        photographer_name = result.get("photographer") or "Unknown Photographer"
+        photographer_url = result.get("photographer_url")
+
+        # Safely extract image URL from src object
+        src = result.get("src") or {}
+        image_url = src.get("large") or src.get("original") or ""
+
+        # Get alt text with fallback to query
+        alt_text = result.get("alt") or query
+
+        return CoverImage(
+            url=image_url,
+            alt_text=alt_text,
+            source="pexels",
+            cost=0.0,
+            quality_score=0.75,
+            photographer_name=photographer_name,
+            photographer_url=photographer_url,
+        )
 
     def _search_pexels(self, query: str) -> CoverImage | None:
         """Search Pexels for free stock photos, skipping recently used.
@@ -448,21 +523,20 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
             response.raise_for_status()
             data = response.json()
 
-            if data.get("photos"):
-                # Try each result until we find one that's not recently used
-                for result in data["photos"]:
-                    photo_id = str(result["id"])
-                    if f"pexels:{photo_id}" not in self._recently_used_images:
-                        return CoverImage(
-                            url=result["src"]["large"],
-                            alt_text=result.get("alt", query) or query,
-                            source="pexels",
-                            cost=0.0,
-                            quality_score=0.75,
-                        )
-                console.print("[dim]All Pexels results were recently used[/dim]")
+            photos = data.get("photos") or []
+            # Try each result until we find one that's not recently used
+            for result in photos:
+                photo_id = result.get("id")
+                if not photo_id:
+                    continue
+
+                if f"pexels:{photo_id}" not in self._recently_used_images:
+                    return self._map_pexels_result(result, query)
+
+            console.print("[dim]All Pexels results were recently used[/dim]")
         except Exception as e:
             console.print(f"[dim]Pexels search failed: {e}[/dim]")
+            logger.debug(f"Pexels error details: {e}", exc_info=True)
 
         return None
 
@@ -533,6 +607,8 @@ Respond ONLY "yes" or "no"."""
                 source="dalle-3",
                 cost=0.020,
                 quality_score=0.85,
+                photographer_name="OpenAI DALL-E 3",
+                photographer_url="https://openai.com/dall-e-3",
             )
         except Exception as e:
             console.print(f"[red]✗ DALL-E generation failed: {e}[/red]")
