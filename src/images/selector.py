@@ -411,11 +411,7 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
         image_url = urls.get("regular") or urls.get("full") or ""
 
         # Get description with fallback to alt_description or query
-        alt_text = (
-            result.get("description")
-            or result.get("alt_description")
-            or query
-        )
+        alt_text = result.get("description") or result.get("alt_description") or query
 
         return CoverImage(
             url=image_url,
