@@ -208,8 +208,10 @@ Examples:
     if articles:
         # Calculate total costs (handle list-based itemized billing)
         from src.utils.costs import calculate_total_cost
-        
-        total_cost = sum(calculate_total_cost(article.generation_costs) for article in articles)
+
+        total_cost = sum(
+            calculate_total_cost(article.generation_costs) for article in articles
+        )
 
         console.print(
             f"\n[bold green]🎉 Success! Generated {len(articles)} blog articles.[/bold green]"
