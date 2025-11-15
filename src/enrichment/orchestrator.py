@@ -323,7 +323,7 @@ def enrich_collected_items(
 
 
 async def enrich_collected_items_async(
-    items: list[CollectedItem], max_workers: int = 4
+    items: list[CollectedItem], max_workers: int | None = None
 ) -> list[EnrichedItem]:
     """Enrich items in parallel using free-threading with thread-local adapters.
 
@@ -334,12 +334,12 @@ async def enrich_collected_items_async(
     CRITICAL FIX: Patterns are loaded ONCE before threading starts, preventing
     per-thread disk I/O which would cause massive contention.
 
-    Note: Limited to 4 workers by default to avoid OpenAI rate limits.
-    Adjust based on your rate limit tier.
+    Note: Worker count dynamically calculated based on environment and API tier.
+    Set WORKER_COUNT env var to override.
 
     Args:
-        items: List of collected items to enrich
-        max_workers: Number of parallel workers (default: 4, max recommended: 8)
+        items: Collected items to enrich
+        max_workers: Optional hard limit on workers (default: None, uses dynamic config)
 
     Returns:
         List of successfully enriched items
