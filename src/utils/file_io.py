@@ -221,7 +221,9 @@ def format_cost_value(cost: float, precision: int = 8) -> float:
     return round(cost, precision)
 
 
-def format_generation_costs(costs: dict[str, float | list[float]]) -> dict[str, float | list[float]]:
+def format_generation_costs(
+    costs: dict[str, float | list[float]],
+) -> dict[str, float | list[float]]:
     """Format all generation costs with consistent decimal notation.
 
     Converts costs to preserve itemized billing. Each cost type can be:
@@ -246,7 +248,9 @@ def format_generation_costs(costs: dict[str, float | list[float]]) -> dict[str, 
                 if formatted == 0.0:
                     formatted_list.append(0.0)
                 else:
-                    formatted_list.append(float(f"{formatted:.8f}".rstrip("0").rstrip(".")))
+                    formatted_list.append(
+                        float(f"{formatted:.8f}".rstrip("0").rstrip("."))
+                    )
             result[key] = formatted_list
         else:
             # Handle single cost value

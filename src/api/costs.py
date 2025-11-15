@@ -156,7 +156,8 @@ class CostTracker:
             content_cost=sum_cost_list("content_generation"),
             title_cost=sum_cost_list("title_generation"),
             slug_cost=sum_cost_list("slug_generation"),
-            image_cost=sum_cost_list("image_generation") + sum_cost_list("icon_generation"),
+            image_cost=sum_cost_list("image_generation")
+            + sum_cost_list("icon_generation"),
             total_cost=total_cost,
             status="saved",
         )
@@ -183,6 +184,7 @@ class CostTracker:
             generation_costs: Costs already spent (itemized lists)
             duplicate_of: Filename of article it duplicated
         """
+
         # Sum costs for each category (handling list values)
         def sum_cost_list(key: str) -> float:
             return sum(generation_costs.get(key, []))
@@ -194,7 +196,8 @@ class CostTracker:
             content_cost=sum_cost_list("content_generation"),
             title_cost=sum_cost_list("title_generation"),
             slug_cost=sum_cost_list("slug_generation"),
-            image_cost=sum_cost_list("image_generation") + sum_cost_list("icon_generation"),
+            image_cost=sum_cost_list("image_generation")
+            + sum_cost_list("icon_generation"),
             total_cost=calculate_total_cost(generation_costs),
             status="rejected_duplicate",
             duplicate_of=duplicate_of,
