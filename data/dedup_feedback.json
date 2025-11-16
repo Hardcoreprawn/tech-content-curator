@@ -4494,5 +4494,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 853,
+    "timestamp": "2025-11-16T18:30:53.560310",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Brimstone: ES2025 JavaScript engine written in Rust",
+        "removed_items": [
+          "Boa: A standard-conforming embeddable JavaScript engine written in Rust"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Blocking LLM crawlers without JavaScript",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
