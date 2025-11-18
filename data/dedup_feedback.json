@@ -4630,5 +4630,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 881,
+    "timestamp": "2025-11-18T06:26:19.841932",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Unofficial \"Tier 4\" Rust Target for older Windows versions",
+        "removed_items": [
+          "Show HN: Parqeye \u2013 A CLI tool to visualize and inspect Parquet files\n\nI built a Rust-based CLI&#x2F;"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Project Gemini",
+        "removed_items": [
+          "I caught Google Gemini using my data and then covering it up"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
