@@ -4597,5 +4597,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 8,
+    "patterns_used": 873,
+    "timestamp": "2025-11-18T03:06:24.185392",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The last toast from the legend herself: Valhalla really really reeked of beer, but Jennell seems hap",
+        "removed_items": [
+          "This was a triumph. I'm making a note here: HUGE SUCCESS. I finally figured out how to use \"Virtual ",
+          "Thousands of rare American songs spanning jazz, blues and gospel \u2014 some more than a century old \u2014 ar"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Parqeye \u2013 A CLI tool to visualize and inspect Parquet files\n\nI built a Rust-based CLI&#x2F;",
+        "removed_items": [
+          "Show HN: Continuous Claude \u2013 run Claude Code in a loop\n\nContinuous Claude is a CLI wrapper I made th",
+          "Ion: Modern System Shell in Rust",
+          "Show HN: PrinceJS \u2013 19,200 req/s Bun framework in 2.8 kB (built by a 13yo)\n\nHey HN,<p>I&#x27;m 13, f"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Project Gemini",
+        "removed_items": [
+          "I caught Google Gemini using my data and then covering it up"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
