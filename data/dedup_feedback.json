@@ -4759,5 +4759,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 8,
+    "patterns_used": 906,
+    "timestamp": "2025-11-19T03:06:01.145824",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I had the displeasure of reading an article in the Harvard student paper by an economics major who s",
+        "removed_items": [
+          "It's official! # PicoIDE , the open source IDE/ATAPI drive emulator I've been working on for the bet"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Gemini 3\n\n<a href=\"https:&#x2F;&#x2F;blog.google&#x2F;technology&#x2F;developers&#x2F;gemini-3-devel",
+        "removed_items": [
+          "Google Antigravity\n\n<a href=\"https:&#x2F;&#x2F;antigravity.google&#x2F;blog&#x2F;introducing-google-",
+          "Gemini 3 Pro Model Card [pdf]",
+          "Google boss says AI investment boom has 'elements of irrationality'",
+          "Trying out Gemini 3 Pro with audio transcription and a new pelican benchmark"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "DOE gives Microsoft partner $1B loan to restart Three Mile Island reactor",
+        "removed_items": [
+          "Microsoft-backed Veir is bringing superconductors to data centers"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
