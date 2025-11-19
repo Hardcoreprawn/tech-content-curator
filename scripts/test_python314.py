@@ -90,13 +90,23 @@ def test_imports() -> bool:
             IllustrationService,
         )
 
+        _ = (ConceptSectionMatch, IllustrationResult, IllustrationService)
+
         print("✓ illustration_service.py imports work")
 
         from src.pipeline.diversity_selector import select_diverse_candidates
 
+        _ = select_diverse_candidates
+
         print("✓ diversity_selector.py imports work")
 
         from src.pipeline.orchestrator import (
+            generate_articles_async,
+            generate_articles_from_enriched,
+            generate_single_article,
+        )
+
+        _ = (
             generate_articles_async,
             generate_articles_from_enriched,
             generate_single_article,

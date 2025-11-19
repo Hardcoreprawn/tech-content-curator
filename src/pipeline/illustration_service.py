@@ -60,7 +60,7 @@ class IllustrationResult:
 
     content: str
     count: int
-    costs: dict[str, float]
+    costs: dict[str, float | list[float]]
     format_distribution: dict[str, int]
 
 

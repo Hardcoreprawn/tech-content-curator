@@ -9,12 +9,16 @@ These tests verify:
 """
 
 import json
+from contextlib import ExitStack, nullcontext
 from pathlib import Path
+from types import SimpleNamespace
+from typing import cast
 from unittest.mock import MagicMock, patch
 
 import pytest
+from pydantic import HttpUrl
 
-from src.models import CollectedItem, EnrichedItem
+from src.models import CollectedItem, EnrichedItem, PipelineConfig, SourceType
 from src.pipeline import generate_articles_from_enriched
 
 
@@ -72,6 +76,70 @@ def mock_openai_client():
     )
 
     return client
+
+
+class StubIllustrationService:
+    """Minimal illustration service used for orchestrator tests."""
+
+    def __init__(self, client, config):
+        self.client = client
+        self.config = config
+
+    def generate_illustrations(self, generator_name: str, content: str):
+        return SimpleNamespace(content=content, count=0, costs={})
+
+
+class StubCostTracker:
+    """No-op cost tracker to avoid file writes."""
+
+    def __init__(self, *args, **kwargs):
+        self.records = []
+
+    def record_successful_generation(
+        self, article_title, article_filename, generation_costs
+    ):
+        self.records.append((article_title, article_filename, generation_costs))
+
+    def print_summary(self, days=7):
+        return None
+
+
+class StubAdaptiveDedupFeedback:
+    """No-op adaptive dedup feedback tracker."""
+
+    def print_stats(self):
+        return None
+
+
+class StubPipelineTracker:
+    """No-op pipeline progress tracker."""
+
+    def track_generation(self, *args, **kwargs):
+        return None
+
+    def print_summary(self):
+        return None
+
+    def save(self):
+        return None
+
+
+class StubQualityScorer:
+    """Deterministic quality scorer."""
+
+    def score(self, article, final_content):
+        return SimpleNamespace(
+            overall_score=85.0,
+            dimension_scores={"clarity": 0.85},
+            passed_threshold=True,
+        )
+
+
+class StubQualityTracker:
+    """No-op quality tracker."""
+
+    def record_quality(self, *args, **kwargs):
+        return None
 
 
 class TestDataFilesExist:
@@ -157,41 +225,36 @@ class TestModularOrchestrator:
         assert hasattr(service, "generate_illustrations")
         assert callable(service.generate_illustrations)
 
-    @pytest.mark.skip(reason="Requires mock refactoring for new implementation")
-    @patch("src.pipeline.orchestrator.get_available_generators")
-    @patch("src.pipeline.orchestrator.check_article_exists_for_source")
     def test_generate_articles_with_enriched_items(
         self,
-        mock_check_exists,
-        mock_get_generators,
-        mock_config,
         mock_openai_client,
+        tmp_path,
     ):
         """Test article generation with enriched items."""
         from datetime import UTC, datetime
 
-        # Mock generators (not builders)
+        pipeline_config = PipelineConfig(
+            openai_api_key="sk-test",
+            enable_illustrations=False,
+        )
+
         mock_generator = MagicMock()
         mock_generator.name = "TestGenerator"
         mock_generator.priority = 1
         mock_generator.can_handle.return_value = True
         mock_generator.generate_content.return_value = (
             "# Test Article\n\nContent here.",
-            100,  # input tokens
-            200,  # output tokens
+            100,
+            200,
         )
-        mock_get_generators.return_value = [mock_generator]
 
-        # Mock no existing articles
-        mock_check_exists.return_value = None
-
-        # Create enriched items
         collected = CollectedItem(
             id="test-1",
             title="Test Article",
             content="Test content about testing",
-            url="https://example.com/test",
-            source="mastodon",
+            url=cast(HttpUrl, "https://example.com/test"),
+            source=SourceType.MASTODON,
+            author="tester",
             collected_at=datetime.now(UTC),
         )
 
@@ -206,36 +269,108 @@ class TestModularOrchestrator:
             )
         ]
 
-        # Mock title and slug generation
-        mock_openai_client.chat.completions.create.side_effect = [
-            # Content generation
-            MagicMock(
-                choices=[
-                    MagicMock(message=MagicMock(content="# Test\n\nContent here."))
-                ],
-                usage=MagicMock(prompt_tokens=100, completion_tokens=200),
+        chat_response = SimpleNamespace(
+            choices=[
+                SimpleNamespace(message=SimpleNamespace(content="Readable Title"))
+            ],
+            usage=SimpleNamespace(
+                prompt_tokens=50, completion_tokens=25, total_tokens=75
             ),
-            # Title generation
-            MagicMock(
-                choices=[MagicMock(message=MagicMock(content="Test Article Title"))],
-                usage=MagicMock(prompt_tokens=50, completion_tokens=25),
-            ),
-            # Slug generation
-            MagicMock(
-                choices=[MagicMock(message=MagicMock(content="test-article-title"))],
-                usage=MagicMock(prompt_tokens=30, completion_tokens=10),
-            ),
-        ]
-
-        # Generate articles
-        articles = generate_articles_from_enriched(
-            enriched_items,
-            mock_config,
         )
 
-        # Verify output
+        with ExitStack() as stack:
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.get_config", return_value=pipeline_config
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.get_content_dir", return_value=tmp_path
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.get_openai_client",
+                    return_value=nullcontext(mock_openai_client),
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.get_available_generators",
+                    return_value=[mock_generator],
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.select_article_candidates",
+                    return_value=enriched_items,
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.select_diverse_candidates",
+                    new=lambda candidates, max_articles, generators: candidates[
+                        0:max_articles
+                    ],
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.check_article_exists_for_source",
+                    return_value=None,
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.find_article_by_slug",
+                    return_value=None,
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.IllustrationService",
+                    StubIllustrationService,
+                )
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.save_article_to_file", return_value=None
+                )
+            )
+            stack.enter_context(
+                patch("src.pipeline.orchestrator.CostTracker", StubCostTracker)
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.orchestrator.AdaptiveDedupFeedback",
+                    StubAdaptiveDedupFeedback,
+                )
+            )
+            stack.enter_context(
+                patch("src.pipeline.orchestrator.PipelineTracker", StubPipelineTracker)
+            )
+            stack.enter_context(
+                patch("src.pipeline.orchestrator.QualityScorer", StubQualityScorer)
+            )
+            stack.enter_context(
+                patch("src.pipeline.orchestrator.QualityTracker", StubQualityTracker)
+            )
+            stack.enter_context(
+                patch(
+                    "src.pipeline.article_builder.chat_completion",
+                    return_value=chat_response,
+                )
+            )
+
+            articles = generate_articles_from_enriched(
+                enriched_items,
+                max_articles=1,
+            )
+
         assert isinstance(articles, list)
-        # Note: May be empty if generation fails, but should not raise exception
+        assert len(articles) == 1
+        assert articles[0].title == "Readable Title"
 
 
 class TestAsyncGeneration:
@@ -284,8 +419,9 @@ class TestAsyncGeneration:
             id="test-async-1",
             title="Async Test",
             content="Test async generation",
-            url="https://example.com/async",
-            source="mastodon",
+            url=cast(HttpUrl, "https://example.com/async"),
+            source=SourceType.MASTODON,
+            author="tester",
             collected_at=datetime.now(UTC),
         )
 
