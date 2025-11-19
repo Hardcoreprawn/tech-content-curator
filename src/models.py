@@ -11,7 +11,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TypedDict
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
 
 class CollectedItemMetadata(TypedDict, total=False):
@@ -332,6 +332,58 @@ class SleepIntervals(BaseModel):
     )
 
 
+class StageModels(BaseModel):
+    """Canonical model assignments for each pipeline stage."""
+
+    model_config = ConfigDict(frozen=True, populate_by_name=True)
+
+    content: str = Field(
+        default="gpt-4o-mini",
+        alias="content_model",
+        description="Model used for main article content",
+    )
+    title: str = Field(
+        default="gpt-4o-mini",
+        alias="title_model",
+        description="Model used for title and slug generation",
+    )
+    review: str = Field(
+        default="gpt-4o-mini",
+        alias="review_model",
+        description="Model used for quality review and scoring",
+    )
+    enrichment: str = Field(
+        default="gpt-4o-mini",
+        alias="enrichment_model",
+        description="Model used for enrichment, research, and query prep",
+    )
+    image: str = Field(
+        default="dall-e-3",
+        alias="image_model",
+        description="Model used for featured image generation",
+    )
+    illustration_generate: str = Field(
+        default="gpt-3.5-turbo",
+        alias="illustration_generation_model",
+        description="Model used for ASCII/SVG/Mermaid illustration generation",
+    )
+    illustration_review: str = Field(
+        default="gpt-3.5-turbo",
+        alias="illustration_review_model",
+        description="Model used for illustration review/refinement",
+    )
+    diagram_validation: str = Field(
+        default="gpt-3.5-turbo",
+        alias="diagram_validation_model",
+        description="Model used for diagram validation and scoring",
+    )
+
+    def as_mapping(self) -> dict[str, str]:
+        """Return the stage→model mapping."""
+
+        return self.model_dump()
+
+
 class PipelineConfig(BaseModel):
     """Configuration for the content pipeline."""
 
@@ -361,22 +413,9 @@ class PipelineConfig(BaseModel):
     reddit_client_secret: str | None = None
     reddit_user_agent: str | None = None
 
-    # AI Model Configuration
-    content_model: str = Field(
-        default="gpt-4o-mini",
-        description="Model for main article content generation",
-    )
-    title_model: str = Field(
-        default="gpt-4o-mini",
-        description="Model for title and slug generation",
-    )
-    review_model: str = Field(
-        default="gpt-4o-mini",
-        description="Model for article review and quality assessment",
-    )
-    enrichment_model: str = Field(
-        default="gpt-4o-mini",
-        description="Model for content enrichment and research",
+    stage_models: StageModels = Field(
+        default_factory=StageModels,
+        description="Canonical model assignments per stage",
     )
 
     # Pipeline settings
@@ -559,3 +598,87 @@ class PipelineConfig(BaseModel):
         le=10,
         description="Maximum number of additional references to extract from primary sources",
     )
+
+    max_cost_per_run: float | None = Field(
+        default=None,
+        ge=0.0,
+        description="Optional USD cap for an entire pipeline run",
+    )
+    max_cost_per_article: float | None = Field(
+        default=None,
+        ge=0.0,
+        description="Optional USD cap for a single article",
+    )
+
+    @model_validator(mode="before")
+    @classmethod
+    def _migrate_stage_fields(cls, data: object) -> object:
+        """Allow legacy *_model kwargs by migrating them into stage_models."""
+
+        if not isinstance(data, dict):
+            return data
+
+        legacy_keys = {
+            "content_model": "content_model",
+            "title_model": "title_model",
+            "review_model": "review_model",
+            "enrichment_model": "enrichment_model",
+            "image_model": "image_model",
+            "illustration_generation_model": "illustration_generation_model",
+            "illustration_review_model": "illustration_review_model",
+            "diagram_validation_model": "diagram_validation_model",
+        }
+
+        overrides: dict[str, str] = {}
+        for key in list(legacy_keys):
+            if key in data:
+                overrides[key] = data.pop(key)
+
+        if not overrides:
+            return data
+
+        existing_stage_data = data.get("stage_models")
+        if isinstance(existing_stage_data, StageModels):
+            merged = existing_stage_data.model_dump(by_alias=True)
+            merged.update(overrides)
+            data["stage_models"] = merged
+        elif isinstance(existing_stage_data, dict):
+            merged = existing_stage_data.copy()
+            merged.update(overrides)
+            data["stage_models"] = merged
+        else:
+            data["stage_models"] = overrides
+
+        return data
+
+    @property
+    def content_model(self) -> str:
+        return self.stage_models.content
+
+    @property
+    def title_model(self) -> str:
+        return self.stage_models.title
+
+    @property
+    def review_model(self) -> str:
+        return self.stage_models.review
+
+    @property
+    def enrichment_model(self) -> str:
+        return self.stage_models.enrichment
+
+    @property
+    def image_model(self) -> str:
+        return self.stage_models.image
+
+    @property
+    def illustration_generation_model(self) -> str:
+        return self.stage_models.illustration_generate
+
+    @property
+    def illustration_review_model(self) -> str:
+        return self.stage_models.illustration_review
+
+    @property
+    def diagram_validation_model(self) -> str:
+        return self.stage_models.diagram_validation

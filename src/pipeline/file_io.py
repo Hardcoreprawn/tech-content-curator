@@ -19,6 +19,7 @@ from ..citations.cache import CitationCache
 from ..citations.resolver import ResolvedCitation
 from ..config import PipelineConfig, get_content_dir
 from ..images import CoverImageSelector, select_or_create_cover_image
+from ..images.downloader import download_and_persist
 from ..models import EnrichedItem, GeneratedArticle
 from ..utils.costs import append_generation_cost
 from ..utils.file_io import (
@@ -224,6 +225,32 @@ def save_article_to_file(
                         f"[yellow]⚠ Multi-source image selection failed: {e}[/yellow]"
                     )
 
+                    # If the selected cover_image is an external URL, download and persist locally
+                    if hero_path and hero_path.startswith("http"):
+                        try:
+                            meta = {
+                                "photographer": getattr(
+                                    image_attribution, "photographer_name", None
+                                ),
+                                "photographer_url": getattr(
+                                    image_attribution, "photographer_url", None
+                                ),
+                                "source": getattr(image_attribution, "source", None),
+                            }
+                            hero_path_local, icon_path_local = download_and_persist(
+                                hero_path, slug, meta=meta, base_url=""
+                            )
+                            hero_path = hero_path_local
+                            icon_path = icon_path_local
+                            console.print(
+                                f"[dim]Downloaded image and saved as {hero_path}[/dim]"
+                            )
+                        except Exception as e:
+                            logger.warning(f"Failed to persist external image: {e}")
+                            console.print(
+                                f"[yellow]⚠ Failed to persist image: {e}[/yellow]"
+                            )
+
             # Fallback: Reuse from library
             if not hero_path and config.image_strategy in (
                 "reuse",
@@ -361,7 +388,10 @@ def save_article_to_file(
 
     # Update generation_costs in metadata after all costs have been added
     # (image costs are added during image selection above)
-    metadata["generation_costs"] = format_generation_costs(article.generation_costs)
+    # Ensure we pass a plain dict to formatting util (Pydantic field may be a model-backed mapping)
+    metadata["generation_costs"] = format_generation_costs(
+        dict(article.generation_costs)
+    )
 
     # Write file atomically to prevent corruption
     post = frontmatter.Post(full_content, **metadata)

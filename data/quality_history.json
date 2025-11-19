@@ -1,10 +1,71 @@
 {
   "version": "1.0",
-  "last_updated": "2025-11-15T00:30:54.561818",
-  "total_records": 1,
+  "last_updated": "2025-11-19T00:45:12.333727",
+  "total_records": 2,
   "records": [
     {
-      "article_id": "2025-11-15-new-title.md",
+      "article_id": "2025-11-19-test-article-title.md",
+      "title": "Test Article Title",
+      "timestamp": "2025-11-19T00:45:12.242610",
+      "content_model": "gpt-4o-mini",
+      "title_model": "gpt-4o-mini",
+      "review_model": "gpt-4o-mini",
+      "enrichment_model": "gpt-4o-mini",
+      "overall_score": 33.16071428571428,
+      "dimension_scores": {
+        "readability": 92.14285714285711,
+        "structure": 0.0,
+        "citations": 0.0,
+        "code_examples": 0.0,
+        "length": 0.8333333333333334,
+        "tone": 100.0,
+        "source_citation": 100.0
+      },
+      "passed_threshold": false,
+      "content_type": "general",
+      "difficulty_level": "intermediate",
+      "voice": "sam",
+      "word_count": 10,
+      "flesch_reading_ease": null,
+      "grade_level": null,
+      "topics": [
+        "kubernetes",
+        "devops",
+        "cloud computing"
+      ],
+      "source_platform": "mastodon"
+    },
+    {
+      "article_id": "2025-11-19-new-title.md",
       "title": "New Title",
-      "timestamp": "2025-11-15T00:30:54.559835",
-      "content_model": 
+      "timestamp": "2025-11-19T00:45:12.333655",
+      "content_model": "gpt-4o-mini",
+      "title_model": "gpt-4o-mini",
+      "review_model": "gpt-4o-mini",
+      "enrichment_model": "gpt-4o-mini",
+      "overall_score": 18.81000000000001,
+      "dimension_scores": {
+        "readability": 34.89000000000004,
+        "structure": 0.0,
+        "citations": 0.0,
+        "code_examples": 0.0,
+        "length": 0.5833333333333334,
+        "tone": 100.0,
+        "source_citation": 100.0
+      },
+      "passed_threshold": false,
+      "content_type": "general",
+      "difficulty_level": "intermediate",
+      "voice": "aria",
+      "word_count": 7,
+      "flesch_reading_ease": null,
+      "grade_level": null,
+      "topics": [
+        "kubernetes",
+        "devops",
+        "cloud computing"
+      ],
+      "source_platform": "mastodon"
+    }
+  ]
+}

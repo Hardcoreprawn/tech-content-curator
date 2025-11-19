@@ -153,7 +153,14 @@ def generate_single_article(
         )
 
         # Generate title and slug
-        title, title_cost = generate_article_title(item, content, client, recent_titles)
+        title, title_cost = generate_article_title(
+            item,
+            content,
+            client,
+            recent_titles=recent_titles,
+            config=config,
+            article_id=item.original.id,
+        )
         append_generation_cost(costs, "title_generation", title_cost)
         console.print(f"  Title: {title}")
 

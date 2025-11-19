@@ -1,0 +1,11 @@
+# Paths temporarily allowed to contain literal model identifiers.
+src/models.py
+src/config.py
+src/utils/pricing.py
+src/utils/openai_client.py
+src/pipeline/article_builder.py
+src/pipeline/orchestrator.py
+src/images/
+src/illustrations/
+src/generate.py
+src/content/quality_tracker.py

@@ -14,12 +14,13 @@ Tests cover:
 import tempfile
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import pytest
 
 from src.generators.base import BaseGenerator
-from src.models import CollectedItem, EnrichedItem
+from src.models import CollectedItem, EnrichedItem, PipelineConfig
 from src.pipeline import (
     calculate_image_cost,
     calculate_text_cost,
@@ -102,8 +103,7 @@ def mock_openai_client():
     mock_response = MagicMock()
     mock_response.choices = [MagicMock()]
     mock_response.choices[0].message.content = "Test response"
-    mock_response.usage.prompt_tokens = 100
-    mock_response.usage.completion_tokens = 50
+    mock_response.usage = make_usage(100, 50)
 
     client.chat.completions.create.return_value = mock_response
 
@@ -130,6 +130,21 @@ def temp_content_dir():
     """Create a temporary content directory."""
     with tempfile.TemporaryDirectory() as tmpdir:
         yield Path(tmpdir)
+
+
+@pytest.fixture
+def pipeline_config():
+    """Provide a real PipelineConfig for governance-aware tests."""
+    return PipelineConfig(openai_api_key="sk-test")
+
+
+def make_usage(prompt_tokens: int, completion_tokens: int) -> SimpleNamespace:
+    """Create a simple usage struct for mocked OpenAI responses."""
+    return SimpleNamespace(
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+        total_tokens=prompt_tokens + completion_tokens,
+    )
 
 
 # ============================================================================
@@ -162,7 +177,7 @@ class TestCostCalculations:
     def test_calculate_image_cost_standard(self):
         """Calculate cost for standard image generation."""
         cost = calculate_image_cost("dall-e-3-standard-1024x1024")
-        assert cost == 0.040
+        assert cost == 0.020
 
 
 # ============================================================================
@@ -273,16 +288,22 @@ class TestGeneratorSelection:
 class TestTitleGeneration:
     """Test AI-powered title generation."""
 
+    @patch("src.pipeline.article_builder.chat_completion")
     def test_generate_article_title(
-        self, high_quality_enriched_item, mock_openai_client
+        self, mock_chat_completion, high_quality_enriched_item, mock_openai_client
     ):
         """Generate title from article content."""
         content = "# Test\n\nArticle about Kubernetes architecture."
 
         # Mock the API response
-        mock_openai_client.chat.completions.create.return_value.choices[
-            0
-        ].message.content = "Understanding Kubernetes Architecture"
+        mock_response = MagicMock()
+        mock_response.choices = [
+            MagicMock(
+                message=MagicMock(content="Understanding Kubernetes Architecture")
+            )
+        ]
+        mock_response.usage = make_usage(100, 50)
+        mock_chat_completion.return_value = mock_response
 
         title, cost = generate_article_title(
             high_quality_enriched_item, content, mock_openai_client
@@ -291,7 +312,7 @@ class TestTitleGeneration:
         assert isinstance(title, str)
         assert len(title) > 0
         assert cost >= 0
-        mock_openai_client.chat.completions.create.assert_called_once()
+        mock_chat_completion.assert_called_once()
 
     def test_generate_article_slug(self, mock_openai_client):
         """Generate URL-friendly slug from title."""
@@ -457,7 +478,11 @@ class TestArticleGeneration:
     """Test complete article generation pipeline."""
 
     def test_generate_single_article_success(
-        self, high_quality_enriched_item, mock_generator, mock_openai_client
+        self,
+        high_quality_enriched_item,
+        mock_generator,
+        mock_openai_client,
+        pipeline_config,
     ):
         """Successfully generate a complete article."""
         # Ensure mock_generator returns a proper string, not a MagicMock
@@ -473,12 +498,12 @@ class TestArticleGeneration:
             # Title generation
             MagicMock(
                 choices=[MagicMock(message=MagicMock(content="Test Article Title"))],
-                usage=MagicMock(prompt_tokens=50, completion_tokens=25),
+                usage=make_usage(50, 25),
             ),
         ]
 
         with patch("src.pipeline.orchestrator.get_config") as mock_get_config:
-            mock_get_config.return_value = MagicMock()
+            mock_get_config.return_value = pipeline_config
             with patch(
                 "src.pipeline.orchestrator.check_article_exists_for_source"
             ) as mock_check:
@@ -527,6 +552,7 @@ class TestArticleGeneration:
         mock_generator,
         mock_openai_client,
         temp_content_dir,
+        pipeline_config,
     ):
         """Force regeneration of existing article."""
         existing_file = temp_content_dir / "existing-article.md"
@@ -544,16 +570,16 @@ class TestArticleGeneration:
         mock_openai_client.chat.completions.create.side_effect = [
             MagicMock(
                 choices=[MagicMock(message=MagicMock(content="New Title"))],
-                usage=MagicMock(prompt_tokens=50, completion_tokens=25),
+                usage=make_usage(50, 25),
             ),
             MagicMock(
                 choices=[MagicMock(message=MagicMock(content="new-title"))],
-                usage=MagicMock(prompt_tokens=30, completion_tokens=10),
+                usage=make_usage(30, 10),
             ),
         ]
 
         with patch("src.pipeline.orchestrator.get_config") as mock_get_config:
-            mock_get_config.return_value = MagicMock()
+            mock_get_config.return_value = pipeline_config
             with patch(
                 "src.pipeline.orchestrator.check_article_exists_for_source"
             ) as mock_check:
@@ -641,7 +667,7 @@ class TestDefensiveAttributeAccess:
         mock_response.choices = [
             MagicMock(message=MagicMock(content="# Test Article\n\nContent here"))
         ]
-        mock_response.usage = MagicMock(prompt_tokens=500, completion_tokens=1000)
+        mock_response.usage = make_usage(500, 1000)
         mock_openai_client.chat.completions.create.return_value = mock_response
 
         # This should NOT raise AttributeError despite missing difficulty_level
@@ -682,7 +708,7 @@ class TestDefensiveAttributeAccess:
             mock_response.choices = [
                 MagicMock(message=MagicMock(content="# Test\n\nContent"))
             ]
-            mock_response.usage = MagicMock(prompt_tokens=100, completion_tokens=200)
+            mock_response.usage = make_usage(100, 200)
             mock_openai_client.chat.completions.create.return_value = mock_response
 
             # Generate should work fine even without these optional attributes

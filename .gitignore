@@ -47,12 +47,17 @@ data/*.cache
 data/*.db
 data/*.sqlite
 data/*.lock
+data/runs/
+data/IMAGE_LICENSES.json
 !data/dedup_feedback.json
 !data/scoring_feedback.json
 !data/dedup_patterns.json
 !data/scoring_patterns.json
 *.log
 .DS_Store
+
+# Local scratch space
+tmp/
 
 # Hugo (site)
 site/public/

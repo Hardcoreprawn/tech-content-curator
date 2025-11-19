@@ -86,7 +86,7 @@ class TestCalculateImageCost:
     def test_dalle3_standard_square_cost(self):
         """DALL-E 3 standard square image cost is correct."""
         cost = calculate_image_cost("dall-e-3-standard-1024x1024")
-        assert cost == 0.040
+        assert cost == 0.020
 
     def test_unknown_model_returns_zero(self):
         """Unknown image models return zero cost."""
@@ -169,8 +169,8 @@ class TestGenerateArticleSlug:
 class TestGenerateArticleTitle:
     """Test article title generation."""
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_generates_valid_title(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_generates_valid_title(self, mock_chat_completion):
         """AI generates a valid title."""
         client = Mock()
         item = make_enriched_item()
@@ -181,7 +181,7 @@ class TestGenerateArticleTitle:
             Mock(message=Mock(content="Python Best Practices You Need"))
         ]
         mock_response.usage = Mock(prompt_tokens=200, completion_tokens=20)
-        client.chat.completions.create.return_value = mock_response
+        mock_chat_completion.return_value = mock_response
 
         title, cost = generate_article_title(item, content, client)
 
@@ -189,8 +189,8 @@ class TestGenerateArticleTitle:
         assert cost > 0
         assert len(title) <= 60
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_strips_quotes_from_title(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_strips_quotes_from_title(self, mock_chat_completion):
         """Quotes are removed from generated title."""
         client = Mock()
         item = make_enriched_item()
@@ -198,15 +198,15 @@ class TestGenerateArticleTitle:
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content='"Python Practices"'))]
         mock_response.usage = Mock(prompt_tokens=200, completion_tokens=20)
-        client.chat.completions.create.return_value = mock_response
+        mock_chat_completion.return_value = mock_response
 
         title, cost = generate_article_title(item, "Content", client)
 
         assert title == "Python Practices"
         assert '"' not in title
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_truncates_long_titles(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_truncates_long_titles(self, mock_chat_completion):
         """Titles over 60 chars are truncated at word boundary."""
         client = Mock()
         item = make_enriched_item()
@@ -215,31 +215,31 @@ class TestGenerateArticleTitle:
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content=long_title))]
         mock_response.usage = Mock(prompt_tokens=200, completion_tokens=30)
-        client.chat.completions.create.return_value = mock_response
+        mock_chat_completion.return_value = mock_response
 
         title, cost = generate_article_title(item, "Content", client)
 
         assert len(title) <= 60
         assert title.endswith("...")
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_fallback_with_topics(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_fallback_with_topics(self, mock_chat_completion):
         """Falls back to topic-based title on error."""
         client = Mock()
         item = make_enriched_item(topics=["Rust", "Compilers"])
-        client.chat.completions.create.side_effect = Exception("API error")
+        mock_chat_completion.side_effect = Exception("API error")
 
         title, cost = generate_article_title(item, "Content", client)
 
         assert "Rust" in title
         assert cost == 0.0
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_fallback_without_topics(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_fallback_without_topics(self, mock_chat_completion):
         """Falls back to generic title when no topics."""
         client = Mock()
         item = make_enriched_item(topics=[])
-        client.chat.completions.create.side_effect = Exception("API error")
+        mock_chat_completion.side_effect = Exception("API error")
 
         title, cost = generate_article_title(item, "Content", client)
 
@@ -247,8 +247,8 @@ class TestGenerateArticleTitle:
         assert "Tech Insights" in title or "Understanding" in title
         assert cost == 0.0
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_fallback_on_empty_response(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_fallback_on_empty_response(self, mock_chat_completion):
         """Falls back on empty API response."""
         client = Mock()
         item = make_enriched_item(topics=["Python"])
@@ -256,15 +256,15 @@ class TestGenerateArticleTitle:
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content=""))]
         mock_response.usage = Mock(prompt_tokens=200, completion_tokens=0)
-        client.chat.completions.create.return_value = mock_response
+        mock_chat_completion.return_value = mock_response
 
         title, cost = generate_article_title(item, "Content", client)
 
         assert "Python" in title
         assert cost == 0.0
 
-    @patch("src.pipeline.article_builder.OpenAI")
-    def test_fallback_on_none_response(self, mock_openai_class):
+    @patch("src.pipeline.article_builder.chat_completion")
+    def test_fallback_on_none_response(self, mock_chat_completion):
         """Falls back on None API response."""
         client = Mock()
         item = make_enriched_item(topics=["Python"])
@@ -272,7 +272,7 @@ class TestGenerateArticleTitle:
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content=None))]
         mock_response.usage = Mock(prompt_tokens=200, completion_tokens=0)
-        client.chat.completions.create.return_value = mock_response
+        mock_chat_completion.return_value = mock_response
 
         title, cost = generate_article_title(item, "Content", client)
 

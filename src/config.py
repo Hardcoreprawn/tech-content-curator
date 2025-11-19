@@ -12,6 +12,7 @@ from .models import (
     PipelineConfig,
     RetryConfig,
     SleepIntervals,
+    StageModels,
     TimeoutConfig,
 )
 from .utils.logging import get_logger
@@ -21,6 +22,22 @@ console = Console()
 
 # Load environment variables from .env file
 load_dotenv()
+
+
+def _optional_float(env_var: str) -> float | None:
+    value = os.getenv(env_var)
+    if value is None or value.strip() == "":
+        return None
+    try:
+        return float(value)
+    except ValueError as exc:
+        raise ValueError(f"Invalid float value for {env_var}: {value}") from exc
+
+
+def _env_model(primary: str, legacy: str, default: str) -> str:
+    """Resolve model env vars with backward-compatible fallbacks."""
+
+    return os.getenv(primary) or os.getenv(legacy) or default
 
 
 def _build_config() -> PipelineConfig:
@@ -75,7 +92,31 @@ def _build_config() -> PipelineConfig:
         ),
     )
 
+    stage_models = StageModels(
+        content_model=_env_model("MODEL_CONTENT", "CONTENT_MODEL", "gpt-5-mini"),
+        title_model=_env_model("MODEL_TITLE", "TITLE_MODEL", "gpt-5-nano"),
+        review_model=_env_model("MODEL_REVIEW", "REVIEW_MODEL", "gpt-5-mini"),
+        enrichment_model=_env_model(
+            "MODEL_ENRICHMENT", "ENRICHMENT_MODEL", "gpt-5-nano"
+        ),
+        image_model=_env_model("MODEL_IMAGE", "IMAGE_MODEL", "dall-e-3"),
+        illustration_generation_model=_env_model(
+            "MODEL_ILLUSTRATION_GENERATE", "ILLUSTRATION_MODEL", "gpt-3.5-turbo"
+        ),
+        illustration_review_model=_env_model(
+            "MODEL_ILLUSTRATION_REVIEW",
+            "ILLUSTRATION_REVIEW_MODEL",
+            "gpt-3.5-turbo",
+        ),
+        diagram_validation_model=_env_model(
+            "MODEL_DIAGRAM_VALIDATION",
+            "DIAGRAM_VALIDATION_MODEL",
+            "gpt-3.5-turbo",
+        ),
+    )
+
     config = PipelineConfig(
+        stage_models=stage_models,
         timeouts=timeouts,
         retries=retries,
         confidences=confidences,
@@ -88,14 +129,6 @@ def _build_config() -> PipelineConfig:
         reddit_client_id=os.getenv("REDDIT_CLIENT_ID"),
         reddit_client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
         reddit_user_agent=os.getenv("REDDIT_USER_AGENT"),
-        # AI Model Configuration (GPT-5 Series - Nov 2025)
-        # Note: GPT-5 models work correctly as long as max_tokens is NOT specified.
-        # The openai_client.py wrapper filters out max_tokens for GPT-5 models.
-        # If max_tokens is set, GPT-5 uses all tokens for reasoning, returning empty content.
-        content_model=os.getenv("CONTENT_MODEL", "gpt-5-mini"),
-        title_model=os.getenv("TITLE_MODEL", "gpt-5-nano"),
-        review_model=os.getenv("REVIEW_MODEL", "gpt-5-mini"),
-        enrichment_model=os.getenv("ENRICHMENT_MODEL", "gpt-5-nano"),
         reddit_requests_per_minute=int(os.getenv("REDDIT_REQUESTS_PER_MINUTE", "30")),
         reddit_burst=int(os.getenv("REDDIT_BURST", "5")),
         reddit_request_interval_seconds=float(
@@ -186,6 +219,8 @@ def _build_config() -> PipelineConfig:
         enable_secondary_sources=os.getenv("ENABLE_SECONDARY_SOURCES", "false").lower()
         == "true",
         max_secondary_references=int(os.getenv("MAX_SECONDARY_REFERENCES", "3")),
+        max_cost_per_run=_optional_float("MAX_COST_PER_RUN"),
+        max_cost_per_article=_optional_float("MAX_COST_PER_ARTICLE"),
     )
 
     # Validate required keys (except in test environment)

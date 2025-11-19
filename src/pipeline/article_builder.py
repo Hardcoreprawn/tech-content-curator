@@ -11,68 +11,90 @@ Uses GPT-4o-mini for cost-effective, high-quality generation.
 import re
 from datetime import UTC, datetime
 
-from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
-from ..utils.sanitization import safe_filename
-
-logger = get_logger(__name__)
-
 from openai import OpenAI
 from rich.console import Console
 
-from ..config import QUALITY_THRESHOLDS
+from ..config import QUALITY_THRESHOLDS, PipelineConfig, get_config
 from ..content.categorizer import ArticleCategorizer
 from ..content.readability import ReadabilityAnalyzer
 from ..models import EnrichedItem
+from ..utils.logging import get_logger
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_image_cost, estimate_text_cost
+from ..utils.sanitization import safe_filename
 from ..utils.url_tools import normalize_url
+
+logger = get_logger(__name__)
 
 console = Console()
 
 
 def calculate_text_cost(model: str, input_tokens: int, output_tokens: int) -> float:
-    """Calculate cost for a text generation API call.
+    """Calculate cost for a text generation API call using shared pricing data."""
 
-    Args:
-        model: Model name (e.g., "gpt-4o-mini")
-        input_tokens: Number of input tokens
-        output_tokens: Number of output tokens
-
-    Returns:
-        Cost in USD
-    """
     logger.debug(
         f"Calculating text cost: {model} ({input_tokens} in, {output_tokens} out)"
     )
-    # OpenAI API Pricing (as of Oct 2024)
-    PRICING = {
-        "gpt-4o-mini": {"input": 0.150 / 1_000_000, "output": 0.600 / 1_000_000},
-        "gpt-3.5-turbo": {"input": 0.500 / 1_000_000, "output": 1.500 / 1_000_000},
-    }
-
-    if model not in PRICING:
-        logger.warning(f"Unknown model for pricing: {model}, returning 0.0")
-        return 0.0
-
-    pricing = PRICING[model]
-    cost = (input_tokens * pricing["input"]) + (output_tokens * pricing["output"])
-    logger.debug(f"Calculated cost: ${cost:.8f}")
+    cost = estimate_text_cost(model, input_tokens, output_tokens)
+    if cost == 0.0:
+        logger.warning(f"No pricing info for model '{model}', returning 0.0 cost")
+    else:
+        logger.debug(f"Calculated cost: ${cost:.8f}")
     return cost
 
 
-def calculate_image_cost(model: str = "dall-e-3-hd-1792x1024") -> float:
+_IMAGE_PRESETS = {
+    "dall-e-3-hd-1792x1024": {
+        "model": "dall-e-3",
+        "size": "1792x1024",
+        "quality": "hd",
+    },
+    "dall-e-3-standard-1024x1024": {
+        "model": "dall-e-3",
+        "size": "1024x1024",
+        "quality": "standard",
+    },
+}
+
+
+def calculate_image_cost(
+    model: str = "dall-e-3-hd-1792x1024",
+    *,
+    size: str | None = None,
+    quality: str | None = None,
+    count: int = 1,
+) -> float:
     """Calculate cost for an image generation API call.
 
-    Args:
-        model: Image model specification
-
-    Returns:
-        Cost in USD
+    Backwards compatible with legacy preset strings while allowing explicit
+    size/quality overrides for future flexibility.
     """
-    PRICING = {
-        "dall-e-3-hd-1792x1024": 0.080,  # HD quality wide image
-        "dall-e-3-standard-1024x1024": 0.040,  # Standard quality square
-    }
-    return PRICING.get(model, 0.0)
+
+    preset = _IMAGE_PRESETS.get(model)
+    if preset:
+        base_model = preset["model"]
+        resolved_size = preset["size"]
+        resolved_quality = preset["quality"]
+    else:
+        base_model = model
+        resolved_size = size or "1024x1024"
+        resolved_quality = quality or "standard"
+
+    cost = estimate_image_cost(
+        base_model,
+        size=resolved_size,
+        quality=resolved_quality,
+        count=count,
+    )
+    logger.debug(
+        "Image cost calculated: model=%s size=%s quality=%s count=%s cost=%.4f",
+        base_model,
+        resolved_size,
+        resolved_quality,
+        count,
+        cost,
+    )
+    return cost
 
 
 def generate_article_slug(title: str) -> str:
@@ -120,21 +142,13 @@ def generate_article_title(
     item: EnrichedItem,
     content: str,
     client: OpenAI,
+    *,
     recent_titles: list[str] | None = None,
+    config: PipelineConfig | None = None,
+    article_id: str | None = None,
+    revision: int | None = None,
 ) -> tuple[str, float]:
-    """Generate a compelling article title using gpt-4o-mini.
-
-    Uses gpt-4o-mini (cheap, fast, high quality) to create a catchy title.
-
-    Args:
-        item: The enriched item
-        content: Generated article content
-        client: Configured OpenAI client
-        recent_titles: Optional list of recently generated titles to avoid repetition
-
-    Returns:
-        Tuple of (title, cost)
-    """
+    """Generate a compelling article title via the governed chat wrapper."""
     logger.debug(f"Generating article title for: {str(item.original.url)[:60]}...")
 
     # Get first 800 chars of article for context
@@ -172,14 +186,21 @@ Examples of good titles:
 Return ONLY the title, no quotes or explanation."""
 
     try:
-        from ..config import get_config
+        resolved_config = config or get_config()
+        model = resolved_config.title_model
+        logger.debug("Requesting title via wrapper (%s)", model)
 
-        config = get_config()
-
-        logger.debug(f"Requesting title from OpenAI ({config.title_model})")
-        response = create_chat_completion(
+        response = chat_completion(
             client=client,
-            model=config.title_model,
+            model=model,
+            stage="title",
+            config=resolved_config,
+            article_id=article_id or item.original.id,
+            revision=revision,
+            context={
+                "source_url": str(item.original.url),
+                "topics": item.topics,
+            },
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4,
             max_tokens=50,
@@ -206,7 +227,7 @@ Return ONLY the title, no quotes or explanation."""
         # Calculate cost
         usage = response.usage
         cost = calculate_text_cost(
-            "gpt-4o-mini",
+            model,
             usage.prompt_tokens if usage else 0,
             usage.completion_tokens if usage else 0,
         )
