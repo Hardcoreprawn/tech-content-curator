@@ -4792,5 +4792,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 6,
+    "patterns_used": 914,
+    "timestamp": "2025-11-19T06:26:16.127493",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Gemini 3\n\n<a href=\"https:&#x2F;&#x2F;blog.google&#x2F;technology&#x2F;developers&#x2F;gemini-3-devel",
+        "removed_items": [
+          "Google Antigravity\n\n<a href=\"https:&#x2F;&#x2F;antigravity.google&#x2F;blog&#x2F;introducing-google-",
+          "Gemini 3 Pro Model Card [pdf]",
+          "Google boss says AI investment boom has 'elements of irrationality'"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "DOE gives Microsoft partner $1B loan to restart Three Mile Island reactor",
+        "removed_items": [
+          "Microsoft-backed Veir is bringing superconductors to data centers"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
