@@ -4938,5 +4938,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 945,
+    "timestamp": "2025-11-21T02:30:49.421278",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "PSA to anyone who uses Gmail! \"Reportedly, Google has recently started automatically opting users in",
+        "removed_items": [
+          "Launch HN: Poly (YC S22) \u2013 Cursor for Files\n\nHello world, this is Abhay from Poly (<a href=\"https:&#"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "As a reminder if you are looking for a alternative web browser not controlled by AI cultists, https:",
+        "removed_items": [
+          "Go Cryptography State of the Union"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Zork I, Zork II and Zork III are now officially open source https://www. gamingonlinux.com/2025/11/z",
+        "removed_items": [
+          "Microsoft makes Zork open-source"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
