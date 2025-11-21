@@ -4968,5 +4968,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 951,
+    "timestamp": "2025-11-21T06:07:19.058984",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "PSA to anyone who uses Gmail! \"Reportedly, Google has recently started automatically opting users in",
+        "removed_items": [
+          "Show HN: Search London StreetView panoramas by text\n\nInspired by All Text in NYC (<a href=\"https:&#x",
+          "Launch HN: Poly (YC S22) \u2013 Cursor for Files\n\nHello world, this is Abhay from Poly (<a href=\"https:&#"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "What you need to understand is getting into advanced mathematics is like hanging out with a bunch of",
+        "removed_items": [
+          "Go Cryptography State of the Union"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
