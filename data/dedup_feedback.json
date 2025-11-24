@@ -5261,5 +5261,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 1004,
+    "timestamp": "2025-11-24T18:10:56.184490",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Everybody go read \"Termination Shock\" by Neal Stephenson, because apparently that whole scenario is ",
+        "removed_items": [
+          "Ask HN: Hearing aid wearers, what's hot?\n\nOne of my Phonak Audeo 90\u2019s (RIC) died the other day after"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Inside Rust's std and parking_lot mutexes \u2013 who wins?",
+        "removed_items": [
+          "I built a faster Notion in Rust",
+          "The Rust Performance Book (2020)"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Virtual SLURM HPC cluster in a Docker Compose\n\nI&#x27;m the main developer behind vHPC, a S",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
