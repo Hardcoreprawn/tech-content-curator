@@ -5322,5 +5322,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 7,
+    "patterns_used": 1024,
+    "timestamp": "2025-11-25T06:07:23.359542",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Reading about white midwestern people apparently doing a disservice to rice by putting soy sauce on ",
+        "removed_items": [
+          "A million ways to die from a data race in Go"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Advanced Tool Use",
+        "removed_items": [
+          "Claude Opus 4.5\n\n<a href=\"https:&#x2F;&#x2F;platform.claude.com&#x2F;docs&#x2F;en&#x2F;about-claude&"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Three Years from GPT-3 to Gemini 3",
+        "removed_items": [
+          "Show HN: OCR Arena \u2013 A playground for OCR models\n\nI built OCR Arena as a free playground for the com"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
