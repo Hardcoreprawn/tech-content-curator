@@ -5352,5 +5352,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 5,
+    "patterns_used": 1030,
+    "timestamp": "2025-11-25T18:10:30.835351",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: We built an open source, zero webhooks payment processor\n\nHi HN! For the past bit we\u2019ve bee",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Launch HN: Onyx (YC W24) \u2013 Open-source chat UI\n\nHey HN, Chris and Yuhong here from Onyx (<a href=\"ht",
+        "removed_items": [
+          "Python is not a great language for data science. Part 1: The experience",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
