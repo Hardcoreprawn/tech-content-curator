@@ -5448,5 +5448,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 7,
+    "patterns_used": 1050,
+    "timestamp": "2025-11-26T18:09:30.185438",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "&gt; Pope Leo XIV told students not to use artificial intelligence for homework, saying that AI \u2018won",
+        "removed_items": [
+          "JOPA: Java compiler in C++, Jikes modernized to Java 6 with Claude"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Statistical Process Control in Python",
+        "removed_items": [
+          "Show HN: KiDoom \u2013 Running DOOM on PCB Traces\n\nI got DOOM running in KiCad by rendering it with PCB t",
+          "Launch HN: Onyx (YC W24) \u2013 Open-source chat UI\n\nHey HN, Chris and Yuhong here from Onyx (<a href=\"ht",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I turned algae into a bio-altimeter and put it on a weather balloon\n\nHi HN - My name is And",
+        "removed_items": [
+          "Show HN: We built an open source, zero webhooks payment processor\n\nHi HN! For the past bit we\u2019ve bee"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
