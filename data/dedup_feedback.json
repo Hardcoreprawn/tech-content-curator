@@ -5384,5 +5384,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 1038,
+    "timestamp": "2025-11-26T02:32:01.128585",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: We built an open source, zero webhooks payment processor\n\nHi HN! For the past bit we\u2019ve bee",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google Antigravity exfiltrates data via indirect prompt injection attack",
+        "removed_items": [
+          "Google steers Americans looking for health care into \"junk insurance\""
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Launch HN: Onyx (YC W24) \u2013 Open-source chat UI\n\nHey HN, Chris and Yuhong here from Onyx (<a href=\"ht",
+        "removed_items": [
+          "Python is not a great language for data science",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
