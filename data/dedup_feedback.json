@@ -5481,5 +5481,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 6,
+    "patterns_used": 1056,
+    "timestamp": "2025-11-27T02:30:48.345284",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Migrating the Main Zig Repository from GitHub to Codeberg",
+        "removed_items": [
+          "Show HN: I turned algae into a bio-altimeter and put it on a weather balloon\n\nHi HN - My name is And",
+          "Show HN: KiDoom \u2013 Running DOOM on PCB Traces\n\nI got DOOM running in KiCad by rendering it with PCB t"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Safe-NPM \u2013 only install packages that are +90 days old\n\nThis past quarter has been awash wi",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Statistical Process Control in Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
