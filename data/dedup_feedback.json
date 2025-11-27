@@ -5513,5 +5513,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 1064,
+    "timestamp": "2025-11-27T06:07:24.172451",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "In this modern era of acquisitions, weak antitrust regulations, and platform capitalism leading to e",
+        "removed_items": [
+          "a game to learn (or teach) how to use standard commands in a Unix or Linux shell. GameShell is avail",
+          "Migrating the main Zig repository from GitHub to Codeberg",
+          "Show HN: I turned algae into a bio-altimeter and put it on a weather balloon\n\nHi HN - My name is And"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Safe-NPM \u2013 only install packages that are +90 days old\n\nThis past quarter has been awash wi",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Statistical Process Control in Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
