@@ -5834,5 +5834,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 7,
+    "patterns_used": 1127,
+    "timestamp": "2025-12-01T06:07:36.550422",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "I see google\u2019s new agentic AI coding platform is going well.",
+        "removed_items": [
+          "Google Antigravity Deletes D Drive",
+          "Replacing My Window Manager with Google Chrome",
+          "Show HN: Fixing Google Nano Banana Pixel Art with Rust",
+          "The Thinking Game Film \u2013 Google DeepMind documentary"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Migrating Dillo from GitHub",
+        "removed_items": [
+          "GitHub to Codeberg: my experience"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
