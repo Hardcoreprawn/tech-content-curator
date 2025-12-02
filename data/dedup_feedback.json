@@ -5943,5 +5943,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 5,
+    "patterns_used": 1149,
+    "timestamp": "2025-12-02T18:11:25.686638",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Forbes: Google Starts Sharing All Your Text Messages With Your Employer As reported by Android Autho",
+        "removed_items": [
+          "\"Researchers using Google Trends search data in a 2020 study found a link between male insecurity an"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python Data Science Handbook",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Releases Open Weights Video Model",
+        "removed_items": [
+          "Apple to beat Samsung in smartphone shipments for first time in 14 years"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
