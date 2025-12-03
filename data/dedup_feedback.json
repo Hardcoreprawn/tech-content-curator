@@ -5974,5 +5974,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 1155,
+    "timestamp": "2025-12-03T02:32:22.681634",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "HEY CANADA. MP Elizabeth May is sponsoring a petition to get Electoral Reform back in front of Parli",
+        "removed_items": [
+          "You\u2019re absolutely right \u2014 you are Pagliacci. It would certainly be difficult for you to attend your "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python Data Science Handbook",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
