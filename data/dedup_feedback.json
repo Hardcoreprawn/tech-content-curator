@@ -6151,5 +6151,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 1186,
+    "timestamp": "2025-12-05T02:32:35.299423",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "It\u2019s time to free JavaScript (2024)",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "PyTogether: Collaborative lightweight real-time Python IDE for teachers/learners",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
