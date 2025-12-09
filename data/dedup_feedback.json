@@ -6536,5 +6536,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 6,
+    "patterns_used": 1260,
+    "timestamp": "2025-12-09T18:09:07.785059",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Please, please tell me me that we have thousands if not millions of 'tips' to report to this website",
+        "removed_items": [
+          "Kaiju \u2013 General purpose 3D/2D game engine in Go and Vulkan with built in editor",
+          "Epsilon: A WASM virtual machine written in Go"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Gemini Pro 3 hallucinates the HN front page 10 years from now",
+        "removed_items": [
+          "Ask HN: Should \"I asked $AI, and it said\" replies be forbidden in HN guidelines?\n\nAs various LLMs be"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
