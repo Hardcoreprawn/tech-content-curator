@@ -6631,5 +6631,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 6,
+    "patterns_used": 1281,
+    "timestamp": "2025-12-10T18:11:05.677377",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "You may be tempted to think of prompt injection attacks against language models as \"social engineeri",
+        "removed_items": [
+          "Launch HN: InspectMind (YC W24) \u2013 AI agent for reviewing construction drawings\n\nHi HN, we&#x27;re Aa"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "COM Like a Bomb: Rust Outlook Add-in",
+        "removed_items": [
+          "Rust in the kernel is no longer experimental"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Deprecations via warnings don't work for Python libraries",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
