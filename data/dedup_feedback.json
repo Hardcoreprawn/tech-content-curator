@@ -6725,5 +6725,41 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 12,
+    "patterns_used": 1306,
+    "timestamp": "2025-12-11T18:09:54.244226",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "New post: \"A newbie's guide to self-hosting with # YunoHost . Part 1: reasons + requirements\" \ud83d\udd17 : ht",
+        "removed_items": [
+          "Booting Linux in QEMU and Writing PID 1 in Go to Illustrate Kernel as Program"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "github's down, time to push stuff to https:// codeberg.org/",
+        "removed_items": [
+          "Days since last GitHub incident",
+          "Show HN: GPULlama3.java Llama Compilied to PTX/OpenCL Now Integrated in Quarkus\n\nwget <a href=\"https",
+          "Show HN: oeis-tui \u2013 A TUI to search OEIS integer sequences in the terminal\n\ni always loved looking u"
+        ]
+      },
+      {
+        "group_size": 6,
+        "kept_item": "A \u201cfrozen\u201d dictionary for Python",
+        "removed_items": [
+          "Show HN: Local Privacy Firewall-blocks PII and secrets before ChatGPT sees them\n\nOP here.<p>I built ",
+          "Python Workers redux: fast cold starts, packages, and a uv-first workflow",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
