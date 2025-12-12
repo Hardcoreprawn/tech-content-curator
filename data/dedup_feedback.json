@@ -6792,5 +6792,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 5,
+    "patterns_used": 1322,
+    "timestamp": "2025-12-12T06:07:31.063551",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "GPT-5.2\n\n<a href=\"https:&#x2F;&#x2F;platform.openai.com&#x2F;docs&#x2F;guides&#x2F;latest-model\" rel",
+        "removed_items": [
+          "The Walt Disney Company and OpenAI Partner on Sora\n\n<a href=\"https:&#x2F;&#x2F;www.cnbc.com&#x2F;202"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Denial of service and source code exposure in React Server Components\n\nSee also: <a href=\"https:&#x2",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
