@@ -6885,5 +6885,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 8,
+    "patterns_used": 1342,
+    "timestamp": "2025-12-13T06:06:59.299095",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "posted about my Apple ID woes, please share widely? https:// hey.paris/posts/appleid/",
+        "removed_items": [
+          "One amazing thing about 2025 is that, if you start up an Apple product, it forces you to choose betw",
+          "Oh, the roof deck *is* useful for something in the winter \u2014 noticing the sky is cool, and running up",
+          "Apple has locked my Apple ID, and I have no recourse. A plea for help"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Go is portable, until it isn't",
+        "removed_items": [
+          "Show HN: A real-time 4D fractal explorer in the browser using WebGPU\n\nHi HN, I&#x27;ve always been i"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Building small Docker images faster",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
