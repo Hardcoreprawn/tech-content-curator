@@ -6917,5 +6917,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 7,
+    "patterns_used": 1352,
+    "timestamp": "2025-12-13T18:09:24.231181",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Universal basic income will reduce crime. That crime didn't go down in the Finland pilot does not di",
+        "removed_items": [
+          "RE: https:// techhub.social/@Techmeme/11571 2973358014223 This will definitely go well.",
+          "Go Proposal: Secret Mode"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Hey, I've been under distress lately due to personal circumstances that are outside my control. I ca",
+        "removed_items": [
+          "Show HN: LinkedQL \u2013 Live Queries over Postgres, MySQL, MariaDB\n\nLinkedQL is a new SQL client that su"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Fast, Memory-Efficient Hash Table in Java: Borrowing the Best Ideas",
+        "removed_items": [
+          "Java FFM zero-copy transport using io_uring"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
