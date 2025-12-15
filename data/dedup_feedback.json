@@ -7029,5 +7029,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 1372,
+    "timestamp": "2025-12-15T02:37:31.657996",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Shai-Hulud compromised a dev machine and raided GitHub org access: a post-mortem",
+        "removed_items": [
+          "Show HN: Dograh \u2013 an OSS Vapi alternative to quickly build and test voice agents\n\nHi HN, I have been"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
