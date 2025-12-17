@@ -7272,5 +7272,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 8,
+    "patterns_used": 1433,
+    "timestamp": "2025-12-17T18:11:42.921793",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "A lot of folks have asked me if I'm serious about relaunching Mozilla after their inevitable collaps",
+        "removed_items": [
+          "Is Mozilla trying hard to kill itself?",
+          "No AI* Here \u2013 A Response to Mozilla's Next Chapter",
+          "Mozilla appoints new CEO Anthony Enzor-Demeo"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A Safer Container Ecosystem with Docker: Free Docker Hardened Images",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Kenobi (YC W22) \u2013 Personalize your website for every visitor\n\nHey HN! We\u2019re Rory, Chris, ",
+        "removed_items": [
+          "AI will make formal verification go mainstream"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
