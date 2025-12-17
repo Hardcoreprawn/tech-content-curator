@@ -7239,5 +7239,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 10,
+    "patterns_used": 1423,
+    "timestamp": "2025-12-17T06:07:26.159183",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "It has come to my attention that the artwork for the original mozilla.org \"dinosaur\" logo is not wid",
+        "removed_items": [
+          "Mozilla has a new CEO who: - Has been at Mozilla for less than a year - Has no prior open source exp",
+          "No AI* Here \u2013 A Response to Mozilla's Next Chapter",
+          "Mozilla appoints new CEO Anthony Enzor-Demeo"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Pricing Changes for GitHub Actions",
+        "removed_items": [
+          "Show HN: Titan \u2013 JavaScript-first framework that compiles into a Rust server\n\nHi HN,<p>I built Titan",
+          "Show HN: Sqlit \u2013 A lazygit-style TUI for SQL databases\n\nI work mostly in the terminal but found myse"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Writing a blatant Telegram clone using Qt, QML and Rust. And C++",
+        "removed_items": [
+          "Rust GCC backend: Why and how"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
