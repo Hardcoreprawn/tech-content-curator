@@ -7204,5 +7204,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 12,
+    "patterns_used": 1413,
+    "timestamp": "2025-12-17T02:32:36.335992",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Sometimes I love SF so much my eyes get suspiciously watery: The faith leaders, wearing religious ga",
+        "removed_items": [
+          "I knew a few people who worked at Mozilla in \u2018good times\u2019 and Twitter \u2018after\u2019 and they all said Mozi",
+          "Mozilla has a new CEO and he just announced that Firefox will evolve into a modern AI browser. This ",
+          "AI will make formal verification go mainstream"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Mozilla has a new CEO who: - Has been at Mozilla for less than a year - Has no prior open source exp",
+        "removed_items": [
+          "It has come to my attention that the artwork for the original mozilla.org \"dinosaur\" logo is not wid",
+          "Bye there # Mozilla , Hope your CEO and your AI have a good time together because soon they will be ",
+          "No AI* Here \u2013 A Response to Mozilla's Next Chapter",
+          "Mozilla appoints new CEO Anthony Enzor-Demeo"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "GitHub Actions charging per build minute for *self-hosted-runners*? Shit's about to hit the fan lol",
+        "removed_items": [
+          "Pricing Changes for GitHub Actions"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
