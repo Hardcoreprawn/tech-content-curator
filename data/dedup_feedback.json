@@ -7523,5 +7523,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 5,
+    "patterns_used": 1487,
+    "timestamp": "2025-12-20T18:09:20.508844",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "One thing I wish folks knew better about \"Linux\" that the annoying evangelists never seem to care to",
+        "removed_items": [
+          "LoL. Would you expect any different outcome than this out of a industry built upon \"citation cartels"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Go ahead, self-host Postgres",
+        "removed_items": [
+          "Hash tables in Go and advantage of self-hosted compilers"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
