@@ -7776,5 +7776,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 38,
+    "duplicates_found": 1,
+    "patterns_used": 1528,
+    "timestamp": "2025-12-23T18:10:48.628889",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Yapi \u2013 FOSS terminal API client for power users\n\nI shared a previous version of yapi a few ",
+        "removed_items": [
+          "Show HN: CineCLI \u2013 Browse and torrent movies directly from your terminal\n\nHi HN<p>I built CineCLI \u2014 "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
