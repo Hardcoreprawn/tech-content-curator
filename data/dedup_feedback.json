@@ -7792,5 +7792,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 1534,
+    "timestamp": "2025-12-24T02:33:34.696724",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Hello \ud83d\udc4b I'm giving Mastodon another go after quietly despairing about the awfulness of normie social",
+        "removed_items": [
+          "Interesting that humans have to go to the office but AI can just work remotely",
+          "Go-boot: bare metal Go UEFI boot manager"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "X-ray: a Python library for finding bad redactions in PDF documents",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Stronk.app \u2013 open-source gym lifts journal\n\nHey all, didn&#x27;t want to pay for Strong or Hevy so I",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
