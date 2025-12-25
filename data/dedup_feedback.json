@@ -7876,5 +7876,31 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 5,
+    "patterns_used": 1546,
+    "timestamp": "2025-12-25T02:35:46.317511",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "Show HN: Exploring Mathematics with Python",
+        "removed_items": [
+          "Show HN: A local-first, reversible PII scrubber for AI workflows\n\nHi HN,<p>I\u2019m one of the maintainer",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
