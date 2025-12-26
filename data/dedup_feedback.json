@@ -8020,5 +8020,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 7,
+    "patterns_used": 1576,
+    "timestamp": "2025-12-26T18:10:23.819412",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Merry Christmas to everybody, except that dude who works for Elastic, who decided to drop an unauthe",
+        "removed_items": [
+          "Show HN: Xcc700: Self-hosting mini C compiler for ESP32 (Xtensa) in 700 lines\n\nRepo: <a href=\"https:"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: AutoLISP interpreter in Rust/WASM \u2013 a CAD workflow invented 33 yrs ago",
+        "removed_items": [
+          "The Algebra of Loans in Rust"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Gaming Couch \u2013 a local multiplayer party game platform for 8 players\n\nHi HN,<p>I\u2019ve been wo",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
