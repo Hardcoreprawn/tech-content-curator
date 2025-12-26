@@ -7987,5 +7987,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 1566,
+    "timestamp": "2025-12-26T06:07:22.846553",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Gaming Couch \u2013 a local multiplayer party game platform for 8 players\n\nHi HN,<p>I\u2019ve been wo",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Ultimate-Linux: Userspace for Linux in Pure JavaScript",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Python 3.15\u2019s interpreter for Windows x86-64 should hopefully be 15% faster",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
