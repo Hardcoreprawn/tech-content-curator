@@ -8082,5 +8082,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 1584,
+    "timestamp": "2025-12-27T06:07:17.991580",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Witr \u2013 Explain why a process is running on your Linux system\n\nHi HN,<p>I built a small Linu",
+        "removed_items": [
+          "FFmpeg has issued a DMCA takedown on GitHub",
+          "Show HN: Xcc700: Self-hosting mini C compiler for ESP32 (Xtensa) in 700 lines\n\nRepo: <a href=\"https:"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+        "removed_items": [
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
