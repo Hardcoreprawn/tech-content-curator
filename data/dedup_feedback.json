@@ -8114,5 +8114,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 6,
+    "patterns_used": 1594,
+    "timestamp": "2025-12-27T18:09:54.175069",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Uh \u2026 AI bubble costing the US as much money in 12 months as *two major wars over 13 years* is quite ",
+        "removed_items": [
+          "dear fedi folk, does anyone here have experience with csf leaks (ideally as a result of hEDS but not"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Splice a Fibre\n\nIt&#x27;s interactive, try and splice one!<p>Written in react, it&#x27;s moderately ",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "VSCode rebrands as \"The open source AI code editor\"",
+        "removed_items": [
+          "vscode\n\nVisual Studio Code"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
