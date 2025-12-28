@@ -8144,5 +8144,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 8,
+    "patterns_used": 1602,
+    "timestamp": "2025-12-28T02:44:07.336900",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Only in SF: - bunch of explicitly anti-social, pro-AI ads show up - people get mad - ads had things ",
+        "removed_items": [
+          "I agree with @ nikitonsky , and I think this is at root of much of the managerial mania for LLMs. Ha",
+          "\ud83d\udca5\ud83d\udca5\ud83d\udca5\ud83d\udca5\ud83d\udca5 age v1.3.0 \ud83d\udca5\ud83d\udca5\ud83d\udca5\ud83d\udca5\ud83d\udca5 Post-quantum keys, seeking DecryptReaderAt API, age-inspect CLI tool, built-i"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Replacing JavaScript with Just HTML",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Waycore \u2013 an open-source, offline-first modular field computer\n\nHi HN,<p>I\u2019m building Wayco",
+        "removed_items": [
+          "Show HN: Mysti \u2013 Claude, Codex, and Gemini debate your code, then synthesize\n\nHey HN! I&#x27;m Baha,"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
