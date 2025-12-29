@@ -8234,5 +8234,31 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 1616,
+    "timestamp": "2025-12-29T02:42:49.597064",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "PySDR: A Guide to SDR and DSP Using Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Phantas \u2013 A browser-based binaural strobe engine (Web Audio API)\n\nHi HN, I\u2019m a new develope",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations ",
+          "bootstrap\n\nThe most popular HTML, CSS, and JavaScript framework for developing responsive, mobile fi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
