@@ -8349,5 +8349,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 7,
+    "patterns_used": 1641,
+    "timestamp": "2025-12-30T06:07:28.986259",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Saw the Fediverse described as where elder millennial, Gen X and boomers go to retire from the inter",
+        "removed_items": [
+          "Google is dead. Where do we go now?"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I think one of the wildest parts of the Epstein Files fiasco to me is billionaires are so different ",
+        "removed_items": [
+          "Show HN: Euclidle \u2013 Guess the Coordinates in N\u2011Dimensional Space\n\nA small web puzzle game where you ",
+          "Show HN: A 45x45 Connections Puzzle To Commemorate 2025=45*45\n\nIt&#x27;s a a long puzzle, somewhat a"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Stop Claude Code from forgetting everything\n\nI got tired of Claude Code forgetting all my c",
+        "removed_items": [
+          "Show HN: A Claude Code plugin that catch destructive Git and filesystem commands"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
