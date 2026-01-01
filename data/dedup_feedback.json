@@ -8517,5 +8517,24 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 1662,
+    "timestamp": "2026-01-01T18:10:31.477469",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "I suggest you support Standard Ebooks \ud83d\udcda \u201cStandard Ebooks is a volunteer-driven project that produces",
+        "removed_items": [
+          "Python Numbers Every Programmer Should Know",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
