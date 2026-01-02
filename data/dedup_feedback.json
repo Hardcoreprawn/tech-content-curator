@@ -8555,5 +8555,24 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 1666,
+    "timestamp": "2026-01-02T06:07:31.373596",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "WebAssembly as a Python Extension Platform",
+        "removed_items": [
+          "Python numbers every programmer should know",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
