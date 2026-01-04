@@ -8700,5 +8700,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 1688,
+    "timestamp": "2026-01-04T18:10:04.309751",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "*sigh* several weeks ago, I tried to view something on Harvard University's rare manuscript site (\"C",
+        "removed_items": [
+          "JavaScript engines zoo \u2013 Compare every JavaScript engine",
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
