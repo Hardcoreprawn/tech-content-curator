@@ -8675,5 +8675,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 52,
+    "duplicates_found": 4,
+    "patterns_used": 1684,
+    "timestamp": "2026-01-04T06:07:13.349280",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "MyTorch \u2013 Minimalist autograd in 450 lines of Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Corroded: Illegal Rust",
+        "removed_items": [
+          "Show HN: Krowdovi \u2013 Video-based indoor navigation on a DePIN creator economy\n\nWhat is this?<p>Krowdo"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
