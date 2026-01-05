@@ -8725,5 +8725,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 1693,
+    "timestamp": "2026-01-05T02:45:44.620503",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Anyone know where I can serve a DMCA Takedown notice on this paper? It was made using an LLM trained",
+        "removed_items": [
+          "Lessons from 14 Years at Google",
+          "Show HN: Hover \u2013 IDE style hover documentation on any webpage\n\nI thought it would be interesting to "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "More than SAD, I\u2019ve been struggling with this since I got to SF 8 years ago: I mostly lived in mega ",
+        "removed_items": [
+          "I love reading. I love writing. I love coding. I love drawing. I love creating. Go ahead and make th",
+          "Claude Code On-the-Go"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
