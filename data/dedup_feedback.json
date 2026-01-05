@@ -8758,5 +8758,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 6,
+    "patterns_used": 1699,
+    "timestamp": "2026-01-05T06:09:38.587057",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Hey, remember that awkward and antisocial # Tesla diner that opened in LA last July, where they buil",
+        "removed_items": [
+          "Claude Code On-the-Go"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Old timer! Does anyone know what model car this is? Left in the forest of Sweden, once part of a lar",
+        "removed_items": [
+          "Logos Language Guide: Compile English to Rust"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Anyone know where I can serve a DMCA Takedown notice on this paper? It was made using an LLM trained",
+        "removed_items": [
+          "Lessons from 14 years at Google",
+          "Show HN: Hover \u2013 IDE style hover documentation on any webpage\n\nI thought it would be interesting to "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
