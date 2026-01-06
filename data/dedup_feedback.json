@@ -8846,5 +8846,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 1712,
+    "timestamp": "2026-01-06T06:07:38.193333",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The author of a viral Reddit thread alleging fraud at a food delivery company tried to back up his c",
+        "removed_items": [
+          "Over the weekend, did you see the much-shared story on Reddit by a supposed whistleblower? It starte"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "I switched from VSCode to Zed",
+        "removed_items": [
+          "vscode\n\nVisual Studio Code"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
