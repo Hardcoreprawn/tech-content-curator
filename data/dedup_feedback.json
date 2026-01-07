@@ -8958,5 +8958,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 1730,
+    "timestamp": "2026-01-07T18:11:28.250839",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "\u201cnpm install our project dependencies. Download this 5GB file onto your five year-old laptop. Instal",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Many Hells of WebDAV: Writing a Client/Server in Go",
+        "removed_items": [
+          "Show HN: Comet MCP \u2013 Give Claude Code a browser that can click\n\nHey HN,<p>Claude Code is pretty agen"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
