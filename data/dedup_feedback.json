@@ -9086,5 +9086,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 7,
+    "patterns_used": 1752,
+    "timestamp": "2026-01-09T06:07:37.332346",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Head's up, there appears to be someone (or entity) cloning people off Twitter onto Mastodon and (att",
+        "removed_items": [
+          "As many of you will know, I\u2019ve been campaigning for more than a year to get the Govt of Canada off X"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "How to Code Claude Code in 200 Lines of Code",
+        "removed_items": [
+          "Anthropic blocks third-party use of Claude Code subscriptions",
+          "Show HN: Executable Markdown files with Unix pipes\n\nI wanted to run markdown files like shell script",
+          "Show HN: macOS menu bar app to track Claude usage in real time\n\nI built a macOS menu bar app to trac"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google AI Studio is now sponsoring Tailwind CSS\n\nRelated: <i>Creators of Tailwind laid off 75% of th",
+        "removed_items": [
+          "Show HN: A geofence-based social network app 6 years in development\n\nMy name is Adrian. I&#x27;m a S"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
