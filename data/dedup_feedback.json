@@ -9236,5 +9236,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 4,
+    "patterns_used": 1777,
+    "timestamp": "2026-01-11T06:07:09.461574",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The Concise TypeScript Book",
+        "removed_items": [
+          "Ripple: The Elegant TypeScript UI Framework"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Sisyphus Now Lives in Oh My Claude",
+        "removed_items": [
+          "Show HN: PrintReadyBook\n\nAI generates complete novels with cover art, ready for print Text: I built "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
