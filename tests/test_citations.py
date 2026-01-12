@@ -609,6 +609,18 @@ class TestCitationCache:
         key = CitationCache._make_key("Smith et al.", 2024)
         assert key == "Smith et al._2024"
 
+    def test_corrupt_cache_is_preserved(self) -> None:
+        """Corrupt cache should be moved aside, not silently overwritten."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            cache_path = Path(tmpdir) / "cache.json"
+            cache_path.write_text("{not: valid json", encoding="utf-8")
+
+            cache = CitationCache(cache_file=str(cache_path))
+            assert cache.data == {}
+
+            preserved = list(Path(tmpdir).glob("cache.json.corrupt-*"))
+            assert len(preserved) == 1
+
 
 class TestIntegration:
     """Integration tests for full citation pipeline."""
