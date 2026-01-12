@@ -154,8 +154,10 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
     except Exception as e:
         # Classify and log error, but don't stop pipeline for analysis failures
         handle_openai_error(e, context="quality analysis", should_raise=False)
-        # Return degraded response
-        return 0.5, "Analysis failed - using default score"
+        # Return degraded response.
+        # NOTE: defaulting to 0.5 risks passing the downstream "article ready" threshold (>=0.5)
+        # even though the item was not actually evaluated.
+        return 0.0, "Analysis failed - using degraded score"
 
 
 @lazy_openai_retry
