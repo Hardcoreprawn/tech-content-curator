@@ -44,6 +44,7 @@ from .pipeline.diversity_selector import (
     select_diverse_candidates as _select_diverse_candidates,
 )
 from .pipeline.orchestrator import generate_articles_async
+from .utils.free_threading import supports_free_threading
 from .utils.logging import get_logger
 
 console = Console()
@@ -53,22 +54,11 @@ logger = get_logger(__name__)
 def _supports_async() -> bool:
     """Check if async generation is available and beneficial.
 
-    Returns True only if:
-    1. Python 3.14+
-    2. PYTHON_GIL environment variable is set to '0'
-    3. Python build actually supports --disable-gil (will fail at runtime if not)
-
-    Note: If PYTHON_GIL=0 is set but Python wasn't compiled with --disable-gil,
-    it will fail with "Fatal Python error: config_read_gil: Disabling the GIL is not supported"
-    In that case, the environment variable should be removed and this will return False.
+    Uses the shared `supports_free_threading()` helper which verifies:
+    - the interpreter supports toggling the GIL, and
+    - `PYTHON_GIL=0` is set and the GIL is actually disabled.
     """
-    # Only enable if explicitly set to '0'
-    # This is conservative - we check the env var but Python will validate at runtime
-    # Note: Python 3.14+ is now required (version check removed as outdated)
-
-    # Only enable if explicitly set to '0'
-    # This is conservative - we check the env var but Python will validate at runtime
-    return os.getenv("PYTHON_GIL") == "0"
+    return supports_free_threading()
 
 
 async def _generate_with_async(

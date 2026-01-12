@@ -64,6 +64,22 @@ site/public/
 site/resources/_gen/
 site/.hugo_build.lock
 
+# Generated content (committed by CI pipeline; keep local tree clean)
+content/posts/
+site/static/images/
+
+# Legacy/untracked modules (canonical entrypoints live in src/collectors, src/enrichment, src/pipeline)
+src/collect.py
+src/enrich.py
+src/fact_check.py
+src/images.py
+src/semantic_dedup.py
+src/source_tiers.py
+src/rate_limit.py
+src/costs.py
+src/adaptive_scoring.py
+src/dedup_feedback.py
+
 # Node
 **/node_modules/
 

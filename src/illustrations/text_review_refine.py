@@ -212,7 +212,7 @@ Requirements:
                 review_cycles=1,
             )
 
-        except Exception as e:
+        except (ValueError, KeyError, TypeError) as e:
             logger.error(
                 f"Refinement failed for {concept_type} diagram: {type(e).__name__}: {e}",
                 exc_info=True,
@@ -245,7 +245,7 @@ Requirements:
                 )
                 if refined:
                     results.append(refined)
-            except Exception as e:
+            except (ValueError, KeyError, TypeError) as e:
                 section_title = diagram_spec.get("section_title", "unknown")
                 concept_type = diagram_spec.get("concept_type", "unknown")
                 logger.warning(

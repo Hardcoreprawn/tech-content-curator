@@ -245,8 +245,11 @@ def save_article_to_file(
                             console.print(
                                 f"[dim]Downloaded image and saved as {hero_path}[/dim]"
                             )
-                        except Exception as e:
-                            logger.warning(f"Failed to persist external image: {e}")
+                        except (OSError, ValueError, KeyError, AttributeError) as e:
+                            logger.warning(
+                                f"Failed to persist external image: {type(e).__name__}: {e}",
+                                exc_info=True,
+                            )
                             console.print(
                                 f"[yellow]⚠ Failed to persist image: {e}[/yellow]"
                             )
