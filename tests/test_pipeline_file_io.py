@@ -13,6 +13,56 @@ from src.models import CollectedItem, EnrichedItem, GeneratedArticle, PipelineCo
 from src.pipeline.file_io import load_enriched_items, save_article_to_file
 
 
+def test_save_article_persists_external_cover_image(monkeypatch, tmp_path):
+    """External cover URLs are persisted and frontmatter stores Hugo-local paths."""
+
+    import frontmatter
+
+    from src.models import GeneratedArticle, PipelineConfig
+
+    # Ensure we don't write into the real content dir
+    monkeypatch.setattr("src.config.get_content_dir", lambda: tmp_path)
+    monkeypatch.setattr("src.pipeline.file_io.find_article_by_slug", lambda *a, **k: None)
+
+    # Force the image selection path to return an external URL
+    monkeypatch.setattr(
+        "src.pipeline.file_io.select_or_create_cover_image",
+        lambda *a, **k: ("https://example.com/hero.png", "https://example.com/icon.png"),
+    )
+
+    # Make downloading/persisting return local Hugo paths
+    monkeypatch.setattr(
+        "src.pipeline.file_io.download_and_persist",
+        lambda *a, **k: ("/images/test-slug.png", "/images/test-slug-icon.png"),
+    )
+
+    config = PipelineConfig(openai_api_key="test")
+    config.image_strategy = "reuse"
+
+    article = GeneratedArticle(
+        title="Test Article",
+        content="Hello world",
+        summary="Summary",
+        sources=[make_enriched_item()],
+        word_count=2,
+        filename="2026-01-12-test-slug.md",
+        generator_name="test",
+    )
+
+    out = save_article_to_file(
+        article,
+        config,
+        generate_image=True,
+        client=None,
+        update_existing=False,
+    )
+
+    post = frontmatter.load(str(out))
+    assert post.metadata["cover"]["image"].startswith("/images/")
+    assert post.metadata["cover"]["image"] == "/images/test-slug.png"
+    assert post.metadata["icon"] == "/images/test-slug-icon.png"
+
+
 def make_collected_item(
     item_id: str = "test-1",
     source: str = "mastodon",
