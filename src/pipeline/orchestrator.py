@@ -148,7 +148,7 @@ def generate_single_article(
             costs,
             "content_generation",
             calculate_text_cost(
-                "gpt-4o-mini", content_input_tokens, content_output_tokens
+                config.content_model, content_input_tokens, content_output_tokens
             ),
         )
 
