@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from src.models import CollectedItem, EnrichedItem
+from src.models import CollectedItem, EnrichedItem, SourceType
 from src.pipeline.article_builder import (
     calculate_image_cost,
     calculate_text_cost,
@@ -17,7 +17,7 @@ from src.pipeline.article_builder import (
 
 def make_collected_item(
     item_id: str = "test-id",
-    source: str = "mastodon",
+    source: SourceType = SourceType.MASTODON,
     author: str = "testuser",
     url: str = "https://example.com/article",
 ) -> CollectedItem:

@@ -9,7 +9,13 @@ import frontmatter
 from src.citations.extractor import Citation
 from src.citations.formatter import FormattedCitation
 from src.citations.resolver import ResolvedCitation
-from src.models import CollectedItem, EnrichedItem, GeneratedArticle, PipelineConfig
+from src.models import (
+    CollectedItem,
+    EnrichedItem,
+    GeneratedArticle,
+    PipelineConfig,
+    SourceType,
+)
 from src.pipeline.file_io import load_enriched_items, save_article_to_file
 
 
@@ -22,12 +28,17 @@ def test_save_article_persists_external_cover_image(monkeypatch, tmp_path):
 
     # Ensure we don't write into the real content dir
     monkeypatch.setattr("src.config.get_content_dir", lambda: tmp_path)
-    monkeypatch.setattr("src.pipeline.file_io.find_article_by_slug", lambda *a, **k: None)
+    monkeypatch.setattr(
+        "src.pipeline.file_io.find_article_by_slug", lambda *a, **k: None
+    )
 
     # Force the image selection path to return an external URL
     monkeypatch.setattr(
         "src.pipeline.file_io.select_or_create_cover_image",
-        lambda *a, **k: ("https://example.com/hero.png", "https://example.com/icon.png"),
+        lambda *a, **k: (
+            "https://example.com/hero.png",
+            "https://example.com/icon.png",
+        ),
     )
 
     # Make downloading/persisting return local Hugo paths
@@ -65,7 +76,7 @@ def test_save_article_persists_external_cover_image(monkeypatch, tmp_path):
 
 def make_collected_item(
     item_id: str = "test-1",
-    source: str = "mastodon",
+    source: SourceType = SourceType.MASTODON,
     author: str = "testuser",
     url: str = "https://example.com/article",
 ) -> CollectedItem:
