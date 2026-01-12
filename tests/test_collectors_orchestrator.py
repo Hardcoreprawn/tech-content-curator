@@ -4,12 +4,14 @@ import json
 from datetime import UTC, datetime
 from unittest.mock import Mock, patch
 
+from pydantic import HttpUrl
+
 from src.collectors.orchestrator import (
     collect_all_sources,
     deduplicate_items,
     save_collected_items,
 )
-from src.models import CollectedItem
+from src.models import CollectedItem, CollectedItemMetadata, SourceType
 
 
 def make_item(
@@ -17,16 +19,16 @@ def make_item(
     content: str = "Test content",
     title: str = "Test",
     url: str = "https://example.com/test",
-    metadata: dict | None = None,
+    metadata: CollectedItemMetadata | None = None,
 ) -> CollectedItem:
     """Helper to create test CollectedItem."""
     return CollectedItem(
         id=item_id,
-        source="mastodon",
+        source=SourceType.MASTODON,
         author="testuser",
         content=content,
         title=title,
-        url=url,
+        url=HttpUrl(url),
         collected_at=datetime.now(UTC),
         metadata=metadata or {},
     )

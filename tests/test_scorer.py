@@ -1,7 +1,7 @@
 """Tests for enrichment scorer heuristic quality assessment."""
 
 from src.enrichment.scorer import calculate_heuristic_score
-from src.models import CollectedItem
+from src.models import CollectedItem, SourceType
 
 
 def make_item(
@@ -16,7 +16,7 @@ def make_item(
         title=title,
         content=content,
         url="https://example.com/test",
-        source="mastodon",
+        source=SourceType.MASTODON,
         author=author,
         metadata=metadata or {},
     )

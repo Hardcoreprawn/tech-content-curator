@@ -2,8 +2,10 @@
 
 from datetime import UTC, datetime
 
+from pydantic import HttpUrl
+
 from src.content.categorizer import ArticleCategorizer, ContentType, DifficultyLevel
-from src.models import CollectedItem, EnrichedItem
+from src.models import CollectedItem, EnrichedItem, SourceType
 
 
 def make_enriched_item(
@@ -15,11 +17,11 @@ def make_enriched_item(
     return EnrichedItem(
         original=CollectedItem(
             id="test-id",
-            source="mastodon",
+            source=SourceType.MASTODON,
             author="testuser",
             content="Test article content",
             title=title,
-            url="https://example.com/article",
+            url=HttpUrl("https://example.com/article"),
             collected_at=datetime.now(UTC),
             metadata={},
         ),

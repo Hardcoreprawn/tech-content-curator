@@ -2,6 +2,20 @@
 
 Quick reference for AI agents working on this project. **Always follow these patterns.**
 
+## Reliability: Types + Diagnostics (Required)
+
+This repo treats **types as executable expectations** (correctness + edge cases).
+
+- When a user points at a file or reports a type error, **check diagnostics first** and fix all actionable items.
+- Prefer canonical model types in tests:
+    - Use `SourceType` instead of raw strings.
+    - Use `HttpUrl` for URL fields required by models (use `TypeAdapter(HttpUrl).validate_python("https://...")` in tests).
+- If a third-party library has weak stubs (e.g. `frontmatter`), use a small consistent shim:
+    - `cast(frontmatter.Post, frontmatter.load(...))`
+    - cast `post["..."]` / `post.metadata` to `dict`/`list` before indexing.
+
+See `AGENTS.md` for the detailed workflow.
+
 ## Environment
 
 - **Location**: `/mnt/d/projects/tech-content-curator` (always use WSL)

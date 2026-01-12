@@ -255,7 +255,7 @@ class TestCitationResolver:
         result = resolver.resolve("Smith et al.", 2024)
 
         assert result.arxiv_id == "2401.12345"
-        assert "arxiv.org" in result.url or result.arxiv_id
+        assert (result.url is not None and "arxiv.org" in result.url) or result.arxiv_id
 
     @patch("src.citations.resolver.httpx.Client")
     def test_resolve_api_error_returns_empty(

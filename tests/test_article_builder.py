@@ -4,6 +4,7 @@ from datetime import UTC, datetime
 from unittest.mock import Mock, patch
 
 import pytest
+from pydantic import HttpUrl
 
 from src.models import CollectedItem, EnrichedItem, SourceType
 from src.pipeline.article_builder import (
@@ -28,7 +29,7 @@ def make_collected_item(
         author=author,
         content="Test article content about Python programming",
         title="Test Article",
-        url=url,
+        url=HttpUrl(url),
         collected_at=datetime(2025, 10, 31, 12, 0, 0, tzinfo=UTC),
         metadata={},
     )

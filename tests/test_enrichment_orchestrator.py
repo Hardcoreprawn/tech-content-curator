@@ -7,14 +7,20 @@ import pytest
 from pydantic import HttpUrl
 
 from src.enrichment.orchestrator import enrich_collected_items, enrich_single_item
-from src.models import CollectedItem, EnrichedItem, PipelineConfig, SourceType
+from src.models import (
+    CollectedItem,
+    CollectedItemMetadata,
+    EnrichedItem,
+    PipelineConfig,
+    SourceType,
+)
 
 
 def make_item(
     content: str = "Test content about Python programming",
     title: str = "Test Article",
     url: str = "https://example.com/test",
-    metadata: dict | None = None,
+    metadata: CollectedItemMetadata | None = None,
 ) -> CollectedItem:
     """Helper to create test CollectedItem with valid defaults."""
     return CollectedItem(

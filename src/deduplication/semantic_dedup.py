@@ -5,6 +5,7 @@ Semantic deduplication with adaptive learning.
 import json
 import re
 from collections import Counter, defaultdict
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -171,7 +172,7 @@ class SemanticDeduplicator:
         return (entity_similarity * 0.7) + (keyword_similarity * 0.3)
 
     def find_duplicates(
-        self, items: list[ContentProtocol], threshold: float = 0.6
+        self, items: Sequence[ContentProtocol], threshold: float = 0.6
     ) -> list[list[ContentProtocol]]:
         """Find groups of duplicate items using learned patterns and similarity."""
         duplicate_groups = []

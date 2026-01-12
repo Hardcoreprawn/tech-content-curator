@@ -31,7 +31,7 @@ def create_test_enriched_item(title: str, content: str, source: str) -> Enriched
         source=SourceType.BLUESKY,
         url=HttpUrl("https://bsky.app/profile/test/feed/test"),
         author="Test Author",
-        metadata={"test": True},
+        metadata={"source_name": "feature3_validation"},
     )
 
     return EnrichedItem(
@@ -228,7 +228,12 @@ data, with proper adjustment for multiple testing scenarios.
 
         # Generate article
         print("\nGenerating article with multi-format illustrations...")
-        article = generate_single_article(enriched, config, generators, client)
+        article = generate_single_article(
+            enriched,
+            generators,
+            client,
+            config=config,
+        )
 
         if article:
             print("✅ Article generated successfully")
@@ -237,14 +242,17 @@ data, with proper adjustment for multiple testing scenarios.
             print(f"   Illustrations: {article.illustrations_count}")
 
             # Extract cost information
-            ill_cost = article.generation_costs.get("illustrations", 0)
+            ill_costs = article.generation_costs.get("illustrations", [])
+            ill_cost = sum(ill_costs)
             total_cost += ill_cost
 
             print("\n📊 Illustration Details:")
             print(f"   Cost: ${ill_cost:.6f}")
-            print(
-                f"   Total generation cost: ${sum(article.generation_costs.values()):.6f}"
+
+            total_generation_cost = sum(
+                sum(costs) for costs in article.generation_costs.values()
             )
+            print(f"   Total generation cost: ${total_generation_cost:.6f}")
 
             # Show content preview with illustrations
             print("\n📝 Generated Content Preview:")

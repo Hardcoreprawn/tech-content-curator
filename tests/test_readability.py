@@ -7,6 +7,8 @@ This test suite covers:
 - Integration with categorization system
 """
 
+from pydantic import HttpUrl, TypeAdapter
+
 from src.content.categorizer import ArticleCategorizer
 from src.content.quality_scorer import QualityScorer
 from src.content.readability import ReadabilityAnalyzer
@@ -97,12 +99,13 @@ though further research is needed to optimize inference efficiency.
 # Helper function to create test EnrichedItem
 def create_test_item(title: str, topics: list[str]) -> EnrichedItem:
     """Create a test EnrichedItem for testing."""
+    url = TypeAdapter(HttpUrl).validate_python("https://example.com/test")
     collected = CollectedItem(
         id="test-123",
         title=title,
         content="Test content",
         source=SourceType.MASTODON,
-        url="https://example.com/test",
+        url=url,
         author="testuser",
     )
     return EnrichedItem(
