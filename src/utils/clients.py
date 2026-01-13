@@ -74,8 +74,8 @@ def get_openai_client(config: PipelineConfig):
             try:
                 client.close()
                 logger.debug("OpenAI client closed successfully")
-            except Exception as e:
-                logger.warning(f"Error closing OpenAI client: {e}")
+            except Exception:
+                logger.exception("Error closing OpenAI client")
 
 
 @contextmanager
@@ -115,5 +115,5 @@ def get_http_client(timeout: int | float = 30, follow_redirects: bool = True):
             try:
                 client.close()
                 logger.debug("HTTP client closed successfully")
-            except Exception as e:
-                logger.warning(f"Error closing HTTP client: {e}")
+            except Exception:
+                logger.exception("Error closing HTTP client")
