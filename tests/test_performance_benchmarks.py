@@ -19,11 +19,11 @@ import time
 from pathlib import Path
 
 import pytest
-from pydantic import HttpUrl, TypeAdapter
 
 from src.collectors.orchestrator import collect_all_sources
 from src.enrichment.orchestrator import enrich_collected_items_async
 from src.models import CollectedItem, SourceType
+from tests.utils.types import http_url
 
 logger = logging.getLogger(__name__)
 
@@ -104,9 +104,7 @@ class TestEnrichmentPerformance:
                     f"Python 3.14 free-threading enables true parallelism without the GIL."
                 ),
                 source=SourceType.HACKERNEWS,
-                url=TypeAdapter(HttpUrl).validate_python(
-                    f"https://example.com/article-{i}"
-                ),
+                url=http_url(f"https://example.com/article-{i}"),
                 author="Test Author",
             )
             test_items.append(item)
@@ -199,9 +197,7 @@ class TestStabilityUnderLoad:
                 title=f"Stability Test {i}",
                 content=f"Test content {i}",
                 source=SourceType.HACKERNEWS,
-                url=TypeAdapter(HttpUrl).validate_python(
-                    f"https://example.com/stability-{i}"
-                ),
+                url=http_url(f"https://example.com/stability-{i}"),
                 author="Test",
             )
             test_items.append(item)

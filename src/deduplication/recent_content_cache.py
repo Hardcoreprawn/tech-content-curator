@@ -9,7 +9,7 @@ See: docs/ADR-004-ADAPTIVE-DEDUPLICATION.md
 """
 
 from dataclasses import dataclass
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import NamedTuple
 
@@ -90,20 +90,31 @@ class RecentContentCache:
                 if not generated_at_str:
                     continue
 
-                # Handle both ISO format and simple date strings
+                # Handle both ISO format and simple date strings.
+                # Normalize to timezone-aware UTC to avoid naive/aware comparisons.
                 try:
-                    if isinstance(generated_at_str, str):
-                        if "T" in generated_at_str:
-                            generated_at = datetime.fromisoformat(
-                                generated_at_str.replace("Z", "+00:00")
-                            )
-                        else:
-                            generated_at = datetime.fromisoformat(
-                                generated_at_str
-                            ).replace(tzinfo=UTC)
+                    if isinstance(generated_at_str, datetime):
+                        generated_at = (
+                            generated_at.replace(tzinfo=UTC)
+                            if generated_at_str.tzinfo is None
+                            else generated_at_str.astimezone(UTC)
+                        )
+                    elif isinstance(generated_at_str, date):
+                        generated_at = datetime.combine(
+                            generated_at_str, datetime.min.time()
+                        ).replace(tzinfo=UTC)
+                    elif isinstance(generated_at_str, str):
+                        parsed = datetime.fromisoformat(
+                            generated_at_str.replace("Z", "+00:00")
+                        )
+                        generated_at = (
+                            parsed.replace(tzinfo=UTC)
+                            if parsed.tzinfo is None
+                            else parsed.astimezone(UTC)
+                        )
                     else:
                         continue
-                except (ValueError, AttributeError):
+                except (ValueError, TypeError, AttributeError):
                     continue
 
                 # Only cache recent articles

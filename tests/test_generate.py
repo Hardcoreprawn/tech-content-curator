@@ -18,7 +18,6 @@ from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import pytest
-from pydantic import HttpUrl, TypeAdapter
 
 from src.generators.base import BaseGenerator
 from src.models import CollectedItem, EnrichedItem, PipelineConfig, SourceType
@@ -35,6 +34,7 @@ from src.pipeline import (
     select_article_candidates,
     select_generator,
 )
+from tests.utils.types import http_url
 
 # ============================================================================
 # Fixtures
@@ -58,7 +58,7 @@ This article covers the core components of K8s architecture including:
 Learn how these components work together to orchestrate containers at scale.
 Check out the official docs at https://kubernetes.io for more details.
         """,
-        url=TypeAdapter(HttpUrl).validate_python("https://example.com/k8s-article"),
+        url=http_url("https://example.com/k8s-article"),
         source=SourceType.MASTODON,
         collected_at=datetime.now(UTC),
         author="tech_expert",

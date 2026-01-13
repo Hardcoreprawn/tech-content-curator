@@ -34,8 +34,12 @@ After cloning the repository, run this in WSL bash terminal:
 ```bash
 bash scripts/setup_python_314_nogil_conda.sh
 conda activate py314-nogil
+
+# Recommended: run tools through uv (works without activating .venv)
+uv run pytest tests/ -v             # Verify setup with 3.14 no-GIL
+
+# Optional: activate the uv-managed venv for editor integrations
 source .venv/bin/activate
-pytest tests/ -v                    # Verify setup with 3.14 no-GIL
 ```
 
 This script handles:
@@ -225,7 +229,7 @@ source .venv/bin/activate   # Activate the generated venv
 python --version                     # Should show 3.14.x (no-GIL)
 
 # Run thread-safety tests
-pytest tests/test_thread_safety.py -v
+uv run pytest tests/test_thread_safety.py -v
 
 # Benchmark parallel enrichment (if you have API keys)
 PYTHON_GIL=0 python scripts/benchmark_free_threading.py
@@ -239,14 +243,14 @@ conda activate py314-nogil
 cd /mnt/d/projects/tech-content-curator
 source .venv/bin/activate
 
-# Run tests (automatically uses free-threading)
-pytest tests/ -v
+# Run tests
+uv run pytest tests/ -v
 
 # Run with free-threading explicitly disabled for comparison
-PYTHON_GIL=1 pytest tests/test_thread_safety.py -v
+PYTHON_GIL=1 uv run pytest tests/test_thread_safety.py -v
 
 # Run with free-threading enabled (default if no-GIL Python)
-PYTHON_GIL=0 pytest tests/test_thread_safety.py -v
+PYTHON_GIL=0 uv run pytest tests/test_thread_safety.py -v
 ```
 
 ### Alternative: Standard uv Setup (without free-threading)
@@ -292,14 +296,14 @@ source .venv/bin/activate
 
 # Run commands (automatically uses free-threading)
 python script.py                    # Run a script
-pytest tests/                       # Run tests (3-4x faster)
+uv run pytest tests/                # Run tests (3-4x faster)
 mypy src/                           # Type checking
 ruff check src/                     # Linting
 ruff format src/                    # Auto-format
 
 # Compare with standard Python (if needed)
-PYTHON_GIL=1 pytest tests/ -v       # Run with GIL enabled
-PYTHON_GIL=0 pytest tests/ -v       # Run with free-threading (default)
+PYTHON_GIL=1 uv run pytest tests/ -v       # Run with GIL enabled
+PYTHON_GIL=0 uv run pytest tests/ -v       # Run with free-threading (default)
 ```
 
 ### Option B: With standard uv (no free-threading)
@@ -396,7 +400,7 @@ source .venv/bin/activate
 uv sync --all-extras
 
 # Verify pytest can find modules
-python -c "import pytest; print(pytest.__file__)"
+uv run python -c "import pytest; print(pytest.__file__)"
 ```
 
 #### Thread safety tests show issues
@@ -405,10 +409,10 @@ python -c "import pytest; print(pytest.__file__)"
 python -c "import sys; print('free_threading_enabled:', hasattr(sys, 'free_threading_enabled'))"
 
 # Run with explicit free-threading
-PYTHON_GIL=0 pytest tests/test_thread_safety.py -v
+PYTHON_GIL=0 uv run pytest tests/test_thread_safety.py -v
 
 # Compare with GIL enabled (should be slower but still work)
-PYTHON_GIL=1 pytest tests/test_thread_safety.py -v
+PYTHON_GIL=1 uv run pytest tests/test_thread_safety.py -v
 ```
 
 ### Standard uv issues
@@ -539,11 +543,11 @@ source .venv/bin/activate
 python -c "import sys; print(sys.version)"
 
 # Run tests
-pytest tests/test_file.py -v --tb=short
+uv run pytest tests/test_file.py -v --tb=short
 
 # Run with explicit free-threading control
-PYTHON_GIL=0 pytest tests/ -v       # Free-threading enabled (default)
-PYTHON_GIL=1 pytest tests/ -v       # Free-threading disabled
+PYTHON_GIL=0 uv run pytest tests/ -v       # Free-threading enabled (default)
+PYTHON_GIL=1 uv run pytest tests/ -v       # Free-threading disabled
 ```
 
 ### Option B: With standard uv
