@@ -206,7 +206,7 @@ def generate_single_article(
             try:
                 final_content = format_markdown(final_content)
             except Exception as e:
-                logger.warning(f"Markdown formatting failed: {e}")
+                logger.warning("Markdown formatting failed", exc_info=True)
                 console.print(
                     f"  [dim]Note: markdown formatting skipped ({str(e)[:30]})[/dim]"
                 )
@@ -264,7 +264,7 @@ def generate_single_article(
                 f"model={config.content_model}"
             )
         except Exception as e:
-            logger.warning(f"Failed to track quality metrics: {e}")
+            logger.warning("Failed to track quality metrics", exc_info=True)
 
         console.print(f"[green]✓[/green] Generated: {title}")
         return article

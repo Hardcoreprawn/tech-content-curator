@@ -137,7 +137,7 @@ class PipelineTracker:
                 f"Saved pipeline tracking: {len(self.tracker_data['items'])} items in {self.tracking_file}"
             )
         except Exception as e:
-            logger.error(f"Failed to save tracking data: {e}", exc_info=True)
+            logger.exception("Failed to save tracking data")
 
     def print_summary(self) -> None:
         """Print a summary of the tracking data."""
