@@ -185,8 +185,8 @@ class IllustrationService:
                     f"Failed to parse scores for section {section.title}: {e}"
                 )
                 continue
-            except Exception as e:
-                logger.error(f"Error scoring section {section.title}: {e}")
+            except Exception:
+                logger.exception("Error scoring section %s", section.title)
                 continue
 
         return matches

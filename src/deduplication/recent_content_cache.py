@@ -131,9 +131,14 @@ class RecentContentCache:
                 )
                 self.cache.append(article)
 
-            except Exception as e:
+            except Exception:
+                logger.warning(
+                    "Failed to load recent article into cache: %s",
+                    filepath.name,
+                    exc_info=True,
+                )
                 console.print(
-                    f"[dim yellow]Warning: Failed to load {filepath.name}: {e}[/dim yellow]"
+                    f"[dim yellow]Warning: Failed to load {filepath.name}[/dim yellow]"
                 )
 
         console.print(
