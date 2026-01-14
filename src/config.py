@@ -221,6 +221,20 @@ def _build_config() -> PipelineConfig:
         max_secondary_references=int(os.getenv("MAX_SECONDARY_REFERENCES", "3")),
         max_cost_per_run=_optional_float("MAX_COST_PER_RUN"),
         max_cost_per_article=_optional_float("MAX_COST_PER_ARTICLE"),
+        # Fact-check policy (validation)
+        fact_check_mode=os.getenv("FACT_CHECK_MODE", "strict").lower(),
+        fact_check_max_broken_links=int(os.getenv("FACT_CHECK_MAX_BROKEN_LINKS", "0")),
+        fact_check_max_unreachable_sources=int(
+            os.getenv("FACT_CHECK_MAX_UNREACHABLE_SOURCES", "0")
+        ),
+        fact_check_retry_attempts=int(os.getenv("FACT_CHECK_RETRY_ATTEMPTS", "3")),
+        fact_check_retry_backoff_min=float(
+            os.getenv("FACT_CHECK_RETRY_BACKOFF_MIN", "0.5")
+        ),
+        fact_check_retry_backoff_max=float(
+            os.getenv("FACT_CHECK_RETRY_BACKOFF_MAX", "8.0")
+        ),
+        fact_check_retry_jitter=float(os.getenv("FACT_CHECK_RETRY_JITTER", "0.1")),
     )
 
     # Validate required keys (except in test environment)

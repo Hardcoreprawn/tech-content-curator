@@ -35,7 +35,7 @@ def _record_license(
     p = _licenses_path()
     try:
         data = json.loads(p.read_text(encoding="utf-8") or "{}")
-    except Exception:
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
         data = {}
 
     data[slug] = {
@@ -88,17 +88,17 @@ def download_and_persist(
                     tmpf.write(chunk)
                 tmp_path = Path(tmpf.name)
 
-    except Exception as e:
-        logger.error(f"Failed to download image {url}: {e}")
+    except (httpx.HTTPError, OSError, ValueError) as e:
+        logger.exception("Failed to download image %s", url)
         raise ValueError(f"Failed to download image: {e}") from e
 
     try:
         # Validate image by opening with Pillow
         with Image.open(tmp_path) as _img:
             pass
-    except Exception as e:
+    except (OSError, ValueError) as e:
         tmp_path.unlink(missing_ok=True)
-        logger.error(f"Downloaded file is not a valid image: {e}")
+        logger.exception("Downloaded file is not a valid image")
         raise ValueError("Downloaded file is not a valid image") from e
 
     # Create derivatives using existing library helper

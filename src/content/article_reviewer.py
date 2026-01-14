@@ -20,7 +20,7 @@ from openai import OpenAI
 from ..config import get_config
 from ..models import GeneratedArticle
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
 
 if TYPE_CHECKING:
     from ..generators.voices.profiles import VoiceProfile
@@ -138,7 +138,7 @@ class ArticleReviewer:
 
         try:
             # Get AI review
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.config.review_model,
                 messages=[
@@ -150,6 +150,10 @@ class ArticleReviewer:
                     },
                     {"role": "user", "content": review_prompt},
                 ],
+                stage="review",
+                config=self.config,
+                article_id=article.filename,
+                context={"reviewer": "ArticleReviewer"},
                 temperature=0.3,  # Lower temperature for consistent evaluation
             )
 

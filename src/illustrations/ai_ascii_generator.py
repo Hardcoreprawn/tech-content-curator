@@ -7,11 +7,14 @@ for processes, comparisons, and network topologies.
 from dataclasses import dataclass
 
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_text_cost_components
 
 logger = get_logger(__name__)
 
 from openai import OpenAI
+
+from ..models import PipelineConfig
 
 
 @dataclass
@@ -33,6 +36,9 @@ class GeneratedAsciiArt:
     completion_cost: float
     """Cost in dollars for completion tokens"""
 
+    extra_costs: float = 0.0
+    """Additional costs (e.g., validation/review) in USD."""
+
     quality_score: float = 0.0
     """Quality score from 0.0 to 1.0 (set by quality selector)"""
 
@@ -45,7 +51,7 @@ class GeneratedAsciiArt:
     @property
     def total_cost(self) -> float:
         """Total cost for ASCII generation."""
-        return self.prompt_cost + self.completion_cost
+        return self.prompt_cost + self.completion_cost + self.extra_costs
 
 
 class AIAsciiGenerator:
@@ -55,13 +61,6 @@ class AIAsciiGenerator:
     in plain text and markdown. Perfect for processes, comparisons, and
     network diagrams.
     """
-
-    PRICING = {
-        "gpt-3.5-turbo": {
-            "prompt": 0.0005,
-            "completion": 0.0015,
-        }
-    }
 
     def __init__(self, client: OpenAI, model: str = "gpt-3.5-turbo"):
         """Initialize AI ASCII generator.
@@ -78,6 +77,9 @@ class AIAsciiGenerator:
         section_title: str,
         section_content: str,
         concept_type: str,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> GeneratedAsciiArt | None:
         """Generate ASCII art for a specific article section.
 
@@ -94,9 +96,12 @@ class AIAsciiGenerator:
         art_type = self._determine_art_type(concept_type)
 
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.model,
+                stage="illustration_ascii_generate",
+                config=config,
+                article_id=article_id,
                 messages=[
                     {
                         "role": "system",
@@ -135,16 +140,15 @@ COMMON PATTERNS:
 
             ascii_content = (response.choices[0].message.content or "").strip()
 
-            # Calculate costs
+            # Calculate costs (shared pricing table)
             prompt_tokens = response.usage.prompt_tokens if response.usage else 0
             completion_tokens = (
                 response.usage.completion_tokens if response.usage else 0
             )
 
-            prompt_cost = (prompt_tokens / 1000) * self.PRICING[self.model]["prompt"]
-            completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
-                "completion"
-            ]
+            prompt_cost, completion_cost = estimate_text_cost_components(
+                self.model, prompt_tokens, completion_tokens
+            )
             total_cost = prompt_cost + completion_cost
             logger.debug(
                 f"ASCII art generated: {len(ascii_content)} chars, cost: ${total_cost:.4f}"
@@ -162,7 +166,10 @@ COMMON PATTERNS:
             )
 
         except Exception as e:
-            logger.error(f"ASCII art generation failed: {type(e).__name__}: {e}")
+            logger.error(
+                f"ASCII art generation failed: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             return None
 
     def _build_prompt(
@@ -304,7 +311,13 @@ class TextIllustrationQualitySelector:
         self.quality_threshold = quality_threshold
 
     def generate_best(
-        self, section_title: str, section_content: str, concept_type: str
+        self,
+        section_title: str,
+        section_content: str,
+        concept_type: str,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> GeneratedAsciiArt | None:
         """Generate N candidates and return the best-scoring one.
 
@@ -323,7 +336,11 @@ class TextIllustrationQualitySelector:
 
         for _i in range(self.n_candidates):
             art = self.generator.generate_for_section(
-                section_title, section_content, concept_type
+                section_title,
+                section_content,
+                concept_type,
+                config=config,
+                article_id=article_id,
             )
             if art:
                 score = self._score(art.content, concept_type)

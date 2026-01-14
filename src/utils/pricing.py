@@ -70,6 +70,35 @@ def estimate_text_cost(model: str, prompt_tokens: int, completion_tokens: int) -
     return cost
 
 
+def estimate_text_cost_components(
+    model: str,
+    prompt_tokens: int,
+    completion_tokens: int,
+) -> tuple[float, float]:
+    """Estimate USD cost split by prompt vs completion tokens.
+
+    Returns:
+        Tuple of (prompt_cost_usd, completion_cost_usd)
+
+    Notes:
+        - Uses the shared pricing table (USD per 1M tokens).
+        - If pricing is missing for the model, returns (0.0, 0.0).
+    """
+
+    pricing = get_text_pricing(model)
+    if not pricing:
+        return 0.0, 0.0
+
+    input_rate = pricing.get("input_per_million", 0.0)
+    output_rate = pricing.get("output_per_million", 0.0)
+
+    prompt_cost = (prompt_tokens / 1_000_000) * input_rate if prompt_tokens else 0.0
+    completion_cost = (
+        (completion_tokens / 1_000_000) * output_rate if completion_tokens else 0.0
+    )
+    return prompt_cost, completion_cost
+
+
 def get_image_pricing(model: str) -> dict[str, Any] | None:
     """Return pricing info for an image model."""
 

@@ -12,6 +12,7 @@ Cache is stored in data/citations_cache.json and automatically:
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 from ..utils.logging import get_logger
 
@@ -109,14 +110,52 @@ class CitationCache:
             try:
                 with open(self.cache_file, encoding="utf-8") as f:
                     self.data = json.load(f)
-            except (OSError, json.JSONDecodeError):
-                # Corrupted or unreadable cache, start fresh
+            except (OSError, json.JSONDecodeError) as e:
+                # Corrupted or unreadable cache, preserve and start fresh
+                self._preserve_corrupt_cache(e)
                 self.data = {}
 
     def _save(self) -> None:
-        """Persist cache to disk as formatted JSON."""
-        with open(self.cache_file, "w", encoding="utf-8") as f:
-            json.dump(self.data, f, indent=2)
+        """Persist cache to disk as formatted JSON (atomically)."""
+        try:
+            with NamedTemporaryFile(
+                mode="w",
+                encoding="utf-8",
+                dir=self.cache_file.parent,
+                prefix=f".{self.cache_file.name}.",
+                suffix=".tmp",
+                delete=False,
+            ) as tmp:
+                json.dump(self.data, tmp, indent=2)
+                tmp_path = Path(tmp.name)
+
+            tmp_path.replace(self.cache_file)
+        except OSError:
+            logger.exception("Failed to persist citation cache")
+            # Best-effort cleanup
+            try:
+                if "tmp_path" in locals() and tmp_path.exists():
+                    tmp_path.unlink()
+            except OSError:
+                pass
+
+    def _preserve_corrupt_cache(self, error: Exception) -> None:
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        corrupt_path = self.cache_file.with_suffix(
+            self.cache_file.suffix + f".corrupt-{ts}"
+        )
+        try:
+            self.cache_file.replace(corrupt_path)
+            logger.warning(
+                "Citation cache was unreadable; moved aside to %s (%s)",
+                corrupt_path,
+                type(error).__name__,
+            )
+        except OSError:
+            logger.exception(
+                "Citation cache was unreadable but could not be preserved (%s)",
+                type(error).__name__,
+            )
 
     def _is_fresh(self, timestamp_str: str) -> bool:
         """Check if timestamp is within TTL window.

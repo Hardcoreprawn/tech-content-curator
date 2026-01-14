@@ -29,6 +29,13 @@ logger = get_logger(__name__)
 _RUN_ID = os.getenv("GITHUB_RUN_ID") or datetime.now(UTC).strftime("%Y%m%dT%H%M%S")
 
 
+def _as_int(value: Any, default: int = 0) -> int:
+    try:
+        return int(value)
+    except Exception:
+        return default
+
+
 def _ensure_run_dirs() -> tuple[Path, Path, Path]:
     data_dir = get_data_dir()
     run_dir = data_dir / "runs" / _RUN_ID
@@ -186,9 +193,11 @@ def chat_completion(
     )
 
     usage = getattr(response, "usage", None)
-    prompt_tokens = getattr(usage, "prompt_tokens", 0) if usage else 0
-    completion_tokens = getattr(usage, "completion_tokens", 0) if usage else 0
-    total_tokens = getattr(usage, "total_tokens", prompt_tokens + completion_tokens)
+    prompt_tokens = _as_int(getattr(usage, "prompt_tokens", 0) if usage else 0)
+    completion_tokens = _as_int(getattr(usage, "completion_tokens", 0) if usage else 0)
+    total_tokens = _as_int(
+        getattr(usage, "total_tokens", prompt_tokens + completion_tokens)
+    )
 
     cost = estimate_text_cost(model, prompt_tokens or 0, completion_tokens or 0)
     _register_cost(stage=stage, cost=cost, config=cfg, article_id=article_id)

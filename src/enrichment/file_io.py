@@ -10,6 +10,7 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
+from pydantic import ValidationError
 from rich.console import Console
 
 from ..config import get_data_dir
@@ -72,8 +73,11 @@ def load_collected_items(filepath: Path) -> list[CollectedItem]:
         try:
             item = CollectedItem(**item_data)
             items.append(item)
-        except Exception as e:
-            logger.warning(f"Failed to load item: {type(e).__name__}: {e}")
+        except (ValidationError, TypeError, ValueError) as e:
+            logger.warning(
+                f"Failed to load collected item from {filepath.name}: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠[/yellow] Failed to load item: {e}")
             continue
 
@@ -102,8 +106,11 @@ def load_enriched_items(filepath: Path) -> list[EnrichedItem]:
         try:
             item = EnrichedItem(**item_data)
             items.append(item)
-        except Exception as e:
-            logger.warning(f"Failed to load item: {type(e).__name__}: {e}")
+        except (ValidationError, TypeError, ValueError) as e:
+            logger.warning(
+                f"Failed to load enriched item from {filepath.name}: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠[/yellow] Failed to load item: {e}")
             continue
 

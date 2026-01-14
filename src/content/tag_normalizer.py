@@ -264,7 +264,7 @@ TAG_MAPPINGS = {
 }
 
 
-def normalize_tag(tag: str) -> str | None:
+def normalize_tag(tag: str | None) -> str | None:
     """Normalize a single tag to its canonical form.
 
     Args:
@@ -308,7 +308,7 @@ def normalize_tag(tag: str) -> str | None:
     return None
 
 
-def normalize_tags(tags: list[str], max_tags: int = 5) -> list[str]:
+def normalize_tags(tags: list[str] | None, max_tags: int = 5) -> list[str]:
     """Normalize a list of tags and limit to max_tags.
 
     Args:

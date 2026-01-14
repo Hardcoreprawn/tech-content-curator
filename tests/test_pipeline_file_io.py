@@ -2,22 +2,87 @@
 
 import json
 from datetime import UTC, datetime
+from typing import cast
 from unittest.mock import Mock, patch
 
 import frontmatter
+from pydantic import HttpUrl, TypeAdapter
 
 from src.citations.extractor import Citation
 from src.citations.formatter import FormattedCitation
 from src.citations.resolver import ResolvedCitation
-from src.models import CollectedItem, EnrichedItem, GeneratedArticle, PipelineConfig
+from src.models import (
+    CollectedItem,
+    EnrichedItem,
+    GeneratedArticle,
+    PipelineConfig,
+    SourceType,
+)
 from src.pipeline.file_io import load_enriched_items, save_article_to_file
+
+
+def test_save_article_persists_external_cover_image(monkeypatch, tmp_path):
+    """External cover URLs are persisted and frontmatter stores Hugo-local paths."""
+
+    import frontmatter
+
+    from src.models import GeneratedArticle, PipelineConfig
+
+    # Ensure we don't write into the real content dir
+    monkeypatch.setattr("src.config.get_content_dir", lambda: tmp_path)
+    monkeypatch.setattr(
+        "src.pipeline.file_io.find_article_by_slug", lambda *a, **k: None
+    )
+
+    # Force the image selection path to return an external URL
+    monkeypatch.setattr(
+        "src.pipeline.file_io.select_or_create_cover_image",
+        lambda *a, **k: (
+            "https://example.com/hero.png",
+            "https://example.com/icon.png",
+        ),
+    )
+
+    # Make downloading/persisting return local Hugo paths
+    monkeypatch.setattr(
+        "src.pipeline.file_io.download_and_persist",
+        lambda *a, **k: ("/images/test-slug.png", "/images/test-slug-icon.png"),
+    )
+
+    config = PipelineConfig(openai_api_key="test")
+    config.image_strategy = "reuse"
+
+    article = GeneratedArticle(
+        title="Test Article",
+        content="Hello world",
+        summary="Summary",
+        sources=[make_enriched_item()],
+        word_count=2,
+        filename="2026-01-12-test-slug.md",
+        generator_name="test",
+    )
+
+    out = save_article_to_file(
+        article,
+        config,
+        generate_image=True,
+        client=None,
+        update_existing=False,
+    )
+
+    post = cast(frontmatter.Post, frontmatter.load(str(out)))
+    metadata = cast(dict[str, object], post.metadata)
+    cover = cast(dict[str, object], metadata["cover"])
+    assert cast(str, cover["image"]).startswith("/images/")
+    assert cover["image"] == "/images/test-slug.png"
+    assert metadata["icon"] == "/images/test-slug-icon.png"
 
 
 def make_collected_item(
     item_id: str = "test-1",
-    source: str = "mastodon",
+    source: SourceType = SourceType.MASTODON,
     author: str = "testuser",
-    url: str = "https://example.com/article",
+    url: HttpUrl = TypeAdapter(HttpUrl).validate_python("https://example.com/article"),
 ) -> CollectedItem:
     """Helper to create test CollectedItem."""
     return CollectedItem(
@@ -73,8 +138,6 @@ def make_config() -> PipelineConfig:
     """Helper to create test PipelineConfig."""
     return PipelineConfig(
         openai_api_key="test-key",
-        content_dirs={"posts": "content/posts"},
-        use_semantic_dedup=False,
         enable_citations=False,
     )
 
@@ -96,7 +159,7 @@ class TestSaveArticleToFile:
 
         # Verify frontmatter
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert post["title"] == "Test Article"
         assert post["tags"] == ["Python", "Tech"]
@@ -115,7 +178,7 @@ class TestSaveArticleToFile:
 
         # Verify content
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert "# My Article" in post.content
         assert "Some content here." in post.content
@@ -164,7 +227,7 @@ class TestSaveArticleToFile:
 
         # Verify attribution
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert "> **Attribution:**" in post.content
         assert "@testuser" in post.content
@@ -177,7 +240,9 @@ class TestSaveArticleToFile:
             original=make_collected_item(
                 item_id="test-2",
                 author="author2",
-                url="https://example.com/article2",
+                url=TypeAdapter(HttpUrl).validate_python(
+                    "https://example.com/article2"
+                ),
             ),
             research_summary="Research",
             related_sources=[],
@@ -194,7 +259,7 @@ class TestSaveArticleToFile:
 
         # Verify references
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert "## References" in post.content
         assert "@testuser" in post.content
@@ -204,8 +269,10 @@ class TestSaveArticleToFile:
         """GitHub URLs are detected and labeled correctly."""
         enriched = EnrichedItem(
             original=make_collected_item(
-                source="github",
-                url="https://github.com/user/repo",
+                source=SourceType.GITHUB,
+                url=TypeAdapter(HttpUrl).validate_python(
+                    "https://github.com/user/repo"
+                ),
             ),
             research_summary="Research",
             related_sources=[],
@@ -222,7 +289,7 @@ class TestSaveArticleToFile:
 
         # Verify GitHub detected
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert "GitHub" in post.content
 
@@ -230,8 +297,10 @@ class TestSaveArticleToFile:
         """arXiv URLs are detected and labeled correctly."""
         enriched = EnrichedItem(
             original=make_collected_item(
-                source="github",  # Use valid source, URL detection is what matters
-                url="https://arxiv.org/abs/2301.00001",
+                source=SourceType.GITHUB,  # Use valid source, URL detection is what matters
+                url=TypeAdapter(HttpUrl).validate_python(
+                    "https://arxiv.org/abs/2301.00001"
+                ),
             ),
             research_summary="Research",
             related_sources=[],
@@ -248,7 +317,7 @@ class TestSaveArticleToFile:
 
         # Verify arXiv detected
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert "arXiv" in post.content
 
@@ -263,7 +332,7 @@ class TestSaveArticleToFile:
 
         # Verify reading time
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert post["reading_time"] == "3 min read"
 
@@ -278,7 +347,7 @@ class TestSaveArticleToFile:
 
         # Verify minimum
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
         assert post["reading_time"] == "1 min read"
 
@@ -294,10 +363,11 @@ class TestSaveArticleToFile:
 
         # Verify sources structure
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
-        assert len(post["sources"]) == 1
-        source = post["sources"][0]
+        sources = cast(list[dict[str, object]], post["sources"])
+        assert len(sources) == 1
+        source = sources[0]
         assert source["platform"] == "mastodon"
         assert source["author"] == "testuser"
         assert source["url"] == "https://example.com/article"
@@ -307,9 +377,9 @@ class TestSaveArticleToFile:
         """Generation costs are included in metadata."""
         article = make_generated_article()
         article.generation_costs = {
-            "text": 0.001,
-            "image": 0.080,
-            "total": 0.081,
+            "text": [0.001],
+            "image": [0.080],
+            "total": [0.081],
         }
         config = make_config()
 
@@ -318,10 +388,11 @@ class TestSaveArticleToFile:
 
         # Verify costs
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
-        assert post["generation_costs"]["total"] == 0.081
-        assert post["generation_costs"]["text"] == 0.001
+        generation_costs = cast(dict[str, object], post["generation_costs"])
+        assert generation_costs["total"] == [0.081]
+        assert generation_costs["text"] == [0.001]
 
     def test_cover_image_placeholder(self, tmp_path):
         """Cover image fields are initialized empty."""
@@ -333,10 +404,11 @@ class TestSaveArticleToFile:
 
         # Verify cover placeholder
         with open(filepath, encoding="utf-8") as f:
-            post = frontmatter.load(f)
+            post = cast(frontmatter.Post, frontmatter.load(f))
 
-        assert post["cover"]["image"] == ""
-        assert post["cover"]["alt"] == ""
+        cover = cast(dict[str, object], post["cover"])
+        assert cover["image"] == ""
+        assert cover["alt"] == ""
 
     @patch("src.pipeline.file_io.CitationExtractor")
     @patch("src.pipeline.file_io.CitationResolver")

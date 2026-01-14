@@ -8,11 +8,6 @@ Simple workflow:
 5. Return paths for both hero and icon
 """
 
-from ..utils.logging import get_logger
-
-logger = get_logger(__name__)
-
-
 from io import BytesIO
 from pathlib import Path
 
@@ -22,8 +17,14 @@ from PIL import Image
 from rich.console import Console
 
 from ..config import get_project_root
+from ..models import PipelineConfig
+from ..utils.costs import append_generation_cost
+from ..utils.logging import get_logger
+from ..utils.openai_wrapper import create_image
+from ..utils.pricing import estimate_image_cost
 
 console = Console()
+logger = get_logger(__name__)
 
 
 def get_images_dir() -> Path:
@@ -34,7 +35,15 @@ def get_images_dir() -> Path:
 
 
 def generate_featured_image(
-    title: str, summary: str, slug: str, openai_api_key: str, base_url: str = ""
+    title: str,
+    summary: str,
+    slug: str,
+    openai_api_key: str,
+    base_url: str = "",
+    *,
+    config: PipelineConfig | None = None,
+    article_id: str | None = None,
+    generation_costs: dict[str, list[float]] | None = None,
 ) -> tuple[str, str] | None:
     """Generate a featured image for an article using DALL-E 3.
 
@@ -54,6 +63,7 @@ def generate_featured_image(
     """
     logger.debug(f"Generating featured image for article: {slug}")
     try:
+        resolved_config = config
         client = OpenAI(api_key=openai_api_key)
 
         # Create a concise prompt for DALL-E 3
@@ -70,13 +80,32 @@ The image should work well as a blog header - wide format, visually appealing, n
         logger.debug("Calling DALL-E 3 API for image generation")
         console.print("[blue]Generating featured image...[/blue]")
 
-        response = client.images.generate(
-            model="dall-e-3",
+        model = "dall-e-3"
+        size = "1024x1024"  # Square format - we'll crop to wide locally
+        quality = "standard"  # Standard is fine for blog images ($0.020 vs $0.040)
+
+        response = create_image(
+            client=client,
+            model=model,
             prompt=prompt,
-            size="1024x1024",  # Square format - we'll crop to wide locally
-            quality="standard",  # Standard is fine for blog images ($0.020 vs $0.040)
+            stage="featured_image_generation",
+            config=resolved_config,
+            article_id=article_id,
+            size=size,
+            quality=quality,
             n=1,
+            context={
+                "slug": slug,
+                "title": title,
+            },
         )
+
+        if generation_costs is not None:
+            append_generation_cost(
+                generation_costs,
+                "featured_image_generation",
+                estimate_image_cost(model, size=size, quality=quality, count=1),
+            )
 
         if not response.data:
             logger.warning("No image data returned from DALL-E 3")
@@ -94,8 +123,8 @@ The image should work well as a blog header - wide format, visually appealing, n
         console.print("[blue]Downloading image from OpenAI...[/blue]")
         from ..config import get_config
 
-        config = get_config()
-        with httpx.Client(timeout=config.timeouts.http_client_timeout) as http_client:
+        cfg = resolved_config or get_config()
+        with httpx.Client(timeout=cfg.timeouts.http_client_timeout) as http_client:
             img_response = http_client.get(image_url)
             img_response.raise_for_status()
 

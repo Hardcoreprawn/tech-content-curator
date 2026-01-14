@@ -6,9 +6,10 @@ architectural guidance, component comparisons, and practical setup instructions.
 
 from rich.console import Console
 
+from ...config import get_config
 from ...models import EnrichedItem
 from ...utils.logging import get_logger
-from ...utils.openai_client import create_chat_completion
+from ...utils.openai_wrapper import chat_completion
 from ..base import BaseGenerator
 
 logger = get_logger(__name__)
@@ -32,10 +33,11 @@ class SelfHostedGenerator(BaseGenerator):
         Uses both extracted topics and raw content keywords.
         """
         logger.debug(
-            f"Checking if item is self-hosted/home-lab topic: {item.original.title[:50]}"
+            "Checking if item is self-hosted/home-lab topic: %s",
+            (item.original.title or "")[:50],
         )
         topic_text = " ".join(item.topics).lower() if item.topics else ""
-        content_text = item.original.content.lower()
+        content_text = (item.original.content or "").lower()
 
         # More specific keywords to avoid false positives
         keywords = [
@@ -85,7 +87,9 @@ class SelfHostedGenerator(BaseGenerator):
         if not self.client:
             raise ValueError("OpenAI client not initialized")
 
-        logger.debug(f"Generating self-hosted article for: {item.original.title[:50]}")
+        logger.debug(
+            "Generating self-hosted article for: %s", (item.original.title or "")[:50]
+        )
         prompt = f"""
     Write a comprehensive, practical guide for running self-hosted services at home.
 
@@ -137,15 +141,16 @@ class SelfHostedGenerator(BaseGenerator):
 
         try:
             logger.debug("Calling OpenAI API for self-hosted article generation")
-            # Get model from config
-            from ...config import get_config
-
             config = get_config()
 
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=config.content_model,
                 messages=messages,
+                stage="content",
+                config=config,
+                article_id=item.original.id,
+                context={"generator": self.name, "content_type": "self_hosted"},
                 temperature=0.7,
                 max_tokens=2500,  # Allow for longer, more detailed content
             )
@@ -159,12 +164,18 @@ class SelfHostedGenerator(BaseGenerator):
             output_tokens = usage.completion_tokens if usage else 0
 
             logger.info(
-                f"Self-hosted article generated: {len(content.split())} words, tokens: {input_tokens}/{output_tokens}"
+                "Self-hosted article generated: %s words, tokens: %s/%s",
+                len(content.split()),
+                input_tokens,
+                output_tokens,
             )
             return content.strip(), input_tokens, output_tokens
         except Exception as e:
             logger.error(
-                f"Self-hosted article generation failed: {type(e).__name__}: {e}"
+                "Self-hosted article generation failed: %s: %s",
+                type(e).__name__,
+                e,
+                exc_info=True,
             )
             console.print(
                 f"[yellow]⚠[/yellow] Self-hosted article generation failed: {e}"

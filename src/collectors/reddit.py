@@ -118,9 +118,6 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
                         break
 
                 # Rate limiting - be respectful to Reddit API
-                from ..config import get_config
-
-                config = get_config()
                 time.sleep(config.sleep_intervals.between_subreddit_requests)
 
                 if len(all_posts) >= limit:
@@ -128,7 +125,8 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
 
             except Exception as e:
                 logger.warning(
-                    f"Error collecting from r/{subreddit_name}: {type(e).__name__}"
+                    f"Error collecting from r/{subreddit_name}: {type(e).__name__}",
+                    exc_info=True,
                 )
                 console.print(
                     f"[yellow]⚠ Failed to collect from r/{subreddit_name}: {e}[/yellow]"
@@ -139,7 +137,7 @@ def collect_from_reddit(config: PipelineConfig, limit: int = 20) -> list[Collect
         return _process_reddit_posts(all_posts, config)
 
     except Exception as e:
-        logger.error(f"Reddit collection failed: {type(e).__name__} - {e}")
+        logger.exception(f"Reddit collection failed: {type(e).__name__} - {e}")
         console.print(f"[red]✗ Reddit collection failed: {e}[/red]")
         return []
 
@@ -232,7 +230,10 @@ def _process_reddit_posts(posts: list, config: PipelineConfig) -> list[Collected
 
         except Exception as e:
             filtered_counts["malformed"] += 1
-            logger.debug(f"Malformed Reddit post: {type(e).__name__}")
+            logger.debug(
+                f"Malformed Reddit post: {type(e).__name__}",
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠[/yellow] Malformed Reddit post: {e}")
             continue
 

@@ -20,7 +20,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from src.generators.base import BaseGenerator
-from src.models import CollectedItem, EnrichedItem, PipelineConfig
+from src.models import CollectedItem, EnrichedItem, PipelineConfig, SourceType
 from src.pipeline import (
     calculate_image_cost,
     calculate_text_cost,
@@ -34,6 +34,7 @@ from src.pipeline import (
     select_article_candidates,
     select_generator,
 )
+from tests.utils.types import http_url
 
 # ============================================================================
 # Fixtures
@@ -57,8 +58,8 @@ This article covers the core components of K8s architecture including:
 Learn how these components work together to orchestrate containers at scale.
 Check out the official docs at https://kubernetes.io for more details.
         """,
-        url="https://example.com/k8s-article",
-        source="mastodon",
+        url=http_url("https://example.com/k8s-article"),
+        source=SourceType.MASTODON,
         collected_at=datetime.now(UTC),
         author="tech_expert",
         metadata={
@@ -528,8 +529,6 @@ class TestArticleGeneration:
         self, high_quality_enriched_item, mock_generator, mock_openai_client
     ):
         """Skip generation if article already exists."""
-        config = MagicMock()
-
         with patch(
             "src.pipeline.orchestrator.check_article_exists_for_source"
         ) as mock_check:
@@ -537,7 +536,6 @@ class TestArticleGeneration:
 
             article = generate_single_article(
                 high_quality_enriched_item,
-                config,
                 [mock_generator],
                 mock_openai_client,
                 force_regenerate=False,
@@ -611,7 +609,6 @@ class TestErrorHandling:
         self, high_quality_enriched_item, mock_generator, mock_openai_client
     ):
         """Handle OpenAI API failure gracefully."""
-        config = MagicMock()
         mock_generator.generate_content.side_effect = Exception("API Error")
 
         with patch(
@@ -623,7 +620,6 @@ class TestErrorHandling:
 
                 article = generate_single_article(
                     high_quality_enriched_item,
-                    config,
                     [mock_generator],
                     mock_openai_client,
                 )

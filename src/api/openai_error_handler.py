@@ -167,22 +167,27 @@ def log_and_raise(
         context: What operation was being attempted
     """
     log_context = f" ({context})" if context else ""
+    exc_info = (type(error), error, error.__traceback__)
 
     # Log appropriately
     if is_fatal(error_type):
         logger.critical(
             f"Fatal OpenAI error: {error_type.value}{log_context} - {message}",
-            exc_info=True,
+            exc_info=exc_info,
         )
         console.print(f"[bold red]❌ FATAL: {error_type.value}{log_context}[/bold red]")
     elif is_retryable(error_type):
         logger.warning(
-            f"Transient OpenAI error: {error_type.value}{log_context} - {message}"
+            f"Transient OpenAI error: {error_type.value}{log_context} - {message}",
+            exc_info=exc_info,
         )
         logger.debug(f"Will retry operation: {context or 'unknown'}")
         console.print(f"[yellow]⚠ {error_type.value}{log_context}: will retry[/yellow]")
     else:
-        logger.error(f"OpenAI error: {error_type.value}{log_context} - {message}")
+        logger.error(
+            f"OpenAI error: {error_type.value}{log_context} - {message}",
+            exc_info=exc_info,
+        )
         console.print(f"[yellow]⚠ {error_type.value}{log_context}[/yellow]")
 
 

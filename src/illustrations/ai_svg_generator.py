@@ -1,17 +1,22 @@
-"""AI-powered SVG generation using OpenAI API.
+"""AI-powered SVG generation.
 
-Generates context-aware SVG infographics and diagrams for complex
-system architecture, network topology, and visual explanations.
+Generates context-aware SVG infographics and diagrams for complex system
+architecture, network topology, and visual explanations.
+
+All LLM calls route through the instrumented wrapper so costs/telemetry are
+consistent and spend caps apply.
 """
 
 from dataclasses import dataclass
 
+from openai import OpenAI
+
+from ..models import PipelineConfig
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_text_cost_components
 
 logger = get_logger(__name__)
-
-from openai import OpenAI
 
 
 @dataclass
@@ -53,13 +58,6 @@ class AISvgGenerator:
     perfect for web content.
     """
 
-    PRICING = {
-        "gpt-3.5-turbo": {
-            "prompt": 0.0005,
-            "completion": 0.0015,
-        }
-    }
-
     def __init__(self, client: OpenAI, model: str = "gpt-3.5-turbo"):
         """Initialize AI SVG generator.
 
@@ -77,6 +75,9 @@ class AISvgGenerator:
         concept_type: str,
         width: int = 800,
         height: int = 600,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> GeneratedSvg | None:
         """Generate SVG graphic for a specific article section.
 
@@ -99,9 +100,12 @@ class AISvgGenerator:
         graphic_type = self._determine_graphic_type(concept_type)
 
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.model,
+                stage="svg_generation",
+                config=config,
+                article_id=article_id,
                 messages=[
                     {
                         "role": "system",
@@ -121,17 +125,15 @@ class AISvgGenerator:
                 return None
             svg_content = svg_content.strip()
 
-            # Calculate costs
-            if response.usage is None:
-                logger.error("SVG generation failed: No usage data returned from API")
-                return None
-            prompt_tokens = response.usage.prompt_tokens
-            completion_tokens = response.usage.completion_tokens
+            usage = response.usage
+            prompt_tokens = usage.prompt_tokens if usage else 0
+            completion_tokens = usage.completion_tokens if usage else 0
 
-            prompt_cost = (prompt_tokens / 1000) * self.PRICING[self.model]["prompt"]
-            completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
-                "completion"
-            ]
+            prompt_cost, completion_cost = estimate_text_cost_components(
+                self.model,
+                prompt_tokens,
+                completion_tokens,
+            )
             total_cost = prompt_cost + completion_cost
             logger.debug(
                 f"SVG generated: {len(svg_content)} chars, cost: ${total_cost:.4f}"
@@ -151,7 +153,12 @@ class AISvgGenerator:
             )
 
         except Exception as e:
-            logger.error(f"SVG generation failed: {type(e).__name__}: {e}")
+            logger.error(
+                "SVG generation failed: %s: %s",
+                type(e).__name__,
+                e,
+                exc_info=True,
+            )
             return None
 
     def _build_prompt(

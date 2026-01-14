@@ -488,6 +488,42 @@ class PipelineConfig(BaseModel):
         description="Time-to-live for citation cache entries in days",
     )
 
+    # Fact-check / validation behavior
+    fact_check_mode: str = Field(
+        default="strict",
+        description="Validation policy: 'strict' fails generation on broken sources/links; 'lenient' warns and continues",
+    )
+    fact_check_max_broken_links: int = Field(
+        default=0,
+        ge=0,
+        description="Maximum allowed broken outbound links before failing in strict mode",
+    )
+    fact_check_max_unreachable_sources: int = Field(
+        default=0,
+        ge=0,
+        description="Maximum allowed unreachable source URLs before failing in strict mode",
+    )
+    fact_check_retry_attempts: int = Field(
+        default=3,
+        ge=0,
+        description="Retry attempts for fact-check HTTP requests",
+    )
+    fact_check_retry_backoff_min: float = Field(
+        default=0.5,
+        ge=0.0,
+        description="Minimum backoff (seconds) for fact-check retries",
+    )
+    fact_check_retry_backoff_max: float = Field(
+        default=8.0,
+        ge=0.0,
+        description="Maximum backoff (seconds) for fact-check retries",
+    )
+    fact_check_retry_jitter: float = Field(
+        default=0.1,
+        ge=0.0,
+        description="Jitter factor (0-1) applied to retry backoff delays",
+    )
+
     # Image selection - multi-source fallback
     unsplash_api_key: str = Field(
         default="",

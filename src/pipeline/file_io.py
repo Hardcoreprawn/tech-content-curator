@@ -203,7 +203,11 @@ def save_article_to_file(
                 try:
                     selector = CoverImageSelector(client, config)
                     cover_image = selector.select(
-                        article.title, article.tags, article.content
+                        article.title,
+                        article.tags,
+                        article.content,
+                        article_id=slug,
+                        generation_costs=article.generation_costs,
                     )
                     hero_path = cover_image.url
                     icon_path = cover_image.url
@@ -245,8 +249,11 @@ def save_article_to_file(
                             console.print(
                                 f"[dim]Downloaded image and saved as {hero_path}[/dim]"
                             )
-                        except Exception as e:
-                            logger.warning(f"Failed to persist external image: {e}")
+                        except (OSError, ValueError, KeyError, AttributeError) as e:
+                            logger.warning(
+                                f"Failed to persist external image: {type(e).__name__}: {e}",
+                                exc_info=True,
+                            )
                             console.print(
                                 f"[yellow]⚠ Failed to persist image: {e}[/yellow]"
                             )
@@ -263,6 +270,37 @@ def save_article_to_file(
                 append_generation_cost(
                     article.generation_costs, "image_generation", 0.0
                 )
+
+            # Normalize: persist any external URL so frontmatter stores local Hugo paths.
+            if hero_path and str(hero_path).startswith("http"):
+                try:
+                    meta = {}
+                    if image_attribution is not None:
+                        meta = {
+                            "photographer": getattr(
+                                image_attribution, "photographer_name", None
+                            ),
+                            "photographer_url": getattr(
+                                image_attribution, "photographer_url", None
+                            ),
+                            "source": getattr(image_attribution, "source", None),
+                        }
+                    hero_path_local, icon_path_local = download_and_persist(
+                        str(hero_path), slug, meta=meta, base_url=""
+                    )
+                    hero_path = hero_path_local
+                    icon_path = icon_path_local
+                    console.print(
+                        f"[dim]Downloaded image and saved as {hero_path}[/dim]"
+                    )
+                except (OSError, ValueError, KeyError, AttributeError) as e:
+                    logger.warning(
+                        f"Failed to persist external cover image: {type(e).__name__}: {e}",
+                        exc_info=True,
+                    )
+                    console.print(
+                        f"[yellow]⚠ Failed to persist cover image: {e}[/yellow]"
+                    )
         except (OSError, ValueError, KeyError) as ie:
             logger.error(
                 f"Image attachment failed for article '{article.title}': {ie}",

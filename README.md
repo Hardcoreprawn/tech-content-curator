@@ -477,6 +477,13 @@ except Exception:
 
 **For GitHub Copilot / other AI coding assistants:**
 
+### Agent workflow (types + diagnostics)
+
+When working with AI assistance, we treat **types as executable expectations**. Please follow:
+
+- `AGENTS.md` (required workflow: check diagnostics first, prefer canonical types, consistent shims for weak stubs)
+- `AI-DEVELOPMENT-GUIDE.md` (uv-first commands + quick reference)
+
 ### DO
 
 - ✅ Use type hints everywhere (`def func(x: int) -> str:`)

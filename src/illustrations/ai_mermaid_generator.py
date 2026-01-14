@@ -8,12 +8,14 @@ dynamic, relevant diagrams matched to the specific article section.
 from dataclasses import dataclass
 
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_text_cost_components
 
 logger = get_logger(__name__)
 
 from openai import OpenAI
 
+from ..models import PipelineConfig
 from ..utils.logging import get_logger
 
 
@@ -36,10 +38,13 @@ class GeneratedMermaidDiagram:
     completion_cost: float
     """Cost in dollars for completion tokens"""
 
+    extra_costs: float = 0.0
+    """Additional costs (e.g., validation/review) in USD."""
+
     @property
     def total_cost(self) -> float:
         """Total cost for diagram generation."""
-        return self.prompt_cost + self.completion_cost
+        return self.prompt_cost + self.completion_cost + self.extra_costs
 
 
 class AIMermaidGenerator:
@@ -49,14 +54,6 @@ class AIMermaidGenerator:
     based on the specific article section content. This ensures diagrams are
     relevant and accurate to the actual content being illustrated.
     """
-
-    # Pricing per 1K tokens (as of Nov 2024)
-    PRICING = {
-        "gpt-3.5-turbo": {
-            "prompt": 0.0005,  # $0.0005 per 1K input tokens
-            "completion": 0.0015,  # $0.0015 per 1K output tokens
-        }
-    }
 
     def __init__(self, client: OpenAI, model: str = "gpt-3.5-turbo"):
         """Initialize AI Mermaid generator.
@@ -73,6 +70,9 @@ class AIMermaidGenerator:
         section_title: str,
         section_content: str,
         concept_type: str,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> GeneratedMermaidDiagram | None:
         """Generate a Mermaid diagram for a specific article section.
 
@@ -92,9 +92,12 @@ class AIMermaidGenerator:
         prompt = self._build_prompt(section_title, section_content, concept_type)
 
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.model,
+                stage="illustration_mermaid_generate",
+                config=config,
+                article_id=article_id,
                 messages=[
                     {
                         "role": "system",
@@ -115,18 +118,15 @@ class AIMermaidGenerator:
                 return None
             mermaid_content = mermaid_content.strip()
 
-            # Calculate costs
-            if response.usage is None:
-                logger.error("Mermaid generation failed: No token usage data")
-                return None
+            # Calculate costs (shared pricing table)
+            prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+            completion_tokens = (
+                response.usage.completion_tokens if response.usage else 0
+            )
 
-            prompt_tokens = response.usage.prompt_tokens
-            completion_tokens = response.usage.completion_tokens
-
-            prompt_cost = (prompt_tokens / 1000) * self.PRICING[self.model]["prompt"]
-            completion_cost = (completion_tokens / 1000) * self.PRICING[self.model][
-                "completion"
-            ]
+            prompt_cost, completion_cost = estimate_text_cost_components(
+                self.model, prompt_tokens, completion_tokens
+            )
             total_cost = prompt_cost + completion_cost
             logger.debug(
                 f"Mermaid diagram generated: {len(mermaid_content)} chars, cost: ${total_cost:.4f}"
@@ -146,7 +146,10 @@ class AIMermaidGenerator:
             )
 
         except Exception as e:
-            logger.error(f"Mermaid generation failed: {type(e).__name__}: {e}")
+            logger.error(
+                f"Mermaid generation failed: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             return None
 
     def _build_prompt(

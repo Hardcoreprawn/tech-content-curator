@@ -148,7 +148,7 @@ def generate_single_article(
             costs,
             "content_generation",
             calculate_text_cost(
-                "gpt-4o-mini", content_input_tokens, content_output_tokens
+                config.content_model, content_input_tokens, content_output_tokens
             ),
         )
 
@@ -193,7 +193,9 @@ def generate_single_article(
                 illustration_service = IllustrationService(client, config)
 
             result = illustration_service.generate_illustrations(
-                generator.name, content
+                generator.name,
+                content,
+                article_id=item.original.id,
             )
 
             final_content = result.content
@@ -206,7 +208,7 @@ def generate_single_article(
             try:
                 final_content = format_markdown(final_content)
             except Exception as e:
-                logger.warning(f"Markdown formatting failed: {e}")
+                logger.warning("Markdown formatting failed", exc_info=True)
                 console.print(
                     f"  [dim]Note: markdown formatting skipped ({str(e)[:30]})[/dim]"
                 )
@@ -263,8 +265,8 @@ def generate_single_article(
                 f"Quality tracked: score={quality_result.overall_score:.1f}, "
                 f"model={config.content_model}"
             )
-        except Exception as e:
-            logger.warning(f"Failed to track quality metrics: {e}")
+        except Exception:
+            logger.warning("Failed to track quality metrics", exc_info=True)
 
         console.print(f"[green]✓[/green] Generated: {title}")
         return article
@@ -531,7 +533,10 @@ async def generate_articles_async(
         # Process results
         for i, result in enumerate(results):
             if isinstance(result, Exception):
-                logger.error(f"Article {i + 1} generation failed: {result}")
+                logger.error(
+                    f"Article {i + 1} generation failed: {result}",
+                    exc_info=(type(result), result, result.__traceback__),
+                )
                 console.print(f"[red]✗[/red] Article {i + 1} failed: {result}")
                 continue
 

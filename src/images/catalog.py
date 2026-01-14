@@ -71,7 +71,13 @@ def build_image_catalog(
                 catalog[tag_lower].append((image_url, slug))
 
         except Exception as e:
-            logger.warning(f"Failed to parse {md_file.name}: {type(e).__name__}: {e}")
+            logger.warning(
+                "Failed to parse %s: %s: %s",
+                md_file.name,
+                type(e).__name__,
+                e,
+                exc_info=True,
+            )
             console.print(f"[yellow]⚠[/yellow] Failed to parse {md_file.name}: {e}")
 
     # Save catalog

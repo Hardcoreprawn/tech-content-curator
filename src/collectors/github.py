@@ -102,14 +102,17 @@ def collect_from_github_trending(
                     items.append(item)
 
                 except Exception as e:
-                    logger.debug(f"Error processing GitHub repo: {type(e).__name__}")
+                    logger.debug(
+                        f"Error processing GitHub repo: {type(e).__name__}",
+                        exc_info=True,
+                    )
                     console.print(
                         f"[yellow]⚠[/yellow] Failed to process GitHub repo: {e}"
                     )
                     continue
 
     except Exception as e:
-        logger.error(f"GitHub trending collection failed: {type(e).__name__} - {e}")
+        logger.exception(f"GitHub trending collection failed: {type(e).__name__} - {e}")
         console.print(f"[red]✗[/red] GitHub trending collection failed: {e}")
         return []
 
