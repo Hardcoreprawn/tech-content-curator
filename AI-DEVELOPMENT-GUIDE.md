@@ -162,6 +162,50 @@ selector = MermaidQualitySelector(client, n_candidates=3)
 result = selector.generate_best(section_title, section_content, concept_type)
 ```
 
+## OpenAI Integration: Adapter vs Instrumented Wrapper
+
+This repo intentionally uses **two layers** for OpenAI calls:
+
+### 1) Client adapter (parameter mapping)
+
+- **File:** `src/utils/openai_client.py`
+- **Main entry:** `create_chat_completion(...)`
+- **Responsibility:** normalize our call signature across model families (GPT-5 vs GPT-4 vs o1/o3) by mapping params (e.g., `max_tokens` differences), and applying model-specific guardrails/fallbacks.
+- **Design goal:** keep this mostly **pure** (request-shape correctness) so it stays easy to test and reuse.
+
+### 2) Instrumented wrapper (governance + telemetry)
+
+- **File:** `src/utils/openai_wrapper.py`
+- **Main entries:** `chat_completion(...)`, `create_image(...)`
+- **Responsibility:** cross-cutting concerns we want everywhere:
+    - per-stage attribution (`stage`, `article_id`, `revision`, `context`)
+    - standardized telemetry + per-article ledgers (`data/runs/...`)
+    - cost estimation from `data/model_pricing.json`
+    - budget enforcement (`max_cost_per_run`, `max_cost_per_article`)
+
+**Important:** the wrapper is not a replacement for the adapter.
+`openai_wrapper.chat_completion(...)` calls `openai_client.create_chat_completion(...)` under the hood.
+
+### Why not just “extend the client adapter”?
+
+You *can* fold wrapper responsibilities into the client adapter, but it tends to:
+
+- mix request-shape correctness with side-effects (file I/O, global run state, cost caps)
+- make low-level call helpers harder to unit test and reuse
+- increase the blast radius when changing telemetry/cost governance
+
+The current split keeps concerns clean:
+
+- `openai_client.py` = “build the right request for the model family”
+- `openai_wrapper.py` = “record costs/telemetry and enforce governance”
+
+### Project rule of thumb
+
+- **In pipeline/product code:** prefer `src/utils/openai_wrapper.py` so costs + caps are always applied.
+- **In low-level helpers/tests:** use `src/utils/openai_client.py` only when you explicitly *do not* want telemetry/cost tracking.
+
+If we want a future simplification, a good direction is to keep both concerns but rename/restructure so it reads like an explicit “instrumentation decorator” over the adapter.
+
 ## Error Handling
 
 **When you encounter an error:**
@@ -282,7 +326,7 @@ uv run pytest tests/test_file.py -v --tb=long
 
 ---
 
-**Last Updated:** November 3, 2025  
+**Last Updated:** January 14, 2026  
 **For:** AI Agents and Developers  
 **Python:** 3.14+ via uv  
 **Platform:** WSL2 (Windows) or Linux

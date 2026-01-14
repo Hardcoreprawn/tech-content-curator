@@ -48,6 +48,7 @@ data/*.db
 data/*.sqlite
 data/*.lock
 data/runs/
+data/pipeline_tracking.json
 data/IMAGE_LICENSES.json
 !data/dedup_feedback.json
 !data/scoring_feedback.json
