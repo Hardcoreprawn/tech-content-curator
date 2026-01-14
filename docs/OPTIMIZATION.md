@@ -9,8 +9,8 @@
 
 ## Future Optimization Opportunities
 
-### 1. **Batch API for OpenAI (Coming Soon)**
-OpenAI is releasing a Batch API with 50% cost savings for async workloads:
+### 1. **Batch API for OpenAI**
+OpenAI provides a Batch API with 50% cost savings for async workloads:
 ```python
 # Instead of sequential API calls
 batch_requests = [
@@ -25,7 +25,7 @@ batch_id = client.batches.create(requests=batch_requests)
 
 ### 2. **Concurrent Collection with asyncio**
 ```python
-# In src/collect.py
+# In src/collectors/orchestrator.py
 import asyncio
 
 async def collect_all():
@@ -41,7 +41,7 @@ async def collect_all():
 
 ### 3. **Parallel Enrichment**
 ```python
-# In src/enrich.py
+# In src/enrichment/orchestrator.py
 from concurrent.futures import ThreadPoolExecutor
 
 with ThreadPoolExecutor(max_workers=5) as executor:
