@@ -23,7 +23,8 @@ from ..illustrations.generator_analyzer import should_add_illustrations
 from ..illustrations.mermaid_quality_selector import MermaidQualitySelector
 from ..illustrations.placement import PlacementAnalyzer, format_diagram_for_markdown
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_text_cost
 
 if TYPE_CHECKING:
     from ..illustrations.ai_ascii_generator import GeneratedAsciiArt
@@ -124,6 +125,8 @@ class IllustrationService:
         self,
         concept_names: list[str],
         suitable_sections: list[tuple[int, ContentSection]],
+        *,
+        article_id: str | None = None,
     ) -> list[ConceptSectionMatch]:
         """Score all concept-section pairs in batched API calls.
 
@@ -138,6 +141,7 @@ class IllustrationService:
             List of scored matches above threshold (0.3)
         """
         matches: list[ConceptSectionMatch] = []
+        scoring_costs: list[float] = []
 
         # Process each section with all concepts in a single prompt
         for _idx, section in suitable_sections:
@@ -154,12 +158,26 @@ class IllustrationService:
                     f'Reply with ONLY JSON: {{"concept_name": score, ...}}'
                 )
 
-                response = create_chat_completion(
+                response = chat_completion(
                     client=self.client,
                     model=self.config.enrichment_model,
+                    stage="illustration_concept_scoring",
+                    config=self.config,
+                    article_id=article_id,
                     messages=[{"role": "user", "content": prompt}],
                     temperature=0.1,
                     max_tokens=100,
+                )
+
+                # Record cost for this scoring call (even if parsing later fails).
+                prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+                completion_tokens = (
+                    response.usage.completion_tokens if response.usage else 0
+                )
+                scoring_costs.append(
+                    estimate_text_cost(
+                        self.config.enrichment_model, prompt_tokens, completion_tokens
+                    )
                 )
 
                 content = response.choices[0].message.content
@@ -180,19 +198,26 @@ class IllustrationService:
                             )
                         )
 
-            except (json.JSONDecodeError, ValueError, KeyError) as e:
+            except (json.JSONDecodeError, TypeError, ValueError, KeyError) as e:
                 logger.warning(
-                    f"Failed to parse scores for section {section.title}: {e}"
+                    f"Failed to parse scores for section {section.title}: {e}",
+                    exc_info=True,
                 )
                 continue
-            except Exception:
-                logger.exception("Error scoring section %s", section.title)
+            except Exception as e:
+                logger.exception("Error scoring section %s: %s", section.title, e)
                 continue
+
+        # Stash scoring costs for the current run; consumed by generate_illustrations.
+        self._last_scoring_costs = scoring_costs  # type: ignore[attr-defined]
 
         return matches
 
     def _select_format_for_match(
-        self, match: ConceptSectionMatch
+        self,
+        match: ConceptSectionMatch,
+        *,
+        article_id: str | None = None,
     ) -> tuple[str, GeneratedAsciiArt | GeneratedMermaidDiagram | None]:
         """Select best format and generate diagram for a concept-section match.
 
@@ -237,6 +262,8 @@ class IllustrationService:
                 section_title=match.section.title,
                 section_content=match.section.content,
                 concept_type=match.concept,
+                config=self.config,
+                article_id=article_id,
             )
 
             if (
@@ -273,6 +300,8 @@ class IllustrationService:
                 section_title=match.section.title,
                 section_content=match.section.content,
                 concept_type=match.concept,
+                config=self.config,
+                article_id=article_id,
             )
             diagram = mermaid_result.diagram
 
@@ -294,6 +323,8 @@ class IllustrationService:
                 section_content=match.section.content,
                 diagram_content=diagram.content,
                 diagram_type=selected_format,
+                config=self.config,
+                article_id=article_id,
             )
 
             if not validation.is_valid:
@@ -303,6 +334,7 @@ class IllustrationService:
                 )
                 diagram = None  # Reject diagram
             else:
+                diagram.extra_costs += validation.cost
                 console.print(
                     f"  [dim]    ✓ Diagram validated "
                     f"(accuracy: {validation.accuracy_score:.2f}, "
@@ -360,7 +392,11 @@ class IllustrationService:
         )
 
     def generate_illustrations(
-        self, generator_name: str, content: str
+        self,
+        generator_name: str,
+        content: str,
+        *,
+        article_id: str | None = None,
     ) -> IllustrationResult:
         """Generate and inject illustrations into article content.
 
@@ -434,7 +470,9 @@ class IllustrationService:
 
             # Step 3: Batch score all concept-section pairs (MAJOR OPTIMIZATION)
             matches = self._score_concept_section_pairs_batch(
-                concept_names, suitable_sections
+                concept_names,
+                suitable_sections,
+                article_id=article_id,
             )
 
             # Sort by score and take top 3
@@ -448,15 +486,41 @@ class IllustrationService:
             # Step 4: Generate diagrams for top matches
             injected_content = content
             illustrations_added = 0
-            illustration_costs: dict[str, float] = {}
+            illustration_costs: dict[str, float | list[float]] = {}
             format_distribution: dict[str, int] = {}
             rejected_count = 0
 
+            scoring_costs = getattr(self, "_last_scoring_costs", [])
+            if scoring_costs:
+                illustration_costs["illustration_scoring"] = scoring_costs
+
+            spent = sum(scoring_costs) if scoring_costs else 0.0
+            budget = float(getattr(self.config, "illustration_budget_per_article", 0.0))
+
             for match in top_matches:
                 try:
-                    selected_format, diagram = self._select_format_for_match(match)
+                    if budget > 0.0 and spent >= budget:
+                        console.print(
+                            f"  [yellow]⚠ Illustration budget reached (${spent:.6f} >= ${budget:.6f}); skipping remaining diagrams[/yellow]"
+                        )
+                        break
+
+                    selected_format, diagram = self._select_format_for_match(
+                        match,
+                        article_id=article_id,
+                    )
 
                     if diagram:
+                        illustrations_added += 1
+                        # Track total cost including validation
+                        total_cost = diagram.total_cost
+                        if budget > 0.0 and (spent + total_cost) > budget:
+                            console.print(
+                                f"  [yellow]⚠ Diagram would exceed illustration budget; skipping (spent ${spent:.6f} + ${total_cost:.6f} > ${budget:.6f})[/yellow]"
+                            )
+                            rejected_count += 1
+                            continue
+
                         injected_content = self._inject_diagram(
                             injected_content,
                             match.section.title,
@@ -464,9 +528,8 @@ class IllustrationService:
                             selected_format,
                         )
 
-                        illustrations_added += 1
-                        # Track total cost including validation
-                        total_cost = diagram.total_cost
+                        spent += total_cost
+
                         # Validation cost is already part of diagram generation,
                         # but we could add separate tracking if needed
                         illustration_costs[f"diagram_{illustrations_added}"] = (
@@ -480,7 +543,8 @@ class IllustrationService:
 
                 except Exception as e:
                     logger.warning(
-                        f"Diagram generation failed for {match.concept}: {e}"
+                        f"Diagram generation failed for {match.concept} ({match.section.title}): {e}",
+                        exc_info=True,
                     )
                     console.print(
                         f"  [yellow]⚠ Diagram skipped: {str(e)[:50]}[/yellow]"

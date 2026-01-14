@@ -12,8 +12,10 @@ Cost: ~$0.0005 per article for LLM query generation.
 
 import re
 
+from ..utils.costs import append_generation_cost
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion, create_image
+from ..utils.pricing import estimate_image_cost, estimate_text_cost
 
 logger = get_logger(__name__)
 
@@ -210,7 +212,15 @@ class CoverImageSelector:
 
         return list(entities)[:15]  # Return top 15 entities
 
-    def select(self, title: str, topics: list[str], content: str = "") -> CoverImage:
+    def select(
+        self,
+        title: str,
+        topics: list[str],
+        content: str = "",
+        *,
+        article_id: str | None = None,
+        generation_costs: dict[str, list[float]] | None = None,
+    ) -> CoverImage:
         """Select best image from free sources, fallback to AI.
 
         Strategy:
@@ -236,7 +246,13 @@ class CoverImageSelector:
         for attempt in range(1, max_attempts + 1):
             # Generate search queries with content context
             queries = self._generate_search_queries(
-                title, topics, content, attempt, tried_queries
+                title,
+                topics,
+                content,
+                attempt,
+                tried_queries,
+                article_id=article_id,
+                generation_costs=generation_costs,
             )
             tried_queries.append(queries)
 
@@ -250,7 +266,11 @@ class CoverImageSelector:
                 result = self._search_unsplash(queries.get("unsplash", title))
                 if result:
                     is_relevant = self._validate_image_relevance(
-                        result.alt_text, title, content[:500]
+                        result.alt_text,
+                        title,
+                        content[:500],
+                        article_id=article_id,
+                        generation_costs=generation_costs,
                     )
                     if is_relevant:
                         logger.info(
@@ -271,7 +291,11 @@ class CoverImageSelector:
                 result = self._search_pexels(queries.get("pexels", title))
                 if result:
                     is_relevant = self._validate_image_relevance(
-                        result.alt_text, title, content[:500]
+                        result.alt_text,
+                        title,
+                        content[:500],
+                        article_id=article_id,
+                        generation_costs=generation_costs,
                     )
                     if is_relevant:
                         logger.info(
@@ -295,7 +319,9 @@ class CoverImageSelector:
         return self._generate_ai_image(
             tried_queries[-1].get(
                 "dalle", f"Professional article illustration for: {title}"
-            )
+            ),
+            article_id=article_id,
+            generation_costs=generation_costs,
         )
 
     def _generate_search_queries(
@@ -305,6 +331,9 @@ class CoverImageSelector:
         content: str,
         attempt: int = 1,
         previous_queries: list[dict[str, str]] | None = None,
+        *,
+        article_id: str | None = None,
+        generation_costs: dict[str, list[float]] | None = None,
     ) -> dict[str, str]:
         """Use LLM to generate content-aware search queries.
 
@@ -361,13 +390,30 @@ STRATEGY:
 Be SPECIFIC. Use ACTUAL subject matter from the content."""
 
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.config.enrichment_model,
+                stage="image_query_generation",
+                config=self.config,
+                article_id=article_id,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.7,
                 max_tokens=300,
             )
+
+            prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+            completion_tokens = (
+                response.usage.completion_tokens if response.usage else 0
+            )
+            cost = estimate_text_cost(
+                self.config.enrichment_model, prompt_tokens, completion_tokens
+            )
+            if generation_costs is not None:
+                append_generation_cost(
+                    generation_costs,
+                    "image_query_generation",
+                    cost,
+                )
 
             response_content = response.choices[0].message.content
             if response_content is None:
@@ -537,7 +583,13 @@ Be SPECIFIC. Use ACTUAL subject matter from the content."""
         return None
 
     def _validate_image_relevance(
-        self, image_description: str, title: str, content: str
+        self,
+        image_description: str,
+        title: str,
+        content: str,
+        *,
+        article_id: str | None = None,
+        generation_costs: dict[str, list[float]] | None = None,
     ) -> bool:
         """Validate if image is relevant to article content using AI.
 
@@ -560,13 +612,30 @@ Does the image description match or relate to the article's subject matter?
 Be reasonably generous - if there's any topical overlap, say yes.
 Respond ONLY "yes" or "no"."""
 
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.config.enrichment_model,
+                stage="image_relevance_validation",
+                config=self.config,
+                article_id=article_id,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.3,
                 max_tokens=10,
             )
+
+            prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+            completion_tokens = (
+                response.usage.completion_tokens if response.usage else 0
+            )
+            cost = estimate_text_cost(
+                self.config.enrichment_model, prompt_tokens, completion_tokens
+            )
+            if generation_costs is not None:
+                append_generation_cost(
+                    generation_costs,
+                    "image_relevance_validation",
+                    cost,
+                )
 
             response_content = response.choices[0].message.content
             if response_content is None:
@@ -576,7 +645,13 @@ Respond ONLY "yes" or "no"."""
             logger.debug(f"Image validation failed: {e}, defaulting to accept")
             return True  # Default to accepting on error
 
-    def _generate_ai_image(self, prompt: str) -> CoverImage:
+    def _generate_ai_image(
+        self,
+        prompt: str,
+        *,
+        article_id: str | None = None,
+        generation_costs: dict[str, list[float]] | None = None,
+    ) -> CoverImage:
         """Generate image via DALL-E 3 (last resort).
 
         Args:
@@ -586,22 +661,31 @@ Respond ONLY "yes" or "no"."""
             CoverImage with generated image URL
         """
         try:
-            response = self.client.images.generate(
-                model="dall-e-3",
+            model = "dall-e-3"
+            size = "1024x1024"
+            quality = "standard"
+            response = create_image(
+                client=self.client,
+                model=model,
                 prompt=prompt,
-                size="1024x1024",
-                quality="standard",
+                stage="cover_image_generation",
+                config=self.config,
+                article_id=article_id,
+                size=size,
+                quality=quality,
                 n=1,
             )
 
             if not response.data or not response.data[0].url:
                 raise ValueError("DALL-E returned no image data")
 
+            cost = estimate_image_cost(model, size=size, quality=quality, count=1)
+
             return CoverImage(
                 url=response.data[0].url,
                 alt_text="Article hero image",
                 source="dalle-3",
-                cost=0.020,
+                cost=cost,
                 quality_score=0.85,
                 photographer_name="OpenAI DALL-E 3",
                 photographer_url="https://openai.com/dall-e-3",

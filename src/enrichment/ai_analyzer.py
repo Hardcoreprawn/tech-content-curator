@@ -10,6 +10,7 @@ for graceful degradation when the API is unavailable.
 """
 
 import json
+from json import JSONDecodeError
 
 from openai import APIConnectionError, APITimeoutError, OpenAI, RateLimitError
 from rich.console import Console
@@ -24,7 +25,7 @@ from tenacity import (
 from ..api.openai_error_handler import handle_openai_error
 from ..models import CollectedItem
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
 
 console = Console()
 logger = get_logger(__name__)
@@ -129,34 +130,41 @@ def analyze_content_quality(item: CollectedItem, client: OpenAI) -> tuple[float,
     {{"score": 0.X, "explanation": "Specific reason based on actual content analysis"}}
     """
 
+    from ..config import get_config
+
+    config = get_config()
+
     try:
-        from ..config import get_config
-
-        config = get_config()
-
-        response = create_chat_completion(
+        response = chat_completion(
             client=client,
             model=config.enrichment_model,  # Quality assessment
             messages=[{"role": "user", "content": prompt}],
+            stage="enrichment",
+            config=config,
+            article_id=item.id,
+            context={"operation": "quality_analysis"},
             temperature=0.4,  # Slightly higher for more variation
             max_tokens=150,
         )
-
-        content = response.choices[0].message.content
-        if not content:
-            raise ValueError("Empty response from OpenAI")
-
-        result_text = content.strip()
-        result = json.loads(result_text)
-
-        return float(result["score"]), str(result["explanation"])
-
     except Exception as e:
         # Classify and log error, but don't stop pipeline for analysis failures
         handle_openai_error(e, context="quality analysis", should_raise=False)
-        # Return degraded response.
-        # NOTE: defaulting to 0.5 risks passing the downstream "article ready" threshold (>=0.5)
-        # even though the item was not actually evaluated.
+        return 0.0, "Analysis failed - using degraded score"
+
+    content = response.choices[0].message.content
+    if not content:
+        logger.error("Empty OpenAI response content during quality analysis")
+        return 0.0, "Analysis failed - using degraded score"
+
+    try:
+        result_text = content.strip()
+        result = json.loads(result_text)
+        return float(result["score"]), str(result["explanation"])
+    except (JSONDecodeError, KeyError, TypeError, ValueError) as e:
+        logger.error(
+            f"Invalid OpenAI JSON response during quality analysis for item {item.id}: {e}",
+            exc_info=True,
+        )
         return 0.0, "Analysis failed - using degraded score"
 
 
@@ -200,37 +208,50 @@ def extract_topics_and_themes(item: CollectedItem, client: OpenAI) -> list[str]:
     Prefer "machine learning" over "ML model training".
     """
 
+    from ..config import get_config
+
+    config = get_config()
+
     try:
-        from ..config import get_config
-
-        config = get_config()
-
-        response = create_chat_completion(
+        response = chat_completion(
             client=client,
             model=config.enrichment_model,
             messages=[{"role": "user", "content": prompt}],
+            stage="enrichment",
+            config=config,
+            article_id=item.id,
+            context={"operation": "topic_extraction"},
             temperature=0.2,
             max_tokens=150,
         )
-
-        content = response.choices[0].message.content
-        if not content:
-            raise ValueError("Empty response from OpenAI")
-
-        result_text = content.strip()
-        topics = json.loads(result_text)
-
-        # Validate and clean up topics
-        if isinstance(topics, list) and all(isinstance(t, str) for t in topics):
-            return [topic.lower().strip() for topic in topics if topic.strip()]
-        else:
-            console.print(f"[yellow]⚠[/yellow] Invalid topics format for {item.id}")
-            return []
-
     except Exception as e:
         # Classify and log error, but don't stop pipeline for extraction failures
         handle_openai_error(e, context="topic extraction", should_raise=False)
         return []
+
+    content = response.choices[0].message.content
+    if not content:
+        logger.error(
+            f"Empty OpenAI response content during topic extraction for {item.id}"
+        )
+        return []
+
+    try:
+        result_text = content.strip()
+        topics = json.loads(result_text)
+    except (JSONDecodeError, TypeError, ValueError) as e:
+        logger.error(
+            f"Invalid OpenAI JSON response during topic extraction for {item.id}: {e}",
+            exc_info=True,
+        )
+        return []
+
+    # Validate and clean up topics
+    if isinstance(topics, list) and all(isinstance(t, str) for t in topics):
+        return [topic.lower().strip() for topic in topics if topic.strip()]
+
+    console.print(f"[yellow]⚠[/yellow] Invalid topics format for {item.id}")
+    return []
 
 
 @lazy_openai_retry
@@ -297,25 +318,32 @@ def research_additional_context(
     Focus on factual, technical information rather than opinions.
     """
 
+    from ..config import get_config
+
+    config = get_config()
+
     try:
-        from ..config import get_config
-
-        config = get_config()
-
-        response = create_chat_completion(
+        response = chat_completion(
             client=client,
             model=config.enrichment_model,  # Research context
             messages=[{"role": "user", "content": prompt}],
+            stage="enrichment",
+            config=config,
+            article_id=item.id,
+            context={"operation": "research_generation", "is_meta": is_meta},
             temperature=0.3,
             max_tokens=500,
         )
-
-        content = response.choices[0].message.content
-        if not content:
-            raise ValueError("Empty response from OpenAI")
-        return content.strip()
-
     except Exception as e:
         # Classify and log error, but don't stop pipeline for research failures
         handle_openai_error(e, context="research generation", should_raise=False)
         return "Research unavailable"
+
+    content = response.choices[0].message.content
+    if not content:
+        logger.error(
+            f"Empty OpenAI response content during research generation for {item.id}"
+        )
+        return "Research unavailable"
+
+    return content.strip()

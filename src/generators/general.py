@@ -5,7 +5,7 @@ from rich.console import Console
 from ..models import EnrichedItem
 from ..pipeline.quality_feedback import get_quality_prompt_enhancements
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
 from .base import BaseGenerator
 from .prompt_templates import build_enhanced_prompt, detect_content_type
 
@@ -98,10 +98,18 @@ class GeneralArticleGenerator(BaseGenerator):
 
             config = get_config()
 
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=config.content_model,
                 messages=messages,
+                stage="content",
+                config=config,
+                article_id=item.original.id,
+                context={
+                    "generator": self.name,
+                    "content_type": content_type,
+                    "voice_profile": voice_id,
+                },
                 temperature=temperature,  # Use voice-specific temperature if injected
                 max_tokens=2000,  # Allow for longer articles
             )
@@ -142,7 +150,9 @@ class GeneralArticleGenerator(BaseGenerator):
             return content.strip(), input_tokens, output_tokens
 
         except Exception as e:
-            logger.error(f"Article generation failed: {type(e).__name__}: {e}")
+            logger.error(
+                f"Article generation failed: {type(e).__name__}: {e}", exc_info=True
+            )
             console.print(f"[yellow]⚠[/yellow] Article generation failed: {e}")
             # Create basic fallback article
             fallback = f"""Based on a social media post discussing {", ".join(item.topics[:3])}.

@@ -203,7 +203,11 @@ def save_article_to_file(
                 try:
                     selector = CoverImageSelector(client, config)
                     cover_image = selector.select(
-                        article.title, article.tags, article.content
+                        article.title,
+                        article.tags,
+                        article.content,
+                        article_id=slug,
+                        generation_costs=article.generation_costs,
                     )
                     hero_path = cover_image.url
                     icon_path = cover_image.url

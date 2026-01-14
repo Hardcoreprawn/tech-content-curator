@@ -9,7 +9,7 @@ from rich.console import Console
 from ...config import get_config
 from ...models import EnrichedItem
 from ...utils.logging import get_logger
-from ...utils.openai_client import create_chat_completion
+from ...utils.openai_wrapper import chat_completion
 from ..base import BaseGenerator
 
 logger = get_logger(__name__)
@@ -143,10 +143,14 @@ class SelfHostedGenerator(BaseGenerator):
             logger.debug("Calling OpenAI API for self-hosted article generation")
             config = get_config()
 
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=config.content_model,
                 messages=messages,
+                stage="content",
+                config=config,
+                article_id=item.original.id,
+                context={"generator": self.name, "content_type": "self_hosted"},
                 temperature=0.7,
                 max_tokens=2500,  # Allow for longer, more detailed content
             )
@@ -171,6 +175,7 @@ class SelfHostedGenerator(BaseGenerator):
                 "Self-hosted article generation failed: %s: %s",
                 type(e).__name__,
                 e,
+                exc_info=True,
             )
             console.print(
                 f"[yellow]⚠[/yellow] Self-hosted article generation failed: {e}"

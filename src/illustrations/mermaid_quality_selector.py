@@ -4,17 +4,16 @@ Generates N Mermaid diagram candidates and selects the best based on
 validation scores. Similar to TextIllustrationQualitySelector for ASCII.
 """
 
-from ..utils.logging import get_logger
-
-logger = get_logger(__name__)
-
-
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from openai import OpenAI
 
+from ..models import PipelineConfig
+from ..utils.logging import get_logger
 from .ai_mermaid_generator import AIMermaidGenerator, GeneratedMermaidDiagram
 from .diagram_validator import DiagramValidator
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -65,6 +64,9 @@ class MermaidQualitySelector:
         section_title: str,
         section_content: str,
         concept_type: str,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> MermaidCandidateResult:
         """Generate N candidates, validate all, return best.
 
@@ -88,6 +90,8 @@ class MermaidQualitySelector:
                 section_title,
                 section_content,
                 concept_type,
+                config=config,
+                article_id=article_id,
             )
 
             if diagram:
@@ -97,12 +101,24 @@ class MermaidQualitySelector:
                     section_content=section_content,
                     diagram_content=diagram.content,
                     diagram_type="mermaid",
+                    config=config,
+                    article_id=article_id,
                 )
 
-                total_cost += diagram.total_cost + validation.cost
+                diagram_with_validation = replace(
+                    diagram,
+                    extra_costs=diagram.extra_costs + validation.cost,
+                )
 
+                # Carry validation cost into the chosen diagram so downstream accounting
+                # can treat diagram.total_cost as "fully loaded".
+                total_cost += diagram_with_validation.total_cost
                 candidates.append(
-                    (validation.combined_score, diagram, diagram.total_cost)
+                    (
+                        validation.combined_score,
+                        diagram_with_validation,
+                        diagram_with_validation.total_cost,
+                    )
                 )
 
         # Sort by validation score (descending)

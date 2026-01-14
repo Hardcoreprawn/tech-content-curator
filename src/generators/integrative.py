@@ -6,7 +6,7 @@ from rich.console import Console
 
 from ..models import EnrichedItem
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
 from .base import BaseGenerator
 
 logger = get_logger(__name__)
@@ -168,10 +168,14 @@ class IntegrativeListGenerator(BaseGenerator):
 
             config = get_config()
 
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=config.content_model,
                 messages=[{"role": "user", "content": prompt}],
+                stage="content",
+                config=config,
+                article_id=item.original.id,
+                context={"generator": self.name, "content_type": "integrative_list"},
                 temperature=0.7,
                 max_tokens=2500,
             )
@@ -189,7 +193,10 @@ class IntegrativeListGenerator(BaseGenerator):
             )
             return content.strip(), input_tokens, output_tokens
         except Exception as e:
-            logger.error(f"Integrative list generation failed: {type(e).__name__}: {e}")
+            logger.error(
+                f"Integrative list generation failed: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             console.print(
                 f"[yellow]⚠[/yellow] Integrative list article generation failed: {e}"
             )

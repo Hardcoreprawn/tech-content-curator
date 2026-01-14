@@ -5,7 +5,8 @@ nonsensical or low-quality visualizations from being injected.
 """
 
 from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_text_cost
 
 logger = get_logger(__name__)
 
@@ -14,6 +15,8 @@ import json
 from dataclasses import dataclass
 
 from openai import OpenAI
+
+from ..models import PipelineConfig
 
 
 @dataclass
@@ -42,13 +45,6 @@ class ValidationResult:
 class DiagramValidator:
     """Validates generated diagrams against source content."""
 
-    PRICING = {
-        "gpt-3.5-turbo": {
-            "prompt": 0.0005,
-            "completion": 0.0015,
-        }
-    }
-
     def __init__(
         self,
         client: OpenAI,
@@ -72,6 +68,9 @@ class DiagramValidator:
         section_content: str,
         diagram_content: str,
         diagram_type: str,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> ValidationResult:
         """Validate a generated diagram against source content.
 
@@ -93,9 +92,12 @@ class DiagramValidator:
 
         logger.debug(f"Validating {diagram_type} diagram for {section_title}")
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.model,
+                stage="illustration_diagram_validate",
+                config=config,
+                article_id=article_id,
                 messages=[
                     {
                         "role": "system",
@@ -125,15 +127,11 @@ class DiagramValidator:
             combined = (accuracy * 0.6) + (value * 0.4)
 
             # Calculate cost
-            usage = response.usage
-            if usage:
-                cost = (usage.prompt_tokens / 1000) * self.PRICING[self.model][
-                    "prompt"
-                ] + (usage.completion_tokens / 1000) * self.PRICING[self.model][
-                    "completion"
-                ]
-            else:
-                cost = 0.0
+            prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+            completion_tokens = (
+                response.usage.completion_tokens if response.usage else 0
+            )
+            cost = estimate_text_cost(self.model, prompt_tokens, completion_tokens)
 
             if combined >= self.threshold:
                 logger.info(
@@ -153,11 +151,17 @@ class DiagramValidator:
                 cost=cost,
             )
 
-        except (json.JSONDecodeError, ValueError, KeyError) as e:
-            logger.error(f"Validation parsing error: {type(e).__name__}: {e}")
+        except (json.JSONDecodeError, ValueError, KeyError, TypeError) as e:
+            logger.error(
+                f"Validation parsing error: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             return self._create_failed_result(f"Parse error: {e}")
         except Exception as e:
-            logger.error(f"Diagram validation error: {type(e).__name__}: {e}")
+            logger.error(
+                f"Diagram validation error: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
             return self._create_failed_result(f"Validation error: {e}")
 
     def _build_validation_prompt(

@@ -7,17 +7,17 @@ Adds refinement cycles and quality metrics to diagrams.
 
 from __future__ import annotations
 
-from ..utils.logging import get_logger
-from ..utils.openai_client import create_chat_completion
-
-logger = get_logger(__name__)
-
-
 import json
 
 from openai import OpenAI
 
+from ..models import PipelineConfig
+from ..utils.logging import get_logger
+from ..utils.openai_wrapper import chat_completion
+from ..utils.pricing import estimate_text_cost_components
 from .ai_ascii_generator import AIAsciiGenerator, GeneratedAsciiArt
+
+logger = get_logger(__name__)
 
 
 class TextIllustrationReviewRefine:
@@ -48,6 +48,8 @@ class TextIllustrationReviewRefine:
         section_content: str,
         concept_type: str,
         importance: float = 0.5,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> GeneratedAsciiArt | None:
         """Generate ASCII diagram, review quality, optionally refine.
 
@@ -65,7 +67,11 @@ class TextIllustrationReviewRefine:
         )
         # Stage 1: Generate
         initial = self.generator.generate_for_section(
-            section_title, section_content, concept_type
+            section_title,
+            section_content,
+            concept_type,
+            config=config,
+            article_id=article_id,
         )
 
         if initial is None:
@@ -81,14 +87,26 @@ class TextIllustrationReviewRefine:
             return initial
 
         # Stage 2: Review quality
-        review_data = self._review_quality(initial, concept_type)
+        review_data, review_cost = self._review_quality(
+            initial,
+            concept_type,
+            config=config,
+            article_id=article_id,
+        )
+        initial.extra_costs += review_cost
         review_score = review_data.get("score", 0.5)
         logger.debug(f"Review score: {review_score:.2f}")
 
         # Stage 3: Refinement if needed
         if review_score < 0.7:
             logger.debug(f"Attempting refinement (score {review_score:.2f} < 0.7)")
-            refined = self._refine_based_on_review(initial, concept_type, review_data)
+            refined = self._refine_based_on_review(
+                initial,
+                concept_type,
+                review_data,
+                config=config,
+                article_id=article_id,
+            )
             if refined:
                 logger.info(
                     f"ASCII diagram refined after review (score improved from {review_score:.2f})"
@@ -101,7 +119,14 @@ class TextIllustrationReviewRefine:
         initial.review_cycles = 1
         return initial
 
-    def _review_quality(self, diagram: GeneratedAsciiArt, concept_type: str) -> dict:
+    def _review_quality(
+        self,
+        diagram: GeneratedAsciiArt,
+        concept_type: str,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
+    ) -> tuple[dict, float]:
         """Review ASCII diagram quality using AI.
 
         Args:
@@ -126,23 +151,57 @@ Respond ONLY with valid JSON (no markdown):
 {{"score": 0.5, "issues": ["issue1", "issue2"], "fixes": ["fix1", "fix2"]}}"""
 
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.model,
+                stage="illustration_ascii_review",
+                config=config,
+                article_id=article_id,
                 messages=[{"role": "user", "content": review_prompt}],
                 temperature=0.3,
                 max_tokens=300,
             )
 
             response_text = response.choices[0].message.content or "{}"
-            review_data = json.loads(response_text)
-            return review_data
-        except (json.JSONDecodeError, Exception):
-            # If parsing fails, return neutral review
-            return {"score": 0.5, "issues": ["parse_error"], "fixes": []}
+            try:
+                review_data = json.loads(response_text)
+            except json.JSONDecodeError as e:
+                logger.warning(
+                    "ASCII review JSON parse failed (%s): %s",
+                    type(e).__name__,
+                    e,
+                    exc_info=True,
+                )
+                review_data = {"score": 0.5, "issues": ["parse_error"], "fixes": []}
+
+            prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+            completion_tokens = (
+                response.usage.completion_tokens if response.usage else 0
+            )
+            prompt_cost, completion_cost = estimate_text_cost_components(
+                self.model,
+                prompt_tokens,
+                completion_tokens,
+            )
+            return review_data, (prompt_cost + completion_cost)
+        except Exception as e:
+            logger.warning(
+                "ASCII review failed (%s): %s",
+                type(e).__name__,
+                e,
+                exc_info=True,
+            )
+            # If review fails, return neutral review (no additional costs tracked)
+            return {"score": 0.5, "issues": ["review_error"], "fixes": []}, 0.0
 
     def _refine_based_on_review(
-        self, initial: GeneratedAsciiArt, concept_type: str, review_data: dict
+        self,
+        initial: GeneratedAsciiArt,
+        concept_type: str,
+        review_data: dict,
+        *,
+        config: PipelineConfig | None = None,
+        article_id: str | None = None,
     ) -> GeneratedAsciiArt | None:
         """Refine diagram based on review feedback.
 
@@ -177,9 +236,12 @@ Requirements:
 - Return ONLY the improved diagram, no markdown or explanation"""
 
         try:
-            response = create_chat_completion(
+            response = chat_completion(
                 client=self.client,
                 model=self.model,
+                stage="illustration_ascii_refine",
+                config=config,
+                article_id=article_id,
                 messages=[{"role": "user", "content": refine_prompt}],
                 temperature=0.3,
                 max_tokens=500,
@@ -190,29 +252,31 @@ Requirements:
             if not refined_content:
                 return None
 
-            # Calculate additional costs for review + refinement
-            response_usage = response.usage if response.usage else None
-            prompt_tokens = response_usage.prompt_tokens if response_usage else 100
+            prompt_tokens = response.usage.prompt_tokens if response.usage else 0
             completion_tokens = (
-                response_usage.completion_tokens if response_usage else 150
+                response.usage.completion_tokens if response.usage else 0
             )
-
-            additional_prompt_cost = (prompt_tokens / 1000) * 0.0005
-            additional_completion_cost = (completion_tokens / 1000) * 0.0015
+            prompt_cost, completion_cost = estimate_text_cost_components(
+                self.model,
+                prompt_tokens,
+                completion_tokens,
+            )
+            refinement_cost = prompt_cost + completion_cost
 
             # Return refined diagram with updated metadata
             return GeneratedAsciiArt(
                 art_type=initial.art_type,
                 content=refined_content,
                 alt_text=initial.alt_text,
-                prompt_cost=initial.prompt_cost + additional_prompt_cost,
-                completion_cost=initial.completion_cost + additional_completion_cost,
+                prompt_cost=initial.prompt_cost,
+                completion_cost=initial.completion_cost,
+                extra_costs=initial.extra_costs + refinement_cost,
                 quality_score=review_data.get("score", 0.5),
                 candidates_tested=0,
                 review_cycles=1,
             )
 
-        except (ValueError, KeyError, TypeError) as e:
+        except Exception as e:
             logger.error(
                 f"Refinement failed for {concept_type} diagram: {type(e).__name__}: {e}",
                 exc_info=True,
