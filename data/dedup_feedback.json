@@ -9456,5 +9456,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 6,
+    "patterns_used": 1813,
+    "timestamp": "2026-01-14T06:08:01.744694",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Every GitHub object has two IDs",
+        "removed_items": [
+          "Show HN: OSS AI agent that indexes and searches the Epstein files\n\nHi HN,<p>I built an open-source A",
+          "Show HN: 1D-Pong Game at 39C3\n\nBuilding a 1D-Pong game is a bit of a rite of passage at the Chaos Co",
+          "Show HN: The Tsonic Programming Language\n\nYou can see some examples here: <a href=\"https:&#x2F;&#x2F"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Nogic \u2013 VS Code extension that visualizes your codebase as a graph\n\nI built Nogic, a VSCode",
+        "removed_items": [
+          "vscode\n\nVisual Studio Code"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
