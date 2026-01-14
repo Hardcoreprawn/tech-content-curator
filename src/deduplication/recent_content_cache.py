@@ -95,7 +95,7 @@ class RecentContentCache:
                 try:
                     if isinstance(generated_at_str, datetime):
                         generated_at = (
-                            generated_at.replace(tzinfo=UTC)
+                            generated_at_str.replace(tzinfo=UTC)
                             if generated_at_str.tzinfo is None
                             else generated_at_str.astimezone(UTC)
                         )

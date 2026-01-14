@@ -75,7 +75,6 @@ def validate_url_reachable(url: str, timeout: float | None = None) -> bool:
         headers = {"Range": "bytes=0-0"}
         return client.get(url, headers=headers)
 
-    last_exc: Exception | None = None
     with httpx.Client(timeout=timeout, follow_redirects=True) as client:
         for attempt in range(1, attempts + 1):
             try:
@@ -103,7 +102,6 @@ def validate_url_reachable(url: str, timeout: float | None = None) -> bool:
                 httpx.NetworkError,
                 httpx.ProtocolError,
             ) as e:
-                last_exc = e
                 logger.debug(
                     f"URL validation request error (attempt {attempt}/{attempts}) for {url}: {type(e).__name__}"
                 )
@@ -114,9 +112,8 @@ def validate_url_reachable(url: str, timeout: float | None = None) -> bool:
                     f"URL unreachable after retries: {url} ({type(e).__name__})"
                 )
                 return False
-            except Exception as e:
+            except Exception:
                 # Unexpected exception: log stack trace and fail closed.
-                last_exc = e
                 logger.exception(f"Unexpected error while validating URL: {url}")
                 return False
 
