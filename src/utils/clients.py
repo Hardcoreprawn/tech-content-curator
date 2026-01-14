@@ -65,8 +65,8 @@ def get_openai_client(config: PipelineConfig):
         logger.debug("OpenAI client created successfully")
         yield client
 
-    except Exception as e:
-        logger.error(f"Error during OpenAI client operation: {e}", exc_info=True)
+    except Exception:
+        logger.exception("Error during OpenAI client operation")
         raise
 
     finally:
@@ -106,8 +106,8 @@ def get_http_client(timeout: int | float = 30, follow_redirects: bool = True):
         logger.debug("HTTP client created successfully")
         yield client
 
-    except Exception as e:
-        logger.error(f"Error during HTTP client operation: {e}", exc_info=True)
+    except Exception:
+        logger.exception("Error during HTTP client operation")
         raise
 
     finally:

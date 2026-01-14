@@ -174,7 +174,10 @@ def select_article_candidates(
                 )
                 continue
         except Exception as e:
-            logger.warning(f"Source existence check failed for {item.original.id}: {e}")
+            logger.warning(
+                f"Source existence check failed for {item.original.id}: {e}",
+                exc_info=True,
+            )
 
         # Skip if source is in cooldown period
         cooldown_days = int(os.getenv("SOURCE_COOLDOWN_DAYS", "7"))

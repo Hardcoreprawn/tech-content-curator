@@ -241,7 +241,7 @@ async def collect_all_sources_async() -> list[CollectedItem]:
                     logger.info("Reached 80 items from Mastodon, stopping")
                     break
             except Exception as e:
-                logger.error(f"Mastodon {instance} failed: {e}")
+                logger.error(f"Mastodon {instance} failed: {e}", exc_info=True)
                 continue
         return items
 
@@ -252,7 +252,7 @@ async def collect_all_sources_async() -> list[CollectedItem]:
             logger.info(f"Collected {len(items)} items from Reddit")
             return items
         except Exception as e:
-            logger.error(f"Reddit collection failed: {e}")
+            logger.error(f"Reddit collection failed: {e}", exc_info=True)
             return []
 
     def collect_hn_wrapper():
@@ -262,7 +262,7 @@ async def collect_all_sources_async() -> list[CollectedItem]:
             logger.info(f"Collected {len(items)} items from HackerNews")
             return items
         except Exception as e:
-            logger.error(f"HackerNews collection failed: {e}")
+            logger.error(f"HackerNews collection failed: {e}", exc_info=True)
             return []
 
     def collect_github_wrapper():
@@ -272,7 +272,7 @@ async def collect_all_sources_async() -> list[CollectedItem]:
             logger.info(f"Collected {len(items)} items from GitHub")
             return items
         except Exception as e:
-            logger.error(f"GitHub collection failed: {e}")
+            logger.error(f"GitHub collection failed: {e}", exc_info=True)
             return []
 
     # Parallel phase: each thread isolated, no sharing
@@ -313,7 +313,7 @@ async def collect_all_sources_async() -> list[CollectedItem]:
         if isinstance(result, Exception):
             logger.error(
                 f"{source_names[i]} collection failed: {result}",
-                exc_info=result,
+                exc_info=(type(result), result, result.__traceback__),
                 extra={
                     "source": source_names[i],
                     "phase": "collection",
@@ -395,6 +395,10 @@ def collect_all_sources() -> list[CollectedItem]:
                 break
         except Exception as e:
             console.print(f"[yellow]⚠[/yellow] Failed to collect from {instance}: {e}")
+            logger.error(
+                f"Failed to collect from Mastodon instance {instance}: {e}",
+                exc_info=True,
+            )
             continue
 
     # Collect from Reddit
@@ -404,6 +408,7 @@ def collect_all_sources() -> list[CollectedItem]:
         all_items.extend(reddit_items)
     except Exception as e:
         console.print(f"[yellow]⚠[/yellow] Reddit collection failed: {e}")
+        logger.error(f"Reddit collection failed: {e}", exc_info=True)
 
     # Collect from HackerNews
     console.print("\n[blue]Collecting from HackerNews...[/blue]")
@@ -412,6 +417,7 @@ def collect_all_sources() -> list[CollectedItem]:
         all_items.extend(hn_items)
     except Exception as e:
         console.print(f"[yellow]⚠[/yellow] HackerNews collection failed: {e}")
+        logger.error(f"HackerNews collection failed: {e}", exc_info=True)
 
     # Collect from GitHub Trending
     console.print("\n[blue]Collecting from GitHub Trending...[/blue]")
@@ -420,6 +426,7 @@ def collect_all_sources() -> list[CollectedItem]:
         all_items.extend(github_items)
     except Exception as e:
         console.print(f"[yellow]⚠[/yellow] GitHub collection failed: {e}")
+        logger.error(f"GitHub collection failed: {e}", exc_info=True)
 
     # Deduplicate collected items
     console.print(f"\n[bold]Total items before deduplication: {len(all_items)}[/bold]")

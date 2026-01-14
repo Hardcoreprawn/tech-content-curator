@@ -182,8 +182,23 @@ def fetch_article_content(url: str, max_size: int = 5000) -> str | None:
     try:
         import time
 
-        import requests
-        from bs4 import BeautifulSoup
+        try:
+            import requests
+        except ModuleNotFoundError as e:
+            logger.warning(
+                "Optional dependency missing for fetch_article_content: requests (%s)",
+                e,
+            )
+            return None
+
+        try:
+            from bs4 import BeautifulSoup
+        except ModuleNotFoundError as e:
+            logger.warning(
+                "Optional dependency missing for fetch_article_content: bs4 (%s)",
+                e,
+            )
+            return None
 
         # Add delay to be respectful
         time.sleep(0.5)

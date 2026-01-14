@@ -91,7 +91,8 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
 
                 except Exception as e:
                     logger.debug(
-                        f"Error fetching HN story {story_id}: {type(e).__name__}"
+                        f"Error fetching HN story {story_id}: {type(e).__name__}",
+                        exc_info=True,
                     )
                     console.print(
                         f"[yellow]⚠[/yellow] Failed to fetch HN story {story_id}: {e}"
@@ -99,13 +100,10 @@ def collect_from_hackernews(limit: int = 30) -> list[CollectedItem]:
                     continue
 
                 # Rate limiting - be nice to HN
-                from ..config import get_config
-
-                config = get_config()
                 time.sleep(config.sleep_intervals.between_hackernews_requests)
 
     except Exception as e:
-        logger.error(f"HackerNews collection failed: {type(e).__name__} - {e}")
+        logger.exception(f"HackerNews collection failed: {type(e).__name__} - {e}")
         console.print(f"[red]✗[/red] HackerNews collection failed: {e}")
         return []
 
