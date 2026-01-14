@@ -1,0 +1,20 @@
+# Pre-commit hooks to match CI Ruff checks.
+# CI runs:
+#   uv run ruff check src/ tests/ --statistics
+#   uv run ruff format --check src/ tests/
+#
+# Locally we auto-fix formatting (and optionally lint) to prevent CI failures.
+
+default_language_version:
+  python: python3.14
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.2
+    hooks:
+      - id: ruff
+        name: ruff (lint)
+        files: ^(src|tests)/
+      - id: ruff-format
+        name: ruff (format)
+        files: ^(src|tests)/

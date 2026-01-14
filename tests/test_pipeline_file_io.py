@@ -240,7 +240,9 @@ class TestSaveArticleToFile:
             original=make_collected_item(
                 item_id="test-2",
                 author="author2",
-                url=TypeAdapter(HttpUrl).validate_python("https://example.com/article2"),
+                url=TypeAdapter(HttpUrl).validate_python(
+                    "https://example.com/article2"
+                ),
             ),
             research_summary="Research",
             related_sources=[],
@@ -268,7 +270,9 @@ class TestSaveArticleToFile:
         enriched = EnrichedItem(
             original=make_collected_item(
                 source=SourceType.GITHUB,
-                url=TypeAdapter(HttpUrl).validate_python("https://github.com/user/repo"),
+                url=TypeAdapter(HttpUrl).validate_python(
+                    "https://github.com/user/repo"
+                ),
             ),
             research_summary="Research",
             related_sources=[],
@@ -294,7 +298,9 @@ class TestSaveArticleToFile:
         enriched = EnrichedItem(
             original=make_collected_item(
                 source=SourceType.GITHUB,  # Use valid source, URL detection is what matters
-                url=TypeAdapter(HttpUrl).validate_python("https://arxiv.org/abs/2301.00001"),
+                url=TypeAdapter(HttpUrl).validate_python(
+                    "https://arxiv.org/abs/2301.00001"
+                ),
             ),
             research_summary="Research",
             related_sources=[],
