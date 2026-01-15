@@ -180,9 +180,9 @@ class ReadabilityAnalyzer:
             f"Checking readability match: target={target_difficulty}, flesch={flesch:.1f}"
         )
 
-        # Define acceptable ranges for each difficulty level
-        if target_difficulty == "beginner":
-            # Beginners need easier content (Flesch 60-100)
+        # Define acceptable ranges for each difficulty level via dispatch
+        def _check_beginner() -> tuple[bool, str]:
+            """Beginners need easier content (Flesch 60-100)."""
             if flesch >= 60:
                 logger.debug("Readability matches beginner level")
                 return True, "Readability is appropriate for beginners."
@@ -196,8 +196,8 @@ class ReadabilityAnalyzer:
                     "Simplify language and sentence structure.",
                 )
 
-        elif target_difficulty == "intermediate":
-            # Intermediate readers (Flesch 50-70)
+        def _check_intermediate() -> tuple[bool, str]:
+            """Intermediate readers (Flesch 50-70)."""
             if 50 <= flesch <= 70:
                 logger.debug("Readability matches intermediate level")
                 return True, "Readability is appropriate for intermediate readers."
@@ -220,8 +220,8 @@ class ReadabilityAnalyzer:
                     "Simplify complex sentences.",
                 )
 
-        elif target_difficulty == "advanced":
-            # Advanced readers can handle complex content (Flesch 30-60)
+        def _check_advanced() -> tuple[bool, str]:
+            """Advanced readers can handle complex content (Flesch 30-60)."""
             if 30 <= flesch <= 60:
                 logger.debug("Readability matches advanced level")
                 return True, "Readability is appropriate for advanced readers."
@@ -242,6 +242,16 @@ class ReadabilityAnalyzer:
                     True,
                     f"Very technical (Flesch: {flesch:.1f}), acceptable for advanced readers.",
                 )
+
+        difficulty_checkers = {
+            "beginner": _check_beginner,
+            "intermediate": _check_intermediate,
+            "advanced": _check_advanced,
+        }
+
+        checker = difficulty_checkers.get(target_difficulty)
+        if checker:
+            return checker()
 
         else:
             # Unknown difficulty level

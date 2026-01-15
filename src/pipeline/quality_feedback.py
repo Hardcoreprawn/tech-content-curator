@@ -66,20 +66,26 @@ def generate_quality_feedback(
             feedback_parts.append("  * Use concrete examples")
             feedback_parts.append("  * Explain concepts in plain language first")
 
-    # Content-type specific feedback
-    if content_type == "tutorial":
-        feedback_parts.append("\n## Tutorial Requirements")
-        feedback_parts.append("- Include step-by-step instructions")
-        feedback_parts.append("- Provide working code examples")
-        feedback_parts.append("- Add expected outputs or results")
-        feedback_parts.append("- Include common pitfalls and solutions")
+    # Content-type specific feedback via dispatch
+    content_type_feedback = {
+        "tutorial": [
+            "\n## Tutorial Requirements",
+            "- Include step-by-step instructions",
+            "- Provide working code examples",
+            "- Add expected outputs or results",
+            "- Include common pitfalls and solutions",
+        ],
+        "research": [
+            "\n## Research Article Requirements",
+            "- Cite all sources properly",
+            "- Present methodology clearly",
+            "- Include data or evidence",
+            "- Discuss implications and limitations",
+        ],
+    }
 
-    elif content_type == "research":
-        feedback_parts.append("\n## Research Article Requirements")
-        feedback_parts.append("- Cite all sources properly")
-        feedback_parts.append("- Present methodology clearly")
-        feedback_parts.append("- Include data or evidence")
-        feedback_parts.append("- Discuss implications and limitations")
+    if content_type in content_type_feedback:
+        feedback_parts.extend(content_type_feedback[content_type])
 
     # Recommendations from readability analysis
     recommendations = quality_metrics.get("recommendations", [])
@@ -210,21 +216,21 @@ def get_quality_prompt_enhancements(
         "- Include concrete examples",
     ]
 
-    if difficulty_level == "beginner":
-        enhancements.extend(
-            [
-                "- Explain all technical terms",
-                "- Assume no prior knowledge",
-                "- Use analogies to familiar concepts",
-            ]
-        )
-    elif difficulty_level == "advanced":
-        enhancements.extend(
-            [
-                "- Technical precision is important",
-                "- You can use domain-specific terminology",
-                "- Focus on depth and nuance",
-            ]
-        )
+    # Difficulty-level specific enhancements via dispatch
+    difficulty_enhancements = {
+        "beginner": [
+            "- Explain all technical terms",
+            "- Assume no prior knowledge",
+            "- Use analogies to familiar concepts",
+        ],
+        "advanced": [
+            "- Technical precision is important",
+            "- You can use domain-specific terminology",
+            "- Focus on depth and nuance",
+        ],
+    }
+
+    if difficulty_level in difficulty_enhancements:
+        enhancements.extend(difficulty_enhancements[difficulty_level])
 
     return "\n".join(enhancements)

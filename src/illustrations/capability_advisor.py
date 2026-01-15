@@ -5,6 +5,8 @@ based on concept type, complexity, and content characteristics. Provides confide
 scores and reasoning for orchestrator decision-making.
 """
 
+from collections.abc import Callable
+
 from ..utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -51,72 +53,86 @@ class TextIllustrationCapabilityAdvisor:
         )
         requirements = requirements or {}
 
-        # Decision tree based on concept type
-        if concept_type == "hierarchy":
-            # Trees work well in text if simple
-            if complexity < 0.7 and content_length <= 6:
+        # Decision tree using type-safe function dispatch
+        def _check_hierarchy(comp: float, length: int) -> tuple[bool, str, float]:
+            if comp < 0.7 and length <= 6:
                 return (True, "hierarchy_text_tree_simple", 0.95)
-            elif complexity < 0.6 and content_length <= 8:
+            elif comp < 0.6 and length <= 8:
                 return (True, "hierarchy_text_tree_moderate", 0.80)
             return (False, "hierarchy_complex_use_svg", 0.85)
 
-        elif concept_type == "process_flow":
-            # Simple linear flows work in text
-            if content_length <= 3 and complexity < 0.6:
+        def _check_process_flow(comp: float, length: int) -> tuple[bool, str, float]:
+            if length <= 3 and comp < 0.6:
                 return (True, "process_text_simple_linear", 0.90)
-            elif content_length <= 5 and complexity < 0.5:
+            elif length <= 5 and comp < 0.5:
                 return (True, "process_text_simple_sequence", 0.75)
             return (False, "process_complex_use_mermaid", 0.85)
 
-        elif concept_type == "comparison":
-            # Comparisons = tables, perfect for ASCII
-            if content_length <= 8:
+        def _check_comparison(comp: float, length: int) -> tuple[bool, str, float]:
+            if length <= 8:
                 return (True, "comparison_text_table_ideal", 0.95)
             return (False, "comparison_complex_use_svg", 0.80)
 
-        elif concept_type == "timeline":
-            # Simple timelines work in text
-            if content_length <= 5 and complexity < 0.6:
+        def _check_timeline(comp: float, length: int) -> tuple[bool, str, float]:
+            if length <= 5 and comp < 0.6:
                 return (True, "timeline_text_simple", 0.90)
             return (False, "timeline_complex_use_mermaid", 0.85)
 
-        elif concept_type == "data_flow":
-            # Simple pipelines/flows work, complex ones need mermaid
-            if content_length <= 4 and complexity < 0.5:
+        def _check_data_flow(comp: float, length: int) -> tuple[bool, str, float]:
+            if length <= 4 and comp < 0.5:
                 return (True, "data_flow_text_simple", 0.85)
             return (False, "data_flow_complex_use_mermaid", 0.90)
 
-        elif concept_type == "data_structure":
-            # Simple structures (linked list, stack) work, trees/graphs need svg
-            if complexity < 0.6 and content_length <= 5:
+        def _check_data_structure(comp: float, length: int) -> tuple[bool, str, float]:
+            if comp < 0.6 and length <= 5:
                 return (True, "data_structure_text_simple", 0.85)
             return (False, "data_structure_complex_use_svg", 0.80)
 
-        elif concept_type == "network_topology":
-            # Simple networks (2-4 nodes) can work in text
-            if content_length <= 4 and complexity < 0.6:
+        def _check_network_topology(
+            comp: float, length: int
+        ) -> tuple[bool, str, float]:
+            if length <= 4 and comp < 0.6:
                 return (True, "network_text_simple", 0.80)
             return (False, "network_complex_use_mermaid", 0.90)
 
-        elif concept_type == "scientific_process":
-            # Methodologies/procedures can work in text if simple
-            if complexity < 0.5 and content_length <= 5:
+        def _check_scientific_process(
+            comp: float, length: int
+        ) -> tuple[bool, str, float]:
+            if comp < 0.5 and length <= 5:
                 return (True, "scientific_text_simple", 0.75)
             return (False, "scientific_complex_use_mermaid", 0.85)
 
-        elif concept_type == "algorithm":
-            # Algorithms in text work for simple procedural steps
-            if complexity < 0.6 and content_length <= 6:
+        def _check_algorithm(comp: float, length: int) -> tuple[bool, str, float]:
+            if comp < 0.6 and length <= 6:
                 return (True, "algorithm_text_simple", 0.80)
             return (False, "algorithm_complex_use_mermaid", 0.90)
 
-        elif concept_type == "system_architecture":
-            # Complex architectures need SVG, simple ones can use text
-            if complexity < 0.5 and content_length <= 4:
+        def _check_system_architecture(
+            comp: float, length: int
+        ) -> tuple[bool, str, float]:
+            if comp < 0.5 and length <= 4:
                 return (True, "architecture_text_simple", 0.70)
             return (False, "architecture_complex_use_svg", 0.90)
 
-        # Default: uncertain
+        # Safe dispatch via dictionary
+        concept_checkers: dict[str, Callable[[float, int], tuple[bool, str, float]]] = {
+            "hierarchy": _check_hierarchy,
+            "process_flow": _check_process_flow,
+            "comparison": _check_comparison,
+            "timeline": _check_timeline,
+            "data_flow": _check_data_flow,
+            "data_structure": _check_data_structure,
+            "network_topology": _check_network_topology,
+            "scientific_process": _check_scientific_process,
+            "algorithm": _check_algorithm,
+            "system_architecture": _check_system_architecture,
+        }
+
+        checker = concept_checkers.get(concept_type)
+        if checker:
+            return checker(complexity, content_length)
+
+        # Default: unknown type
         logger.warning(f"Unknown concept type: {concept_type}")
         return (False, "unknown_concept_type", 0.5)
 

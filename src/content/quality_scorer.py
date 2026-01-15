@@ -160,25 +160,37 @@ class QualityScorer:
         # Partial credit based on how close
         flesch = readability.flesch_reading_ease
 
-        if difficulty == "beginner":
-            # Want 60+, penalize if lower
-            return min(100.0, max(0.0, (flesch / 60) * 100))
-        elif difficulty == "intermediate":
-            # Want 50-70, penalize if outside
-            if flesch < 50:
-                return min(100.0, max(0.0, (flesch / 50) * 100))
-            elif flesch > 70:
-                return min(100.0, max(0.0, (140 - flesch) / 70 * 100))
+        def _score_beginner(score: float) -> float:
+            """Score for beginner difficulty (want 60+)."""
+            return min(100.0, max(0.0, (score / 60) * 100))
+
+        def _score_intermediate(score: float) -> float:
+            """Score for intermediate difficulty (want 50-70)."""
+            if score < 50:
+                return min(100.0, max(0.0, (score / 50) * 100))
+            elif score > 70:
+                return min(100.0, max(0.0, (140 - score) / 70 * 100))
             else:
                 return 100.0
-        elif difficulty == "advanced":
-            # Want 30-60, more flexible
-            if 30 <= flesch <= 60:
+
+        def _score_advanced(score: float) -> float:
+            """Score for advanced difficulty (want 30-60)."""
+            if 30 <= score <= 60:
                 return 100.0
-            elif flesch > 60:
-                return min(100.0, max(60.0, (120 - flesch) / 60 * 100))
+            elif score > 60:
+                return min(100.0, max(60.0, (120 - score) / 60 * 100))
             else:
-                return min(100.0, max(60.0, (flesch / 30) * 100))
+                return min(100.0, max(60.0, (score / 30) * 100))
+
+        difficulty_scorers = {
+            "beginner": _score_beginner,
+            "intermediate": _score_intermediate,
+            "advanced": _score_advanced,
+        }
+
+        scorer = difficulty_scorers.get(difficulty)
+        if scorer:
+            return scorer(flesch)
 
         return 70.0  # Default for unknown difficulty
 

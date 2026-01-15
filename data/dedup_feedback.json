@@ -9516,35 +9516,34 @@
     "user_corrections": null
   },
   {
-    "items_processed": 59,
-    "duplicates_found": 10,
-    "patterns_used": 1825,
-    "timestamp": "2026-01-15T21:42:56.814697",
+    "items_processed": 76,
+    "duplicates_found": 7,
+    "patterns_used": 1823,
+    "timestamp": "2026-01-15T20:43:39.123848",
     "examples": [
-      {
-        "group_size": 4,
-        "kept_item": "If you are in the USA, you know what to do with this. \"The design is meant to look as clean and simp",
-        "removed_items": [
-          "Go-legacy-winxp: Compile Golang 1.24 code for Windows XP",
-          "Show HN: Munimet.ro \u2013 ML-based status page for the local subways in SF\n\nDuring a recent subway outag",
-          "Ask HN: Share your personal website\n\nHello HN!  I am putting together a community-maintained directo"
-        ]
-      },
       {
         "group_size": 3,
         "kept_item": "Inside The Internet Archive's Infrastructure\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;internetarc",
         "removed_items": [
           "Supply Chain Vuln Compromised Core AWS GitHub Repos & Threatened the AWS Console",
-          "Show HN: Tusk Drift \u2013 Turn production traffic into API tests\n\nHi HN! In the past few months my team "
+          "Ask HN: Share your personal website\n\nHello HN!  I am putting together a community-maintained directo"
         ]
       },
       {
         "group_size": 4,
-        "kept_item": "Claude is good at assembling blocks, but still falls apart at creating them",
+        "kept_item": "Show HN: OpenWork \u2013 an open-source alternative to Claude Cowork\n\nhi hn,<p>i built openwork, an open-",
         "removed_items": [
-          "Show HN: OpenWork \u2013 an open-source alternative to Claude Cowork\n\nhi hn,<p>i built openwork, an open-",
-          "Claude Cowork runs Linux VM via Apple virtualization framework",
-          "First impressions of Claude Cowork"
+          "Claude is good at assembling blocks, but still falls apart at creating them",
+          "First impressions of Claude Cowork",
+          "Claude Cowork runs Linux VM via Apple virtualization framework"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
         ]
       }
     ],

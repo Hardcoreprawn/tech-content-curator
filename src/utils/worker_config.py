@@ -83,36 +83,29 @@ def get_optimal_worker_count(
     # Detect environment
     in_ci = is_ci_environment()
 
-    # Priority 2: Use case specific limits
-    # Enrichment: I/O-bound (waiting on API responses), can use many threads
-    if use_case == "enrichment":
-        # I/O-bound workload - threads spend 95% time waiting on API responses
-        # OpenAI SDK + our retry logic handles 429 rate limit errors with exponential backoff
-        # No artificial worker cap needed - let rate limiting handle itself
-        # Note: OpenAI rate limits vary by tier:
-        # Free tier: ~3 RPM, Tier 1: ~500 RPM, Tier 2+: 5000+ RPM
-        # The SDK will automatically retry with backoff on 429 errors
+    # Priority 2: Use case specific limits via dispatch
+    def _calc_enrichment_workers() -> int:
+        """Calculate workers for enrichment (I/O-bound, API-limited).
 
+        Threads spend 95% time waiting on API responses.
+        OpenAI SDK handles 429 rate limit errors with exponential backoff.
+        """
         if max_limit:
             # Respect explicit hard limit if provided
-            return min(cpu_count * 4 if in_ci else cpu_count * 4, max_limit)
+            return min(cpu_count * 4, max_limit)
 
-        if in_ci:
-            # GitHub Actions: 2-4 cores typical
-            # Use CPU count * 4 for extreme I/O-bound work (8-16 workers)
-            return cpu_count * 4
-        else:
-            # Local/production: Aggressive for I/O-bound work
-            # With 5% CPU per thread, can use 20x CPU cores (95% wait time)
-            # Empirically: 4x gives best throughput without overwhelming API
-            # 16-core: 64 workers → 1.07 items/sec vs 16 workers → 0.38 items/sec
-            return cpu_count * 4
+        # Both CI and local: use 4x CPU for I/O-bound work
+        # Empirically: 4x gives best throughput without overwhelming API
+        # 16-core: 64 workers → 1.07 items/sec vs 16 workers → 0.38 items/sec
+        return cpu_count * 4
 
-    # Collection: I/O-bound, not API-limited
-    # (but still respect max_limit if provided)
-    elif use_case == "collection":
+    def _calc_collection_workers() -> int:
+        """Calculate workers for collection (I/O-bound, network I/O).
+
+        Not API-limited like enrichment, but still I/O-bound.
+        """
         if in_ci:
-            # GitHub Actions: Conservative
+            # GitHub Actions: Conservative (2-4 cores typical)
             return min(4, cpu_count)
         else:
             # Local/production: More aggressive
@@ -121,6 +114,16 @@ def get_optimal_worker_count(
             if max_limit:
                 cpu_workers = min(cpu_workers, max_limit)
             return cpu_workers
+
+    # Type-safe dispatch
+    use_case_calculators = {
+        "enrichment": _calc_enrichment_workers,
+        "collection": _calc_collection_workers,
+    }
+
+    calculator = use_case_calculators.get(use_case)
+    if calculator:
+        return calculator()
 
     # Default: conservative safe choice
     return min(4, cpu_count)

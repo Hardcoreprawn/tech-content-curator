@@ -72,33 +72,23 @@ class AccessibilityChecker:
 
         base_description = concept_descriptions.get(concept_name, "technical diagram")
 
-        # Map illustration names to specifics
-        if illustration_name == "nat_translation":
-            return "NAT translation diagram: private IPs translate to public IP through router"
-        elif illustration_name == "packet_flow":
-            return "Packet flow diagram: shows data route through network devices"
-        elif illustration_name == "network_topology":
-            return (
-                "Network topology diagram: displays interconnected devices and routing"
-            )
-        elif illustration_name == "system_architecture":
-            return "System architecture: clients, API layer, services, and data layer"
-        elif illustration_name == "data_pipeline":
-            return "Data pipeline: input → extract → transform → load → output stages"
-        elif illustration_name == "simple_flow":
-            return "Process flow diagram showing input, processing, and output stages"
-        elif illustration_name == "decision_tree":
-            return "Decision tree diagram with branching logic paths"
-        elif illustration_name == "system_components":
-            return (
-                "System components diagram showing client, API, services, and database"
-            )
-        elif illustration_name == "network_flow":
-            return "Network flow showing packet routing through routers"
-        elif illustration_name == "algorithm_flow":
-            return "Algorithm flowchart showing loops and conditional logic"
-        else:
-            return f"Diagram illustrating {base_description}"
+        # Map illustration names to specifics via dispatch
+        alt_text_map = {
+            "nat_translation": "NAT translation diagram: private IPs translate to public IP through router",
+            "packet_flow": "Packet flow diagram: shows data route through network devices",
+            "network_topology": "Network topology diagram: displays interconnected devices and routing",
+            "system_architecture": "System architecture: clients, API layer, services, and data layer",
+            "data_pipeline": "Data pipeline: input → extract → transform → load → output stages",
+            "simple_flow": "Process flow diagram showing input, processing, and output stages",
+            "decision_tree": "Decision tree diagram with branching logic paths",
+            "system_components": "System components diagram showing client, API, services, and database",
+            "network_flow": "Network flow showing packet routing through routers",
+            "algorithm_flow": "Algorithm flowchart showing loops and conditional logic",
+        }
+
+        return alt_text_map.get(
+            illustration_name, f"Diagram illustrating {base_description}"
+        )
 
     def generate_long_description(
         self, illustration_name: str, concept_name: str
@@ -210,18 +200,20 @@ class AccessibilityChecker:
         logger.debug(
             f"Validating WCAG compliance for {illustration_type} (target: {self.target_wcag_level})"
         )
-        issues = []
-        warnings = []
-        alt_text = ""
 
-        if illustration_type == "svg":
+        # Validate based on illustration type via dispatch
+        def _validate_svg() -> tuple[list[str], list[str], str]:
+            """Validate SVG accessibility."""
+            svg_issues = []
+            svg_warnings = []
+
             # Check SVG accessibility
             if "<title>" not in illustration_content:
-                issues.append("SVG missing <title> element")
+                svg_issues.append("SVG missing <title> element")
             if "<desc>" not in illustration_content:
-                issues.append("SVG missing <desc> element")
+                svg_issues.append("SVG missing <desc> element")
             if 'role="img"' not in illustration_content:
-                warnings.append("SVG missing role='img' attribute")
+                svg_warnings.append("SVG missing role='img' attribute")
 
             # Check for text contrast (basic check)
             if re.search(
@@ -230,33 +222,59 @@ class AccessibilityChecker:
                 if not re.search(
                     r"fill=['\"]#000['\"]|fill=['\"]black['\"]", illustration_content
                 ):
-                    warnings.append(
+                    svg_warnings.append(
                         "Potential low contrast: white fill without dark background"
                     )
 
-            alt_text = self._extract_svg_alt_text(illustration_content)
+            svg_alt_text = self._extract_svg_alt_text(illustration_content)
+            return svg_issues, svg_warnings, svg_alt_text
 
-        elif illustration_type == "mermaid":
+        def _validate_mermaid() -> tuple[list[str], list[str], str]:
+            """Validate Mermaid diagram accessibility."""
+            mermaid_issues: list[str] = []
+            mermaid_warnings: list[str] = []
+
             # Mermaid accessibility check
             if not illustration_content.strip():
-                issues.append("Mermaid diagram is empty")
+                mermaid_issues.append("Mermaid diagram is empty")
 
             # Ensure it has readable structure
             if len(illustration_content) < 20:
-                issues.append("Mermaid diagram too simple for accessibility")
+                mermaid_issues.append("Mermaid diagram too simple for accessibility")
 
-            alt_text = f"Mermaid diagram: {illustration_content[:50]}..."
+            mermaid_alt_text = f"Mermaid diagram: {illustration_content[:50]}..."
+            return mermaid_issues, mermaid_warnings, mermaid_alt_text
 
-        elif illustration_type == "ascii":
+        def _validate_ascii() -> tuple[list[str], list[str], str]:
+            """Validate ASCII art accessibility."""
+            ascii_issues: list[str] = []
+            ascii_warnings: list[str] = []
+
             # ASCII art accessibility
             if len(illustration_content.split("\n")) < 3:
-                warnings.append(
+                ascii_warnings.append(
                     "ASCII diagram very simple, verify it conveys intended meaning"
                 )
 
-            alt_text = (
+            ascii_alt_text = (
                 f"ASCII diagram with {len(illustration_content.split(chr(10)))} lines"
             )
+            return ascii_issues, ascii_warnings, ascii_alt_text
+
+        # Type-safe dispatch
+        validators = {
+            "svg": _validate_svg,
+            "mermaid": _validate_mermaid,
+            "ascii": _validate_ascii,
+        }
+
+        validator = validators.get(illustration_type)
+        if validator:
+            issues, warnings, alt_text = validator()
+        else:
+            issues = [f"Unknown illustration type: {illustration_type}"]
+            warnings = []
+            alt_text = f"Illustration ({illustration_type})"
 
         # Determine compliance level
         is_compliant = len(issues) == 0

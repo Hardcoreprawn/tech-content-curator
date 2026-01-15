@@ -199,38 +199,52 @@ class TextIllustrationCapabilityAdvisor:
         """
         requirements = requirements or {}
         
-        # Decision tree
-        if concept_type == "hierarchy":
-            if complexity < 0.7:
+        # Decision tree via type-safe function dispatch
+        def _check_hierarchy(comp: float, len_: int) -> tuple:
+            if comp < 0.7:
                 return (True, "hierarchy_text_tree_simple", 0.95)
             return (False, "hierarchy_use_svg", 0.85)
         
-        elif concept_type == "process_flow":
-            if content_length <= 3 and complexity < 0.6:
+        def _check_process_flow(comp: float, len_: int) -> tuple:
+            if len_ <= 3 and comp < 0.6:
                 return (True, "process_text_simple", 0.90)
-            elif content_length <= 5 and complexity < 0.5:
+            elif len_ <= 5 and comp < 0.5:
                 return (True, "process_text_moderate", 0.75)
             return (False, "process_use_mermaid", 0.85)
         
-        elif concept_type == "comparison":
-            if content_length <= 8:
+        def _check_comparison(comp: float, len_: int) -> tuple:
+            if len_ <= 8:
                 return (True, "comparison_text_table", 0.95)
             return (False, "comparison_use_svg_matrix", 0.80)
         
-        elif concept_type == "timeline":
-            if content_length <= 5 and complexity < 0.6:
+        def _check_timeline(comp: float, len_: int) -> tuple:
+            if len_ <= 5 and comp < 0.6:
                 return (True, "timeline_text_simple", 0.90)
             return (False, "timeline_use_mermaid", 0.85)
         
-        elif concept_type == "data_structure":
-            if complexity < 0.6:
+        def _check_data_structure(comp: float, len_: int) -> tuple:
+            if comp < 0.6:
                 return (True, "data_structure_text", 0.85)
             return (False, "data_structure_use_svg", 0.80)
         
-        elif concept_type == "network_topology":
-            if content_length <= 4 and complexity < 0.6:
+        def _check_network_topology(comp: float, len_: int) -> tuple:
+            if len_ <= 4 and comp < 0.6:
                 return (True, "network_text_simple", 0.80)
             return (False, "network_use_mermaid", 0.90)
+        
+        # Safe dispatch
+        checkers = {
+            "hierarchy": _check_hierarchy,
+            "process_flow": _check_process_flow,
+            "comparison": _check_comparison,
+            "timeline": _check_timeline,
+            "data_structure": _check_data_structure,
+            "network_topology": _check_network_topology,
+        }
+        
+        checker = checkers.get(concept_type)
+        if checker:
+            return checker(complexity, content_length)
         
         # Default: uncertain
         return (False, "uncertain_concept", 0.5)
