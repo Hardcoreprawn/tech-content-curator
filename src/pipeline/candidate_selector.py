@@ -163,6 +163,16 @@ def select_article_candidates(
             logger.debug(f"Rejected {item.original.id}: {reason}")
             continue
 
+        # Reject items without usable research context to avoid ungrounded articles
+        research_summary = (item.research_summary or "").strip()
+        if not research_summary or research_summary.lower().startswith(
+            "research unavailable"
+        ):
+            reason = "research_unavailable"
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected {item.original.id}: {reason}")
+            continue
+
         # Skip if we've already published an article for this source URL
         try:
             if check_article_exists_for_source(str(item.original.url), content_dir):
