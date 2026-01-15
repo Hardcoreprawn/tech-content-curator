@@ -9581,5 +9581,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 8,
+    "patterns_used": 1831,
+    "timestamp": "2026-01-15T22:51:45.462942",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "If you are in the USA, you know what to do with this. \"The design is meant to look as clean and simp",
+        "removed_items": [
+          "Go-legacy-winxp: Compile Golang 1.24 code for Windows XP"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Inside The Internet Archive's Infrastructure\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;internetarc",
+        "removed_items": [
+          "Supply Chain Vuln Compromised Core AWS GitHub Repos & Threatened the AWS Console",
+          "Show HN: Tusk Drift \u2013 Turn production traffic into API tests\n\nHi HN! In the past few months my team "
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: OpenWork \u2013 an open-source alternative to Claude Cowork\n\nhi hn,<p>i built openwork, an open-",
+        "removed_items": [
+          "First impressions of Claude Cowork",
+          "Claude is good at assembling blocks, but still falls apart at creating them",
+          "Claude Cowork runs Linux VM via Apple virtualization framework"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
