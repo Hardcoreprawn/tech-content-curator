@@ -355,6 +355,22 @@ Module: `src/enrichment/fact_check.py` (used in generation as `validate_article`
 
 ---
 
+## 9) Non-blocking artifact failures (policy)
+
+We now treat **supporting artifacts** as best-effort: illustrations, images, citations/references,
+and similar “enhancers” should **never block** article publication. If any of these fail:
+
+- The article should still publish with a clear fallback (no illustration/image/reference block).
+- The module should **record a failure event** (structured log + metrics) so we can
+  track reliability and improve the module over time.
+- Warnings are expected and should be **actionable**, but **non-breaking**.
+
+This aligns with the pipeline goal: ship content reliably while continuously improving the
+supporting artifacts. The network of modules should “chip in” when they can, and gracefully
+degrade when they can’t.
+
+---
+
 ## Appendix: quick pointers
 
 - Generation orchestration: `src/pipeline/orchestrator.py`
