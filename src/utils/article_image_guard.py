@@ -43,7 +43,7 @@ def guard_article_images(
     for md_path in sorted(content_dir.glob("*.md")):
         processed += 1
         try:
-            post = frontmatter.load(md_path)
+            post = frontmatter.load(str(md_path))
         except (OSError, ValueError) as exc:
             logger.warning("Failed to read frontmatter", exc_info=True)
             console.print(f"[yellow]⚠ Failed to read {md_path.name}: {exc}[/yellow]")
