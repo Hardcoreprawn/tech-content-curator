@@ -50,9 +50,6 @@ jobs:
       - name: Install dependencies
         run: uv sync
       
-      - name: Set up free-threading
-        run: echo "PYTHON_GIL=0" >> "$GITHUB_ENV"
-      
       - name: 📥 Collect content
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -113,9 +110,6 @@ jobs:
       
       - name: Install dependencies
         run: uv sync
-      
-      - name: Set up free-threading
-        run: echo "PYTHON_GIL=0" >> "$GITHUB_ENV"
       
       - name: Download enriched data
         uses: actions/download-artifact@v4
