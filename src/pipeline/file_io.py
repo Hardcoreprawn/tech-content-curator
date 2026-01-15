@@ -168,6 +168,8 @@ def save_article_to_file(
         }
     )
 
+    artifact_failures: list[str] = []
+
     # Add quality metrics if available (Phase 2 - Model comparison)
     if article.quality_score is not None:
         metadata["article_quality"] = {
@@ -228,6 +230,7 @@ def save_article_to_file(
                     console.print(
                         f"[yellow]⚠ Multi-source image selection failed: {e}[/yellow]"
                     )
+                    artifact_failures.append("image_selection_failed")
 
                     # If the selected cover_image is an external URL, download and persist locally
                     if hero_path and hero_path.startswith("http"):
@@ -257,6 +260,9 @@ def save_article_to_file(
                             console.print(
                                 f"[yellow]⚠ Failed to persist image: {e}[/yellow]"
                             )
+                            artifact_failures.append("image_persist_failed")
+                            hero_path = None
+                            icon_path = None
 
             # Fallback: Reuse from library
             if not hero_path and config.image_strategy in (
@@ -301,12 +307,16 @@ def save_article_to_file(
                     console.print(
                         f"[yellow]⚠ Failed to persist cover image: {e}[/yellow]"
                     )
+                    artifact_failures.append("image_persist_failed")
+                    hero_path = None
+                    icon_path = None
         except (OSError, ValueError, KeyError) as ie:
             logger.error(
                 f"Image attachment failed for article '{article.title}': {ie}",
                 exc_info=True,
             )
             console.print(f"[yellow]⚠[/yellow] Image attach failed: {ie}")
+            artifact_failures.append("image_attach_failed")
 
         if hero_path:
             metadata["cover"]["image"] = hero_path
@@ -320,6 +330,22 @@ def save_article_to_file(
                         image_attribution.photographer_url
                     )
                 metadata["cover"]["image_source"] = image_attribution.source
+
+    # Non-blocking fallback: ensure a local cover image exists for sustainability.
+    if not metadata["cover"]["image"]:
+        if config.image_strategy in ("reuse", "reuse_then_generate"):
+            slug = filepath.stem
+            hero_path, icon_path = select_or_create_cover_image(
+                article.tags, slug, config.hugo_base_url
+            )
+            metadata["cover"]["image"] = hero_path
+            metadata["cover"]["alt"] = article.title
+            metadata["icon"] = icon_path or ""
+            append_generation_cost(article.generation_costs, "image_generation", 0.0)
+            artifact_failures.append("image_missing")
+            console.print(
+                "[yellow]⚠ Cover image missing; applied reusable fallback[/yellow]"
+            )
 
     # Build content with attribution and references
     primary = article.sources[0].original if article.sources else None
@@ -420,6 +446,22 @@ def save_article_to_file(
             lines.extend(citation_bibliography)
 
         references_block = "\n".join(lines) + "\n"
+
+        # Non-blocking audit: detect references without URLs
+        ref_lines = [line for line in lines if line.strip().startswith("-")]
+        if any("http" not in line for line in ref_lines):
+            artifact_failures.append("references_missing_links")
+            logger.warning(
+                "References contain items without URLs",
+                extra={
+                    "phase": "publish",
+                    "event": "references_missing_links",
+                    "article": article.title,
+                },
+            )
+
+    if artifact_failures:
+        metadata["artifact_failures"] = sorted(set(artifact_failures))
 
     # Combine everything
     full_content = attribution_block + article_content + references_block
