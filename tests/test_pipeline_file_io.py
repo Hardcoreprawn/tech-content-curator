@@ -395,7 +395,7 @@ class TestSaveArticleToFile:
         assert generation_costs["text"] == [0.001]
 
     def test_cover_image_placeholder(self, tmp_path):
-        """Cover image fields are initialized empty."""
+        """Cover image fields use a local fallback when missing."""
         article = make_generated_article()
         config = make_config()
 
@@ -407,8 +407,8 @@ class TestSaveArticleToFile:
             post = cast(frontmatter.Post, frontmatter.load(f))
 
         cover = cast(dict[str, object], post["cover"])
-        assert cover["image"] == ""
-        assert cover["alt"] == ""
+        assert str(cover["image"]).startswith("/images/")
+        assert cover["alt"] == article.title
 
     @patch("src.pipeline.file_io.CitationExtractor")
     @patch("src.pipeline.file_io.CitationResolver")
