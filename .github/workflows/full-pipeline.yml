@@ -184,6 +184,20 @@ jobs:
         with:
           name: generated-articles
           path: .
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14t'
+          allow-prereleases: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync
       
       - name: 💾 Commit pipeline outputs
         run: |
