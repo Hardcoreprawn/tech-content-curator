@@ -4,8 +4,6 @@ This module provides content-type-aware prompt generation that tailors
 article structure and requirements based on the detected content type.
 """
 
-import hashlib
-
 from ..models import EnrichedItem
 from ..utils.logging import get_logger
 
@@ -104,7 +102,7 @@ PROMPT_ENHANCEMENTS = {
     "commentary": """
 COMMENTARY-SPECIFIC REQUIREMENTS:
 - Open with what the original source ACTUALLY says (not meta-discussion about writing)
-- Include 3-5 direct quotes or paraphrases ONLY if present in the provided sources
+- Include 3-5 direct quotes or specific paraphrases from the source material
 - Structure: What they said → Why it matters → Broader implications
 - Use "According to [Author]...", "[Author] wrote:", "[Author] argues that..." with actual content
 - Avoid generic meta-discussion about journalism or writing practices
@@ -144,7 +142,7 @@ ANALYSIS-SPECIFIC REQUIREMENTS:
 - Use data tables or bullet-point comparisons where appropriate
 - Include "Trade-offs" section discussing pros and cons of each option
 - Provide "When to Use" recommendations with specific scenarios
-- Back up claims with 5-7 citations using URLs from the EVIDENCE PACK
+- Back up claims with 5-7 citations to credible sources
 - Discuss real-world performance metrics or benchmarks
 - Explain the reasoning behind your recommendations
 """,
@@ -154,7 +152,7 @@ RESEARCH-SPECIFIC REQUIREMENTS:
 - Describe methodology in accessible terms
 - Present findings with supporting data
 - Discuss limitations and caveats
-- Compare results to related work with 5-7 citations using URLs from the EVIDENCE PACK
+- Compare results to related work with 5-7 citations
 - Explain implications for the field
 - Suggest future research directions
 - Balance technical depth with readability
@@ -164,7 +162,7 @@ GENERAL ARTICLE REQUIREMENTS:
 - Clear, engaging introduction with a hook
 - 2-3 concrete examples or real-world use cases
 - Mix of explanation and practical insights
-- 3-5 citations using URLs from the EVIDENCE PACK
+- 3-5 academic or authoritative citations
 - Clear takeaways or actionable recommendations for readers
 - Professional but accessible tone
 - Logical flow from concepts to applications
@@ -172,10 +170,9 @@ GENERAL ARTICLE REQUIREMENTS:
 }
 
 
-# Structure templates for each content type (dynamic pools)
-STRUCTURE_POOLS = {
-    "commentary": [
-        """
+# Structure templates for each content type
+STRUCTURE_TEMPLATES = {
+    "commentary": """
 RECOMMENDED STRUCTURE FOR COMMENTARY:
 Use ## for all section headings (not bold text):
 ## Introduction
@@ -186,20 +183,7 @@ Use ## for all section headings (not bold text):
 ## Implications
 ## Conclusion
 """,
-        """
-RECOMMENDED STRUCTURE FOR COMMENTARY (ALT):
-Use ## for all section headings (not bold text):
-## Opening Summary
-## What the Source Claims
-## Evidence & Context
-## Critical Analysis
-## Counterpoints
-## Practical Implications
-## Conclusion
-""",
-    ],
-    "tutorial": [
-        """
+    "tutorial": """
 RECOMMENDED STRUCTURE FOR TUTORIAL:
 Use ## for all section headings (not bold text):
 ## Introduction
@@ -210,20 +194,7 @@ Use ## for all section headings (not bold text):
 ## Next Steps
 ## Additional Resources
 """,
-        """
-RECOMMENDED STRUCTURE FOR TUTORIAL (ALT):
-Use ## for all section headings (not bold text):
-## Overview
-## Requirements
-## Quick Start
-## Detailed Walkthrough
-## Verification & Expected Output
-## Troubleshooting
-## Further Learning
-""",
-    ],
-    "news": [
-        """
+    "news": """
 RECOMMENDED STRUCTURE FOR NEWS:
 Use ## for all section headings (not bold text):
 ## Lead/Headline Info
@@ -234,19 +205,7 @@ Use ## for all section headings (not bold text):
 ## What This Means
 ## Related News
 """,
-        """
-RECOMMENDED STRUCTURE FOR NEWS (ALT):
-Use ## for all section headings (not bold text):
-## What Happened
-## Why It Matters
-## Technical Summary
-## Timeline
-## Stakeholders & Impact
-## What to Watch Next
-""",
-    ],
-    "analysis": [
-        """
+    "analysis": """
 RECOMMENDED STRUCTURE FOR ANALYSIS:
 Use ## for all section headings (not bold text):
 ## Introduction
@@ -257,20 +216,7 @@ Use ## for all section headings (not bold text):
 ## Decision Matrix
 ## Conclusion
 """,
-        """
-RECOMMENDED STRUCTURE FOR ANALYSIS (ALT):
-Use ## for all section headings (not bold text):
-## Thesis
-## Context
-## Alternatives Compared
-## Evidence & Benchmarks
-## Trade-offs
-## Recommendations
-## Conclusion
-""",
-    ],
-    "research": [
-        """
+    "research": """
 RECOMMENDED STRUCTURE FOR RESEARCH:
 Use ## for all section headings (not bold text):
 ## Introduction & Background
@@ -281,20 +227,7 @@ Use ## for all section headings (not bold text):
 ## Limitations
 ## Conclusion & Future Work
 """,
-        """
-RECOMMENDED STRUCTURE FOR RESEARCH (ALT):
-Use ## for all section headings (not bold text):
-## Research Question
-## Background
-## Methodology
-## Results
-## Interpretation
-## Limitations
-## Future Work
-""",
-    ],
-    "general": [
-        """
+    "general": """
 RECOMMENDED STRUCTURE FOR GENERAL ARTICLE:
 Use ## for all section headings (not bold text):
 ## Introduction
@@ -305,43 +238,7 @@ Use ## for all section headings (not bold text):
 ## Implications
 ## Conclusion
 """,
-        """
-RECOMMENDED STRUCTURE FOR GENERAL ARTICLE (ALT):
-Use ## for all section headings (not bold text):
-## Overview
-## Context
-## Key Concepts
-## Practical Examples
-## Risks & Trade-offs
-## Actionable Takeaways
-## Conclusion
-""",
-    ],
 }
-
-
-def _select_structure_template(item: EnrichedItem, content_type: str) -> str:
-    pool = STRUCTURE_POOLS.get(content_type, STRUCTURE_POOLS["general"])
-    seed = f"{item.original.url}-{content_type}".encode("utf-8")
-    idx = int(hashlib.sha256(seed).hexdigest(), 16) % len(pool)
-    return pool[idx]
-
-
-def _build_evidence_pack(item: EnrichedItem) -> str:
-    sources = [str(item.original.url)]
-    sources.extend(str(src) for src in item.related_sources)
-    sources = [s for s in sources if s]
-
-    lines = ["EVIDENCE PACK (use ONLY these sources for factual claims):"]
-    if sources:
-        lines.append(f"Primary source: {sources[0]}")
-        if len(sources) > 1:
-            lines.append("Related sources:")
-            for src in sources[1:]:
-                lines.append(f"- {src}")
-    else:
-        lines.append("Primary source: (none provided)")
-    return "\n".join(lines)
 
 
 def build_enhanced_prompt(item: EnrichedItem, content_type: str) -> str:
@@ -368,8 +265,6 @@ TOPICS: {", ".join(item.topics)}
 RESEARCH CONTEXT:
 {item.research_summary}
 
-{_build_evidence_pack(item)}
-
 CONTENT TYPE: {content_type.upper()}
 
 """
@@ -389,30 +284,29 @@ UNIVERSAL REQUIREMENTS:
 - Add background callouts for optional context using this format:
   > Background: one-sentence explanation
 - Credit original source appropriately
-- Include 3-7 citations as inline links to URLs in the EVIDENCE PACK
+- Include 3-7 citations naturally integrated (Author et al., Year format)
 - NO title in output - content starts directly with introduction
-- Avoid first-person claims of actions you did not perform (no "I inspected", "I benchmarked")
-
-EVIDENCE RULES:
-- Use ONLY sources in the EVIDENCE PACK for factual claims and quotes
-- If evidence is limited, say so explicitly and narrow claims
-- Do not invent quotes, metrics, timelines, or benchmarks
-- Distinguish fact vs interpretation ("Fact:" / "Interpretation:") when needed
+- When referencing academic work, use format: "Author et al. (Year)" or "Author (Year)"
 
 TERMINOLOGY GUIDELINES:
 - Avoid anthropomorphizing AI (don't use "hallucination" - say "ungrounded output", "false generation", or "confabulation")
 - Don't attribute human qualities to AI systems (understanding, thinking, knowing)
 - Use precise technical terms: "generates", "predicts", "outputs" rather than "thinks", "believes", "understands"
 
-SOURCE LINKING RULES:
-- Link citations directly to source URLs (markdown links)
-- Use the source domain to add context (e.g., "According to QuestDB...")
-- If you can't support a claim with a source link, omit it
+ACADEMIC CITATION QUALITY RULES:
+- Only cite research you are confident about (don't invent citations)
+- For recent developments, estimate years based on recency context
+- Integrate citations naturally into sentences, not as footnotes
+- Use citations to support specific claims, not just for length
+- Examples of good integration:
+  * "Research by Smith et al. (2023) shows that..."
+  * "According to Jones (2022), the approach involves..."
+  * "The methodology, as described in Brown et al. (2021), requires..."
 
 """
 
     # Add structure guidance
     base_prompt += "STRUCTURE GUIDANCE FOR " + content_type.upper() + ":\n"
-    base_prompt += _select_structure_template(item, content_type)
+    base_prompt += STRUCTURE_TEMPLATES.get(content_type, STRUCTURE_TEMPLATES["general"])
 
     return base_prompt

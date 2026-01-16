@@ -866,15 +866,7 @@ def build_voice_system_prompt(voice_id: str, content_type: str = "general") -> s
         prompt += f"\n{kit.content_type_tweaks[content_type]}\n\n"
 
     # Add banned phrases warning
-    prompt += f"{kit.banned_phrases_warning}\n\n"
-
-    prompt += (
-        "EVIDENCE & ATTRIBUTION RULES:\n"
-        "- Only include quotes or claims that appear in the provided sources\n"
-        "- Do not invent metrics, timelines, or benchmarks\n"
-        "- Avoid first-person claims of actions you did not perform\n"
-        "- If evidence is limited, say so explicitly and narrow claims\n"
-    )
+    prompt += f"{kit.banned_phrases_warning}"
 
     return prompt
 
