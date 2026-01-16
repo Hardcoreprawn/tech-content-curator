@@ -1,14 +1,14 @@
 ---
 action_run_id: '19281161320'
 cover:
-  alt: 'Reviving Xortran: Neural Networks on the PDP-11'
-  image: https://images.unsplash.com/photo-1656662961786-b04873ceb4b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGNvbXB1dGVyJTIwcm9vbXxlbnwwfDB8fHwxNzYyOTAzNDAwfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T23:23:02+0000
 generation_costs:
   content_generation: 0.00093435
   title_generation: 5.85e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1656662961786-b04873ceb4b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGNvbXB1dGVyJTIwcm9vbXxlbnwwfDB8fHwxNzYyOTAzNDAwfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

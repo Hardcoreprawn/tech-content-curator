@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Master Self-Hosting: Your Guide to Home Services Setup'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-master-self-hosting-guide.png
+  alt: ''
+  image: ''
 date: '2025-10-29'
 generation_costs:
   content_generation: 0.00142995
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.44e-05
   title_generation: 5.49e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-master-self-hosting-guide-icon.png
+icon: ''
 reading_time: 6 min read
 sources:
 - author: awesome-selfhosted

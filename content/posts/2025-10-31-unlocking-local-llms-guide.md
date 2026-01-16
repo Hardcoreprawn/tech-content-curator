@@ -1,8 +1,8 @@
 ---
 action_run_id: '18981308217'
 cover:
-  alt: 'Unlocking Local Open Source LLMs: A Developer''s Guide'
-  image: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBhc3Npc3RhbnQlMjB2cyUyMGNvZGUlMjBwbHVnaW58ZW58MHwwfHx8MTc2MTkzNDQwOHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0010161
@@ -10,7 +10,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.59e-05
   title_generation: 5.505e-05
-icon: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBhc3Npc3RhbnQlMjB2cyUyMGNvZGUlMjBwbHVnaW58ZW58MHwwfHx8MTc2MTkzNDQwOHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: threeturn

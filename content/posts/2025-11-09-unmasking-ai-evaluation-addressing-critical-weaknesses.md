@@ -1,14 +1,14 @@
 ---
 action_run_id: '19202087872'
 cover:
-  alt: 'Unmasking AI Evaluation: Addressing Critical Weaknesses'
-  image: https://images.pexels.com/photos/18512795/pexels-photo-18512795.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+  alt: ''
+  image: ''
 date: 2025-11-09T02:40:56+0000
 generation_costs:
   content_generation: 0.0010209
   title_generation: 6.195e-05
 generator: General Article Generator
-icon: https://images.pexels.com/photos/18512795/pexels-photo-18512795.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

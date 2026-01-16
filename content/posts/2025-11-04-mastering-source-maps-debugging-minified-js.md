@@ -1,15 +1,15 @@
 ---
 action_run_id: '19078632100'
 cover:
-  alt: 'Mastering Source Maps: Debugging Minified JS with Ease'
-  image: https://images.unsplash.com/photo-1591381287254-b3349c60bf9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkZXZ0b29scyUyMGRlYnVnZ2luZyUyMGludGVyZmFjZXxlbnwwfDB8fHwxNzYyMjgwNTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:22:24+0000
 generation_costs:
   content_generation: 0.0008499
   diagram_1: 0.000252
   title_generation: 5.7e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1591381287254-b3349c60bf9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkZXZ0b29scyUyMGRlYnVnZ2luZyUyMGludGVyZmFjZXxlbnwwfDB8fHwxNzYyMjgwNTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 5 min read
 sources:

@@ -1,14 +1,14 @@
 ---
 action_run_id: '19249676510'
 cover:
-  alt: 'Breaking Language Barriers: Facebook''s 1,600-Language ASR'
-  image: https://images.unsplash.com/photo-1673515334893-2c20c91d0e93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwbGFuZ3VhZ2UlMjBzcGVha2VycyUyMGNvbW11bmljYXRpb258ZW58MHwwfHx8MTc2MjgxODQ2OXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T23:46:56+0000
 generation_costs:
   content_generation: 0.00098565
   title_generation: 5.955e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1673515334893-2c20c91d0e93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwbGFuZ3VhZ2UlMjBzcGVha2VycyUyMGNvbW11bmljYXRpb258ZW58MHwwfHx8MTc2MjgxODQ2OXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

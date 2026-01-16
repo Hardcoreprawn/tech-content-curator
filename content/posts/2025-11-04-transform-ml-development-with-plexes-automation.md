@@ -1,14 +1,14 @@
 ---
 action_run_id: '19078632100'
 cover:
-  alt: Transform ML Development with Plexe's Automation Power
-  image: https://images.unsplash.com/photo-1529078155058-5d716f45d604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBkYXRhJTIwYW5hbHlzaXN8ZW58MHwwfHx8MTc2MjI4MDQ1MHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:20:49+0000
 generation_costs:
   content_generation: 0.0010719
   title_generation: 5.505e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1529078155058-5d716f45d604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBkYXRhJTIwYW5hbHlzaXN8ZW58MHwwfHx8MTc2MjI4MDQ1MHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

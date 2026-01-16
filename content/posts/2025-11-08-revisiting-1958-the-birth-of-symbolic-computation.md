@@ -1,14 +1,14 @@
 ---
 action_run_id: '19196683054'
 cover:
-  alt: 'Revisiting 1958: The Birth of Symbolic Computation'
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhbGdlYnJhaWMlMjBsYW5ndWFnZSUyMHByb2dyYW1taW5nJTIwY29kZXxlbnwwfDB8fHwxNzYyNjI1ODYyfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T18:17:41+0000
 generation_costs:
   content_generation: 0.00088545
   title_generation: 6.255e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhbGdlYnJhaWMlMjBsYW5ndWFnZSUyMHByb2dyYW1taW5nJTIwY29kZXxlbnwwfDB8fHwxNzYyNjI1ODYyfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

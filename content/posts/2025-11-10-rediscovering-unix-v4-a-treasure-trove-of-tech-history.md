@@ -1,14 +1,14 @@
 ---
 action_run_id: '19249676510'
 cover:
-  alt: 'Rediscovering Unix v4: A Treasure Trove of Tech History'
-  image: https://images.unsplash.com/photo-1754928864335-608149b7f6a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx1bml4JTIwdjQlMjB0YXBlJTIwcmVjb3Zlcnl8ZW58MHwwfHx8MTc2MjgxODQ3Nnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T23:47:34+0000
 generation_costs:
   content_generation: 0.00092535
   title_generation: 5.835e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1754928864335-608149b7f6a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx1bml4JTIwdjQlMjB0YXBlJTIwcmVjb3Zlcnl8ZW58MHwwfHx8MTc2MjgxODQ3Nnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

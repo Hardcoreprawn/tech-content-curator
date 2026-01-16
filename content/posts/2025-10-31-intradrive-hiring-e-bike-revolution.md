@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Intradrive''s Hiring Push: Join the E-Bike Revolution'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-intradrive-hiring-e-bike-revolution.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0009560999999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.71e-05
   title_generation: 5.61e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-intradrive-hiring-e-bike-revolution-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: edfoc.bsky.social

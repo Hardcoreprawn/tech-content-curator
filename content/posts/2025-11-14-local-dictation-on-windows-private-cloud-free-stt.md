@@ -12,14 +12,14 @@ article_quality:
   overall_score: 70.6
   passed_threshold: true
 cover:
-  alt: 'Local Dictation on Windows: Private, Cloud-Free STT'
-  image: https://images.unsplash.com/photo-1587831990711-23ca6441447b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxXaW5kb3dzJTIwZGVza3RvcCUyMHNldHVwfGVufDB8MHx8fDE3NjMxNTg0MjN8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-14T22:13:22+0000
 generation_costs:
   content_generation: 0.0031335
   title_generation: 0.0012555
 generator: Integrative List Generator
-icon: https://images.unsplash.com/photo-1587831990711-23ca6441447b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxXaW5kb3dzJTIwZGVza3RvcCUyMHNldHVwfGVufDB8MHx8fDE3NjMxNTg0MjN8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

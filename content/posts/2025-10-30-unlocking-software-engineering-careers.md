@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Unlocking Software Engineering Careers: Skills and Insights'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlocking-software-engineering-careers.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00092415
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.59e-05
   title_generation: 5.235e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlocking-software-engineering-careers-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: sashag

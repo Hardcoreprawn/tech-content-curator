@@ -1,15 +1,15 @@
 ---
 action_run_id: '19006105149'
 cover:
-  alt: 'Tech Access: A Pathway Out of Poverty, Not a Luxury'
-  image: https://images.unsplash.com/photo-1650978813673-df28319b04f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxoYW5kcyUyMHR5cGluZyUyMG9uJTIwbGFwdG9wJTIwa2V5Ym9hcmQlMjBwb3ZlcnR5fGVufDB8MHx8fDE3NjIwNTExODV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0010578
   image_generation: 0.0
   slug_generation: 1.59e-05
   title_generation: 5.4e-05
-icon: https://images.unsplash.com/photo-1650978813673-df28319b04f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxoYW5kcyUyMHR5cGluZyUyMG9uJTIwbGFwdG9wJTIwa2V5Ym9hcmQlMjBwb3ZlcnR5fGVufDB8MHx8fDE3NjIwNTExODV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: QasimRashid

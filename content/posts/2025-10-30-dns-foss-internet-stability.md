@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Unveiling DNS: The Role of FOSS in Internet Stability'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0010404
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.59e-05
   title_generation: 5.61e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-dns-foss-internet-stability-icon.png
+icon: ''
 reading_time: 6 min read
 sources:
 - author: ChrisArchitect

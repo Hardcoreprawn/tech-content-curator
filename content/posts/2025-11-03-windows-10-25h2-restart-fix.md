@@ -1,8 +1,8 @@
 ---
 action_run_id: '19040138048'
 cover:
-  alt: 'Windows 10 25H2 Patch Fixes Restart Bug: What You Need to...'
-  image: https://images.unsplash.com/photo-1620843002805-05a08cb72f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwYyUyMHJlc3RhcnQlMjBidWclMjBmaXh8ZW58MHwwfHx8MTc2MjE4NDk0NHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:49:02+0000
 generation_costs:
   content_generation: 0.00083205
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.89e-05
   title_generation: 5.745e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1620843002805-05a08cb72f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwYyUyMHJlc3RhcnQlMjBidWclMjBmaXh8ZW58MHwwfHx8MTc2MjE4NDk0NHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 4 min read
 sources:

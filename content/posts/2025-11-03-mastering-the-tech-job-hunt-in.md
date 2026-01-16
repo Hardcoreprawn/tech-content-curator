@@ -1,14 +1,14 @@
 ---
 action_run_id: '19046242488'
 cover:
-  alt: Mastering the Tech Job Hunt in a Remote World
-  image: https://images.unsplash.com/photo-1617854818583-09e7f077a156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyZW1vdGUlMjBqb2IlMjBzZWFyY2glMjB3b3JrfGVufDB8MHx8fDE3NjIxOTc1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T19:19:36+0000
 generation_costs:
   content_generation: 0.0009348
   title_generation: 5.295e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1617854818583-09e7f077a156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyZW1vdGUlMjBqb2IlMjBzZWFyY2glMjB3b3JrfGVufDB8MHx8fDE3NjIxOTc1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

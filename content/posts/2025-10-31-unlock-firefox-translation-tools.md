@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: Unlock Firefox's Hidden Translation Tools for Developers
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-unlock-firefox-translation-tools.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0008338499999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.455e-05
   title_generation: 5.1149999999999996e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-unlock-firefox-translation-tools-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: trs

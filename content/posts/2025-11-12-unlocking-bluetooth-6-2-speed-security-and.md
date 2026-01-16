@@ -1,14 +1,14 @@
 ---
 action_run_id: '19288101061'
 cover:
-  alt: 'Unlocking Bluetooth 6.2: Speed, Security, and...'
-  image: https://images.unsplash.com/photo-1696013910376-c56f76dd8178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxibHVldG9vdGglMjA2LjIlMjBzZWN1cml0eXxlbnwwfDB8fHwxNzYyOTI3OTM3fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T06:12:08+0000
 generation_costs:
   content_generation: 0.00109035
   title_generation: 5.97e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1696013910376-c56f76dd8178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxibHVldG9vdGglMjA2LjIlMjBzZWN1cml0eXxlbnwwfDB8fHwxNzYyOTI3OTM3fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

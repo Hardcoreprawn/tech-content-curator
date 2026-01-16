@@ -1,8 +1,8 @@
 ---
 action_run_id: '19009682297'
 cover:
-  alt: 'Unveiling the Universe: The Science of Gravitational Lensing'
-  image: https://images.unsplash.com/photo-1708113457301-93b70ceb9ff1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxodWJibGUlMjBzcGFjZSUyMHRlbGVzY29wZSUyMGdhbGF4eXxlbnwwfDB8fHwxNzYyMDcyNjQ1fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0011598
@@ -11,7 +11,7 @@ generation_costs:
   slug_generation: 1.605e-05
   title_generation: 5.7e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1708113457301-93b70ceb9ff1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxodWJibGUlMjBzcGFjZSUyMHRlbGVzY29wZSUyMGdhbGF4eXxlbnwwfDB8fHwxNzYyMDcyNjQ1fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

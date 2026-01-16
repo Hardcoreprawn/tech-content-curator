@@ -1,14 +1,14 @@
 ---
 action_run_id: '19288101061'
 cover:
-  alt: 'Kathleen Hanna: The Voice of Riot Grrrl and Feminist Punk'
-  image: https://images.unsplash.com/photo-1628107662837-21569b59acea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmZW1pbmlzdCUyMHB1bmslMjBzaW5nZXIlMjBwb3J0cmFpdHxlbnwwfDB8fHwxNzYyOTI3OTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T06:11:59+0000
 generation_costs:
   content_generation: 0.00107955
   title_generation: 6.285e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1628107662837-21569b59acea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmZW1pbmlzdCUyMHB1bmslMjBzaW5nZXIlMjBwb3J0cmFpdHxlbnwwfDB8fHwxNzYyOTI3OTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

@@ -12,8 +12,8 @@ article_quality:
   overall_score: 89.3
   passed_threshold: true
 cover:
-  alt: 40-Line Fix Unlocks JVM Performance
-  image: https://images.unsplash.com/photo-1645586157325-d46c75d6866d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxRdWVzdERCJTIwZGF0YWJhc2V8ZW58MHwwfHx8MTc2ODM1ODg1NXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Traxer
   photographer_url: https://unsplash.com/@traxer
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.00050424
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1645586157325-d46c75d6866d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxRdWVzdERCJTIwZGF0YWJhc2V8ZW58MHwwfHx8MTc2ODM1ODg1NXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

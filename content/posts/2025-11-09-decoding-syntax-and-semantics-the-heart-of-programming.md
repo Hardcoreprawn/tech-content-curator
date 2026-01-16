@@ -1,14 +1,14 @@
 ---
 action_run_id: '19204329185'
 cover:
-  alt: 'Decoding Syntax and Semantics: The Heart of Programming...'
-  image: https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGxhbmd1YWdlJTIwY29kZSUyMHN5bnRheHxlbnwwfDB8fHwxNzYyNjY5MDY1fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T06:17:44+0000
 generation_costs:
   content_generation: 0.0008769
   title_generation: 6.42e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGxhbmd1YWdlJTIwY29kZSUyMHN5bnRheHxlbnwwfDB8fHwxNzYyNjY5MDY1fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

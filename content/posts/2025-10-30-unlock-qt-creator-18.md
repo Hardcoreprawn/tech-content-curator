@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Unlocking Qt Creator 18: Boost Your Development Efficiency'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlock-qt-creator-18.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008223
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.56e-05
   title_generation: 5.4e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlock-qt-creator-18-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: jrepinc

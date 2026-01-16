@@ -1,15 +1,15 @@
 ---
 action_run_id: '19044684319'
 cover:
-  alt: Empowering Queer Communities with the .meow gTLD Initiative
-  image: https://images.unsplash.com/photo-1573225063823-21ec7ba08e64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxxdWVlciUyMGNvbW11bml0eSUyMGVtcG93ZXJtZW50JTIwcGhvdG98ZW58MHwwfHx8MTc2MjE5NDE2OHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T18:22:47+0000
 generation_costs:
   content_generation: 0.00094335
   slug_generation: 1.785e-05
   title_generation: 5.88e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1573225063823-21ec7ba08e64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxxdWVlciUyMGNvbW11bml0eSUyMGVtcG93ZXJtZW50JTIwcGhvdG98ZW58MHwwfHx8MTc2MjE5NDE2OHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

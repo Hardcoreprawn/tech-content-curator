@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Master Bootable USBs: Simplify with Ventoy Today!'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-master-bootable-usbs-ventoy.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00084585
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.695e-05
   title_generation: 5.775e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-master-bootable-usbs-ventoy-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: wilsonfiifi

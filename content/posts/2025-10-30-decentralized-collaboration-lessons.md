@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Decentralized Collaboration: Lessons from Linux and Ruby'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-decentralized-collaboration-lessons.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00093195
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.6049999999999997e-05
   title_generation: 5.2799999999999996e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-decentralized-collaboration-lessons-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: kernellogger

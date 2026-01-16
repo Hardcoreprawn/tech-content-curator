@@ -1,8 +1,8 @@
 ---
 action_run_id: '19009682297'
 cover:
-  alt: 'Unlocking Go: Essential Frameworks and Libraries for...'
-  image: https://images.unsplash.com/photo-1730963292116-328f866a384d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnb2xhbmclMjBwcm9ncmFtbWluZyUyMGxhbmd1YWdlJTIwbG9nb3xlbnwwfDB8fHwxNzYyMDcyNTQxfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00148665
@@ -11,7 +11,7 @@ generation_costs:
   slug_generation: 1.545e-05
   title_generation: 5.34e-05
 generator: Integrative List Generator
-icon: https://images.unsplash.com/photo-1730963292116-328f866a384d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnb2xhbmclMjBwcm9ncmFtbWluZyUyMGxhbmd1YWdlJTIwbG9nb3xlbnwwfDB8fHwxNzYyMDcyNTQxfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 7 min read
 sources:

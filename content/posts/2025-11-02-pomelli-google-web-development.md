@@ -1,8 +1,8 @@
 ---
 action_run_id: '19009682297'
 cover:
-  alt: 'Pomelli: Google''s Game-Changer for Web Development Tools'
-  image: https://images.unsplash.com/photo-1688350727318-9f394c8a8058?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnb29nbGUlMjBsYWJzJTIwd2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHwwfHx8MTc2MjA3MjY4OXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00098715
@@ -11,7 +11,7 @@ generation_costs:
   slug_generation: 1.44e-05
   title_generation: 5.37e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1688350727318-9f394c8a8058?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnb29nbGUlMjBsYWJzJTIwd2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHwwfHx8MTc2MjA3MjY4OXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

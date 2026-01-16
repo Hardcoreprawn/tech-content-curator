@@ -1,8 +1,8 @@
 ---
 action_run_id: '18981308217'
 cover:
-  alt: 'Mastodon''s Post Editing: A Game Changer for Privacy and...'
-  image: https://images.unsplash.com/photo-1675104236783-a1fd9f5a38cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMHBvc3QlMjBlZGl0aW5nJTIwbm90aWZpY2F0aW9ufGVufDB8MHx8fDE3NjE5MzQ1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0010416
@@ -10,7 +10,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.59e-05
   title_generation: 5.654999999999999e-05
-icon: https://images.unsplash.com/photo-1675104236783-a1fd9f5a38cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMHBvc3QlMjBlZGl0aW5nJTIwbm90aWZpY2F0aW9ufGVufDB8MHx8fDE3NjE5MzQ1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: FediTips

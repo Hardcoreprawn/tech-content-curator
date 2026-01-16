@@ -1,14 +1,14 @@
 ---
 action_run_id: '19196683054'
 cover:
-  alt: 'Unearthing London''s Largest Roman Mosaic: A Cultural...'
-  image: https://images.unsplash.com/photo-1678168600980-4c8fb4bc6286?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxMb25kb24lMjBSb21hbiUyMG1vc2FpYyUyMGV4Y2F2YXRpb258ZW58MHwwfHx8MTc2MjYyNTgyM3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T18:17:02+0000
 generation_costs:
   content_generation: 0.0010092
   title_generation: 6.405e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1678168600980-4c8fb4bc6286?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxMb25kb24lMjBSb21hbiUyMG1vc2FpYyUyMGV4Y2F2YXRpb258ZW58MHwwfHx8MTc2MjYyNTgyM3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

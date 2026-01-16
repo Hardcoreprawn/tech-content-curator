@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Board: The Console Merging Physical and Digital Gaming'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-board-console-physical-digital-gaming.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008499
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.6049999999999997e-05
   title_generation: 5.3099999999999996e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-board-console-physical-digital-gaming-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: nicoles

@@ -12,8 +12,8 @@ article_quality:
   overall_score: 71.4
   passed_threshold: true
 cover:
-  alt: 'Nogic: Visualize Your Codebase as a Graph in VS Code'
-  image: https://images.unsplash.com/photo-1738082956220-a1f20a8632ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxOb2dpYyUyMGNvZGViYXNlJTIwZ3JhcGh8ZW58MHwwfHx8MTc2ODM1ODgzNXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Logan Voss
   photographer_url: https://unsplash.com/@loganvoss
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.00069008
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1738082956220-a1f20a8632ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxOb2dpYyUyMGNvZGViYXNlJTIwZ3JhcGh8ZW58MHwwfHx8MTc2ODM1ODgzNXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

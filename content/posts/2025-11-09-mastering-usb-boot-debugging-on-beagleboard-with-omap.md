@@ -1,14 +1,14 @@
 ---
 action_run_id: '19202087872'
 cover:
-  alt: Mastering USB Boot Debugging on BeagleBoard with OMAP
-  image: https://images.unsplash.com/photo-1663422468271-dc79caa4b02f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxiZWFnbGVib2FyZCUyMHVzYiUyMGJvb3QlMjBkZWJ1Z2dpbmd8ZW58MHwwfHx8MTc2MjY1NTk3M3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T02:39:32+0000
 generation_costs:
   content_generation: 0.00090315
   title_generation: 5.985e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1663422468271-dc79caa4b02f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxiZWFnbGVib2FyZCUyMHVzYiUyMGJvb3QlMjBkZWJ1Z2dpbmd8ZW58MHwwfHx8MTc2MjY1NTk3M3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

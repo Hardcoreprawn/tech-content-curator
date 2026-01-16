@@ -1,15 +1,15 @@
 ---
 action_run_id: '19040138048'
 cover:
-  alt: Transform Your Windows Experience with Win11Debloat
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwb3dlcnNoZWxsJTIwc2NyaXB0JTIwY29kaW5nfGVufDB8MHx8fDE3NjIxODQ4MjV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:47:03+0000
 generation_costs:
   content_generation: 0.00101565
   slug_generation: 1.53e-05
   title_generation: 5.325e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwb3dlcnNoZWxsJTIwc2NyaXB0JTIwY29kaW5nfGVufDB8MHx8fDE3NjIxODQ4MjV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

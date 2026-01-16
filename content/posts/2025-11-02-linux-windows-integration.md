@@ -1,15 +1,15 @@
 ---
 action_run_id: '19008242469'
 cover:
-  alt: 'Mastering Linux-Windows Integration: Kerberos, SSSD, and DFS'
-  image: https://images.unsplash.com/photo-1503252947848-7338d3f92f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMHdpbmRvd3MlMjBpbnRlZ3JhdGlvbiUyMHNlcnZlciUyMHJvb218ZW58MHwwfHx8MTc2MjA2NDEwOHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0010062
   image_generation: 0.0
   slug_generation: 1.5e-05
   title_generation: 5.595e-05
-icon: https://images.unsplash.com/photo-1503252947848-7338d3f92f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMHdpbmRvd3MlMjBpbnRlZ3JhdGlvbiUyMHNlcnZlciUyMHJvb218ZW58MHwwfHx8MTc2MjA2NDEwOHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: indigodaddy

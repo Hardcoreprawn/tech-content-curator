@@ -1,14 +1,14 @@
 ---
 action_run_id: '19190196850'
 cover:
-  alt: Unlocking the Secrets of the Aberdeen Bestiary
-  image: https://images.unsplash.com/photo-1616405160919-c209d0062a4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtZWRpZXZhbCUyMGlsbHVtaW5hdGVkJTIwbWFudXNjcmlwdCUyMGFydCUyMEVuZ2xhbmR8ZW58MHwwfHx8MTc2MjU4OTA3M3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T08:04:32+0000
 generation_costs:
   content_generation: 0.000942
   title_generation: 5.73e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1616405160919-c209d0062a4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtZWRpZXZhbCUyMGlsbHVtaW5hdGVkJTIwbWFudXNjcmlwdCUyMGFydCUyMEVuZ2xhbmR8ZW58MHwwfHx8MTc2MjU4OTA3M3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

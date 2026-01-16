@@ -1,14 +1,14 @@
 ---
 action_run_id: '19186586099'
 cover:
-  alt: 'Unlocking Web Development: Ribir''s Rust & WASM Revolution'
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNvZGV8ZW58MHwwfHx8MTc2MjU2OTQzN3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T02:37:16+0000
 generation_costs:
   content_generation: 0.0009792
   title_generation: 5.625e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNvZGV8ZW58MHwwfHx8MTc2MjU2OTQzN3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

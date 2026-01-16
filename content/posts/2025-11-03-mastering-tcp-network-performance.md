@@ -1,15 +1,15 @@
 ---
 action_run_id: '19044684319'
 cover:
-  alt: 'Mastering TCP: Insights for Optimizing Network Performance'
-  image: https://images.unsplash.com/photo-1729549223893-b340db51e577?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0Y3AlMjBjb25uZWN0aW9ucyUyMGRhdGElMjBtZWFzdXJlbWVudHxlbnwwfDB8fHwxNzYyMTk0MTI4fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T18:22:06+0000
 generation_costs:
   content_generation: 0.00093225
   slug_generation: 1.485e-05
   title_generation: 5.16e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1729549223893-b340db51e577?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0Y3AlMjBjb25uZWN0aW9ucyUyMGRhdGElMjBtZWFzdXJlbWVudHxlbnwwfDB8fHwxNzYyMTk0MTI4fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

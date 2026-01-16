@@ -1,14 +1,14 @@
 ---
 action_run_id: '19204329185'
 cover:
-  alt: 'Streamlining Automation: Hephaestus for Multi-Agent Systems'
-  image: https://images.unsplash.com/photo-1501992015773-2f1bf00fc0b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhdXRvbm9tb3VzJTIwZHJvbmUlMjBzd2FybXxlbnwwfDB8fHwxNzYyNjY4OTc1fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T06:16:14+0000
 generation_costs:
   content_generation: 0.00098295
   title_generation: 5.955e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1501992015773-2f1bf00fc0b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhdXRvbm9tb3VzJTIwZHJvbmUlMjBzd2FybXxlbnwwfDB8fHwxNzYyNjY4OTc1fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

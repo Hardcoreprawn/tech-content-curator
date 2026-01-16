@@ -1,8 +1,8 @@
 ---
 action_run_id: '19009682297'
 cover:
-  alt: 'Mastering SQL Migrations with CLI Tools: A Developer''s Guide'
-  image: https://images.unsplash.com/photo-1607944023881-6074f5a14a56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjbGklMjBjb21tYW5kJTIwbGluZSUyMGludGVyZmFjZXxlbnwwfDB8fHwxNzYyMDcyNDg2fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0008696999999999999
@@ -11,7 +11,7 @@ generation_costs:
   slug_generation: 1.59e-05
   title_generation: 5.46e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1607944023881-6074f5a14a56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjbGklMjBjb21tYW5kJTIwbGluZSUyMGludGVyZmFjZXxlbnwwfDB8fHwxNzYyMDcyNDg2fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

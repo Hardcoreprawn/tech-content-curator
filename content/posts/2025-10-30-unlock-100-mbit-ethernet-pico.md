@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: Unlock 100 Mbit/s Ethernet on Raspberry Pi Pico with...
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlock-100-mbit-ethernet-pico.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0009297
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.755e-05
   title_generation: 5.625e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlock-100-mbit-ethernet-pico-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: chaosprint

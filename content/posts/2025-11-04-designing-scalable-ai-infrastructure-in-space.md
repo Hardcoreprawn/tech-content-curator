@@ -1,15 +1,15 @@
 ---
 action_run_id: '19078632100'
 cover:
-  alt: 'Designing Scalable AI Infrastructure in Space: A New...'
-  image: https://images.unsplash.com/photo-1687300172792-68a13c4e149a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBSSUyMGluZnJhc3RydWN0dXJlJTIwc2VydmVyJTIwcm9vbXxlbnwwfDB8fHwxNzYyMjgwNDkyfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:21:31+0000
 generation_costs:
   content_generation: 0.00078675
   diagram_1: 0.000256
   title_generation: 5.295e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1687300172792-68a13c4e149a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBSSUyMGluZnJhc3RydWN0dXJlJTIwc2VydmVyJTIwcm9vbXxlbnwwfDB8fHwxNzYyMjgwNDkyfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 4 min read
 sources:

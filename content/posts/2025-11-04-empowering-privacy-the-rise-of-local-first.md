@@ -1,14 +1,14 @@
 ---
 action_run_id: '19079473250'
 cover:
-  alt: 'Empowering Privacy: The Rise of Local-First Daily Planners'
-  image: https://images.unsplash.com/photo-1519336305162-4b6ed6b6fc83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkYWlseSUyMHBsYW5uZXIlMjBtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyMjgyNDE2fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:53:35+0000
 generation_costs:
   content_generation: 0.00096945
   title_generation: 5.55e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1519336305162-4b6ed6b6fc83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkYWlseSUyMHBsYW5uZXIlMjBtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyMjgyNDE2fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

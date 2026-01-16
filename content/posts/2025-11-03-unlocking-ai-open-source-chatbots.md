@@ -1,15 +1,15 @@
 ---
 action_run_id: '19039452299'
 cover:
-  alt: 'Unlocking AI: Open-Source UI Alternatives for Chatbots'
-  image: https://images.unsplash.com/photo-1652111865960-15f4a46a7688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuJTIwc291cmNlJTIwc29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyMTgzNzQwfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:28:59+0000
 generation_costs:
   content_generation: 0.0009135
   slug_generation: 1.575e-05
   title_generation: 5.61e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1652111865960-15f4a46a7688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuJTIwc291cmNlJTIwc29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyMTgzNzQwfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

@@ -1,14 +1,14 @@
 ---
 action_run_id: '19307320192'
 cover:
-  alt: 'Remembering Ioannis Yannas: Pioneer of Artificial Skin'
-  image: https://images.unsplash.com/photo-1557324796-77811a40fdf7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxiaW9lbmdpbmVlcmVkJTIwc2tpbiUyMHRpc3N1ZXxlbnwwfDB8fHwxNzYyOTcxNDIyfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T18:16:55+0000
 generation_costs:
   content_generation: 0.0008976
   title_generation: 5.865e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1557324796-77811a40fdf7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxiaW9lbmdpbmVlcmVkJTIwc2tpbiUyMHRpc3N1ZXxlbnwwfDB8fHwxNzYyOTcxNDIyfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

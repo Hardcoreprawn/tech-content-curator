@@ -1,14 +1,14 @@
 ---
 action_run_id: '19046242488'
 cover:
-  alt: 'The Untold Origins of Gmail: From Fan Service to Giant'
-  image: https://images.unsplash.com/photo-1683117927786-f146451082fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxlbWFpbCUyMGluYm94JTIwaW50ZXJmYWNlJTIwZGVzaWdufGVufDB8MHx8fDE3NjIxOTc2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T19:20:29+0000
 generation_costs:
   content_generation: 0.0008769
   title_generation: 5.535e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1683117927786-f146451082fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxlbWFpbCUyMGluYm94JTIwaW50ZXJmYWNlJTIwZGVzaWdufGVufDB8MHx8fDE3NjIxOTc2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

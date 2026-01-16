@@ -1,8 +1,8 @@
 ---
 action_run_id: '19011392274'
 cover:
-  alt: 'Exploring Comet Lemmon: Astrophotography Meets Cosmic Wonder'
-  image: https://images.unsplash.com/photo-1597370786793-b148b9561f32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb21ldCUyMGxlbW1vbiUyMGFzdHJvcGhvdG9ncmFwaHl8ZW58MHwwfHx8MTc2MjA4MjI1NHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00104265
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.59e-05
   title_generation: 5.91e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1597370786793-b148b9561f32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb21ldCUyMGxlbW1vbiUyMGFzdHJvcGhvdG9ncmFwaHl8ZW58MHwwfHx8MTc2MjA4MjI1NHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

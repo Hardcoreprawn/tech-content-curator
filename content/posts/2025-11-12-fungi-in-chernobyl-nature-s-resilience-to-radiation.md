@@ -1,14 +1,14 @@
 ---
 action_run_id: '19307320192'
 cover:
-  alt: 'Fungi in Chernobyl: Nature''s Resilience to Radiation'
-  image: https://images.unsplash.com/photo-1653242803145-3d62d2d022b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmdW5naSUyMENoZXJub2J5bCUyMHJhZGlhdGlvbnxlbnwwfDB8fHwxNzYyOTcxNDE5fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T18:15:57+0000
 generation_costs:
   content_generation: 0.001101
   title_generation: 5.595e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1653242803145-3d62d2d022b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmdW5naSUyMENoZXJub2J5bCUyMHJhZGlhdGlvbnxlbnwwfDB8fHwxNzYyOTcxNDE5fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'FreeBSD Joins OCI: A New Era for Containerization'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlocking-software-engineering-careers.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-unlocking-software-engineering-careers-icon.png

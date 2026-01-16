@@ -1,14 +1,14 @@
 ---
 action_run_id: '19249676510'
 cover:
-  alt: 'Reviving COBOL: AI''s Role in Legacy System Modernization'
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxDT0JPTCUyMHByb2dyYW1taW5nJTIwbGFuZ3VhZ2UlMjBtYWluZnJhbWV8ZW58MHwwfHx8MTc2MjgxODQ3MXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T23:47:32+0000
 generation_costs:
   content_generation: 0.0012207
   title_generation: 5.925e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxDT0JPTCUyMHByb2dyYW1taW5nJTIwbGFuZ3VhZ2UlMjBtYWluZnJhbWV8ZW58MHwwfHx8MTc2MjgxODQ3MXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

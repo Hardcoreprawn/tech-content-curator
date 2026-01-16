@@ -1,14 +1,14 @@
 ---
 action_run_id: '19078632100'
 cover:
-  alt: AI Surge Fuels 50% Spike in Server DRAM Prices
-  image: https://images.unsplash.com/photo-1595134334453-46c042d486f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzYyMjgwNTg4fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:23:07+0000
 generation_costs:
   content_generation: 0.00085605
   title_generation: 5.775e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1595134334453-46c042d486f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzYyMjgwNTg4fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

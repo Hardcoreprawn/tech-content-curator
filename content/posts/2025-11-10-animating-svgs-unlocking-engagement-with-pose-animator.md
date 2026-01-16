@@ -1,14 +1,14 @@
 ---
 action_run_id: '19241454631'
 cover:
-  alt: 'Animating SVGs: Unlocking Engagement with Pose Animator'
-  image: https://images.unsplash.com/photo-1618422168439-4b03d3a05b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdmclMjBhbmltYXRpb24lMjBjb2Rpbmd8ZW58MHwwfHx8MTc2Mjc5ODgyMXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T18:20:20+0000
 generation_costs:
   content_generation: 0.00102735
   title_generation: 5.94e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1618422168439-4b03d3a05b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdmclMjBhbmltYXRpb24lMjBjb2Rpbmd8ZW58MHwwfHx8MTc2Mjc5ODgyMXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

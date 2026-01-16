@@ -1,15 +1,15 @@
 ---
 action_run_id: '18993827312'
 cover:
-  alt: 'Understanding Futurelock: Async Rust''s Hidden Challenge'
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNvZGV8ZW58MHwwfHx8MTc2MTk4NDk2MHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.00101745
   image_generation: 0.0
   slug_generation: 1.6499999999999998e-05
   title_generation: 5.3549999999999994e-05
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNvZGV8ZW58MHwwfHx8MTc2MTk4NDk2MHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: bcantrill

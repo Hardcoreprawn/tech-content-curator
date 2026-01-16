@@ -12,8 +12,8 @@ article_quality:
   overall_score: 81.5
   passed_threshold: true
 cover:
-  alt: 'From Game Boy to Stitch: Emulation Meets Embroidery'
-  image: https://images.unsplash.com/photo-1760630856713-ca747c098b48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxHYW1lJTIwQm95JTIwc2V3aW5nJTIwbWFjaGluZXxlbnwwfDB8fHwxNzY4NDE0NzM2fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: mdreza jalali
   photographer_url: https://unsplash.com/@mdrezajalali
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.00060704
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1760630856713-ca747c098b48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxHYW1lJTIwQm95JTIwc2V3aW5nJTIwbWFjaGluZXxlbnwwfDB8fHwxNzY4NDE0NzM2fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

@@ -1,15 +1,15 @@
 ---
 action_run_id: '19000626966'
 cover:
-  alt: 'Unlocking UX: Mastering Progressive Disclosure for Users'
-  image: https://images.pexels.com/photos/34502059/pexels-photo-34502059.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0008497499999999999
   image_generation: 0.0
   slug_generation: 1.6049999999999997e-05
   title_generation: 5.49e-05
-icon: https://images.pexels.com/photos/34502059/pexels-photo-34502059.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+icon: ''
 reading_time: 5 min read
 sources:
 - author: n1k0

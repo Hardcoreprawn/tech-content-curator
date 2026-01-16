@@ -1,8 +1,8 @@
 ---
 action_run_id: '19025473376'
 cover:
-  alt: 'Introducing Oxy: Cloudflare''s Next-Gen Rust Proxy Framework'
-  image: https://images.unsplash.com/photo-1629654297299-c8506221ca97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNsb3VkZmxhcmV8ZW58MHwwfHx8MTc2MjE1MDU1MHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T06:15:49+0000
 generation_costs:
   content_generation: 0.00087135
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.59e-05
   title_generation: 5.55e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1629654297299-c8506221ca97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNsb3VkZmxhcmV8ZW58MHwwfHx8MTc2MjE1MDU1MHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

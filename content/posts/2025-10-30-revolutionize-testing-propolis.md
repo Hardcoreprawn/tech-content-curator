@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Revolutionize Testing with Propolis: The Future of QA'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionize-testing-propolis.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008530499999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.4999999999999999e-05
   title_generation: 5.55e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-revolutionize-testing-propolis-icon.png
+icon: ''
 reading_time: 4 min read
 sources:
 - author: mpapazian

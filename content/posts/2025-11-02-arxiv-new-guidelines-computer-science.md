@@ -1,15 +1,15 @@
 ---
 action_run_id: '19006105149'
 cover:
-  alt: 'ArXiv''s New Guidelines: Elevating Computer Science Research'
-  image: https://images.unsplash.com/photo-1741795746033-d50d48dc1da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhY2FkZW1pYyUyMHB1Ymxpc2hpbmclMjBib29rcyUyMHJlc2VhcmNofGVufDB8MHx8fDE3NjIwNTExNjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00084825
   image_generation: 0.0
   slug_generation: 1.695e-05
   title_generation: 5.46e-05
-icon: https://images.unsplash.com/photo-1741795746033-d50d48dc1da5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhY2FkZW1pYyUyMHB1Ymxpc2hpbmclMjBib29rcyUyMHJlc2VhcmNofGVufDB8MHx8fDE3NjIwNTExNjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: dw64

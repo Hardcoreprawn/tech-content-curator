@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019586668'
 cover:
-  alt: How HP and IBM Shaped Today's Software-Hardware Fusion
-  image: https://images.unsplash.com/photo-1649778650608-841ab432b14c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGhhcmR3YXJlJTIwZXZvbHV0aW9ufGVufDB8MHx8fDE3NjIxMjU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T23:23:09+0000
 generation_costs:
   content_generation: 0.00091335
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.74e-05
   title_generation: 5.19e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1649778650608-841ab432b14c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGhhcmR3YXJlJTIwZXZvbHV0aW9ufGVufDB8MHx8fDE3NjIxMjU3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

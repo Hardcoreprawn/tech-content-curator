@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Maximizing LLMs: Boosting Productivity Without the Pitfalls'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-maximizing-llms-productivity.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0009465
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.65e-05
   title_generation: 5.5350000000000004e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-maximizing-llms-productivity-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: tante

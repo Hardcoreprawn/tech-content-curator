@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'GrapheneOS: Your Shield Against Digital Surveillance'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-grapheneos-digital-surveillance.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.00087345
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.53e-05
   title_generation: 5.1899999999999994e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-grapheneos-digital-surveillance-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: evacide

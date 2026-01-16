@@ -1,14 +1,14 @@
 ---
 action_run_id: '19186586099'
 cover:
-  alt: Deploying Immutable Software with ZFS Jails on FreeBSD
-  image: https://images.unsplash.com/photo-1690547228166-d7202e7a40b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx6ZnMlMjBqYWlscyUyMGZyZWVic2QlMjBzZXJ2ZXIlMjBkZXBsb3ltZW50fGVufDB8MHx8fDE3NjI1NjkzOTN8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T02:36:33+0000
 generation_costs:
   content_generation: 0.0010095
   title_generation: 5.46e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1690547228166-d7202e7a40b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx6ZnMlMjBqYWlscyUyMGZyZWVic2QlMjBzZXJ2ZXIlMjBkZXBsb3ltZW50fGVufDB8MHx8fDE3NjI1NjkzOTN8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

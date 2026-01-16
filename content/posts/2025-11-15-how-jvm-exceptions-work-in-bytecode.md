@@ -12,8 +12,8 @@ article_quality:
   overall_score: 77.1
   passed_threshold: true
 cover:
-  alt: How JVM Exceptions Work in Bytecode
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxKYXZhJTIwYnl0ZWNvZGUlMjBleGNlcHRpb25zfGVufDB8MHx8fDE3NjMyNDY4NjR8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Patrick Martin
   photographer_url: https://unsplash.com/@patrickmmartin
@@ -28,7 +28,7 @@ generation_costs:
   title_generation:
   - 0.0010206
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxKYXZhJTIwYnl0ZWNvZGUlMjBleGNlcHRpb25zfGVufDB8MHx8fDE3NjMyNDY4NjR8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 models_used:
   content: gpt-5-mini

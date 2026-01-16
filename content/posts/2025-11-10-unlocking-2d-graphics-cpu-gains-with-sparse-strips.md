@@ -1,14 +1,14 @@
 ---
 action_run_id: '19249676510'
 cover:
-  alt: 'Unlocking 2D Graphics: CPU Gains with Sparse Strips'
-  image: https://images.unsplash.com/photo-1603322199363-14380ec2ba31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHwyRCUyMGdyYXBoaWNzJTIwcmVuZGVyaW5nJTIwQ1BVfGVufDB8MHx8fDE3NjI4MTg0NjV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T23:46:50+0000
 generation_costs:
   content_generation: 0.001011
   title_generation: 5.94e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1603322199363-14380ec2ba31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHwyRCUyMGdyYXBoaWNzJTIwcmVuZGVyaW5nJTIwQ1BVfGVufDB8MHx8fDE3NjI4MTg0NjV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

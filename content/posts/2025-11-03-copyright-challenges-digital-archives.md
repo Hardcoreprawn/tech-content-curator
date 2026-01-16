@@ -1,15 +1,15 @@
 ---
 action_run_id: '19039452299'
 cover:
-  alt: Copyright Challenges Threaten the Future of Digital Archives
-  image: https://images.unsplash.com/photo-1637607698934-5e59488c88bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb3B5cmlnaHQlMjBsYXclMjBib29rc3xlbnwwfDB8fHwxNzYyMTgzNzkxfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:29:49+0000
 generation_costs:
   content_generation: 0.00087855
   slug_generation: 1.53e-05
   title_generation: 5.055e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1637607698934-5e59488c88bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb3B5cmlnaHQlMjBsYXclMjBib29rc3xlbnwwfDB8fHwxNzYyMTgzNzkxfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

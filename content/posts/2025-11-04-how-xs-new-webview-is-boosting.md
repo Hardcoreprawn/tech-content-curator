@@ -1,14 +1,14 @@
 ---
 action_run_id: '19078632100'
 cover:
-  alt: How X's New Webview is Boosting Business Traffic
-  image: https://images.unsplash.com/photo-1561565824-3b777e0452e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx3ZWJ2aWV3JTIwYXBwJTIwdHJhZmZpYyUyMG1vbml0b3Jpbmd8ZW58MHwwfHx8MTc2MjI4MDg2Nnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:27:45+0000
 generation_costs:
   content_generation: 0.00090795
   title_generation: 5.58e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1561565824-3b777e0452e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx3ZWJ2aWV3JTIwYXBwJTIwdHJhZmZpYyUyMG1vbml0b3Jpbmd8ZW58MHwwfHx8MTc2MjI4MDg2Nnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

@@ -1,15 +1,15 @@
 ---
 action_run_id: '19044684319'
 cover:
-  alt: 'Unlocking Geospatial Data: H3''s Rust Revolution'
-  image: https://images.unsplash.com/photo-1514070706115-47c142769603?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZXxlbnwwfDB8fHwxNzYyMTk0MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T18:20:13+0000
 generation_costs:
   content_generation: 0.0009384
   slug_generation: 1.56e-05
   title_generation: 5.52e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1514070706115-47c142769603?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZXxlbnwwfDB8fHwxNzYyMTk0MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

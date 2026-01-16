@@ -1,14 +1,14 @@
 ---
 action_run_id: '19249676510'
 cover:
-  alt: 'Revolutionizing Content Creation: The Power of Generative AI'
-  image: https://images.unsplash.com/photo-1762330467572-5199bc772a20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBSSUyMGNvbnRlbnQlMjBjcmVhdGlvbiUyMHRlY2hub2xvZ3l8ZW58MHwwfHx8MTc2MjgxODQ2OHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T23:46:48+0000
 generation_costs:
   content_generation: 0.00099675
   title_generation: 5.73e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1762330467572-5199bc772a20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBSSUyMGNvbnRlbnQlMjBjcmVhdGlvbiUyMHRlY2hub2xvZ3l8ZW58MHwwfHx8MTc2MjgxODQ2OHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

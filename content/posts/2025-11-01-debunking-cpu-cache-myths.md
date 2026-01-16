@@ -1,15 +1,15 @@
 ---
 action_run_id: '19000626966'
 cover:
-  alt: Debunking CPU Cache Myths for Better Performance
-  image: https://images.unsplash.com/photo-1527957557037-d079c24f24be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxDUFUlMjBjYWNoZSUyMHBlcmZvcm1hbmNlJTIwb3B0aW1pemF0aW9ufGVufDB8MHx8fDE3NjIwMjEwODF8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0009115499999999999
   image_generation: 0.0
   slug_generation: 1.6649999999999998e-05
   title_generation: 5.0849999999999996e-05
-icon: https://images.unsplash.com/photo-1527957557037-d079c24f24be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxDUFUlMjBjYWNoZSUyMHBlcmZvcm1hbmNlJTIwb3B0aW1pemF0aW9ufGVufDB8MHx8fDE3NjIwMjEwODF8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: whack

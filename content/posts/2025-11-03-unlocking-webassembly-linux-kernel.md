@@ -1,15 +1,15 @@
 ---
 action_run_id: '19039452299'
 cover:
-  alt: 'Unlocking WebAssembly: A New Era for the Linux Kernel'
-  image: https://images.unsplash.com/photo-1636586108931-a8b9b8796ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx3ZWJhc3NlbWJseSUyMGNvZGUlMjBsaW51eCUyMGtlcm5lbHxlbnwwfDB8fHwxNzYyMTgzNjIyfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:27:00+0000
 generation_costs:
   content_generation: 0.00109845
   slug_generation: 1.575e-05
   title_generation: 5.49e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1636586108931-a8b9b8796ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx3ZWJhc3NlbWJseSUyMGNvZGUlMjBsaW51eCUyMGtlcm5lbHxlbnwwfDB8fHwxNzYyMTgzNjIyfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

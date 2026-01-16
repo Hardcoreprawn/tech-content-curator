@@ -1,14 +1,14 @@
 ---
 action_run_id: '19261075931'
 cover:
-  alt: 'Unlocking Web Data: Explore the Power of PhantomCollect'
-  image: https://images.unsplash.com/photo-1667372531881-6f975b1c86db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxweXRob24lMjBwcm9ncmFtbWluZyUyMGNvZGV8ZW58MHwwfHx8MTc2Mjg1MzczM3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T09:35:31+0000
 generation_costs:
   content_generation: 0.00112695
   title_generation: 5.55e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1667372531881-6f975b1c86db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxweXRob24lMjBwcm9ncmFtbWluZyUyMGNvZGV8ZW58MHwwfHx8MTc2Mjg1MzczM3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

@@ -1,8 +1,8 @@
 ---
 action_run_id: '19011158610'
 cover:
-  alt: 'Celebrating 33 Years of Vim: The Programmer''s Essential Tool'
-  image: https://images.unsplash.com/photo-1678962855792-a2bbf7a634db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxrZXlib2FyZCUyMHRleHQlMjBlZGl0b3IlMjB2aW0lMjBjb2Rpbmd8ZW58MHwwfHx8MTc2MjA4MDg2M3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0008883
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.65e-05
   title_generation: 5.82e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1678962855792-a2bbf7a634db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxrZXlib2FyZCUyMHRleHQlMjBlZGl0b3IlMjB2aW0lMjBjb2Rpbmd8ZW58MHwwfHx8MTc2MjA4MDg2M3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

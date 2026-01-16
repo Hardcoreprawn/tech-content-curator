@@ -1,15 +1,15 @@
 ---
 action_run_id: '19032381592'
 cover:
-  alt: Balancing AI Innovation with Ecological Responsibility
-  image: https://images.unsplash.com/photo-1689514930640-123c5f55ed09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHRlY2hub2xvZ3klMjBlY28tZnJpZW5kbHl8ZW58MHwwfHx8MTc2MjE2ODQ3M3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T11:14:32+0000
 generation_costs:
   content_generation: 0.00089625
   slug_generation: 1.575e-05
   title_generation: 5.115e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1689514930640-123c5f55ed09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHRlY2hub2xvZ3klMjBlY28tZnJpZW5kbHl8ZW58MHwwfHx8MTc2MjE2ODQ3M3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

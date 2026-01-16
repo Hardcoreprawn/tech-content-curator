@@ -1,15 +1,15 @@
 ---
 action_run_id: '19013353268'
 cover:
-  alt: 'Unlocking Tongyi DeepResearch: The Future of Open-Source NLP'
-  image: https://images.unsplash.com/photo-1695970383927-1d881f200789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwbGFuZ3VhZ2UlMjBwcm9jZXNzaW5nJTIwYWxnb3JpdGhtc3xlbnwwfDB8fHwxNzYyMDkyODAyfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00079365
   slug_generation: 1.605e-05
   title_generation: 5.535e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1695970383927-1d881f200789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwbGFuZ3VhZ2UlMjBwcm9jZXNzaW5nJTIwYWxnb3JpdGhtc3xlbnwwfDB8fHwxNzYyMDkyODAyfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 4 min read
 sources:

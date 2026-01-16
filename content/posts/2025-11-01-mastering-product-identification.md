@@ -1,15 +1,15 @@
 ---
 action_run_id: '19000626966'
 cover:
-  alt: Mastering Product Identification and Desktop Organization...
-  image: https://images.unsplash.com/photo-1623511907911-b3f64831bd38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwaWRlbnRpZmljYXRpb24lMjBiYXJjb2RlJTIwc2Nhbm5lcnxlbnwwfDB8fHwxNzYyMDIxMDI3fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0010986
   image_generation: 0.0
   slug_generation: 1.38e-05
   title_generation: 4.92e-05
-icon: https://images.unsplash.com/photo-1623511907911-b3f64831bd38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwaWRlbnRpZmljYXRpb24lMjBiYXJjb2RlJTIwc2Nhbm5lcnxlbnwwfDB8fHwxNzYyMDIxMDI3fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: thomasfuchs

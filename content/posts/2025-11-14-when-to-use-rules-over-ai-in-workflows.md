@@ -12,14 +12,14 @@ article_quality:
   overall_score: 65.9
   passed_threshold: false
 cover:
-  alt: When to Use Rules Over AI in Workflows
-  image: https://images.unsplash.com/photo-1717386255767-52643970d483?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxpZi10aGVuJTIwYXV0b21hdGlvbnxlbnwwfDB8fHwxNzYzMjQ1MDY4fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-14T23:14:51+0000
 generation_costs:
   content_generation: 0.00210675
   title_generation: 0.000756
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1717386255767-52643970d483?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxpZi10aGVuJTIwYXV0b21hdGlvbnxlbnwwfDB8fHwxNzYzMjQ1MDY4fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

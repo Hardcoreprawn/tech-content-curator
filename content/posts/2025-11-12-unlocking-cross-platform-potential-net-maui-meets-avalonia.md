@@ -1,15 +1,15 @@
 ---
 action_run_id: '19284433644'
 cover:
-  alt: 'Unlocking Cross-Platform Potential: .NET MAUI Meets Avalonia'
-  image: https://images.unsplash.com/photo-1624948384140-e48e47087fad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMGRlc2t0b3AlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyOTE0OTM3fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T02:35:36+0000
 generation_costs:
   content_generation: 0.001008
   diagram_1: 0.0001825
   title_generation: 6.015e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1624948384140-e48e47087fad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMGRlc2t0b3AlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyOTE0OTM3fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 6 min read
 sources:

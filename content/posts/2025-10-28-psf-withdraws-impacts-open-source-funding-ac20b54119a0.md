@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'PSF Withdraws $1.5M Grant: Impacts on Open-Source Funding'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-psf-withdraws-impacts-open-source-funding-ac20b54119a0.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-psf-withdraws-impacts-open-source-funding-ac20b54119a0-icon.png

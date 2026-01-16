@@ -1,14 +1,14 @@
 ---
 action_run_id: '19307320192'
 cover:
-  alt: 'Transmeta: The Rise and Fall of a Dotcom Dream'
-  image: https://images.unsplash.com/photo-1689037676450-aabec64bafa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzaWxpY29uJTIwdmFsbGV5JTIwb2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHwwfHx8MTc2Mjk3MTQyNHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T18:16:53+0000
 generation_costs:
   content_generation: 0.00084975
   title_generation: 5.94e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1689037676450-aabec64bafa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzaWxpY29uJTIwdmFsbGV5JTIwb2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHwwfHx8MTc2Mjk3MTQyNHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

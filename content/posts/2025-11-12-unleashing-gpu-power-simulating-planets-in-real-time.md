@@ -1,14 +1,14 @@
 ---
 action_run_id: '19307320192'
 cover:
-  alt: 'Unleashing GPU Power: Simulating Planets in Real-Time'
-  image: https://images.unsplash.com/photo-1755955698853-faa431fe27b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwbGFuZXRhcnklMjBzeXN0ZW0lMjBzaW11bGF0aW9ufGVufDB8MHx8fDE3NjI5NzE0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T18:15:49+0000
 generation_costs:
   content_generation: 0.00095295
   title_generation: 5.805e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1755955698853-faa431fe27b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwbGFuZXRhcnklMjBzeXN0ZW0lMjBzaW11bGF0aW9ufGVufDB8MHx8fDE3NjI5NzE0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

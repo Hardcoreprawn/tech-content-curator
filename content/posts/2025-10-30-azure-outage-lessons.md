@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Lessons from the Recent Azure Outage: What You Need to Know'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0007984499999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.47e-05
   title_generation: 5.475e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-azure-outage-lessons-icon.png
+icon: ''
 reading_time: 4 min read
 sources:
 - author: tartieret

@@ -1,15 +1,15 @@
 ---
 action_run_id: '18993827312'
 cover:
-  alt: Mastering AI Workflows with Declarative Programming Tools
-  image: https://images.unsplash.com/photo-1526379095098-d400fd0bf935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxweXRob24lMjBydW50aW1lJTIwcHJvZ3JhbW1pbmd8ZW58MHwwfHx8MTc2MTk4NDkzNHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0011782499999999998
   image_generation: 0.0
   slug_generation: 1.6649999999999998e-05
   title_generation: 5.295e-05
-icon: https://images.unsplash.com/photo-1526379095098-d400fd0bf935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxweXRob24lMjBydW50aW1lJTIwcHJvZ3JhbW1pbmd8ZW58MHwwfHx8MTc2MTk4NDkzNHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: lchoquel

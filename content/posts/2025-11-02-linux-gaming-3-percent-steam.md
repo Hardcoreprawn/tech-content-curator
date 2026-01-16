@@ -1,8 +1,8 @@
 ---
 action_run_id: '19013353268'
 cover:
-  alt: 'Linux Gaming Hits 3% on Steam: A New Era Begins'
-  image: https://images.unsplash.com/photo-1704244377806-43632e6c338d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMGdhbWluZyUyMHN0ZWFtJTIwbG9nb3xlbnwwfDB8fHwxNzYyMDkyODQzfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0009705
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.65e-05
   title_generation: 5.625e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1704244377806-43632e6c338d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMGdhbWluZyUyMHN0ZWFtJTIwbG9nb3xlbnwwfDB8fHwxNzYyMDkyODQzfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

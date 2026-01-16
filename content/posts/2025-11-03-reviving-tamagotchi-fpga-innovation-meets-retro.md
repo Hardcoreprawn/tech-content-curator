@@ -1,14 +1,14 @@
 ---
 action_run_id: '19046242488'
 cover:
-  alt: 'Reviving Tamagotchi: FPGA Innovation Meets Retro Computing'
-  image: https://images.unsplash.com/photo-1610812387871-806d3db9f5aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmcGdhJTIwZGV2ZWxvcG1lbnQlMjBoYXJkd2FyZSUyMGRlc2lnbnxlbnwwfDB8fHwxNzYyMTk3NDczfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T19:17:52+0000
 generation_costs:
   content_generation: 0.000948
   title_generation: 5.58e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1610812387871-806d3db9f5aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmcGdhJTIwZGV2ZWxvcG1lbnQlMjBoYXJkd2FyZSUyMGRlc2lnbnxlbnwwfDB8fHwxNzYyMTk3NDczfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

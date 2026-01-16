@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Mastering Tech: Build Your Own Software from Scratch'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-mastering-tech-build-software-e9dae96dd238.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-mastering-tech-build-software-e9dae96dd238-icon.png

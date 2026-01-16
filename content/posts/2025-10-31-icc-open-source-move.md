@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'ICC''s Bold Move: Embracing Open-Source Over Microsoft'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-icc-open-source-move.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.000936
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.47e-05
   title_generation: 5.415e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-icc-open-source-move-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: glynmoody

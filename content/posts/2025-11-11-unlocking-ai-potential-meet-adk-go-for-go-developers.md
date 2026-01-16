@@ -1,15 +1,15 @@
 ---
 action_run_id: '19281161320'
 cover:
-  alt: 'Unlocking AI Potential: Meet Adk-go for Go Developers'
-  image: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnbyUyMHByb2dyYW1taW5nJTIwbGFuZ3VhZ2UlMjBkZXZlbG9wZXIlMjBjb2Rpbmd8ZW58MHwwfHx8MTc2MjkwMzM5N3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T23:23:14+0000
 generation_costs:
   content_generation: 0.00113025
   diagram_1: 0.000425
   title_generation: 5.745e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnbyUyMHByb2dyYW1taW5nJTIwbGFuZ3VhZ2UlMjBkZXZlbG9wZXIlMjBjb2Rpbmd8ZW58MHwwfHx8MTc2MjkwMzM5N3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 6 min read
 sources:

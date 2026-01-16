@@ -1,15 +1,15 @@
 ---
 action_run_id: '19040138048'
 cover:
-  alt: 'Space Debris: What Farmers Need to Know About Space Junk'
-  image: https://images.unsplash.com/photo-1687993319555-f608d8992f9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMGRlYnJpcyUyMG9yYml0aW5nJTIwRWFydGh8ZW58MHwwfHx8MTc2MjE4NTAwNXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:50:04+0000
 generation_costs:
   content_generation: 0.00091575
   slug_generation: 1.575e-05
   title_generation: 5.37e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1687993319555-f608d8992f9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMGRlYnJpcyUyMG9yYml0aW5nJTIwRWFydGh8ZW58MHwwfHx8MTc2MjE4NTAwNXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

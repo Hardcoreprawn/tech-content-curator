@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Wind Power: Transforming the UK''s Energy Future and Economy'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-wind-power-transforming-uk-energy-economy-32b1f9d2afb6.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-wind-power-transforming-uk-energy-economy-32b1f9d2afb6-icon.png

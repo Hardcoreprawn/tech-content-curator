@@ -1,14 +1,14 @@
 ---
 action_run_id: '19249676510'
 cover:
-  alt: 'Revolutionizing Semiconductors: DARPA''s 3D Integration...'
-  image: https://images.unsplash.com/photo-1637729960394-1a1200764aa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHwzZCUyMGludGVncmF0aW9uJTIwc2VtaWNvbmR1Y3RvciUyMGZhYnJpY2F0aW9ufGVufDB8MHx8fDE3NjI4MTg0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T23:47:44+0000
 generation_costs:
   content_generation: 0.00101985
   title_generation: 5.805e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1637729960394-1a1200764aa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHwzZCUyMGludGVncmF0aW9uJTIwc2VtaWNvbmR1Y3RvciUyMGZhYnJpY2F0aW9ufGVufDB8MHx8fDE3NjI4MTg0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

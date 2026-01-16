@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Legacy Code and National Security: The Fortran 77 Dilemma'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-legacy-code-national-security.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0009678
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.425e-05
   title_generation: 5.9250000000000004e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-legacy-code-national-security-icon.png
+icon: ''
 reading_time: 6 min read
 sources:
 - author: david_chisnall

@@ -1,15 +1,15 @@
 ---
 action_run_id: '19044684319'
 cover:
-  alt: 'OpenAI and Amazon: A $38B Game-Changer for AI and Cloud'
-  image: https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMHNlcnZlciUyMHJvb218ZW58MHwwfHx8MTc2MjE5NDA3N3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T18:21:16+0000
 generation_costs:
   content_generation: 0.0009735
   slug_generation: 1.815e-05
   title_generation: 5.565e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMHNlcnZlciUyMHJvb218ZW58MHwwfHx8MTc2MjE5NDA3N3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

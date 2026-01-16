@@ -1,15 +1,15 @@
 ---
 action_run_id: '19008242469'
 cover:
-  alt: 'Unpacking Grocery Store Waste: Surveillance and Ethics'
-  image: https://images.unsplash.com/photo-1738715827200-1b14166c2ad7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdXBlcm1hcmtldCUyMHdhc3RlJTIwZGlzcG9zYWx8ZW58MHwwfHx8MTc2MjA2Mzk5OHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0010504499999999999
   image_generation: 0.0
   slug_generation: 1.59e-05
   title_generation: 5.1899999999999994e-05
-icon: https://images.unsplash.com/photo-1738715827200-1b14166c2ad7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdXBlcm1hcmtldCUyMHdhc3RlJTIwZGlzcG9zYWx8ZW58MHwwfHx8MTc2MjA2Mzk5OHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: AlSweigart

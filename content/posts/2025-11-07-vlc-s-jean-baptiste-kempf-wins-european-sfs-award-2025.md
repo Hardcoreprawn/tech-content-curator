@@ -1,14 +1,14 @@
 ---
 action_run_id: '19183120592'
 cover:
-  alt: VLC's Jean-Baptiste Kempf Wins European SFS Award 2025
-  image: https://images.unsplash.com/photo-1577737840363-c6879c6b643d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxKZWFuLUJhcHRpc3RlJTIwS2VtcGYlMjBWTEMlMjBhd2FyZHxlbnwwfDB8fHwxNzYyNTU1NDg0fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-07T22:44:43+0000
 generation_costs:
   content_generation: 0.00093405
   title_generation: 6.015e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1577737840363-c6879c6b643d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxKZWFuLUJhcHRpc3RlJTIwS2VtcGYlMjBWTEMlMjBhd2FyZHxlbnwwfDB8fHwxNzYyNTU1NDg0fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

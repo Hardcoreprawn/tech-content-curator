@@ -1,14 +1,14 @@
 ---
 action_run_id: '19312446920'
 cover:
-  alt: 'First Look at a Supernova''s Birth: A Groundbreaking...'
-  image: https://images.unsplash.com/photo-1615886216159-0497712cb8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdXBlcm5vdmElMjBiaXJ0aCUyMHRlbGVzY29wZSUyMGFzdHJvbm9teXxlbnwwfDB8fHwxNzYyOTgzMzM2fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T21:34:58+0000
 generation_costs:
   content_generation: 0.00109395
   title_generation: 5.88e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1615886216159-0497712cb8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzdXBlcm5vdmElMjBiaXJ0aCUyMHRlbGVzY29wZSUyMGFzdHJvbm9teXxlbnwwfDB8fHwxNzYyOTgzMzM2fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

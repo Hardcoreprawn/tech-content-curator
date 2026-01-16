@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'COVID-19 in the Skies: Rethinking Air Travel Safety'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-covid-19-air-travel-safety.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0008979
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.725e-05
   title_generation: 5.594999999999999e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-covid-19-air-travel-safety-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: DenisCOVIDinfoguy

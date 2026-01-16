@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Unpacking KDE Plasma 6.5.1: Key Updates and Enhancements'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-support-kde-fight-hobgoblins.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-support-kde-fight-hobgoblins-icon.png

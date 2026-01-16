@@ -1,15 +1,15 @@
 ---
 action_run_id: '19006105149'
 cover:
-  alt: 'Visopsys: The Solo OS Revolutionizing Software Development'
-  image: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2xvJTIwc29mdHdhcmUlMjBkZXZlbG9wZXIlMjBjb2Rpbmd8ZW58MHwwfHx8MTc2MjA1MTIwOHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00082425
   image_generation: 0.0
   slug_generation: 1.62e-05
   title_generation: 5.4e-05
-icon: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2xvJTIwc29mdHdhcmUlMjBkZXZlbG9wZXIlMjBjb2Rpbmd8ZW58MHwwfHx8MTc2MjA1MTIwOHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: kome

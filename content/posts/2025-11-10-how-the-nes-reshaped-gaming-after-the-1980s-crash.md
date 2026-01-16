@@ -1,14 +1,14 @@
 ---
 action_run_id: '19222346814'
 cover:
-  alt: How the NES Reshaped Gaming After the 1980s Crash
-  image: https://images.unsplash.com/photo-1507457379470-08b800bebc67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxuZXMlMjBjb25zb2xlJTIwbGF1bmNoJTIwcHJvY2Vzc3xlbnwwfDB8fHwxNzYyNzU1MzMzfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T06:15:31+0000
 generation_costs:
   content_generation: 0.00097215
   title_generation: 6.15e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1507457379470-08b800bebc67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxuZXMlMjBjb25zb2xlJTIwbGF1bmNoJTIwcHJvY2Vzc3xlbnwwfDB8fHwxNzYyNzU1MzMzfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

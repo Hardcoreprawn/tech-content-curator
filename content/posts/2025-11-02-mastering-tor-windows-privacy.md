@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019178670'
 cover:
-  alt: 'Mastering Tor on Windows: Safeguarding Your Privacy'
-  image: https://images.unsplash.com/photo-1669630127566-adeac5492686?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0b3IlMjBicm93c2VyJTIwd2luZG93cyUyMHByaXZhY3l8ZW58MHwwfHx8MTc2MjEyMzUyOHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T22:45:26+0000
 generation_costs:
   content_generation: 0.00127605
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.62e-05
   title_generation: 5.445e-05
 generator: Integrative List Generator
-icon: https://images.unsplash.com/photo-1669630127566-adeac5492686?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0b3IlMjBicm93c2VyJTIwd2luZG93cyUyMHByaXZhY3l8ZW58MHwwfHx8MTc2MjEyMzUyOHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

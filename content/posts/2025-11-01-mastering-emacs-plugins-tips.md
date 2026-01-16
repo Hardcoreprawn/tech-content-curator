@@ -1,15 +1,15 @@
 ---
 action_run_id: '19000626966'
 cover:
-  alt: 'Mastering Emacs: Essential Plugins and Config Tips for...'
-  image: https://images.unsplash.com/photo-1662027067763-770376e710f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxlbWFjcyUyMG5lb3ZpbSUyMGNvbmZpZ3VyYXRpb24lMjBtYW5hZ2VtZW50fGVufDB8MHx8fDE3NjIwMjEwNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0010188
   image_generation: 0.0
   slug_generation: 1.62e-05
   title_generation: 5.4e-05
-icon: https://images.unsplash.com/photo-1662027067763-770376e710f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxlbWFjcyUyMG5lb3ZpbSUyMGNvbmZpZ3VyYXRpb24lMjBtYW5hZ2VtZW50fGVufDB8MHx8fDE3NjIwMjEwNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: weakfish

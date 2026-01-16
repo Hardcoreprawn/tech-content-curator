@@ -1,8 +1,8 @@
 ---
 action_run_id: '19011158610'
 cover:
-  alt: 'From 800GB to 2GB: Mastering Container Image Optimization'
-  image: https://images.unsplash.com/photo-1669749191283-61b64dd1da17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb250YWluZXIlMjBpbWFnZSUyMG9wdGltaXphdGlvbiUyMHNvZnR3YXJlJTIwZGV2ZWxvcG1lbnR8ZW58MHwwfHx8MTc2MjA4MDkxMHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0009213
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.425e-05
   title_generation: 5.52e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1669749191283-61b64dd1da17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb250YWluZXIlMjBpbWFnZSUyMG9wdGltaXphdGlvbiUyMHNvZnR3YXJlJTIwZGV2ZWxvcG1lbnR8ZW58MHwwfHx8MTc2MjA4MDkxMHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

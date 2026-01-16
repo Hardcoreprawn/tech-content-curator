@@ -1,14 +1,14 @@
 ---
 action_run_id: '19212414473'
 cover:
-  alt: Build Your Own Handheld Cyberdeck with Raspberry Pi
-  image: https://images.unsplash.com/photo-1629739884912-92f6255f1920?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyYXNwYmVycnklMjBwaSUyMGN5YmVyZGVjayUyMGhhbmRoZWxkfGVufDB8MHx8fDE3NjI3MTIyNTd8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T18:17:36+0000
 generation_costs:
   content_generation: 0.0011157
   title_generation: 5.73e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1629739884912-92f6255f1920?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyYXNwYmVycnklMjBwaSUyMGN5YmVyZGVjayUyMGhhbmRoZWxkfGVufDB8MHx8fDE3NjI3MTIyNTd8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

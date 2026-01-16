@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Mastodon 4.5: Elevate Engagement with New Developer Tools'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastodon-4-5-developer-tools.png
+  alt: ''
+  image: ''
 date: '2025-10-29'
 generation_costs:
   content_generation: 0.00080655
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.725e-05
   title_generation: 5.8949999999999996e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-mastodon-4-5-developer-tools-icon.png
+icon: ''
 reading_time: 4 min read
 sources:
 - author: MastodonEngineering

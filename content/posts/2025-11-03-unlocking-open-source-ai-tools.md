@@ -1,8 +1,8 @@
 ---
 action_run_id: '19025473376'
 cover:
-  alt: 'Unlocking Open-Source Agentic AI: Trends and Tools'
-  image: https://images.unsplash.com/photo-1650600538903-ec09f670c391?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuLXNvdXJjZSUyMHByb2dyYW1taW5nJTIwY29kZXxlbnwwfDB8fHwxNzYyMTUwNjIxfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T06:16:59+0000
 generation_costs:
   content_generation: 0.00082215
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.515e-05
   title_generation: 5.535e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1650600538903-ec09f670c391?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuLXNvdXJjZSUyMHByb2dyYW1taW5nJTIwY29kZXxlbnwwfDB8fHwxNzYyMTUwNjIxfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 4 min read
 sources:

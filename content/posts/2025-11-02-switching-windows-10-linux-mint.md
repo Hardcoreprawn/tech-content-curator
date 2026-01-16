@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019178670'
 cover:
-  alt: 'Switching from Windows 10 to Linux Mint Cinnamon: A...'
-  image: https://images.unsplash.com/photo-1636914086911-e2a87814479b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMG1pbnQlMjBjaW5uYW1vbiUyMGRlc2t0b3B8ZW58MHwwfHx8MTc2MjEyMzY2Mnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T22:47:41+0000
 generation_costs:
   content_generation: 0.0012567
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.68e-05
   title_generation: 5.775e-05
 generator: Integrative List Generator
-icon: https://images.unsplash.com/photo-1636914086911-e2a87814479b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMG1pbnQlMjBjaW5uYW1vbiUyMGRlc2t0b3B8ZW58MHwwfHx8MTc2MjEyMzY2Mnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

@@ -1,8 +1,8 @@
 ---
 action_run_id: '19011158610'
 cover:
-  alt: 'Delta Chat: Revolutionizing Secure Messaging Onboarding'
-  image: https://images.unsplash.com/photo-1649180556628-9ba704115795?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBtZXNzYWdpbmclMjBxciUyMGNvZGV8ZW58MHwwfHx8MTc2MjA4MDgzMnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.000825
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.47e-05
   title_generation: 5.205e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1649180556628-9ba704115795?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBtZXNzYWdpbmclMjBxciUyMGNvZGV8ZW58MHwwfHx8MTc2MjA4MDgzMnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

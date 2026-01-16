@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Unlocking Oh My Zsh: Supercharge Your Command Line...'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-unlocking-oh-my-zsh-command-line-28754efc99a8.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-unlocking-oh-my-zsh-command-line-28754efc99a8-icon.png

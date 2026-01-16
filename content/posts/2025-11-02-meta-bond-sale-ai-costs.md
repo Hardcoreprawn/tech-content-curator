@@ -1,15 +1,15 @@
 ---
 action_run_id: '19008242469'
 cover:
-  alt: 'Meta''s $25B Bond Sale: AI Costs and Market Reactions'
-  image: https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwc2VydmVyJTIwcm9vbXxlbnwwfDB8fHwxNzYyMDY0MDc5fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0008531999999999999
   image_generation: 0.0
   slug_generation: 1.605e-05
   title_generation: 5.429999999999999e-05
-icon: https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwc2VydmVyJTIwcm9vbXxlbnwwfDB8fHwxNzYyMDY0MDc5fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: 1vuio0pswjnm7

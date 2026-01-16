@@ -12,8 +12,8 @@ article_quality:
   overall_score: 63.2
   passed_threshold: false
 cover:
-  alt: '10KiB Cloud Kernel: Portability, Observability & Security'
-  image: https://images.unsplash.com/photo-1589645733841-b54da1b6ef06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxCYXJlTWV0YWwtQ2xvdWQlMjAxMEtpQiUyMGtlcm5lbHxlbnwwfDB8fHwxNzY4NDE0NjUwfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Jane Utochkina
   photographer_url: https://unsplash.com/@jduckiy
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.00081272
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1589645733841-b54da1b6ef06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxCYXJlTWV0YWwtQ2xvdWQlMjAxMEtpQiUyMGtlcm5lbHxlbnwwfDB8fHwxNzY4NDE0NjUwfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

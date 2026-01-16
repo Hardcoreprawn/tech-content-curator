@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Unlocking Innovation: FreeCAD Meets Arduino UNO Q'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-unlocking-innovation-freecad-arduino-uno-q-c2de676d2f75.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-unlocking-innovation-freecad-arduino-uno-q-c2de676d2f75-icon.png

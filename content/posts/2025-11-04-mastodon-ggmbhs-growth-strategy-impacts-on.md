@@ -1,14 +1,14 @@
 ---
 action_run_id: '19079473250'
 cover:
-  alt: 'Mastodon gGmbH''s Growth Strategy: Impacts on the Fediverse'
-  image: https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwdGVjaG5vbG9neSUyMGRldmVsb3BtZW50fGVufDB8MHx8fDE3NjIyODI0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:54:17+0000
 generation_costs:
   content_generation: 0.00099945
   title_generation: 5.76e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwdGVjaG5vbG9neSUyMGRldmVsb3BtZW50fGVufDB8MHx8fDE3NjIyODI0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

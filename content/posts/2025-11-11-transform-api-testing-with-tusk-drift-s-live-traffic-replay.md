@@ -1,14 +1,14 @@
 ---
 action_run_id: '19274546521'
 cover:
-  alt: Transform API Testing with Tusk Drift's Live Traffic Replay
-  image: https://images.unsplash.com/photo-1650234083180-4b965afac328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcGklMjB0ZXN0aW5nJTIwbm9kZS5qc3xlbnwwfDB8fHwxNzYyODg1MzIwfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T18:20:48+0000
 generation_costs:
   content_generation: 0.00110385
   title_generation: 5.73e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1650234083180-4b965afac328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcGklMjB0ZXN0aW5nJTIwbm9kZS5qc3xlbnwwfDB8fHwxNzYyODg1MzIwfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

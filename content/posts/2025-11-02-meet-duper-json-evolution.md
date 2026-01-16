@@ -1,15 +1,15 @@
 ---
 action_run_id: '19006105149'
 cover:
-  alt: 'Meet Duper: The JSON Evolution Every Developer Needs'
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNvZGUlMjBzbmlwcGV0fGVufDB8MHx8fDE3NjIwNTExMzV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0008979
   image_generation: 0.0
   slug_generation: 1.4849999999999998e-05
   title_generation: 5.685e-05
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxydXN0JTIwcHJvZ3JhbW1pbmclMjBsYW5ndWFnZSUyMGNvZGUlMjBzbmlwcGV0fGVufDB8MHx8fDE3NjIwNTExMzV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: epiceric

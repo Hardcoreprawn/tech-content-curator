@@ -1,14 +1,14 @@
 ---
 action_run_id: '19202087872'
 cover:
-  alt: 'Embracing Imperfection: The Art of Avería Typography'
-  image: https://images.unsplash.com/photo-1684936427234-0f1c11f8d2be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0eXBvZ3JhcGh5JTIwZm9udCUyMGRlc2lnbiUyMGFydHxlbnwwfDB8fHwxNzYyNjU2MTIxfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T02:42:00+0000
 generation_costs:
   content_generation: 0.0008844
   title_generation: 6.885e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1684936427234-0f1c11f8d2be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0eXBvZ3JhcGh5JTIwZm9udCUyMGRlc2lnbiUyMGFydHxlbnwwfDB8fHwxNzYyNjU2MTIxfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

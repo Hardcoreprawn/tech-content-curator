@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019178670'
 cover:
-  alt: 'Enhancing Privacy in Schools: Deploying Privacy Badger'
-  image: https://images.unsplash.com/photo-1669630127566-adeac5492686?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwcml2YWN5JTIwYmFkZ2VyJTIwYnJvd3NlciUyMGV4dGVuc2lvbnxlbnwwfDB8fHwxNzYyMTIzNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T22:45:56+0000
 generation_costs:
   content_generation: 0.0008499
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.5e-05
   title_generation: 5.22e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1669630127566-adeac5492686?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwcml2YWN5JTIwYmFkZ2VyJTIwYnJvd3NlciUyMGV4dGVuc2lvbnxlbnwwfDB8fHwxNzYyMTIzNTU4fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

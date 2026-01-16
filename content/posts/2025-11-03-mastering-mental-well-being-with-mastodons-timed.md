@@ -1,14 +1,14 @@
 ---
 action_run_id: '19046242488'
 cover:
-  alt: Mastering Mental Well-Being with Mastodon's Timed Mute...
-  image: https://images.unsplash.com/photo-1663836657800-39ab390d80b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG5vdGlmaWNhdGlvbiUyMG1hbmFnZW1lbnR8ZW58MHwwfHx8MTc2MjE5NzUyMXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T19:18:39+0000
 generation_costs:
   content_generation: 0.00095325
   title_generation: 5.7e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1663836657800-39ab390d80b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG5vdGlmaWNhdGlvbiUyMG1hbmFnZW1lbnR8ZW58MHwwfHx8MTc2MjE5NzUyMXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

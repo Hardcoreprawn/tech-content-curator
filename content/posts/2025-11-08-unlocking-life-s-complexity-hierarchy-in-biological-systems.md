@@ -1,14 +1,14 @@
 ---
 action_run_id: '19186586099'
 cover:
-  alt: 'Unlocking Life''s Complexity: Hierarchy in Biological Systems'
-  image: https://images.unsplash.com/photo-1725556726676-16b887609eb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxiaW9sb2dpY2FsJTIwaGllcmFyY2h5JTIwZWNvc3lzdGVtfGVufDB8MHx8fDE3NjI1Njk0ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T02:38:01+0000
 generation_costs:
   content_generation: 0.0009609
   title_generation: 5.4e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1725556726676-16b887609eb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxiaW9sb2dpY2FsJTIwaGllcmFyY2h5JTIwZWNvc3lzdGVtfGVufDB8MHx8fDE3NjI1Njk0ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

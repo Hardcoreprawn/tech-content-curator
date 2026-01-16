@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'EU Withdraws #ChatControl: A Win for Data Privacy Advocates'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-eu-withdraws-chatcontrol.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008979
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.545e-05
   title_generation: 5.415e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-eu-withdraws-chatcontrol-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: privacyguides

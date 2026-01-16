@@ -1,14 +1,14 @@
 ---
 action_run_id: '19078632100'
 cover:
-  alt: 'Unlocking Open Source: The Power of Appreciation'
-  image: https://images.unsplash.com/photo-1652111865960-15f4a46a7688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuJTIwc291cmNlJTIwY29kaW5nJTIwY29tbXVuaXR5fGVufDB8MHx8fDE3NjIyODA3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-04T18:25:55+0000
 generation_costs:
   content_generation: 0.0009996
   title_generation: 5.19e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1652111865960-15f4a46a7688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuJTIwc291cmNlJTIwY29kaW5nJTIwY29tbXVuaXR5fGVufDB8MHx8fDE3NjIyODA3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

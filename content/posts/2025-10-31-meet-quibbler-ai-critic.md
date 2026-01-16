@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Meet Quibbler: Your New AI Critic for Coding Agents'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-meet-quibbler-ai-critic.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0007938
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.59e-05
   title_generation: 5.49e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-meet-quibbler-ai-critic-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: etherio

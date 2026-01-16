@@ -1,14 +1,14 @@
 ---
 action_run_id: '19241454631'
 cover:
-  alt: 'Reviving COBOL: AI Solutions for Legacy System Challenges'
-  image: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb2JvbCUyMHByb2dyYW1taW5nJTIwbGFuZ3VhZ2UlMjBtYWluZnJhbWV8ZW58MHwwfHx8MTc2Mjc5ODc2Nnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T18:19:25+0000
 generation_costs:
   content_generation: 0.0012819
   title_generation: 5.895e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb2JvbCUyMHByb2dyYW1taW5nJTIwbGFuZ3VhZ2UlMjBtYWluZnJhbWV8ZW58MHwwfHx8MTc2Mjc5ODc2Nnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

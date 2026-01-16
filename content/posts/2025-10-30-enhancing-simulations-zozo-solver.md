@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Enhancing Simulations: ZOZO''s Breakthrough Contact Solver'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-enhancing-simulations-zozo-solver.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00073965
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.77e-05
   title_generation: 5.52e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-enhancing-simulations-zozo-solver-icon.png
+icon: ''
 reading_time: 4 min read
 sources:
 - author: vintagedave

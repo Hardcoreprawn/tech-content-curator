@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Unlocking Digital Sovereignty: The Netherlands'' OSS Strategy'
-  image: https://images.unsplash.com/photo-1601492385399-20e7b49c4e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxOZXRoZXJsYW5kcyUyMGRpZ2l0YWwlMjBzb3ZlcmVpZ250eSUyMHN0cmF0ZWd5fGVufDB8MHx8fDE3NjE5MTc0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0009650999999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.7999999999999997e-05
   title_generation: 5.4e-05
-icon: https://images.unsplash.com/photo-1601492385399-20e7b49c4e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxOZXRoZXJsYW5kcyUyMGRpZ2l0YWwlMjBzb3ZlcmVpZ250eSUyMHN0cmF0ZWd5fGVufDB8MHx8fDE3NjE5MTc0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: Gina

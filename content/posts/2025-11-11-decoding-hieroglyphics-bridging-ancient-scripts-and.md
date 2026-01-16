@@ -1,15 +1,15 @@
 ---
 action_run_id: '19274546521'
 cover:
-  alt: 'Decoding Hieroglyphics: Bridging Ancient Scripts and...'
-  image: https://images.unsplash.com/photo-1622366681698-af1f8305a17f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwaGllcm9nbHlwaGljcyUyMHRyYW5zbGF0aW9ufGVufDB8MHx8fDE3NjI4ODUzMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T18:21:43+0000
 generation_costs:
   content_generation: 0.0009288
   diagram_1: 0.0003015
   title_generation: 6.06e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1622366681698-af1f8305a17f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwaGllcm9nbHlwaGljcyUyMHRyYW5zbGF0aW9ufGVufDB8MHx8fDE3NjI4ODUzMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 5 min read
 sources:

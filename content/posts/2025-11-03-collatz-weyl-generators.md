@@ -1,8 +1,8 @@
 ---
 action_run_id: '19025473376'
 cover:
-  alt: 'Unlocking Randomness: The Rise of Collatz-Weyl Generators'
-  image: https://images.unsplash.com/photo-1754733804216-8819f8e78551?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwc2V1ZG9yYW5kb20lMjBudW1iZXIlMjBnZW5lcmF0b3IlMjBjaXJjdWl0fGVufDB8MHx8fDE3NjIxNTA1ODd8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T06:16:26+0000
 generation_costs:
   content_generation: 0.00091665
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.62e-05
   title_generation: 5.88e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1754733804216-8819f8e78551?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwc2V1ZG9yYW5kb20lMjBudW1iZXIlMjBnZW5lcmF0b3IlMjBjaXJjdWl0fGVufDB8MHx8fDE3NjIxNTA1ODd8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

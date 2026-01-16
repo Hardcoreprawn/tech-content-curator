@@ -1,14 +1,14 @@
 ---
 action_run_id: '19252966487'
 cover:
-  alt: Empowering Digital Sovereignty with Open Source Solutions
-  image: https://images.unsplash.com/photo-1652111865960-15f4a46a7688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuJTIwc291cmNlJTIwc29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyODI4ODMzfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T02:40:11+0000
 generation_costs:
   content_generation: 0.000882
   title_generation: 5.325e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1652111865960-15f4a46a7688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxvcGVuJTIwc291cmNlJTIwc29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyODI4ODMzfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

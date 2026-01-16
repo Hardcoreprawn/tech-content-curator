@@ -1,14 +1,14 @@
 ---
 action_run_id: '19307320192'
 cover:
-  alt: Yann LeCun Leaves Meta to Pioneer AI World Models Startup
-  image: https://images.unsplash.com/photo-1733004441794-268d0e8f0b12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxZYW5uJTIwTGVDdW4lMjBwb3J0cmFpdCUyMEFJfGVufDB8MHx8fDE3NjI5NzE0MTd8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T18:15:56+0000
 generation_costs:
   content_generation: 0.0010425
   title_generation: 5.955e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1733004441794-268d0e8f0b12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxZYW5uJTIwTGVDdW4lMjBwb3J0cmFpdCUyMEFJfGVufDB8MHx8fDE3NjI5NzE0MTd8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

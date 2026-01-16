@@ -1,8 +1,8 @@
 ---
 action_run_id: '19016136417'
 cover:
-  alt: 'Navigating Police Surveillance: Data, Ethics, and...'
-  image: https://images.unsplash.com/photo-1589935447067-5531094415d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwb2xpY2UlMjBzdXJ2ZWlsbGFuY2UlMjBkYXRhJTIwY29sbGVjdGlvbnxlbnwwfDB8fHwxNzYyMTA3MzIzfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0009528
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.605e-05
   title_generation: 5.295e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1589935447067-5531094415d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwb2xpY2UlMjBzdXJ2ZWlsbGFuY2UlMjBkYXRhJTIwY29sbGVjdGlvbnxlbnwwfDB8fHwxNzYyMTA3MzIzfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

@@ -1,15 +1,15 @@
 ---
 action_run_id: '19044684319'
 cover:
-  alt: 'Navigating Digital Libraries: Copyright, AI, and Open Access'
-  image: https://images.unsplash.com/photo-1575282343536-469af953c6e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbGlicmFyeSUyMGNvcHlyaWdodCUyMGxhd3xlbnwwfDB8fHwxNzYyMTkzOTU3fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T18:19:16+0000
 generation_costs:
   content_generation: 0.0009303
   slug_generation: 1.575e-05
   title_generation: 5.34e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1575282343536-469af953c6e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbGlicmFyeSUyMGNvcHlyaWdodCUyMGxhd3xlbnwwfDB8fHwxNzYyMTkzOTU3fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

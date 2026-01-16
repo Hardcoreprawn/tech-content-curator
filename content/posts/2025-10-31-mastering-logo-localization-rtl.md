@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Mastering Logo Localization for RTL Markets: A Designer''s...'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-mastering-logo-localization-rtl.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.00086325
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.56e-05
   title_generation: 5.37e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-mastering-logo-localization-rtl-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: samhenrigold

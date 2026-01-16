@@ -12,14 +12,14 @@ article_quality:
   overall_score: 57.7
   passed_threshold: false
 cover:
-  alt: 'AI in Nuclear Licensing: Safe, Regulated Automation'
-  image: https://images.unsplash.com/photo-1597451773417-891ce13364ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxudWNsZWFyJTIwbGljZW5zaW5nJTIwZG9jdW1lbnRzfGVufDB8MHx8fDE3NjMxNjI0NzV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-14T23:15:57+0000
 generation_costs:
   content_generation: 0.00220455
   title_generation: 0.0014844
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1597451773417-891ce13364ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxudWNsZWFyJTIwbGljZW5zaW5nJTIwZG9jdW1lbnRzfGVufDB8MHx8fDE3NjMxNjI0NzV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

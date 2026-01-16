@@ -1,15 +1,15 @@
 ---
 action_run_id: '19281161320'
 cover:
-  alt: 'FFmpeg: Balancing Open-Source Ethics Against Corporate...'
-  image: https://images.unsplash.com/photo-1583225358814-4094d1a8aef2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx2b2x1bnRlZXIlMjBjb2RpbmclMjBwcm9qZWN0fGVufDB8MHx8fDE3NjI5MDMzOTh8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T23:23:08+0000
 generation_costs:
   content_generation: 0.0009453
   diagram_1: 0.0002925
   title_generation: 5.64e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1583225358814-4094d1a8aef2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx2b2x1bnRlZXIlMjBjb2RpbmclMjBwcm9qZWN0fGVufDB8MHx8fDE3NjI5MDMzOTh8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 5 min read
 sources:

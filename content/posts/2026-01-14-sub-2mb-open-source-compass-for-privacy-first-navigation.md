@@ -12,8 +12,8 @@ article_quality:
   overall_score: 66.6
   passed_threshold: false
 cover:
-  alt: Sub-2MB Open Source Compass for Privacy-first Navigation
-  image: https://images.unsplash.com/photo-1626682238005-9db97583f26f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxNQkNvbXBhc3MlMjBuYXZpZ2F0aW9uJTIwYXBwfGVufDB8MHx8fDE3Njg0MTQ3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Devon Janse van Rensburg
   photographer_url: https://unsplash.com/@huntleytography
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.0007112
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1626682238005-9db97583f26f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxNQkNvbXBhc3MlMjBuYXZpZ2F0aW9uJTIwYXBwfGVufDB8MHx8fDE3Njg0MTQ3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

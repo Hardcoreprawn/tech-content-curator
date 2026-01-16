@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Investing in OpenAI: Promises, Pitfalls, and Ethical...'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-investing-in-openai.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0009209999999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.47e-05
   title_generation: 5.4749999999999996e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-investing-in-openai-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: malwaretech

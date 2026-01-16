@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019586668'
 cover:
-  alt: 'Revolutionizing Mail: Solar-Powered QR Postboxes in the UK'
-  image: https://images.unsplash.com/photo-1695482163872-d7905ddba279?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2xhci1wb3dlcmVkJTIwcXIlMjBwb3N0Ym94JTIwdWt8ZW58MHwwfHx8MTc2MjEyNTc1OXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T23:22:38+0000
 generation_costs:
   content_generation: 0.0007872
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.65e-05
   title_generation: 5.43e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1695482163872-d7905ddba279?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2xhci1wb3dlcmVkJTIwcXIlMjBwb3N0Ym94JTIwdWt8ZW58MHwwfHx8MTc2MjEyNTc1OXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 4 min read
 sources:

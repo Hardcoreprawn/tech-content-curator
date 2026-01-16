@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Unlock Your Coding Potential: Free Programming Books Guide'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-unlock-coding-potential-programming-books-b180e3fda1c9.png
+  image: ''
 date: '2025-10-29'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-unlock-coding-potential-programming-books-b180e3fda1c9-icon.png

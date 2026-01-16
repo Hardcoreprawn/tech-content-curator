@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019178670'
 cover:
-  alt: 'Reproducing AWS Outages: Unpacking Race Conditions'
-  image: https://images.unsplash.com/photo-1739878599177-f239a11dfbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyYWNlJTIwY29uZGl0aW9uJTIwbW9kZWwlMjBjaGVja2VyJTIwQVdTfGVufDB8MHx8fDE3NjIxMjM2MTd8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T22:46:56+0000
 generation_costs:
   content_generation: 0.0009192
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.56e-05
   title_generation: 5.34e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1739878599177-f239a11dfbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxyYWNlJTIwY29uZGl0aW9uJTIwbW9kZWwlMjBjaGVja2VyJTIwQVdTfGVufDB8MHx8fDE3NjIxMjM2MTd8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

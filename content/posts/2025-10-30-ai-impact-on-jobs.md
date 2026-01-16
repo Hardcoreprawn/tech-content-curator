@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'AI''s Impact on Jobs: Navigating Wage Suppression and...'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-ai-impact-on-jobs.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.0008995499999999999
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.455e-05
   title_generation: 5.7e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-ai-impact-on-jobs-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: tante

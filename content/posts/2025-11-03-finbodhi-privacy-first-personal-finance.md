@@ -1,15 +1,15 @@
 ---
 action_run_id: '19044684319'
 cover:
-  alt: 'FinBodhi: The Privacy-First App Redefining Personal Finance'
-  image: https://images.unsplash.com/photo-1649209979970-f01d950cc5ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkb3VibGUtZW50cnklMjBhY2NvdW50aW5nJTIwbGVkZ2VyfGVufDB8MHx8fDE3NjIxOTM5MDB8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T18:18:19+0000
 generation_costs:
   content_generation: 0.0010365
   slug_generation: 1.8e-05
   title_generation: 5.85e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1649209979970-f01d950cc5ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxkb3VibGUtZW50cnklMjBhY2NvdW50aW5nJTIwbGVkZ2VyfGVufDB8MHx8fDE3NjIxOTM5MDB8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

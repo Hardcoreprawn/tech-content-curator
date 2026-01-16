@@ -1,15 +1,15 @@
 ---
 action_run_id: '19008242469'
 cover:
-  alt: 'Reviving the Open Web: A Call for Collective Action'
-  image: https://images.unsplash.com/photo-1517090510947-30c819a56e80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaWJyYXJ5JTIwYm9va3MlMjBvcGVuJTIwcGFnZXN8ZW58MHwwfHx8MTc2MjA2NDAyN3ww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00095685
   image_generation: 0.0
   slug_generation: 1.44e-05
   title_generation: 5.58e-05
-icon: https://images.unsplash.com/photo-1517090510947-30c819a56e80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaWJyYXJ5JTIwYm9va3MlMjBvcGVuJTIwcGFnZXN8ZW58MHwwfHx8MTc2MjA2NDAyN3ww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: brewsterkahle

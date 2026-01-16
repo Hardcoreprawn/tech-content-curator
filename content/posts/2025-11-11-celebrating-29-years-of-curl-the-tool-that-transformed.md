@@ -1,14 +1,14 @@
 ---
 action_run_id: '19261075931'
 cover:
-  alt: 'Celebrating 29 Years of curl: The Tool That Transformed...'
-  image: https://images.unsplash.com/photo-1649451844813-3130d6f42f8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxodHRwJTIwcHJvdG9jb2wlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyODUzNzM0fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T09:35:18+0000
 generation_costs:
   content_generation: 0.0008601
   title_generation: 6.225e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1649451844813-3130d6f42f8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxodHRwJTIwcHJvdG9jb2wlMjBkZXZlbG9wbWVudHxlbnwwfDB8fHwxNzYyODUzNzM0fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 4 min read
 sources:

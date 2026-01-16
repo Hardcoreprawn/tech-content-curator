@@ -1,15 +1,15 @@
 ---
 action_run_id: '19204329185'
 cover:
-  alt: 'Mastering VPNs: Build Your Own for Ultimate Online Privacy'
-  image: https://images.unsplash.com/photo-1548544027-1a96c4c24c7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxWUE4lMjBzZXJ2ZXIlMjBzZXR1cHxlbnwwfDB8fHwxNzYyNjY4OTM0fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T06:15:33+0000
 generation_costs:
   content_generation: 0.00116175
   diagram_1: 0.0003125
   title_generation: 5.67e-05
 generator: Integrative List Generator
-icon: https://images.unsplash.com/photo-1548544027-1a96c4c24c7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxWUE4lMjBzZXJ2ZXIlMjBzZXR1cHxlbnwwfDB8fHwxNzYyNjY4OTM0fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 1
 reading_time: 6 min read
 sources:

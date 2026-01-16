@@ -12,8 +12,8 @@ article_quality:
   overall_score: 60.5
   passed_threshold: false
 cover:
-  alt: 'DOM Morphing vs Virtual DOM: Patch Strategies'
-  image: https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+  alt: ''
+  image: ''
   image_source: pexels
   photographer: Markus Spiske
   photographer_url: https://www.pexels.com/@markusspiske
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.00090765
 generator: General Article Generator
-icon: https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

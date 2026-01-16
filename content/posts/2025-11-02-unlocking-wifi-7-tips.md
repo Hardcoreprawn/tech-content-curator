@@ -1,15 +1,15 @@
 ---
 action_run_id: '19008242469'
 cover:
-  alt: 'Unlocking WiFi 7: Speed, Efficiency, and Optimization Tips'
-  image: https://images.unsplash.com/photo-1645725677294-ed0843b97d5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxXaUZpJTIwNyUyMG5ldHdvcmslMjBzcGVlZCUyMHRlc3Rpbmd8ZW58MHwwfHx8MTc2MjA2NDA1NHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.00095265
   image_generation: 0.0
   slug_generation: 1.6649999999999998e-05
   title_generation: 5.819999999999999e-05
-icon: https://images.unsplash.com/photo-1645725677294-ed0843b97d5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxXaUZpJTIwNyUyMG5ldHdvcmslMjBzcGVlZCUyMHRlc3Rpbmd8ZW58MHwwfHx8MTc2MjA2NDA1NHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: tymscar

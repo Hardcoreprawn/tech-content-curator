@@ -1,14 +1,14 @@
 ---
 action_run_id: '19218765078'
 cover:
-  alt: 'Exploring The Computer Church: A Sanctuary for Tech History'
-  image: https://images.unsplash.com/photo-1663770114127-4f61cb62b56d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGhpc3RvcnklMjBtdXNldW0lMjBwZW5uc3lsdmFuaWF8ZW58MHwwfHx8MTc2Mjc0MjQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T02:40:51+0000
 generation_costs:
   content_generation: 0.0008625
   title_generation: 5.82e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1663770114127-4f61cb62b56d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGhpc3RvcnklMjBtdXNldW0lMjBwZW5uc3lsdmFuaWF8ZW58MHwwfHx8MTc2Mjc0MjQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

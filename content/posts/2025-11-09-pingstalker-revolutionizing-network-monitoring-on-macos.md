@@ -1,14 +1,14 @@
 ---
 action_run_id: '19205937051'
 cover:
-  alt: 'PingStalker: Revolutionizing Network Monitoring on macOS'
-  image: https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYWNPUyUyMG5ldHdvcmslMjBtb25pdG9yaW5nJTIwaW50ZXJmYWNlfGVufDB8MHx8fDE3NjI2NzgwNTN8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T08:47:32+0000
 generation_costs:
   content_generation: 0.0010641
   title_generation: 5.88e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYWNPUyUyMG5ldHdvcmslMjBtb25pdG9yaW5nJTIwaW50ZXJmYWNlfGVufDB8MHx8fDE3NjI2NzgwNTN8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

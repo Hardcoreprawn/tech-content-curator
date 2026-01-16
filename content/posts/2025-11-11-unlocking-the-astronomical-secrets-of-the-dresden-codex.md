@@ -1,14 +1,14 @@
 ---
 action_run_id: '19252966487'
 cover:
-  alt: Unlocking the Astronomical Secrets of the Dresden Codex
-  image: https://images.unsplash.com/photo-1719876969433-ad3ab2561d7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxNYXlhbiUyMHNvbGFyJTIwZWNsaXBzZSUyMGNvZGV4fGVufDB8MHx8fDE3NjI4Mjg4MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T02:40:32+0000
 generation_costs:
   content_generation: 0.0011475
   title_generation: 5.76e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1719876969433-ad3ab2561d7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxNYXlhbiUyMHNvbGFyJTIwZWNsaXBzZSUyMGNvZGV4fGVufDB8MHx8fDE3NjI4Mjg4MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

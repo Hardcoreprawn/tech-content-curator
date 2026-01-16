@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'EU''s Chat Control Withdrawal: A Win for Digital Privacy'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-eu-chat-control-withdrawal.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.00095145
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.4999999999999999e-05
   title_generation: 5.4e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-eu-chat-control-withdrawal-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: delta

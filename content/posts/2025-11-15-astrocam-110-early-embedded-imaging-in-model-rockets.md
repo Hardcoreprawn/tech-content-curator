@@ -12,8 +12,8 @@ article_quality:
   overall_score: 58.0
   passed_threshold: false
 cover:
-  alt: 'AstroCam 110: Early Embedded Imaging in Model Rockets'
-  image: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-WkCkXAEugbRnU8VC0gFFFJuE.png?st=2025-11-15T21%3A49%3A58Z&se=2025-11-15T23%3A49%3A58Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=ed3ea2f9-5e38-44be-9a1b-7c1e65e4d54f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-15T06%3A32%3A20Z&ske=2025-11-16T06%3A32%3A20Z&sks=b&skv=2024-08-04&sig=PEF3OektZY2zs%2BMGfg27nT/QH2oN544jmXfkjdvMLiM%3D
+  alt: ''
+  image: ''
   image_source: dalle-3
   photographer: OpenAI DALL-E 3
   photographer_url: https://openai.com/dall-e-3
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.00071805
 generator: General Article Generator
-icon: https://oaidalleapiprodscus.blob.core.windows.net/private/org-55GGLx4aeQO8aVCpsCrxwgyk/user-pzHsEhubeDL6uAWkHInuYZO0/img-WkCkXAEugbRnU8VC0gFFFJuE.png?st=2025-11-15T21%3A49%3A58Z&se=2025-11-15T23%3A49%3A58Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=ed3ea2f9-5e38-44be-9a1b-7c1e65e4d54f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-11-15T06%3A32%3A20Z&ske=2025-11-16T06%3A32%3A20Z&sks=b&skv=2024-08-04&sig=PEF3OektZY2zs%2BMGfg27nT/QH2oN544jmXfkjdvMLiM%3D
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

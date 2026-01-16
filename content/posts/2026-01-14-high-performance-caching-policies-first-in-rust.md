@@ -12,8 +12,8 @@ article_quality:
   overall_score: 71.7
   passed_threshold: true
 cover:
-  alt: 'High-Performance Caching: Policies-First in Rust'
-  image: https://images.unsplash.com/photo-1716654716574-fbe502812021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxDYWNoZWtpdCUyMFJ1c3QlMjBsaWJyYXJ5fGVufDB8MHx8fDE3NjgzNzEyNDF8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Makmot Robin
   photographer_url: https://unsplash.com/@makmot
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.000832
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1716654716574-fbe502812021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxDYWNoZWtpdCUyMFJ1c3QlMjBsaWJyYXJ5fGVufDB8MHx8fDE3NjgzNzEyNDF8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

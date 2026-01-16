@@ -1,14 +1,14 @@
 ---
 action_run_id: '19222346814'
 cover:
-  alt: 'Time Machines: From Sci-Fi Dreams to Tech Realities'
-  image: https://images.unsplash.com/photo-1725916631452-b411a5991fce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0aW1lJTIwbWFjaGluZSUyMHByb3RvdHlwZSUyMHRlY2hub2xvZ3l8ZW58MHwwfHx8MTc2Mjc1NTM3NHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-10T06:16:13+0000
 generation_costs:
   content_generation: 0.0008271
   title_generation: 5.88e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1725916631452-b411a5991fce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx0aW1lJTIwbWFjaGluZSUyMHByb3RvdHlwZSUyMHRlY2hub2xvZ3l8ZW58MHwwfHx8MTc2Mjc1NTM3NHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

@@ -1,14 +1,14 @@
 ---
 action_run_id: '19176983652'
 cover:
-  alt: Unlocking Book Recommendations with 3 Billion Goodreads...
-  image: https://images.unsplash.com/photo-1688901234668-531bc41ed1cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnb29kcmVhZHMlMjBib29rJTIwcmVjb21tZW5kYXRpb25zJTIwZGF0YXxlbnwwfDB8fHwxNzYyNTM5MjI5fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-07T18:13:48+0000
 generation_costs:
   content_generation: 0.00085275
   title_generation: 5.175e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1688901234668-531bc41ed1cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxnb29kcmVhZHMlMjBib29rJTIwcmVjb21tZW5kYXRpb25zJTIwZGF0YXxlbnwwfDB8fHwxNzYyNTM5MjI5fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 4 min read
 sources:

@@ -1,14 +1,14 @@
 ---
 action_run_id: '19176983652'
 cover:
-  alt: 'Tracing Wordle''s Roots: DEC''s 1973 Game-Changer'
-  image: https://images.unsplash.com/photo-1663770114127-4f61cb62b56d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxERUMlMjBQRFAtMTElMjBjb21wdXRlcnxlbnwwfDB8fHwxNzYyNTM5MzY2fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-07T18:16:04+0000
 generation_costs:
   content_generation: 0.00094065
   title_generation: 5.625e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1663770114127-4f61cb62b56d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxERUMlMjBQRFAtMTElMjBjb21wdXRlcnxlbnwwfDB8fHwxNzYyNTM5MzY2fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

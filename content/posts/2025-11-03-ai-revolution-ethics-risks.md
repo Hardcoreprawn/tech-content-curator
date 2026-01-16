@@ -1,15 +1,15 @@
 ---
 action_run_id: '19040645753'
 cover:
-  alt: 'Navigating the AI Revolution: Ethics, Risks, and Future...'
-  image: https://images.unsplash.com/photo-1756908992154-c8a89f5e517f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBSSUyMGV0aGljcyUyMGNvbmNlcHR8ZW58MHwwfHx8MTc2MjE4NTk3OHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T16:06:16+0000
 generation_costs:
   content_generation: 0.0008499
   slug_generation: 1.695e-05
   title_generation: 5.37e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1756908992154-c8a89f5e517f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBSSUyMGV0aGljcyUyMGNvbmNlcHR8ZW58MHwwfHx8MTc2MjE4NTk3OHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'AutoGPT: Making AI Accessible for Everyone'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible.png
+  alt: ''
+  image: ''
 date: '2025-10-30'
 generation_costs:
   content_generation: 0.00083895
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.08
   slug_generation: 1.455e-05
   title_generation: 5.264999999999999e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-30-autogpt-ai-accessible-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: Significant-Gravitas

@@ -1,15 +1,15 @@
 ---
 action_run_id: '19039452299'
 cover:
-  alt: 'AI''s Impact on 180 Million Jobs: What You Need to Know'
-  image: https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwam9iJTIwYW5hbHlzaXN8ZW58MHwwfHx8MTc2MjE4MzY4MXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:27:59+0000
 generation_costs:
   content_generation: 0.00090435
   slug_generation: 1.485e-05
   title_generation: 5.625e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwam9iJTIwYW5hbHlzaXN8ZW58MHwwfHx8MTc2MjE4MzY4MXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

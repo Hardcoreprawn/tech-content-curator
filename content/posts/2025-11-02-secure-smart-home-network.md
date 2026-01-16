@@ -1,8 +1,8 @@
 ---
 action_run_id: '19009682297'
 cover:
-  alt: 'Secure Your Smart Home: IoT Devices Need Their Own Network'
-  image: https://images.unsplash.com/photo-1733810763720-4c83af0668ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBzbWFydCUyMGhvbWUlMjBuZXR3b3JrfGVufDB8MHx8fDE3NjIwNzI0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0008988
@@ -11,7 +11,7 @@ generation_costs:
   slug_generation: 1.395e-05
   title_generation: 5.4e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1733810763720-4c83af0668ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBzbWFydCUyMGhvbWUlMjBuZXR3b3JrfGVufDB8MHx8fDE3NjIwNzI0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 5 min read
 sources:

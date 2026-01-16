@@ -1,14 +1,14 @@
 ---
 action_run_id: '19202087872'
 cover:
-  alt: 'Ironclad OS: The Future of Secure, Real-Time Computing'
-  image: https://images.unsplash.com/photo-1655036387197-566206c80980?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxpcm9uY2xhZCUyMG9wZXJhdGluZyUyMHN5c3RlbSUyMHNlY3VyaXR5fGVufDB8MHx8fDE3NjI2NTYwMTR8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T02:40:13+0000
 generation_costs:
   content_generation: 0.00088395
   title_generation: 6.105e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1655036387197-566206c80980?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxpcm9uY2xhZCUyMG9wZXJhdGluZyUyMHN5c3RlbSUyMHNlY3VyaXR5fGVufDB8MHx8fDE3NjI2NTYwMTR8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

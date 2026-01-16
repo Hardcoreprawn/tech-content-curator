@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Mastering Home Self-Hosting: A Practical Setup Guide'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-mastering-home-self-hosting-setup-guide-086d0ed326f6.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-mastering-home-self-hosting-setup-guide-086d0ed326f6-icon.png

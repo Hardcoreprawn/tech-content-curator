@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'Securing NPM: Combatting Malicious Package Threats'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-securing-npm-malicious-packages.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.000864
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.695e-05
   title_generation: 5.355e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-securing-npm-malicious-packages-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: jnord

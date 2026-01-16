@@ -1,15 +1,15 @@
 ---
 action_run_id: '19040645753'
 cover:
-  alt: 'Unlock Offline LaTeX: Convert to SVG with MathJax'
-  image: https://images.unsplash.com/photo-1708011271954-c0d2b3155ded?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYXRoJTIwZXF1YXRpb25zJTIwb24lMjBwYXBlcnxlbnwwfDB8fHwxNzYyMTg1ODUzfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T16:04:12+0000
 generation_costs:
   content_generation: 0.00091425
   slug_generation: 1.59e-05
   title_generation: 5.565e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1708011271954-c0d2b3155ded?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYXRoJTIwZXF1YXRpb25zJTIwb24lMjBwYXBlcnxlbnwwfDB8fHwxNzYyMTg1ODUzfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

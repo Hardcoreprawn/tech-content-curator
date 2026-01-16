@@ -1,15 +1,15 @@
 ---
 action_run_id: '18993827312'
 cover:
-  alt: Revolutionize PCB Prototyping with Viagrid's Factory-Made...
-  image: https://images.unsplash.com/photo-1730705788367-dbd288c40ee7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwY2IlMjBwcm90b3R5cGluZyUyMGZhY3RvcnklMjB2aWFzfGVufDB8MHx8fDE3NjE5ODUwMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0008392499999999999
   image_generation: 0.0
   slug_generation: 1.725e-05
   title_generation: 5.82e-05
-icon: https://images.unsplash.com/photo-1730705788367-dbd288c40ee7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxwY2IlMjBwcm90b3R5cGluZyUyMGZhY3RvcnklMjB2aWFzfGVufDB8MHx8fDE3NjE5ODUwMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 4 min read
 sources:
 - author: surprisetalk

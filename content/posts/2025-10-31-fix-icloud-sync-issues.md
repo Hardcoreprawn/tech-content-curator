@@ -1,8 +1,8 @@
 ---
 action_run_id: '18974718433'
 cover:
-  alt: 'Fixing iCloud Sync Issues: Accepting Terms Made Easy'
-  image: https://images.unsplash.com/photo-1705596486400-32591895d196?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcHBsZSUyMGljbG91ZCUyMHN5bmNpbmclMjBpb3MlMjBzZXR0aW5nc3xlbnwwfDB8fHwxNzYxOTE5MTA4fDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0009584999999999999
@@ -10,7 +10,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.5149999999999999e-05
   title_generation: 5.595e-05
-icon: https://images.unsplash.com/photo-1705596486400-32591895d196?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhcHBsZSUyMGljbG91ZCUyMHN5bmNpbmclMjBpb3MlMjBzZXR0aW5nc3xlbnwwfDB8fHwxNzYxOTE5MTA4fDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: gedeonm

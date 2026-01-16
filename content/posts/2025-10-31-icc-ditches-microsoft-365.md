@@ -1,7 +1,7 @@
 ---
 cover:
-  alt: 'ICC Ditches Microsoft 365 for Open-Source: A Data Privacy...'
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-icc-ditches-microsoft-365.png
+  alt: ''
+  image: ''
 date: '2025-10-31'
 generation_costs:
   content_generation: 0.0008877
@@ -9,7 +9,7 @@ generation_costs:
   image_generation: 0.0
   slug_generation: 1.6649999999999998e-05
   title_generation: 5.5799999999999994e-05
-icon: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-31-icc-ditches-microsoft-365-icon.png
+icon: ''
 reading_time: 5 min read
 sources:
 - author: GossiTheDog

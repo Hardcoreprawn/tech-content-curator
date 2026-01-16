@@ -1,15 +1,15 @@
 ---
 action_run_id: '19039452299'
 cover:
-  alt: Enhancing TLS Security with Let's Encrypt's AccountURI...
-  image: https://images.unsplash.com/photo-1631632286519-cb83e10e3d98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzc2wlMjBjZXJ0aWZpY2F0ZSUyMHBhZGxvY2t8ZW58MHwwfHx8MTc2MjE4MzU2Mnww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-03T15:26:01+0000
 generation_costs:
   content_generation: 0.0009663
   slug_generation: 1.665e-05
   title_generation: 5.445e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1631632286519-cb83e10e3d98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzc2wlMjBjZXJ0aWZpY2F0ZSUyMHBhZGxvY2t8ZW58MHwwfHx8MTc2MjE4MzU2Mnww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

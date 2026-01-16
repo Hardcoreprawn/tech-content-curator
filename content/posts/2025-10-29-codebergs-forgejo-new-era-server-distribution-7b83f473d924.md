@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: 'Codeberg''s Forgejo: A New Era in Server Distribution'
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-codebergs-forgejo-new-era-server-distribution-7b83f473d924.png
+  image: ''
 date: '2025-10-29'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-29-codebergs-forgejo-new-era-server-distribution-7b83f473d924-icon.png

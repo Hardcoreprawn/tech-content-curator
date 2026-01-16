@@ -1,15 +1,15 @@
 ---
 action_run_id: '18993827312'
 cover:
-  alt: 'Visualizing Mathematics: The Art of Strange Attractors'
-  image: https://images.unsplash.com/photo-1753233379759-50f4e21433a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYXRoZW1hdGljYWwlMjBzdHJhbmdlJTIwYXR0cmFjdG9yJTIwdmlzdWFsaXphdGlvbnxlbnwwfDB8fHwxNzYxOTg0OTgwfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0009433499999999999
   image_generation: 0.0
   slug_generation: 1.56e-05
   title_generation: 5.6999999999999996e-05
-icon: https://images.unsplash.com/photo-1753233379759-50f4e21433a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYXRoZW1hdGljYWwlMjBzdHJhbmdlJTIwYXR0cmFjdG9yJTIwdmlzdWFsaXphdGlvbnxlbnwwfDB8fHwxNzYxOTg0OTgwfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 5 min read
 sources:
 - author: shashanktomar

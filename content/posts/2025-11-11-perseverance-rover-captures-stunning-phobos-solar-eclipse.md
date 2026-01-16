@@ -1,14 +1,14 @@
 ---
 action_run_id: '19274546521'
 cover:
-  alt: Perseverance Rover Captures Stunning Phobos Solar Eclipse...
-  image: https://images.unsplash.com/photo-1682358172803-80e76d3c6954?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYXJzJTIwcm92ZXIlMjBwZXJzZXZlcmFuY2UlMjBwaG9ib3MlMjBlY2xpcHNlfGVufDB8MHx8fDE3NjI4ODUzMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T18:20:56+0000
 generation_costs:
   content_generation: 0.0012036
   title_generation: 6.015e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1682358172803-80e76d3c6954?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxtYXJzJTIwcm92ZXIlMjBwZXJzZXZlcmFuY2UlMjBwaG9ib3MlMjBlY2xpcHNlfGVufDB8MHx8fDE3NjI4ODUzMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

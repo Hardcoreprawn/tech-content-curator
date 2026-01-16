@@ -12,8 +12,8 @@ article_quality:
   overall_score: 66.5
   passed_threshold: false
 cover:
-  alt: Native iOS TikTok on AT Protocol - No Backend
-  image: https://images.unsplash.com/photo-1731690435374-5d8b4f1a3d47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBVCUyMFByb3RvY29sJTIwQmx1ZXNreXxlbnwwfDB8fHwxNzY4MzU4OTAzfDA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
   image_source: unsplash
   photographer: Yohan Marion
   photographer_url: https://unsplash.com/@yohanmarion
@@ -26,7 +26,7 @@ generation_costs:
   title_generation:
   - 0.0008324
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1731690435374-5d8b4f1a3d47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxBVCUyMFByb3RvY29sJTIwQmx1ZXNreXxlbnwwfDB8fHwxNzY4MzU4OTAzfDA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

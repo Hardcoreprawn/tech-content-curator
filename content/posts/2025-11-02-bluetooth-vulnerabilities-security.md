@@ -1,8 +1,8 @@
 ---
 action_run_id: '19019586668'
 cover:
-  alt: 'Exposing Bluetooth Vulnerabilities: Securing Your...'
-  image: https://images.unsplash.com/photo-1704881986189-b8196f897ae4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxibHVldG9vdGglMjBzZWN1cml0eSUyMHZ1bG5lcmFiaWxpdHl8ZW58MHwwfHx8MTc2MjEyNTcyOXww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-02T23:22:08+0000
 generation_costs:
   content_generation: 0.0008373
@@ -12,7 +12,7 @@ generation_costs:
   slug_generation: 1.47e-05
   title_generation: 5.115e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1704881986189-b8196f897ae4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxibHVldG9vdGglMjBzZWN1cml0eSUyMHZ1bG5lcmFiaWxpdHl8ZW58MHwwfHx8MTc2MjEyNTcyOXww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 4 min read
 sources:

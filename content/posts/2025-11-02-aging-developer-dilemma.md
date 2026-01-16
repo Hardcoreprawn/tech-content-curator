@@ -1,15 +1,15 @@
 ---
 action_run_id: '19013353268'
 cover:
-  alt: 'Bridging the Gap: The Aging Developer Dilemma'
-  image: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhZ2luZyUyMHNvZnR3YXJlJTIwZGV2ZWxvcGVyJTIwY29kaW5nfGVufDB8MHx8fDE3NjIwOTI3Njd8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0009
   slug_generation: 1.5e-05
   title_generation: 5.58e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhZ2luZyUyMHNvZnR3YXJlJTIwZGV2ZWxvcGVyJTIwY29kaW5nfGVufDB8MHx8fDE3NjIwOTI3Njd8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

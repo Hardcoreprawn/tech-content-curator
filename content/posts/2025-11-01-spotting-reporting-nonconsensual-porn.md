@@ -1,15 +1,15 @@
 ---
 action_run_id: '18993827312'
 cover:
-  alt: Spotting and Reporting Nonconsensual Porn Accounts
-  image: https://images.unsplash.com/photo-1657974361095-4d5f3fb381fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGNvbnRlbnQlMjBtb2RlcmF0aW9ufGVufDB8MHx8fDE3NjE5ODUwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-01'
 generation_costs:
   content_generation: 0.0011765999999999999
   image_generation: 0.0
   slug_generation: 1.785e-05
   title_generation: 5.3849999999999994e-05
-icon: https://images.unsplash.com/photo-1657974361095-4d5f3fb381fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGNvbnRlbnQlMjBtb2RlcmF0aW9ufGVufDB8MHx8fDE3NjE5ODUwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 reading_time: 6 min read
 sources:
 - author: alice

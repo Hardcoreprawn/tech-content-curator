@@ -1,14 +1,14 @@
 ---
 action_run_id: '19312446920'
 cover:
-  alt: 'Confronting Output Drift in Financial LLMs: Strategies...'
-  image: https://images.unsplash.com/photo-1618044733300-9472054094ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBkYXRhJTIwYW5hbHlzaXMlMjB2YWxpZGF0aW9ufGVufDB8MHx8fDE3NjI5ODMzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-12T21:35:07+0000
 generation_costs:
   content_generation: 0.00098985
   title_generation: 5.955e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1618044733300-9472054094ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBkYXRhJTIwYW5hbHlzaXMlMjB2YWxpZGF0aW9ufGVufDB8MHx8fDE3NjI5ODMzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 6 min read
 sources:

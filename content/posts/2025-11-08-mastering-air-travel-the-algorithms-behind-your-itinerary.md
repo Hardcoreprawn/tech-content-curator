@@ -1,14 +1,14 @@
 ---
 action_run_id: '19196683054'
 cover:
-  alt: 'Mastering Air Travel: The Algorithms Behind Your Itinerary'
-  image: https://images.unsplash.com/photo-1625153979079-659514a98de5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhaXJwb3J0JTIwcnVud2F5JTIwYWxnb3JpdGhtJTIwb3B0aW1pemF0aW9ufGVufDB8MHx8fDE3NjI2MjU5NDN8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T18:19:01+0000
 generation_costs:
   content_generation: 0.0009027
   title_generation: 6.54e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1625153979079-659514a98de5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxhaXJwb3J0JTIwcnVud2F5JTIwYWxnb3JpdGhtJTIwb3B0aW1pemF0aW9ufGVufDB8MHx8fDE3NjI2MjU5NDN8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

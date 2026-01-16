@@ -1,8 +1,8 @@
 ---
 action_run_id: '19011158610'
 cover:
-  alt: 'Navigating the Shift: From Windows to Linux or Haiku'
-  image: https://images.unsplash.com/photo-1737408011230-995d7a7aca1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMHdpbmRvd3MlMjBtaWdyYXRpb24lMjBwYXRofGVufDB8MHx8fDE3NjIwODA5NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: '2025-11-02'
 generation_costs:
   content_generation: 0.0009759
@@ -10,7 +10,7 @@ generation_costs:
   slug_generation: 1.455e-05
   title_generation: 5.205e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1737408011230-995d7a7aca1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxsaW51eCUyMHdpbmRvd3MlMjBtaWdyYXRpb24lMjBwYXRofGVufDB8MHx8fDE3NjIwODA5NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 3
 reading_time: 6 min read
 sources:

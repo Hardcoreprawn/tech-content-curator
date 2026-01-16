@@ -1,8 +1,8 @@
 ---
 cover:
-  alt: Essential Tools for Accelerating Developer Career Growth
+  alt: ''
   caption: ''
-  image: https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-essential-tools-accelerating-developer-career-growth-ead7e35eef3b.png
+  image: ''
 date: '2025-10-28'
 images:
 - https://hardcoreprawn.github.io/tech-content-curator/images/2025-10-28-essential-tools-accelerating-developer-career-growth-ead7e35eef3b-icon.png

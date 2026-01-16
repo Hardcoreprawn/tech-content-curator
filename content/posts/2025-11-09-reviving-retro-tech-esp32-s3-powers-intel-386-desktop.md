@@ -1,14 +1,14 @@
 ---
 action_run_id: '19202087872'
 cover:
-  alt: 'Reviving Retro Tech: ESP32-S3 Powers Intel 386 Desktop'
-  image: https://images.unsplash.com/photo-1686195165991-74af7c2918d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxFU1AzMi1TMyUyMG1pY3JvY29udHJvbGxlciUyMGNoaXB8ZW58MHwwfHx8MTc2MjY1NjA5NHww&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-09T02:41:33+0000
 generation_costs:
   content_generation: 0.00087015
   title_generation: 6.705e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1686195165991-74af7c2918d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxFU1AzMi1TMyUyMG1pY3JvY29udHJvbGxlciUyMGNoaXB8ZW58MHwwfHx8MTc2MjY1NjA5NHww&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

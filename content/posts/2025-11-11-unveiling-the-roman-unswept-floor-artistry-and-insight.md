@@ -1,14 +1,14 @@
 ---
 action_run_id: '19274546521'
 cover:
-  alt: 'Unveiling the Roman ''Unswept Floor'': Artistry and Insight'
-  image: https://images.unsplash.com/photo-1759304054342-a027f6cdc9b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxSb21hbiUyMG1vc2FpYyUyMGFydGlzdHJ5fGVufDB8MHx8fDE3NjI4ODUzMjV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-11T18:21:58+0000
 generation_costs:
   content_generation: 0.00104505
   title_generation: 6.075e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1759304054342-a027f6cdc9b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxSb21hbiUyMG1vc2FpYyUyMGFydGlzdHJ5fGVufDB8MHx8fDE3NjI4ODUzMjV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

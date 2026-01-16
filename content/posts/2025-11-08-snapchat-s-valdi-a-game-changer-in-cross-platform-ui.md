@@ -1,14 +1,14 @@
 ---
 action_run_id: '19186586099'
 cover:
-  alt: 'Snapchat''s Valdi: A Game-Changer in Cross-Platform UI...'
-  image: https://images.unsplash.com/photo-1618422168439-4b03d3a05b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjcm9zcy1wbGF0Zm9ybSUyMGRldmVsb3BtZW50JTIwY29kaW5nfGVufDB8MHx8fDE3NjI1NjkzNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-08T02:35:45+0000
 generation_costs:
   content_generation: 0.00099675
   title_generation: 5.715e-05
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1618422168439-4b03d3a05b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHxjcm9zcy1wbGF0Zm9ybSUyMGRldmVsb3BtZW50JTIwY29kaW5nfGVufDB8MHx8fDE3NjI1NjkzNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 reading_time: 5 min read
 sources:

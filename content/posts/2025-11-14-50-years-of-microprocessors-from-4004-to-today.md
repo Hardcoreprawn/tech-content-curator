@@ -12,14 +12,14 @@ article_quality:
   overall_score: 56.1
   passed_threshold: false
 cover:
-  alt: '50 Years of Microprocessors: From 4004 to Today'
-  image: https://images.unsplash.com/photo-1722702012229-10548fd57f4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwY29tcHV0ZXIlMjBkYXRhJTIwY2VudGVyfGVufDB8MHx8fDE3NjMxNTg0MzV8MA&ixlib=rb-4.1.0&q=80&w=1080
+  alt: ''
+  image: ''
 date: 2025-11-14T22:12:14+0000
 generation_costs:
   content_generation: 0.00223875
   title_generation: 0.00075525
 generator: General Article Generator
-icon: https://images.unsplash.com/photo-1722702012229-10548fd57f4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTYwNTN8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwY29tcHV0ZXIlMjBkYXRhJTIwY2VudGVyfGVufDB8MHx8fDE3NjMxNTg0MzV8MA&ixlib=rb-4.1.0&q=80&w=1080
+icon: ''
 illustrations_count: 0
 models_used:
   content: gpt-5-mini
