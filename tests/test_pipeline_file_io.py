@@ -265,6 +265,22 @@ class TestSaveArticleToFile:
         assert "@testuser" in post.content
         assert "@author2" in post.content
 
+    def test_references_include_inline_urls(self, tmp_path):
+        """Inline URL citations are included in references."""
+        article = make_generated_article(
+            content="See [Docs](https://example.com/docs) for details."
+        )
+        config = make_config()
+
+        with patch("src.pipeline.file_io.get_content_dir", return_value=tmp_path):
+            filepath = save_article_to_file(article, config)
+
+        with open(filepath, encoding="utf-8") as f:
+            post = cast(frontmatter.Post, frontmatter.load(f))
+
+        assert "## References" in post.content
+        assert "https://example.com/docs" in post.content
+
     def test_detects_github_source(self, tmp_path):
         """GitHub URLs are detected and labeled correctly."""
         enriched = EnrichedItem(

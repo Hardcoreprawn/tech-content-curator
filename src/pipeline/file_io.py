@@ -8,7 +8,9 @@ Handles saving and loading of generated articles:
 """
 
 import json
+import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 import frontmatter
 from openai import OpenAI
@@ -429,10 +431,22 @@ def save_article_to_file(
     if article.sources or citation_bibliography:
         lines = ["\n\n## References\n"]
 
+        # Collect inline URL citations from the article body
+        inline_url_pattern = r"\[[^\]]+\]\((https?://[^)]+)\)"
+        inline_urls: list[str] = []
+        seen_inline: set[str] = set()
+        for match in re.finditer(inline_url_pattern, article_content):
+            url = match.group(1)
+            if url not in seen_inline:
+                inline_urls.append(url)
+                seen_inline.add(url)
+
         # Add source references first
+        source_urls: set[str] = set()
         for src in article.sources:
             o = src.original
             url_str = str(o.url).lower()
+            source_urls.add(normalize_url(str(o.url)))
             actual_source = o.source
             if "github.com" in url_str:
                 actual_source = "GitHub"
@@ -441,6 +455,20 @@ def save_article_to_file(
             lines.append(
                 f"- [{o.title}]({normalize_url(str(o.url))}) — @{o.author} on {actual_source}"
             )
+
+        # Add inline URL citations that are not already listed as sources or bibliography
+        bibliography_urls: set[str] = set()
+        if citation_bibliography:
+            bibliography_urls = set(
+                re.findall(r"https?://[^)\s]+", "\n".join(citation_bibliography))
+            )
+
+        for url in inline_urls:
+            normalized = normalize_url(url)
+            if normalized in source_urls or normalized in bibliography_urls:
+                continue
+            domain = urlparse(normalized).netloc or normalized
+            lines.append(f"- [{domain}]({normalized})")
 
         # Add resolved citations bibliography
         if citation_bibliography:
