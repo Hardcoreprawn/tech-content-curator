@@ -104,15 +104,15 @@ Traffic is constrained more by **content trust + distribution** than hosting. Gi
 
 ### Phase 1 — Raise Content Trust (1 week)
 **Goal:** Make posts defensible, citable, and shareable.
-- Ground sources: require URLs + quotes or snippets.
-- Add editorial policy + methodology page (E-E-A-T).
-- Reduce volume: fewer posts, higher quality threshold.
-- Add concurrent collection (async) to reduce collection time.
+- ✅ Ground sources: require URLs + quotes or snippets.
+- ✅ Add editorial policy + methodology page (E-E-A-T).
+- ⏳ Reduce volume: fewer posts, higher quality threshold.
+- ✅ Add concurrent collection (async) to reduce collection time.
 
 **Deliverables**
-- New “Methodology” page.
-- Quality gate: reject items without usable source URLs.
-- Parallel collection across sources.
+- ✅ New “Methodology” page.
+- ✅ Quality gate: reject items without usable source URLs.
+- ✅ Parallel collection across sources.
 
 ---
 

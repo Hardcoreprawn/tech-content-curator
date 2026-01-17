@@ -400,6 +400,8 @@ EVIDENCE RULES:
 - If evidence is limited, say so explicitly and narrow claims
 - Do not invent quotes, metrics, timelines, or benchmarks
 - Distinguish fact vs interpretation ("Fact:" / "Interpretation:") when needed
+- Include 2-4 short quotes or snippets from the sources when available
+- If sources do not contain quotable text, add a brief "Evidence limits" note
 
 TERMINOLOGY GUIDELINES:
 - Avoid anthropomorphizing AI (don't use "hallucination" - say "ungrounded output", "false generation", or "confabulation")
