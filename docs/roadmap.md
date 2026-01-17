@@ -96,9 +96,9 @@ Traffic is constrained more by **content trust + distribution** than hosting. Gi
 - ✅ Cache uv dependencies in CI to cut pipeline time.
 
 **Deliverables**
-- Metadata parity: `images`, `description`, `summary`.
-- Template change: avoid pseudo-lab claims.
-- CI cache for uv deps.
+- ✅ Metadata parity: `images`, `description`, `summary`.
+- ✅ Template change: avoid pseudo-lab claims.
+- ✅ CI cache for uv deps.
 
 ---
 

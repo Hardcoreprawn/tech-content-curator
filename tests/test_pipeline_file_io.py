@@ -164,6 +164,7 @@ class TestSaveArticleToFile:
         assert post["title"] == "Test Article"
         assert post["tags"] == ["Python", "Tech"]
         assert post["summary"] == "Test summary"
+        assert post["description"] == "Test summary"
         assert post["word_count"] == 100
         assert "sources" in post
         assert post["action_run_id"] == "test-run-123"

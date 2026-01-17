@@ -142,6 +142,7 @@ def save_article_to_file(
         "date": original_date or article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "tags": article.tags,
         "summary": article.summary,
+        "description": article.summary,
         "word_count": article.word_count,
         "reading_time": f"{max(1, round(article.word_count / 200))} min read",
     }
