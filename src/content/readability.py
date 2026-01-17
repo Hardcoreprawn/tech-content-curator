@@ -145,9 +145,9 @@ class ReadabilityAnalyzer:
             )
 
         # High grade level for general content
-        if grade_level > 14:
+        if grade_level > 9:
             suggestions.append(
-                f"Grade level is {grade_level:.1f} (college+). "
+                f"Grade level is {grade_level:.1f}. "
                 "Consider simplifying for broader accessibility unless targeting advanced readers."
             )
 

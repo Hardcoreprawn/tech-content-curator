@@ -124,6 +124,10 @@ class IntegrativeListGenerator(BaseGenerator):
     SOURCE URL: {item.original.url}
     TOPICS: {", ".join(item.topics)}
 
+    EVIDENCE PACK (use ONLY these sources for factual claims):
+    Primary source: {item.original.url}
+    Related sources: {", ".join(str(src) for src in item.related_sources) or "(none provided)"}
+
     WRITE A COMPREHENSIVE GUIDE THAT:
     - Opens with why this problem space matters and the value these tools provide
     - Includes a short "Key Takeaways" bullet list (3–5 bullets) after the introduction
@@ -140,6 +144,9 @@ class IntegrativeListGenerator(BaseGenerator):
     - Lists practical evaluation criteria to help readers choose
     - Offers a realistic 'getting started' section with configuration examples (Docker Compose snippets, etc.) if applicable
     - IMPORTANT: Close with proper attribution - "Inspired by [awesome-selfhosted](source_url)" or similar
+    - Do not invent quotes, metrics, timelines, or benchmarks
+    - Avoid first-person claims of actions you did not perform (no "I tested", "I benchmarked")
+    - If evidence is limited, say so explicitly and narrow claims
 
         DEPTH REQUIREMENTS:
     - 1200-1500 words minimum - provide real substance and context

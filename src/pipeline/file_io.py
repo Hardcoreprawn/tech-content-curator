@@ -347,6 +347,10 @@ def save_article_to_file(
                 "[yellow]⚠ Cover image missing; applied reusable fallback[/yellow]"
             )
 
+    # Social preview images: mirror cover image when available.
+    if metadata["cover"]["image"]:
+        metadata["images"] = [metadata["cover"]["image"]]
+
     # Build content with attribution and references
     primary = article.sources[0].original if article.sources else None
     attribution_block = ""
