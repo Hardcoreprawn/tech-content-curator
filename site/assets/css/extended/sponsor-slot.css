@@ -1,0 +1,34 @@
+.sponsor-slot {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--entry);
+  font-size: 0.95em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+}
+
+.sponsor-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.75em;
+  color: var(--secondary);
+}
+
+.sponsor-link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.sponsor-link:hover {
+  text-decoration: underline;
+}
+
+.sponsor-disclaimer {
+  color: var(--secondary);
+  font-size: 0.85em;
+}

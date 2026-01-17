@@ -132,7 +132,7 @@ Traffic is constrained more by **content trust + distribution** than hosting. Gi
 
 ### Phase 3 — Monetization (2–4 weeks)
 **Goal:** Cover costs ethically with minimal disruption.
-- Add sponsor slot in homepage + post footer (one slot only).
+- ✅ Add sponsor slot in homepage + post footer (one slot only).
 - Add support CTA in nav.
 - Optional: “Research Digest” paid tier.
 - Parallel enrichment with rate limiting.
@@ -141,7 +141,7 @@ Traffic is constrained more by **content trust + distribution** than hosting. Gi
 - Batch API option for 50% cost savings (long-latency runs).
 
 **Deliverables**
-- Sponsor component (clearly labeled).
+- ✅ Sponsor component (clearly labeled).
 - Support page (transparent costs + mission).
 - Enrichment parallelism + rate-limit controls.
 - Progressive image generation gate.
