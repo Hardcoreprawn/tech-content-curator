@@ -95,6 +95,17 @@ Transformer architectures offer compelling advantages for technical text analysi
 though further research is needed to optimize inference efficiency.
 """
 
+URL_CITATION_CONTENT = """
+## Overview
+
+This article cites sources directly using URLs, which should count toward citations.
+
+See the [OpenAI API docs](https://platform.openai.com/docs) and the
+[Python documentation](https://docs.python.org/3/). For deployment details,
+consult the [Hugo documentation](https://gohugo.io/documentation/) and
+the [GitHub Actions guide](https://docs.github.com/actions).
+"""
+
 
 # Helper function to create test EnrichedItem
 def create_test_item(title: str, topics: list[str]) -> EnrichedItem:
@@ -380,6 +391,13 @@ class TestQualityScorer:
         # Research needs more citations
         score = scorer._score_citations(RESEARCH_CONTENT, "research")
         assert score >= 0  # Should have some citation score
+
+    def test_citation_dimension_url_links(self):
+        """URL-based citations count toward citation scoring."""
+        scorer = QualityScorer()
+
+        score = scorer._score_citations(URL_CITATION_CONTENT, "general")
+        assert score > 0
 
     def test_code_examples_dimension_tutorial(self):
         """Test code example scoring for tutorial."""
