@@ -24,9 +24,20 @@ def _is_local_image(path: str) -> bool:
     return path.startswith("/images/") or path.startswith("images/")
 
 
+LOCAL_IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
+
+
 def _local_image_exists(images_dir: Path, path: str) -> bool:
     filename = path.rsplit("/", 1)[-1]
     return (images_dir / filename).exists()
+
+
+def _find_local_asset(images_dir: Path, basename: str) -> str | None:
+    for ext in LOCAL_IMAGE_EXTENSIONS:
+        candidate = images_dir / f"{basename}{ext}"
+        if candidate.exists():
+            return f"images/{basename}{ext}"
+    return None
 
 
 def guard_article_images(
@@ -63,17 +74,61 @@ def guard_article_images(
         if not image_value:
             continue
 
+        changed = False
+
+        if is_local and image_value.startswith("/images/"):
+            normalized = image_value.lstrip("/")
+            if cover.get("image") != normalized:
+                cover["image"] = normalized
+                post.metadata["cover"] = cover
+                changed = True
+
+        if icon_value.startswith("/images/"):
+            normalized_icon = icon_value.lstrip("/")
+            if post.metadata.get("icon") != normalized_icon:
+                post.metadata["icon"] = normalized_icon
+                changed = True
+
         if is_external or missing_local:
-            cover["image"] = ""
-            cover["alt"] = ""
+            slug = md_path.stem
+            local_cover = _find_local_asset(images_dir, slug)
+            local_icon = _find_local_asset(images_dir, f"{slug}-icon")
+
+            if local_cover:
+                if cover.get("image") != local_cover:
+                    cover["image"] = local_cover
+                    changed = True
+            else:
+                if cover.get("image") != "":
+                    cover["image"] = ""
+                    changed = True
+                if cover.get("alt") != "":
+                    cover["alt"] = ""
+                    changed = True
+
             post.metadata["cover"] = cover
-            if icon_value:
+
+            if local_icon:
+                if post.metadata.get("icon") != local_icon:
+                    post.metadata["icon"] = local_icon
+                    changed = True
+            elif icon_value and post.metadata.get("icon") != "":
                 post.metadata["icon"] = ""
+                changed = True
+
+        if changed:
             modified += 1
 
-            reason = "external" if is_external else "missing_local"
+            if is_external or missing_local:
+                if local_cover:
+                    reason = "external_replaced" if is_external else "missing_replaced"
+                else:
+                    reason = "external" if is_external else "missing_local"
+            else:
+                reason = "normalized_local"
+
             logger.info(
-                "Cleared broken cover image",
+                "Adjusted cover image",
                 extra={
                     "phase": "publish",
                     "event": "cover_image_guard",
@@ -82,7 +137,7 @@ def guard_article_images(
                 },
             )
             console.print(
-                f"[yellow]⚠ Cleared {reason} cover image in {md_path.name}[/yellow]"
+                f"[yellow]⚠ Updated cover image ({reason}) in {md_path.name}[/yellow]"
             )
 
             if not dry_run:

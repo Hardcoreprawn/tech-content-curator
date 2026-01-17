@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: Running Incus as Hypervisor on an Immutable Linux Host
-  image: /images/2025-11-14-running-incus-as-hypervisor-on-an-immutable-linux-host.png
+  image: images/2025-11-14-running-incus-as-hypervisor-on-an-immutable-linux-host.png
 date: 2025-11-14T23:15:03+0000
 generation_costs:
   content_generation: 0.0023226
   title_generation: 0.00144525
 generator: General Article Generator
-icon: /images/2025-11-14-running-incus-as-hypervisor-on-an-immutable-linux-host-icon.png
+icon: images/2025-11-14-running-incus-as-hypervisor-on-an-immutable-linux-host-icon.png
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

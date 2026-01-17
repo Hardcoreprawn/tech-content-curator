@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: 'Tiny Diffusion for Character-Level Text: From Scratch'
-  image: /images/2025-11-14-tiny-diffusion-for-character-level-text-from-scratch.png
+  image: images/2025-11-14-tiny-diffusion-for-character-level-text-from-scratch.png
 date: 2025-11-14T23:14:58+0000
 generation_costs:
   content_generation: 0.00219465
   title_generation: 0.0014079
 generator: General Article Generator
-icon: /images/2025-11-14-tiny-diffusion-for-character-level-text-from-scratch-icon.png
+icon: images/2025-11-14-tiny-diffusion-for-character-level-text-from-scratch-icon.png
 illustrations_count: 0
 models_used:
   content: gpt-5-mini

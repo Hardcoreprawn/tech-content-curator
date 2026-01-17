@@ -13,13 +13,13 @@ article_quality:
   passed_threshold: false
 cover:
   alt: 'Tiny JIT in C: CJ Backends for x86-64 and ARM64'
-  image: /images/2025-11-14-tiny-jit-in-c-cj-backends-for-x86-64-and-arm64.png
+  image: images/2025-11-14-tiny-jit-in-c-cj-backends-for-x86-64-and-arm64.png
 date: 2025-11-14T23:14:58+0000
 generation_costs:
   content_generation: 0.00229995
   title_generation: 0.00064605
 generator: General Article Generator
-icon: /images/2025-11-14-tiny-jit-in-c-cj-backends-for-x86-64-and-arm64-icon.png
+icon: images/2025-11-14-tiny-jit-in-c-cj-backends-for-x86-64-and-arm64-icon.png
 illustrations_count: 0
 models_used:
   content: gpt-5-mini
