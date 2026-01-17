@@ -118,15 +118,15 @@ Traffic is constrained more by **content trust + distribution** than hosting. Gi
 
 ### Phase 2 — Distribution Engine (1–2 weeks)
 **Goal:** Make good content discoverable.
-- Weekly digest (email + RSS summary).
-- Social posting automation with short summaries.
+- ✅ Weekly digest (email + RSS summary).
+- ✅ Social posting automation with short summaries.
 - Backlink strategy: targeted HN/Reddit posts for strongest pieces.
-- Incremental Hugo builds (cache `site/resources/_gen`).
+- ✅ Incremental Hugo builds (cache `site/resources/_gen`).
 
 **Deliverables**
-- Digest generator from last 7 days.
-- Posting cadence + summary templates.
-- Cached Hugo build artifacts.
+- ✅ Digest generator from last 7 days.
+- ✅ Posting cadence + summary templates.
+- ✅ Cached Hugo build artifacts.
 
 ---
 
