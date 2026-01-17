@@ -429,8 +429,6 @@ def save_article_to_file(
     # Append references (now citation_bibliography is defined)
     references_block = ""
     if article.sources or citation_bibliography:
-        lines = ["\n\n## References\n"]
-
         # Collect inline URL citations from the article body
         inline_url_pattern = r"\[[^\]]+\]\((https?://[^)]+)\)"
         inline_urls: list[str] = []
@@ -441,22 +439,22 @@ def save_article_to_file(
                 inline_urls.append(url)
                 seen_inline.add(url)
 
-        # Add source references first
+        ref_entries: list[str] = []
         source_urls: set[str] = set()
         for src in article.sources:
             o = src.original
             url_str = str(o.url).lower()
-            source_urls.add(normalize_url(str(o.url)))
+            normalized = normalize_url(str(o.url))
+            source_urls.add(normalized)
             actual_source = o.source
             if "github.com" in url_str:
                 actual_source = "GitHub"
             elif "arxiv.org" in url_str:
                 actual_source = "arXiv"
-            lines.append(
-                f"- [{o.title}]({normalize_url(str(o.url))}) — @{o.author} on {actual_source}"
+            ref_entries.append(
+                f"- [{o.title}]({normalized}) — @{o.author} on {actual_source}"
             )
 
-        # Add inline URL citations that are not already listed as sources or bibliography
         bibliography_urls: set[str] = set()
         if citation_bibliography:
             bibliography_urls = set(
@@ -468,20 +466,13 @@ def save_article_to_file(
             if normalized in source_urls or normalized in bibliography_urls:
                 continue
             domain = urlparse(normalized).netloc or normalized
-            lines.append(f"- [{domain}]({normalized})")
+            ref_entries.append(f"- [{domain}]({normalized})")
 
-        # Add resolved citations bibliography
         if citation_bibliography:
-            if article.sources:
-                # Add spacing before citations section if we already have sources
-                lines.append("")
-            lines.extend(citation_bibliography)
-
-        references_block = "\n".join(lines) + "\n"
+            ref_entries.extend(citation_bibliography)
 
         # Non-blocking audit: detect references without URLs
-        ref_lines = [line for line in lines if line.strip().startswith("-")]
-        if any("http" not in line for line in ref_lines):
+        if any("http" not in line for line in ref_entries):
             artifact_failures.append("references_missing_links")
             logger.warning(
                 "References contain items without URLs",
@@ -491,6 +482,11 @@ def save_article_to_file(
                     "article": article.title,
                 },
             )
+
+        # Enforce: keep only URL-bearing references, drop section if none remain
+        url_entries = [line for line in ref_entries if "http" in line]
+        if url_entries:
+            references_block = "\n".join(["\n\n## References\n", *url_entries]) + "\n"
 
     if artifact_failures:
         metadata["artifact_failures"] = sorted(set(artifact_failures))

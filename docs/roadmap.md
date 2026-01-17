@@ -90,10 +90,10 @@ Traffic is constrained more by **content trust + distribution** than hosting. Gi
 ### Phase 0 — Stabilize Output (1–3 days)
 **Goal:** Stop trust leaks and broken previews.
 - ✅ Image guard clears external/broken covers before commit.
-- **Add frontmatter `images`** using `cover.image` to fix social previews.
-- **Remove unverifiable “I did X” language** from prompts.
-- Enforce references with URLs or remove the References section.
-- Cache uv dependencies in CI to cut pipeline time.
+- ✅ **Add frontmatter `images`** using `cover.image` to fix social previews.
+- ✅ **Remove unverifiable “I did X” language** from prompts.
+- ✅ Enforce references with URLs or remove the References section.
+- ✅ Cache uv dependencies in CI to cut pipeline time.
 
 **Deliverables**
 - Metadata parity: `images`, `description`, `summary`.
