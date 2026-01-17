@@ -112,6 +112,12 @@ contentDir = "../content"
     url = "/privacy/"
     weight = 50
 
+  [[menu.main]]
+    identifier = "support"
+    name = "Support"
+    url = "/support/"
+    weight = 60
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "JSON"]

@@ -18,3 +18,14 @@ def test_sponsor_config_defaults() -> None:
     assert sponsor.get("enabled") is False
     assert "url" in sponsor
     assert "text" in sponsor
+
+
+def test_support_menu_item_present() -> None:
+    """Support CTA is present in the main navigation."""
+    config_path = Path("site/hugo.toml")
+    data = tomllib.loads(config_path.read_text(encoding="utf-8"))
+
+    menu = data.get("menu", {})
+    main = menu.get("main", [])
+
+    assert any(item.get("identifier") == "support" for item in main)
