@@ -9931,5 +9931,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 1881,
+    "timestamp": "2026-01-20T18:12:58.398472",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "We just released Mastodon 4.5.5, 4.4.12, and 4.3.18. These versions contain various bug fixes, inclu",
+        "removed_items": [
+          "If you run a mastodon instance, it's time to upgrade. There are some security issues fixed in the ve",
+          "Show HN: wxpath \u2013 Declarative web crawling in XPath\n\n<i>wxpath</i> is a declarative web crawler wher"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple testing new App Store design that blurs the line between ads and results",
+        "removed_items": [
+          "Notes on Apple's Nano Texture (2025)"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
