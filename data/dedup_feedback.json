@@ -9906,5 +9906,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 1877,
+    "timestamp": "2026-01-20T06:08:37.962340",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Kahan on the 8087 and designing Intel's floating point (2016) [video]",
+        "removed_items": [
+          "Conditions in the Intel 8087 floating-point chip's microcode"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "How we made Python's packaging library 3x faster",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
