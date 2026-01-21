@@ -10004,5 +10004,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 1891,
+    "timestamp": "2026-01-21T18:19:32.039036",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "just learned that Al Sweigart makes all of his Python books (Automate The Boring Stuff with Python e",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude's New Constitution",
+        "removed_items": [
+          "Show HN: yolo-cage \u2013 AI coding agents that can't exfiltrate secrets\n\nI made this for myself, and it "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
