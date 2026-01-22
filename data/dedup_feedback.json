@@ -10029,5 +10029,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 6,
+    "patterns_used": 1897,
+    "timestamp": "2026-01-22T02:41:41.513931",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Claude's new constitution\n\n<a href=\"https:&#x2F;&#x2F;www.anthropic.com&#x2F;constitution\" rel=\"nofo",
+        "removed_items": [
+          "Letting Claude play text adventures"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Golfing APL/K in 90 Lines of Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: TerabyteDeals \u2013 Compare storage prices by $/TB\n\nI built a simple tool to compare hard drive",
+        "removed_items": [
+          "A verification layer for browser agents: Amazon case study\n\nA common approach to automating Amazon s"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
