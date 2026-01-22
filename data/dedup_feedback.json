@@ -10061,5 +10061,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 9,
+    "patterns_used": 1903,
+    "timestamp": "2026-01-22T06:08:02.976685",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Sweep, Open-weights 1.5B model for next-edit autocomplete\n\nHey HN, we trained and open-sour",
+        "removed_items": [
+          "vscode\n\nVisual Studio Code"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: ChartGPU \u2013 WebGPU-powered charting library (1M points at 60fps)\n\nCreator here. I built Char",
+        "removed_items": [
+          "Show HN: Dotenv Mask Editor: No more embarrassing screen leaks of your .env\n\nHi HN,<p>I built this b"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude's new constitution\n\n<a href=\"https:&#x2F;&#x2F;www.anthropic.com&#x2F;constitution\" rel=\"nofo",
+        "removed_items": [
+          "Show HN: Open-source certificate from GitHub activity\n\nI built this as a small side project to learn",
+          "Letting Claude play text adventures"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
