@@ -10157,5 +10157,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 1918,
+    "timestamp": "2026-01-23T18:12:07.545019",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "I was wondering when a reporter would uncover this. So BitLocker is super secure, right? Well... Bit",
+        "removed_items": [
+          "Microsoft gave FBI set of BitLocker encryption keys to unlock suspects' laptops",
+          "Microsoft mishandling example.com"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "What has Docker become?",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
