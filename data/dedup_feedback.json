@@ -10253,5 +10253,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 3,
+    "patterns_used": 1928,
+    "timestamp": "2026-01-24T18:10:23.620137",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code's new hidden feature: Swarms\n\n<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;NicerInPerson&",
+        "removed_items": [
+          "Show HN: Coi \u2013 A language that compiles to WASM, beats React/Vue\n\nI usually build web games in C++, "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
