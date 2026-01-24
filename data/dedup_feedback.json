@@ -10221,5 +10221,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 5,
+    "patterns_used": 1926,
+    "timestamp": "2026-01-24T06:07:04.320777",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "I've seen a lot of photos showing the massive crowds gathered in Minneapolis today, but I want to re",
+        "removed_items": [
+          "Losing 1\u00bd Million Lines of Go",
+          "Show HN: Whosthere: A LAN discovery tool with a modern TUI, written in Go"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Do not store your Bitlocker encryption keys on Microsoft's servers if your threat model includes gov",
+        "removed_items": [
+          "Microsoft gave FBI set of BitLocker encryption keys to unlock suspects' laptops"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
