@@ -10308,5 +10308,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 5,
+    "patterns_used": 1939,
+    "timestamp": "2026-01-25T06:07:04.949310",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "nvidia-smi hangs indefinitely after ~66 days",
+        "removed_items": [
+          "Show HN: VM-curator \u2013 a TUI alternative to libvirt and virt-manager\n\nI&#x27;ve long wanted to harnes"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude Code's new hidden feature: Swarms\n\n<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;NicerInPerson&",
+        "removed_items": [
+          "Show HN: Semantic search engine for Studio Ghibli movie\n\nHi HN! I built Ghibli Search, a semantic se",
+          "Shared Claude: A website controlled by the public"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
