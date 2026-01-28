@@ -10564,5 +10564,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 8,
+    "patterns_used": 1987,
+    "timestamp": "2026-01-28T18:13:45.872466",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "PSA: If you're planning to do your taxes w/ TurboTax 2025 desktop software this year on a Windows 10",
+        "removed_items": [
+          "Microsoft forced me to switch to Linux"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Oban, the job processing framework from Elixir, has come to Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I built a small browser engine from scratch in C++\n\nHi HN! Korean high school senior here, ",
+        "removed_items": [
+          "Show HN: Cua-Bench \u2013 a benchmark for AI agents in GUI environments\n\nHey HN, we&#x27;re excited to sh"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
