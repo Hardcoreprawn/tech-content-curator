@@ -10533,5 +10533,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 4,
+    "patterns_used": 1977,
+    "timestamp": "2026-01-28T06:08:37.227902",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A few random notes from Claude coding quite a bit last few weeks\n\n<a href=\"https:&#x2F;&#x2F;xcancel",
+        "removed_items": [
+          "Show HN: I wrapped the Zorks with an LLM\n\nI grew up on the Infocom games and when microsoft actually"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Rust\u2019s Standard Library on the GPU",
+        "removed_items": [
+          "Parametric CAD in Rust"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
