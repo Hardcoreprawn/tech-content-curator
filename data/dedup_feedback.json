@@ -10596,5 +10596,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 7,
+    "patterns_used": 1993,
+    "timestamp": "2026-01-29T02:52:44.485386",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: A MitM proxy to see what your LLM tools are sending\n\nI built this out of curiosity about wh",
+        "removed_items": [
+          "Show HN: Cursor for Userscripts\n\nI\u2019ve been experimenting with embedding an Claude Code&#x2F;Cursor-s"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Oban, the job processing framework from Elixir, has come to Python",
+        "removed_items": [
+          "Show HN: SHDL \u2013 A minimal hardware description language built from logic gates\n\nHi, everyone!<p>I bu",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Drum machine VST made with React/C++\n\nHi HN!\nWe just launched our drum machine vst this mon",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
