@@ -10688,5 +10688,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 3,
+    "patterns_used": 2005,
+    "timestamp": "2026-01-30T06:16:44.411899",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Nannou \u2013 A creative coding framework for Rust",
+        "removed_items": [
+          "Deep dive into Turso, the \u201cSQLite rewrite in Rust\u201d"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
