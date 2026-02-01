@@ -10850,5 +10850,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 3,
+    "patterns_used": 2033,
+    "timestamp": "2026-02-01T06:18:53.191862",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Apple-1 Computer Prototype Board #0 sold for $2.75M",
+        "removed_items": [
+          "Apple Platform Security (Jan 2026) [pdf]"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
