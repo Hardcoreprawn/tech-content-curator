@@ -10954,5 +10954,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 2049,
+    "timestamp": "2026-02-02T18:17:58.314879",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Apple's MacBook Pro DFU port documentation is wrong",
+        "removed_items": [
+          "Show HN: NanoClaw \u2013 \u201cClawdbot\u201d in 500 lines of TS with Apple container isolation\n\nI\u2019ve been running "
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Stelvio \u2013 Ship Python to AWS",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
