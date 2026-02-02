@@ -10929,5 +10929,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 2045,
+    "timestamp": "2026-02-02T06:25:27.183260",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Apple's MacBook Pro DFU port documentation is wrong",
+        "removed_items": [
+          "Show HN: NanoClaw \u2013 \u201cClawdbot\u201d in 500 lines of TS with Apple container isolation\n\nI\u2019ve been running ",
+          "Apple I Advertisement (1976)\n\n<a href=\"https:&#x2F;&#x2F;computerhistory.org&#x2F;wp-content&#x2F;up"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
