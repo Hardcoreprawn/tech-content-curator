@@ -11095,5 +11095,31 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 5,
+    "patterns_used": 2071,
+    "timestamp": "2026-02-04T18:21:31.442694",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "My mom (in her 70s) is always asking me questions about AI, so last time I was home I showed her how",
+        "removed_items": [
+          "RS-SDK: Drive RuneScape with Claude Code",
+          "Claude Is a Space to Think",
+          "Show HN: SymDerive \u2013 A functional, stateless symbolic math library\n\nHey HN,<p>I\u2019m a physicist turned"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python",
+          "Python-100-Days\n\nPython - 100\u5929\u4ece\u65b0\u624b\u5230\u5927\u5e08"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
