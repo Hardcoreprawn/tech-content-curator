@@ -11558,5 +11558,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 6,
+    "patterns_used": 2144,
+    "timestamp": "2026-02-10T18:29:53.406008",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Alphabet (Google) launched a massive global bond sale, including a 100-Year Bond. The last time tech",
+        "removed_items": [
+          "Launch HN: Livedocs (YC W22) \u2013 An AI-native notebook for data analysis\n\nHi HN, I&#x27;m Arsalan, fou",
+          "Google Handed ICE Student Journalist's Bank and Credit Card Numbers"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Rowboat \u2013 AI coworker that turns your work into a knowledge graph (OSS)\n\nHi HN,<p>AI agents",
+        "removed_items": [
+          "Show HN: Stripe-no-webhooks \u2013 Sync your Stripe data to your Postgres DB\n\nHey HN, stripe-no-webhooks ",
+          "Show HN: HN Companion \u2013 web app that enhances the experience of reading HN\n\nHN is all about the rich"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Open-Source SDK for AI Knowledge Work\n\nGitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;C",
+        "removed_items": [
+          "Show HN: Distr 2.0 \u2013 A year of learning how to ship to customer environments\n\nA year ago, we launche"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
