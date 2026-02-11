@@ -11621,5 +11621,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 2153,
+    "timestamp": "2026-02-11T06:26:50.173662",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Ex-GitHub CEO launches a new developer platform for AI agents",
+        "removed_items": [
+          "Show HN: Rowboat \u2013 AI coworker that turns your work into a knowledge graph (OSS)\n\nHi HN,<p>AI agents",
+          "Tambo 1.0: Open-source toolkit for agents that render React components\n\nHi HN \u2014 cofounder Michael he"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: JavaScript-first, open-source WYSIWYG DOCX editor\n\nWe needed a JS-first WYSIWYG DOCX editor",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
