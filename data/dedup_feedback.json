@@ -11707,5 +11707,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 2168,
+    "timestamp": "2026-02-12T06:26:26.681961",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Hey All, I made a header only C++ library where it's 1 line of code to init, then you can start writ",
+        "removed_items": [
+          "Show HN: CodeRLM \u2013 Tree-sitter-backed code indexing for LLM agents\n\nI&#x27;ve been building a tool t"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Warcraft III Peon Voice Notifications for Claude Code",
+        "removed_items": [
+          "Claude Code is being dumbed down?"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Text classification with Python 3.14's ZSTD module",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
