@@ -11738,5 +11738,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 2170,
+    "timestamp": "2026-02-12T18:26:02.319812",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Launch HN: Omnara (YC S25) \u2013 Run Claude Code and Codex from anywhere\n\nHey y\u2019all, Kartik, Ishaan, and",
+        "removed_items": [
+          "Warcraft III Peon Voice Notifications for Claude Code",
+          "Show HN: 20+ Claude Code agents coordinating on real work (open source)\n\nSingle-agent LLMs suck at l"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
