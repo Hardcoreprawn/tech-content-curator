@@ -11816,5 +11816,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 2179,
+    "timestamp": "2026-02-13T18:19:54.386877",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "IronClaw: a Rust-based clawd that runs tools in isolated WASM sandboxes",
+        "removed_items": [
+          "Tell HN: Ralph Giles has died (Xiph.org| Rust@Mozilla | Ghostscript)\n\nIt&#x27;s with much sadness th",
+          "Syd: Writing an application kernel in Rust [video]",
+          "We interfaced single-threaded C++ with multi-threaded Rust"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
