@@ -11864,5 +11864,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 2187,
+    "timestamp": "2026-02-14T06:15:25.160669",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Understanding the Go Compiler: The Linker",
+        "removed_items": [
+          "Show HN: Skill that lets Claude Code/Codex spin up VMs and GPUs\n\nI&#x27;ve been working on CloudRout"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
