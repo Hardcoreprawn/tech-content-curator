@@ -11887,5 +11887,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 3,
+    "patterns_used": 2191,
+    "timestamp": "2026-02-14T18:11:41.476849",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "9-year-old Maria Antonia was supposed to go to Disney World. Instead, immigration agents sent her to",
+        "removed_items": [
+          "Understanding the Go Compiler: The Linker"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Arcmark \u2013 macOS bookmark manager that attaches to browser as sidebar\n\nHey HN! I was a long-",
+        "removed_items": [
+          "Show HN: Data Engineering Book \u2013 An open source, community-driven guide\n\nHi HN! I&#x27;m currently a"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
