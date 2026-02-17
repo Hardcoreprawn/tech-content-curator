@@ -12085,5 +12085,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 7,
+    "patterns_used": 2223,
+    "timestamp": "2026-02-17T18:25:01.315443",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The # FDroid website has a new banner on top to remind visitors that # Google did not change course ",
+        "removed_items": [
+          "People should be able to write software for Android, and distribute it outside Google's Play store, "
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "The slop huckster's dilemma: \"AI assisted tools are powerful but they should only be used by experts",
+        "removed_items": [
+          "Using go fix to modernize Go code",
+          "Launch HN: Sonarly (YC W26) \u2013 AI agent to triage and fix your production alerts\n\nHey HN, I am Dimitt",
+          "Show HN: Glitchy camera \u2013 a circuit-bent camera simulator in the browser\n\nFun little side project I "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Sonnet 4.6 System Card",
+        "removed_items": [
+          "Show HN: Continue \u2013 Source-controlled AI checks, enforceable in CI\n\nWe now write most of our code wi"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
