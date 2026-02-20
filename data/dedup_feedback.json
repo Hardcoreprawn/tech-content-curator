@@ -12340,5 +12340,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 3,
+    "patterns_used": 2275,
+    "timestamp": "2026-02-20T18:19:08.950680",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Actions speak louder than words. I am unable to install EU Login app in my phone because I use Linea",
+        "removed_items": [
+          "If you're writing a website link in a post or profile on Mastodon, it's important to include the htt"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Lessons learned from `oapi-codegen`'s time in the GitHub Secure Open Source Fund",
+        "removed_items": [
+          "Show HN: Micasa \u2013 track your house from the terminal\n\nmicasa is a terminal UI that helps you track h"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
