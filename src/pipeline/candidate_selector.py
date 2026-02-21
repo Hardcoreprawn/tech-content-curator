@@ -85,7 +85,7 @@ def select_generator(item: EnrichedItem, generators: list) -> BaseGenerator:
 
 def select_article_candidates(
     items: list[EnrichedItem],
-    min_quality: float = 0.5,
+    min_quality: float | None = None,
     use_adaptive_filtering: bool = True,
     deduplicate_stories: bool = True,
 ) -> list[EnrichedItem]:
@@ -101,13 +101,16 @@ def select_article_candidates(
 
     Args:
         items: List of enriched items
-        min_quality: Minimum quality score (0.0-1.0)
+        min_quality: Minimum quality score (0.0-1.0). Defaults to QUALITY_THRESHOLD env var.
         use_adaptive_filtering: If True, use recent content cache and learned patterns
         deduplicate_stories: If True, filter out duplicate stories from different sources
 
     Returns:
         List of items suitable for article generation
     """
+    if min_quality is None:
+        min_quality = float(os.getenv("QUALITY_THRESHOLD", "0.5"))
+
     candidates = []
     content_dir = get_content_dir()
 
@@ -159,6 +162,15 @@ def select_article_candidates(
 
         if not item.topics:
             reason = "no_topics_identified"
+            rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
+            logger.debug(f"Rejected {item.original.id}: {reason}")
+            continue
+
+        # Require at least one usable supporting URL (grounded sources)
+        has_supporting_urls = bool(item.related_sources)
+        has_inline_url = "http" in item.original.content
+        if not (has_supporting_urls or has_inline_url):
+            reason = "no_usable_source_urls"
             rejection_reasons[reason] = rejection_reasons.get(reason, 0) + 1
             logger.debug(f"Rejected {item.original.id}: {reason}")
             continue

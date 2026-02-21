@@ -75,7 +75,7 @@ def high_quality_enriched_item(sample_collected_item):
     return EnrichedItem(
         original=sample_collected_item,
         research_summary="Kubernetes is a container orchestration platform...",
-        related_sources=[],
+        related_sources=[http_url("https://kubernetes.io/docs")],
         topics=["kubernetes", "devops", "cloud computing"],
         quality_score=0.75,
         enriched_at=datetime.now(UTC),
@@ -88,9 +88,23 @@ def low_quality_enriched_item(sample_collected_item):
     return EnrichedItem(
         original=sample_collected_item,
         research_summary="Brief mention of topic.",
-        related_sources=[],
+        related_sources=[http_url("https://kubernetes.io/docs")],
         topics=["general"],
         quality_score=0.25,
+        enriched_at=datetime.now(UTC),
+    )
+
+
+@pytest.fixture
+def missing_sources_enriched_item(sample_collected_item):
+    """Create an enriched item without usable source URLs."""
+    sample_collected_item.content = "No links here, just text."
+    return EnrichedItem(
+        original=sample_collected_item,
+        research_summary="Summary without supporting links.",
+        related_sources=[],
+        topics=["kubernetes"],
+        quality_score=0.8,
         enriched_at=datetime.now(UTC),
     )
 
@@ -236,6 +250,28 @@ class TestArticleCandidateSelection:
                 )
 
         # Should be filtered out
+        assert len(candidates) == 0
+
+    def test_rejects_items_without_usable_source_urls(
+        self, missing_sources_enriched_item
+    ):
+        """Reject items that lack supporting URLs or inline links."""
+        items = [missing_sources_enriched_item]
+
+        with patch("src.config.get_content_dir") as mock_get_dir:
+            mock_get_dir.return_value = Path("/tmp/content")
+            with patch(
+                "src.pipeline.candidate_selector.check_article_exists_for_source"
+            ) as mock_check:
+                mock_check.return_value = None
+
+                candidates = select_article_candidates(
+                    items,
+                    min_quality=0.5,
+                    use_adaptive_filtering=False,
+                    deduplicate_stories=False,
+                )
+
         assert len(candidates) == 0
 
 

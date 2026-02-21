@@ -155,7 +155,7 @@ class GeneralArticleGenerator(BaseGenerator):
             )
             console.print(f"[yellow]⚠[/yellow] Article generation failed: {e}")
             # Create basic fallback article
-            fallback = f"""Based on a social media post discussing {", ".join(item.topics[:3])}.
+            fallback = f"""A practical look at {", ".join(item.topics[:3])} and why it matters.
 
 ## Overview
 
@@ -163,7 +163,7 @@ class GeneralArticleGenerator(BaseGenerator):
 
 ## Key Points
 
-The original discussion highlighted several important aspects:
+Key discussion points include:
 
 {item.original.content[:300]}
 
@@ -173,7 +173,6 @@ This topic deserves further exploration and discussion in the tech community.
 
 ---
 
-*Based on a post by @{item.original.author} on {item.original.source}*
-*Original source: {item.original.url}*
+*Attribution: @{item.original.author} — {item.original.url}*
 """
             return fallback, 0, 0

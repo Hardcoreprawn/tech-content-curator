@@ -258,7 +258,7 @@ class TestEnrichCollectedItems:
         mock_config.return_value = make_config()
 
         # Mock successful enrichment
-        def mock_enrich_fn(item, config, adapter):
+        def mock_enrich_fn(item, config, adapter, rate_limiter=None):
             return EnrichedItem(
                 original=item,
                 research_summary="Test",
@@ -295,7 +295,7 @@ class TestEnrichCollectedItems:
         mock_adapter_class.return_value = Mock()
 
         # Mock mix of success and failure
-        def mock_enrich_fn(item, config, adapter):
+        def mock_enrich_fn(item, config, adapter, rate_limiter=None):
             if "Item 1" in item.title:
                 return None  # Simulate failure
             return EnrichedItem(

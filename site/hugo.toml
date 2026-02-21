@@ -62,6 +62,14 @@ contentDir = "../content"
     imageTitle = "Tech Content Curator"
     imageHeight = 200
 
+  # Sponsor slot (hidden unless enabled)
+  [params.sponsor]
+    enabled = false
+    label = "Sponsor"
+    url = ""
+    text = ""
+    disclaimer = ""
+
   # Social links
   [[params.socialIcons]]
     name = "github"
@@ -103,6 +111,12 @@ contentDir = "../content"
     name = "Privacy"
     url = "/privacy/"
     weight = 50
+
+  [[menu.main]]
+    identifier = "support"
+    name = "Support"
+    url = "/support/"
+    weight = 60
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

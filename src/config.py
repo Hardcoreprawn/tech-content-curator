@@ -316,8 +316,8 @@ QUALITY_THRESHOLDS = {
         "min_quality_score": 70.0,  # Minimum overall quality
     },
     "intermediate": {
-        "min_flesch_ease": 50.0,  # Fairly difficult
-        "max_grade_level": 14.0,  # College level
+        "min_flesch_ease": 60.0,  # Aim for broad accessibility
+        "max_grade_level": 9.0,  # Approx. ages 13-15
         "min_quality_score": 75.0,  # Higher quality expected
     },
     "advanced": {

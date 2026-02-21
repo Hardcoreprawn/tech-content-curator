@@ -8,7 +8,9 @@ Handles saving and loading of generated articles:
 """
 
 import json
+import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 import frontmatter
 from openai import OpenAI
@@ -140,6 +142,7 @@ def save_article_to_file(
         "date": original_date or article.generated_at.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "tags": article.tags,
         "summary": article.summary,
+        "description": article.summary,
         "word_count": article.word_count,
         "reading_time": f"{max(1, round(article.word_count / 200))} min read",
     }
@@ -347,6 +350,10 @@ def save_article_to_file(
                 "[yellow]⚠ Cover image missing; applied reusable fallback[/yellow]"
             )
 
+    # Social preview images: mirror cover image when available.
+    if metadata["cover"]["image"]:
+        metadata["images"] = [metadata["cover"]["image"]]
+
     # Build content with attribution and references
     primary = article.sources[0].original if article.sources else None
     attribution_block = ""
@@ -423,33 +430,55 @@ def save_article_to_file(
     # Append references (now citation_bibliography is defined)
     references_block = ""
     if article.sources or citation_bibliography:
-        lines = ["\n\n## References\n"]
+        # Collect inline URL citations from the article body
+        # Pattern handles URLs with balanced parentheses (e.g. Wikipedia)
+        inline_url_pattern = (
+            r"\[(.*?)\]\("
+            r"(https?://[^()\s]+(?:\([^()\s]*\)[^()\s]*)*)"
+            r"\)"
+        )
+        inline_urls: list[str] = []
+        seen_inline: set[str] = set()
+        for match in re.finditer(inline_url_pattern, article_content):
+            url = match.group(2)
+            if url not in seen_inline:
+                inline_urls.append(url)
+                seen_inline.add(url)
 
-        # Add source references first
+        ref_entries: list[str] = []
+        source_urls: set[str] = set()
         for src in article.sources:
             o = src.original
             url_str = str(o.url).lower()
+            normalized = normalize_url(str(o.url))
+            source_urls.add(normalized)
             actual_source = o.source
             if "github.com" in url_str:
                 actual_source = "GitHub"
             elif "arxiv.org" in url_str:
                 actual_source = "arXiv"
-            lines.append(
-                f"- [{o.title}]({normalize_url(str(o.url))}) — @{o.author} on {actual_source}"
+            ref_entries.append(
+                f"- [{o.title}]({normalized}) — @{o.author} on {actual_source}"
             )
 
-        # Add resolved citations bibliography
+        bibliography_urls: set[str] = set()
         if citation_bibliography:
-            if article.sources:
-                # Add spacing before citations section if we already have sources
-                lines.append("")
-            lines.extend(citation_bibliography)
+            bibliography_urls = set(
+                re.findall(r"https?://[^)\s]+", "\n".join(citation_bibliography))
+            )
 
-        references_block = "\n".join(lines) + "\n"
+        for url in inline_urls:
+            normalized = normalize_url(url)
+            if normalized in source_urls or normalized in bibliography_urls:
+                continue
+            domain = urlparse(normalized).netloc or normalized
+            ref_entries.append(f"- [{domain}]({normalized})")
+
+        if citation_bibliography:
+            ref_entries.extend(citation_bibliography)
 
         # Non-blocking audit: detect references without URLs
-        ref_lines = [line for line in lines if line.strip().startswith("-")]
-        if any("http" not in line for line in ref_lines):
+        if any("http" not in line for line in ref_entries):
             artifact_failures.append("references_missing_links")
             logger.warning(
                 "References contain items without URLs",
@@ -459,6 +488,11 @@ def save_article_to_file(
                     "article": article.title,
                 },
             )
+
+        # Enforce: keep only URL-bearing references, drop section if none remain
+        url_entries = [line for line in ref_entries if "http" in line]
+        if url_entries:
+            references_block = "\n".join(["\n\n## References\n", *url_entries]) + "\n"
 
     if artifact_failures:
         metadata["artifact_failures"] = sorted(set(artifact_failures))

@@ -1,0 +1,13 @@
+{{- with site.Params.sponsor }}
+{{- if and .enabled .url .text }}
+<div class="sponsor-slot">
+  <span class="sponsor-label">{{ .label | default "Sponsor" }}</span>
+  <a class="sponsor-link" href="{{ .url }}" rel="sponsored noopener" target="_blank">
+    {{ .text | markdownify }}
+  </a>
+  {{- with .disclaimer }}
+  <span class="sponsor-disclaimer">{{ . | markdownify }}</span>
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}

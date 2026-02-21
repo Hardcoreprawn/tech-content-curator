@@ -228,6 +228,9 @@ class QualityScorer:
     def _score_citations(self, content: str, content_type: str) -> float:
         """Score citation quality and quantity.
 
+        Accepts both author/year patterns (e.g., "Smith et al. (2024)")
+        and URL-based citations (markdown links with http/https URLs).
+
         Args:
             content: Article content
             content_type: Type of content (research, analysis, etc.)
@@ -238,7 +241,14 @@ class QualityScorer:
         # Count citation patterns (Author et al., Year) or (Author, Year)
         citation_pattern = r"\b[A-Z][a-z]+(?:\s+et\s+al\.)?\s*\(\d{4}\)"
         citations = re.findall(citation_pattern, content)
-        citation_count = len(citations)
+        author_year_count = len(citations)
+
+        # Count URL citations via markdown links
+        url_pattern = r"\[[^\]]+\]\((https?://[^)]+)\)"
+        urls = set(re.findall(url_pattern, content))
+        url_count = len(urls)
+
+        citation_count = author_year_count + url_count
 
         # Expected citations by content type
         expected = {

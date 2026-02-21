@@ -164,6 +164,7 @@ class TestSaveArticleToFile:
         assert post["title"] == "Test Article"
         assert post["tags"] == ["Python", "Tech"]
         assert post["summary"] == "Test summary"
+        assert post["description"] == "Test summary"
         assert post["word_count"] == 100
         assert "sources" in post
         assert post["action_run_id"] == "test-run-123"
@@ -264,6 +265,22 @@ class TestSaveArticleToFile:
         assert "## References" in post.content
         assert "@testuser" in post.content
         assert "@author2" in post.content
+
+    def test_references_include_inline_urls(self, tmp_path):
+        """Inline URL citations are included in references."""
+        article = make_generated_article(
+            content="See [Docs](https://example.com/docs) for details."
+        )
+        config = make_config()
+
+        with patch("src.pipeline.file_io.get_content_dir", return_value=tmp_path):
+            filepath = save_article_to_file(article, config)
+
+        with open(filepath, encoding="utf-8") as f:
+            post = cast(frontmatter.Post, frontmatter.load(f))
+
+        assert "## References" in post.content
+        assert "https://example.com/docs" in post.content
 
     def test_detects_github_source(self, tmp_path):
         """GitHub URLs are detected and labeled correctly."""
@@ -477,6 +494,72 @@ class TestSaveArticleToFile:
         mock_formatter_instance.format.assert_called()
         mock_formatter_instance.apply_to_text.assert_called_once()
         mock_formatter_instance.build_bibliography.assert_called_once()
+
+    @patch("src.pipeline.file_io.CitationExtractor")
+    @patch("src.pipeline.file_io.CitationResolver")
+    @patch("src.pipeline.file_io.CitationFormatter")
+    @patch("src.pipeline.file_io.CitationCache")
+    def test_drops_references_without_urls(
+        self, mock_cache, mock_formatter, mock_resolver, mock_extractor, tmp_path
+    ):
+        """References section is omitted when only non-URL citations exist."""
+        article = make_generated_article(
+            content="Article with Smith (2024) references."
+        )
+        article.sources = []
+        config = make_config()
+        config.enable_citations = True
+
+        citation = Citation(
+            authors="Smith et al.",
+            year=2024,
+            original_text="Smith et al. (2024)",
+            position=(14, 32),
+            confidence=0.95,
+        )
+        mock_extractor_instance = Mock()
+        mock_extractor_instance.extract.return_value = [citation]
+        mock_extractor.return_value = mock_extractor_instance
+
+        mock_resolver_instance = Mock()
+        resolved_citation = ResolvedCitation(
+            doi=None,
+            arxiv_id=None,
+            pmid=None,
+            url=None,
+            confidence=0.0,
+            source_uri=None,
+        )
+        mock_resolver_instance.resolve.return_value = resolved_citation
+        mock_resolver.return_value = mock_resolver_instance
+
+        formatted_citation = FormattedCitation(
+            markdown="Smith et al. (2024)",
+            original="Smith et al. (2024)",
+            was_resolved=False,
+            citation=citation,
+            resolved=resolved_citation,
+        )
+
+        mock_formatter_instance = Mock()
+        mock_formatter_instance.format.return_value = formatted_citation
+        mock_formatter_instance.apply_to_text.return_value = "Article content"
+        mock_formatter_instance.build_bibliography.return_value = [
+            "- Smith et al. (2024)"
+        ]
+        mock_formatter.return_value = mock_formatter_instance
+
+        mock_cache_instance = Mock()
+        mock_cache_instance.get.return_value = None
+        mock_cache.return_value = mock_cache_instance
+
+        with patch("src.pipeline.file_io.get_content_dir", return_value=tmp_path):
+            filepath = save_article_to_file(article, config)
+
+        with open(filepath, encoding="utf-8") as f:
+            post = cast(frontmatter.Post, frontmatter.load(f))
+
+        assert "## References" not in post.content
 
     def test_handles_citation_errors_gracefully(self, tmp_path):
         """Citation processing errors don't break article save."""

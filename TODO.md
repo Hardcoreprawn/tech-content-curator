@@ -1,78 +1,47 @@
 # TODO - Priority Actions
 
-**Last Updated:** November 10, 2025
+**Last Updated:** February 21, 2026
 
-## Week 1: Critical Reliability 🚨
+All items are tracked as [GitHub Issues](https://github.com/Hardcoreprawn/tech-content-curator/issues). This file is a quick-reference snapshot.
 
-- [ ] **Config Validation at Startup** (2 hours) - Priority 0
-  - Move validation to CLI entry points
-  - Fail fast before API calls
-  - Test in GitHub Actions
-  
-- [ ] **Fix Exception Handling** (4-6 hours) - Priority 1
-  - Replace bare `except Exception:` with specific types
-  - Add `logger.exception()` calls
-  - Focus on: `text_review_refine.py`, `deduplication.py`, `file_io.py`
-  
-- [ ] **Fix Path Traversal Vulnerability** (3-4 hours) - Priority 5
-  - Complete sanitization in `generate_article_slug()`
-  - Validate all file paths before writing
-  - Add tests for malicious inputs
+## Immediate (High Priority)
 
-## Week 2: Maintainability 🔧
+- [ ] **Investigate pipeline automation downtime** — no content generated since Jan 14 ([#23](https://github.com/Hardcoreprawn/tech-content-curator/issues/23))
+- [ ] **Set default cost caps** — safety net for runaway API costs ([#29](https://github.com/Hardcoreprawn/tech-content-curator/issues/29))
 
-- [ ] **Standardize Logging** (2-3 hours) - Priority 2
-  - Remove all `print()` from `src/`
-  - Use `logger.debug/info/error` consistently
-  - Keep `console.print()` only for user-facing output
+## Short-Term (Medium Priority)
 
-- [ ] **Clarify Async Strategy** (2 hours) - Priority 7
-  - Document Python 3.14 nogil requirements OR
-  - Remove async wrapper, use pure threads
-  - Update README performance claims
+- [ ] **Fix empty cover images** — recent articles have `cover.image: ''` ([#31](https://github.com/Hardcoreprawn/tech-content-curator/issues/31))
+- [ ] **Fix incorrect DOI citations** — resolver produces wrong DOIs for non-academic sources ([#32](https://github.com/Hardcoreprawn/tech-content-curator/issues/32))
+- [ ] **Remove src/** push trigger from full-pipeline.yml** ([#24](https://github.com/Hardcoreprawn/tech-content-curator/issues/24))
+- [ ] **Fix or remove quarterly-model-evaluation.yml** — uses pip, references missing scripts ([#25](https://github.com/Hardcoreprawn/tech-content-curator/issues/25))
+- [ ] **Consolidate duplicate pipeline workflows** ([#30](https://github.com/Hardcoreprawn/tech-content-curator/issues/30))
 
-- [ ] **Audit Resource Cleanup** (2 hours) - Priority 6
-  - Ensure all OpenAI clients use context managers
-  - Check HTTP client lifecycle
-  - Test for memory leaks
+## Ongoing (Code Quality)
 
-## Week 3: Quality & Polish ✨
+- [ ] **Fix broad exception handling** — ~100 `except Exception` across src/ ([#1](https://github.com/Hardcoreprawn/tech-content-curator/issues/1), [#7](https://github.com/Hardcoreprawn/tech-content-curator/issues/7))
+- [ ] **Standardize logging** — replace remaining `print()` with `logger` ([#4](https://github.com/Hardcoreprawn/tech-content-curator/issues/4))
+- [ ] **Harden input sanitization** consistently ([#5](https://github.com/Hardcoreprawn/tech-content-curator/issues/5))
+- [ ] **Add pre-commit + task runner** ([#18](https://github.com/Hardcoreprawn/tech-content-curator/issues/18))
 
-- [ ] **Move Magic Numbers to Config** (1 hour)
-  - Extract 0.15, 0.3 thresholds
-  - Document what each threshold means
-  
-- [ ] **Add Error Path Tests** (3-4 hours)
-  - Test API failures gracefully handled
-  - Test malformed input handling
-  - Test config validation
+## Content Quality
 
-- [ ] **Data Archive Strategy** (2 hours)
-  - Document cleanup for old `collected_*.json`
-  - Consider moving to `data/archive/YYYY-MM/`
+- [ ] **Grounding-first citations** — stop relying on invented author/year ([#9](https://github.com/Hardcoreprawn/tech-content-curator/issues/9))
+- [ ] **Reduce source-referential language** in prompts ([#19](https://github.com/Hardcoreprawn/tech-content-curator/issues/19))
+- [ ] **Persist cover images locally** + normalize paths ([#14](https://github.com/Hardcoreprawn/tech-content-curator/issues/14))
+- [ ] **Fix unstable/animated image hotlinks** ([#20](https://github.com/Hardcoreprawn/tech-content-curator/issues/20))
 
-## Long-Term Evaluation 🔮
+## Completed ✅
 
-- [ ] **Generator Abstraction Review** (research task)
-  - Measure if classes share significant code
-  - Consider function-based approach if minimal sharing
-  
-- [ ] **Voice System Metrics** (research task)
-  - Add analytics to measure voice effectiveness
-  - A/B test if possible
-  - Simplify or remove if no proven benefit
-
-- [ ] **Adaptive Learning Dashboard** (future)
-  - Visualize pattern effectiveness over time
-  - Show cost trends
-  - Quality score distribution
+- [x] Fix enrichment test mock signatures ([#22](https://github.com/Hardcoreprawn/tech-content-curator/issues/22))
+- [x] Remove test-slug articles from content/posts/ ([#21](https://github.com/Hardcoreprawn/tech-content-curator/issues/21))
+- [x] Path traversal vulnerability (fixed via `safe_filename()`)
+- [x] Config validation at startup
+- [x] Free-threading in CI
+- [x] Resource cleanup (context managers)
 
 ---
 
-## Quick Reference
-
-**For detailed implementation:** See `docs/CODE-IMPROVEMENTS.md`  
-**For active bugs:** See `BUGS.md`  
-**For architecture context:** See `PROJECT-STATUS.md`
-
-**Completion Goal:** Critical items (Week 1) done by November 17, 2025
+**For implementation details:** See `docs/CODE-IMPROVEMENTS.md`
+**For active bugs:** See `BUGS.md`
+**For roadmap:** See `docs/roadmap.md`
