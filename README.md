@@ -227,20 +227,20 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 
 Three GitHub Actions workflows handle the complete pipeline:
 
-**1. Content Pipeline (Scheduled)** (`.github/workflows/content-pipeline.yml`)
+**1. Content Pipeline** (`.github/workflows/content-pipeline.yml`)
 
 - **Schedule**: 3x daily (06:00, 18:00, 02:00 UTC)
-- **Manual trigger**: Available for testing
+- **Manual trigger**: Available with configurable `max_articles` input
 - **Actions**:
   - Collect from HackerNews, GitHub Trending, Mastodon
   - Enrich with AI research and scoring
-  - Generate 10 articles with images
+  - Generate articles with images (default 10, configurable)
   - Build Hugo site
   - Deploy to GitHub Pages
 - **Outputs**: New articles in `content/posts/`, images, patterns
 - **Cost**: ~$0.22 per run (10 articles with images)
 - **Duration**: ~45-60 minutes
-- **Use case**: Scheduled batch content creation (3x daily)
+- **Use case**: Scheduled batch content creation or on-demand generation
 
 **2. Site Update (Fast)** (`.github/workflows/site-update.yml`)
 
@@ -258,33 +258,23 @@ Three GitHub Actions workflows handle the complete pipeline:
   - Perfect for CSS changes, layout updates, testing site design
   - Can optionally generate one article for validation
 
-**3. Full Pipeline (Manual Override)** (`.github/workflows/full-pipeline.yml`)
-
-- **Trigger**: Manual workflow dispatch only (with optional `max_articles` input)
-- **Actions**: Same as Content Pipeline but manually triggered
-- **Inputs**:
-  - `max_articles`: Number of articles to generate (default: 10)
-- **Use case**: "I need fresh content NOW" without waiting for scheduled run
-  - Can specify how many articles to generate (1-50)
-  - Full collection, enrichment, and generation cycle
-
 ### Workflow Strategy
 
-The split workflow design optimizes for two different use cases:
+The two-workflow design optimizes for different use cases:
 
-**Scenario 1: Scheduled Content Batch** (Every 6 hours)
+**Scenario 1: Scheduled Content Batch** (3x daily)
 
 ```
-Content Pipeline (3x daily)
+Content Pipeline (scheduled or manual)
   ├── Collect content from all sources
   ├── Enrich with AI research
-  ├── Generate 10 articles + images
+  ├── Generate N articles + images (default 10)
   └── Deploy
 ```
 
 - **Cost**: $0.22/run (3x daily = $0.66/day)
 - **Duration**: 45-60 min
-- **Benefit**: Captures trending topics on schedule, uses AI efficiently in batches
+- **Benefit**: Captures trending topics on schedule; manual trigger for on-demand generation
 
 **Scenario 2: Site Tweaks & Rapid Testing** (Any time)
 
@@ -299,19 +289,6 @@ Site Update (push or manual)
 - **Duration**: 3-5 min
 - **Benefit**: Test CSS changes, theme updates, layout tweaks WITHOUT running expensive AI batch
 
-**Scenario 3: Emergency Full Refresh** (When needed)
-
-```
-Full Pipeline (manual override)
-  ├── Collect & Enrich
-  ├── Generate N articles (configurable)
-  └── Deploy
-```
-
-- **Cost**: $0.22 for 10 articles
-- **Duration**: 45-60 min
-- **Benefit**: Manual control—generate 1-50 articles whenever you need fresh content
-
 ### Manual Triggers
 
 Workflows can be manually triggered via GitHub Actions UI:
@@ -323,6 +300,11 @@ Workflows can be manually triggered via GitHub Actions UI:
 - `generate_article`: Set to `true` to generate 1 test article before deploying
   - Useful for testing site changes with realistic content
   - Adds ~5-10 minutes to deployment
+
+**Content Pipeline** workflow supports an optional input:
+
+- `max_articles`: Number of articles to generate (default: 10)
+  - Useful for on-demand content generation without waiting for schedule
 
 ### Monitoring
 
@@ -341,15 +323,14 @@ If you had a single `pipeline.yml`:
    rm .github/workflows/pipeline.yml
    ```
 
-2. **The three new workflows are now in place**:
-   - `.github/workflows/content-pipeline.yml` - Runs on schedule
+2. **The workflows are now in place**:
+   - `.github/workflows/content-pipeline.yml` - Runs on schedule + manual
    - `.github/workflows/site-update.yml` - Runs on push/manual
-   - `.github/workflows/full-pipeline.yml` - Manual override only
 
 3. **Test the workflows**:
    - Push a small site change to trigger `site-update.yml` (should be fast)
    - Manually trigger `content-pipeline.yml` via GitHub UI to test collection flow
-   - Manually trigger `full-pipeline.yml` with custom article count
+   - Use `max_articles` input to control how many articles to generate
 
 4. **Verify scheduling**:
    - Wait for next scheduled time (06:00, 18:00, or 02:00 UTC) to confirm `content-pipeline.yml` runs automatically
@@ -370,9 +351,8 @@ content-curator/
 ├── .env.example             # Template for API keys
 │
 ├── .github/workflows/       # Automated pipelines
-│   ├── content-pipeline.yml # Scheduled 3x daily
-│   ├── site-update.yml     # Quick deploy
-│   └── full-pipeline.yml   # Manual override
+│   ├── content-pipeline.yml # Scheduled 3x daily + manual
+│   └── site-update.yml     # Quick deploy
 │
 ├── src/
 │   ├── collectors/          # Multi-source content collection
