@@ -33,7 +33,7 @@ All items are tracked as [GitHub Issues](https://github.com/Hardcoreprawn/tech-c
 - [x] Fix enrichment test mock signatures ([#22](https://github.com/Hardcoreprawn/tech-content-curator/issues/22))
 - [x] Remove test-slug articles from content/posts/ ([#21](https://github.com/Hardcoreprawn/tech-content-curator/issues/21))
 - [x] Consolidate duplicate pipeline workflows ([#30](https://github.com/Hardcoreprawn/tech-content-curator/issues/30))
-- [x] Remove src/** push trigger — consolidated into content-pipeline.yml ([#24](https://github.com/Hardcoreprawn/tech-content-curator/issues/24))
+- [x] Remove `src/**` push trigger — consolidated into content-pipeline.yml ([#24](https://github.com/Hardcoreprawn/tech-content-curator/issues/24))
 - [x] Fix quarterly-model-evaluation.yml — migrated to uv ([#25](https://github.com/Hardcoreprawn/tech-content-curator/issues/25))
 - [x] Path traversal vulnerability (fixed via `safe_filename()`)
 - [x] Config validation at startup

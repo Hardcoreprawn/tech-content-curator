@@ -225,7 +225,7 @@ The PRICING constants in `src/generate.py` hold rates ($/token), not estimates. 
 
 ### Automated Workflows
 
-Three GitHub Actions workflows handle the complete pipeline:
+Two GitHub Actions workflows handle the content pipeline (plus CI and quarterly model evaluation):
 
 **1. Content Pipeline** (`.github/workflows/content-pipeline.yml`)
 

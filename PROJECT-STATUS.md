@@ -181,7 +181,7 @@ SVG_GRAPHICS: true                    # Infographics
 - **Trigger:** Scheduled 3x daily (06:00, 18:00, 02:00 UTC) + manual with configurable `max_articles`
 - **Actions:** Collect → Enrich → Generate articles → Deploy
 - **Duration:** 45-60 minutes
-- **Cost:** ~$0.07 per run
+- **Cost:** ~$0.22 per run (10 articles; scales with `max_articles`)
 - **Use Case:** Regular content generation (scheduled) or on-demand generation (manual)
 
 **2. Site Update** (`.github/workflows/site-update.yml`)
