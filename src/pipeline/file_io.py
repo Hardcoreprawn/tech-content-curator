@@ -431,11 +431,16 @@ def save_article_to_file(
     references_block = ""
     if article.sources or citation_bibliography:
         # Collect inline URL citations from the article body
-        inline_url_pattern = r"\[[^\]]+\]\((https?://[^)]+)\)"
+        # Pattern handles URLs with balanced parentheses (e.g. Wikipedia)
+        inline_url_pattern = (
+            r"\[(.*?)\]\("
+            r"(https?://[^()\s]+(?:\([^()\s]*\)[^()\s]*)*)"
+            r"\)"
+        )
         inline_urls: list[str] = []
         seen_inline: set[str] = set()
         for match in re.finditer(inline_url_pattern, article_content):
-            url = match.group(1)
+            url = match.group(2)
             if url not in seen_inline:
                 inline_urls.append(url)
                 seen_inline.add(url)
