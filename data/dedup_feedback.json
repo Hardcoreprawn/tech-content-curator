@@ -12418,5 +12418,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 2285,
+    "timestamp": "2026-02-21T22:37:14.195130",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Parse, Don't Validate and Type-Driven Design in Rust",
+        "removed_items": [
+          "Show HN: Iron-Wolf \u2013 Wolfenstein 3D source port in Rust\n\nThe goal is to have a pixel, mod-friendly p"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
