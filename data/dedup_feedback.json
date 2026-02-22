@@ -12472,5 +12472,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 3,
+    "patterns_used": 2295,
+    "timestamp": "2026-02-22T06:17:07.880841",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "People say you shouldn't compare apples and oranges but it seems to work fine for me in Python 3.14,",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A long time ago I was young. There were fewer distractions. The phone was stuck to the wall and ther",
+        "removed_items": [
+          "I want to show up to a local brewery or coffee shop's game night with an elaborate roll out mat, a f"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
