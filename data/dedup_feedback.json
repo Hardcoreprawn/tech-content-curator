@@ -12441,5 +12441,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 2291,
+    "timestamp": "2026-02-22T02:58:33.878467",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "People say you shouldn't compare apples and oranges but it seems to work fine for me in Python 3.14,",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A long time ago I was young. There were fewer distractions. The phone was stuck to the wall and ther",
+        "removed_items": [
+          "I want to show up to a local brewery or coffee shop's game night with an elaborate roll out mat, a f"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Parse, Don't Validate and Type-Driven Design in Rust",
+        "removed_items": [
+          "Show HN: Iron-Wolf \u2013 Wolfenstein 3D source port in Rust\n\nThe goal is to have a pixel, mod-friendly p"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
