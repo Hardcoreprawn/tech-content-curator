@@ -12550,5 +12550,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 2311,
+    "timestamp": "2026-02-23T06:26:38.629154",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "not sure how well known this already was, but i just stumbled upon an archive of super high-res 35mm",
+        "removed_items": [
+          "Show HN: Local-First Linux MicroVMs for macOS\n\nShuru is a lightweight sandbox that spins up Linux VM"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The JavaScript Oxidation Compiler",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
