@@ -12519,5 +12519,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 4,
+    "patterns_used": 2305,
+    "timestamp": "2026-02-23T02:58:29.668583",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "By the way, if you go to https:// github.com/claude and \"block this user\", every Github repo you vis",
+        "removed_items": [
+          "Show HN: A geometric analysis of Chopin's Prelude No. 4 using 3D topology\n\nOP here.<p><pre><code>   "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: WARN Firehose \u2013 Every US layoff notice in one searchable database\n\nHi HN,<p>I built WARN Fi",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google restricting Google AI Pro/Ultra subscribers for using OpenClaw",
+        "removed_items": [
+          "Show HN: Lyra Kids \u2013 I built an AI bedtime storyteller for my daughters\n\nShow HN: Lyra Kids \u2013 A pers"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
