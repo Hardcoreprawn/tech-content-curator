@@ -12712,5 +12712,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 7,
+    "patterns_used": 2338,
+    "timestamp": "2026-02-25T18:29:11.458003",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "In 2020, the FBI came to my house to try to ask me questions about a story I'd written. I declined. ",
+        "removed_items": [
+          "Kitty is cleared for surgery!! And the tumor is in a slightly different place than the X-rays made i",
+          "Launch HN: TeamOut (YC W22) \u2013 AI agent for planning company retreats\n\nHi HN, I\u2019m Vincent, CTO of Tea",
+          "Show HN: Django Control Room \u2013 All Your Tools Inside the Django Admin\n\nOver the past year I\u2019ve been ",
+          "Show HN: Sgai \u2013 Goal-driven multi-agent software dev (GOAL.md \u2192 working code)\n\nHey HN,<p>We built Sg"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code Remote Control",
+        "removed_items": [
+          "Show HN: A real-time strategy game that AI agents can play\n\nI&#x27;ve liked all the projects that pu"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Red Hat takes on Docker Desktop with its enterprise Podman Desktop build",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
