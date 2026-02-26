@@ -12745,5 +12745,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 2342,
+    "timestamp": "2026-02-26T02:55:18.303703",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: ZSE \u2013 Open-source LLM inference engine with 3.9s cold starts\n\nI&#x27;ve been building ZSE (",
+        "removed_items": [
+          "How Will OpenAI Compete?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
