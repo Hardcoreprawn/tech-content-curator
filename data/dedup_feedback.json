@@ -12791,5 +12791,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 2352,
+    "timestamp": "2026-02-26T18:21:58.666284",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "From Bruce Schneier: \"All it takes to poison AI training data is to create a website: I spent 20 min",
+        "removed_items": [
+          "Google Street View in 2026",
+          "Nano Banana 2: Google's latest AI image generation model"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "BuildKit: Docker's Hidden Gem That Can Build Almost Anything",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
