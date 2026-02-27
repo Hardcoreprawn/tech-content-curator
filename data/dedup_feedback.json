@@ -12852,5 +12852,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 2366,
+    "timestamp": "2026-02-27T06:19:18.776262",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google Workers Seek 'Red Lines' on Military A.I., Echoing Anthropic",
+        "removed_items": [
+          "Nano Banana 2: Google's latest AI image generation model"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Cardboard (YC W26) \u2013 Agentic video editor\n\nHey HN - we&#x27;re Saksham and Ishan, and we\u2019",
+        "removed_items": [
+          "Understanding the Go Runtime: The Memory Allocator"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "BuildKit: Docker's Hidden Gem That Can Build Almost Anything",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
