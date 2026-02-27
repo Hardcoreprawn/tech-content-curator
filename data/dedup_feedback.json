@@ -12882,5 +12882,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 2372,
+    "timestamp": "2026-02-27T18:16:50.692818",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A better streams API is possible for JavaScript",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Get free Claude max 20x for open-source maintainers",
+        "removed_items": [
+          "Show HN: Badge that shows how well your codebase fits in an LLM's context window\n\nSmall codebases we",
+          "What Claude Code chooses"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
