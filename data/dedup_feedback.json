@@ -12975,5 +12975,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 5,
+    "patterns_used": 2387,
+    "timestamp": "2026-02-28T18:11:05.530190",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Now I Get It \u2013 Translate scientific papers into interactive webpages\n\nUnderstanding scienti",
+        "removed_items": [
+          "Show HN: SQLite for Rivet Actors \u2013 one database per agent, tenant, or document\n\nHey HN! We posted Ri",
+          "Stop Burning Your Context Window \u2013 How We Cut MCP Output by 98% in Claude Code"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "OpenAI fires an employee for prediction market insider trading",
+        "removed_items": [
+          "OpenAI agrees with Dept. of War to deploy models in their classified network\n\n<a href=\"https:&#x2F;&",
+          "OpenAI raises $110B on $730B pre-money valuation\n\n<a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
