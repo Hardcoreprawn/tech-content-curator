@@ -12944,5 +12944,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 6,
+    "patterns_used": 2385,
+    "timestamp": "2026-02-28T06:09:46.799683",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "OpenAI agrees with Dept. of War to deploy models in their classified network\n\n<a href=\"https:&#x2F;&",
+        "removed_items": [
+          "OpenAI raises $110B on $730B pre-money valuation\n\n<a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#",
+          "OpenAI reaches deal to deploy AI models on U.S. DoW classified network"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I ported Manim to TypeScript (run 3b1B math animations in the browser)\n\nHi HN, I&#x27;m Nar",
+        "removed_items": [
+          "Show HN: Claude-File-Recovery, recover files from your ~/.claude sessions\n\nClaude Code deleted my re"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A better streams API is possible for JavaScript",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
