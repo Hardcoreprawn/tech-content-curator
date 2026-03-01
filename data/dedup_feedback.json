@@ -13055,5 +13055,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 2397,
+    "timestamp": "2026-03-01T18:11:31.028545",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "\"A week-long automated attack campaign targeted CI/CD pipelines across major open source repositorie",
+        "removed_items": [
+          "6 Practices that turned AI from prototyper to workhorse (106 PRs in 14 days)\n\n1. <i>Specs and plans "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Why XML Tags Are So Fundamental to Claude",
+        "removed_items": [
+          "Switch to Claude without starting over",
+          "MCP server that reduces Claude Code context consumption by 98%"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python Type Checker Comparison: Empty Container Inference",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
