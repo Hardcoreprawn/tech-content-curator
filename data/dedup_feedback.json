@@ -13135,5 +13135,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 2411,
+    "timestamp": "2026-03-02T18:20:12.574981",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: OctaPulse (YC W26) \u2013 Robotics and computer vision for fish farming\n\nHi HN! My name is Roh",
+        "removed_items": [
+          "Why Go Can't Try"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Inside the M4 Apple Neural Engine, Part 1: Reverse Engineering",
+        "removed_items": [
+          "Apple AI servers unused in warehouses due to low Apple Intelligence usage"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
