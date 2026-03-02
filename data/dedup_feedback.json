@@ -13104,5 +13104,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 2405,
+    "timestamp": "2026-03-02T06:20:55.003145",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Timber \u2013 Ollama for classical ML models, 336x faster than Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Frankensqlite a Rust reimplementation of SQLite with concurrent writers",
+        "removed_items": [
+          "Show HN: Vibe Code your 3D Models\n\nHi HN,<p>I\u2019m the creator of SynapsCAD, an open-source desktop app"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I built a zero-browser, pure-JS typesetting engine for bit-perfect PDFs\n\nHi HN, I&#x27;m a ",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
