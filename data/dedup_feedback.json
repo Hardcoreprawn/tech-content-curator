@@ -13196,5 +13196,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 2423,
+    "timestamp": "2026-03-03T06:18:14.943876",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I built a sub-500ms latency voice agent from scratch\n\nI built a voice agent from scratch th",
+        "removed_items": [
+          "Show HN: Visual Lambda Calculus \u2013 a thesis project (2008) revived for the web\n\nOriginally built as m"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "iPhone 17e\n\n<a href=\"https:&#x2F;&#x2F;www.apple.com&#x2F;iphone-17e&#x2F;\" rel=\"nofollow\">https:&#x",
+        "removed_items": [
+          "Inside the M4 Apple Neural Engine, Part 1: Reverse Engineering"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Guido van Rossum Interviews Thomas Wouters (Python Core Dev)",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
