@@ -13165,5 +13165,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 2419,
+    "timestamp": "2026-03-03T02:57:49.750595",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Microsoft trying to ban the word Microslop being used by customers is sending me \ud83e\udd23 https://www. wind",
+        "removed_items": [
+          "It is completely unfair to refer to Microsoft as Microslop, because that implies a small quantity of"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Poll: should \u201creaction emojis\u201d (which are called reactji, apparently??) be considered a valid form o",
+        "removed_items": [
+          "Show HN: Giggles \u2013 A batteries-included React framework for TUIs\n\ni built a framework that handles f",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I built a sub-500ms latency voice agent from scratch\n\nI built a voice agent from scratch th",
+        "removed_items": [
+          "Show HN: Visual Lambda Calculus \u2013 a thesis project (2008) revived for the web\n\nOriginally built as m"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
