@@ -13352,5 +13352,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 2450,
+    "timestamp": "2026-03-05T18:42:22.934769",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This case shows how Open Source will die. With anyone just being able to pipe existing code and test",
+        "removed_items": [
+          "A GitHub Issue Title Compromised 4k Developer Machines"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Jido 2.0, Elixir Agent Framework\n\nHi HN!<p>I&#x27;m the author of an Elixir Agent Framework",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google Workspace CLI",
+        "removed_items": [
+          "Google Safe Browsing missed 84% of confirmed phishing sites"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
