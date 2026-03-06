@@ -13428,5 +13428,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 2462,
+    "timestamp": "2026-03-06T18:18:32.877148",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Moongate \u2013 Ultima Online server emulator in .NET 10 with Lua scripting\n\nI&#x27;ve been buil",
+        "removed_items": [
+          "Show HN: Claude-replay \u2013 A video-like player for Claude Code sessions\n\nI got tired of sharing AI dem",
+          "A GitHub Issue Title Compromised 4k Developer Machines\n\nOriginal report: <a href=\"https:&#x2F;&#x2F;",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
