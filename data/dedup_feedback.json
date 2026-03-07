@@ -13522,5 +13522,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 2476,
+    "timestamp": "2026-03-07T18:11:24.655339",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A Decade of Docker Containers",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: ANSI-Saver \u2013 A macOS Screensaver\n\nHi, I&#x27;ve been working on something I&#x27;ve been th",
+        "removed_items": [
+          "Show HN: \u00b5JS, a 5KB alternative to Htmx and Turbo with zero dependencies\n\nI built \u00b5JS because I want",
+          "Tell HN: I'm 60 years old. Claude Code has re-ignited a passion\n\nI\u2019m ready to retire. In my younger "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
