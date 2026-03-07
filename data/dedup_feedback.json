@@ -13488,5 +13488,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 8,
+    "patterns_used": 2472,
+    "timestamp": "2026-03-07T06:11:13.493582",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "If you genuinely believed you were 18 months from building a superintelligence that could cure cance",
+        "removed_items": [
+          "UUID package coming to Go standard library",
+          "Show HN: Kula \u2013 Lightweight, self-contained Linux server monitoring tool\n\nZero dependencies. No exte",
+          "Launch HN: Palus Finance (YC W26): Better yields on idle cash for startups, SMBs\n\nHi HN! We\u2019re Sam a",
+          "What canceled my Go context?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Hardening Firefox with Anthropic's Red Team\n\nThe bugs are the ones that say &quot;using Claude from ",
+        "removed_items": [
+          "Tell HN: I'm 60 years old. Claude Code has ignited a passion again\n\nI\u2019m ready to retire. In my young"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Moongate \u2013 Ultima Online server emulator in .NET 10 with Lua scripting\n\nI&#x27;ve been buil",
+        "removed_items": [
+          "Show HN: 1v1 coding game that LLMs struggle with\n\nThis is a game I wish I had as a kid learning prog",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
