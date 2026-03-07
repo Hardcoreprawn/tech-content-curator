@@ -13453,5 +13453,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 9,
+    "patterns_used": 2466,
+    "timestamp": "2026-03-07T02:48:16.790000",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "\u201cI know it sounds crazy,\u201d she said, but health care providers \u201cneed to start an underground network ",
+        "removed_items": [
+          "From \"your OS must enable you to declare your age\" to \"developers must attempt to verify your age\" t",
+          "What canceled my Go context?",
+          "Launch HN: Palus Finance (YC W26): Better yields on idle cash for startups, SMBs\n\nHi HN! We\u2019re Sam a",
+          "Show HN: Kula \u2013 Lightweight, self-contained Linux server monitoring tool\n\nZero dependencies. No exte"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Hardening Firefox with Anthropic's Red Team\n\nThe bugs are the ones that say &quot;using Claude from ",
+        "removed_items": [
+          "Tell HN: I'm 60 years old. Claude Code has ignited a passion again\n\nI\u2019m ready to retire. In my young",
+          "Show HN: Claude-replay \u2013 A video-like player for Claude Code sessions\n\nI got tired of sharing AI dem"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Moongate \u2013 Ultima Online server emulator in .NET 10 with Lua scripting\n\nI&#x27;ve been buil",
+        "removed_items": [
+          "Show HN: 1v1 coding game that LLMs struggle with\n\nThis is a game I wish I had as a kid learning prog",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
