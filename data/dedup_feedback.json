@@ -13606,5 +13606,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 2492,
+    "timestamp": "2026-03-08T18:11:34.603564",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The U.S. government has expertise in sneaking massive loopholes into policies that supposedly prohib",
+        "removed_items": [
+          "Based on its own charter, OpenAI should surrender the race"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "What if the Apple ][ had run on Field-Sequential?",
+        "removed_items": [
+          "Apple's 512GB Mac Studio vanishes, a quiet acknowledgment of the RAM shortage"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
