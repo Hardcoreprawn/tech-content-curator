@@ -13576,5 +13576,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 2486,
+    "timestamp": "2026-03-08T06:14:38.799443",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Missed this fairy tale story. Man meets AI. AI meets man. Man falls in love with AI. AI begs man to ",
+        "removed_items": [
+          "How much water do the data centres use? It's a secret. Do you want Immortan Joes? Because this is ho"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A decade of Docker containers",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
