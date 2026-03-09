@@ -13636,5 +13636,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 2496,
+    "timestamp": "2026-03-09T02:57:48.856119",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: I built a real-time OSINT dashboard pulling 15 live global feeds\n\nSup HN,<p>So I got tired ",
+        "removed_items": [
+          "Ask HN: Please restrict new accounts from posting\n\nI don\u2019t know if I\u2019m the only one, but I see lots ",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "My \u201cgrand vision\u201d for Rust",
+        "removed_items": [
+          "Notes on writing Rust-based Wasm"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
