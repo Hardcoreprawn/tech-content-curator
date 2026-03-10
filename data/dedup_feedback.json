@@ -13740,5 +13740,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 6,
+    "patterns_used": 2514,
+    "timestamp": "2026-03-10T06:16:37.156029",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Microslop has patented an AI that can play your games for you, so you can get back to doing the thin",
+        "removed_items": [
+          "Windows: Microsoft broke the only thing that mattered"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "No, it doesn't cost Anthropic $5k per Claude Code user",
+        "removed_items": [
+          "Claude Code, Claude Cowork and Codex #5",
+          "Launch HN: Terminal Use (YC W26) \u2013 Vercel for filesystem-based agents\n\nHello Hacker News! We&#x27;re"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: DenchClaw \u2013 Local CRM on Top of OpenClaw\n\nHi everyone, I am Kumar, co-founder of Dench (<a ",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
