@@ -13787,5 +13787,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 2522,
+    "timestamp": "2026-03-11T02:52:12.413494",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "# Immigration agents wearing Meta\u2019s # AI glasses is a huge red flag. How are they getting away with ",
+        "removed_items": [
+          "Meta acquires Moltbook\n\n<a href=\"https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20260310154640&#x2F"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Bippy: React Internals Toolkit",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
