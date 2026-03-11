@@ -13840,5 +13840,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 8,
+    "patterns_used": 2530,
+    "timestamp": "2026-03-11T18:24:38.947607",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Temporal: A nine-year journey to fix time in JavaScript",
+        "removed_items": [
+          "Show HN: Open-source browser for AI agents\n\nHi HN, I forked chromium and built agent-browser-protoco",
+          "Show HN: Vanilla JavaScript refinery simulator built to explain job to my kids\n\nHi HN,\nI\u2019m a chemica",
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Show HN: Klaus \u2013 OpenClaw on a VM, batteries included\n\nWe are Bailey and Robbie and we are working o",
+        "removed_items": [
+          "Launch HN: Prism (YC X25) \u2013 Workspace and API to generate and edit videos\n\nHey HN \u2014 we\u2019re Rajit, Lan",
+          "Wiz joins Google",
+          "Launch HN: Sentrial (YC W26) \u2013 Catch AI Agent Failures Before Your Users Do\n\nHey HN! We&#x27;re Neel",
+          "Show HN: I built a tool that watches webpages and exposes changes as RSS\n\nI built Site Spy after mis"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
