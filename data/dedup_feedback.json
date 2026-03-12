@@ -13941,5 +13941,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 2542,
+    "timestamp": "2026-03-12T18:23:44.030255",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Don't go to Dubai. They keep arresting people using a broad cybercrime law. https://www. bbc.co.uk/n",
+        "removed_items": [
+          "Starting to understand why folk block Brave users. Was chatting on the Island about the slopbot atta",
+          "Six years ago, my company told us to go work from home for a couple of weeks while \"this whole COVID"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: LogClaw \u2013 Open-source AI SRE that auto-creates tickets from logs\n\nHi HN, I&#x27;m Robel. I ",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
