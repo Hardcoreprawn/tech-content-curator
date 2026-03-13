@@ -13,9 +13,6 @@ All items are tracked as [GitHub Issues](https://github.com/Hardcoreprawn/tech-c
 
 - [ ] **Fix empty cover images** — recent articles have `cover.image: ''` ([#31](https://github.com/Hardcoreprawn/tech-content-curator/issues/31))
 - [ ] **Fix incorrect DOI citations** — resolver produces wrong DOIs for non-academic sources ([#32](https://github.com/Hardcoreprawn/tech-content-curator/issues/32))
-- [ ] **Remove src/** push trigger from full-pipeline.yml** ([#24](https://github.com/Hardcoreprawn/tech-content-curator/issues/24))
-- [ ] **Fix or remove quarterly-model-evaluation.yml** — uses pip, references missing scripts ([#25](https://github.com/Hardcoreprawn/tech-content-curator/issues/25))
-- [ ] **Consolidate duplicate pipeline workflows** ([#30](https://github.com/Hardcoreprawn/tech-content-curator/issues/30))
 
 ## Ongoing (Code Quality)
 
@@ -35,6 +32,9 @@ All items are tracked as [GitHub Issues](https://github.com/Hardcoreprawn/tech-c
 
 - [x] Fix enrichment test mock signatures ([#22](https://github.com/Hardcoreprawn/tech-content-curator/issues/22))
 - [x] Remove test-slug articles from content/posts/ ([#21](https://github.com/Hardcoreprawn/tech-content-curator/issues/21))
+- [x] Consolidate duplicate pipeline workflows ([#30](https://github.com/Hardcoreprawn/tech-content-curator/issues/30))
+- [x] Remove `src/**` push trigger — consolidated into content-pipeline.yml ([#24](https://github.com/Hardcoreprawn/tech-content-curator/issues/24))
+- [x] Fix quarterly-model-evaluation.yml — migrated to uv ([#25](https://github.com/Hardcoreprawn/tech-content-curator/issues/25))
 - [x] Path traversal vulnerability (fixed via `safe_filename()`)
 - [x] Config validation at startup
 - [x] Free-threading in CI
