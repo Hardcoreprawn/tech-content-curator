@@ -14028,5 +14028,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 2553,
+    "timestamp": "2026-03-14T02:52:59.210061",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "iso paper sizes are delicious: sides are 1:sqrt2 or about 1:1.414 A4 is 210x297mm A4 folded in half ",
+        "removed_items": [
+          "Show HN: Context Gateway \u2013 Compress agent context before it hits the LLM\n\nWe built an open-source pr",
+          "Launch HN: Spine Swarm (YC S23) \u2013 AI agents that collaborate on a visual canvas\n\nHey HN! We&#x27;re "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
