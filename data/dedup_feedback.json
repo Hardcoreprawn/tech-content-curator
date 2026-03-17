@@ -14226,5 +14226,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 5,
+    "patterns_used": 2583,
+    "timestamp": "2026-03-17T02:55:43.333992",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google has become everything it once pretended to disdain -- an arrogant, sleazy, control-freak mono",
+        "removed_items": [
+          "This is insane. Who does he think he is? He is out of control! # Trump Told # Cuba That Its Presiden"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Just laid off along with whole team. I'm in the middle of moving. Movers coming on Saturday. I'm not",
+        "removed_items": [
+          "Show HN: Claude Code skills that build complete Godot games\n\nI\u2019ve been working on this for about a y",
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: GitClassic.com, a fast, lightweight GitHub thin client (pages <14KB)\n\nHey HN,<p>I posted Gi",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
