@@ -14423,5 +14423,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 2614,
+    "timestamp": "2026-03-19T18:24:11.192999",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google has news on what you will need to do for still being able to sideload apps: * enable develope",
+        "removed_items": [
+          "Launch HN: Canary (YC W26) \u2013 AI QA that understands your code\n\nHey HN! We&#x27;re Aakash and Viswesh"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "I turned Markdown into a protocol for generative UI\n\nThere&#x27;s a lot of work happening around bot",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "What if Python was natively distributable?",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
