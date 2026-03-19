@@ -14393,5 +14393,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 2610,
+    "timestamp": "2026-03-19T06:22:59.479203",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Cook: A simple CLI for orchestrating Claude Code",
+        "removed_items": [
+          "Warranty Void If Regenerated\n\nAs an experiment I started asking Claude to explain things to me with "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Nvidia greenboost: transparently extend GPU VRAM using system RAM/NVMe",
+        "removed_items": [
+          "Nvidia NemoClaw"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
