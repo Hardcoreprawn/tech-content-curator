@@ -14501,5 +14501,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 2620,
+    "timestamp": "2026-03-20T18:19:10.731660",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I just googled something and Google put its AI summary top, which incorrectly used a Facebook post -",
+        "removed_items": [
+          "Launch HN: Sitefire (YC W26) \u2013 Automating actions to improve AI visibility\n\nHi HN! We&#x27;re Vincen"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
