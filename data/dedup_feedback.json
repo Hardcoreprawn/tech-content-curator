@@ -14478,5 +14478,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 2,
+    "patterns_used": 2618,
+    "timestamp": "2026-03-20T06:20:25.300844",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google details new 24-hour process to sideload unverified Android apps\n\n<a href=\"https:&#x2F;&#x2F;a",
+        "removed_items": [
+          "Launch HN: Canary (YC W26) \u2013 AI QA that understands your code\n\nHey HN! We&#x27;re Aakash and Viswesh"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
