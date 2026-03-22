@@ -14609,5 +14609,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 2640,
+    "timestamp": "2026-03-22T06:19:01.854780",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The Three Pillars of JavaScript Bloat",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Grafeo \u2013 A fast, lean, embeddable graph database built in Rust",
+        "removed_items": [
+          "Show HN: Termcraft \u2013 terminal-first 2D sandbox survival in Rust\n\nI\u2019ve been building termcraft, a ter"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of awesome Python frameworks, libraries, software and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
