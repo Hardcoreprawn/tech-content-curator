@@ -14701,5 +14701,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 2654,
+    "timestamp": "2026-03-23T18:23:34.169598",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Trivy under attack again: Widespread GitHub Actions tag compromise secrets",
+        "removed_items": [
+          "Show HN: Threadprocs \u2013 executables sharing one address space (0-copy pointers)\n\nThis project launche",
+          "GitHub appears to be struggling with measly three nines availability"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
