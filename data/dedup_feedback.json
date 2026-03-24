@@ -14725,5 +14725,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 2660,
+    "timestamp": "2026-03-24T02:56:11.575216",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Cq \u2013 Stack Overflow for AI coding agents\n\nHi all, I&#x27;m Peter at Staff Engineer and Mozi",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code Cheat Sheet",
+        "removed_items": [
+          "How I'm Productive with Claude Code"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Local Stack Archived their GitHub repo and requires an account to run",
+        "removed_items": [
+          "Trivy under attack again: Widespread GitHub Actions tag compromise secrets"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
