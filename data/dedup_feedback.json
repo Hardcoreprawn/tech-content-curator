@@ -14788,5 +14788,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 2675,
+    "timestamp": "2026-03-24T18:26:48.525824",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "We just released Mastodon 4.5.8, 4.4.15, and 4.3.21. These versions contain various bug fixes, inclu",
+        "removed_items": [
+          "Show HN: Gemini can now natively embed video, so I built sub-second video search\n\nGemini Embedding 2"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "LiteLLM Python package compromised by supply-chain attack",
+        "removed_items": [
+          "Data Manipulation in Clojure Compared to R and Python",
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Business",
+        "removed_items": [
+          "Box of Secrets: Discreetly modding an apartment intercom to work with Apple Home"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
