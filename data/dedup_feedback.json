@@ -14756,5 +14756,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 7,
+    "patterns_used": 2669,
+    "timestamp": "2026-03-24T06:25:34.621974",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "People will react to news of major security vulns with \"The only way to stay secure is to live as a ",
+        "removed_items": [
+          "I need tips for apartment hunting while COVID cautious! I\u2019m losing my housing and the stress of it h",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google's profound contempt for journalists is on display as it rewrites publications' headlines in s",
+        "removed_items": [
+          "RE: https:// mastodon.social/@dangillmor/11 6281343752661759 I saw this in the wild. The Google disc"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Cq \u2013 Stack Overflow for AI coding agents\n\nHi all, I&#x27;m Peter at Staff Engineer and Mozi",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
