@@ -14850,5 +14850,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 4,
+    "patterns_used": 2687,
+    "timestamp": "2026-03-25T06:24:58.618379",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "BREAKING: New Mexico jury finds Facebook, Instagram, &amp; Whatsapp harm childrens\u2019 mental health\u2014or",
+        "removed_items": [
+          "Meta ordered to pay $375M in New Mexico trial over child exploitation"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Business",
+        "removed_items": [
+          "Hypura \u2013 A storage-tier-aware LLM inference scheduler for Apple Silicon"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Tell HN: Litellm 1.82.7 and 1.82.8 on PyPI are compromised\n\nAbout an hour ago new versions have been",
+        "removed_items": [
+          "Show HN: Gemini can now natively embed video, so I built sub-second video search\n\nGemini Embedding 2"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
