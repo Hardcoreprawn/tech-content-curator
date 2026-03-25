@@ -14880,5 +14880,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 2693,
+    "timestamp": "2026-03-25T18:26:05.787855",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// toot.cafe/@soapdog/11629020425 3136215 \u201cSo it failed age verification and locked me out",
+        "removed_items": [
+          "Apple Business"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Jury says Meta knowingly harmed children for profit, awarding landmark verdict",
+        "removed_items": [
+          "Meta and YouTube Found Negligent in Landmark Social Media Addiction Case"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
