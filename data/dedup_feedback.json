@@ -14981,5 +14981,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 2703,
+    "timestamp": "2026-03-27T03:00:05.352539",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "We haven\u2019t found evidence of Stingrays being used at protests in the US yet, but if you\u2019re going to ",
+        "removed_items": [
+          "Moving from GitHub to Codeberg, for lazy people",
+          "Show HN: Veil \u2013 Dark mode PDFs without destroying images, runs in the browser\n\nHi HN!\nhere&#x27;s a "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
