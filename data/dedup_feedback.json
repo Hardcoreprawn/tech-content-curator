@@ -15021,5 +15021,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 2711,
+    "timestamp": "2026-03-27T18:25:03.981275",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Anatomy of the .claude/ folder",
+        "removed_items": [
+          "Don't Wait for Claude"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple discontinues the Mac Pro",
+        "removed_items": [
+          "Apple says no one using Lockdown Mode has been hacked with spyware"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
