@@ -15141,5 +15141,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 2731,
+    "timestamp": "2026-03-29T18:15:28.020744",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// mastodon.online/@mastodonmigra tion/116312883173526888 There we go! I feel like i keep ",
+        "removed_items": [
+          "Show HN: Create a full language server in Go with 3.17 spec support"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The RISE RISC-V Runners: free, native RISC-V CI on GitHub",
+        "removed_items": [
+          "Pretext: TypeScript library for multiline text measurement and layout\n\n<a href=\"https:&#x2F;&#x2F;x."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Sheet Ninja \u2013 Google Sheets as a CRUD Back End for Vibe Coders",
+        "removed_items": [
+          "Show HN: BreezePDF \u2013 Free, in-browser PDF editor\n\nBreezePDF lets you edit, sign, merge, compress, re"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
