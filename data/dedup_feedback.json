@@ -15171,5 +15171,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 5,
+    "patterns_used": 2738,
+    "timestamp": "2026-03-30T03:00:16.245781",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "ChatGPT won't let you type until Cloudflare reads your React state",
+        "removed_items": [
+          "The Sudden Fall of OpenAI's Most Hyped Product Since ChatGPT",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Pretext: TypeScript library for multiline text measurement and layout\n\n<a href=\"https:&#x2F;&#x2F;x.",
+        "removed_items": [
+          "The RISE RISC-V Runners: free, native RISC-V CI on GitHub"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Crazierl \u2013 An Erlang Operating System\n\nCrazierl is an experimental&#x2F;hobby operating sys",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
