@@ -15232,5 +15232,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 2750,
+    "timestamp": "2026-03-30T18:26:29.803574",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Build123d: A Python CAD programming library",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources.",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ChatGPT won't let you type until Cloudflare reads your React state",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Coasts \u2013 Containerized Hosts for Agents\n\nHi HN - We&#x27;ve been working on Coasts (\u201ccontai",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
