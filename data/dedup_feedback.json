@@ -15263,5 +15263,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 5,
+    "patterns_used": 2758,
+    "timestamp": "2026-03-31T02:59:58.849709",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Universal Claude.md \u2013 cut Claude output tokens by 63%",
+        "removed_items": [
+          "Learn Claude Code by doing, not reading"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Cherri \u2013 programming language that compiles to an Apple Shortuct",
+        "removed_items": [
+          "Recover Apple Keychain"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Coasts \u2013 Containerized Hosts for Agents\n\nHi HN - We&#x27;ve been working on Coasts (\u201ccontai",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
