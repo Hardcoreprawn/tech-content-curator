@@ -1,4 +1,4 @@
-name: Content Pipeline (Scheduled)
+name: Content Pipeline
 
 on:
   schedule:
@@ -8,7 +8,13 @@ on:
     - cron: '0 18 * * *'
     # 02:00 UTC - Evening US, catches late US + early Asia
     - cron: '0 2 * * *'
-  workflow_dispatch: # Allow manual triggering for testing
+  workflow_dispatch:
+    inputs:
+      max_articles:
+        description: 'Maximum articles to generate'
+        required: false
+        default: '10'
+        type: string
 
 permissions:
   contents: write
@@ -154,8 +160,8 @@ jobs:
           QUALITY_THRESHOLD: 0.5
           SOURCE_COOLDOWN_DAYS: 7
         run: |
-          # Generate 10 articles sequentially to prevent race conditions
-          uv run python -m src.generate --max-articles 10 --generate-images
+          # Generate articles (configurable via workflow_dispatch, defaults to 10)
+          uv run python -m src.generate --max-articles ${{ github.event.inputs.max_articles || '10' }} --generate-images
       
       - name: Upload generated content
         uses: actions/upload-artifact@v4
@@ -241,10 +247,8 @@ jobs:
             ARTICLE_COUNT=$(git diff --staged --name-only | grep 'content/posts/.*\.md' | wc -l || echo "0")
             git commit -m "🔄 Content Pipeline - $(date -u +%Y-%m-%d_%H%M%S)
 
-            Generated $ARTICLE_COUNT articles in parallel batches
-            - Updated adaptive learning patterns
-            
-            Scheduled content collection run"
+            Generated $ARTICLE_COUNT articles
+            - Updated adaptive learning patterns"
             # Pull with rebase, abort if conflicts occur
             if ! git pull --rebase; then
               echo "Rebase failed due to conflicts, aborting rebase"
@@ -293,3 +297,4 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
           echo "📝 Total articles: $ARTICLE_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "🎯 Max articles setting: ${{ github.event.inputs.max_articles || '10' }}" >> $GITHUB_STEP_SUMMARY
