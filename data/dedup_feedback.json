@@ -15323,5 +15323,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 9,
+    "patterns_used": 2768,
+    "timestamp": "2026-03-31T18:26:11.336864",
+    "examples": [
+      {
+        "group_size": 9,
+        "kept_item": "Claude Code's source code has been leaked via a map file in their NPM registry https:// xcancel.com/",
+        "removed_items": [
+          "Claude code source \"leaks\" in a mapfile people immediately use the code laundering machines to code ",
+          "Claude Code's source code has been leaked via a map file in their NPM registry\n\n<a href=\"https:&#x2F",
+          "The Claude Code Source Leak: fake tools, frustration regexes, undercover mode",
+          "Show HN: Forkrun \u2013 NUMA-aware shell parallelizer (50\u00d7\u2013400\u00d7 faster than parallel)\n\nforkrun is the cul",
+          "Accidentally created my first fork bomb with Claude Code",
+          "GitHub Monaspace Case Study",
+          "Claude Code users hitting usage limits 'way faster than expected'",
+          "Universal Claude.md \u2013 cut Claude output tokens"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
