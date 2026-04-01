@@ -15378,5 +15378,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 2774,
+    "timestamp": "2026-04-01T06:36:42.212300",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Claude Code Unpacked : A visual guide\n\nRelated ongoing threads:<p><i>The Claude Code Source Leak: fa",
+        "removed_items": [
+          "Mad Bugs: Vim vs. Emacs vs. Claude",
+          "The Claude Code Source Leak: fake tools, frustration regexes, undercover mode\n\nRelated ongoing threa",
+          "Show HN: Postgres extension for BM25 relevance-ranked full-text search\n\nLast summer we faced a conun"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
