@@ -15403,5 +15403,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 7,
+    "patterns_used": 2781,
+    "timestamp": "2026-04-01T18:25:48.542420",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "So Anthropic employees are using Claude Code to contribute AI-generated code to open source reposito",
+        "removed_items": [
+          "\u201eBy Wednesday morning, Anthropic representatives had used a copyright takedown request to force the ",
+          "Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
+          "Claude Code Unpacked : A visual guide\n\nRelated ongoing threads:<p><i>The Claude Code Source Leak: fa"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "GitHub is down constantly because every time someone mentions \u201cuptime\u201d to their infra engineer they ",
+        "removed_items": [
+          "Show HN: CLI to order groceries via reverse-engineered REWE API (Haskell)\n\nI just had the best time "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "iOS 18 holdouts: 18.7.7 is out now for devices that were eligible for the 26 upgrade. You should upg",
+        "removed_items": [
+          "Randomness on Apple Platforms (2024)"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
