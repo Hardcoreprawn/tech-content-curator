@@ -15435,5 +15435,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 2,
+    "patterns_used": 2785,
+    "timestamp": "2026-04-02T02:59:54.059776",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Flight-Viz \u2013 10K flights on a 3D globe in 3.5MB of Rust+WASM\n\nI built a real-time flight tr",
+        "removed_items": [
+          "Show HN: Zerobox \u2013 Sandbox any command with file, network, credential controls\n\nI&#x27;m excited to "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
