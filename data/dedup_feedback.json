@@ -15562,5 +15562,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 2799,
+    "timestamp": "2026-04-04T06:23:59.296486",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "It was only a matter of time before some AI-addled guy saw me quoting fucked up parts of the Claude ",
+        "removed_items": [
+          "Tell HN: Anthropic no longer allowing Claude Code subscriptions to use OpenClaw\n\nReceived the follow",
+          "Show HN: Travel Hacking Toolkit \u2013 Points search and trip planning with AI\n\nI use points and miles fo"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
