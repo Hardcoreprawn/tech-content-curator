@@ -15609,5 +15609,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 5,
+    "patterns_used": 2813,
+    "timestamp": "2026-04-05T03:00:01.875127",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Is it possible that Microsoft Windows is not a very good computer program",
+        "removed_items": [
+          "How many products does Microsoft have named 'Copilot'?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "My wife just asked me if Github was a tech version of Pornhub and I didn't have an adequate argument",
+        "removed_items": [
+          "Show HN: I made open source, zero power PCB hackathon badges\n\nI love getting cool swag from hackatho"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "If a Muslim majority nation passed a law to dictate what women &amp; men can &amp; cant wear, we'd r",
+        "removed_items": [
+          "Tell HN: Anthropic no longer allowing Claude Code subscriptions to use OpenClaw\n\nReceived the follow"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
