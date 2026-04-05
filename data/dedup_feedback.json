@@ -15662,5 +15662,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 2823,
+    "timestamp": "2026-04-05T18:16:17.294418",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Heads up GitHub users. You have less than a month left to opt out of \"Allow GitHub to use my data fo",
+        "removed_items": [
+          "Just released my first ever demoscene demo at Revision 2026 in the Wild-Compo: A tech demo for Casio"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A tail-call interpreter in (nightly) Rust",
+        "removed_items": [
+          "Shared mutable state in Rust (2022)"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
