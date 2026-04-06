@@ -15754,5 +15754,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 2843,
+    "timestamp": "2026-04-06T18:26:33.096693",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Copilot is for entertainment purposes only. It can make mistakes, and it may not work as intended. D",
+        "removed_items": [
+          "Microsoft hasn't had a coherent GUI strategy since Petzold\n\nSee also <a href=\"https:&#x2F;&#x2F;x.co"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code is unusable for complex engineering tasks with the Feb updates",
+        "removed_items": [
+          "Running Gemma 4 locally with LM Studio's new headless CLI and Claude Code"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
