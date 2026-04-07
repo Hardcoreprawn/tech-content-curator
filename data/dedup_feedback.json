@@ -15784,5 +15784,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 2850,
+    "timestamp": "2026-04-07T03:00:05.781564",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Solod \u2013 A Subset of Go That Translates to C",
+        "removed_items": [
+          "Sky \u2013 an Elm-inspired language that compiles to Go",
+          "Porting Go's strings package to C"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Launch HN: Freestyle \u2013 Sandboxes for Coding Agents\n\nWe\u2019re Ben and Jacob, cofounders of Freestyle (<a",
+        "removed_items": [
+          "Anthropic expands partnership with Google and Broadcom for next-gen compute",
+          "After 20 years I turned off Google Adsense for my websites (2025)"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Issue: Claude Code is unusable for complex engineering tasks with Feb updates",
+        "removed_items": [
+          "Show HN: Anos \u2013 a hand-written ~100KiB microkernel for x86-64 and RISC-V\n\nI pretty much always have "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
