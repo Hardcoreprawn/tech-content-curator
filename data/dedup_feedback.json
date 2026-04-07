@@ -15816,5 +15816,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 8,
+    "patterns_used": 2854,
+    "timestamp": "2026-04-07T06:33:22.344734",
+    "examples": [
+      {
+        "group_size": 6,
+        "kept_item": "# calligraphy practice: this toot from @ jonny 's Claude Code thread https://neuromatch.social/@jonn",
+        "removed_items": [
+          "Solod \u2013 A Subset of Go That Translates to C",
+          "Issue: Claude Code is unusable for complex engineering tasks with Feb updates",
+          "Show HN: Anos \u2013 a hand-written ~100KiB microkernel for x86-64 and RISC-V\n\nI pretty much always have ",
+          "Sky \u2013 an Elm-inspired language that compiles to Go",
+          "Graph-go \u2013 zero config, full visibility"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Launch HN: Freestyle \u2013 Sandboxes for Coding Agents\n\nWe\u2019re Ben and Jacob, cofounders of Freestyle (<a",
+        "removed_items": [
+          "Anthropic expands partnership with Google and Broadcom for next-gen compute",
+          "After 20 years I turned off Google Adsense for my websites (2025)"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
