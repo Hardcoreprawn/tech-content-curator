@@ -15934,5 +15934,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 2873,
+    "timestamp": "2026-04-08T18:34:33.644332",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "# Microsoft locks account that # VeraCrypt maintainer uses to sign # Windows bootloaders with no exp",
+        "removed_items": [
+          "Microsoft Abruptly Terminates VeraCrypt Account, Halting Windows Updates"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Ask HN: Any interesting niche hobbies?\n\nI&#x27;m looking for something novel and interesting, that i",
+        "removed_items": [
+          "Show HN: Go-Bt: Minimalist Behavior Trees for Go\n\nHey HN,<p>I just published v0.1.0 of go-bt and wou"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Managed Agents",
+        "removed_items": [
+          "System Card: Claude Mythos Preview [pdf]\n\nRelated: <i>Project Glasswing: Securing critical software "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
