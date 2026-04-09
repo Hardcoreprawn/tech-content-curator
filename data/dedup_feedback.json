@@ -15994,5 +15994,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 66,
+    "duplicates_found": 4,
+    "patterns_used": 2883,
+    "timestamp": "2026-04-09T06:34:57.607736",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Google\u2019s AI Overviews are providing \u201ctens of millions of wrong answers \u2026 every hour \u2014 and hundreds o",
+        "removed_items": [
+          "Yeah so let's refocus on the real perspective here. It doesn't matter at all how good these models a",
+          "Google's AI overviews give wrong answers 9% of the time (1.25 billion times a day), and in over half"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "\u201cThese apps will win awards at the next all-hands. In two years they\u2019ll be unmaintainable tech debt ",
+        "removed_items": [
+          "I don't think I have ever read a more concise and yet thorough explanation of my own observations, c"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
