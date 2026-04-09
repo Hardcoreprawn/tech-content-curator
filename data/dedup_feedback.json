@@ -15964,5 +15964,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 2879,
+    "timestamp": "2026-04-09T02:59:54.207702",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "New, by me at TechCrunch: The developer of the widely popular Wireguard VPN says he is also unable t",
+        "removed_items": [
+          "Microsoft terminates VeraCrypt account, halting Windows updates\n\n<a href=\"https:&#x2F;&#x2F;archive."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "hey so this is probably completely pointless but: looking for a job (NZ or fully remote willing to h",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Tired of logic in useEffect, I built a class-based React state manager",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
