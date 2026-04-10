@@ -16050,5 +16050,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 2893,
+    "timestamp": "2026-04-10T03:00:48.785219",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Companies should be required by law to completely open devices when they end support for them If the",
+        "removed_items": [
+          "Hey hey fellow ADHD folks and anyone else who regularly needs post-its or other written reminders! Y"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Microsoft PhotoDNA scanning problem",
+        "removed_items": [
+          "Microsoft is employing dark patterns to goad users into paying for storage?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I built a Cargo-like build tool for C/C++\n\nI love C and C++, but setting up projects can so",
+        "removed_items": [
+          "Show HN: Druids \u2013 Build your own software factory\n\nHi HN!<p>Druids (<a href=\"https:&#x2F;&#x2F;githu"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
