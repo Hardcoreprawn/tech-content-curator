@@ -16103,5 +16103,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 2902,
+    "timestamp": "2026-04-10T18:24:48.842135",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Positive News: France has announced its plan to ditch Windows &amp; switch to Linux for government d",
+        "removed_items": [
+          "In some rare(?) good news, the developers of VeraCrypt and WireGuard have both told me that they hav",
+          "WireGuard makes new Windows release following Microsoft signing resolution"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Say hello to `threadcat`! \ud83e\uddf6\ud83d\udc31 It's a little Rust tool which takes the URL to a Mastodon thread, and c",
+        "removed_items": [
+          "Supply chain nightmare: How Rust will be attacked and what we can do to mitigate"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
