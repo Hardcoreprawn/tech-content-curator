@@ -16080,5 +16080,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 2,
+    "patterns_used": 2897,
+    "timestamp": "2026-04-10T06:39:00.972785",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Companies should be required by law to completely open devices when they end support for them If the",
+        "removed_items": [
+          "Hey hey fellow ADHD folks and anyone else who regularly needs post-its or other written reminders! Y"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
