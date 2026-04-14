@@ -16313,5 +16313,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 39,
+    "duplicates_found": 1,
+    "patterns_used": 2932,
+    "timestamp": "2026-04-14T03:00:26.700191",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "GitHub Stacked PRs",
+        "removed_items": [
+          "N-Day-Bench \u2013 Can LLMs find real vulnerabilities in real codebases?\n\nN-Day-Bench tests whether front"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
