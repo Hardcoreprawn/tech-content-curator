@@ -16359,5 +16359,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 2946,
+    "timestamp": "2026-04-14T18:32:26.981921",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "alright here we go https:// codeberg.org/keepasschi ( linked post )",
+        "removed_items": [
+          "Show HN: Kontext CLI \u2013 Credential broker for AI coding agents in Go\n\nWe built the Kontext CLI becaus"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code Routines",
+        "removed_items": [
+          "Show HN: LangAlpha \u2013 what if Claude Code was built for Wall Street?\n\nSome technical context on what "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: A memory database that forgets, consolidates, and detects contradiction\n\nVector databases s",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
