@@ -16444,5 +16444,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 2962,
+    "timestamp": "2026-04-15T18:32:57.364206",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google Broke Its Promise to Me. Now ICE Has My Data",
+        "removed_items": [
+          "Google Gemma 4 Runs Natively on iPhone with Full Offline AI Inference"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
