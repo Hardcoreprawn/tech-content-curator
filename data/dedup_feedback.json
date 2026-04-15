@@ -16389,5 +16389,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 7,
+    "patterns_used": 2954,
+    "timestamp": "2026-04-15T03:00:22.502207",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "i have never clicked \"interested\" on a Google News push notification except for on this and one othe",
+        "removed_items": [
+          "Ask HN: Easiest UX for Seniors\n\nI have been running a SaaS for ~10 years used heavily by people 65+ ",
+          "Tell HN: Fiverr left customer files public and searchable\n\nFiverr (gig work&#x2F;task platform, comp"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ZOMG! It's freakin Patch Tuesday again. And Microsoft has patched a staggering 167 security holes (t",
+        "removed_items": [
+          "Troubleshooting Email Delivery to Microsoft Users"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code Routines",
+        "removed_items": [
+          "Show HN: LangAlpha \u2013 what if Claude Code was built for Wall Street?\n\nSome technical context on what "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
