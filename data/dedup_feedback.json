@@ -16483,5 +16483,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 2970,
+    "timestamp": "2026-04-16T06:40:26.219248",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "FSF trying to contact Google about spammer sending 10k+ mails from Gmail account",
+        "removed_items": [
+          "Google broke its promise to me \u2013 now ICE has my data"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Rewriting a 20-year-old Python library",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Hiraeth \u2013 AWS Emulator\n\nWith the recent changes around Localstack pricing&#x2F;licensing I&",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
