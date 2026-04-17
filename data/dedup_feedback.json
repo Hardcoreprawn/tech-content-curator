@@ -16547,5 +16547,33 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 7,
+    "patterns_used": 2978,
+    "timestamp": "2026-04-17T03:00:21.659899",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "Claude Opus 4.7",
+        "removed_items": [
+          "Show HN: Spice simulation \u2192 oscilloscope \u2192 verification with Claude Code\n\nI built MCP servers for my",
+          "Qwen3.6-35B-A3B on my laptop drew me a better pelican than Claude Opus 4.7",
+          "Show HN: Marky \u2013 A lightweight Markdown viewer for agentic coding\n\nHey HN,<p>In this age of agentic ",
+          "Show HN: CodeBurn \u2013 Analyze Claude Code token usage by task\n\nBuilt this after realizing I was spendi"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "CadQuery is an open-source Python library for building 3D CAD models",
+        "removed_items": [
+          "Show HN: MacMind \u2013 A transformer neural network in HyperCard on a 1989 Macintosh\n\nI trained a transf",
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
