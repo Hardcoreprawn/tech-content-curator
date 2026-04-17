@@ -16601,5 +16601,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 2986,
+    "timestamp": "2026-04-17T18:27:22.497037",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Claude Design",
+        "removed_items": [
+          "Claude Opus 4.7 costs 20\u201330% more per session"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "CadQuery is an open-source Python library for building 3D CAD models",
+        "removed_items": [
+          "A Python Interpreter Written in Python",
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
