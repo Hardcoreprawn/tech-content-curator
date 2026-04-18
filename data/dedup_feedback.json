@@ -16686,5 +16686,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 3000,
+    "timestamp": "2026-04-18T18:19:20.793020",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Do you enjoy reading books? There's a social reading platform on the Fediverse called BookWyrm, whic",
+        "removed_items": [
+          "Amazon is discontinuing Kindle for PC on June 30th"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Design\n\nRelated: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;flomerboy&#x2F;status&#x2F;20451623215",
+        "removed_items": [
+          "Measuring Claude 4.7's tokenizer costs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
