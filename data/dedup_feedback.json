@@ -16626,5 +16626,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 2990,
+    "timestamp": "2026-04-18T02:59:51.755623",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Claude Design\n\nRelated: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;flomerboy&#x2F;status&#x2F;20451623215",
+        "removed_items": [
+          "Measuring Claude 4.7's tokenizer costs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: PanicLock \u2013 Close your MacBook lid disable TouchID \u2013> password unlock\n\nI wrote this after t",
+        "removed_items": [
+          "Show HN: Stage \u2013 Putting humans back in control of code review\n\nHey HN! We&#x27;re Charles and Dean,"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
