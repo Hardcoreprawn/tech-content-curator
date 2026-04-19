@@ -16716,5 +16716,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 3004,
+    "timestamp": "2026-04-19T03:00:44.142476",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Thoughts and feelings around Claude Design",
+        "removed_items": [
+          "Show HN: SmallDocs \u2013 Markdown without the frustrations\n\nHi HN, I\u2019d like to introduce you to SmallDoc"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
