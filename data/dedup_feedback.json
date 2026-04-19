@@ -16762,5 +16762,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 2,
+    "patterns_used": 3010,
+    "timestamp": "2026-04-19T18:19:27.226096",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Faceoff \u2013 A terminal UI for following NHL games\n\nFaceoff is a TUI app written in Python to ",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
