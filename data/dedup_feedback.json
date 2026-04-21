@@ -16882,5 +16882,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 3032,
+    "timestamp": "2026-04-21T06:40:35.299791",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Zero-Copy Pages in Rust: Or How I Learned to Stop Worrying and Love Lifetimes",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
