@@ -16905,5 +16905,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 3034,
+    "timestamp": "2026-04-21T18:30:45.101037",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "sometimes people ask me how i seem to be able to 'do so many things'. i say i have the type of # adh",
+        "removed_items": [
+          "Show HN: GoModel \u2013 an open-source AI gateway in Go\n\nHi, I\u2019m Jakub, a solo founder based in Warsaw.<p"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Anthropic says OpenClaw-style Claude CLI usage is allowed again",
+        "removed_items": [
+          "Show HN: Ctx \u2013 a /resume that works across Claude Code and Codex\n\nctx is a local SQLite-backed skill",
+          "Show HN: Daemons \u2013 we pivoted from building agents to cleaning up after them\n\nFor almost two years, "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
