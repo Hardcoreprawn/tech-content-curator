@@ -16982,5 +16982,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 2,
+    "patterns_used": 3046,
+    "timestamp": "2026-04-22T18:30:58.482551",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "GitHub CLI now collects pseudoanonymous telemetry",
+        "removed_items": [
+          "Show HN: Broccoli, one shot coding agent on the cloud\n\nHi HN \u2014 we built Broccoli, an open-source har"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
