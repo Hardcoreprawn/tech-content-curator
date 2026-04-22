@@ -16936,5 +16936,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 2,
+    "patterns_used": 3038,
+    "timestamp": "2026-04-22T03:00:26.754803",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "ChatGPT Images 2.0\n\nLivestream: <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;live&#x2F;\" rel=\"nofollow",
+        "removed_items": [
+          "OpenAI reinvents Recall except everything is stored remotely"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
