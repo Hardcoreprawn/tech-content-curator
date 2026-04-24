@@ -17088,5 +17088,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 3069,
+    "timestamp": "2026-04-24T03:00:33.802518",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Age verification sounds reasonable until you realize it means every adult hands over their ID just t",
+        "removed_items": [
+          "Show HN: Agent Vault \u2013 Open-source credential proxy and vault for agents\n\nHey HN! Today we&#x27;re l"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "UK Biobank health data keeps ending up on GitHub\n\nI&#x27;m a researcher studying privacy, and I star",
+        "removed_items": [
+          "Incident with multple GitHub services"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Arch Linux Now Has a Bit-for-Bit Reproducible Docker Image",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
