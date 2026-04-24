@@ -17141,5 +17141,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 3078,
+    "timestamp": "2026-04-24T18:21:10.937402",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Today we launched https:// code.overheid.nl : the NL government-wide code platform \ud83e\udd73\ud83e\udd73 Code.overheid.",
+        "removed_items": [
+          "Show HN: Browser Harness \u2013 Gives LLM freedom to complete any browser task\n\nHey HN,<p>We got tired of"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "My coworker and I figured out a nasty bug in our own code yesterday. It was one of those \"works on m",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "I Cancelled Claude: Token Issues, Declining Quality, and Poor Support",
+        "removed_items": [
+          "An update on recent Claude Code quality reports"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
