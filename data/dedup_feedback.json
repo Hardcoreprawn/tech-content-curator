@@ -17226,5 +17226,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 3091,
+    "timestamp": "2026-04-25T18:20:50.977409",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A web-based RDP client built with Go WebAssembly and grdp",
+        "removed_items": [
+          "Show HN: A Karpathy-style LLM wiki your agents maintain (Markdown and Git)\n\nI shipped a wiki layer f"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
