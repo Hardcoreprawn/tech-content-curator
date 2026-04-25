@@ -17172,5 +17172,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 5,
+    "patterns_used": 3085,
+    "timestamp": "2026-04-25T02:59:47.668654",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google plans to invest up to $40B in Anthropic",
+        "removed_items": [
+          "Google Flow Music"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I've built a nice home server OS\n\nohai!<p>I&#x27;ve released Lightwhale 3, which is possibl",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I cancelled Claude: Token issues, declining quality, and poor support",
+        "removed_items": [
+          "Show HN: Browser Harness \u2013 Gives LLM freedom to complete any browser task\n\nHey HN,<p>We got tired of",
+          "CC-Canary: Detect early signs of regressions in Claude Code"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
