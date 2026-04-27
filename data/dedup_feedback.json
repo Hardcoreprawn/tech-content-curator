@@ -17304,5 +17304,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 3103,
+    "timestamp": "2026-04-27T03:01:20.085514",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Box to save memory in Rust",
+        "removed_items": [
+          "Running Bare-Metal Rust Alongside ESP-IDF on the ESP32-S3's Second Core",
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: The Unix Magic poster, annotated (updated)\n\nThis is a site that maps the references on Gary",
+        "removed_items": [
+          "Show HN: AI memory with biological decay (52% recall)\n\nMost RAG setups fail because they treat memor"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
