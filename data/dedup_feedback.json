@@ -17436,5 +17436,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 8,
+    "patterns_used": 3125,
+    "timestamp": "2026-04-28T18:40:10.077400",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The earliest DOS source code was found on printer paper in Tim Paterson's garage so we've open sourc",
+        "removed_items": [
+          "Microsoft VibeVoice: Open-Source Frontier Voice AI"
+        ]
+      },
+      {
+        "group_size": 6,
+        "kept_item": "RE: https:// mastodon.social/@Blender/11648 2997785333001 And related to this, # Blender already has",
+        "removed_items": [
+          "Claude.ai is unavailable",
+          "GitHub RCE Vulnerability: CVE-2026-3854 Breakdown",
+          "Who owns the code Claude Code wrote?",
+          "GitHub Actions is the weakest link",
+          "BookStack Moves from GitHub to Codeberg"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "PyWry: Cross-Platform Rendering Engine in Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
