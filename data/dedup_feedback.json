@@ -17506,5 +17506,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 10,
+    "patterns_used": 3141,
+    "timestamp": "2026-04-29T06:52:26.981183",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "When you say 'ChatGPT' in French, it sounds like 'Chat, j'ai p\u00e9t\u00e9' \u2013 which means 'Cat, I've farted'.",
+        "removed_items": [
+          "How ChatGPT serves ads"
+        ]
+      },
+      {
+        "group_size": 6,
+        "kept_item": "Ghostty is leaving GitHub. I'm GitHub user 1299, joined Feb 2008. I've visited GitHub almost every s",
+        "removed_items": [
+          "Ghostty is leaving GitHub",
+          "Before GitHub",
+          "GitHub RCE Vulnerability: CVE-2026-3854 Breakdown",
+          "Show HN: Drive any macOS app in the background without stealing the cursor\n\nHi HN, Francesco from Cu",
+          "An update on GitHub availability"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Bugs Rust won't catch",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
