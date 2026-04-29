@@ -17540,5 +17540,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 3147,
+    "timestamp": "2026-04-29T18:38:34.531275",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "GitHub \u2013 DOS 1.0: Transcription of Tim Paterson's DOS Printouts",
+        "removed_items": [
+          "Ghostty is leaving GitHub",
+          "Before GitHub"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Bugs Rust won't catch",
+        "removed_items": [
+          "Show HN: Adblock-rust Manager \u2013 Firefox extension to enable the Brave ad blocker\n\nFirefox 149 ships ",
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
