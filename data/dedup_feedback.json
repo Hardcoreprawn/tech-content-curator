@@ -17602,5 +17602,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 2,
+    "patterns_used": 3157,
+    "timestamp": "2026-04-30T06:54:52.062047",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A grounded conceptual model for ownership types in Rust",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
