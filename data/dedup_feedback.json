@@ -17801,5 +17801,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 3187,
+    "timestamp": "2026-05-03T18:25:05.381291",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Porsche will contest Laguna Seca in historic colors of the Apple Computer livery",
+        "removed_items": [
+          "Show HN: Apple's Sharp Running in the Browser via ONNX Runtime Web"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Embedded Rust or C Firmware? Lessons from an Industrial Microcontroller Use Case",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
