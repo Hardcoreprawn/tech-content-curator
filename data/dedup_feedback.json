@@ -17968,5 +17968,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 3219,
+    "timestamp": "2026-05-05T18:39:20.477505",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Google Chrome is silently installing a local LLM on your computer that is 4 gigabytes in size. It's ",
+        "removed_items": [
+          "Google Chrome silently installs a 4 GB AI model on your device https://www. thatprivacyguy.com/blog/",
+          "Google Chrome silently installs a 4 GB AI model on your device without consent"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Should I Run Plain Docker Compose in Production in 2026?",
+        "removed_items": [
+          "Docker 29 has changed its default image store for new installs",
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Async Rust never left the MVP state",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
