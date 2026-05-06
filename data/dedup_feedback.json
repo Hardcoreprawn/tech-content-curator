@@ -18030,5 +18030,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 3229,
+    "timestamp": "2026-05-06T06:57:17.356352",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "\u201cFive major publishers \u2014 Hachette, Macmillan, McGraw Hill, Elsevier and Cengage \u2014 and the best-selli",
+        "removed_items": [
+          "Zuckerberg 'Personally Authorized and Encouraged' Meta's Copyright Infringement\n\n<a href=\"https:&#x2"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Should I run plain Docker Compose in production in 2026?",
+        "removed_items": [
+          "ohmyzsh\n\n\ud83d\ude43   A delightful community-driven (with 2,400+ contributors) framework for managing your zs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
