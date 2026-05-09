@@ -18248,5 +18248,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 2,
+    "patterns_used": 3264,
+    "timestamp": "2026-05-09T06:45:43.281841",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Using Claude Code: The unreasonable effectiveness of HTML\n\nExamples: <a href=\"https:&#x2F;&#x2F;thar",
+        "removed_items": [
+          "Teaching Claude Why"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
