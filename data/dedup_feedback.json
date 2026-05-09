@@ -18271,5 +18271,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 3267,
+    "timestamp": "2026-05-09T18:26:40.507059",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "RE: https:// infosec.exchange/@masek/116544 804984700760 reCaptcha (which is owned and operated by G",
+        "removed_items": [
+          "Google broke reCAPTCHA for de-googled Android users\n\nRelated: <i>Google Cloud fraud defense, the nex",
+          "GrapheneOS fixes Android VPN leak Google refused to patch"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Using Claude Code: The unreasonable effectiveness of HTML\n\nExamples: <a href=\"https:&#x2F;&#x2F;thar",
+        "removed_items": [
+          "Show HN: Mochi.js: bun-native high-fidelity browser automation library\n\nHi HN,<p>I\u2019m sharing mochi.j"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
