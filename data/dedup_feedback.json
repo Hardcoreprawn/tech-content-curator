@@ -18326,5 +18326,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 3277,
+    "timestamp": "2026-05-10T06:57:06.755250",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Building a web server in assembly to give my life (a lack of) meaning\n\nThis is ymawky, a st",
+        "removed_items": [
+          "Using Claude Code: The unreasonable effectiveness of HTML\n\nExamples: <a href=\"https:&#x2F;&#x2F;thar"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Bun's experimental Rust rewrite hits 99.8% test compatibility on Linux x64 glibc\n\n<a href=\"https:&#x",
+        "removed_items": [
+          "Show HN: Rust but Lisp",
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
