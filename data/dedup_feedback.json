@@ -18403,5 +18403,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 2,
+    "patterns_used": 3289,
+    "timestamp": "2026-05-11T07:14:47.546572",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: adamsreview \u2013 better multi-agent PR reviews for Claude Code\n\nI built adamsreview, a Claude ",
+        "removed_items": [
+          "How Fast Does Claude, Acting as a User Space IP Stack, Respond to Pings?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
