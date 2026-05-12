@@ -18487,5 +18487,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 3,
+    "patterns_used": 3305,
+    "timestamp": "2026-05-12T07:01:06.151753",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "new preprint on the spread of hallucinated citations in the scientific literature: - origin primaril",
+        "removed_items": [
+          "Google says criminal hackers used AI to find a major software flaw\n\nUnlocked: <a href=\"https:&#x2F;&"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "If AI writes your code, why use Python?",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
