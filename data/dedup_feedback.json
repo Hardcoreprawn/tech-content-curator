@@ -18542,5 +18542,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 3311,
+    "timestamp": "2026-05-13T03:01:40.791269",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "My graduation cap runs Rust",
+        "removed_items": [
+          "Show HN: Statewright \u2013 Visual state machines that make AI agents reliable\n\nAgentic problem solving i",
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model\n\nHey HN, Henry here from Cactus. ",
+        "removed_items": [
+          "Show HN: Agentic interface for mainframes and COBOL\n\nHi HN, we\u2019re Sai and Aayush, and we\u2019re building"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
