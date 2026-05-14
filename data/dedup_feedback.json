@@ -18684,5 +18684,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 3335,
+    "timestamp": "2026-05-14T18:44:25.908516",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude AI recovers an 11 yrs old BTC wallet holding 400k USD",
+        "removed_items": [
+          "Claude for Small Business",
+          "A Claude Code and Codex Skill for Deliberate Skill Development"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Bun's Rust rewrite has been merged",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
