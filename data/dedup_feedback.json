@@ -18850,5 +18850,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 3361,
+    "timestamp": "2026-05-17T03:01:33.311859",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Zerostack \u2013 A Unix-inspired coding agent written in pure Rust",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
