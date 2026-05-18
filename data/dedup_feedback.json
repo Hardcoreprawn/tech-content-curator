@@ -18952,5 +18952,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 3379,
+    "timestamp": "2026-05-18T18:44:24.560758",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "You have money burning a hole in your pocket? Here's where that could go: - @ davidgerard 's \"Pivot ",
+        "removed_items": [
+          "Enough with the AI FOMO, go slow-mo, says Domo CDO"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "We stopped AI bot spam in our GitHub repo using Git's \u2013author flag",
+        "removed_items": [
+          "Show HN: InsForge \u2013 Open-source Heroku for coding agents\n\nHi HN, I&#x27;m Hang, cofounder of InsForg"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
