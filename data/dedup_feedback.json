@@ -19036,5 +19036,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 8,
+    "patterns_used": 3396,
+    "timestamp": "2026-05-19T18:45:19.085419",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Google CEO tries to tell University students to love AI. They tell him to BOO off. It is good to see",
+        "removed_items": [
+          "Google Search as you know it is over",
+          "Google I/O"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The systemd project has announced that to comply with Canada's proposed Bill C-22, systemd will inco",
+        "removed_items": [
+          "Show HN: Superlog (YC P26) \u2013 Observability that installs itself and fixes bugs\n\nHey HN, we\u2019re Nico a"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "The Trump regime destroyed federal cyber-security and then tried to rebuild it with idiots, and one ",
+        "removed_items": [
+          "CISA Admin Leaked AWS GovCloud Keys on GitHub",
+          "Show HN: Haystack \u2013 Review the PRs that need human attention\n\nHey HN! We&#x27;re building Haystack ("
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
