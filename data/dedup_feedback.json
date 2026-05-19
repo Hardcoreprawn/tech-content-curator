@@ -18982,5 +18982,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 3383,
+    "timestamp": "2026-05-19T03:01:40.526952",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "New, by me: CISA Admin Leaked AWS GovCloud Keys on GitHub Until this past weekend, a contractor for ",
+        "removed_items": [
+          "We stopped AI bot spam in our GitHub repo using Git's \u2013author flag",
+          "Show HN: InsForge \u2013 Open-source Heroku for coding agents\n\nHi HN, I&#x27;m Hang, cofounder of InsForg"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// mastodon.online/@mastodonmigra tion/116597735999289806 Time to pull out my essay again ",
+        "removed_items": [
+          "We let AIs run radio stations\n\nHey HN!<p>I&#x27;m Lukas from Andon Labs. We let AIs run companies wi"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
