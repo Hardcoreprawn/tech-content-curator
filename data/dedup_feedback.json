@@ -19068,5 +19068,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 10,
+    "patterns_used": 3404,
+    "timestamp": "2026-05-20T03:01:47.760995",
+    "examples": [
+      {
+        "group_size": 6,
+        "kept_item": "When I do a web search, I do not want Google to go to the websites for me, pull the information, and",
+        "removed_items": [
+          "RE: https:// tldr.nettime.org/@tante/116603 384370030013 This of course makes Google's browser monop",
+          "Motion to strike \"googling\" as a verb https://techcrunch.com/2026/05/19/google-search-as-you-know-it",
+          "Railway Blocked by Google Cloud",
+          "Gemini 3.5 Flash\n\n<a href=\"https:&#x2F;&#x2F;ai.google.dev&#x2F;gemini-api&#x2F;docs&#x2F;models&#x2",
+          "Google changes its search box\n\n<a href=\"https:&#x2F;&#x2F;www.nytimes.com&#x2F;2026&#x2F;05&#x2F;19&"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Forge \u2013 Guardrails take an 8B model from 53% to 99% on agentic tasks\n\nHi HN, I&#x27;m Antoi",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "GitHub is investigating unauthorized access to their internal repositories",
+        "removed_items": [
+          "CISA Admin Leaked AWS GovCloud Keys on GitHub",
+          "Unusual uses of OEIS sequences on GitHub"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
