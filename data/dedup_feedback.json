@@ -19140,5 +19140,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 7,
+    "patterns_used": 3418,
+    "timestamp": "2026-05-20T18:56:00.091558",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "This is actually happening now https:// theonion.com/google-announces- plan-to-destroy-all-informati",
+        "removed_items": [
+          "Incident Report: May 19, 2026 \u2013 GCP Account Suspension\n\nPrevious thread: <i>Incident Report: Railway",
+          "Apparently Google hates us now",
+          "Ask HN: Shouldn't Google need to give a public statement about Railway incident?\n\nhttps:&#x2F;&#x2F;",
+          "Google's AI is being manipulated. The search giant is quietly fighting back"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "We just released Mastodon 4.5.10, 4.4.17, and 4.3.23. These versions contain several medium and high",
+        "removed_items": [
+          "Show HN: Hocuspocus 4 \u2013 self-hosted Yjs collaboration backend\n\nHi HN! I&#x27;m Philip, one of the fo",
+          "Show HN: Lance \u2013 image/video generation and understanding in one model\n\nThe model has 3B active para"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
