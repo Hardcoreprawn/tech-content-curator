@@ -19103,5 +19103,42 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 12,
+    "patterns_used": 3414,
+    "timestamp": "2026-05-20T07:16:10.292868",
+    "examples": [
+      {
+        "group_size": 6,
+        "kept_item": "Wow some terrible reporting about Google's latest horrible ideas about how to distort information ac",
+        "removed_items": [
+          "When I do a web search, I do not want Google to go to the websites for me, pull the information, and",
+          "Motion to strike \"googling\" as a verb https://techcrunch.com/2026/05/19/google-search-as-you-know-it",
+          "Railway Blocked by Google Cloud",
+          "Gemini 3.5 Flash\n\n<a href=\"https:&#x2F;&#x2F;ai.google.dev&#x2F;gemini-api&#x2F;docs&#x2F;models&#x2",
+          "Google changes its search box\n\n<a href=\"https:&#x2F;&#x2F;www.nytimes.com&#x2F;2026&#x2F;05&#x2F;19&"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "it's great when you see a project you've been following for years has added a CLAUDE.md/AGENTS.md fi",
+        "removed_items": [
+          "Show HN: Forge \u2013 Guardrails take an 8B model from 53% to 99% on agentic tasks\n\nHi HN, I&#x27;m Antoi",
+          "I\u2019ve joined Anthropic\n\n<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;karpathy&#x2F;status&#x2F;2056753",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "info on the github breach appears to only be available on xitter \ud83d\ude44 , I fished it out for you. # gith",
+        "removed_items": [
+          "GitHub Compromised",
+          "GitHub is investigating unauthorized access to their internal repositories"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
