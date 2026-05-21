@@ -19199,5 +19199,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 3431,
+    "timestamp": "2026-05-21T07:19:59.259913",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The GitHub breach last night was worse than reported. 4000 or so private repos for sale on Tor. LAPS",
+        "removed_items": [
+          "GitHub confirms breach of 3,800 repos via malicious VSCode extension\n\nPrevious thread in sequence:<p"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "An OpenAI model has disproved a central conjecture in discrete geometry\n\n<a href=\"https:&#x2F;&#x2F;",
+        "removed_items": [
+          "OpenAI to confidentially file for IPO as soon as Friday"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google's AI is being manipulated. The search giant is quietly fighting back",
+        "removed_items": [
+          "Incident Report: May 19, 2026 \u2013 GCP Account Suspension\n\nPrevious thread: <i>Incident Report: Railway"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
