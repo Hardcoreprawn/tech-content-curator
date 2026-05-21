@@ -19229,5 +19229,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 5,
+    "patterns_used": 3437,
+    "timestamp": "2026-05-21T18:45:46.627746",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "It's the internet, people. It's OUR internet. Just because we decided to trust Google to not be evil",
+        "removed_items": [
+          "lol i love that all of these news outlets are covering google scrapping search for AI chatbox bullsh",
+          "Google's Antigravity Bait and Switch"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python 3.15: features that didn't make the headlines",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Rmux \u2013 A programmable terminal multiplexer with a Playwright-style SDK\n\nAuthor here. RMUX s",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
