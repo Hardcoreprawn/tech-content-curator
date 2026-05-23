@@ -19332,5 +19332,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 38,
+    "duplicates_found": 1,
+    "patterns_used": 3449,
+    "timestamp": "2026-05-23T03:00:58.463474",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A Wayland Compositor in Minecraft\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;EVV1E&#x2F;waylandcraf",
+        "removed_items": [
+          "Launch HN: Superset (YC P26) \u2013 IDE for the agents era\n\nHey HN, we\u2019re Avi, Kiet, and Satya. We\u2019re bui"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
