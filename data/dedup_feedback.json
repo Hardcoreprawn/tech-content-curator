@@ -19348,5 +19348,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 3453,
+    "timestamp": "2026-05-23T06:57:05.484506",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "\u26a0\ufe0f If you run a PeerTube server, update ASAP https:// github.com/Chocobozzz/PeerTube /releases/tag/v",
+        "removed_items": [
+          "A Wayland Compositor in Minecraft\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;EVV1E&#x2F;waylandcraf",
+          "Launch HN: Superset (YC P26) \u2013 IDE for the agents era\n\nHey HN, we\u2019re Avi, Kiet, and Satya. We\u2019re bui"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Microsoft starts canceling Claude Code licenses\n\n<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;WfCta\" r",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
