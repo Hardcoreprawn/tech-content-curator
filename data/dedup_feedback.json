@@ -19440,5 +19440,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 3473,
+    "timestamp": "2026-05-24T07:08:33.459040",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Jeff Bezos went on TV to whine about Zohran Mamdani to stop demonizing billionaires and the very nex",
+        "removed_items": [
+          "Amazon Web Services \u2013 Four Years and Out",
+          "Kindle loyalists scramble as Amazon turns page on old e-readers"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Sad that RustWeek is over, and glad I got to spend the week with so many wonderful people. Next time",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Microsoft open-sources \"the earliest DOS source code discovered to date\"\n\n<a href=\"https:&#x2F;&#x2F",
+        "removed_items": [
+          "Scammers are abusing an internal Microsoft account to send spam links"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
