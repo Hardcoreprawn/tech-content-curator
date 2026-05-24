@@ -19471,5 +19471,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 3,
+    "patterns_used": 3479,
+    "timestamp": "2026-05-24T18:29:22.577316",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Microsoft open-sources \"the earliest DOS source code discovered to date\"\n\n<a href=\"https:&#x2F;&#x2F",
+        "removed_items": [
+          "Scammers are abusing an internal Microsoft account to send spam links"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Noroboto: Lying Fonts and Mitigation in Rust",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
