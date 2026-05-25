@@ -19501,5 +19501,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 3487,
+    "timestamp": "2026-05-25T03:02:37.599013",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "i made a new game called js crossword where you have to solve it by literally writing javascript cod",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Microsoft open-sources \u201cthe earliest DOS source code discovered to date\u201d\n\n<a href=\"https:&#x2F;&#x2F",
+        "removed_items": [
+          "Scammers are abusing an internal Microsoft account to send spam links"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Noroboto: Lying Fonts and Mitigation in Rust",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
