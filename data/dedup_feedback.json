@@ -19608,5 +19608,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 3511,
+    "timestamp": "2026-05-26T07:15:07.397412",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Ask HN: Is anyone working at least 4 hours daily on an Apple Vision Pro?\n\nI asked this in 2024 and w",
+        "removed_items": [
+          "CVE-2026-28952: Apple macOS 26.5 Kernel Vuln found by Claude"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Performance of Rust Language [pdf]",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Does anybody like React?",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
