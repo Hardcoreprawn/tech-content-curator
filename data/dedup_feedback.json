@@ -19578,5 +19578,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 3503,
+    "timestamp": "2026-05-26T03:01:58.101507",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Performance of Rust Language [pdf]",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "CVE-2026-28952: Apple macOS 26.5 Kernel Vuln found by Claude",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Does Anybody Actually Like React?",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
