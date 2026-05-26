@@ -19638,5 +19638,32 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 6,
+    "patterns_used": 3515,
+    "timestamp": "2026-05-26T18:55:28.537242",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "Launch HN: Minicor (YC P26) \u2013 Windows desktop automations at scale\n\nHey we\u2019re Faiz and Saheed and we",
+        "removed_items": [
+          "Opaque Types in Python",
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Rosalind: A genomics toolkit in Rust running whole-genome pipelines on a laptop",
+        "removed_items": [
+          "Performance of Rust Language [pdf]",
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
