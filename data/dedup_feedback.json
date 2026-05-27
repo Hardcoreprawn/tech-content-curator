@@ -19715,5 +19715,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 2,
+    "patterns_used": 3525,
+    "timestamp": "2026-05-27T18:55:24.626210",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "DuckDuckGo's AI-free search saw nearly 28% more visits in the week following Google's insistence tha",
+        "removed_items": [
+          "DuckDuckGo search saw 28% more visits after Google said people love AI mode"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
