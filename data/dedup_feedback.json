@@ -19738,5 +19738,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 6,
+    "patterns_used": 3534,
+    "timestamp": "2026-05-28T03:02:12.827024",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This is how the AI bubble bursts: https://www. theverge.com/ai-artificial-int elligence/917380/ai-mo",
+        "removed_items": [
+          "I think Anthropic and OpenAI have found product-market fit"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Why Ctrl+V won't paste images in Claude Code on WSL, with a fix",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Rust (and Slint) on a Jailbroken Kindle",
+        "removed_items": [
+          "Show HN: Open-Source AI Racing Harness\n\nHi I&#x27;m Dan from Elodin, making an open source real-time",
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
