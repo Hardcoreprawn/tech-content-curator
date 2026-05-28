@@ -19799,5 +19799,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 6,
+    "patterns_used": 3546,
+    "timestamp": "2026-05-28T19:00:36.315742",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Claude Opus 4.8",
+        "removed_items": [
+          "Show HN: Ktx \u2013 Open-source executable context layer for data agents\n\nHi HN, we\u2019re open-sourcing ktx.",
+          "Dynamic Workflows in Claude Code",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Hallucinate \u2013 Massively Multiplayer Online Rave\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F",
+        "removed_items": [
+          "Show HN: TapToyPia\n\nMy wife started playing Pokopia and told me it&#x27;s the best game she&#x27;s e"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Open-Source AI Racing Harness\n\nHi I&#x27;m Dan from Elodin, making an open source real-time",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
