@@ -19948,5 +19948,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 3569,
+    "timestamp": "2026-05-30T18:30:34.480318",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The man who wrote \"Don't be evil\" said he chose it specifically so it would be hard to remove. Paul ",
+        "removed_items": [
+          "GenAI is going great (this is real) https://www. google.com/search?q=how+many+d ays+of+the+week+have"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "In the 1980s, if you wanted your IBM PC to be faster for spreadsheets or CAD, you could buy the Inte",
+        "removed_items": [
+          "Microcode inside the Intel 8087 floating-point chip: register exchange"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// mastodon.social/@markhurst/116 659569010108640 Wow. Great essay! A couple of highlights",
+        "removed_items": [
+          "Show HN: Helios \u2013 what plug-in solar could generate for any address in Britain\n\nPlug-in solar panels"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
