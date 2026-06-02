@@ -20173,5 +20173,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 3604,
+    "timestamp": "2026-06-02T19:23:58.237715",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "An internal Microsoft strategy document says that the plan for its just-announced \u201cScout\u201d personal a",
+        "removed_items": [
+          "Microsoft's MAI-Code-1-Flash Scores 51% SWE-Bench Pro with Just 5B Active Params"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "GitHub Copilot App",
+        "removed_items": [
+          "Launch HN: Rudus (YC P26) \u2013 AI for concrete contractors\n\nHi HN, we\u2019re Rishi and Sahil. We\u2019ve develop",
+          "Show HN: RePlaya \u2013 self-hosted browser session replay with live tailing\n\nHi HN, I&#x27;m one of the "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Anthropic scales Claude Mythos to critical infrastructure in 15 countries",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
