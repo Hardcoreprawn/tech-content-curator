@@ -20142,5 +20142,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 4,
+    "patterns_used": 3598,
+    "timestamp": "2026-06-02T07:41:22.242472",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "we have a Forgejo instance at the Dutch government now and it's great! A lot of the UI is actually s",
+        "removed_items": [
+          "Ask HN: Who is hiring? (June 2026)\n\nPlease state the location and include REMOTE for remote work, RE"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Can the stockmarket swallow Anthropic, SpaceX and OpenAI?\n\n<a href=\"https:&#x2F;&#x2F;archive.ph&#x2",
+        "removed_items": [
+          "OpenAI frontier models and Codex are now available on AWS",
+          "Florida sues OpenAI and Sam Altman over AI risks\n\n<a href=\"https:&#x2F;&#x2F;www.wsj.com&#x2F;tech&#"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
