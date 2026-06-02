@@ -20111,5 +20111,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 5,
+    "patterns_used": 3594,
+    "timestamp": "2026-06-02T03:03:32.254060",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Being able to pay Google to show up above your competitor when someone searches specifically for you",
+        "removed_items": [
+          "DuckDuckGo has reported huge traffic growth for its \u201cNo AI search\u201d tool following Google Search\u2019s AI"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "How people hacked Meta accounts recently: Step 1) Open Meta AI support 2) ask to change Obama's pass",
+        "removed_items": [
+          "New, by me: A number of high-profile and/or valuable Instagram accounts, including those of the Obam"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Can the stockmarket swallow Anthropic, SpaceX and OpenAI?\n\n<a href=\"https:&#x2F;&#x2F;archive.ph&#x2",
+        "removed_items": [
+          "OpenAI frontier models and Codex are now available on AWS",
+          "Florida sues OpenAI and Sam Altman over AI risks\n\n<a href=\"https:&#x2F;&#x2F;www.wsj.com&#x2F;tech&#"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
