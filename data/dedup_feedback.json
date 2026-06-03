@@ -20258,5 +20258,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 3623,
+    "timestamp": "2026-06-03T19:28:36.695645",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "We just released the first beta version of Mastodon 4.6 \ud83c\udf89 Highlights for this release are the profil",
+        "removed_items": [
+          "1-Click GitHub Token Stealing via a VSCode Bug"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I've noted elsewhere I was gifted a pair of Meta glasses and they haven't left their box, not only f",
+        "removed_items": [
+          "Launch HN: Hyper (YC P26) \u2013 Company brain to power agentic development\n\nHey HN, we\u2019re Shalin &amp; K",
+          "Meta workers can opt out of being tracked at work up to 30 min"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Rscrypto, pure-Rust crypto with industry leading public benches",
+        "removed_items": [
+          "claw-code\n\nThe repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
