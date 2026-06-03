@@ -20204,5 +20204,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 5,
+    "patterns_used": 3612,
+    "timestamp": "2026-06-03T03:03:26.804554",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Another researcher drops a zero-day without disclosure because they're tired of dealing with MSRC ht",
+        "removed_items": [
+          "1-Click GitHub Token Stealing via a VSCode Bug",
+          "Show HN: Paseo \u2013 Beautiful open-source coding agent interface\n\nRepo: <a href=\"https:&#x2F;&#x2F;gith"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "An internal Microsoft strategy document says that the plan for its just-announced \u201cScout\u201d personal a",
+        "removed_items": [
+          "MAI-Code-1-Flash\n\n<a href=\"https:&#x2F;&#x2F;microsoft.ai&#x2F;models&#x2F;mai-code-1-flash&#x2F;\" r"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Expanding Project Glasswing\n\n<a href=\"https:&#x2F;&#x2F;techcrunch.com&#x2F;2026&#x2F;06&#x2F;02&#x2",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
