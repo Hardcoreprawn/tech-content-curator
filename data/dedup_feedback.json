@@ -20235,5 +20235,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 3616,
+    "timestamp": "2026-06-03T07:44:42.935218",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "MAI-Code-1-Flash\n\n<a href=\"https:&#x2F;&#x2F;microsoft.ai&#x2F;models&#x2F;mai-code-1-flash&#x2F;\" r",
+        "removed_items": [
+          "Microsoft Doubles Down on Controversial Quantum Computing Claims"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
