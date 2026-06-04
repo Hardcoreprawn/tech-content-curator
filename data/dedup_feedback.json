@@ -20314,5 +20314,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 3631,
+    "timestamp": "2026-06-04T07:40:39.536376",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "The ways we contain Claude across products",
+        "removed_items": [
+          "Uber's $1,500/month AI limit is a useful signal for AI tool pricing\n\n<a href=\"https:&#x2F;&#x2F;www.",
+          "Launch HN: Hyper (YC P26) \u2013 Company brain to power agentic development\n\nHey HN, we\u2019re Shalin &amp; K",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
