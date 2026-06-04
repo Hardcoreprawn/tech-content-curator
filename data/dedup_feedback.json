@@ -20339,5 +20339,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 3635,
+    "timestamp": "2026-06-04T18:56:04.561587",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The ways we contain Claude across products",
+        "removed_items": [
+          "Uber's $1,500/month AI limit is a useful signal for AI tool pricing\n\n<a href=\"https:&#x2F;&#x2F;www.",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
