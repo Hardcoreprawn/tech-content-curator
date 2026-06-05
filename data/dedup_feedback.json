@@ -20387,5 +20387,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 3644,
+    "timestamp": "2026-06-05T07:32:02.744059",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// social.treehouse.systems/@wwah ammy/116695372319811855 This!! I am yelling this too!! A",
+        "removed_items": [
+          "Go Experiments Explained"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Local # Seattle artist Light Guerrilla projected \u201cTAX THE RICH\u201d on the side of Mark # Zuckerberg 's ",
+        "removed_items": [
+          "Meta enables ADB on deprecated Portal devices [video]\n\n<a href=\"https:&#x2F;&#x2F;developers.meta.co"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
