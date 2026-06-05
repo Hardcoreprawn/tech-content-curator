@@ -20363,5 +20363,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 3638,
+    "timestamp": "2026-06-05T03:02:20.088432",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "EFF\u2019s Threat Lab confirmed @ WIRED 's finding that Meta has deployed facial recognition code to mill",
+        "removed_items": [
+          "Meta enables ADB on deprecated Portal devices [video]\n\n<a href=\"https:&#x2F;&#x2F;developers.meta.co",
+          "Meta's ships facial recognition on smart glasses"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
