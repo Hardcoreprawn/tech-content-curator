@@ -20622,5 +20622,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 3681,
+    "timestamp": "2026-06-08T18:58:01.627081",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "RE: https:// nileane.fr/@nileane/1167158742 83622057 So: \u2022 With Siri AI, Apple deliberately develope",
+        "removed_items": [
+          "Stop the Apple Music app from launching",
+          "Apple WWDC 2026 Livestream"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Performative-UI \u2013 a react component library of design tropes\n\nhope you enjoy",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Intuned (YC S22) \u2013 Build and run reliable browser automations as code\n\nHey HN, we&#x27;re",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
