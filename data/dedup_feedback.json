@@ -20591,5 +20591,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 3675,
+    "timestamp": "2026-06-08T07:45:11.104955",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "The Smallest Brain You Can Build: A Perceptron in Python",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: NoSuggest \u2013 Watch YouTube without the recommendation algorithm\n\nNoSuggest is a quiet act of",
+        "removed_items": [
+          "Show HN: Lathe \u2013 Use LLMs to learn a new domain, not skip past it\n\nHey HN!<p>Lathe is an experiment "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A Matter Wi-Fi Light Bulb in Rust on the Raspberry Pi Pico 2 W",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
