@@ -20653,5 +20653,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 7,
+    "patterns_used": 3689,
+    "timestamp": "2026-06-09T03:01:56.525322",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "In other news, sometimes shame works: https://www. wired.com/story/meta-removes-f ace-recognition-co",
+        "removed_items": [
+          "Last week, researchers identified code in Meta AI's smart glasses app that could convert faces into "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "RE: https:// nileane.fr/@nileane/1167158742 83622057 So: \u2022 With Siri AI, Apple deliberately develope",
+        "removed_items": [
+          "Apple Core AI Framework",
+          "Apple bets cheaper AI will woo small developers"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Performative-UI \u2013 A react component library of design tropes\n\nhope you enjoy",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
