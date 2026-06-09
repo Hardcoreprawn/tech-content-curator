@@ -20684,5 +20684,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 3699,
+    "timestamp": "2026-06-09T07:16:50.083999",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Apple: Our Apple Intelligence (AI) totally secure, trust us. It wiil change your life. Apple: BTW, A",
+        "removed_items": [
+          "Apple reveals new AI architecture built around Google Gemini models"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "When we were looking for an upgrade to our TV, I specifically wanted a \u201cdumb display.\u201d No internet c",
+        "removed_items": [
+          "How much do amd64 microarchitecture levels help in Go?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "this is fairly noisy but here\u2019s a dossier of every system prompt embedded in various iOS 27 binaries",
+        "removed_items": [
+          "Show HN: Gitdot \u2013 a better GitHub. Open-source, written in Rust\n\nWhat works now: user signups, org c"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
