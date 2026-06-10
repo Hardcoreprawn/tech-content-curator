@@ -20745,5 +20745,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 6,
+    "patterns_used": 3708,
+    "timestamp": "2026-06-10T03:02:23.139755",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude Fable 5\n\nSystem Card [pdf]: <a href=\"https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;d00db56fa75",
+        "removed_items": [
+          "If Claude Fable stops helping you, you'll never know\n\nRelated: https:&#x2F;&#x2F;simonwillison.net&#",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Grit: Rewriting Git in Rust with agents",
+        "removed_items": [
+          "Show HN: Nucleus \u2013 A security-hardened, Nix-native container runtime\n\nHi HN, I&#x27;ve been building",
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "WWDC 2026: Apple is Folding",
+        "removed_items": [
+          "Apple decided not to roll out Siri in EU after denied request for exemption"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
