@@ -20808,5 +20808,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 5,
+    "patterns_used": 3721,
+    "timestamp": "2026-06-10T19:01:41.015423",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Gonna say the pivot of GitHub to an offline-first company is impressive",
+        "removed_items": [
+          "GitHub Authentication issues related to API requests",
+          "Show HN: HelixDB \u2013 A graph database built on object storage\n\nHey HN, it\u2019s been just over a year sinc"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Desktop spins up a VM without no way of stopping it",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Who Runs Your Rust Future? Hands-On Intro to Async Rust",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
