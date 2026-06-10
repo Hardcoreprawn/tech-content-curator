@@ -20777,5 +20777,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 3714,
+    "timestamp": "2026-06-10T07:31:35.946519",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude Fable 5\n\nSystem Card [pdf]: <a href=\"https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;d00db56fa75",
+        "removed_items": [
+          "If Claude Fable stops helping you, you'll never know\n\nRelated: https:&#x2F;&#x2F;simonwillison.net&#",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "German ruling declares Google liable for false answers in AI Overviews",
+        "removed_items": [
+          "Google Chrome is killing all uBlock Origin bypasses, Edge, Opera to follow"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Grit: Rewriting Git in Rust with agents",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
