@@ -20870,5 +20870,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 3732,
+    "timestamp": "2026-06-11T07:43:28.788378",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "I swear I've seen developers with 30 years of experience go from \"I can debug a kernel panic blindfo",
+        "removed_items": [
+          "Pok\u00e9mon Go Scans Trained the Navigation Tech for Military Drones",
+          "I'm Eric Ries, author of \"The Lean Startup\" and new book \"Incorruptible\" \u2013 AMA\n\nHey gang, you may re"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Anthropic requires 30 day data retention for Fable and Mythos\n\n<a href=\"https:&#x2F;&#x2F;www.thever",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
