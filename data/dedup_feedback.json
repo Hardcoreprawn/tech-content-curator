@@ -20839,5 +20839,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 3727,
+    "timestamp": "2026-06-11T03:03:05.901550",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "ACM will no longer require disclosure of the use of # generativeAI in writing papers.... an absolute",
+        "removed_items": [
+          "I'm Eric Ries, author of \"The Lean Startup\" and new book \"Incorruptible\" \u2013 AMA\n\nHey gang, you may re"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Anthropic requires 30 day data retention for Fable and Mythos\n\n<a href=\"https:&#x2F;&#x2F;www.thever",
+        "removed_items": [
+          "Claude Desktop spawns 1.8 GB Hyper-V VM on every launch, even for chat-only use",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
