@@ -20933,5 +20933,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 3742,
+    "timestamp": "2026-06-12T03:02:19.436799",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Claude Fable is relentlessly proactive",
+        "removed_items": [
+          "Anthropic apologizes for invisible Claude Fable guardrails\n\n<a href=\"https:&#x2F;&#x2F;web.archive.o",
+          "Claude Fable 5: mid-tier results on coding tasks",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
