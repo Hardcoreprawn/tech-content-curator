@@ -21059,5 +21059,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 3766,
+    "timestamp": "2026-06-13T18:36:55.002026",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The adder at the heart of Intel's 8087 floating-point chip",
+        "removed_items": [
+          "An Interview with Intel's Kira Boyko: Xeon 6's Product Director"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: I am building a map of people who lived in the Roman Empire\n\nDriving home from work one day",
+        "removed_items": [
+          "Show HN: Paca \u2013 Lightweight Jira alternative for human-AI collaboration\n\nI built Paca out of pure pa"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The state of building user interfaces in Rust",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
