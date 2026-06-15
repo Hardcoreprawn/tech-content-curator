@@ -21194,5 +21194,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 6,
+    "patterns_used": 3790,
+    "timestamp": "2026-06-15T19:25:40.534465",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Ask HN: Has anyone replaced Claude/GPT with a local model for daily coding?\n\nHas anyone here fully s",
+        "removed_items": [
+          "Claude Corps",
+          "Show HN: machine0 \u2013 Persistent NixOS VMs You Control from the CLI\n\nHi HN! Excited to launch machine0",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Fata \u2013 Spaced repetition to fight skill rot from AI coding\n\nHi HN, I&#x27;m Djoum\u00e9. I&#x27;",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Memory safety CVEs differ between Rust and C/C++",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
