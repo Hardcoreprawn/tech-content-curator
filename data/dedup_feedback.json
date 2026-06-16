@@ -21257,5 +21257,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 3804,
+    "timestamp": "2026-06-16T08:00:00.285171",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Ask HN: Has anyone replaced Claude/GPT with a local model for daily coding?\n\nHas anyone here fully s",
+        "removed_items": [
+          "Claude Corps",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Amazon Announces Multibillion-Dollar Data Center in Missouri",
+        "removed_items": [
+          "Show HN: Veterinarian turned founder, AI lawn diagnosis\n\nI know, it&#x27;s kind of weird. What is a "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
