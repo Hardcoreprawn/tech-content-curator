@@ -21371,5 +21371,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 3826,
+    "timestamp": "2026-06-17T18:58:22.874890",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Adam (YC W25) \u2013 Open-Source AI CAD\n\nHey HN! I&#x27;m Zach from Adam (<a href=\"https:&#x2F",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Deconvolution \u2013 a Rust image deconvolution and restoration crate\n\nI&#x27;ve been working on",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
