@@ -21431,5 +21431,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 3836,
+    "timestamp": "2026-06-18T07:43:19.922260",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Adam (YC W25) \u2013 Open-Source AI CAD\n\nHey HN! I&#x27;m Zach from Adam (<a href=\"https:&#x2F",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
