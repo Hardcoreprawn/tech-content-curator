@@ -21681,5 +21681,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 4,
+    "patterns_used": 3871,
+    "timestamp": "2026-06-22T03:03:54.567656",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Identity verification on Claude\n\n<a href=\"https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;ClaudeAI&#x2F",
+        "removed_items": [
+          "Show HN: Recall \u2013 fully-local project memory for Claude Code",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "(How to Write a (Lisp) Interpreter (In Python)) (2010)",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
