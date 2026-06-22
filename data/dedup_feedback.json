@@ -21738,5 +21738,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 3879,
+    "timestamp": "2026-06-22T19:13:04.733351",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "# HIRING ! Senior Engineer, # python based full stack but leaning to devops/infra. 70/30 would be my",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Oak \u2013 Git replacement designed for agents\n\nOak is a version control system I&#x27;ve been w",
+        "removed_items": [
+          "Show HN: CleverCrow: give tokens to your favorite projects\n\nHowdy all. I&#x27;m Zack :wave:. I&#x27;"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The text in Claude Code\u2019s \u201cExtended Thinking\u201d output",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
