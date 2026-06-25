@@ -21926,5 +21926,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 3909,
+    "timestamp": "2026-06-25T07:14:24.223698",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Anthropic says Alibaba illicitly extracted Claude AI model capabilities",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Write SaaS apps where users control where their data is stored\n\nHello HN,<p>I would like to",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Brain Frog \u2013 Can you be random enough for 11 lines of JavaScript?",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
