@@ -21986,5 +21986,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 3918,
+    "timestamp": "2026-06-26T03:02:04.551558",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Twenty five years ago today I started the # Safari and # WebKit projects at # Apple Computer. Which ",
+        "removed_items": [
+          "Apple to skip high-end M6 Mac chips in favor of AI-focused M7 line\n\nGiftlink: <a href=\"https:&#x2F;&",
+          "Apple raises prices of MacBooks, iPads\n\n<a href=\"https:&#x2F;&#x2F;9to5mac.com&#x2F;2026&#x2F;06&#x2"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "There appears to be some black magic happening here. The font calculates the checksum. https:// gith",
+        "removed_items": [
+          "An entire Herculaneum scroll has been read for the first time\n\nPreprint: <a href=\"https:&#x2F;&#x2F;",
+          "Show HN: OpenKnowledge \u2013 open source AI-first alternative to Obsidian/Notion\n\nHi HN, Nick here. We\u2019r"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "An oral history of Bank Python (2021)",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
