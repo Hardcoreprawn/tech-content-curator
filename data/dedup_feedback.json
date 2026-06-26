@@ -22050,5 +22050,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 3926,
+    "timestamp": "2026-06-26T18:44:35.321456",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "maybe they outsourced to ChatGPT the job of checking there haven't been any other projects with name",
+        "removed_items": [
+          "U.S. government will decide who gets to use latest upgrade to ChatGPT"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Smart model routing directly in Claude, Codex and Cursor\n\nWe built a model router that plug",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]

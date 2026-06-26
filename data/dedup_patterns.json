@@ -6,31 +6,31 @@
       "python"
     ],
     "keywords": [
-      "foundation",
-      "seeking",
-      "every",
-      "equity",
+      "revenue",
       "spine",
-      "decision",
       "values",
-      "community",
-      "read",
-      "tech",
-      "ahead",
-      "diversity",
-      "tldr",
-      "than",
-      "single",
-      "giant",
-      "shared",
+      "seeking",
       "core",
-      "software",
-      "please",
-      "share",
-      "inclusion",
+      "tldr",
+      "decision",
       "shows",
       "python",
-      "revenue"
+      "software",
+      "read",
+      "every",
+      "equity",
+      "than",
+      "please",
+      "diversity",
+      "share",
+      "inclusion",
+      "giant",
+      "single",
+      "foundation",
+      "community",
+      "ahead",
+      "tech",
+      "shared"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64,36 +64,36 @@
       "amazon"
     ],
     "keywords": [
-      "brutal",
-      "boost",
       "cutting",
-      "groups",
-      "move",
-      "cost",
-      "corporate",
-      "various",
-      "goal",
-      "adoption",
-      "beginning",
       "devices",
-      "company",
-      "help",
-      "about",
       "layoffs",
-      "stated",
-      "damn",
-      "tomorrow",
-      "including",
-      "workforce",
-      "jobs",
-      "bottom",
-      "bureaucracy",
       "ultimate",
+      "stated",
+      "bureaucracy",
+      "beginning",
+      "adoption",
+      "cost",
       "amazon",
+      "workforce",
+      "groups",
+      "help",
+      "goal",
       "line",
+      "brutal",
+      "move",
+      "boost",
+      "bottom",
+      "company",
+      "about",
       "reduce",
-      "speed",
-      "jassy"
+      "various",
+      "jassy",
+      "corporate",
+      "jobs",
+      "including",
+      "tomorrow",
+      "damn",
+      "speed"
     ],
     "confidence": 0.95,
     "examples": [
@@ -217,8 +217,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -235,8 +235,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -253,8 +253,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -271,8 +271,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -289,8 +289,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -307,8 +307,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -359,8 +359,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -411,8 +411,8 @@
       "go"
     ],
     "keywords": [
-      "hungry",
-      "food"
+      "food",
+      "hungry"
     ],
     "confidence": 0.8,
     "examples": [
@@ -582,9 +582,9 @@
     ],
     "keywords": [
       "excerpts",
-      "running",
-      "anyone",
       "always",
+      "anyone",
+      "running",
       "posts"
     ],
     "confidence": 0.8500000000000001,
@@ -682,9 +682,9 @@
       "psf"
     ],
     "keywords": [
-      "grant",
+      "donations",
       "recent",
-      "donations"
+      "grant"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -1964,17 +1964,17 @@
       "microsoft"
     ],
     "keywords": [
+      "office",
+      "alternative",
+      "european",
+      "criminal",
       "open",
       "international",
       "court",
-      "microsoft",
-      "ditch",
-      "criminal",
-      "alternative",
-      "office",
-      "european",
       "zork",
-      "source"
+      "source",
+      "ditch",
+      "microsoft"
     ],
     "confidence": 0.95,
     "examples": [
@@ -2587,8 +2587,8 @@
       "go"
     ],
     "keywords": [
-      "world",
       "college",
+      "world",
       "free"
     ],
     "confidence": 0.8500000000000001,
@@ -3846,8 +3846,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -3911,8 +3911,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -3992,8 +3992,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -4057,8 +4057,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -4355,293 +4355,293 @@
   },
   {
     "entities": [
-      "copilot",
       "react",
-      "openai",
-      "github",
+      "go",
       "docker",
+      "copilot",
+      "github",
       "claude",
       "google",
-      "go"
+      "openai"
     ],
     "keywords": [
-      "users",
-      "feature",
-      "experience",
-      "possible",
-      "change",
-      "every",
-      "cybersecurity",
-      "would",
-      "taken",
-      "between",
-      "projects",
-      "find",
-      "search",
-      "blog",
-      "files",
-      "means",
-      "browser",
-      "these",
-      "separate",
-      "thatprivacyguy",
-      "library",
-      "claude",
-      "google",
-      "connect",
-      "silent",
-      "generate",
-      "some",
-      "progress",
-      "early",
-      "write",
-      "free",
-      "copilot",
-      "related",
-      "linked",
-      "days",
-      "demo",
-      "called",
-      "html",
-      "eleases",
-      "preview",
-      "project",
-      "glasswing",
-      "context",
-      "installs",
-      "local",
-      "usage",
-      "many",
-      "webassembly",
-      "pages",
-      "never",
-      "side",
-      "easier",
-      "check",
-      "sideload",
-      "game",
-      "needed",
-      "github",
-      "offers",
-      "window",
-      "locally",
-      "most",
-      "user",
-      "agent",
-      "primitives",
-      "edge",
-      "mastodon",
-      "other",
-      "both",
-      "tool",
-      "apps",
-      "team",
-      "small",
-      "environment",
-      "look",
-      "systematic",
-      "long",
-      "call",
-      "patterns",
-      "initially",
-      "calls",
-      "without",
-      "client",
-      "chrome",
-      "notes",
-      "page",
-      "does",
-      "make",
-      "flow",
-      "fixes",
-      "repos",
-      "repo",
-      "anyone",
-      "multiple",
-      "something",
-      "several",
-      "track",
-      "there",
-      "create",
-      "model",
-      "systems",
-      "across",
-      "return",
-      "better",
-      "hardware",
-      "pixels",
-      "single",
-      "bottleneck",
-      "added",
-      "support",
-      "versions",
-      "machine",
-      "pattern",
-      "same",
-      "keeps",
-      "voice",
-      "securing",
-      "server",
-      "react",
-      "because",
-      "degrades",
-      "harness",
-      "around",
-      "agents",
-      "production",
-      "finding",
-      "using",
-      "them",
-      "backlinks",
-      "device",
-      "issues",
-      "mythos",
-      "city",
-      "generation",
-      "writing",
-      "going",
-      "people",
-      "open",
-      "well",
       "built",
-      "foundation",
-      "capabilities",
-      "simple",
-      "visits",
-      "performance",
-      "running",
-      "cloud",
-      "everyone",
-      "injection",
-      "launch",
-      "answer",
-      "removed",
-      "pull",
-      "generated",
-      "models",
-      "wanted",
-      "completely",
-      "fail",
-      "nano",
-      "works",
-      "card",
-      "quot",
-      "read",
-      "deep",
-      "customize",
-      "understand",
-      "critical",
-      "hear",
-      "working",
-      "stores",
-      "cursor",
-      "nofollow",
-      "linux",
-      "file",
-      "example",
-      "analytics",
-      "instance",
-      "based",
-      "about",
-      "terminal",
-      "silently",
-      "conversations",
-      "native",
-      "different",
-      "install",
-      "coding",
-      "software",
-      "step",
-      "href",
-      "accounts",
-      "rather",
-      "gives",
-      "stall",
-      "loop",
-      "openai",
-      "then",
-      "like",
-      "things",
-      "real",
-      "language",
-      "existing",
-      "building",
-      "tools",
-      "state",
-      "development",
-      "want",
-      "started",
-      "content",
-      "uses",
-      "love",
-      "features",
-      "data",
-      "relying",
-      "come",
-      "learned",
-      "bill",
-      "test",
-      "those",
-      "didn",
-      "architecture",
-      "world",
-      "version",
-      "docker",
-      "consent",
-      "actually",
-      "need",
-      "back",
-      "specific",
-      "function",
-      "outputs",
-      "everything",
-      "reports",
-      "automatically",
-      "stuff",
-      "together",
-      "memory",
-      "benchmarks",
-      "physical",
-      "used",
-      "mode",
-      "codex",
-      "play",
-      "access",
-      "full",
-      "output",
-      "useful",
-      "released",
-      "including",
-      "video",
-      "dependencies",
-      "point",
-      "runs",
-      "contents",
-      "complex",
-      "system",
       "feedback",
-      "duckduckgo",
-      "accuracy",
-      "relevant",
+      "does",
+      "visits",
+      "device",
+      "real",
+      "track",
+      "multiple",
+      "customize",
+      "well",
+      "source",
+      "video",
       "show",
-      "skills",
-      "right",
-      "able",
-      "thousands",
-      "found",
-      "until",
-      "directly",
-      "assumptions",
-      "true",
+      "stuff",
+      "anyone",
+      "card",
+      "back",
+      "long",
+      "memory",
+      "bottleneck",
+      "client",
+      "silently",
+      "apps",
+      "change",
+      "most",
+      "function",
+      "everyone",
+      "demo",
+      "stall",
+      "locally",
+      "running",
       "good",
-      "interesting",
-      "agentic",
-      "build",
-      "while",
-      "security",
-      "code",
+      "models",
+      "cybersecurity",
+      "context",
+      "across",
+      "them",
+      "about",
+      "look",
+      "world",
+      "bill",
+      "environment",
+      "started",
+      "state",
+      "blog",
+      "love",
+      "understand",
+      "eleases",
+      "different",
+      "voice",
+      "including",
+      "actually",
+      "between",
+      "example",
+      "output",
+      "free",
+      "production",
+      "server",
+      "coding",
+      "chrome",
+      "analytics",
+      "write",
+      "people",
+      "specific",
+      "play",
+      "better",
+      "pull",
+      "href",
+      "agent",
+      "needed",
+      "connect",
+      "glasswing",
+      "deep",
+      "stores",
+      "physical",
+      "test",
+      "securing",
+      "like",
+      "systems",
+      "usage",
+      "support",
+      "right",
+      "versions",
+      "hear",
+      "file",
+      "small",
+      "writing",
+      "removed",
+      "things",
+      "didn",
+      "user",
+      "building",
+      "want",
+      "issues",
       "email",
-      "source"
+      "works",
+      "conversations",
+      "consent",
+      "these",
+      "calls",
+      "skills",
+      "useful",
+      "pixels",
+      "together",
+      "codex",
+      "there",
+      "hardware",
+      "contents",
+      "while",
+      "repo",
+      "step",
+      "released",
+      "data",
+      "openai",
+      "performance",
+      "return",
+      "never",
+      "true",
+      "files",
+      "experience",
+      "pages",
+      "instance",
+      "relying",
+      "would",
+      "preview",
+      "browser",
+      "thatprivacyguy",
+      "install",
+      "full",
+      "fail",
+      "easier",
+      "project",
+      "both",
+      "quot",
+      "existing",
+      "features",
+      "game",
+      "window",
+      "separate",
+      "model",
+      "using",
+      "city",
+      "mastodon",
+      "architecture",
+      "build",
+      "benchmarks",
+      "projects",
+      "native",
+      "uses",
+      "call",
+      "same",
+      "nano",
+      "find",
+      "able",
+      "repos",
+      "every",
+      "injection",
+      "machine",
+      "react",
+      "read",
+      "terminal",
+      "rather",
+      "flow",
+      "because",
+      "agents",
+      "linux",
+      "access",
+      "html",
+      "claude",
+      "library",
+      "systematic",
+      "everything",
+      "users",
+      "primitives",
+      "pattern",
+      "generation",
+      "language",
+      "tools",
+      "nofollow",
+      "search",
+      "loop",
+      "development",
+      "check",
+      "generate",
+      "several",
+      "keeps",
+      "silent",
+      "mythos",
+      "installs",
+      "webassembly",
+      "notes",
+      "something",
+      "foundation",
+      "complex",
+      "google",
+      "cursor",
+      "relevant",
+      "harness",
+      "days",
+      "those",
+      "outputs",
+      "many",
+      "launch",
+      "point",
+      "around",
+      "linked",
+      "learned",
+      "runs",
+      "directly",
+      "security",
+      "interesting",
+      "early",
+      "without",
+      "other",
+      "degrades",
+      "added",
+      "edge",
+      "page",
+      "working",
+      "reports",
+      "assumptions",
+      "version",
+      "tool",
+      "possible",
+      "finding",
+      "capabilities",
+      "docker",
+      "automatically",
+      "answer",
+      "system",
+      "used",
+      "agentic",
+      "local",
+      "software",
+      "team",
+      "progress",
+      "backlinks",
+      "sideload",
+      "some",
+      "patterns",
+      "critical",
+      "make",
+      "called",
+      "content",
+      "based",
+      "going",
+      "dependencies",
+      "open",
+      "wanted",
+      "cloud",
+      "side",
+      "offers",
+      "then",
+      "need",
+      "related",
+      "come",
+      "taken",
+      "simple",
+      "thousands",
+      "accuracy",
+      "create",
+      "generated",
+      "feature",
+      "means",
+      "found",
+      "initially",
+      "completely",
+      "until",
+      "copilot",
+      "github",
+      "single",
+      "accounts",
+      "duckduckgo",
+      "gives",
+      "mode",
+      "code",
+      "fixes"
     ],
     "confidence": 0.95,
     "examples": [
@@ -4650,8 +4650,8 @@
       "Show HN: a Rust ray tracer that runs on any GPU – even in the browser\n\nI’ve been experimenting with "
     ],
     "created_at": "2025-11-03T15:15:52.268098",
-    "last_seen": "2026-06-26T03:02:04.376011",
-    "frequency": 212
+    "last_seen": "2026-06-26T18:44:35.071878",
+    "frequency": 214
   },
   {
     "entities": [
@@ -5510,10 +5510,10 @@
       "amazon"
     ],
     "keywords": [
-      "while",
+      "billions",
       "social",
-      "amazon",
-      "billions"
+      "while",
+      "amazon"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -5529,8 +5529,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "apps"
+      "apps",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -5594,8 +5594,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "apps"
+      "apps",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -7786,11 +7786,11 @@
       "microsoft"
     ],
     "keywords": [
-      "copilot",
-      "microsoft",
-      "australia",
       "office",
-      "subscription"
+      "subscription",
+      "copilot",
+      "australia",
+      "microsoft"
     ],
     "confidence": 0.95,
     "examples": [
@@ -8177,13 +8177,13 @@
       "meta"
     ],
     "keywords": [
-      "users",
-      "social",
+      "meta",
+      "revenue",
       "report",
       "scam",
-      "meta",
       "show",
-      "revenue"
+      "users",
+      "social"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -8199,34 +8199,34 @@
       "github"
     ],
     "keywords": [
-      "open",
       "built",
-      "designed",
-      "text",
-      "improvements",
-      "there",
-      "available",
-      "nofollow",
-      "full",
-      "about",
-      "based",
-      "including",
-      "complex",
-      "release",
-      "announce",
-      "zero",
       "feedback",
+      "real",
+      "href",
+      "full",
+      "major",
+      "source",
       "show",
+      "zero",
+      "release",
+      "like",
+      "designed",
+      "improvements",
       "anything",
       "context",
-      "href",
-      "major",
-      "missing",
-      "like",
-      "real",
+      "text",
+      "based",
+      "open",
       "them",
+      "about",
+      "nofollow",
+      "including",
+      "there",
+      "missing",
+      "available",
+      "complex",
       "code",
-      "source"
+      "announce"
     ],
     "confidence": 0.95,
     "examples": [
@@ -8502,12 +8502,12 @@
   },
   {
     "entities": [
-      "pytorch",
-      "meta"
+      "meta",
+      "pytorch"
     ],
     "keywords": [
-      "pytorch",
-      "meta"
+      "meta",
+      "pytorch"
     ],
     "confidence": 0.95,
     "examples": [
@@ -9403,8 +9403,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "against"
+      "against",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -9453,8 +9453,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "against"
+      "against",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -9503,8 +9503,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -9553,8 +9553,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -9998,8 +9998,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10047,8 +10047,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10096,8 +10096,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10145,8 +10145,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10194,8 +10194,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10243,8 +10243,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10292,8 +10292,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10341,8 +10341,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10390,8 +10390,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10439,8 +10439,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10488,8 +10488,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10537,8 +10537,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10586,8 +10586,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10635,8 +10635,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10684,8 +10684,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10733,8 +10733,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10782,8 +10782,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10831,8 +10831,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10880,8 +10880,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10929,8 +10929,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -10978,8 +10978,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -11027,8 +11027,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "security"
+      "security",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -11076,9 +11076,9 @@
       "google"
     ],
     "keywords": [
-      "google",
+      "stop",
       "security",
-      "stop"
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -11223,12 +11223,12 @@
       "google"
     ],
     "keywords": [
-      "sending",
       "fund",
+      "bugs",
+      "sending",
       "ffmpeg",
-      "google",
       "stop",
-      "bugs"
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -12276,26 +12276,26 @@
       "go"
     ],
     "keywords": [
-      "users",
-      "future",
-      "every",
-      "back",
-      "tokens",
+      "send",
       "multiple",
-      "some",
+      "interesting",
+      "back",
+      "like",
       "systems",
-      "access",
-      "product",
-      "feel",
+      "tokens",
       "anything",
       "turned",
-      "like",
-      "costs",
-      "send",
-      "want",
+      "every",
+      "some",
+      "feel",
+      "access",
       "them",
-      "interesting",
+      "want",
+      "future",
+      "users",
       "post",
+      "costs",
+      "product",
       "keep"
     ],
     "confidence": 0.95,
@@ -12784,11 +12784,11 @@
       "mozilla"
     ],
     "keywords": [
-      "browser",
-      "window",
       "firefox",
-      "mozilla",
+      "window",
+      "browser",
       "want",
+      "mozilla",
       "blog"
     ],
     "confidence": 0.95,
@@ -13062,8 +13062,8 @@
       "mozilla"
     ],
     "keywords": [
-      "mozilla",
-      "want"
+      "want",
+      "mozilla"
     ],
     "confidence": 0.8,
     "examples": [
@@ -13112,8 +13112,8 @@
       "mozilla"
     ],
     "keywords": [
-      "mozilla",
-      "want"
+      "want",
+      "mozilla"
     ],
     "confidence": 0.8,
     "examples": [
@@ -13162,8 +13162,8 @@
       "mozilla"
     ],
     "keywords": [
-      "mozilla",
-      "want"
+      "want",
+      "mozilla"
     ],
     "confidence": 0.8,
     "examples": [
@@ -13229,8 +13229,8 @@
       "mozilla"
     ],
     "keywords": [
-      "mozilla",
-      "want"
+      "want",
+      "mozilla"
     ],
     "confidence": 0.8,
     "examples": [
@@ -13296,8 +13296,8 @@
       "mozilla"
     ],
     "keywords": [
-      "mozilla",
-      "want"
+      "want",
+      "mozilla"
     ],
     "confidence": 0.8,
     "examples": [
@@ -13359,8 +13359,8 @@
       "mozilla"
     ],
     "keywords": [
-      "mozilla",
-      "want"
+      "want",
+      "mozilla"
     ],
     "confidence": 0.8,
     "examples": [
@@ -14165,9 +14165,9 @@
       "javascript"
     ],
     "keywords": [
+      "engine",
       "rust",
       "written",
-      "engine",
       "javascript"
     ],
     "confidence": 0.8500000000000001,
@@ -14723,8 +14723,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "antigravity"
+      "antigravity",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -14789,8 +14789,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "antigravity"
+      "antigravity",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -14835,14 +14835,14 @@
   },
   {
     "entities": [
-      "google",
+      "apple",
       "gemini",
-      "apple"
+      "google"
     ],
     "keywords": [
-      "google",
+      "apple",
       "gemini",
-      "apple"
+      "google"
     ],
     "confidence": 0.95,
     "examples": [
@@ -15587,24 +15587,24 @@
       "google"
     ],
     "keywords": [
-      "users",
       "text",
-      "href",
-      "means",
-      "like",
-      "searchable",
       "view",
-      "take",
-      "anyone",
-      "action",
-      "google",
-      "something",
-      "allow",
-      "reading",
+      "searchable",
+      "access",
+      "means",
       "nofollow",
+      "like",
       "search",
       "across",
-      "access"
+      "take",
+      "action",
+      "href",
+      "something",
+      "allow",
+      "google",
+      "users",
+      "anyone",
+      "reading"
     ],
     "confidence": 0.95,
     "examples": [
@@ -15836,9 +15836,9 @@
       "docker"
     ],
     "keywords": [
+      "macos",
       "updates",
-      "docker",
-      "macos"
+      "docker"
     ],
     "confidence": 0.95,
     "examples": [
@@ -16313,8 +16313,8 @@
     ],
     "keywords": [
       "meta",
-      "court",
       "filings",
+      "court",
       "allege"
     ],
     "confidence": 0.8500000000000001,
@@ -16588,9 +16588,9 @@
       "docker"
     ],
     "keywords": [
-      "keep",
       "docker",
-      "morning"
+      "morning",
+      "keep"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -17873,8 +17873,8 @@
       "meta"
     ],
     "keywords": [
-      "using",
-      "meta"
+      "meta",
+      "using"
     ],
     "confidence": 0.8,
     "examples": [
@@ -17923,8 +17923,8 @@
       "meta"
     ],
     "keywords": [
-      "using",
-      "meta"
+      "meta",
+      "using"
     ],
     "confidence": 0.8,
     "examples": [
@@ -18329,9 +18329,9 @@
       "github"
     ],
     "keywords": [
-      "dillo",
+      "github",
       "migrating",
-      "github"
+      "dillo"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -19222,13 +19222,13 @@
       "microsoft"
     ],
     "keywords": [
+      "obsession",
       "service",
-      "microsoft",
       "ruined",
       "github",
+      "says",
       "quits",
-      "obsession",
-      "says"
+      "microsoft"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -19244,8 +19244,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "interfaces"
+      "interfaces",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19294,8 +19294,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "interfaces"
+      "interfaces",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19361,8 +19361,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "interfaces"
+      "interfaces",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19412,8 +19412,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "interfaces"
+      "interfaces",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19463,8 +19463,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "interfaces"
+      "interfaces",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19514,8 +19514,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "interfaces"
+      "interfaces",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19814,8 +19814,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19864,8 +19864,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19914,8 +19914,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -19964,8 +19964,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -20670,8 +20670,8 @@
       "microsoft"
     ],
     "keywords": [
-      "prices",
       "license",
+      "prices",
       "microsoft",
       "office"
     ],
@@ -20690,10 +20690,10 @@
       "go"
     ],
     "keywords": [
+      "even",
+      "japan",
       "based",
       "about",
-      "japan",
-      "even",
       "earthquake"
     ],
     "confidence": 0.8500000000000001,
@@ -21129,12 +21129,12 @@
       "go"
     ],
     "keywords": [
-      "output",
       "other",
-      "elements",
+      "human",
+      "output",
       "system",
       "engineering",
-      "human",
+      "elements",
       "models"
     ],
     "confidence": 0.8500000000000001,
@@ -21347,18 +21347,18 @@
       "go"
     ],
     "keywords": [
-      "humans",
-      "than",
       "thing",
+      "than",
+      "never",
+      "humans",
       "real",
+      "wrong",
+      "there",
+      "love",
+      "happy",
       "today",
       "good",
-      "wrong",
-      "lots",
-      "there",
-      "happy",
-      "love",
-      "never"
+      "lots"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -21662,8 +21662,8 @@
       "openai"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -21728,8 +21728,8 @@
       "openai"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -21794,8 +21794,8 @@
       "openai"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -21860,8 +21860,8 @@
       "openai"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -22267,8 +22267,8 @@
       "github"
     ],
     "keywords": [
-      "make",
-      "github"
+      "github",
+      "make"
     ],
     "confidence": 0.8,
     "examples": [
@@ -22350,8 +22350,8 @@
       "github"
     ],
     "keywords": [
-      "make",
-      "github"
+      "github",
+      "make"
     ],
     "confidence": 0.8,
     "examples": [
@@ -23096,8 +23096,8 @@
       "github"
     ],
     "keywords": [
-      "actions",
-      "github"
+      "github",
+      "actions"
     ],
     "confidence": 0.8,
     "examples": [
@@ -23114,11 +23114,11 @@
       "mozilla"
     ],
     "keywords": [
-      "anthony",
       "firefox",
+      "anthony",
+      "enzor",
       "mozilla",
-      "demeo",
-      "enzor"
+      "demeo"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -23168,8 +23168,8 @@
       "github"
     ],
     "keywords": [
-      "actions",
-      "github"
+      "github",
+      "actions"
     ],
     "confidence": 0.8,
     "examples": [
@@ -23251,8 +23251,8 @@
       "github"
     ],
     "keywords": [
-      "actions",
-      "github"
+      "github",
+      "actions"
     ],
     "confidence": 0.8,
     "examples": [
@@ -23349,8 +23349,8 @@
       "github"
     ],
     "keywords": [
-      "actions",
-      "github"
+      "github",
+      "actions"
     ],
     "confidence": 0.8,
     "examples": [
@@ -23885,30 +23885,30 @@
       "go"
     ],
     "keywords": [
-      "since",
-      "feature",
       "built",
-      "today",
-      "seconds",
       "would",
-      "actually",
-      "automatically",
-      "tried",
-      "make",
-      "there",
-      "internet",
-      "getting",
-      "export",
-      "ideas",
-      "then",
-      "because",
-      "like",
       "seems",
+      "internet",
+      "since",
+      "features",
       "using",
-      "them",
+      "getting",
+      "ideas",
+      "like",
+      "automatically",
+      "because",
+      "make",
       "content",
+      "them",
+      "then",
+      "seconds",
       "managing",
-      "features"
+      "feature",
+      "actually",
+      "there",
+      "export",
+      "today",
+      "tried"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -24532,10 +24532,10 @@
       "google"
     ],
     "keywords": [
-      "these",
       "other",
       "vetting",
       "google",
+      "these",
       "same"
     ],
     "confidence": 0.8500000000000001,
@@ -25104,10 +25104,10 @@
       "rust"
     ],
     "keywords": [
-      "native",
-      "rust",
+      "like",
       "supports",
-      "like"
+      "rust",
+      "native"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -26418,8 +26418,8 @@
       "javascript"
     ],
     "keywords": [
-      "html",
-      "javascript"
+      "javascript",
+      "html"
     ],
     "confidence": 0.8,
     "examples": [
@@ -26484,8 +26484,8 @@
       "javascript"
     ],
     "keywords": [
-      "html",
-      "javascript"
+      "javascript",
+      "html"
     ],
     "confidence": 0.8,
     "examples": [
@@ -26552,8 +26552,8 @@
       "javascript"
     ],
     "keywords": [
-      "html",
-      "javascript"
+      "javascript",
+      "html"
     ],
     "confidence": 0.8,
     "examples": [
@@ -26604,8 +26604,8 @@
       "javascript"
     ],
     "keywords": [
-      "html",
-      "javascript"
+      "javascript",
+      "html"
     ],
     "confidence": 0.8,
     "examples": [
@@ -26639,8 +26639,8 @@
       "javascript"
     ],
     "keywords": [
-      "html",
-      "javascript"
+      "javascript",
+      "html"
     ],
     "confidence": 0.8,
     "examples": [
@@ -26674,8 +26674,8 @@
       "javascript"
     ],
     "keywords": [
-      "html",
-      "javascript"
+      "javascript",
+      "html"
     ],
     "confidence": 0.8,
     "examples": [
@@ -26840,23 +26840,23 @@
   },
   {
     "entities": [
-      "google",
-      "apple"
+      "apple",
+      "google"
     ],
     "keywords": [
       "erzta",
-      "replace",
-      "digital",
       "infrastructure",
-      "archive",
       "mastercard",
-      "zero",
-      "apple",
-      "google",
       "visa",
-      "payments",
       "european",
-      "fees"
+      "digital",
+      "apple",
+      "archive",
+      "fees",
+      "google",
+      "payments",
+      "zero",
+      "replace"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -26873,11 +26873,11 @@
     ],
     "keywords": [
       "real",
-      "tools",
       "claude",
-      "plugin",
       "show",
-      "code"
+      "code",
+      "plugin",
+      "tools"
     ],
     "confidence": 0.95,
     "examples": [
@@ -27101,10 +27101,10 @@
       "google"
     ],
     "keywords": [
-      "google",
       "play",
+      "puzzle",
       "show",
-      "puzzle"
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -27989,8 +27989,8 @@
     ],
     "keywords": [
       "happy",
-      "google",
-      "permission"
+      "permission",
+      "google"
     ],
     "confidence": 0.95,
     "examples": [
@@ -28293,18 +28293,18 @@
       "reddit"
     ],
     "keywords": [
-      "debunked",
-      "hoax",
-      "delivery",
-      "food",
-      "news",
       "reddit",
-      "company",
       "eats",
+      "hoax",
       "fake",
+      "news",
+      "uber",
+      "debunked",
+      "company",
+      "delivery",
       "platformer",
-      "whisleblower",
-      "uber"
+      "food",
+      "whisleblower"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -28914,8 +28914,8 @@
       "twitter"
     ],
     "keywords": [
-      "twitter",
-      "there"
+      "there",
+      "twitter"
     ],
     "confidence": 0.8,
     "examples": [
@@ -28949,8 +28949,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "href"
+      "href",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -28983,8 +28983,8 @@
       "twitter"
     ],
     "keywords": [
-      "twitter",
-      "there"
+      "there",
+      "twitter"
     ],
     "confidence": 0.8,
     "examples": [
@@ -29018,8 +29018,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "href"
+      "href",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -29087,9 +29087,9 @@
     ],
     "keywords": [
       "cowards",
-      "google",
       "policy",
-      "theverge"
+      "theverge",
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -29121,8 +29121,8 @@
       "github"
     ],
     "keywords": [
-      "show",
-      "like"
+      "like",
+      "show"
     ],
     "confidence": 0.8,
     "examples": [
@@ -29171,8 +29171,8 @@
       "github"
     ],
     "keywords": [
-      "show",
-      "like"
+      "like",
+      "show"
     ],
     "confidence": 0.8,
     "examples": [
@@ -29205,8 +29205,8 @@
       "github"
     ],
     "keywords": [
-      "show",
-      "like"
+      "like",
+      "show"
     ],
     "confidence": 0.8,
     "examples": [
@@ -29222,8 +29222,8 @@
       "github"
     ],
     "keywords": [
-      "show",
-      "like"
+      "like",
+      "show"
     ],
     "confidence": 0.8,
     "examples": [
@@ -29959,8 +29959,8 @@
       "github"
     ],
     "keywords": [
-      "code",
-      "show"
+      "show",
+      "code"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30011,8 +30011,8 @@
       "github"
     ],
     "keywords": [
-      "code",
-      "show"
+      "show",
+      "code"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30148,8 +30148,8 @@
       "claude"
     ],
     "keywords": [
-      "cowork",
-      "claude"
+      "claude",
+      "cowork"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30200,8 +30200,8 @@
       "claude"
     ],
     "keywords": [
-      "cowork",
-      "claude"
+      "claude",
+      "cowork"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30249,8 +30249,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30267,8 +30267,8 @@
       "claude"
     ],
     "keywords": [
-      "cowork",
-      "claude"
+      "claude",
+      "cowork"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30316,8 +30316,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30334,8 +30334,8 @@
       "claude"
     ],
     "keywords": [
-      "cowork",
-      "claude"
+      "claude",
+      "cowork"
     ],
     "confidence": 0.8,
     "examples": [
@@ -30868,15 +30868,15 @@
   },
   {
     "entities": [
-      "claude",
-      "react"
+      "react",
+      "claude"
     ],
     "keywords": [
       "react",
-      "interfaces",
-      "claude",
       "using",
-      "code"
+      "claude",
+      "code",
+      "interfaces"
     ],
     "confidence": 0.95,
     "examples": [
@@ -30926,10 +30926,10 @@
       "go"
     ],
     "keywords": [
+      "space",
       "open",
-      "terminal",
       "show",
-      "space"
+      "terminal"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -31046,11 +31046,11 @@
       "mozilla"
     ],
     "keywords": [
-      "tfaforms",
-      "mozillafoundation",
-      "input",
-      "mozilla",
       "mine",
+      "input",
+      "mozillafoundation",
+      "tfaforms",
+      "mozilla",
       "wants"
     ],
     "confidence": 0.8500000000000001,
@@ -31101,11 +31101,11 @@
       "intel"
     ],
     "keywords": [
+      "chip",
+      "microcode",
       "intel",
       "point",
-      "chip",
-      "floating",
-      "microcode"
+      "floating"
     ],
     "confidence": 0.95,
     "examples": [
@@ -31422,9 +31422,9 @@
       "amazon"
     ],
     "keywords": [
+      "type",
       "shopping",
-      "amazon",
-      "type"
+      "amazon"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -31440,9 +31440,9 @@
       "react"
     ],
     "keywords": [
-      "native",
       "react",
-      "library"
+      "library",
+      "native"
     ],
     "confidence": 0.95,
     "examples": [
@@ -31761,12 +31761,12 @@
       "microsoft"
     ],
     "keywords": [
-      "microsoft",
-      "bitlocker",
       "unlock",
-      "encryption",
+      "bitlocker",
       "gave",
-      "keys"
+      "keys",
+      "microsoft",
+      "encryption"
     ],
     "confidence": 0.95,
     "examples": [
@@ -32124,13 +32124,13 @@
   },
   {
     "entities": [
-      "claude",
-      "github"
+      "github",
+      "claude"
     ],
     "keywords": [
       "claude",
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -33439,8 +33439,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -33491,8 +33491,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -33543,8 +33543,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -33577,8 +33577,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -33796,8 +33796,8 @@
     ],
     "keywords": [
       "people",
-      "google",
-      "news"
+      "news",
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -34385,8 +34385,8 @@
       "github"
     ],
     "keywords": [
-      "stopped",
-      "github"
+      "github",
+      "stopped"
     ],
     "confidence": 0.8,
     "examples": [
@@ -34437,8 +34437,8 @@
       "github"
     ],
     "keywords": [
-      "stopped",
-      "github"
+      "github",
+      "stopped"
     ],
     "confidence": 0.8,
     "examples": [
@@ -34931,10 +34931,10 @@
       "go"
     ],
     "keywords": [
+      "example",
       "based",
       "well",
-      "them",
-      "example"
+      "them"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -35528,8 +35528,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "last"
+      "last",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -35562,8 +35562,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "last"
+      "last",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -35596,14 +35596,14 @@
       "google"
     ],
     "keywords": [
-      "card",
-      "bank",
+      "handed",
+      "student",
       "journalist",
       "credit",
-      "google",
-      "handed",
       "numbers",
-      "student"
+      "google",
+      "card",
+      "bank"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -35873,11 +35873,11 @@
       "github"
     ],
     "keywords": [
-      "then",
       "inspired",
       "github",
-      "init",
-      "code"
+      "then",
+      "code",
+      "init"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -36022,12 +36022,12 @@
   },
   {
     "entities": [
-      "rust",
-      "react"
+      "react",
+      "rust"
     ],
     "keywords": [
-      "rust",
-      "react"
+      "react",
+      "rust"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -36788,15 +36788,15 @@
       "google"
     ],
     "keywords": [
-      "open",
-      "verification",
-      "android",
       "program",
-      "keepandroidopen",
-      "google",
-      "developer",
+      "open",
+      "opposing",
+      "verification",
       "letter",
-      "opposing"
+      "google",
+      "keepandroidopen",
+      "developer",
+      "android"
     ],
     "confidence": 0.95,
     "examples": [
@@ -36812,12 +36812,12 @@
       "go"
     ],
     "keywords": [
-      "mostly",
       "using",
-      "used",
-      "there",
       "build",
-      "code"
+      "there",
+      "code",
+      "mostly",
+      "used"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -37186,9 +37186,9 @@
       "copilot"
     ],
     "keywords": [
+      "copilot",
       "says",
       "emails",
-      "copilot",
       "confidential"
     ],
     "confidence": 0.8500000000000001,
@@ -37255,8 +37255,8 @@
       "claude"
     ],
     "keywords": [
-      "around",
-      "claude"
+      "claude",
+      "around"
     ],
     "confidence": 0.8,
     "examples": [
@@ -37304,8 +37304,8 @@
       "claude"
     ],
     "keywords": [
-      "around",
-      "claude"
+      "claude",
+      "around"
     ],
     "confidence": 0.8,
     "examples": [
@@ -37353,8 +37353,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -37370,8 +37370,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "show"
+      "show",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -37419,8 +37419,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -37436,8 +37436,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "show"
+      "show",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -37601,13 +37601,13 @@
       "amazon"
     ],
     "keywords": [
-      "data",
-      "disable",
       "fulu",
-      "video",
-      "amazon",
+      "disable",
       "ring",
-      "bounty"
+      "bounty",
+      "video",
+      "data",
+      "amazon"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -38229,8 +38229,8 @@
       "apple"
     ],
     "keywords": [
-      "well",
-      "apple"
+      "apple",
+      "well"
     ],
     "confidence": 0.8,
     "examples": [
@@ -38278,8 +38278,8 @@
       "apple"
     ],
     "keywords": [
-      "well",
-      "apple"
+      "apple",
+      "well"
     ],
     "confidence": 0.8,
     "examples": [
@@ -38647,13 +38647,13 @@
       "go"
     ],
     "keywords": [
-      "about",
-      "instead",
-      "make",
+      "questions",
       "different",
-      "show",
+      "make",
+      "instead",
+      "about",
       "step",
-      "questions"
+      "show"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -39416,12 +39416,12 @@
       "openai"
     ],
     "keywords": [
-      "network",
-      "openai",
-      "classified",
       "deploy",
       "nofollow",
       "href",
+      "classified",
+      "openai",
+      "network",
       "models"
     ],
     "confidence": 0.95,
@@ -39972,8 +39972,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "like"
+      "like",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -40037,8 +40037,8 @@
       "react"
     ],
     "keywords": [
-      "react",
-      "like"
+      "like",
+      "react"
     ],
     "confidence": 0.8,
     "examples": [
@@ -40147,11 +40147,11 @@
       "go"
     ],
     "keywords": [
-      "like",
-      "back",
       "least",
       "month",
-      "stuff"
+      "like",
+      "stuff",
+      "back"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -40709,8 +40709,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -40743,8 +40743,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -41877,9 +41877,9 @@
       "google"
     ],
     "keywords": [
-      "google",
+      "want",
       "href",
-      "want"
+      "google"
     ],
     "confidence": 0.95,
     "examples": [
@@ -42142,8 +42142,8 @@
     ],
     "keywords": [
       "claude",
-      "code",
-      "spending"
+      "spending",
+      "code"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -42647,8 +42647,8 @@
       "go"
     ],
     "keywords": [
-      "down",
-      "control"
+      "control",
+      "down"
     ],
     "confidence": 0.8,
     "examples": [
@@ -42697,8 +42697,8 @@
       "go"
     ],
     "keywords": [
-      "down",
-      "control"
+      "control",
+      "down"
     ],
     "confidence": 0.8,
     "examples": [
@@ -42781,20 +42781,20 @@
       "typescript"
     ],
     "keywords": [
-      "about",
-      "design",
       "built",
+      "design",
+      "create",
+      "typescript",
+      "build",
       "prompts",
       "open",
-      "create",
       "site",
       "while",
+      "about",
       "building",
-      "problem",
       "show",
-      "build",
-      "typescript",
-      "code"
+      "code",
+      "problem"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -43998,9 +43998,9 @@
       "react"
     ],
     "keywords": [
-      "keep",
       "react",
-      "while"
+      "while",
+      "keep"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -44017,8 +44017,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "news"
+      "news",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -44084,8 +44084,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "news"
+      "news",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -44151,8 +44151,8 @@
       "github"
     ],
     "keywords": [
-      "security",
-      "github"
+      "github",
+      "security"
     ],
     "confidence": 0.8,
     "examples": [
@@ -44201,8 +44201,8 @@
       "github"
     ],
     "keywords": [
-      "security",
-      "github"
+      "github",
+      "security"
     ],
     "confidence": 0.8,
     "examples": [
@@ -44251,9 +44251,9 @@
       "meta"
     ],
     "keywords": [
-      "children",
-      "jury",
       "meta",
+      "jury",
+      "children",
       "mexico"
     ],
     "confidence": 0.8500000000000001,
@@ -44286,8 +44286,8 @@
       "github"
     ],
     "keywords": [
-      "then",
       "project",
+      "then",
       "like"
     ],
     "confidence": 0.95,
@@ -44468,8 +44468,8 @@
       "meta"
     ],
     "keywords": [
-      "landmark",
-      "meta"
+      "meta",
+      "landmark"
     ],
     "confidence": 0.8,
     "examples": [
@@ -44517,8 +44517,8 @@
       "meta"
     ],
     "keywords": [
-      "landmark",
-      "meta"
+      "meta",
+      "landmark"
     ],
     "confidence": 0.8,
     "examples": [
@@ -45060,8 +45060,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "show"
+      "show",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -45121,8 +45121,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "show"
+      "show",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -45151,12 +45151,12 @@
   },
   {
     "entities": [
-      "chatgpt",
-      "react"
+      "react",
+      "chatgpt"
     ],
     "keywords": [
-      "chatgpt",
-      "react"
+      "react",
+      "chatgpt"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -46350,8 +46350,8 @@
       "go"
     ],
     "keywords": [
-      "them",
-      "these"
+      "these",
+      "them"
     ],
     "confidence": 0.8,
     "examples": [
@@ -46432,8 +46432,8 @@
       "go"
     ],
     "keywords": [
-      "them",
-      "these"
+      "these",
+      "them"
     ],
     "confidence": 0.8,
     "examples": [
@@ -46982,9 +46982,9 @@
       "google"
     ],
     "keywords": [
-      "google",
+      "websites",
       "years",
-      "websites"
+      "google"
     ],
     "confidence": 0.95,
     "examples": [
@@ -47336,11 +47336,11 @@
       "microsoft"
     ],
     "keywords": [
-      "microsoft",
       "windows",
       "updates",
       "veracrypt",
-      "account"
+      "account",
+      "microsoft"
     ],
     "confidence": 0.95,
     "examples": [
@@ -47551,14 +47551,14 @@
     ],
     "keywords": [
       "futurism",
-      "igence",
-      "overviews",
+      "artificial",
+      "wrong",
+      "intell",
       "misinformation",
       "answers",
-      "artificial",
-      "intell",
       "google",
-      "wrong"
+      "overviews",
+      "igence"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -47575,10 +47575,10 @@
       "github"
     ],
     "keywords": [
-      "great",
-      "forward",
-      "github",
       "leehanchung",
+      "great",
+      "github",
+      "forward",
       "blogs",
       "leap"
     ],
@@ -47856,12 +47856,12 @@
       "microsoft"
     ],
     "keywords": [
-      "following",
-      "microsoft",
       "windows",
-      "release",
       "news",
-      "wireguard"
+      "release",
+      "wireguard",
+      "microsoft",
+      "following"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -48148,8 +48148,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "configuration"
+      "configuration",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -48195,8 +48195,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "configuration"
+      "configuration",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -48228,8 +48228,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "configuration"
+      "configuration",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -48261,8 +48261,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "configuration"
+      "configuration",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -48294,8 +48294,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "configuration"
+      "configuration",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -48327,8 +48327,8 @@
       "docker"
     ],
     "keywords": [
-      "docker",
-      "configuration"
+      "configuration",
+      "docker"
     ],
     "confidence": 0.8,
     "examples": [
@@ -50272,8 +50272,8 @@
       "apple"
     ],
     "keywords": [
-      "deleted",
-      "apple"
+      "apple",
+      "deleted"
     ],
     "confidence": 0.8,
     "examples": [
@@ -50322,8 +50322,8 @@
       "apple"
     ],
     "keywords": [
-      "deleted",
-      "apple"
+      "apple",
+      "deleted"
     ],
     "confidence": 0.8,
     "examples": [
@@ -50372,8 +50372,8 @@
       "apple"
     ],
     "keywords": [
-      "deleted",
-      "apple"
+      "apple",
+      "deleted"
     ],
     "confidence": 0.8,
     "examples": [
@@ -50422,8 +50422,8 @@
       "apple"
     ],
     "keywords": [
-      "deleted",
-      "apple"
+      "apple",
+      "deleted"
     ],
     "confidence": 0.8,
     "examples": [
@@ -50537,9 +50537,9 @@
     ],
     "keywords": [
       "realize",
-      "idea",
       "means",
-      "blog"
+      "blog",
+      "idea"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -50716,8 +50716,8 @@
     ],
     "keywords": [
       "about",
-      "code",
-      "wrote"
+      "wrote",
+      "code"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -50817,10 +50817,10 @@
       "docker"
     ],
     "keywords": [
+      "configuration",
       "easy",
       "makes",
-      "docker",
-      "configuration"
+      "docker"
     ],
     "confidence": 0.95,
     "examples": [
@@ -51364,8 +51364,8 @@
       "go"
     ],
     "keywords": [
-      "most",
-      "these"
+      "these",
+      "most"
     ],
     "confidence": 0.8,
     "examples": [
@@ -51398,8 +51398,8 @@
       "go"
     ],
     "keywords": [
-      "most",
-      "these"
+      "these",
+      "most"
     ],
     "confidence": 0.8,
     "examples": [
@@ -52372,8 +52372,8 @@
     ],
     "keywords": [
       "libraries",
-      "tools",
-      "python"
+      "python",
+      "tools"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -52392,10 +52392,10 @@
     "keywords": [
       "built",
       "using",
-      "rust",
       "codex",
-      "code",
-      "agent"
+      "rust",
+      "agent",
+      "code"
     ],
     "confidence": 0.95,
     "examples": [
@@ -53106,8 +53106,8 @@
       "github"
     ],
     "keywords": [
-      "missing",
       "github",
+      "missing",
       "need"
     ],
     "confidence": 0.8500000000000001,
@@ -53188,10 +53188,10 @@
       "meta"
     ],
     "keywords": [
-      "copyright",
       "meta",
       "zuckerberg",
-      "infringement"
+      "infringement",
+      "copyright"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -53839,9 +53839,9 @@
       "google"
     ],
     "keywords": [
-      "google",
+      "recaptcha",
       "android",
-      "recaptcha"
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -53956,8 +53956,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -54006,8 +54006,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -54504,8 +54504,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -54538,8 +54538,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -55770,8 +55770,8 @@
       "rust"
     ],
     "keywords": [
-      "rust",
-      "repo"
+      "repo",
+      "rust"
     ],
     "confidence": 0.8,
     "examples": [
@@ -55803,8 +55803,8 @@
       "rust"
     ],
     "keywords": [
-      "rust",
-      "repo"
+      "repo",
+      "rust"
     ],
     "confidence": 0.8,
     "examples": [
@@ -55853,13 +55853,13 @@
       "github"
     ],
     "keywords": [
-      "then",
-      "govcloud",
-      "leaked",
-      "github",
       "admin",
       "keys",
-      "result"
+      "result",
+      "github",
+      "then",
+      "leaked",
+      "govcloud"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -56832,8 +56832,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -56849,8 +56849,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -57046,8 +57046,8 @@
       "microsoft"
     ],
     "keywords": [
-      "code",
-      "microsoft"
+      "microsoft",
+      "code"
     ],
     "confidence": 0.8,
     "examples": [
@@ -57096,8 +57096,8 @@
       "microsoft"
     ],
     "keywords": [
-      "code",
-      "microsoft"
+      "microsoft",
+      "code"
     ],
     "confidence": 0.8,
     "examples": [
@@ -58136,9 +58136,9 @@
       "rust"
     ],
     "keywords": [
+      "built",
       "rust",
-      "enjoy",
-      "built"
+      "enjoy"
     ],
     "confidence": 0.95,
     "examples": [
@@ -58155,8 +58155,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "search"
+      "search",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -58222,8 +58222,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "search"
+      "search",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -58285,8 +58285,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "search"
+      "search",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -58348,8 +58348,8 @@
       "google"
     ],
     "keywords": [
-      "google",
-      "search"
+      "search",
+      "google"
     ],
     "confidence": 0.8,
     "examples": [
@@ -58679,11 +58679,11 @@
       "microsoft"
     ],
     "keywords": [
-      "microsoft",
       "enough",
-      "says",
       "researcher",
-      "security"
+      "says",
+      "security",
+      "microsoft"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -58983,8 +58983,8 @@
       "meta"
     ],
     "keywords": [
-      "facebook",
-      "meta"
+      "meta",
+      "facebook"
     ],
     "confidence": 0.8,
     "examples": [
@@ -59016,8 +59016,8 @@
       "meta"
     ],
     "keywords": [
-      "facebook",
-      "meta"
+      "meta",
+      "facebook"
     ],
     "confidence": 0.8,
     "examples": [
@@ -59049,8 +59049,8 @@
       "meta"
     ],
     "keywords": [
-      "facebook",
-      "meta"
+      "meta",
+      "facebook"
     ],
     "confidence": 0.8,
     "examples": [
@@ -59082,8 +59082,8 @@
       "meta"
     ],
     "keywords": [
-      "facebook",
-      "meta"
+      "meta",
+      "facebook"
     ],
     "confidence": 0.8,
     "examples": [
@@ -59115,12 +59115,12 @@
       "meta"
     ],
     "keywords": [
-      "profile",
-      "hackers",
       "meta",
+      "hackers",
+      "accounts",
+      "profile",
       "high",
-      "instagram",
-      "accounts"
+      "instagram"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -59169,9 +59169,9 @@
       "google"
     ],
     "keywords": [
-      "google",
+      "search",
       "growth",
-      "search"
+      "google"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -59188,12 +59188,12 @@
     ],
     "keywords": [
       "people",
-      "support",
-      "hacked",
       "meta",
-      "obama",
+      "hacked",
       "password",
-      "accounts"
+      "support",
+      "accounts",
+      "obama"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -59397,8 +59397,8 @@
       "github"
     ],
     "keywords": [
-      "stealing",
-      "github"
+      "github",
+      "stealing"
     ],
     "confidence": 0.8,
     "examples": [
@@ -59459,8 +59459,8 @@
       "github"
     ],
     "keywords": [
-      "stealing",
-      "github"
+      "github",
+      "stealing"
     ],
     "confidence": 0.8,
     "examples": [
@@ -59597,13 +59597,13 @@
       "meta"
     ],
     "keywords": [
+      "meta",
       "privacy",
+      "companies",
       "because",
-      "video",
       "information",
       "want",
-      "meta",
-      "companies"
+      "video"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -59898,12 +59898,12 @@
       "meta"
     ],
     "keywords": [
-      "glasses",
-      "facial",
       "meta",
       "smart",
-      "code",
-      "recognition"
+      "recognition",
+      "facial",
+      "glasses",
+      "code"
     ],
     "confidence": 0.95,
     "examples": [
@@ -60060,8 +60060,8 @@
       "python"
     ],
     "keywords": [
-      "tools",
-      "python"
+      "python",
+      "tools"
     ],
     "confidence": 0.8,
     "examples": [
@@ -60094,8 +60094,8 @@
       "python"
     ],
     "keywords": [
-      "tools",
-      "python"
+      "python",
+      "tools"
     ],
     "confidence": 0.8,
     "examples": [
@@ -60177,8 +60177,8 @@
     ],
     "keywords": [
       "claude",
-      "code",
-      "bugs"
+      "bugs",
+      "code"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -60689,8 +60689,8 @@
       "rust"
     ],
     "keywords": [
-      "rust",
-      "built"
+      "built",
+      "rust"
     ],
     "confidence": 0.8,
     "examples": [
@@ -60756,8 +60756,8 @@
       "rust"
     ],
     "keywords": [
-      "rust",
-      "built"
+      "built",
+      "rust"
     ],
     "confidence": 0.8,
     "examples": [
@@ -60947,8 +60947,8 @@
       "apple"
     ],
     "keywords": [
-      "siri",
-      "apple"
+      "apple",
+      "siri"
     ],
     "confidence": 0.8,
     "examples": [
@@ -60964,9 +60964,9 @@
       "claude"
     ],
     "keywords": [
-      "system",
+      "claude",
       "fable",
-      "claude"
+      "system"
     ],
     "confidence": 0.95,
     "examples": [
@@ -60999,8 +60999,8 @@
       "apple"
     ],
     "keywords": [
-      "siri",
-      "apple"
+      "apple",
+      "siri"
     ],
     "confidence": 0.8,
     "examples": [
@@ -61405,8 +61405,8 @@
       "go"
     ],
     "keywords": [
-      "seen",
       "about",
+      "seen",
       "years"
     ],
     "confidence": 0.8500000000000001,
@@ -62315,8 +62315,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -62381,8 +62381,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -62448,8 +62448,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -62515,8 +62515,8 @@
       "react"
     ],
     "keywords": [
-      "native",
-      "react"
+      "react",
+      "native"
     ],
     "confidence": 0.8,
     "examples": [
@@ -63243,8 +63243,8 @@
     ],
     "keywords": [
       "github",
-      "write",
-      "found"
+      "found",
+      "write"
     ],
     "confidence": 0.8500000000000001,
     "examples": [
@@ -64457,9 +64457,9 @@
       "apple"
     ],
     "keywords": [
-      "nofollow",
+      "apple",
       "href",
-      "apple"
+      "nofollow"
     ],
     "confidence": 0.95,
     "examples": [
@@ -64510,8 +64510,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -64544,8 +64544,8 @@
       "github"
     ],
     "keywords": [
-      "nofollow",
-      "href"
+      "href",
+      "nofollow"
     ],
     "confidence": 0.8,
     "examples": [
@@ -64571,6 +64571,70 @@
     ],
     "created_at": "2026-06-26T07:20:27.513810",
     "last_seen": "2026-06-26T07:20:27.513814",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "chatgpt"
+    ],
+    "keywords": [
+      "chatgpt"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "maybe they outsourced to ChatGPT the job of checking there haven't been any other projects with name",
+      "U.S. government will decide who gets to use latest upgrade to ChatGPT"
+    ],
+    "created_at": "2026-06-26T18:44:34.270626",
+    "last_seen": "2026-06-26T18:44:34.270630",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2026-06-26T18:44:34.697681",
+    "last_seen": "2026-06-26T18:44:34.697685",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "chatgpt"
+    ],
+    "keywords": [
+      "chatgpt"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "maybe they outsourced to ChatGPT the job of checking there haven't been any other projects with name",
+      "U.S. government will decide who gets to use latest upgrade to ChatGPT"
+    ],
+    "created_at": "2026-06-26T18:44:34.808668",
+    "last_seen": "2026-06-26T18:44:34.808672",
+    "frequency": 1
+  },
+  {
+    "entities": [
+      "python"
+    ],
+    "keywords": [
+      "python"
+    ],
+    "confidence": 0.8,
+    "examples": [
+      "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+      "Python\n\nAll Algorithms implemented in Python"
+    ],
+    "created_at": "2026-06-26T18:44:35.226321",
+    "last_seen": "2026-06-26T18:44:35.226326",
     "frequency": 1
   }
 ]
