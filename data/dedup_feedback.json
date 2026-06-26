@@ -22019,5 +22019,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 3922,
+    "timestamp": "2026-06-26T07:20:27.626589",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "An entire Herculaneum scroll has been read for the first time\n\nPreprint: <a href=\"https:&#x2F;&#x2F;",
+        "removed_items": [
+          "Show HN: OpenKnowledge \u2013 open source AI-first alternative to Obsidian/Notion\n\nHi HN, Nick here. We\u2019r"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple to skip high-end M6 Mac chips in favor of AI-focused M7 line\n\nGiftlink: <a href=\"https:&#x2F;&",
+        "removed_items": [
+          "Apple raises prices of MacBooks, iPads\n\n<a href=\"https:&#x2F;&#x2F;9to5mac.com&#x2F;2026&#x2F;06&#x2"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "An oral history of Bank Python (2021)",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
