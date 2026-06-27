@@ -22080,5 +22080,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 35,
+    "duplicates_found": 2,
+    "patterns_used": 3928,
+    "timestamp": "2026-06-27T03:01:19.111849",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Previewing GPT\u20115.6 Sol: a next-generation model\n\nSystem card: <a href=\"https:&#x2F;&#x2F;deployments",
+        "removed_items": [
+          "Show HN: Smart model routing directly in Claude, Codex and Cursor\n\nWe built a model router that plug"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The open source DOCX editor submitted to HN a few weeks ago has been deleted\n\nThe github repo under ",
+        "removed_items": [
+          "Show HN: Autofit2 \u2013 End-to-end pipeline for multilingual text classification\n\nHi HN, Stefan here. au"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
