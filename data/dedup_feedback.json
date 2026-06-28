@@ -22142,5 +22142,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 3938,
+    "timestamp": "2026-06-28T03:02:23.788715",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Decomp Academy \u2013 Learn to decompile GameCube games into matching C\n\nOver the past few month",
+        "removed_items": [
+          "Anonymous GitHub account mass-dropping undisclosed 0-days"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Adrafinil \u2013 keep a lid-closed Mac awake only while agents work\n\nA month ago there was a wav",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "WAL-RUS: a Rust Rewrite of WAL-G for PostgreSQL Backups",
+        "removed_items": [
+          "claw-code\n\nAn agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed an"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
