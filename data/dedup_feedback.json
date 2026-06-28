@@ -22202,5 +22202,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 3,
+    "patterns_used": 3948,
+    "timestamp": "2026-06-28T18:31:56.833149",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "For those of you who don't follow AI and programming, Claude Code came out in May 2025.",
+        "removed_items": [
+          "I used Claude Code to get a second opinion on my MRI",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
