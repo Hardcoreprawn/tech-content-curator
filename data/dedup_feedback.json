@@ -22226,5 +22226,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 3952,
+    "timestamp": "2026-06-29T03:02:39.936671",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "GLM 5.2 beats Claude in our benchmarks",
+        "removed_items": [
+          "I used Claude Code to get a second opinion on my MRI",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Bash4LLM+ \u2013 A lightweight, dependency-free Bash wrapper for LLM APIs\n\nBash4LLM is a single-",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
