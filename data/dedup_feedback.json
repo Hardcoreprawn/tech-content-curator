@@ -22408,5 +22408,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 3979,
+    "timestamp": "2026-07-01T18:46:54.455625",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Parsewise (YC P25) \u2013 Reason Across Documents with an API\n\nHi all, it\u2019s Greg and Max, foun",
+        "removed_items": [
+          "Show HN: QR code renderer in a TrueType font\n\nIn the &quot;Libre Barcode Project&quot; discussion ye"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
