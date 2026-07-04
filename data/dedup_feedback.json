@@ -22630,5 +22630,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 2,
+    "patterns_used": 4015,
+    "timestamp": "2026-07-04T18:26:32.825919",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This is a niche ask but fedi seems like the place I might find an answer: Does anyone have any idea ",
+        "removed_items": [
+          "Finland's last analogue landline phones go silent after 150 years"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
