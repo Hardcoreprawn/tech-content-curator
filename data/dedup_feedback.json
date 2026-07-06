@@ -22715,5 +22715,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 4029,
+    "timestamp": "2026-07-06T03:01:42.656999",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Homegames. An open-source game platform I've been making for 8 years\n\nI&#x27;m making a pla",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
