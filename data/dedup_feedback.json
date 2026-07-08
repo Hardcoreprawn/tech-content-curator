@@ -22871,5 +22871,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 2,
+    "patterns_used": 4051,
+    "timestamp": "2026-07-08T06:52:01.169913",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Rowboat \u2013 Open-source, local-first alternative to Claude Desktop\n\nClaude\u2019s desktop app is b",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
