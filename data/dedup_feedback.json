@@ -23029,5 +23029,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 4081,
+    "timestamp": "2026-07-10T18:35:20.624039",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Oh no how horrible anyway https://www. tomshardware.com/tech-industry /big-tech/openai-could-reporte",
+        "removed_items": [
+          "GPT-5.6\n\n<a href=\"https:&#x2F;&#x2F;deploymentsafety.openai.com&#x2F;gpt-5-6&#x2F;gpt-5-6.pdf\" rel=\""
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Successful Companies Go Blind",
+        "removed_items": [
+          "Show HN: Reverse-engineering web apps into agent tools\n\nHey HN! We built a browser-based agent that "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
