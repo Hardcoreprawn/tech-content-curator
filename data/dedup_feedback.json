@@ -22997,5 +22997,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 5,
+    "patterns_used": 4075,
+    "timestamp": "2026-07-10T07:12:44.244840",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Getting GLM 5.2 running on my slow computer\n\nA few days ago I found myself trying out GLM 5",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Postgres rewritten in Rust, now passing 100% of the Postgres regression tests",
+        "removed_items": [
+          "Cache-Conscious Data Layout in Rust: Field Zoning, False Sharing, 128-Byte Rule"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Silicon Exec Explains Mac Mini AI Demand and On-Device Future",
+        "removed_items": [
+          "Buried Apple feature turns an iPhone into the perfect kids' dumb phone\n\n<a href=\"https:&#x2F;&#x2F;a"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
