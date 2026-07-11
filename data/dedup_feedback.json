@@ -23082,5 +23082,23 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 4087,
+    "timestamp": "2026-07-11T06:47:16.486408",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Getting GLM 5.2 running on my slow computer\n\nA few days ago I found myself trying out GLM 5",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
