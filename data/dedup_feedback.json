@@ -23059,5 +23059,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 4085,
+    "timestamp": "2026-07-11T02:59:55.754230",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Heard this crazy story of American \"justice\" on the Criminal podcast. A man is arrested for a crime ",
+        "removed_items": [
+          "Successful Companies Go Blind"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
