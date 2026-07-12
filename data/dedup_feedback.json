@@ -23163,5 +23163,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 4102,
+    "timestamp": "2026-07-12T18:23:17.438830",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "New video! I'm hosting an AIM server for my friends, and you can too. https://makertube.net/w/dVCTYs",
+        "removed_items": [
+          "Show HN: Shirei, cross-platform GUI framework in native Go"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude Code May\u2013July 2026 weekly limits promotion",
+        "removed_items": [
+          "Autoresearch, Claude and Constrained Optimization",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Protobuf-py: Protobuf for Python, without compromises",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
