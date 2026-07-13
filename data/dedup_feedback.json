@@ -23225,5 +23225,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 4112,
+    "timestamp": "2026-07-13T07:09:05.486617",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "oops, i cloned another sound card! this is the Beavis Ultrasound, an open source clone of the Gravis",
+        "removed_items": [
+          "rip everyone who uses grok https:// gist.github.com/cereblab/dc9a4 0bc26120f4540e4e09b75ffb547"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Converting colors in JavaScript at 6B operations per second",
+        "removed_items": [
+          "Why Vanilla JavaScript"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k\n\nThis started based off of",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
