@@ -23195,5 +23195,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 4106,
+    "timestamp": "2026-07-13T03:00:23.079137",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Why Vanilla JavaScript",
+        "removed_items": [
+          "javascript-algorithms\n\n\ud83d\udcdd Algorithms and data structures implemented in JavaScript with explanations "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k\n\nThis started based off of",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
