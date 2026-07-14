@@ -23344,5 +23344,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 3,
+    "patterns_used": 4124,
+    "timestamp": "2026-07-14T18:29:22.272634",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "How to stop Claude from saying load-bearing",
+        "removed_items": [
+          "Launch HN: Agnost AI (YC S26) \u2013 Extract user feedback from agent conversations\n\nHey HN, we\u2019re Shubha",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
