@@ -23278,5 +23278,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 6,
+    "patterns_used": 4120,
+    "timestamp": "2026-07-14T02:59:25.720999",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Bad Apple animation with no JS, no CSS, and no HTML tags except  and <br>. Only works in some browse",
+        "removed_items": [
+          "Apple's new SpeechAnalyzer API, benchmarked against Whisper and its predecessor"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Sx 2.0 \u2013 Share AI skills with your team through a Dropbox folder\n\nHi all, author here. SX s",
+        "removed_items": [
+          "Show HN: YouTube Guitar Tab Parser\n\nI created a simple CLI that turns a YouTube guitar-lesson video ",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Jacquard, a programming language for AI-written, human-reviewed code\n\nI&#x27;m fascinated b",
+        "removed_items": [
+          "Show HN: I implemented a neural network in SQL\n\nTwo weeks ago I was on my babymoon in Corfu, Greece.",
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
