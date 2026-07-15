@@ -23423,5 +23423,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 4137,
+    "timestamp": "2026-07-15T18:29:52.632110",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "# Oops . # OpenAI has lost its fight to register their trademark \u201eOPENAI\u201c in the EU: \u201eThe EUIPO foun",
+        "removed_items": [
+          "OpenAI loses trademark dispute at EU court"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "What Every Python Developer Should Know About the CPython ABI",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
