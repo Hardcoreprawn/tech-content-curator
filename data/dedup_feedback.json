@@ -23746,5 +23746,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 4192,
+    "timestamp": "2026-07-20T03:00:51.863624",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Under capitalism, it's very normal to let children go hungry, let banks force people out of their ho",
+        "removed_items": [
+          "There\u2019s a part of me that wonders what came first: do I seem to live harder in Singapore, or do I do",
+          "Here is new information on the cyclospora outbreak. Of note is that Taylor Farms lettuce not include",
+          "Show HN: I replaced a $120k bowling center system with $1,600 in ESP32s\n\nI might be the only SRE on "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code uses Bun written in Rust now",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
