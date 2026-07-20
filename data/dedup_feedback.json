@@ -23778,5 +23778,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 4197,
+    "timestamp": "2026-07-20T07:07:02.284159",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "My college buddy is also visiting Singapore (he moved back home). Where we used to go hang out and s",
+        "removed_items": [
+          "Show HN: I replaced a $120k bowling center system with $1,600 in ESP32s\n\nI might be the only SRE on "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude Code uses Bun written in Rust now",
+        "removed_items": [
+          "Claude Fable produced a counterexample to the Jacobian Conjecture",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
