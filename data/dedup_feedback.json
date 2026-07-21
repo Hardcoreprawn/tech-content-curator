@@ -23855,5 +23855,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 4213,
+    "timestamp": "2026-07-21T06:53:28.198476",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A Nikkei investigation showed that Tech giants Alphabet, Microsoft, Amazon, Meta, &amp; Oracle hide ",
+        "removed_items": [
+          "Opaque, Interoperable Passkey Records (and a Go API)"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Ex Situ \u2013 Open-source spatial index of displaced cultural artifacts\n\nHi, I designed and dev",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Fable produced a counterexample to the Jacobian Conjecture",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
