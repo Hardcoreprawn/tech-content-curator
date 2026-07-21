@@ -23886,5 +23886,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 7,
+    "patterns_used": 4218,
+    "timestamp": "2026-07-21T18:34:16.342082",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "RE: https:// mastodon.social/@gamingonlinux /116958382115564493 Mozilla also used to run a fedi inst",
+        "removed_items": [
+          "If the independent, non-slop web has any future at all, then now must be the time for every firefox ",
+          "I was waiting for my robot friend when a sleek stranger came up to me. \"Hi!\" they said. \"Um... hi?\" "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: CodeAlmanac \u2013 Karpathy-style codebase wiki from your conversations\n\nHey HN! This is Divit f",
+        "removed_items": [
+          "Claude Is Not a Compiler",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Defeats Liability for Not Scanning iCloud for CSAM",
+        "removed_items": [
+          "Apple Fixes Hide My Email Vulnerability After 404 Media Coverage"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
