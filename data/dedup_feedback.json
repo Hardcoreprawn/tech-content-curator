@@ -23825,5 +23825,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 4207,
+    "timestamp": "2026-07-21T03:00:00.736150",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// dair-community.social/@emilymb ender/116935294823990847 Over on LinkedIn, I heard from ",
+        "removed_items": [
+          "The Voice of Google"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "A Nikkei investigation showed that Tech giants Alphabet, Microsoft, Amazon, Meta, &amp; Oracle hide ",
+        "removed_items": [
+          "Opaque, Interoperable Passkey Records (and a Go API)"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Fable produced a counterexample to the Jacobian Conjecture",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
