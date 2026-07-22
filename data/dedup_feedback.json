@@ -23979,5 +23979,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 7,
+    "patterns_used": 4240,
+    "timestamp": "2026-07-22T18:31:20.646207",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "It's slightly surprising how often OpenAI and similar companies are proudly announcing \"not only are",
+        "removed_items": [
+          "So if today's hype cycle is to be believed, some OpenAI model hacked Hugging Face Cool. Cool I'm jus",
+          "This Is Just To Say I have downloaded the data that you shared on your website and which you were pr"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Mastodon has a built-in system to prevent you seeing the same post boosted again and again. However,",
+        "removed_items": [
+          "Ghostty and libghostty are now on Zig 0.16! This was done by a [paid!] contributor over a few weeks.",
+          "Show HN: Bento - An entire PowerPoint in one HTML file (edit+view+data+collab)\n\nOver the past few mo",
+          "Launch HN: Unlayer (YC W22) \u2013 Add email and document builders to your app\n\nHi HN, We\u2019re Adeel and Um"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: DeepSQL \u2013 A self-hostable DBA agent for Postgres and MySQL\n\nHi HN - I&#x27;m Venkat, founde",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
