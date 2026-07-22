@@ -23949,5 +23949,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 4234,
+    "timestamp": "2026-07-22T06:54:05.301207",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "IRBs are a vital mechanism for ensuring that research has respect for persons and avoids causing har",
+        "removed_items": [
+          "Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber\n\n<a href=\"https:&#x2F;&#x2F;console.cloud.goog"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Judge approves $1.5B Anthropic settlement for pirated books used to train Claude",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple defeats liability for not scanning iCloud for CSAM",
+        "removed_items": [
+          "Apple Private Cloud Compute SoC 3 audit reports"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
