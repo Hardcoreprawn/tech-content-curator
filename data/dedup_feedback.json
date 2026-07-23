@@ -24012,5 +24012,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 5,
+    "patterns_used": 4246,
+    "timestamp": "2026-07-23T03:00:05.214848",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "OpenAI are criminally negligent when it comes to cybersecurity, and are very good at viral marketing",
+        "removed_items": [
+          "OpenAI's accidental cyberattack against Hugging Face is science fiction"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "They are hiding mobile Flock Cameras now Video Source: https:// reddit.com/comments/1v3kjm2 # survei",
+        "removed_items": [
+          "So Reddit has decided that plain HTML is unsafe"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Bento - An entire PowerPoint in one HTML file (edit+view+data+collab)\n\nOver the past few mo",
+        "removed_items": [
+          "Restructuring GitHub's bug bounty program",
+          "Launch HN: Unlayer (YC W22) \u2013 Add email and document builders to your app\n\nHi HN, We\u2019re Adeel and Um"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
