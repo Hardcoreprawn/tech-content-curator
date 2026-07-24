@@ -24136,5 +24136,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 4258,
+    "timestamp": "2026-07-24T06:52:44.734267",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Echo \u2013 Fable-level results at 1/3 the cost using open-weight models\n\nI\u2019ve been building Ech",
+        "removed_items": [
+          "OpenAI\u2019s accidental attack against Hugging Face is science fiction that happened\n\n<i>OpenAI and Hugg"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Palmier Pro \u2013 Open-source macOS video editor built for AI\n\nHi HN, we are Marcos and Harriso",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
