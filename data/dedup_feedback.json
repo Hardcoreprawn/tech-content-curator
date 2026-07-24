@@ -24166,5 +24166,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 4264,
+    "timestamp": "2026-07-24T18:36:08.987957",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Claude Opus 5\n\n<a href=\"https:&#x2F;&#x2F;www.anthropic.com&#x2F;claude-opus-5-system-card\" rel=\"nof",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "My security camera shipped a GitHub admin token in its login page",
+        "removed_items": [
+          "Government orders GitHub to remove Bluetooth-based chat app Bitchat: Jack Dorsey"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
