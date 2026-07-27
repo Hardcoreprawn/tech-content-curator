@@ -24383,5 +24383,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 7,
+    "patterns_used": 4296,
+    "timestamp": "2026-07-27T18:37:29.632738",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Yes, it's bad in US right now and sometimes I think if I should go back to Europe, but all I see in ",
+        "removed_items": [
+          "There is a weather service on the Fediverse called FediMeteo providing forecasts in your timeline fo",
+          "We have the winner of our Fediverse Asshole of the Year award. This sorry excuse of a human being ha"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: FeyNoBg \u2013 Automatic background removal model and training library\n\nHey HN, I\u2019m Shreyash fro",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Removing React.js from the codebase and adapting Htmx for UI interactivity (2023)",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
