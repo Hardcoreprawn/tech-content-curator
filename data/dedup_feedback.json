@@ -24527,5 +24527,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 4312,
+    "timestamp": "2026-07-29T06:56:04.790764",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "It's a long shot but I don't suppose anyone in the UK, London more specifically has an old google pi",
+        "removed_items": [
+          "Show HN: Lean4 Datalog DSL Based on Google Zanzibar for AI Projects\n\nGoogle Zanzibar datalog lang le"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Discovering Cryptographic Weaknesses with Claude",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
