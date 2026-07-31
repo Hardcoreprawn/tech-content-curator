@@ -24741,5 +24741,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 4339,
+    "timestamp": "2026-07-31T18:37:14.816192",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "OpenAI: we put our evilest AI in a sandbox that did in fact have an internet connection but mediated",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Google Earth added a weird \"edit with AI\" mode, so I fixed the biggest error in London.",
+        "removed_items": [
+          "\"Google Earth\u2019s New AI Lets Anyone Fabricate Completely Bullshit Satellite Images\" It's easy to ask,",
+          "Google fixed more Chrome bugs in June than over the past two years, thanks to AI"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
