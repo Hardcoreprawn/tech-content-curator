@@ -24709,5 +24709,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 5,
+    "patterns_used": 4336,
+    "timestamp": "2026-07-31T07:01:03.263171",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Stacked PRs are now live on GitHub",
+        "removed_items": [
+          "Show HN: Distilling DeepSeek into GPT-OSS doesn't transfer censorship. Try it\n\nWe recently used Deep",
+          "Show HN: Kedge \u2013 Full-stack cloud with forkable VM snapshots and global SQLite\n\nI&#x27;m building Ke"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Rune 1.1: adds Python, an Emacs editor, a symbol index and is now free",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
