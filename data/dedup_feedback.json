@@ -24773,5 +24773,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 4343,
+    "timestamp": "2026-08-01T03:00:24.788117",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Progressive Web Components\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;arielsalminen&#x2F;elena\" rel",
+        "removed_items": [
+          "Predictive Speculative KV Replication for Bursty LLM Inference\n\n<a href=\"https:&#x2F;&#x2F;github.co"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
