@@ -24881,5 +24881,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 2,
+    "patterns_used": 4357,
+    "timestamp": "2026-08-02T18:25:02.171363",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Bor \u2013 Open-source policy management for Linux desktops\n\nHi HN! I&#x27;ve been working on Bo",
+        "removed_items": [
+          "Go 1.27 Interactive Tour"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
