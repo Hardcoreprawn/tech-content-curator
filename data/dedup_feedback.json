@@ -25145,5 +25145,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 4387,
+    "timestamp": "2026-08-06T06:56:16.813802",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Launch HN: HyperProbe (YC S26) \u2013 Agents that do read-only debugging in prod\n\nHi HN, this is Shailend",
+        "removed_items": [
+          "Show HN: Wallfacer \u2013 A terminal session manager for Claude Code, and more",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
