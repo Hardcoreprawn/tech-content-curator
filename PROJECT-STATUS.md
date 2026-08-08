@@ -175,14 +175,14 @@ SVG_GRAPHICS: true                    # Infographics
 
 ## Automation Strategy
 
-### Three-Workflow Design
+### Workflow Design
 
 **1. Content Pipeline** (`.github/workflows/content-pipeline.yml`)
-- **Trigger:** Scheduled 3x daily (06:00, 18:00, 02:00 UTC) + manual
-- **Actions:** Collect → Enrich → Generate 3 articles → Deploy
+- **Trigger:** Scheduled 3x daily (06:00, 18:00, 02:00 UTC) + manual with configurable `max_articles`
+- **Actions:** Collect → Enrich → Generate articles → Deploy
 - **Duration:** 45-60 minutes
-- **Cost:** ~$0.07 per run
-- **Use Case:** Regular content generation aligned with timezone peaks
+- **Cost:** ~$0.22 per run (10 articles; scales with `max_articles`)
+- **Use Case:** Regular content generation (scheduled) or on-demand generation (manual)
 
 **2. Site Update** (`.github/workflows/site-update.yml`)
 - **Trigger:** Push to `main` (site/ or content/ changes) + manual
@@ -191,12 +191,12 @@ SVG_GRAPHICS: true                    # Infographics
 - **Cost:** ~$0.00 (site-only) or ~$0.002 (with test article)
 - **Use Case:** Quick theme/design changes without full pipeline
 
-**3. Full Pipeline** (`.github/workflows/full-pipeline.yml`)
-- **Trigger:** Manual only (with configurable article count)
-- **Actions:** Same as Content Pipeline
-- **Duration:** 45-60 minutes
-- **Cost:** Variable based on article count
-- **Use Case:** On-demand content generation
+**3. Quarterly Model Evaluation** (`.github/workflows/quarterly-model-evaluation.yml`)
+- **Trigger:** Quarterly schedule (Jan/Apr/Jul/Oct 15th) + manual
+- **Actions:** Model discovery, comparison, A/B testing, recommendation PR
+- **Duration:** Up to 120 minutes
+- **Cost:** Variable based on model count and iterations
+- **Use Case:** Evaluate new OpenAI models and update configurations
 
 ### Timezone Optimization
 
