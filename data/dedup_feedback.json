@@ -25448,5 +25448,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 4426,
+    "timestamp": "2026-08-10T06:30:21.897710",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Your AI did not \"go rogue\" it's just a program. Your AI did not \"hallucinate\" it has no brain. Your ",
+        "removed_items": [
+          "Show HN: Voice driven murder mystery, Interview AI suspects with your voice\n\nHey HN!<p>I&#x27;m exci"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Auto mode is now the default in Claude Code",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
