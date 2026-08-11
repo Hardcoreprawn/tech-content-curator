@@ -25560,5 +25560,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 9,
+    "patterns_used": 4442,
+    "timestamp": "2026-08-11T18:21:34.865837",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "COOL apparently the American Astronomical Society journals (the Astrophysical Journal/Astronomical J",
+        "removed_items": [
+          "I frequently receive messages from people saying that watching the rise of renewables on https:// gr",
+          "Why Go Is an Ideal Language for AI-Assisted Software Engineering",
+          "Launch HN: Keet (YC S24) \u2013 An app to create video courses on anything\n\nHi HN! We\u2019re Zack and Tommy t"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Silicon and macOS VMs: 11\u201316\u00d7 Faster LLM Inference with Llama.cpp",
+        "removed_items": [
+          "H3-metal \u2013 Native MiniMax-H3 inference for Apple Silicon"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Nvidia's Risky Business",
+        "removed_items": [
+          "Nvidia Nemotron 3.5 Lightning"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
