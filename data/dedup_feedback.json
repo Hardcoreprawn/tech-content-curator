@@ -25536,5 +25536,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 3,
+    "patterns_used": 4435,
+    "timestamp": "2026-08-11T06:20:10.543831",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Needle2: 14MB agentic LLM for phones, wearables, smart home and robots\n\nHey HN,<p>Henry fro",
+        "removed_items": [
+          "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
