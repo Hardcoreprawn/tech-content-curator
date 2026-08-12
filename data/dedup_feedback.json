@@ -25622,5 +25622,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 53,
+    "duplicates_found": 3,
+    "patterns_used": 4450,
+    "timestamp": "2026-08-12T06:30:36.763477",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Nvidia Nemotron 3.5 Lightning and NeMo Switchyard",
+        "removed_items": [
+          "Nvidia's Risky Business"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
