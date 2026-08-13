@@ -25739,5 +25739,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 4470,
+    "timestamp": "2026-08-13T18:23:05.804428",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Doing my hobbies more efficiently is insulting. That\u2019s not what my hobbies are about. Otherwise it\u2019s",
+        "removed_items": [
+          "Where did the old web go? We followed 657,607 links to find out",
+          "Show HN: OJCP \u2013 an open protocol for agent-consumable job data\n\nAuthor here!<p>Agents are applying t"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "We just released Mastodon 4.6.6, 4.5.16 and 4.4.23. They contain minor bug fixes and we advise serve",
+        "removed_items": [
+          "DeepSeek Harness developer preview\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;deepseek-ai&#x2F;deep"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Gemini 3.7 Flash\n\n<a href=\"https:&#x2F;&#x2F;ai.google.dev&#x2F;gemini-api&#x2F;docs&#x2F;models&#x2",
+        "removed_items": [
+          "Show HN: MCP Memory \u2013 Fast Agent Memory Using Google's OKF and SQLite FTS5"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
