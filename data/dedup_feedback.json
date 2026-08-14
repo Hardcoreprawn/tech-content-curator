@@ -25802,5 +25802,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 4478,
+    "timestamp": "2026-08-14T06:30:38.240669",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This is a fascinating study. I was on the briefing call yesterday and, y'all -- people (especially o",
+        "removed_items": [
+          "Gemini 3.7 Flash\n\n<a href=\"https:&#x2F;&#x2F;ai.google.dev&#x2F;gemini-api&#x2F;docs&#x2F;models&#x2"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Launch HN: Bullet (YC S26) \u2013 A Faster Coding Agent\n\nHi HN! We\u2019re Adi and Alex, founders of Bullet, a",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
