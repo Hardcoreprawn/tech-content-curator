@@ -25935,5 +25935,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 3,
+    "patterns_used": 4492,
+    "timestamp": "2026-08-16T02:26:01.634339",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Me: *says angry things about Linux* astodon person: \"Well, what should we do about it?\" Me: I don't ",
+        "removed_items": [
+          "Show HN: Eigendrum - Draw any shape and hear what it sounds like as a drum\n\nHi HN, I built Eigendrum"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nAn opinionated list of Python frameworks, libraries, tools, and resources",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
