@@ -26045,5 +26045,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 4503,
+    "timestamp": "2026-08-17T06:12:32.753834",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "We\u2019ve spent the last week packing up our San Francisco apartment that we lived in for close to six y",
+        "removed_items": [
+          "Tell HN: Cloudflare silently injects its analytics when you switch nameservers\n\nA few hours ago I sw"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude: System Prompts",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
