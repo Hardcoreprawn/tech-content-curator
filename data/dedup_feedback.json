@@ -26076,5 +26076,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 4508,
+    "timestamp": "2026-08-17T18:11:45.015788",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Amazon - which started out as a bookstore - is now destroying books so they can train computers to r",
+        "removed_items": [
+          "People have known for a while that AI companies are buying books, scanning them in, and destroying t"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "AI-Generated GitHub Copilot \u201cAutofix\u201d Allowed Compromise of Snowflake's Jira",
+        "removed_items": [
+          "Launch HN: Speko (YC S26) \u2013 OpenRouter for Voice AI\n\nHi HN! I&#x27;m Bek, founder of Speko, a platfo",
+          "Incident with Github.com\n\nJust got this message: &quot;No server is currently available to service y",
+          "Ask HN: Alternatives to GitHub\n\nGithub has been down consistently over the last few months - does it"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Anthropic's \u2018watermark\u2019 text adulteration in Claude is a perversion of writing",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
