@@ -26171,5 +26171,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 9,
+    "patterns_used": 4528,
+    "timestamp": "2026-08-18T18:11:37.305635",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Alright Fedi, I'm looking for a job out of AI hell. I know chances aren't great for anyone right now",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Claude Code weekly limits reduce by a third tomorrow",
+        "removed_items": [
+          "Launch HN: machine0 (YC S26) \u2013 Persistent CPU and GPU VMs from the CLI\n\nHi HN! I\u2019m Barnaby, founder ",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The Amazon tax",
+        "removed_items": [
+          "Why your Amazon order confirmation emails have become so unhelpful"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
