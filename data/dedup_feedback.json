@@ -26234,5 +26234,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 7,
+    "patterns_used": 4544,
+    "timestamp": "2026-08-19T06:10:17.497190",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Happy paperback day to Automatic Noodle! It's been a delightful year for this little book, which won",
+        "removed_items": [
+          "Apple announces changes for apps in the European Union"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Reading this: \"Codeberg is free to choose a values-driven community, but that may conflict with bein",
+        "removed_items": [
+          "Cursor launches Origin, GitHub alternative"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Bun 1.4 Rust rewrite is not looking good",
+        "removed_items": [
+          "Turbovec \u2013 Google's TurboQuant for vector search in Rust"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
