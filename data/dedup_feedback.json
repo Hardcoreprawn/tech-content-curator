@@ -26203,5 +26203,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 4534,
+    "timestamp": "2026-08-19T02:24:28.579972",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Happy paperback day to Automatic Noodle! It's been a delightful year for this little book, which won",
+        "removed_items": [
+          "Apple announces changes for apps in the European Union"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "# Tuba 0.11.0 is now available, with many new features and bug fixes! \u2728\ufe0f Highlights: - Tuba moved to",
+        "removed_items": [
+          "Stars &amp; Stripes publisher announces sudden retirement, telling staff his philosophy of leadershi"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Launch HN: machine0 (YC S26) \u2013 Persistent CPU and GPU VMs from the CLI\n\nHi HN! I\u2019m Barnaby, founder ",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
