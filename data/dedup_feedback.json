@@ -26264,5 +26264,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 4548,
+    "timestamp": "2026-08-19T18:10:08.760070",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "will never understand why anyone would want the fedi to go \"mainstream\"; as though there's not alrea",
+        "removed_items": [
+          "That was one of my favourite interviews I've done about Reflect Orbital. The journalist (who it turn"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: OneCLI (YC S26) \u2013 OSS sandboxed agent harness for teams\n\nHi HN, Jonathan &amp; Guy here f",
+        "removed_items": [
+          "Show HN: Frugal Tokens \u2013 explore costs and usage across coding agents\n\nI wanted to share a project I"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
