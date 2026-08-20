@@ -26340,5 +26340,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 12,
+    "patterns_used": 4559,
+    "timestamp": "2026-08-20T18:11:35.967239",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "We just released Mastodon 4.7.0! This version contains very few user-facing changes, but significant",
+        "removed_items": [
+          "Show HN: I trained a 125M model to autocomplete piano on-device\n\nI trained a 125M-parameter transfor",
+          "Malicious Rust crate Arrayref runs a build-time payload\n\n<a href=\"https:&#x2F;&#x2F;blog.rust-lang.o",
+          "Show HN: We chased a weather balloon across Montana and never found it\n\nSince April, I have been wor"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I changed python app code, FROM: `print(\"Loading..\")` TO: `print(\"Thinking..\")` The app is now Agent",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I really need to shift 60 last tickets for my Fringe show to almost break even. Admittedly, I\u2019ve onl",
+        "removed_items": [
+          "Generic Methods in Go 1.27",
+          "Show HN: Check if any of the $656M in unclaimed royalties at The MLC is yours\n\nHi HN, I built this. "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
