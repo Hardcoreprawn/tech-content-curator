@@ -26406,5 +26406,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 4567,
+    "timestamp": "2026-08-21T06:10:37.971536",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Whenever I submit a prompt to Claude Code, I always end it with \"and use goto as much as possible\".",
+        "removed_items": [
+          "Vomit: Clean up Claude 5's token output with a separate LLM",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
