@@ -26431,5 +26431,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 4570,
+    "timestamp": "2026-08-21T18:11:18.822749",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "From the Linux Kernel Mailing List: https:// lore.kernel.org/lkml/202608182 12923.2725202-1-kuba@ker",
+        "removed_items": [
+          "In case you were wondering how the linux kernel is doing: https:// lore.kernel.org/lkml/202608182 12"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Proliferate- open-source, self-hostable Codex for any coding agent\n\nHi HN- I&#x27;m Pablo, ",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
