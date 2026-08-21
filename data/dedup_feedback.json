@@ -26374,5 +26374,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 5,
+    "patterns_used": 4563,
+    "timestamp": "2026-08-21T02:27:26.518472",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Found an interesting new malware loader which creates a fake Windows lock screen to phish the user's",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Malicious Rust crate Arrayref runs a build-time payload\n\n<a href=\"https:&#x2F;&#x2F;blog.rust-lang.o",
+        "removed_items": [
+          "Show HN: I trained a 125M model to autocomplete piano on-device\n\nI trained a 125M-parameter transfor"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Vomit: Clean up Claude 5's token output with a separate LLM",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
