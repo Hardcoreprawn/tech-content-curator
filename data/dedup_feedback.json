@@ -26778,5 +26778,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 53,
+    "duplicates_found": 6,
+    "patterns_used": 4605,
+    "timestamp": "2026-08-26T02:28:21.633241",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "When str.lower() is a security vulnerability in Python \u2013 Seth Larson",
+        "removed_items": [
+          "Python's pre-declared constants are kinda weird",
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Maiao: Gerrit-style code review workflow for GitHub, GitLab, Gitea, others",
+        "removed_items": [
+          "Show HN: TeXbrain, a LaTeX editor that runs pdfTeX in the browser via WASM\n\nI&#x27;m a master&#x27;s",
+          "Nitter and XCancel receive cease and desist notices\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;zede"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
