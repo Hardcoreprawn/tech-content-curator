@@ -26926,5 +26926,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 5,
+    "patterns_used": 4623,
+    "timestamp": "2026-08-27T21:16:29.643258",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Nvidia Starts Pac as AI Chip Maker Builds DC Influence Force",
+        "removed_items": [
+          "Nvidia agrees to acquire Hugging Face for $13B\n\n<a href=\"https:&#x2F;&#x2F;www.theinformation.com&#x"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Gemini Omni 1.1 Flash",
+        "removed_items": [
+          "Gemini-3.5-Transcribe"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: The load-bearing vocabulary of Claude",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
