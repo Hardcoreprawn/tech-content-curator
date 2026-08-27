@@ -26866,5 +26866,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 3,
+    "patterns_used": 4613,
+    "timestamp": "2026-08-27T03:38:05.018652",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Stripe acquires Clerky\n\n<a href=\"https:&#x2F;&#x2F;twitter.com&#x2F;darbyw&#x2F;status&#x2F;20927188",
+        "removed_items": [
+          "Twitter Viewer \u2013 View Twitter Without Account"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
