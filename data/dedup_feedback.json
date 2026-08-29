@@ -27042,5 +27042,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 4639,
+    "timestamp": "2026-08-29T02:04:14.443359",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Wow.. The Pentagon is paying right wing trolls on social media to defend them.. If you think you sti",
+        "removed_items": [
+          "GLM-5.3 is now open-weight\n\n<a href=\"https:&#x2F;&#x2F;twitter.com&#x2F;Zai_org&#x2F;status&#x2F;209"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "# Spotted on Market Day in Aotearoa New Zealand: A man (80s?), the spitting image of Tom Waits in a ",
+        "removed_items": [
+          "When I'm watching someone else use a computer, and they're about to type a password, I avert my eyes"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
