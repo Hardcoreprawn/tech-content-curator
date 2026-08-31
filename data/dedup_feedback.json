@@ -27256,5 +27256,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 8,
+    "patterns_used": 4665,
+    "timestamp": "2026-08-31T18:20:07.478863",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "If you have a Gmail account, you need to read this. Google's AI now scans your emails and attachment",
+        "removed_items": [
+          "Folks in my hometown area along Lake Ontario are having fits on Facebook about Google Maps relabelin"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Lest anybody misinterpret some of my recent posts/replies about the anger inherent in the LLM usage ",
+        "removed_items": [
+          "Show HN: An HN client that summarises long threads and lets you chat with them\n\nI often find interes",
+          "Breaking Claude Code Opus 5 Auto Mode",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, Apple open-source",
+        "removed_items": [
+          "Apple caught off guard by AI demand for Mac Mini and Mac Studio"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
