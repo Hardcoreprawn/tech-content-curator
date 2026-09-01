@@ -27350,5 +27350,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 5,
+    "patterns_used": 4677,
+    "timestamp": "2026-09-01T18:19:49.104511",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "We just released Mastodon v4.7.1, v4.6.7, v4.5.17 and v4.4.24. These include important security fixe",
+        "removed_items": [
+          "Launch HN: Nori Robotics (YC S26) \u2013 A low-cost humanoid robot for development\n\nHey HN, I\u2019m Antonio f",
+          "Ask HN: Who is hiring? (September 2026)\n\nPlease state the location and include REMOTE for remote wor"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude Fable 5.1 and Claude Mythos 5.1\n\nWhat&#x27;s new in Claude Fable 5.1\n \u2013 <a href=\"https:&#x2F;",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
