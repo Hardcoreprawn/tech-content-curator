@@ -27415,5 +27415,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 6,
+    "patterns_used": 4685,
+    "timestamp": "2026-09-02T06:21:25.499777",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "\u201cFor four minutes, heritage conservationist Udaya Kumar P L watched an AI agent wreak havoc on his c",
+        "removed_items": [
+          "Claude Fable 5.1 and Claude Mythos 5.1\n\nWhat&#x27;s new in Claude Fable 5.1\n \u2013 <a href=\"https:&#x2F;",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Weedout \u2013 Safari extension that hides YouTube AI-labeled videos\n\nI&#x27;m the developer. I ",
+        "removed_items": [
+          "Launch HN: Nori Robotics (YC S26) \u2013 A low-cost humanoid robot for development\n\nHey HN, I\u2019m Antonio f",
+          "Ask HN: Who is hiring? (September 2026)\n\nPlease state the location and include REMOTE for remote wor"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
