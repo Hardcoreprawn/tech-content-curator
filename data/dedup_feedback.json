@@ -27767,5 +27767,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 4737,
+    "timestamp": "2026-09-06T06:14:56.937481",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "The \"$60 Gaming PC\" \u2013 AMD BC-250 (2025)",
+        "removed_items": [
+          "AMD Based FreeBSD Desktop Reloaded"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
