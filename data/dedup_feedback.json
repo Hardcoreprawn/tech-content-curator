@@ -27891,5 +27891,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 66,
+    "duplicates_found": 5,
+    "patterns_used": 4752,
+    "timestamp": "2026-09-07T18:18:56.076581",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This affects the Fediverse. This affects the Internet. This is the equivalent of the \"rubber hose me",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Ask HN: Fable hacked my piano, can I release the results?\n\nI have a self playing piano, using a syst",
+        "removed_items": [
+          "Making a Python interpreter in 1024 bytes",
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
