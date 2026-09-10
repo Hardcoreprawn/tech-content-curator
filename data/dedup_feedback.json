@@ -28152,5 +28152,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 5,
+    "patterns_used": 4790,
+    "timestamp": "2026-09-10T18:18:26.386621",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Oh, right, new school year. University students: the secret to success is GO THE FUCK TO BED, GO THE",
+        "removed_items": [
+          "Cover your bits, the UK government wants to put scanning tech on your phone. The aim? To prevent kid"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Shopify moves back to Native from React Native",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python sets and dictionaries can have quadratic-time performance",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
