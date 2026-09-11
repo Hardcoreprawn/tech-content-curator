@@ -28218,5 +28218,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 5,
+    "patterns_used": 4806,
+    "timestamp": "2026-09-11T06:16:27.910483",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Kiddo's had an unfortunate level-corruption incident on one of her Minecraft worlds and is pretty be",
+        "removed_items": [
+          "Google will buy half the electricity from one of Finland's nuclear power plants"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Shopify is moving from React Native back to Swift and Kotlin",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "OpenAI Agents API",
+        "removed_items": [
+          "More questions about whether researchers can trust OpenAI with unpublished math\n\n<a href=\"https:&#x2"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
