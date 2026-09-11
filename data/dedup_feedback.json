@@ -28183,5 +28183,40 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 9,
+    "patterns_used": 4798,
+    "timestamp": "2026-09-11T02:05:02.375820",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "If you optimize a model to find exploits, you should expect it to find them\u2014and prepare for that. Op",
+        "removed_items": [
+          "I shared a link to \"the openai navier stokes solution makes funding basic research look like a barga",
+          "More questions about whether researchers can trust OpenAI with unpublished math\n\n<a href=\"https:&#x2",
+          "OpenAI Agents API",
+          "OpenAI\u2019s Navier-Stokes release included a Lean 4 formal proof"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Shopify is moving from React Native back to Swift and Kotlin",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: Benzi \u2013 A Code Intillegence/Harness Beating Claude Code and CodeGraph",
+        "removed_items": [
+          "Show HN: Vertumnus \u2013 printable posters of farmers' market produce seasonality\n\nThe origin of this pr",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
