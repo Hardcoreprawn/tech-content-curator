@@ -28326,5 +28326,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 4821,
+    "timestamp": "2026-09-12T18:16:50.572134",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "When you hear Big Tech CEOs pronounce the future of AI with authority, keep in mind that Jeff Bezos ",
+        "removed_items": [
+          "Today @ zackwhittaker brings up a very important topic about the launch of the new Apple Watch this "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
