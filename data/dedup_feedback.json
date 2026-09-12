@@ -28296,5 +28296,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 6,
+    "patterns_used": 4817,
+    "timestamp": "2026-09-12T06:15:26.521654",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Listening to my kid totally bad mouth students using AI. \u201cTheir brains are mush and I\u2019m going to use",
+        "removed_items": [
+          "Pandas Should Go Extinct"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google no longer provides direct URLs in search results",
+        "removed_items": [
+          "I spent $220 on Google app ads and 60% of the installs were robots"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "OpenAI agents attacked RubyGems back in May",
+        "removed_items": [
+          "OpenAI agents carried out an undisclosed attack on RubyGems"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
