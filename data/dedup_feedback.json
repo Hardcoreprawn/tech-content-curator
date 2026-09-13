@@ -28356,5 +28356,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 5,
+    "patterns_used": 4825,
+    "timestamp": "2026-09-13T02:05:04.088341",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Right so, Facebook is all sad because people are calling their \"AI\" surveillance specs \"Pervert Glas",
+        "removed_items": [
+          "Imagine you're having a remote appointment with your doctor for a very personal health issue. Your d",
+          "Apple iPod Engraver (2019)",
+          "Getting 50 GB/S Back from the Apple Neural Engine"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
