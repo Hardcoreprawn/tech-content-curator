@@ -28566,5 +28566,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 4851,
+    "timestamp": "2026-09-15T06:17:23.655987",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Why it's not a good idea to trust AI-generated info in pics either, as well as text. Starting with a",
+        "removed_items": [
+          "this point -- by @ pluralistic -- is basically all anyone needs to know about the endless openai's-a",
+          "# Spotted While Roaming in Aotearoa New Zealand: Two black swans are coasting along on an inlet as t"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
