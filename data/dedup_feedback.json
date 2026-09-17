@@ -28773,5 +28773,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 4,
+    "patterns_used": 4877,
+    "timestamp": "2026-09-17T18:19:55.860482",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Aclif \u2013 Agent CLI framework: one grammar, canonical names across SaaS\n\nSimple discovery of ",
+        "removed_items": [
+          "Launch HN: Skillsync (YC W26) \u2013 AI chat sessions made portable across agents\n\nHey HN, we&#x27;re Nar",
+          "Show HN: AutoBot \u2013 live voice control for long-running AI work\n\nI wanted to manage long horizon agen"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
