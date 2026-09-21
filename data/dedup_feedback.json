@@ -29090,5 +29090,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 8,
+    "patterns_used": 4914,
+    "timestamp": "2026-09-21T18:19:10.955796",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Meta bans ads for Virginia Woolf play in Spain because they cover \u2018social topics\u2019 - https://www. the",
+        "removed_items": [
+          "RE: https:// mastodon.social/@glynmoody/117 309526335450151 Who\u2019s afraid of Virginia Woolf? Meta.",
+          "ZuckOff is a free app that sees Meta glasses before they see you\n\n<a href=\"https:&#x2F;&#x2F;zuckoff"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python Workers are now generally available",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Turn off and restrict access to Apple Intelligence features on Mac",
+        "removed_items": [
+          "Apple Mac mini review"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
