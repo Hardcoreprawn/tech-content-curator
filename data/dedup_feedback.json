@@ -29187,5 +29187,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 11,
+    "patterns_used": 4930,
+    "timestamp": "2026-09-22T18:21:16.320769",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "It's so good to see this in the MIT Tech Review. Let's hope the message gets through. \ud83e\udd1eBig props to ",
+        "removed_items": [
+          "OpenAI GPT\u20136 Astra breaks Enigma message that has resisted solution since 2005",
+          "OpenAI is well positioned to fast-follow Jev"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// kolektiva.social/@alissaazar/1 17313256015707316 Almost every time an antifascist is as",
+        "removed_items": [
+          "Training a model to identify AI-generated web content from structure alone\n\nHey HN! We\u2019re Vincent an"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Claude Opus 5.5",
+        "removed_items": [
+          "Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max)",
+          "Show HN: AI\u00b7rete\u00b7RAG \u2013 a Rete rule engine decides, RAG explains why\n\nHi HN, I built ai\u00b7rete\u00b7rag beca",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
