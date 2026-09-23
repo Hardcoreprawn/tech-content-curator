@@ -29221,5 +29221,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 4938,
+    "timestamp": "2026-09-23T02:05:02.528418",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "Wired surveyed 634 women in tech. 59% had seen or experienced gender bias. And everyone is pushed to",
+        "removed_items": [
+          "Claude Opus 5.5",
+          "Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max)",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "OpenAI GPT\u20136 Astra breaks Enigma message that has resisted solution since 2005",
+        "removed_items": [
+          "OpenAI is well positioned to fast-follow Jev"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Unreal Agent\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;unreallabsai&#x2F;unreal-agent\" rel=\"nofoll",
+        "removed_items": [
+          "Show HN: JevBench, a reproducible benchmark for typed decision models\n\nHi HN! I built JevBench becau"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
