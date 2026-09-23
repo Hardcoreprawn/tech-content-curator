@@ -29254,5 +29254,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 7,
+    "patterns_used": 4946,
+    "timestamp": "2026-09-23T06:17:23.140511",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Here's something I didn't know I wanted until just now: an audio log for my computer. _Something_ on",
+        "removed_items": [
+          "Show HN: Training a model to identify AI web content from structure alone\n\nHey HN! We\u2019re Vincent and"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Claude Opus 5.5",
+        "removed_items": [
+          "Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max)",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "OpenAI GPT\u20136 Astra breaks Enigma message that has resisted solution since 2005",
+        "removed_items": [
+          "OpenAI is well positioned to fast-follow Jev"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
