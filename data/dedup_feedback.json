@@ -29313,5 +29313,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 7,
+    "patterns_used": 4956,
+    "timestamp": "2026-09-24T02:05:58.636328",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "\"Once again, a core feature of a major piece of AI technology will actually just be people working i",
+        "removed_items": [
+          "Meta VR Glasses"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "One of the top threads on the ClaudeAI subreddit right now: \"I am done with this shit\" https://www. ",
+        "removed_items": [
+          "Claude discovers a novel enzyme system with CRISPR-like repeats",
+          "Claude Code reads AGENTS.md only when telemetry is on [fixed]",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "You don't express \"extreme concern\" dickhead, you prosecute him like you would any script kiddy unde",
+        "removed_items": [
+          "Australia says OpenAI agent hacked into government website"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
