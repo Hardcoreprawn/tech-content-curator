@@ -29433,5 +29433,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 6,
+    "patterns_used": 4970,
+    "timestamp": "2026-09-25T06:17:19.962330",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Goodbye Google",
+        "removed_items": [
+          "My weird new hobby: Wandering around Tokyo on Google Maps",
+          "Google\u2019s Project Suncatcher to put ML infrastructure in space\n\n<a href=\"https:&#x2F;&#x2F;www.nytime"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Make cursed fonts like Times New Bastard\n\nA joke tool that abuses OpenType&#x27;s ligature ",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Whiteboard (YC W26) \u2013 An open-source IDE for thoughtful software design\n\nHello! We\u2019re Sid, ",
+        "removed_items": [
+          "Show HN: Air-gapped file encryption as self-decrypting HTML page\n\nAir-gapped file encryption packed "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
