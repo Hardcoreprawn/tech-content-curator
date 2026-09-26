@@ -29558,5 +29558,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 9,
+    "patterns_used": 4994,
+    "timestamp": "2026-09-26T18:18:20.775409",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I\u2019m glad they\u2019re putting this in the spotlight, really glad, but Mother Jones absolutely biffed some",
+        "removed_items": [
+          "Two things can be true at the same time: - Intellectual property is a regime of state-enforced monop"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Journalists have fallen in love with the expression \"went rogue.\" It's not appropriate. OpenAI is re",
+        "removed_items": [
+          "OpenAI bots meddled with multiple US Government agency sites",
+          "Revealing the details of how OpenAI agents hacked Hugging Face"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Show HN: A Claude Code skill to analyze your chess games\n\nHello HN,<p>It started as an experiment: c",
+        "removed_items": [
+          "Make Claude your assistant in excalidraw",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
