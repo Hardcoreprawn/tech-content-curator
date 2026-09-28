@@ -29706,5 +29706,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 4,
+    "patterns_used": 5014,
+    "timestamp": "2026-09-28T06:23:45.787582",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I already admired Associated Press for its stand on on the Gulf of Mexico and Lake Ontario. And now ",
+        "removed_items": [
+          "Don't couple your Go code to GitHub"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "tfw a satellite image tile from before you bulldozed the rainforest is still displaying in Google Ma",
+        "removed_items": [
+          "When did Google get so weird?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
