@@ -29801,5 +29801,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 5029,
+    "timestamp": "2026-09-29T06:17:52.250394",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// neuromatch.social/@jonny/11733 9825958098508 OK! Meta evaluated this as intended behavi",
+        "removed_items": [
+          "This story is kind of wild and frankly it is only a matter of time until someone gets killed. Meta\u2019s"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: HN.watch \u2013 Videos of all Hacker News posts\n\nHi HN, I\u2019m Per, founder of Scrimba (YC S20). We",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
