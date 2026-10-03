@@ -30155,5 +30155,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 5068,
+    "timestamp": "2026-10-03T18:47:31.019751",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "FTL: A new operating system for clouds\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;nuta&#x2F;ftl\" re",
+        "removed_items": [
+          "Show HN: Pi pod \u2013 Run your pi coding agent in sandboxes on your own server\n\npi pod runs sessions of "
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Offrun \u2013 manage every coding agent from one workspace\n\nRun Claude Code, Codex, AGY, and Gro",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
