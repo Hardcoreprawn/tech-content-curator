@@ -30186,5 +30186,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 6,
+    "patterns_used": 5076,
+    "timestamp": "2026-10-04T02:38:35.952776",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Bob Cringely Has Died\n\nI heard from a friend of the family that Bob passed away in his sleep early S",
+        "removed_items": [
+          "Apple's \"Clean Design\" Is Stupidity When It Comes to Hiding Fire Extinguishers"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Getting the most out of Opus 5.5 in Claude and Claude Code",
+        "removed_items": [
+          "Show HN: Pi pod \u2013 Run your pi coding agent in sandboxes on your own server\n\npi pod runs sessions of ",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "FTL: A new operating system for clouds\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;nuta&#x2F;ftl\" re",
+        "removed_items": [
+          "Memory-Safe WebP Decoding\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;halidecx&#x2F;wpd\" rel=\"nofoll"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
