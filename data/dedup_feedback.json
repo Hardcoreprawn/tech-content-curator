@@ -30272,5 +30272,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 5088,
+    "timestamp": "2026-10-05T02:16:13.497569",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "# Fedilab has left the Google Play Store. You can update your Google version manually using the APK ",
+        "removed_items": [
+          "Improper redaction reveals Google Data Center water and electricity usage"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Turn off Apple Intelligence on macOS 27 and get its disk space back",
+        "removed_items": [
+          "Tell HN: Bob Cringely has died\n\nI heard from a friend of the family that Bob passed away in his slee"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
