@@ -30379,5 +30379,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 3,
+    "patterns_used": 5100,
+    "timestamp": "2026-10-06T06:17:46.769795",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// mastodon.social/@nixCraft/1173 90294462413805 Again: stop calling the malware \u201crogue.\u201d ",
+        "removed_items": [
+          "It\u2019s funny to think that a taco truck outside your office, if it takes in revenue greater than its c"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
