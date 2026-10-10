@@ -30724,5 +30724,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 5142,
+    "timestamp": "2026-10-10T06:16:47.558635",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Anthropic is out with new nonsense about Claude (or the collection of models called Claude) deservin",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "# Spotted at a Zinefest in Aotearoa New Zealand: Two young humans (10?) with big hair and punk rock ",
+        "removed_items": [
+          "Show HN: Proton Drive for Linux\n\nHello everyone, I wanted to share this small project that I have.\nI"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
