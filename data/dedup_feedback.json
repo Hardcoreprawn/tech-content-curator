@@ -30778,5 +30778,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 5,
+    "patterns_used": 5150,
+    "timestamp": "2026-10-11T02:15:20.960870",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A 16 year old boy hacked an internal Microsoft system called TITAN with 17 trillion records as it di",
+        "removed_items": [
+          "Mxc: Microsoft Execution Containers version 1.0.0"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "\u201cUh, hi. I wonder is it possible to fix the luck button on my phone?\u201d \u201cWow you don\u2019t see those any m",
+        "removed_items": [
+          "I'll believe an AI agent can actually go rogue when it deletes all the data for student loans, credi"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Anthropic asks users to stop being mean to Claude",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
