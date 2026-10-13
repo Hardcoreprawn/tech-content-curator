@@ -31016,5 +31016,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 6,
+    "patterns_used": 5180,
+    "timestamp": "2026-10-13T18:23:06.207650",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Gemini 4 Argon",
+        "removed_items": [
+          "Gemini 4 Argon for Robotics"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Apple HomeView",
+        "removed_items": [
+          "New Apple TV 4K",
+          "A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices",
+          "Apple's new 'Switch to Safari' campaign details why you should ditch Chrome\n\n<a href=\"https:&#x2F;&#"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
