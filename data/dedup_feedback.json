@@ -31048,5 +31048,41 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 10,
+    "patterns_used": 5186,
+    "timestamp": "2026-10-14T02:04:42.196349",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "History repeats itself, first as tragedy, then vibe-coded in rust.",
+        "removed_items": [
+          "11 year old unsoundness bugs found in Rust borrow checker",
+          "Show HN: Yagi DSP Modulation SIM\n\nHi HN,<p>I&#x27;m a big fan of the liquid-dsp C library and though",
+          "Show HN: Spotatui, a Spotify TUI/GUI without web API rate limits\n\nAbout 11 months ago i revived the "
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Show HN: Pulse Local, a Mac budgeting app whose AI models run on your machine\n\nHi HN, I&#x27;m Niz. ",
+        "removed_items": [
+          "Apple HomeView",
+          "New Apple TV 4K",
+          "Apple's new 'Switch to Safari' campaign details why you should ditch Chrome\n\n<a href=\"https:&#x2F;&#",
+          "A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Parsimony \u2013 an open-source benchmark for how much code AI models add\n\nExisting benchmarks m",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
