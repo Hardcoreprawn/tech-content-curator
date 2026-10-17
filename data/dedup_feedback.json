@@ -31301,5 +31301,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 6,
+    "patterns_used": 5227,
+    "timestamp": "2026-10-17T06:14:28.720463",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "# Meta has blocked this graphic from being posted via WhatsApp and possibly other Meta platforms. We",
+        "removed_items": [
+          "The president of Brazil has won a court case against Meta, after accusing them of restricting his po"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Ultramarine 1\u00a0Flash\n\n<a href=\"https:&#x2F;&#x2F;www.paperinstruments.com&#x2F;blog&#x2F;ultramarine\"",
+        "removed_items": [
+          "Tesla Roadster\n\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=7p5LxFdc-Qg\" rel=\"nofollow\">"
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Claude reveals ECDSA curve origins\n\n<a href=\"https:&#x2F;&#x2F;words.filippo.io&#x2F;seeds-solved&#x",
+        "removed_items": [
+          "Designing more efficient quantum circuits with Claude",
+          "How the Claude Code team does code review",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
