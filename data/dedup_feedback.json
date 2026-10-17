@@ -31333,5 +31333,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 3,
+    "patterns_used": 5233,
+    "timestamp": "2026-10-17T18:16:22.734019",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "You could have invented transformers from memory\n\n<a href=\"https:&#x2F;&#x2F;twitter.com&#x2F;heyyal",
+        "removed_items": [
+          "Ultramarine 1\u00a0Flash\n\n<a href=\"https:&#x2F;&#x2F;www.paperinstruments.com&#x2F;blog&#x2F;ultramarine\""
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude reveals ECDSA curve origins\n\n<a href=\"https:&#x2F;&#x2F;words.filippo.io&#x2F;seeds-solved&#x",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
