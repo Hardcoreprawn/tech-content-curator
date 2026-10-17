@@ -31284,5 +31284,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 34,
+    "duplicates_found": 2,
+    "patterns_used": 5220,
+    "timestamp": "2026-10-17T02:04:47.464694",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude reveals ECDSA curve origins\n\n<a href=\"https:&#x2F;&#x2F;words.filippo.io&#x2F;seeds-solved&#x",
+        "removed_items": [
+          "Designing more efficient quantum circuits with Claude",
+          "How the Claude Code team does code review"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
