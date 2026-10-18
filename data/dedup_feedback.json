@@ -31411,5 +31411,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 5,
+    "patterns_used": 5244,
+    "timestamp": "2026-10-18T18:16:48.111299",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Have you ever thought about how your computer adds and subtracts? It takes a lot of hardware to hand",
+        "removed_items": [
+          "The Intel 8087 chip: floating-point addition and subtraction"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "I'm hearing rumbles that even if you load a non-\"AI\" ad graphic to a Meta platform and turn the \"re-",
+        "removed_items": [
+          "Legal experts warn Meta's new terms still grant broad scraping permissions",
+          "British Airways: Filming Crew W Meta Glasses Could Get Your Tickets Cancelled"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: The Zelda timeline to catch up before the Ocarina of Time remake\n\nI made this ahead of the ",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
