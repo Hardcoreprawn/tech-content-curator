@@ -31526,5 +31526,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 3,
+    "patterns_used": 5262,
+    "timestamp": "2026-10-20T02:04:58.460471",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "A new study argues that Canada could develop its own national operating system to replace Microsoft'",
+        "removed_items": [
+          "Putting Linux on my RTX Spark laptop because I don't have a Microsoft account"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Lula supporters protest against Meta to denounce its 'electoral interference'",
+        "removed_items": [
+          "Ask HN: How to deal with shipping AI-written code you don't understand?\n\nI saw this LinkedIn post fr"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
