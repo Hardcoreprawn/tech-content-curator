@@ -31556,5 +31556,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 5264,
+    "timestamp": "2026-10-20T06:16:06.110387",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "# Spotted While Roaming in Aotearoa New Zealand: A man wearing a full wetsuit, a bum bag*, a life ve",
+        "removed_items": [
+          "Show HN: Death Plan Switch, a self-hosted dead man's switch for solo devs\n\nHi HN,<p>I&#x27;m Peter B",
+          "Go will reject certificate chains containing eight distrusted SPKIs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
