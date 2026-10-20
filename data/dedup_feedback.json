@@ -31580,5 +31580,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 8,
+    "patterns_used": 5271,
+    "timestamp": "2026-10-20T18:19:41.270297",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "An HTTPS certificate authority has been compromised. If you want to ensure # NetBSD is not vulnerabl",
+        "removed_items": [
+          "THIS IS NOT A DRILL. If you package/distribute/maintain root stores or chain verifiers, act immediat",
+          "Oh my this is bad. The private keys of eight eMudhra intermediate CA certificates have been compromi"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Google open-sources TorchTPU, a native PyTorch back end for TPUs",
+        "removed_items": [
+          "Google Cloud outage affects almost all banking and other operations in Europe",
+          "MicroG: Free-libre re-implementation of Google's proprietary Android user space"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "2026 is an exciting year for the Rust compiler (and me)",
+        "removed_items": [
+          "Launch HN: Respan (YC W24) \u2013 Open-source Rust AI gateway built around plugins\n\nHey HN, this is Andy "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
