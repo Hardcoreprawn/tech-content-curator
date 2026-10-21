@@ -31675,5 +31675,41 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 10,
+    "patterns_used": 5295,
+    "timestamp": "2026-10-21T18:19:51.769244",
+    "examples": [
+      {
+        "group_size": 8,
+        "kept_item": "\ud83d\udce3 Announcing the immediate availability of: - PHP 8.2.35 - PHP 8.3.36 - PHP 8.4.27 - PHP 8.5.12 \u203c\ufe0f T",
+        "removed_items": [
+          "So today some of the worst people on earth using the most environmentally destructive tools on earth",
+          "The PHP # security issue shows once again how much our society relies on mostly volunteer work. Look",
+          "We have posted more information about today's security releases, including the sequence of events th",
+          "Expect quite a few sites to return error pages toay and possibly through the week. Here's my piece o",
+          "PHP 8.2.35",
+          "Today's PHP security release, and how we're strengthening security",
+          "PHP2Shell: AI uncovers critical RCE in PHP\n\n<a href=\"https:&#x2F;&#x2F;www.php2shell.com&#x2F;\" rel="
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Oh look, the cops leaked the full details of every single crime stoppers tip they got last year, inc",
+        "removed_items": [
+          "Hello, we heard everyone has been having a great time with security releases so we're doing one as w"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Launch HN: Alter (YC S25) \u2013 Access control for multi-user agents\n\nHi HN! We\u2019re Srikar and Kevan, fou",
+        "removed_items": [
+          "Show HN: ULDA \u2013 Client-side encryption with a simple JavaScript API\n\nHi there!<p>We have designed cl"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
