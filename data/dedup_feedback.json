@@ -31645,5 +31645,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 4,
+    "patterns_used": 5289,
+    "timestamp": "2026-10-21T06:16:28.882979",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "PHP session.upload_progress heap UAF (CVE-2026-109618 / -109619)",
+        "removed_items": [
+          "Upcoming critical PHP security release"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google open-sources TorchTPU, a native PyTorch back end for TPUs",
+        "removed_items": [
+          "Google Cloud outage affects almost all banking and other operations in Europe"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Nexus-CLI \u2013 Pure Go Bridge to DeepSeek R1/V3 with Claude Code and Ollama Support",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
