@@ -31803,5 +31803,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 5320,
+    "timestamp": "2026-10-23T02:07:03.005868",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Philomena: Some people have been writing PHP for over 20 years. Is that because it's particularly di",
+        "removed_items": [
+          "I don't like PHP. I used to work as a professional PHP programmer, and after that, I *really* don't ",
+          "Tell HN: I unknowingly broke the PHP RCE embargo. I am sorry.\n\nI posted here about the then-upcoming"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "I got hauled into a data center today because Claude was used to spec it and screwed up badly. At le",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
