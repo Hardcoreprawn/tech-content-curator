@@ -31834,5 +31834,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 4,
+    "patterns_used": 5325,
+    "timestamp": "2026-10-23T06:16:44.368949",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Not sure it could be more brutal, the direct erasure of the natural world for the proprietary and di",
+        "removed_items": [
+          "Remember when Google gave a damn about the environment (or at least pretended to)? No pretenses anym"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Philomena: Some people have been writing PHP for over 20 years. Is that because it's particularly di",
+        "removed_items": [
+          "Tell HN: I unknowingly broke the PHP RCE embargo. I am sorry.\n\nI posted here about the then-upcoming"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: OnKey \u2013 I'm a bad singer, so I built an app to show where I'm off-key\n\nHi all<p>I was prett",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
