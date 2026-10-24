@@ -31951,5 +31951,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 4,
+    "patterns_used": 5341,
+    "timestamp": "2026-10-24T18:17:05.477413",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "Symbolic Learning in Python and Julia",
+        "removed_items": [
+          "Parsing EDIFACT in Python with syntax trees",
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Apple Music 404 Not Found\n\n<a href=\"https:&#x2F;&#x2F;www.macrumors.com&#x2F;2026&#x2F;10&#x2F;23&#x",
+        "removed_items": [
+          "Apple Security Research Device"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
