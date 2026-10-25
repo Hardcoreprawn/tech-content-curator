@@ -32016,5 +32016,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 3,
+    "patterns_used": 5351,
+    "timestamp": "2026-10-25T18:17:21.524791",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Root shell on Samsung TV\n\nMerged threads:<p>&quot;Samsung running a TensorFlow lite model on 960x540",
+        "removed_items": [
+          "The Goose Programming Language\n\n<a href=\"https:&#x2F;&#x2F;twitter.com&#x2F;ID_AA_Carmack&#x2F;statu"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Broccoli2Shell: Brotli decoder RCE in Node.js, Python and more\n\n<a href=\"https:&#x2F;&#x2F;www.aikid",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
