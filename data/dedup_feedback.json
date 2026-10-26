@@ -32040,5 +32040,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 2,
+    "patterns_used": 5355,
+    "timestamp": "2026-10-26T02:10:00.467992",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Amazon's \"digital pacifier\" for toddlers",
+        "removed_items": [
+          "Show HN: Hurston-1 open source TTS that speak Southern American and Afro-English\n\nHey HN, I\u2019m open s"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+        "removed_items": [
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
