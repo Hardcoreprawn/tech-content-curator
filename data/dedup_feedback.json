@@ -32141,5 +32141,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 5,
+    "patterns_used": 5375,
+    "timestamp": "2026-10-27T18:13:55.283643",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Oh FFS. If you just patched /etc/ssl/cert.pem on all your macOS endpoints, rejoice: the just landed ",
+        "removed_items": [
+          "Apple introduces the new 14\u2011inch MacBook Pro with M6"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Meet the gang!! I have to admit that, now that I got the hang of traditional art, I find it hard to ",
+        "removed_items": [
+          "AI people absolutely have sexual predator vibes. Dude. No means no. Not \u2018I\u2019ll ask again later. Not \u2018"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Python's experimental JIT to be removed",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?",
+          "Python\n\nAll Algorithms implemented in Python"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
