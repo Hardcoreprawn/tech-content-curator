@@ -32268,5 +32268,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 52,
+    "duplicates_found": 3,
+    "patterns_used": 5387,
+    "timestamp": "2026-10-29T06:12:21.858548",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude Code burns ~15\u201320% of your tokens on a 3-word status line",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "MacBook Pro with PROLED XDR Display and Touch\n\n<a href=\"https:&#x2F;&#x2F;www.apple.com&#x2F;newsroo",
+        "removed_items": [
+          "Apple's git still trusts the compromised eMudhra certificates"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
