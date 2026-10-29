@@ -32292,5 +32292,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 64,
+    "duplicates_found": 4,
+    "patterns_used": 5389,
+    "timestamp": "2026-10-29T18:15:11.500208",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "We just released Mastodon v4.7.4, v4.6.10, v4.5.20 and v4.4.27. For those using our nightly containe",
+        "removed_items": [
+          "Launch HN: Simantic (YC F26) \u2013 Firmware Simulation for AI Agents\n\nHi HN, we&#x27;re Ahnaf and Seungm"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "POSITIVE NEWS! \ud83d\udc4f AI search (Yes, the thing that's killing the open web) is struggling. The web must ",
+        "removed_items": [
+          "For the first time ever, Google Search is less than 50% of Alphabet's revenue",
+          "How Google determines the names for bodies of water in Google Earth (2008)"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
