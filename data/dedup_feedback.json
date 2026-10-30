@@ -32378,5 +32378,24 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 4,
+    "patterns_used": 5395,
+    "timestamp": "2026-10-30T18:12:10.842267",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "Anthropic Visual Studio Claude Code extension on Cursor has malware in it, which creates a remote ac",
+        "removed_items": [
+          "okay, so here's what I'm thinking right now: 1) we, people who like things to have some reasonable b",
+          "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace\n\n<a href=\"https:&#x2F;&#x2F;",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
