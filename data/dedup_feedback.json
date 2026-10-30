@@ -32323,5 +32323,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 3,
+    "patterns_used": 5391,
+    "timestamp": "2026-10-30T02:03:44.951617",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "ElementaryUI \u2013 Swift, in the Browser",
+        "removed_items": [
+          "Show HN: Auto Dismiss Mac OS \"Allow <app> to find devices on local networks?\"\n\nThis popup has been a"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "IgE disruptor for food allergy with Claude-enabled antibody design [pdf]",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
