@@ -32347,5 +32347,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 5395,
+    "timestamp": "2026-10-30T06:12:37.959264",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Python on My Wrist",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Auto Dismiss Mac OS \"Allow <app> to find devices on local networks?\"\n\nThis popup has been a",
+        "removed_items": [
+          "ElementaryUI \u2013 Swift, in the Browser"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: Lasm \u2013 Write formally verified webapps in Lean for Node/serverless/edge\n\nLasm has been my d",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
