@@ -32397,5 +32397,30 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 4,
+    "patterns_used": 5399,
+    "timestamp": "2026-10-31T02:03:34.665312",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I try not to over-react to the Internet's Outrages Of The Day, but it should be instantly disqualify",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 4,
+        "kept_item": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace\n\n<a href=\"https:&#x2F;&#x2F;",
+        "removed_items": [
+          "Show HN: Sketch Stadium \u2013 watch your agent play Pictionary\n\ntl;dr: Agents can play Pictionary. You c",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
