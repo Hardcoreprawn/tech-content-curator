@@ -32422,5 +32422,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 5401,
+    "timestamp": "2026-10-31T06:09:38.417743",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "https://www. tomshardware.com/tech-industry /data-centers/openai-ceo-says-its-quite-terrible-for-you",
+        "removed_items": [
+          "OpenAI raises less than half of $30B target"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace\n\n<a href=\"https:&#x2F;&#x2F;",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
