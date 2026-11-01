@@ -32499,5 +32499,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 4,
+    "patterns_used": 5411,
+    "timestamp": "2026-11-01T06:10:24.392623",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "ChatGPT and Codex usage limits merging",
+        "removed_items": [
+          "Do the math: How we took over ChatGPT accounts"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Jepsen: ParticleDB 1.1.4\n\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;jepsen-io&#x2F;particledb\" rel=",
+        "removed_items": [
+          "Show HN: NES Contra (1987) port (ASM \u2013> C and then C \u2013> WebAssembly)\n\nBased on vermiceli&#x27;s anno"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: BBRouter \u2013 Ben Eater's 8-bit computer, simulated on 3D breadboards\n\nHi HN,<p>I kept wiring ",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
