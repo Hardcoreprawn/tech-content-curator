@@ -32564,5 +32564,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 5413,
+    "timestamp": "2026-11-02T06:14:22.724838",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Let's see if # getfedihired works: I'm a SW engineer, I'm very proficient with C++ (25yrs, I'm one o",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: HackerBooks \u2013 HackerTube, but for books mentioned on HN\n\nSaw Karpathy&#x27;s HackerTube and",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
