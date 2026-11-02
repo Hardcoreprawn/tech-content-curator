@@ -32547,5 +32547,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 2,
+    "patterns_used": 5411,
+    "timestamp": "2026-11-02T02:03:45.830832",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Show HN: HackerBooks \u2013 HackerTube, but for books mentioned on HN\n\nSaw Karpathy&#x27;s HackerTube and",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
