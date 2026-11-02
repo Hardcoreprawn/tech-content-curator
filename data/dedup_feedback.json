@@ -32588,5 +32588,32 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 6,
+    "patterns_used": 5415,
+    "timestamp": "2026-11-02T18:12:53.656281",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I had a conversation online recently on BlueSky and I think there are some cultural differences of l",
+        "removed_items": [
+          "Show HN: Subvocal \u2013\u00a0Talk to your computer without making noise\n\nHi HN, we&#x27;re Aarush and Arnav f"
+        ]
+      },
+      {
+        "group_size": 6,
+        "kept_item": "Launch HN: Momentic (YC W24) \u2013 Agents that catch bugs by using your app\n\nHey HN, we\u2019re Wei-Wei and J",
+        "removed_items": [
+          "Show HN: Warsaw in voxels \u2013 an interactive 3D map of the city centre\n\nExplore central Warsaw in voxe",
+          "Ask HN: Who is hiring? (November 2026)\n\nPlease state the location and include REMOTE for remote work",
+          "Show HN: HackerBooks \u2013 HackerTube, but for books mentioned on HN\n\nSaw Karpathy&#x27;s HackerTube and",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
