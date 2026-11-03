@@ -32634,5 +32634,31 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 5,
+    "patterns_used": 5416,
+    "timestamp": "2026-11-03T06:10:44.206118",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "New, by me: Tech Firms Dismantle Botnet That Turned 1.3M TV Boxes Into Proxies Google said today it ",
+        "removed_items": [
+          "Show HN: Subvocal \u2013 Talk to your computer without making noise\n\nHi HN, we&#x27;re Aarush and Arnav f"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Launch HN: Momentic (YC W24) \u2013 Agents that catch bugs by using your app\n\nHey HN, we\u2019re Wei-Wei and J",
+        "removed_items": [
+          "Show HN: Warsaw in voxels \u2013 An interactive 3D map of the city centre\n\nExplore central Warsaw in voxe",
+          "Ask HN: Who is hiring? (November 2026)\n\nPlease state the location and include REMOTE for remote work",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
