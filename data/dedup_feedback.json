@@ -32660,5 +32660,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 2,
+    "patterns_used": 5418,
+    "timestamp": "2026-11-03T18:12:55.464648",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Schools that block Google\u2019s A.I. will lose student access to its search engine\n\n<a href=\"https:&#x2F",
+        "removed_items": [
+          "Google researchers demand freedom to tell the world what they know about AI"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
