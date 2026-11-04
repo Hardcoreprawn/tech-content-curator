@@ -32717,5 +32717,32 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 6,
+    "patterns_used": 5420,
+    "timestamp": "2026-11-04T18:11:57.445301",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Lubach (Dutch talkshow comedian) has done a piece on how it turns out that, in terms of websites wri",
+        "removed_items": [
+          "Every now and then Big Tech will shoot themselves in the foot and send waves of disappointed users o",
+          "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)\n\nIf you have a pers"
+        ]
+      },
+      {
+        "group_size": 5,
+        "kept_item": "Launch HN: Kino AI (YC S23) \u2013 AI media manager and video editor\n\nHi HN! I&#x27;m Luke from Kino (<a ",
+        "removed_items": [
+          "Show HN: HackerTV \u2013 HN's most-recommended Youtube videos as 24/7 TV channels\n\nI saw HackerTube (<a h",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "react\n\nThe library for web and native user interfaces.",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
