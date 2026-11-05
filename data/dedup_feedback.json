@@ -32801,5 +32801,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 5432,
+    "timestamp": "2026-11-05T18:12:53.890178",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Proposing a novel legal attack on LLM-generated source code where you claim it is incompatible with ",
+        "removed_items": [
+          "Nordstjernen, Northstar, Southstar: minimalist webbrowsers in C and Rust"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+        "removed_items": [
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
