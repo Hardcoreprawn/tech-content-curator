@@ -32857,5 +32857,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 56,
+    "duplicates_found": 4,
+    "patterns_used": 5440,
+    "timestamp": "2026-11-06T18:13:25.181771",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude Code sends your email address to websites",
+        "removed_items": [
+          "AI for scientific discovery: How researchers use Claude",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Dutch 'idealist' bank ASN blocks non-Google Android, including GrapheneOS",
+        "removed_items": [
+          "Kugelblitz \u2013 Mac-Native Google Earth Alternative"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "PyLings: Solve Exercises and Learn Python",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
