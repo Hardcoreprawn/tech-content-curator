@@ -32841,5 +32841,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 1,
+    "patterns_used": 5434,
+    "timestamp": "2026-11-06T06:11:29.906716",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Claude Code sends your email address to websites",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
