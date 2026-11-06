@@ -32824,5 +32824,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 2,
+    "patterns_used": 5432,
+    "timestamp": "2026-11-06T02:03:47.974451",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude Code sends your email address to websites",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res",
+          "andrej-karpathy-skills\n\nA single CLAUDE.md file to improve Claude Code behavior, derived from Andrej"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
