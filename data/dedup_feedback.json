@@ -32911,5 +32911,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 5450,
+    "timestamp": "2026-11-07T18:11:02.748745",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Soft censorship in iPhone autocomplete. All software is political, even your keyboard. https://www. ",
+        "removed_items": [
+          "Apple Keyboard has a blacklist of phrases you can't swipe"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Coldframe, a honeypot that poses as a supermarket fridge controller\n\nI built Coldframe, a h",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Text.js: Build full-stack React apps that render inside console.log",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
