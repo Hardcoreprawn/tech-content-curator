@@ -32971,5 +32971,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 55,
+    "duplicates_found": 5,
+    "patterns_used": 5468,
+    "timestamp": "2026-11-08T06:09:46.636742",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Goodbye Claude, Hello Pi",
+        "removed_items": [
+          "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Coldframe, a honeypot that poses as a supermarket fridge controller\n\nI built Coldframe, a h",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The end of Microsoft Research's AI Frontiers group\n\n<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;AaY5O",
+        "removed_items": [
+          "GeoWorks, Microsoft Windows' Upstart '90s Competitor (2016)"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
