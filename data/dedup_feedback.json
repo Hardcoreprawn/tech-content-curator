@@ -33002,5 +33002,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 65,
+    "duplicates_found": 2,
+    "patterns_used": 5472,
+    "timestamp": "2026-11-08T18:11:11.663716",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This is hilarious. https:// github.com/IainKay/ram-altman",
+        "removed_items": [
+          "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Goodbye Claude, hello Pi",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
