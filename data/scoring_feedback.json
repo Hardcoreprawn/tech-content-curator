@@ -1277505,5 +1277505,604 @@
       "open_issues": 1522
     },
     "source": "github"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.651065+00:00",
+    "content_preview": "Hearing more and more stories of \"nobody knows how to work on our codebase anymore after 1.5 years of agents, and management is asking for us to get more involved in the code after initially telling u",
+    "content_length": 339,
+    "heuristic_score": 1.2799999999999998,
+    "ai_score": 0.0,
+    "score_gap": -1.2799999999999998,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), viral engagement (1442), somewhat educational, contains undervalued keyword: code, contains undervalued keyword: years, engagement above learned threshold: 0 (+0.35 adaptive)",
+    "metadata": {
+      "favourites_count": 645,
+      "reblogs_count": 355,
+      "replies_count": 29,
+      "created_at": "2026-11-08T17:55:46.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.641925+00:00",
+    "content_preview": "Goodbye Claude, hello Pi",
+    "content_length": 24,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 702,
+      "comments": 435,
+      "time": 1794107508,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.931226+00:00",
+    "content_preview": "Nvidia CEO Jensen Huang's letter to staff about affair",
+    "content_length": 54,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 351,
+      "comments": 367,
+      "time": 1794176409,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.967668+00:00",
+    "content_preview": "The myth that software needs constant updates has utterly undermined the principles of free software and immensely empowered sloppers and other bad actors. The whole idea was supposed to be that, once",
+    "content_length": 570,
+    "heuristic_score": 1.15,
+    "ai_score": 0.0,
+    "score_gap": -1.15,
+    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), very high engagement (600), newsworthy announcement, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 267,
+      "reblogs_count": 150,
+      "replies_count": 11,
+      "created_at": "2026-11-08T18:43:08.586Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.873656+00:00",
+    "content_preview": "It\u2019s a sad day in America when the billionaire ceo of one of the most valuable companies in the world can\u2019t even have an affair with a spy without everyone getting all up tight.",
+    "content_length": 177,
+    "heuristic_score": 0.9,
+    "ai_score": 0.0,
+    "score_gap": -0.9,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (335), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 133,
+      "reblogs_count": 83,
+      "replies_count": 12,
+      "created_at": "2026-11-08T23:49:33.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.689769+00:00",
+    "content_preview": "The one thing every person who says they can live with slavery has in common is an absolute certainty that they will not be the slave",
+    "content_length": 133,
+    "heuristic_score": 0.75,
+    "ai_score": 0.0,
+    "score_gap": -0.75,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), some engagement (42), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 18,
+      "reblogs_count": 12,
+      "replies_count": 0,
+      "created_at": "2026-11-09T01:43:18.647Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.814111+00:00",
+    "content_preview": "RE: https:// hachyderm.io/@dalias/117582291 834400512 Here\u2019s a thought worth saying out loud. \u2026and of course I think immediately of TeX, whose version number does not just increase without bound but i",
+    "content_length": 398,
+    "heuristic_score": 1.12,
+    "ai_score": 0.0,
+    "score_gap": -1.12,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, high engagement (264), announcement content, single source, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 102,
+      "reblogs_count": 72,
+      "replies_count": 6,
+      "created_at": "2026-11-08T19:52:56.433Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.723973+00:00",
+    "content_preview": "RE: https:// mastodon.online/@mastodonmigra tion/117583747761802933 Probably the best thing you read today! \ud83d\udc40 Will Bunch, who may be the finest political writer on the planet, makes the powerful case ",
+    "content_length": 509,
+    "heuristic_score": 0.8200000000000002,
+    "ai_score": 0.0,
+    "score_gap": -0.8200000000000002,
+    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, good engagement (77), newsworthy announcement, no code examples, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 20,
+      "reblogs_count": 27,
+      "replies_count": 1,
+      "created_at": "2026-11-09T01:03:23.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.786657+00:00",
+    "content_preview": "Solar met 75% of the world's electricity demand growth in 2025, outpacing forecasts https://www. yahoo.com/news/science/article s/solar-met-75-worlds-electricity-181900763.html # RenewableEnergy",
+    "content_length": 194,
+    "heuristic_score": 0.57,
+    "ai_score": 0.0,
+    "score_gap": -0.57,
+    "heuristic_reasoning": "Heuristic: good length, includes links, high engagement (118), link-only, shallow, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 42,
+      "reblogs_count": 38,
+      "replies_count": 0,
+      "created_at": "2026-11-08T23:51:50.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.574593+00:00",
+    "content_preview": "KetchUp \u2013 Open-source SketchUp alternative built with Rust and WebGPU",
+    "content_length": 69,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 202,
+      "comments": 49,
+      "time": 1794177335,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.606144+00:00",
+    "content_preview": "Unlocking any car from X brand in most of the world",
+    "content_length": 51,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: short but viable, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 53,
+      "comments": 21,
+      "time": 1794183050,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.814291+00:00",
+    "content_preview": "Herb Sutter: When a language's creator and its owners strongly disagree [pdf]",
+    "content_length": 77,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 62,
+      "comments": 41,
+      "time": 1794180481,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.648351+00:00",
+    "content_preview": "Chimera Vocal Synth",
+    "content_length": 19,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 88,
+      "comments": 14,
+      "time": 1794177363,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.893305+00:00",
+    "content_preview": "Dux: Free, open-source Wayland desktop shell with file manager and theming",
+    "content_length": 74,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 200,
+      "comments": 61,
+      "time": 1794164931,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.314852+00:00",
+    "content_preview": "Ask HN: What are you working on? (November 2026)\n\nWhat are you working on? What have you been curious about lately?",
+    "content_length": 115,
+    "heuristic_score": 0.65,
+    "ai_score": 0.0,
+    "score_gap": -0.65,
+    "heuristic_reasoning": "Heuristic: good length, structured text, contains undervalued keyword: what, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 127,
+      "comments": 469,
+      "time": 1794172820,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:33.579511+00:00",
+    "content_preview": "Declarative Dragging",
+    "content_length": 20,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 357,
+      "comments": 42,
+      "time": 1793811907,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.076122+00:00",
+    "content_preview": "Outlook.com Is Quietly Rejecting Email from Domains Without DMARC",
+    "content_length": 65,
+    "heuristic_score": 0.55,
+    "ai_score": 0.0,
+    "score_gap": -0.55,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 246,
+      "comments": 188,
+      "time": 1794165632,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.072447+00:00",
+    "content_preview": "The Web Is More Than Enough, by Paul Ford",
+    "content_length": 41,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 76,
+      "comments": 39,
+      "time": 1794167312,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:39.722608+00:00",
+    "content_preview": "Air holes turn silicon wafers into flat UV focusing mirrors for compact optics",
+    "content_length": 78,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 22,
+      "comments": 3,
+      "time": 1794063100,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.237366+00:00",
+    "content_preview": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+    "content_length": 48,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 365,
+      "comments": 158,
+      "time": 1794133324,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.235049+00:00",
+    "content_preview": "I'm Not Convinced the AI Bubble Exists",
+    "content_length": 38,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 18,
+      "comments": 6,
+      "time": 1794181476,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.581427+00:00",
+    "content_preview": "Writing as a thinking tool",
+    "content_length": 26,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 280,
+      "comments": 83,
+      "time": 1794134512,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.314617+00:00",
+    "content_preview": "The History of Djgpp (1998)",
+    "content_length": 27,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 45,
+      "comments": 14,
+      "time": 1793722237,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.512365+00:00",
+    "content_preview": "Playing with the STM32MP2",
+    "content_length": 25,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 37,
+      "comments": 28,
+      "time": 1794164647,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.372563+00:00",
+    "content_preview": "Edward Hopper's Iconic Painting, \"Nighthawks",
+    "content_length": 44,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 71,
+      "comments": 24,
+      "time": 1793834588,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.610777+00:00",
+    "content_preview": "Taco: The Tensor Algebra Compiler",
+    "content_length": 33,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 3,
+      "comments": 0,
+      "time": 1793754466,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.162854+00:00",
+    "content_preview": "How I Fight AI Brain Fry",
+    "content_length": 24,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 155,
+      "comments": 130,
+      "time": 1794166662,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.191854+00:00",
+    "content_preview": "Show HN: Vegetable Gardening for Engineers",
+    "content_length": 42,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: too short, contains undervalued keyword: show, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 164,
+      "comments": 32,
+      "time": 1793782467,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.256326+00:00",
+    "content_preview": "I'm not a fan of Deno's security model (2024)",
+    "content_length": 45,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), announcement content, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 86,
+      "comments": 41,
+      "time": 1794148958,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.555308+00:00",
+    "content_preview": "The Kekul\u00e9 Problem \u2013 Cormac McCarthy",
+    "content_length": 36,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 6,
+      "comments": 3,
+      "time": 1793913929,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.869346+00:00",
+    "content_preview": "Porting Android 16 to my blind mother's keypad phone",
+    "content_length": 52,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 158,
+      "comments": 48,
+      "time": 1793805539,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:40.857597+00:00",
+    "content_preview": "Playing Zork 1 on a CP/M emulator on Linux (2021)",
+    "content_length": 49,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 29,
+      "comments": 13,
+      "time": 1794162830,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:46.433365+00:00",
+    "content_preview": "A Little Snitch for Windows",
+    "content_length": 27,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 94,
+      "comments": 47,
+      "time": 1794158167,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-09T02:03:46.752651+00:00",
+    "content_preview": "Starship Flight 15 on 11/13 plans to catch both booster and ship",
+    "content_length": 64,
+    "heuristic_score": 0.2,
+    "ai_score": 0.0,
+    "score_gap": -0.2,
+    "heuristic_reasoning": "Heuristic: short but viable, thread post (may lack context), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 92,
+      "comments": 54,
+      "time": 1794167386,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
   }
 ]
