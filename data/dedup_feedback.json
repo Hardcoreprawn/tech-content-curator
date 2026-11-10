@@ -33082,5 +33082,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 2,
+    "patterns_used": 5481,
+    "timestamp": "2026-11-10T02:03:26.519070",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Claude Fable 5.2 Scores 65 on Artificial Analysis, Highest So Far",
+        "removed_items": [
+          "Claude Fable 5.2 and Mythos 5.2",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
