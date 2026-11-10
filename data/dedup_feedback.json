@@ -33123,5 +33123,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 2,
+    "patterns_used": 5487,
+    "timestamp": "2026-11-10T18:11:04.630372",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "There's a viral dynamic to LLM use on programming teams that has profound consequences. All it takes",
+        "removed_items": [
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Fable 5.2 and Mythos 5.2",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
