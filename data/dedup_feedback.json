@@ -33099,5 +33099,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 39,
+    "duplicates_found": 3,
+    "patterns_used": 5483,
+    "timestamp": "2026-11-10T06:10:10.903570",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Security / privacy heads up: It looks like Google is now publicly linking the phone number on Google",
+        "removed_items": [
+          "I'd like to take this opportunity to publicly thank Matt Campbell ( @ matt ) for his immense contrib",
+          "Google Gemini routes personal Drive files and emails to human annotators"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude Fable 5.2 and Mythos 5.2",
+        "removed_items": [
+          "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]

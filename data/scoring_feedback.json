@@ -1280609,5 +1280609,641 @@
       "open_issues": 1519
     },
     "source": "github"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.535966+00:00",
+    "content_preview": "Google Gemini routes personal Drive files and emails to human annotators",
+    "content_length": 72,
+    "heuristic_score": 0.35000000000000003,
+    "ai_score": 0.0,
+    "score_gap": -0.35000000000000003,
+    "heuristic_reasoning": "Heuristic: short but viable, 2 tech keyword(s), no code examples, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 514,
+      "comments": 118,
+      "time": 1794248678,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.877479+00:00",
+    "content_preview": "Claude Fable 5.2 and Mythos 5.2",
+    "content_length": 31,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 412,
+      "comments": 721,
+      "time": 1794247270,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.717519+00:00",
+    "content_preview": "https:// theonion.com/entenmanns-ceo-an nounces-he-happy-to-share-donut-secrets-with-chinese-spies-in-exchange-for-sex/",
+    "content_length": 119,
+    "heuristic_score": 0.57,
+    "ai_score": 0.0,
+    "score_gap": -0.57,
+    "heuristic_reasoning": "Heuristic: good length, includes links, high engagement (340), link-only, shallow, single source, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 128,
+      "reblogs_count": 97,
+      "replies_count": 6,
+      "created_at": "2026-11-10T01:36:46.892Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.984514+00:00",
+    "content_preview": "Chuck Schumer's daughter, Jessica Schumer has lead a major campaign for Amazon in New York City, lobbying against expanded worker protection measures from Zohran Mamdani\u2019s administration. In September",
+    "content_length": 287,
+    "heuristic_score": 1.1,
+    "ai_score": 0.0,
+    "score_gap": -1.1,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (177), announcement content, contains undervalued keyword: from, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "favourites_count": 30,
+      "reblogs_count": 66,
+      "replies_count": 5,
+      "created_at": "2026-11-10T03:37:39.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.644216+00:00",
+    "content_preview": "Perhaps we all misunderstood Jensen Huang when he said that we should be embracing agents in this age of AI.",
+    "content_length": 108,
+    "heuristic_score": 1.0,
+    "ai_score": 0.0,
+    "score_gap": -1.0,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), viral engagement (1550), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 676,
+      "reblogs_count": 416,
+      "replies_count": 14,
+      "created_at": "2026-11-09T22:17:03.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.554509+00:00",
+    "content_preview": "Massie\u2019s articles of impeachment against Hegseth include three that are war crimes.",
+    "content_length": 83,
+    "heuristic_score": 0.7000000000000001,
+    "ai_score": 0.0,
+    "score_gap": -0.7000000000000001,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), high engagement (437), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 139,
+      "reblogs_count": 134,
+      "replies_count": 10,
+      "created_at": "2026-11-10T00:48:25.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.626013+00:00",
+    "content_preview": "There\u2019s a fascinating situation playing out in China. - Massive boom in microdrama viewers, to the point where they established their own Hollywood - AI bros arrived and flooded the market with GenAI ",
+    "content_length": 501,
+    "heuristic_score": 1.07,
+    "ai_score": 0.0,
+    "score_gap": -1.07,
+    "heuristic_reasoning": "Heuristic: substantial length, 2 tech keyword(s), includes links, very high engagement (845), active discussion, no code examples, single source, contains undervalued keyword: show, contains undervalued keyword: over, engagement above learned threshold: 0 (+0.35 adaptive)",
+    "metadata": {
+      "favourites_count": 289,
+      "reblogs_count": 245,
+      "replies_count": 22,
+      "created_at": "2026-11-09T22:59:08.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.542917+00:00",
+    "content_preview": "I'm kind of terrified by how revolting I'm finding technology to be right now, given that it's the only means I have of making a living.",
+    "content_length": 136,
+    "heuristic_score": 0.7000000000000001,
+    "ai_score": 0.0,
+    "score_gap": -0.7000000000000001,
+    "heuristic_reasoning": "Heuristic: good length, high engagement (266), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 120,
+      "reblogs_count": 55,
+      "replies_count": 12,
+      "created_at": "2026-11-10T02:04:07.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.686024+00:00",
+    "content_preview": "this honeypot story has generated some disgustingly racist and sexist discourse around asian women. we can\u2019t even make fun of billionaires without being gross.",
+    "content_length": 159,
+    "heuristic_score": 0.9,
+    "ai_score": 0.0,
+    "score_gap": -0.9,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), high engagement (213), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 89,
+      "reblogs_count": 50,
+      "replies_count": 8,
+      "created_at": "2026-11-10T02:30:10.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.836401+00:00",
+    "content_preview": "Wait, so it wasn't the immigrants pushing up house prices after all? It was the landlords and property \"investors\" using an unfair tax system to treat housing as a speculative asset instead of a place",
+    "content_length": 258,
+    "heuristic_score": 0.8,
+    "ai_score": 0.0,
+    "score_gap": -0.8,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), good engagement (51), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "favourites_count": 0,
+      "reblogs_count": 18,
+      "replies_count": 5,
+      "created_at": "2026-11-10T04:52:11.000Z",
+      "language": "en",
+      "instance": "https://hachyderm.io",
+      "source_type": "trending",
+      "source_name": "mastodon_trending"
+    },
+    "source": "mastodon"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.742125+00:00",
+    "content_preview": "USPS now offers official ZIP Code boundary polygons",
+    "content_length": 51,
+    "heuristic_score": 0.55,
+    "ai_score": 0.0,
+    "score_gap": -0.55,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), contains undervalued keyword: code, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 575,
+      "comments": 283,
+      "time": 1794254339,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.516477+00:00",
+    "content_preview": "E-means: Outperforming k-means in one-tenth the epochs",
+    "content_length": 54,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 345,
+      "comments": 29,
+      "time": 1794249943,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.324944+00:00",
+    "content_preview": "Payments Canada announces launch of Canada's Real-Time Rail (RTR) payment system",
+    "content_length": 80,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 506,
+      "comments": 278,
+      "time": 1794240045,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.373402+00:00",
+    "content_preview": "Locating the source of a mysterious beep",
+    "content_length": 40,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 91,
+      "comments": 45,
+      "time": 1794269446,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.682017+00:00",
+    "content_preview": "Foldable Flight: The Best Paper Airplanes",
+    "content_length": 41,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 931,
+      "comments": 145,
+      "time": 1794226762,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:16.492491+00:00",
+    "content_preview": "Horible public key tricks",
+    "content_length": 25,
+    "heuristic_score": 0.22999999999999998,
+    "ai_score": 0.0,
+    "score_gap": -0.22999999999999998,
+    "heuristic_reasoning": "Heuristic: too short, somewhat educational, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 99,
+      "comments": 37,
+      "time": 1794269237,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:22.914574+00:00",
+    "content_preview": "Ultorg: The User Interface for Relational Databases",
+    "content_length": 51,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 14,
+      "comments": 2,
+      "time": 1794283179,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.030820+00:00",
+    "content_preview": "Exact \u2013 a new cross platform UI framework",
+    "content_length": 41,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 99,
+      "comments": 50,
+      "time": 1794265153,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.103695+00:00",
+    "content_preview": "CoreWeave bond yield tops 16% as AI credit stress rises",
+    "content_length": 55,
+    "heuristic_score": 0.45000000000000007,
+    "ai_score": 0.0,
+    "score_gap": -0.45000000000000007,
+    "heuristic_reasoning": "Heuristic: short but viable, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 83,
+      "comments": 36,
+      "time": 1794280806,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.397646+00:00",
+    "content_preview": "Semi-transparent, colored cadmium telluride photovoltaic panels in agrivoltaics\n\n<a href=\"https:&#x2F;&#x2F;www.cell.com&#x2F;cell-reports-physical-science&#x2F;fulltext&#x2F;S2666-3864(26)00461-3\" re",
+    "content_length": 305,
+    "heuristic_score": 0.7,
+    "ai_score": 0.0,
+    "score_gap": -0.7,
+    "heuristic_reasoning": "Heuristic: good length, 1 tech keyword(s), includes links, structured text, link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 296,
+      "comments": 194,
+      "time": 1794234699,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.328663+00:00",
+    "content_preview": "Your TV can see through walls",
+    "content_length": 29,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: too short, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.25 adaptive)",
+    "metadata": {
+      "score": 3,
+      "comments": 0,
+      "time": 1794288285,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.082854+00:00",
+    "content_preview": "Formalizing CPython",
+    "content_length": 19,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 23,
+      "comments": 7,
+      "time": 1794275808,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.543875+00:00",
+    "content_preview": "The first 300-millimeter power silicon carbide (SiC) wafer",
+    "content_length": 58,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 125,
+      "comments": 66,
+      "time": 1794248701,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.306731+00:00",
+    "content_preview": "A primer on GPUs and kernel optimization",
+    "content_length": 40,
+    "heuristic_score": 0.22999999999999998,
+    "ai_score": 0.0,
+    "score_gap": -0.22999999999999998,
+    "heuristic_reasoning": "Heuristic: too short, some depth, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 124,
+      "comments": 12,
+      "time": 1793922484,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.509755+00:00",
+    "content_preview": "Fable 5.2 one-shotted my nephew's dream game",
+    "content_length": 44,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 297,
+      "comments": 210,
+      "time": 1794265693,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.198367+00:00",
+    "content_preview": "Never Gonna Print You Up",
+    "content_length": 24,
+    "heuristic_score": 0.35,
+    "ai_score": 0.0,
+    "score_gap": -0.35,
+    "heuristic_reasoning": "Heuristic: too short, 1 tech keyword(s), engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 32,
+      "comments": 0,
+      "time": 1794122132,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.176270+00:00",
+    "content_preview": "Show HN: Every satellite that passed over any place this week, and its photos\n\nhey HN, i built this because I&#x27;m a satellite nerd who was bored this past weekend.<p>type in any place and it finds ",
+    "content_length": 1052,
+    "heuristic_score": 1.25,
+    "ai_score": 0.0,
+    "score_gap": -1.25,
+    "heuristic_reasoning": "Heuristic: very long, 1 tech keyword(s), includes links, structured text, contains undervalued keyword: what, contains undervalued keyword: show, contains undervalued keyword: from, contains undervalued keyword: your, contains undervalued keyword: code, contains undervalued keyword: over, engagement above learned threshold: 0 (+0.75 adaptive)",
+    "metadata": {
+      "score": 293,
+      "comments": 48,
+      "time": 1794246691,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.320627+00:00",
+    "content_preview": "Muse Ember: Our smallest, most efficient model",
+    "content_length": 46,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 279,
+      "comments": 117,
+      "time": 1794247126,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.370972+00:00",
+    "content_preview": "Parking-app convenience fees in 312 U.S. cities (median $0.35 per session)",
+    "content_length": 74,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 70,
+      "comments": 53,
+      "time": 1794254153,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.767485+00:00",
+    "content_preview": "They Can Barely Drive, They're Flying Planes: The Surprising Rise of Teen Pilots",
+    "content_length": 80,
+    "heuristic_score": 0.25,
+    "ai_score": 0.0,
+    "score_gap": -0.25,
+    "heuristic_reasoning": "Heuristic: short but viable, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 3,
+      "comments": 1,
+      "time": 1794069844,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.727763+00:00",
+    "content_preview": "On Being an Engineer in 2026\n\n<a href=\"https:&#x2F;&#x2F;nitter.cf&#x2F;shaharglazner&#x2F;article&#x2F;2119796029256032278\" rel=\"nofollow\">https:&#x2F;&#x2F;nitter.cf&#x2F;shaharglazner&#x2F;article&",
+    "content_length": 228,
+    "heuristic_score": 0.5,
+    "ai_score": 0.0,
+    "score_gap": -0.5,
+    "heuristic_reasoning": "Heuristic: good length, includes links, structured text, link-only, shallow, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 78,
+      "comments": 95,
+      "time": 1794236843,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:23.957708+00:00",
+    "content_preview": "TPU 8tx and TPU 8i Max",
+    "content_length": 22,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 240,
+      "comments": 72,
+      "time": 1794261417,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:29.321934+00:00",
+    "content_preview": "Time for AVIF everywhere?",
+    "content_length": 25,
+    "heuristic_score": 0.15,
+    "ai_score": 0.0,
+    "score_gap": -0.15,
+    "heuristic_reasoning": "Heuristic: too short, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 58,
+      "comments": 51,
+      "time": 1794072847,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:29.924465+00:00",
+    "content_preview": "Show HN: MeowDisplay Is iPhone Mirroring, but in Reverse\n\nHey HN and Cats, thank you for checking this out!<p>Github:\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;raiseCatError&#x2F;meowdisplay\" rel=\"no",
+    "content_length": 2189,
+    "heuristic_score": 1.05,
+    "ai_score": 0.0,
+    "score_gap": -1.05,
+    "heuristic_reasoning": "Heuristic: very long, 5 tech keywords, includes links, structured text, announcement content, no code examples, contains undervalued keyword: show, contains undervalued keyword: from, contains undervalued keyword: your, engagement above learned threshold: 0 (+0.45 adaptive)",
+    "metadata": {
+      "score": 86,
+      "comments": 35,
+      "time": 1794249562,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:30.118596+00:00",
+    "content_preview": "An ode to livelyness analysis; SSA to registers",
+    "content_length": 47,
+    "heuristic_score": 0.22999999999999998,
+    "ai_score": 0.0,
+    "score_gap": -0.22999999999999998,
+    "heuristic_reasoning": "Heuristic: too short, some depth, engagement above learned threshold: 0 (+0.15 adaptive)",
+    "metadata": {
+      "score": 40,
+      "comments": 1,
+      "time": 1794064651,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
+  },
+  {
+    "timestamp": "2026-11-10T06:10:29.677249+00:00",
+    "content_preview": "Show HN: Someone Was Here \u2013 Find out who used your Mac while you were away\n\nMany thanks to my ex for inspiring my new MacOS app, Someone Was Here.<p>It takes a photo of whoever uses your Mac while you",
+    "content_length": 674,
+    "heuristic_score": 0.8300000000000001,
+    "ai_score": 0.0,
+    "score_gap": -0.8300000000000001,
+    "heuristic_reasoning": "Heuristic: substantial length, 1 tech keyword(s), structured text, no sources cited, contains undervalued keyword: show, contains undervalued keyword: your, contains undervalued keyword: over, engagement above learned threshold: 0 (+0.45 adaptive)",
+    "metadata": {
+      "score": 82,
+      "comments": 30,
+      "time": 1794250256,
+      "source_name": "hackernews",
+      "story_type": "story"
+    },
+    "source": "hackernews"
   }
 ]
