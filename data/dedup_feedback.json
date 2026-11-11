@@ -33179,5 +33179,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 6,
+    "patterns_used": 5493,
+    "timestamp": "2026-11-11T18:10:44.936871",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "If you are using an iPhone and would like to contribute to OpenStreetMap in a very easy and gamified",
+        "removed_items": [
+          "Apple is killing its Support Community forum next week"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "# getfedihired # remote Yeah the place I work for is going out of business in a couple weeks. I have",
+        "removed_items": [
+          "Tim Peters has died\n\n<a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;Python&#x2F;s&#x2F;2Cm5dB",
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h",
+        "removed_items": [
+          "TimeNet: Open-source data infrastructure for Temporal Foundation Models\n\nHi HN,<p>Current frontier L"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
