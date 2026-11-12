@@ -33256,5 +33256,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 5507,
+    "timestamp": "2026-11-12T18:12:33.236144",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "hi i'm fbz and i designed these mandelbrot fractal sweaters https:// knityak.com/collections/antenn ",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "The most scandalous thing about the Nvidia affair is BIG TECH EXPECTING COMMUNITIES TO SACRIFICE THE",
+        "removed_items": [
+          "Jensen Huang resigns\n\n<a href=\"https:&#x2F;&#x2F;nvidianews.nvidia.com&#x2F;news&#x2F;nvidia-announc"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Gemini 4 Hydrogen",
+        "removed_items": [
+          "Gemini Decisions API"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
