@@ -33347,5 +33347,38 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 42,
+    "duplicates_found": 6,
+    "patterns_used": 5523,
+    "timestamp": "2026-11-13T18:11:32.776154",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "The funniest thing is we\u2019re now 18 hours into a Microsoft outage and I haven\u2019t seen a single person ",
+        "removed_items": [
+          "I regret to inform you all that Microsoft's Outlook is slowly returning to normal. By normal, I mean",
+          "It used to be my job to explain complex technical outages and incidents to very senior executives wh",
+          "Microsoft 365 went down in 74 countries this week. The security consoles went down with it, and so d"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Jensen Huang resigns\n\n<a href=\"https:&#x2F;&#x2F;nvidianews.nvidia.com&#x2F;news&#x2F;nvidia-announc",
+        "removed_items": [
+          "Arm boss Rene Haas approached in Nvidia CEO search",
+          "Former Nvidia CEO Huang had a relationship with a second employee, sources say\n\n<a href=\"https:&#x2F"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Lonewolf 0.3 \u2013 A standalone XMPP server written in Rust",
+        "removed_items": [
+          "Rust 1.100"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
