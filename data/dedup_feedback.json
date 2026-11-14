@@ -33403,5 +33403,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 2,
+    "patterns_used": 5528,
+    "timestamp": "2026-11-14T06:09:58.633402",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Nvidia Allegedly Engineered Scarcity by Funding AI Startups to Buy Its GPUs",
+        "removed_items": [
+          "Nvidia director sold nearly $1B in stock weeks before the Jensen Huang scandal",
+          "$11.4M in Nvidia hardware vanishes during shipment from CA to TX"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
