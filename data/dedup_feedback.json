@@ -33420,5 +33420,39 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 7,
+    "patterns_used": 5531,
+    "timestamp": "2026-11-14T18:11:15.759258",
+    "examples": [
+      {
+        "group_size": 6,
+        "kept_item": "The news that there's an oversupply of Nvidia GPUs convinced me that the AI bubble is bursting and i",
+        "removed_items": [
+          "Remember: when someone says cutting Medicaid will save the government nearly a trillion dollars in a",
+          "When they poll \u201cDo you support Medicare for All even if it means your taxes go up?\u201d They leave out \u201c",
+          "The major difference between a thing that might go wrong and a thing that cannot possibly go wrong i",
+          "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+          "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: A terminal-native idle factory game, written in Rust with ratatui\n\nHey HN readers!<p>I&#x27",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Italy fines Meta $887M over Android users' data access",
+        "removed_items": [
+          "Italy fines Meta \u20ac805M over photo privacy"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
