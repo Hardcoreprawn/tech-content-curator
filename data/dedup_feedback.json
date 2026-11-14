@@ -33380,5 +33380,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 63,
+    "duplicates_found": 2,
+    "patterns_used": 5526,
+    "timestamp": "2026-11-14T02:03:29.918491",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Hello, world. I've been offline for a few hours, can I just get this straight ... FAA announces yest",
+        "removed_items": [
+          "reminder to take all the mental health breaks you need!!! if microsoft outlook and american air traf"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
