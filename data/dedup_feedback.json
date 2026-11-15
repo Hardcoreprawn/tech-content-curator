@@ -33478,5 +33478,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 2,
+    "patterns_used": 5536,
+    "timestamp": "2026-11-15T06:09:48.122614",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Memory Safety Bugs in Rust Standard Library",
+        "removed_items": [
+          "Show HN: A terminal-native idle factory game, written in Rust with ratatui\n\nHey HN readers!<p>I&#x27"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Gawain \u2013 Require type hints on all Python variables\n\nYes, i really hate &quot;dict[str, ANY",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
