@@ -33571,5 +33571,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 2,
+    "patterns_used": 5545,
+    "timestamp": "2026-11-16T18:12:37.907479",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Pretty much 98% of the \"tips\" we're getting to LWN now are projects that have been largely cobbled t",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "What's Next for Nvidia?",
+        "removed_items": [
+          "Nvidia was in trouble before the Jensen Huang mess"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
