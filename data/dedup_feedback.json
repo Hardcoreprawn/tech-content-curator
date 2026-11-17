@@ -33611,5 +33611,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 3,
+    "patterns_used": 5553,
+    "timestamp": "2026-11-17T06:10:57.618342",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "What do Microsoft, the nation\u2019s air-traffic-control network, JPMorgan Chase, and United Airlines hav",
+        "removed_items": [
+          "Microsoft blames monster email outage on software defect introduced in July fix"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Jiff 1.0: A datetime library for Rust",
+        "removed_items": [
+          "Rust changed me as a developer"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Tokendoctor \u2013 the same Claude Code for up to 38% less",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
