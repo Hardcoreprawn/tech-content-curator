@@ -33680,5 +33680,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 1,
+    "patterns_used": 5561,
+    "timestamp": "2026-11-18T06:10:41.236935",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I asked Google for the dose in milligrams of norethisterone in common contraceptives. It hedged, ask",
+        "removed_items": [
+          "Google's AI answers reducing search traffic by 40%"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
