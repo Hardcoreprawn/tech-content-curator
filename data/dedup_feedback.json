@@ -33657,5 +33657,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 2,
+    "patterns_used": 5559,
+    "timestamp": "2026-11-18T02:03:38.770415",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Archive Team is archiving the Apple Support Community (closes November 20, 2026)",
+        "removed_items": [
+          "Apple Services Down"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "How the Claude Code team thinks about verification",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
