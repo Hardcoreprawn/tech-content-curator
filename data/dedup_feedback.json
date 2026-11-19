@@ -33719,5 +33719,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 5571,
+    "timestamp": "2026-11-19T02:03:26.805242",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Who loves Meta's cute new AI Muse? Old people, of course. This will surely not lead to a series of d",
+        "removed_items": [
+          "Show HN: Open-source, real-time object tracking for live video feeds\n\nI type &quot;forklift&quot; on"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Gemini 4 Neon",
+        "removed_items": [
+          "Gemini 4 Neon looks like an Opus 5.5 competitor"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Fable: Written, painted and directed by Claude Fable 5.2",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
