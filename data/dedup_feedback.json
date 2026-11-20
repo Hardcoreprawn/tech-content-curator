@@ -33796,5 +33796,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 5578,
+    "timestamp": "2026-11-20T02:03:27.510855",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "This is seriously dangerous. Communication between Meta employees reveal that Zuckerberg's AI app Mu",
+        "removed_items": [
+          "Meta's Muse AI stuff was not only obviously a bad idea, its \"fleet learning\" stuff was extra especia"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Claude solves two open problems in the physics of black holes",
+        "removed_items": [
+          "Launch HN: Onlook (YC W25) \u2013 An open-source developer tool for designers\n\nHey HN, I&#x27;m Daniel, f",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
