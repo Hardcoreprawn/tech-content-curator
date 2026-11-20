@@ -33844,5 +33844,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 2,
+    "patterns_used": 5586,
+    "timestamp": "2026-11-20T18:12:39.410886",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "I am still teaching the children python and they are still delighted when their code works. Few thin",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude solves two open problems in the physics of black holes",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
