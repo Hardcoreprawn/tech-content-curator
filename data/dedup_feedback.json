@@ -33820,5 +33820,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 5582,
+    "timestamp": "2026-11-20T06:10:30.239825",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Professional programmer for 45 years, no formal education. I wince when people say \"self-taught\", I ",
+        "removed_items": [
+          "I can\u2019t wait for tomorrow to see what new emergency patch I get to roll out and which new AI instanc",
+          "Launch HN: Onlook (YC W25) \u2013 An open-source developer tool for designers\n\nHey HN, I&#x27;m Daniel, f"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Claude solves two open problems in the physics of black holes",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
