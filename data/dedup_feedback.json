@@ -33891,5 +33891,36 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 4,
+    "patterns_used": 5590,
+    "timestamp": "2026-11-22T06:10:09.495424",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "ICE will continue kidnapping and terrorizing people so long as it can. In Seattle today: \u201cFor more t",
+        "removed_items": [
+          "PostgreSQL Extensions in Go",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Reaktiv Workbook \u2013 A spreadsheet where every cell is Python",
+        "removed_items": [
+          "awesome-python\n\nThe definitive list that answers \"I want to do X in Python, which tool should I use?"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Compile the same source for GPUs and CPUs\n\nI&#x27;m writing a language called xc and its co",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
