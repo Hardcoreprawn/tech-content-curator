@@ -33922,5 +33922,22 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 62,
+    "duplicates_found": 2,
+    "patterns_used": 5592,
+    "timestamp": "2026-11-22T18:11:13.100748",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Ask HN: Tips for transitioning from web development to embedded/firmware?\n\nI started my career 15+ y",
+        "removed_items": [
+          "Fast-Anything: Don't rewrite it in Rust. Rewrite the 5% that's slow",
+          "Advice for the next 100 Rust GUIs"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
