@@ -33867,5 +33867,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 57,
+    "duplicates_found": 3,
+    "patterns_used": 5588,
+    "timestamp": "2026-11-22T02:03:50.717552",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "ICE will continue kidnapping and terrorizing people so long as it can. In Seattle today: \u201cFor more t",
+        "removed_items": [
+          "PostgreSQL Extensions in Go",
+          "react\n\nThe library for web and native user interfaces."
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Advice for the next 100 Rust GUIs",
+        "removed_items": [
+          "Context-Generic Programming v0.8.0 \u2013 Pluggable trait implementations for Rust"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
