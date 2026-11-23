@@ -33939,5 +33939,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 54,
+    "duplicates_found": 1,
+    "patterns_used": 5594,
+    "timestamp": "2026-11-23T02:04:07.928256",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "When asking for my help, the words \"Well Claude said\" is great way to stop me from helping you furth",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
