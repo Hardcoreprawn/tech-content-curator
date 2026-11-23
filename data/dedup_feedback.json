@@ -33955,5 +33955,31 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 5,
+    "patterns_used": 5596,
+    "timestamp": "2026-11-23T18:12:19.235632",
+    "examples": [
+      {
+        "group_size": 5,
+        "kept_item": "NEWS! Nvidia reinstates Jensen Huang after eleven-day experiment with principles disappoints shareho",
+        "removed_items": [
+          "Nvidia reinstates former CEO Jensen Huang, who donated $25M to Trump's ballroom, after the Trump adm",
+          "The nauseating thing isn\u2019t that they reinstated the asshole, it\u2019s that all the world\u2019s financial mar",
+          "Huang was reinstated because the market needs Nvidia's illegal channel manipulation to keep the \"AI\"",
+          "Nvidia Reinstates Jensen Huang as CEO\n\n<a href=\"https:&#x2F;&#x2F;nvidianews.nvidia.com&#x2F;news&#x"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Show HN: Drive around my village in 3D\n\nSo this started out just over a week ago, could I drive arou",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
