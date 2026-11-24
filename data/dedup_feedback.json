@@ -34005,5 +34005,37 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 5,
+    "patterns_used": 5601,
+    "timestamp": "2026-11-24T06:10:57.415499",
+    "examples": [
+      {
+        "group_size": 3,
+        "kept_item": "Older stepson at dinner: \"my cushion on the gaming chair is broken, I need a new one\". His mom: \"you",
+        "removed_items": [
+          "This morning started out with a spectacular sunrise. The photo was taken through one of our shiny ne",
+          "# Spotted at a Winery in Aotearoa New Zealand: A huge fluffy winery cat is flouncing up to some tour"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "Did I not get promoted because I turned down the CEO\u2019s advances? Should I sleep with the CEO? If I k",
+        "removed_items": [
+          "Nvidia: When a CEO has a relationship with a subordinate, it is a power imbalance. The subordinate c",
+          "Nvidia Reinstates Jensen Huang as CEO\n\n<a href=\"https:&#x2F;&#x2F;nvidianews.nvidia.com&#x2F;news&#x"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file\n\nWe built NariQ: 3-bit-or-lower quantizations of Qwen3",
+        "removed_items": [
+          "VP \u2260 VNP over Every Field\n\nPaper: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;formal-"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
