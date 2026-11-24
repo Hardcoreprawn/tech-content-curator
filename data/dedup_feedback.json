@@ -34037,5 +34037,35 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 59,
+    "duplicates_found": 3,
+    "patterns_used": 5607,
+    "timestamp": "2026-11-24T18:12:29.270503",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "In case you missed it, you can give feedback directly to the Mastodon developers on their new feedba",
+        "removed_items": [
+          "GTA 6 Recomp (Leonida) banned from GitHub while lead dev was in school\n\nPrevious thread: <i>Leonida "
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Stalwart is now a drop-in replacement for Microsoft Exchange",
+        "removed_items": [
+          "Microsoft declares 'Code Red' after historic outage, internal memos show"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Ex-Nvidia partner Megaspeed hit with U.S. Commerce Department export ban",
+        "removed_items": [
+          "Nvidia Reinstates Jensen Huang as CEO\n\n<a href=\"https:&#x2F;&#x2F;nvidianews.nvidia.com&#x2F;news&#x"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
