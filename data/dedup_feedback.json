@@ -33981,5 +33981,29 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 3,
+    "patterns_used": 5598,
+    "timestamp": "2026-11-24T02:03:22.743798",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "RE: https:// sfba.social/@drahardja/1176678 18389827102 I agree with this thread. NVIDIA as a compan",
+        "removed_items": [
+          "Nvidia Reinstates Jensen Huang as CEO\n\n<a href=\"https:&#x2F;&#x2F;nvidianews.nvidia.com&#x2F;news&#x"
+        ]
+      },
+      {
+        "group_size": 3,
+        "kept_item": "VP \u2260 VNP over Every Field\n\nPaper: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;formal-",
+        "removed_items": [
+          "NariQ: BF16-level Qwen3.8-27B in a 10 GB file\n\nWe built NariQ: 3-bit-or-lower quantizations of Qwen3",
+          "Show HN: Type-C \u2013 variants, options, generics and pattern matching for C\n\nI love C, but often using "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
