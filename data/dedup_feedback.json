@@ -34138,5 +34138,23 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 61,
+    "duplicates_found": 3,
+    "patterns_used": 5619,
+    "timestamp": "2026-11-27T18:12:14.458054",
+    "examples": [
+      {
+        "group_size": 4,
+        "kept_item": "finding out that that claude is apparently trained to lie and subtly sabotage the code it generates ",
+        "removed_items": [
+          "Claude sabotaging ML research tasks?",
+          "\"What's Claude's fursona?\" and other questions",
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
