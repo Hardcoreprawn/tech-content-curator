@@ -34115,5 +34115,28 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 60,
+    "duplicates_found": 2,
+    "patterns_used": 5617,
+    "timestamp": "2026-11-27T06:11:23.509243",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "\"What's Claude's Fursona?\" and Other Questions",
+        "removed_items": [
+          "ECC\n\nThe agent harness performance optimization system. Skills, instincts, memory, security, and res"
+        ]
+      },
+      {
+        "group_size": 2,
+        "kept_item": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+        "removed_items": [
+          "Google will show solo Android developers' phone numbers and addresses"
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
