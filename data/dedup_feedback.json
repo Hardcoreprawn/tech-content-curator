@@ -34181,5 +34181,21 @@
       }
     ],
     "user_corrections": null
+  },
+  {
+    "items_processed": 58,
+    "duplicates_found": 1,
+    "patterns_used": 5625,
+    "timestamp": "2026-11-28T06:09:58.008885",
+    "examples": [
+      {
+        "group_size": 2,
+        "kept_item": "Google's DeepCrossAttention achieves comparable model quality up to 3x faster",
+        "removed_items": [
+          "Show HN: Analysis of Hacker News predictions since 2008\n\nI&#x27;ve always been curious about market "
+        ]
+      }
+    ],
+    "user_corrections": null
   }
 ]
